@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -5,6 +9,20 @@ import { Search, MapPin, ShieldCheck, Star } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 
 export function HeroSection() {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchCity, setSearchCity] = useState('');
+
+  const handleSearch = () => {
+    if (!searchQuery.trim() && !searchCity) return;
+    
+    const params = new URLSearchParams();
+    if (searchQuery.trim()) params.append('q', searchQuery.trim());
+    if (searchCity) params.append('city', searchCity);
+    
+    router.push(`/search?${params.toString()}`);
+  };
+
   return (
     <section className="relative bg-white pt-10 pb-20 lg:pt-20 lg:pb-28 overflow-hidden border-b">
       {/* Background Gradients */}
@@ -46,6 +64,9 @@ export function HeroSection() {
                 <Search className="w-5 h-5 text-slate-400 mr-2 shrink-0" />
                 <Input 
                   type="text" 
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   placeholder="Treatment, hospital, or doctor..." 
                   className="border-0 focus-visible:ring-0 shadow-none text-base h-12 px-0 bg-transparent placeholder:text-slate-400"
                 />
@@ -53,14 +74,20 @@ export function HeroSection() {
               <div className="w-[90%] sm:w-px h-px sm:h-8 bg-slate-200 mx-auto sm:mx-1 my-1 sm:my-0"></div>
               <div className="flex items-center flex-1 w-full px-4 pb-2 sm:pb-0">
                 <MapPin className="w-5 h-5 text-slate-400 mr-2 shrink-0" />
-                <select className="w-full bg-transparent border-0 text-slate-600 focus:ring-0 text-base h-12 cursor-pointer outline-none">
+                <select 
+                  value={searchCity}
+                  onChange={(e) => setSearchCity(e.target.value)}
+                  className="w-full bg-transparent border-0 text-slate-600 focus:ring-0 text-base h-12 cursor-pointer outline-none"
+                >
                   <option value="">Any City</option>
-                  <option value="delhi">New Delhi</option>
-                  <option value="mumbai">Mumbai</option>
-                  <option value="chennai">Chennai</option>
+                  <option value="New Delhi">New Delhi</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Chennai">Chennai</option>
+                  <option value="Bangalore">Bangalore</option>
+                  <option value="Hyderabad">Hyderabad</option>
                 </select>
               </div>
-              <Button size="lg" className="w-full sm:w-auto rounded-full h-12 px-8 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">Search</Button>
+              <Button size="lg" onClick={handleSearch} className="w-full sm:w-auto rounded-full h-12 px-8 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">Search</Button>
             </div>
           </div>
 
