@@ -34,8 +34,6 @@ export function LanguageSwitcher() {
   }, []);
 
   const changeLanguage = (langCode: string) => {
-    // Google Translate uses a cookie named 'googtrans' 
-    // Format is /auto/TARGET_LANG or /en/TARGET_LANG
     const cookieString = `/en/${langCode}`;
     
     // Set cookie for current domain and host
@@ -45,15 +43,22 @@ export function LanguageSwitcher() {
     // Set current state
     setCurrentLang(langCode);
     
-    // Reload the page to apply the translation script immediately
-    window.location.reload();
+    // Trigger Google Translate native select change
+    const googleSelect = document.querySelector('.goog-te-combo') as HTMLSelectElement | null;
+    if (googleSelect) {
+      googleSelect.value = langCode;
+      googleSelect.dispatchEvent(new Event('change'));
+    } else {
+      // Fallback if the widget hasn't loaded yet
+      window.location.reload();
+    }
   };
 
   const activeLang = LANGUAGES.find((l) => l.code === currentLang) || LANGUAGES[0];
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="ghost" size="sm" className="gap-2 h-9 px-3 rounded-full hover:bg-slate-100 transition-colors hidden sm:flex" />}>
+      <DropdownMenuTrigger render={<Button variant="ghost" size="sm" className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex" />}>
         <Globe className="w-4 h-4 text-slate-500" />
         <span className="font-medium text-slate-700">{activeLang.code.toUpperCase()}</span>
       </DropdownMenuTrigger>

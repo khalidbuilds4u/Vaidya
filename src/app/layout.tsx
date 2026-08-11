@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Vaidya - Indian Medical Tourism",
   description: "Connect with top Indian hospitals and doctors for world-class medical treatment.",
 };
+import Script from 'next/script';
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -25,17 +26,24 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {children}
 
         {/* Google Translate Scripts */}
-        <script type="text/javascript" dangerouslySetInnerHTML={{
-          __html: `
-            function googleTranslateElementInit() {
-              new google.translate.TranslateElement({
-                pageLanguage: 'en',
-                autoDisplay: false
-              }, 'google_translate_element');
-            }
-          `
-        }} />
-        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+        <Script 
+          id="google-translate-inline" 
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              function googleTranslateElementInit() {
+                new google.translate.TranslateElement({
+                  pageLanguage: 'en',
+                  autoDisplay: false
+                }, 'google_translate_element');
+              }
+            `
+          }}
+        />
+        <Script 
+          src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" 
+          strategy="afterInteractive" 
+        />
       </body>
     </html>
   );
