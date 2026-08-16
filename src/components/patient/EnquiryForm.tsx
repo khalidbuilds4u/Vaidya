@@ -54,7 +54,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
 
     // Format the WhatsApp message with clear markdown structure
     const message = 
-`🏥 *New Treatment Plan Request | AsadHealthcare*
+`🏥 *New Treatment Plan Request | Asad Healthcare*
 ━━━━━━━━━━━━━━━━━━━━━
 
 👤 *Patient Information:*
@@ -67,7 +67,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
 ${formData.condition.trim()}
 
 ━━━━━━━━━━━━━━━━━━━━━
-🌐 *Source:* AsadHealthcare Website`;
+🌐 *Source:* Asad Healthcare Website`;
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodedMessage}`;
