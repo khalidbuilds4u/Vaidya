@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Stethoscope, Menu, X } from 'lucide-react';
+import { Stethoscope, Menu, X, PhoneCall } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { LanguageSwitcher } from '@/components/patient/LanguageSwitcher';
 
@@ -53,9 +53,13 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-4">
           <LanguageSwitcher />
           
-          <Link href="/contact" className="hidden lg:inline-flex text-sm font-medium hover:text-primary transition-colors">
-            Contact Support
-          </Link>
+          <a 
+            href="tel:+919451187513" 
+            className="hidden lg:inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 hover:text-primary transition-colors bg-slate-50 hover:bg-primary/5 px-3 py-1.5 rounded-full border border-slate-200/80"
+          >
+            <PhoneCall className="w-3.5 h-3.5 text-primary" />
+            <span>+91 94511 87513</span>
+          </a>
           
           <EnquiryForm>
             <Button className="hidden sm:inline-flex shadow-[0_4px_14px_0_rgba(15,118,110,0.39)] hover:shadow-[0_6px_20px_rgba(15,118,110,0.23)] hover:bg-primary/90 transition-all shrink-0">
@@ -83,7 +87,14 @@ export function Header() {
             <Link href="/treatments" className="py-2 border-b border-slate-100" onClick={closeMenu}>Treatments</Link>
             <Link href="/cities" className="py-2 border-b border-slate-100" onClick={closeMenu}>Cities</Link>
             <Link href="/medical-travel" className="py-2 border-b border-slate-100" onClick={closeMenu}>Medical Travel</Link>
-            <Link href="/contact" className="py-2 border-b border-slate-100" onClick={closeMenu}>Contact Support</Link>
+            <a 
+              href="tel:+919451187513" 
+              className="py-2 border-b border-slate-100 flex items-center gap-2 text-primary font-semibold" 
+              onClick={closeMenu}
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>Call Helpline: +91 94511 87513</span>
+            </a>
           </nav>
           <div className="pt-2">
             <EnquiryForm>

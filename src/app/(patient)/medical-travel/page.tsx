@@ -21,11 +21,21 @@ export default function MedicalTravelPage() {
             <p className="text-lg text-primary-foreground/90 leading-relaxed mb-8">
               Focus on your health while we take care of the logistics. From medical visas to airport transfers and comfortable stays, our dedicated care team ensures a hassle-free journey.
             </p>
-            <EnquiryForm>
-              <Button size="lg" className="bg-white text-primary hover:bg-slate-100 px-8">
-                Request Travel Assistance
-              </Button>
-            </EnquiryForm>
+            <div className="flex flex-wrap items-center gap-4">
+              <EnquiryForm>
+                <Button size="lg" className="bg-white text-primary hover:bg-slate-100 px-8 font-semibold">
+                  Request Travel Assistance
+                </Button>
+              </EnquiryForm>
+              <a
+                href="https://wa.me/919451187513"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-lg text-sm font-semibold transition-colors bg-white/10 hover:bg-white/20 text-white border border-white/30 h-11 px-6 gap-2"
+              >
+                <span>WhatsApp: +91 94511 87513</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>

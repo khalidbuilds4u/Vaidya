@@ -2,14 +2,14 @@ import Link from 'next/link';
 import { PhoneCall, MessageCircle } from 'lucide-react';
 
 export function FloatingContact() {
-  const dummyPhone = "+1234567890";
-  const dummyWhatsApp = "1234567890";
+  const phoneNumber = "+919451187513";
+  const whatsappNumber = "919451187513";
 
   return (
     <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-2 sm:gap-3 p-2 sm:p-4 pointer-events-none">
       {/* WhatsApp Button */}
       <Link 
-        href={`https://wa.me/${dummyWhatsApp}`}
+        href={`https://wa.me/${whatsappNumber}`}
         target="_blank"
         rel="noopener noreferrer"
         className="pointer-events-auto flex items-center justify-end group"
@@ -33,7 +33,7 @@ export function FloatingContact() {
 
       {/* Call Button */}
       <Link 
-        href={`tel:${dummyPhone}`}
+        href={`tel:${phoneNumber}`}
         className="pointer-events-auto flex items-center justify-end group"
       >
         <div className="flex items-center bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg transition-all duration-300 transform hover:scale-105 hover:-translate-x-1">

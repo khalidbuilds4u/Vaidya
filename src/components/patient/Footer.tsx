@@ -32,10 +32,19 @@ export function Footer() {
           <div>
             <h3 className="font-semibold mb-4">Patient Support</h3>
             <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>
+                <a href="tel:+919451187513" className="hover:text-primary font-medium text-slate-800 flex items-center gap-1.5">
+                  <span>Helpline:</span> +91 94511 87513
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/919451187513" target="_blank" rel="noopener noreferrer" className="hover:text-primary font-medium text-green-700 flex items-center gap-1.5">
+                  <span>WhatsApp:</span> +91 94511 87513
+                </a>
+              </li>
               <li><Link href="/medical-travel" className="hover:text-primary">Medical Visa Assistance</Link></li>
-              <li><Link href="/medical-travel#accommodation" className="hover:text-primary">Accommodation</Link></li>
+              <li><Link href="/medical-travel#accommodation" className="hover:text-primary">Accommodation & Stay</Link></li>
               <li><Link href="/medical-travel#interpreters" className="hover:text-primary">Language Interpreters</Link></li>
-              <li><Link href="/contact" className="hover:text-primary">Contact Us</Link></li>
             </ul>
           </div>
 
