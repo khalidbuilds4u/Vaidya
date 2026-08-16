@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Search, Stethoscope, HeartPulse, Brain, Bone, ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Medical Treatments & Procedures in India | Vaidya',
+  title: 'Medical Treatments & Procedures in India | AsadHealthcare',
   description: 'Explore world-class medical treatments, surgeries, and procedures available at top hospitals in India with estimated cost guides.',
 };
 

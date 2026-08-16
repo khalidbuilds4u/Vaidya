@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const resolvedParams = await params;
   const subTreatment = getSubTreatmentDetails(resolvedParams.slug, resolvedParams.subSlug);
   return {
-    title: `${subTreatment.name} in India - Advanced Treatment | Vaidya`,
+    title: `${subTreatment.name} in India - Advanced Treatment | AsadHealthcare`,
     description: `Specific details and cost estimates for ${subTreatment.name} in India.`,
   };
 }

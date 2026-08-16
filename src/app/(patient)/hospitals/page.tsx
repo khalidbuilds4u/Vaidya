@@ -6,7 +6,7 @@ import { Search, Filter } from 'lucide-react';
 import { MOCK_HOSPITALS } from '@/lib/mockData';
 
 export const metadata: Metadata = {
-  title: 'Top Accredited Hospitals in India | Vaidya',
+  title: 'Top Accredited Hospitals in India | AsadHealthcare',
   description: 'Discover and compare the best JCI and NABH accredited hospitals in India for international patients.',
 };
 

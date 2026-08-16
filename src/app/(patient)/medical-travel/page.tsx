@@ -5,7 +5,7 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Plane, Hotel, MessageCircle, FileText, CheckCircle2 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Medical Travel & Visa Assistance | Vaidya',
+  title: 'Medical Travel & Visa Assistance | AsadHealthcare',
   description: 'Complete end-to-end medical travel assistance including visa letters, airport pickup, accommodation, and language interpreters.',
 };
 

@@ -9,7 +9,7 @@ import { MOCK_DOCTORS } from '@/lib/mockData';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 
 export const metadata: Metadata = {
-  title: 'Top Medical Specialists in India | Vaidya',
+  title: 'Top Medical Specialists in India | AsadHealthcare',
   description: 'Find and consult with India\'s top doctors, surgeons, and medical specialists.',
 };
 

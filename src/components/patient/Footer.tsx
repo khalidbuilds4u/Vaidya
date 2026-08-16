@@ -9,7 +9,10 @@ export function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
               <Stethoscope className="h-6 w-6 text-primary" />
-              <span className="font-bold text-xl tracking-tight text-primary">Vaidya</span>
+              <span className="text-xl tracking-tight">
+                <span className="font-extrabold text-slate-900">Asad</span>
+                <span className="font-semibold text-primary">Healthcare</span>
+              </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Your trusted partner for world-class medical treatment in India. We connect international patients with accredited hospitals and expert doctors.
@@ -47,7 +50,7 @@ export function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Vaidya Medical Tourism. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} AsadHealthcare. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -8,7 +8,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Vaidya - Indian Medical Tourism",
+  title: "AsadHealthcare - Medical Tourism in India",
   description: "Connect with top Indian hospitals and doctors for world-class medical treatment.",
 };
 import Script from 'next/script';

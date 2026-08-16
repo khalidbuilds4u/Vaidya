@@ -254,7 +254,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const resolvedParams = await params;
   const treatment = getTreatmentDetails(resolvedParams.slug);
   return {
-    title: `${treatment.name} in India - Top Doctors & Costs | Vaidya`,
+    title: `${treatment.name} in India - Top Doctors & Costs | AsadHealthcare`,
     description: `Complete guide to ${treatment.name} in India. Compare costs, recovery times, top hospitals, and the best surgeons.`,
   };
 }

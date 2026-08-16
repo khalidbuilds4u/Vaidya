@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
-  title: 'Medical Conditions & Diseases Guide | Vaidya',
+  title: 'Medical Conditions & Diseases Guide | AsadHealthcare',
   description: 'Learn about common medical conditions, symptoms, causes, and the best treatment options available in India.',
 };
 

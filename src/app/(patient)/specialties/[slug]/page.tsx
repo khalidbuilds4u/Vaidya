@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const resolvedParams = await params;
   const specialty = getSpecialtyDetails(resolvedParams.slug);
   return {
-    title: `${specialty.name} Treatments & Top Doctors in India | Vaidya`,
+    title: `${specialty.name} Treatments & Top Doctors in India | AsadHealthcare`,
     description: `Discover top ${specialty.name} hospitals, doctors, and affordable treatments in India for international patients.`,
   };
 }

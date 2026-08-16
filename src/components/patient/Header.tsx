@@ -19,7 +19,10 @@ export function Header() {
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2" onClick={closeMenu}>
             <Stethoscope className="h-6 w-6 text-primary" />
-            <span className="font-bold text-xl tracking-tight text-primary">Vaidya</span>
+            <span className="text-xl tracking-tight">
+              <span className="font-extrabold text-slate-900">Asad</span>
+              <span className="font-semibold text-primary">Healthcare</span>
+            </span>
           </Link>
         </div>
 

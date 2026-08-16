@@ -4,7 +4,7 @@ import { Card } from '@/components/ui/card';
 import { MapPin, Building2, Stethoscope, Plane } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Top Medical Hubs in India | Vaidya',
+  title: 'Top Medical Hubs in India | AsadHealthcare',
   description: 'Explore the top cities in India for medical tourism, featuring world-class hospitals and connectivity.',
 };
 

@@ -144,7 +144,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const resolvedParams = await params;
   const condition = getConditionDetails(resolvedParams.slug);
   return {
-    title: `${condition.name} - Symptoms, Causes & Treatments in India | Vaidya`,
+    title: `${condition.name} - Symptoms, Causes & Treatments in India | AsadHealthcare`,
     description: `Learn about the symptoms, causes, and best treatment options for ${condition.name}. Connect with top specialists in India.`,
   };
 }
