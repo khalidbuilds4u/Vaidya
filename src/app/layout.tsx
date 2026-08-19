@@ -10,6 +10,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Asad Healthcare | Where Global Trust Meets World-Class Healing",
   description: "India's premier international medical tourism network. Direct access to JCI & NABH accredited hospitals and expert specialist surgeons with end-to-end travel assistance.",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
 };
 import Script from 'next/script';
 
