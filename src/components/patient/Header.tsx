@@ -57,10 +57,10 @@ export function Header() {
           
           <a 
             href="tel:+919451187513" 
-            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-primary transition-all bg-slate-100/80 hover:bg-primary/10 px-3.5 py-2 rounded-full border border-slate-200/60 shadow-sm"
+            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-primary transition-all bg-slate-100/80 hover:bg-primary/10 px-3.5 py-2 rounded-full border border-slate-200/60 shadow-sm whitespace-nowrap shrink-0"
           >
-            <PhoneCall className="w-3.5 h-3.5 text-primary" />
-            <span>+91 94511 87513</span>
+            <PhoneCall className="w-3.5 h-3.5 text-primary shrink-0" />
+            <span className="whitespace-nowrap font-mono">+91&nbsp;94511&nbsp;87513</span>
           </a>
           
           <EnquiryForm>

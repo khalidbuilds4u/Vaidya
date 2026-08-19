@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown, HelpCircle, PhoneCall } from "lucide-react";
+import { ChevronDown, HelpCircle, PhoneCall, Sparkles } from "lucide-react";
 import { EnquiryForm } from "@/components/patient/EnquiryForm";
 import { Button } from "@/components/ui/button";
 
@@ -43,7 +43,8 @@ export function FAQSection() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            Patient Support
+            <Sparkles className="w-3.5 h-3.5" />
+            Patient Support &amp; Clarity
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
             Frequently Asked Questions
@@ -90,27 +91,30 @@ export function FAQSection() {
           })}
         </div>
 
-        {/* Bottom Help Glass Box */}
-        <div className="mt-10 sm:mt-14 glass-panel p-5 sm:p-8 rounded-2xl sm:rounded-3xl text-center flex flex-col sm:flex-row items-center justify-between gap-5 border border-white bg-white/90">
-          <div className="text-center sm:text-left">
+        {/* Bottom Help Glass Box with Perfect Alignment */}
+        <div className="mt-10 sm:mt-14 glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col md:flex-row items-center justify-between gap-5 border border-white bg-white/95 shadow-lg">
+          <div className="text-center md:text-left">
             <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">Still have questions?</h3>
             <p className="text-xs sm:text-sm text-slate-600">Our medical assistance team is available 24/7 on WhatsApp &amp; Phone.</p>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
+          
+          <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
             <a 
               href="tel:+919451187513"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs sm:text-sm font-semibold transition-colors"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs sm:text-sm font-bold transition-all shadow-xs shrink-0 whitespace-nowrap active:scale-95 border border-slate-200/70"
             >
-              <PhoneCall className="w-4 h-4 text-primary" />
-              <span>+91 94511 87513</span>
+              <PhoneCall className="w-4 h-4 text-primary shrink-0" />
+              <span className="whitespace-nowrap font-mono tracking-tight">+91&nbsp;94511&nbsp;87513</span>
             </a>
+            
             <EnquiryForm>
-              <Button className="w-full sm:w-auto rounded-full shadow-md bg-primary hover:bg-primary/90 font-semibold px-6 text-xs sm:text-sm h-10 sm:h-11">
+              <Button className="w-full sm:w-auto rounded-full shadow-md bg-primary hover:bg-primary/90 font-bold px-6 text-xs sm:text-sm h-11 shrink-0 whitespace-nowrap text-white active:scale-95">
                 Ask a Specialist
               </Button>
             </EnquiryForm>
           </div>
         </div>
+
       </div>
     </section>
   );
