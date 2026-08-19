@@ -129,6 +129,92 @@
 }
 
 /* =========================================
+   Glassmorphism Design System Tokens & Utilities
+   ========================================= */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 40px -10px rgba(15, 118, 110, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.92);
+  transform: translateY(-4px);
+  border-color: rgba(15, 118, 110, 0.3);
+  box-shadow: 0 20px 40px -15px rgba(15, 118, 110, 0.18), 0 0 0 1px rgba(15, 118, 110, 0.15) inset;
+}
+
+.glass-card-dark {
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.glass-pill {
+  background: rgba(15, 118, 110, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(15, 118, 110, 0.2);
+  box-shadow: 0 2px 8px rgba(15, 118, 110, 0.08);
+}
+
+.glass-input {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(203, 213, 225, 0.7);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02) inset;
+}
+
+.glass-input:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.15);
+}
+
+.ambient-glow {
+  background: radial-gradient(circle, rgba(15, 118, 110, 0.18) 0%, rgba(45, 212, 191, 0.08) 50%, transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.ambient-glow-secondary {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.15) 0%, rgba(99, 102, 241, 0.06) 50%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+@keyframes float-subtle {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-float {
+  animation: float-subtle 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-subtle 7s ease-in-out 2s infinite;
+}
+
+/* =========================================
    Google Translate Widget Overrides
    ========================================= */
 /* Hide the google translate banner at the top */

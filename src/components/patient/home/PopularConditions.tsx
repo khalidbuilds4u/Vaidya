@@ -1,66 +1,87 @@
 import Link from 'next/link';
-import { Card } from '@/components/ui/card';
-import { ArrowRight, Activity } from 'lucide-react';
+import { ArrowRight, Activity, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
-export function PopularConditions() {
-  const popularConditions = [
-    { 
-      name: 'Coronary Artery Disease', 
-      specialty: 'Cardiology', 
-      description: 'Find top-rated treatments for blocked arteries and heart disease.',
-    },
-    { 
-      name: 'Osteoarthritis', 
-      specialty: 'Orthopedics', 
-      description: 'Explore advanced joint replacement solutions for severe arthritis.',
-    },
-    { 
-      name: 'Brain Tumor', 
-      specialty: 'Neurology', 
-      description: 'Connect with leading neurosurgeons for complex tumor removals.',
-    },
-    { 
-      name: 'Breast Cancer', 
-      specialty: 'Oncology', 
-      description: 'Access comprehensive cancer care, from surgery to targeted therapy.',
-    }
-  ];
+const POPULAR_CONDITIONS = [
+  { 
+    name: 'Coronary Artery Disease', 
+    specialty: 'Cardiology', 
+    description: 'Minimally invasive bypass grafting (CABG), angioplasty, and robotic heart surgery.',
+    badgeColor: 'bg-rose-500/10 text-rose-700 border-rose-500/20'
+  },
+  { 
+    name: 'Osteoarthritis', 
+    specialty: 'Orthopedics', 
+    description: 'Robotic-assisted total knee & hip replacements with ultra-fast recovery protocols.',
+    badgeColor: 'bg-amber-500/10 text-amber-700 border-amber-500/20'
+  },
+  { 
+    name: 'Brain Tumor & Epilepsy', 
+    specialty: 'Neurology', 
+    description: 'Advanced microsurgery, CyberKnife radiosurgery, and functional neuro-resection.',
+    badgeColor: 'bg-purple-500/10 text-purple-700 border-purple-500/20'
+  },
+  { 
+    name: 'Breast & Prostate Cancer', 
+    specialty: 'Oncology', 
+    description: 'Targeted immunotherapy, precision radiation, and organ-preserving surgical oncology.',
+    badgeColor: 'bg-blue-500/10 text-blue-700 border-blue-500/20'
+  }
+];
 
+export function PopularConditions() {
   return (
-    <section className="py-20 bg-slate-50">
+    <section className="py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col mb-12 text-center items-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Common Conditions We Treat</h2>
-          <p className="text-lg text-slate-600 max-w-2xl">
-            Search by your specific diagnosis. Our network of internationally accredited hospitals provides world-class care for complex medical conditions.
+        <div className="flex flex-col mb-14 text-center items-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-4">
+            Diagnosis &amp; Care
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+            Common Conditions We Treat
+          </h2>
+          <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
+            Search by your specific diagnosis. Our hospital network specializes in advanced surgical and medical interventions for complex health challenges.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {popularConditions.map((condition) => (
-            <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/\s+/g, '-')}`}>
-              <Card className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group h-full flex flex-col border-slate-200 hover:border-primary/30 cursor-pointer bg-white">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                    <Activity className="w-5 h-5 group-hover:scale-110 transition-transform" />
+          {POPULAR_CONDITIONS.map((condition) => (
+            <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}>
+              <div className="glass-card p-7 rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden">
+                
+                {/* Top specialty badge */}
+                <div>
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                      <Activity className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${condition.badgeColor}`}>
+                      {condition.specialty}
+                    </span>
                   </div>
-                  <span className="text-sm font-medium text-primary">{condition.specialty}</span>
+
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors leading-snug">
+                    {condition.name}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    {condition.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">{condition.name}</h3>
-                <p className="text-slate-600 leading-relaxed flex-1">{condition.description}</p>
-                <div className="mt-6 font-medium text-primary flex items-center gap-2">
-                  Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+
+                <div className="pt-4 border-t border-slate-100/90 font-semibold text-sm text-primary flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                  <span>Explore Treatments</span>
+                  <ArrowRight className="w-4 h-4" />
                 </div>
-              </Card>
+              </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <Link href="/conditions">
-            <Button size="lg" className="px-8 rounded-full group">
-              View All Conditions
+            <Button size="lg" className="px-9 h-12 rounded-full font-semibold shadow-md hover:shadow-lg transition-all group">
+              View All 50+ Medical Conditions
               <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

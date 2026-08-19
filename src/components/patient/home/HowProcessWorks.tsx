@@ -2,54 +2,82 @@ import { FileText, Stethoscope, Plane, HeartHandshake } from 'lucide-react';
 
 const STEPS = [
   {
-    title: 'Submit Enquiry',
-    description: 'Share your medical reports and basic details through our secure platform.',
+    step: '01',
+    title: 'Share Medical Reports',
+    description: 'Submit your symptoms and diagnostic scans securely through our website or WhatsApp.',
     icon: FileText,
   },
   {
-    title: 'Get Treatment Plan',
-    description: 'Our doctors review your case and provide an estimated cost and treatment plan.',
+    step: '02',
+    title: 'Free Medical Opinions',
+    description: 'Top Indian doctors evaluate your case and provide comparative hospital quotes within 24 hours.',
     icon: Stethoscope,
   },
   {
-    title: 'Travel Planning',
-    description: 'We assist with your medical visa, flight bookings, and accommodation.',
+    step: '03',
+    title: 'Visa & Travel Concierge',
+    description: 'Receive hospital visa invitation letters (VIL), airport pickup, and dedicated hotel accommodations.',
     icon: Plane,
   },
   {
-    title: 'Treatment & Care',
-    description: 'Receive world-class treatment with 24/7 support from a dedicated case manager.',
+    step: '04',
+    title: 'Treatment & Recovery',
+    description: 'Personal case manager and translator guide you from pre-op admission to post-discharge care.',
     icon: HeartHandshake,
   }
 ];
 
 export function HowProcessWorks() {
   return (
-    <section className="py-20 bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">How It Works</h2>
-          <p className="text-primary-foreground/80 text-lg max-w-2xl mx-auto">
-            A seamless, transparent journey from your initial enquiry to successful treatment and safe return home.
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white">
+      {/* Background Ambient Glows */}
+      <div className="absolute top-[20%] left-[-10%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-teal-500/15 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-teal-300 text-xs font-bold uppercase tracking-wider mb-4">
+            Stress-Free Patient Journey
+          </div>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            How It Works in 4 Simple Steps
+          </h2>
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed">
+            From your first inquiry to arriving in India and returning home safely, we handle every detail with complete clinical transparency.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-          {/* Connector Line (Desktop) */}
-          <div className="hidden md:block absolute top-8 left-[12.5%] right-[12.5%] h-0.5 bg-primary-foreground/20 z-0"></div>
-
-          {STEPS.map((step, index) => {
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+          {STEPS.map((step) => {
             const Icon = step.icon;
             return (
-              <div key={step.title} className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-white text-primary flex items-center justify-center mb-6 shadow-lg">
-                  <Icon className="w-8 h-8" />
+              <div 
+                key={step.title} 
+                className="glass-card-dark rounded-3xl p-7 border border-white/15 hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-2"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/30 to-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-300 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <span className="text-2xl font-black text-slate-700 group-hover:text-teal-400/70 transition-colors font-mono">
+                      {step.step}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl font-bold mb-3 text-white group-hover:text-teal-300 transition-colors leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="text-slate-300 leading-relaxed text-sm">
+                    {step.description}
+                  </p>
                 </div>
-                <div className="text-sm font-bold tracking-widest text-primary-foreground/60 mb-2 uppercase">Step {index + 1}</div>
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-primary-foreground/80 leading-relaxed text-sm">
-                  {step.description}
-                </p>
+
+                <div className="mt-6 pt-4 border-t border-white/10 text-xs font-semibold text-teal-400 flex items-center gap-1">
+                  <span>Step {step.step}</span>
+                  <span className="text-slate-500">•</span>
+                  <span className="text-slate-400">100% Free Service</span>
+                </div>
               </div>
             );
           })}

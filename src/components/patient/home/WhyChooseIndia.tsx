@@ -1,61 +1,116 @@
-import { CheckCircle2 } from 'lucide-react';
-import Image from 'next/image';
+import { CheckCircle2, Award, Zap, DollarSign, Clock, Cpu, Languages } from 'lucide-react';
 
 const REASONS = [
-  'Highly skilled doctors with international exposure',
-  'JCI & NABH accredited state-of-the-art hospitals',
-  'Cost-effective treatments saving up to 70%',
-  'No waiting list for critical surgeries',
-  'Advanced medical technology & robotic surgery',
-  'English-speaking medical staff & dedicated translators',
+  {
+    icon: Award,
+    title: 'Top-Tier Surgeons',
+    desc: 'Doctors trained in US/UK with decades of complex surgery expertise',
+  },
+  {
+    icon: DollarSign,
+    title: 'Up to 70% Cost Savings',
+    desc: 'World-class procedures at a fraction of Western healthcare costs',
+  },
+  {
+    icon: Clock,
+    title: 'Zero Waiting Time',
+    desc: 'Instant admissions and scheduled surgeries without delay',
+  },
+  {
+    icon: Cpu,
+    title: 'Robotic & AI Technology',
+    desc: 'Latest Da Vinci surgical systems, CyberKnife, and PET-CT diagnostics',
+  },
+  {
+    icon: Languages,
+    title: 'Language Translators',
+    desc: 'Arabic, Russian, French, and Swahili interpreters assigned to each case',
+  },
+  {
+    icon: Zap,
+    title: 'JCI & NABH Accredited',
+    desc: 'Rigorous international safety standards and sterile infection control',
+  },
 ];
 
 export function WhyChooseIndia() {
   return (
-    <section className="py-20 bg-white overflow-hidden">
+    <section className="py-24 relative overflow-hidden bg-white">
+      {/* Background Ambient Orbs */}
+      <div className="absolute top-[10%] right-[-5%] w-[450px] h-[450px] ambient-glow rounded-full -z-10" />
+      <div className="absolute bottom-[10%] left-[-5%] w-[450px] h-[450px] ambient-glow-secondary rounded-full -z-10" />
+
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           
-          <div className="w-full lg:w-1/2 space-y-8">
+          {/* Left Text & Glass Benefits Grid */}
+          <div className="w-full lg:w-7/12 space-y-8">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Why Choose India for Medical Treatment?</h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                India has emerged as one of the world's most preferred healthcare destinations. It offers a unique combination of world-class medical expertise, advanced technology, and significant cost savings compared to Western countries.
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-4">
+                Global Healthcare Destination
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                Why Choose India for Your <br className="hidden sm:inline" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
+                  Medical Treatment?
+                </span>
+              </h2>
+              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
+                India has become the world&apos;s leading healthcare hub, combining renowned clinical excellence, ultra-modern robotic technology, and comprehensive patient hospitality.
               </p>
             </div>
             
             <div className="grid sm:grid-cols-2 gap-4">
-              {REASONS.map((reason, idx) => (
-                <div key={idx} className="flex items-start">
-                  <CheckCircle2 className="h-6 w-6 text-primary shrink-0 mr-3 mt-0.5" />
-                  <span className="text-slate-700 font-medium">{reason}</span>
-                </div>
-              ))}
+              {REASONS.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div 
+                    key={idx} 
+                    className="glass-card p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 group hover:border-primary/40"
+                  >
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                      <Icon className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-primary transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
-          <div className="w-full lg:w-1/2 relative z-10">
-            {/* Modern Dot Grid Background */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[radial-gradient(#0f766e_2px,transparent_2px)] [background-size:16px_16px] opacity-20 -z-10"></div>
-            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-[radial-gradient(#0f766e_2px,transparent_2px)] [background-size:16px_16px] opacity-20 -z-10"></div>
-            
-            {/* Soft backdrop glow */}
-            <div className="absolute inset-0 bg-primary/5 rounded-3xl blur-2xl -z-10 transform scale-105"></div>
-            
-            <div className="relative h-[400px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-              <div 
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2128&auto=format&fit=crop')` }}
-              />
+          {/* Right Image with Glass Frame & Floating Elements */}
+          <div className="w-full lg:w-5/12 relative z-10">
+            <div className="relative glass-panel p-3 rounded-[2.5rem] shadow-2xl">
+              <div className="relative h-[420px] sm:h-[480px] w-full rounded-[2rem] overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=2128&auto=format&fit=crop" 
+                  alt="State of the art surgical hospital"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
+                
+                <div className="absolute bottom-6 left-6 right-6 text-white">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-teal-300">NABH & JCI Certified</span>
+                  <p className="text-lg font-bold">Standard of Clinical Excellence</p>
+                </div>
+              </div>
             </div>
             
-            {/* Floating Trust Badge */}
-            <div className="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-100 flex items-center gap-4 hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
-                <span className="text-2xl font-bold">#1</span>
+            {/* Floating Glass Highlight Card */}
+            <div className="absolute -bottom-6 -left-6 glass-card p-4 rounded-2xl shadow-xl flex items-center gap-3.5 border border-white/90 animate-float">
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-teal-600 text-white flex items-center justify-center font-extrabold text-xl shadow-md">
+                #1
               </div>
-              <div className="text-sm font-bold text-slate-800 leading-tight">
-                Medical Destination<br/><span className="font-medium text-slate-500">in South Asia</span>
+              <div>
+                <p className="text-xs font-extrabold text-slate-900 leading-tight">Fastest Growing Hub</p>
+                <p className="text-[11px] text-slate-500 mt-0.5 font-medium">Over 2 Million International Patients</p>
               </div>
             </div>
           </div>
