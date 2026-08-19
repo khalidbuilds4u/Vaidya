@@ -8,8 +8,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "AsadHealthcare - Medical Tourism in India",
-  description: "Connect with top Indian hospitals and doctors for world-class medical treatment.",
+  title: "Asad Healthcare | Where Global Trust Meets World-Class Healing",
+  description: "India's premier international medical tourism network. Direct access to JCI & NABH accredited hospitals and expert specialist surgeons with end-to-end travel assistance.",
 };
 import Script from 'next/script';
 

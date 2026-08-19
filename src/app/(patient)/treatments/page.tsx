@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, Stethoscope, HeartPulse, Brain, Bone, ArrowRight } from 'lucide-react';
+import { Search, Stethoscope, HeartPulse, Brain, Bone, ArrowRight, Activity, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Medical Treatments & Procedures in India | AsadHealthcare',
@@ -20,7 +20,7 @@ const MOCK_TREATMENTS = [
     minEstimate: 4500,
     maxEstimate: 6500,
     recoveryTime: '2-3 Weeks',
-    description: 'A surgical procedure to replace the weight-bearing surfaces of the knee joint to relieve pain and disability.',
+    description: 'A minimally invasive surgical procedure to replace damaged cartilage and bone with high-durability prosthetic implants.',
   },
   {
     slug: 'coronary-artery-bypass',
@@ -30,119 +30,158 @@ const MOCK_TREATMENTS = [
     minEstimate: 5500,
     maxEstimate: 8000,
     recoveryTime: '4-6 Weeks',
-    description: 'A type of surgery that improves blood flow to the heart used for people who have severe coronary heart disease.',
+    description: 'Advanced beating-heart and robotic surgical bypass improving coronary blood flow with high long-term success rates.',
   },
   {
     slug: 'brain-tumor-surgery',
-    name: 'Brain Tumor Surgery',
+    name: 'Brain Tumor Surgery & Radiosurgery',
     specialty: 'Neurology',
     icon: Brain,
     minEstimate: 6000,
     maxEstimate: 9500,
     recoveryTime: '4-8 Weeks',
-    description: 'Advanced neurosurgery techniques to remove abnormal growths in the brain with minimal impact on healthy tissue.',
+    description: 'Cutting-edge intraoperative MRI and CyberKnife robotic radiosurgery to precisely excise abnormal cranial lesions.',
   }
 ];
 
 export default function TreatmentsDirectory() {
   return (
-    <div className="container mx-auto px-4 py-8 md:py-12">
-      {/* Page Header */}
-      <div className="mb-12 text-center max-w-3xl mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
-          Treatments & Estimated Costs
-        </h1>
-        <p className="text-lg text-muted-foreground mb-8">
-          Explore comprehensive guides, estimated costs, and world-class specialists for various medical procedures available in India.
-        </p>
+    <div className="bg-slate-50/50 min-h-screen pb-20">
+      
+      {/* 1. Header Banner with Robotic Surgery & Theater Backdrop */}
+      <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
         
-        <div className="bg-white p-2 rounded-xl shadow-sm border flex items-center max-w-2xl mx-auto">
-          <Search className="h-5 w-5 text-muted-foreground ml-3 mr-2" />
-          <Input 
-            type="text" 
-            placeholder="Search for a treatment or procedure..." 
-            className="border-0 focus-visible:ring-0 shadow-none text-base h-12"
-          />
-          <Button size="default" className="rounded-lg h-10 px-6">Search</Button>
-        </div>
-      </div>
+        {/* Background High-Tech Surgery Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop')`,
+          }}
+        />
 
-      {/* Specialties Grid */}
-      <div className="mb-16">
-        <h2 className="text-2xl font-bold mb-6">Browse by Specialty</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { name: 'Cardiology', image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=2080&auto=format&fit=crop' },
-            { name: 'Oncology', image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=2070&auto=format&fit=crop' },
-            { name: 'Orthopedics', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop' },
-            { name: 'Neurology', image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2071&auto=format&fit=crop' },
-            { name: 'Gastroenterology', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop' },
-            { name: 'Organ Transplant', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop' },
-            { name: 'Cosmetic Surgery', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop' },
-            { name: 'Dental', image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop' }
-          ].map(spec => (
-            <Link key={spec.name} href={`/specialties/${spec.name.toLowerCase().replace(/\s+/g, '-')}`}>
-              <Card className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 group cursor-pointer h-40 relative">
-                <img 
-                  src={spec.image} 
-                  alt={spec.name} 
-                  className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-4">
-                  <h3 className="font-bold text-white text-lg group-hover:text-primary-foreground transition-colors">{spec.name}</h3>
+        {/* Luminous Gradient Mask */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none" />
+
+        {/* Ambient Glow */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-primary/25 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3.5 shadow-lg">
+              <Activity className="w-3.5 h-3.5" />
+              <span>Advanced Clinical Procedures</span>
+            </div>
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
+              Medical Treatments &amp; Cost Estimates
+            </h1>
+            <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal mb-6">
+              Compare transparent surgical packages, recovery timelines, and accredited hospital quotes in India with savings up to 70%.
+            </p>
+
+            {/* Quick Search Capsule */}
+            <div className="glass-panel p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white shadow-xl max-w-xl">
+              <Search className="h-4 w-4 text-primary ml-3 mr-1 shrink-0" />
+              <Input 
+                type="text" 
+                placeholder="Search treatments, surgeries, procedures..." 
+                className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 bg-transparent placeholder:text-slate-400"
+              />
+              <Button size="sm" className="rounded-lg sm:rounded-full h-8 sm:h-9 px-5 bg-primary hover:bg-primary/90 text-white font-semibold text-xs shrink-0">
+                Search
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-4 py-8 sm:py-12">
+        
+        {/* Specialties Grid */}
+        <div className="mb-14 sm:mb-16">
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Browse by Medical Specialty</h2>
+            <Link href="/specialties" className="text-xs sm:text-sm font-semibold text-primary hover:underline">View All</Link>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+            {[
+              { name: 'Cardiology', image: 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=2080&auto=format&fit=crop' },
+              { name: 'Oncology', image: 'https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'Orthopedics', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop' },
+              { name: 'Neurology', image: 'https://images.unsplash.com/photo-1559757175-5700dde675bc?q=80&w=2071&auto=format&fit=crop' },
+              { name: 'Gastroenterology', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'Organ Transplant', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'Cosmetic Surgery', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop' },
+              { name: 'Dental', image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop' }
+            ].map(spec => (
+              <Link key={spec.name} href={`/specialties/${spec.name.toLowerCase().replace(/\s+/g, '-')}`}>
+                <div className="rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer h-36 sm:h-44 relative border border-white/80">
+                  <img 
+                    src={spec.image} 
+                    alt={spec.name} 
+                    className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex items-end p-3.5 sm:p-5">
+                    <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-teal-300 transition-colors">{spec.name}</h3>
+                  </div>
                 </div>
-              </Card>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
 
-      {/* Popular Treatments */}
-      <div>
-        <h2 className="text-2xl font-bold mb-6">Popular Treatments</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {MOCK_TREATMENTS.map((treatment) => {
-            const Icon = treatment.icon;
-            return (
-              <Card key={treatment.slug} className="overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow">
-                <div className="p-6 flex-1">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg text-primary">
-                      <Icon className="w-6 h-6" />
+        {/* Popular Treatments */}
+        <div>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">Popular Surgical Procedures</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {MOCK_TREATMENTS.map((treatment) => {
+              const Icon = treatment.icon;
+              return (
+                <div key={treatment.slug} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white/95 border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300">
+                  <div className="p-5 sm:p-6 flex-1">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="p-3 bg-primary/10 rounded-2xl text-primary shrink-0">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-semibold text-primary">{treatment.specialty}</p>
+                        <h3 className="text-base sm:text-lg font-bold leading-tight text-slate-900">
+                          <Link href={`/treatments/${treatment.slug}`} className="hover:text-primary transition-colors">
+                            {treatment.name}
+                          </Link>
+                        </h3>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium text-primary">{treatment.specialty}</p>
-                      <h3 className="text-xl font-bold leading-tight">
-                        <Link href={`/treatments/${treatment.slug}`} className="hover:text-primary transition-colors">
-                          {treatment.name}
-                        </Link>
-                      </h3>
+                    
+                    <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed">
+                      {treatment.description}
+                    </p>
+                    
+                    <div className="space-y-2 py-3 px-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs sm:text-sm">
+                      <div className="flex justify-between pb-1.5 border-b border-slate-200/60">
+                        <span className="text-slate-500">Est. Package:</span>
+                        <span className="font-bold text-emerald-600">${treatment.minEstimate.toLocaleString()} - ${treatment.maxEstimate.toLocaleString()}</span>
+                      </div>
+                      <div className="flex justify-between pt-0.5">
+                        <span className="text-slate-500">Recovery:</span>
+                        <span className="font-semibold text-slate-800">{treatment.recoveryTime}</span>
+                      </div>
                     </div>
                   </div>
-                  <p className="text-muted-foreground text-sm mb-6 line-clamp-3">
-                    {treatment.description}
-                  </p>
                   
-                  <div className="space-y-2 text-sm">
-                    <div className="flex justify-between pb-2 border-b">
-                      <span className="text-muted-foreground">Est. Cost:</span>
-                      <span className="font-semibold text-slate-900">${treatment.minEstimate} - ${treatment.maxEstimate}</span>
-                    </div>
-                    <div className="flex justify-between pb-2 border-b">
-                      <span className="text-muted-foreground">Recovery:</span>
-                      <span className="font-medium text-slate-700">{treatment.recoveryTime}</span>
-                    </div>
-                  </div>
+                  <Link 
+                    href={`/treatments/${treatment.slug}`}
+                    className="bg-slate-50/90 p-3.5 sm:p-4 border-t border-slate-100 flex justify-between items-center group cursor-pointer hover:bg-primary hover:text-white transition-colors text-xs sm:text-sm font-semibold text-slate-800"
+                  >
+                    <span>View Treatment &amp; Doctor Options</span>
+                    <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
-                
-                <div className="bg-slate-50 p-4 border-t flex justify-between items-center group cursor-pointer hover:bg-primary hover:text-white transition-colors">
-                  <span className="font-medium">View Treatment Guide</span>
-                  <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-colors" />
-                </div>
-              </Card>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+
       </div>
     </div>
   );

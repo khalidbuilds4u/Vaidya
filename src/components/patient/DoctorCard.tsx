@@ -31,60 +31,61 @@ export function DoctorCard({
   rating = 4.9,
 }: DoctorCardProps) {
   return (
-    <div className="glass-card rounded-3xl p-6 sm:p-7 border border-white/85 flex flex-col group relative overflow-hidden">
-      <div className="flex flex-col sm:flex-row gap-6 items-start">
+    <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-white/85 flex flex-col group relative overflow-hidden bg-white/95 shadow-sm hover:shadow-xl transition-all duration-300">
+      <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-6 items-center sm:items-start">
         
         {/* Doctor Image with Frosted Frame & Rating */}
-        <div className="relative mx-auto sm:mx-0 shrink-0">
-          <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl overflow-hidden border-2 border-white shadow-md relative group">
+        <div className="relative shrink-0">
+          <div className="w-18 h-18 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border-2 border-white shadow-md relative group">
             <Image 
               src={image} 
               alt={name}
               fill
+              sizes="112px"
               className="object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
-          <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 glass-pill px-2.5 py-0.5 rounded-full flex items-center gap-1 bg-white/95 shadow-sm border border-white">
+          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 glass-pill px-2 py-0.5 rounded-full flex items-center gap-1 bg-white/95 shadow-xs border border-white">
             <Star className="w-3 h-3 fill-amber-400 text-amber-400" />
-            <span className="text-xs font-bold text-slate-800">{rating}</span>
+            <span className="text-[11px] font-bold text-slate-800">{rating}</span>
           </div>
         </div>
         
         {/* Doctor Details */}
         <div className="flex-1 text-center sm:text-left w-full">
-          <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-3">
+          <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-1 sm:gap-2 mb-2">
             <div>
-              <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+              <h3 className="text-base sm:text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
                 <Link href={`/doctors/${slug}`}>
                   {name}
                 </Link>
               </h3>
-              <p className="text-primary font-semibold text-sm">{specialty}</p>
-              <p className="text-xs text-slate-400 font-medium mt-0.5">{qualifications}</p>
+              <p className="text-primary font-semibold text-xs sm:text-sm">{specialty}</p>
+              <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">{qualifications}</p>
             </div>
             
-            <div className="hidden sm:inline-flex px-3 py-1 rounded-full bg-slate-100/80 text-xs font-semibold text-slate-600 border border-slate-200/60">
+            <div className="inline-flex px-2.5 py-0.5 rounded-full bg-slate-100 text-[10px] sm:text-xs font-semibold text-slate-600 border border-slate-200/60 mt-1 sm:mt-0">
               {experience} Experience
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 mb-4 text-xs font-medium text-slate-600">
-            <div className="flex items-center gap-1.5 bg-slate-50/80 px-3 py-1.5 rounded-xl border border-slate-100">
-              <BriefcaseMedical className="h-3.5 w-3.5 text-primary" />
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-3 text-[11px] sm:text-xs font-medium text-slate-600">
+            <div className="flex items-center gap-1 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
+              <BriefcaseMedical className="h-3.5 w-3.5 text-primary shrink-0" />
               <span>{experience}</span>
             </div>
-            <div className="flex items-center gap-1.5 bg-slate-50/80 px-3 py-1.5 rounded-xl border border-slate-100">
-              <MapPin className="h-3.5 w-3.5 text-primary" />
-              <span>{hospital}, {city}</span>
+            <div className="flex items-center gap-1 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100 max-w-full truncate">
+              <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
+              <span className="truncate">{hospital}, {city}</span>
             </div>
           </div>
 
           {keyExpertise.length > 0 && (
-            <div className="flex flex-wrap gap-1.5 mb-5 justify-center sm:justify-start">
+            <div className="flex flex-wrap gap-1 mb-3.5 justify-center sm:justify-start">
               {keyExpertise.map((exp, idx) => (
                 <span 
                   key={`${exp}-${idx}`} 
-                  className="text-xs font-medium px-2.5 py-0.5 rounded-lg bg-primary/5 text-primary border border-primary/10"
+                  className="text-[10px] sm:text-xs font-medium px-2 py-0.5 rounded-md bg-primary/5 text-primary border border-primary/10"
                 >
                   {exp}
                 </span>
@@ -92,17 +93,23 @@ export function DoctorCard({
             </div>
           )}
           
-          <div className="flex flex-col sm:flex-row gap-2.5 pt-4 border-t border-slate-100/90 mt-2">
-            <Button render={<Link href={`/doctors/${slug}`} />} variant="outline" className="flex-1 rounded-full border-slate-200 hover:bg-slate-50">
-              View Doctor Profile
+          {/* Side-by-Side Responsive Action Buttons */}
+          <div className="grid grid-cols-2 gap-2 pt-3 border-t border-slate-100 mt-2">
+            <Button 
+              render={<Link href={`/doctors/${slug}`} />} 
+              variant="outline" 
+              className="w-full rounded-xl border-slate-200 hover:bg-slate-100 text-slate-800 font-semibold h-10 text-xs sm:text-sm px-2 truncate"
+            >
+              View Profile
             </Button>
             <EnquiryForm>
-              <Button className="flex-1 rounded-full shadow-md bg-primary hover:bg-primary/90">
-                Book Consultation
-                <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
+              <Button className="w-full rounded-xl shadow-xs bg-gradient-to-r from-primary to-teal-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold h-10 text-xs sm:text-sm px-2 flex items-center justify-center gap-1">
+                <span>Book Consult</span>
+                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
               </Button>
             </EnquiryForm>
           </div>
+
         </div>
       </div>
     </div>

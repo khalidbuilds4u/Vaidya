@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import { Star, Quote, Play, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, MapPin, Building2, Calendar, ShieldCheck, X } from 'lucide-react';
+import { Star, Quote, Play, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, MapPin, Building2, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
@@ -140,38 +140,38 @@ export function PatientStories() {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-slate-50/70 border-y border-slate-200/60">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 border-y border-slate-200/60">
       {/* Dynamic Ambient Glows */}
-      <div className="absolute top-[10%] left-[-10%] w-[550px] h-[550px] ambient-glow rounded-full -z-10 opacity-70" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[550px] h-[550px] ambient-glow-secondary rounded-full -z-10 opacity-70" />
+      <div className="absolute top-[10%] left-[-10%] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] ambient-glow rounded-full -z-10 opacity-70" />
+      <div className="absolute bottom-[10%] right-[-10%] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] ambient-glow-secondary rounded-full -z-10 opacity-70" />
 
       <div className="container mx-auto px-4">
         
         {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-              <Sparkles className="w-4 h-4 text-primary" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-primary" />
               Verified Patient Journeys
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
               Real Stories. Real Healing. <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
                 Life-Changing Recoveries.
               </span>
             </h2>
-            <p className="text-slate-600 text-base sm:text-lg mt-3 leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base lg:text-lg mt-2 leading-relaxed">
               Hear directly from international patients who trusted Asad Healthcare for their complex surgeries in India.
             </p>
           </div>
 
-          {/* Specialty Filter Pills */}
-          <div className="flex flex-wrap gap-2">
+          {/* Specialty Filter Pills with horizontal scroll on mobile */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full no-scrollbar">
             {SPECIALTY_FILTERS.map((filter) => (
               <button
                 key={filter}
                 onClick={() => { setActiveFilter(filter); setCurrentIndex(0); }}
-                className={`px-4 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
+                className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer shrink-0 ${
                   activeFilter === filter
                     ? 'bg-primary text-white shadow-md shadow-primary/25 scale-105'
                     : 'glass-card text-slate-700 hover:text-primary hover:border-primary/30'
@@ -184,12 +184,12 @@ export function PatientStories() {
         </div>
 
         {/* Featured Patient Video & Story Spotlight */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch mb-8 sm:mb-12">
           
           {/* Left Column: Visual Video Card */}
           <div className="lg:col-span-5 relative">
-            <div className="glass-panel p-3.5 rounded-[2.5rem] shadow-2xl h-full flex flex-col">
-              <div className="relative h-[360px] sm:h-[420px] w-full rounded-[2rem] overflow-hidden group">
+            <div className="glass-panel p-3 sm:p-3.5 rounded-2xl sm:rounded-[2.5rem] shadow-xl sm:shadow-2xl h-full flex flex-col">
+              <div className="relative h-[300px] sm:h-[380px] lg:h-[420px] w-full rounded-xl sm:rounded-[2rem] overflow-hidden group">
                 <img 
                   src={activeStory.image} 
                   alt={activeStory.name} 
@@ -197,113 +197,112 @@ export function PatientStories() {
                 />
                 
                 {/* Dark Gradient Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent" />
                 
                 {/* Play Button Trigger */}
                 <button
                   onClick={() => setSelectedStory(activeStory)}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-18 h-18 rounded-full bg-white/90 hover:bg-white text-primary flex items-center justify-center shadow-2xl backdrop-blur-md group-hover:scale-110 transition-all duration-300 cursor-pointer border-4 border-white/40"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-white/90 hover:bg-white text-primary flex items-center justify-center shadow-2xl backdrop-blur-md group-hover:scale-110 transition-all duration-300 cursor-pointer border-4 border-white/40"
                   aria-label="Play Patient Video Story"
                 >
-                  <Play className="w-7 h-7 fill-primary ml-1" />
+                  <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-primary ml-1" />
                 </button>
 
                 {/* Top Badge: Country */}
-                <div className="absolute top-4 left-4 glass-pill px-3.5 py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-md flex items-center gap-2 border border-white">
-                  <span className="text-base">{activeStory.flag}</span>
-                  <span className="text-xs font-bold text-slate-800">{activeStory.country}</span>
+                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 glass-pill px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-md flex items-center gap-1.5 sm:gap-2 border border-white">
+                  <span className="text-sm sm:text-base">{activeStory.flag}</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-800">{activeStory.country}</span>
                 </div>
 
                 {/* Bottom Overlay Info */}
-                <div className="absolute bottom-4 left-4 right-4 text-white">
+                <div className="absolute bottom-3.5 left-3.5 right-3.5 sm:bottom-4 sm:left-4 sm:right-4 text-white">
                   <div className="flex items-center gap-1 mb-1">
                     {[1, 2, 3, 4, 5].map((i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
+                      <Star key={i} className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-lg font-bold">{activeStory.name}</p>
-                  <p className="text-xs text-teal-300 font-medium">{activeStory.treatment}</p>
+                  <p className="text-base sm:text-lg font-bold truncate">{activeStory.name}</p>
+                  <p className="text-xs text-teal-300 font-medium truncate">{activeStory.treatment}</p>
                 </div>
               </div>
 
               {/* Quick Highlight Stats Bar */}
-              <div className="grid grid-cols-2 gap-3 mt-4 pt-2">
-                <div className="glass-card p-3 rounded-2xl text-center border border-white/90">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Financial Benefit</p>
-                  <p className="text-sm font-extrabold text-emerald-600 mt-0.5">{activeStory.savings}</p>
+              <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-3 sm:mt-4 pt-1 sm:pt-2">
+                <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 bg-white/95">
+                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Financial Benefit</p>
+                  <p className="text-xs sm:text-sm font-extrabold text-emerald-600 mt-0.5">{activeStory.savings}</p>
                 </div>
-                <div className="glass-card p-3 rounded-2xl text-center border border-white/90">
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Clinical Result</p>
-                  <p className="text-sm font-extrabold text-slate-900 mt-0.5">{activeStory.recoveryTimeline}</p>
+                <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 bg-white/95">
+                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Clinical Result</p>
+                  <p className="text-xs sm:text-sm font-extrabold text-slate-900 mt-0.5 truncate">{activeStory.recoveryTimeline}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Detailed Glass Testimonial & Hospital Verification */}
+          {/* Right Column: Detailed Glass Testimonial */}
           <div className="lg:col-span-7 flex flex-col justify-between">
-            <div className="glass-card p-8 sm:p-10 rounded-[2.5rem] border border-white shadow-xl h-full flex flex-col justify-between relative overflow-hidden">
+            <div className="glass-card p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2.5rem] border border-white shadow-xl h-full flex flex-col justify-between relative overflow-hidden bg-white/95">
               
-              {/* Quote Mark Watermark */}
-              <Quote className="absolute top-6 right-6 w-24 h-24 text-primary/5 -rotate-12 pointer-events-none" />
+              <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 w-16 h-16 sm:w-24 sm:h-24 text-primary/5 -rotate-12 pointer-events-none" />
 
               <div>
                 {/* Hospital & Specialist Verification Badge */}
-                <div className="flex flex-wrap items-center gap-3 mb-6 pb-6 border-b border-slate-200/70">
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-slate-200/70">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100/90 px-3 py-1.5 rounded-full border border-slate-200/60">
-                    <Building2 className="w-3.5 h-3.5 text-primary" />
-                    <span>{activeStory.hospital}</span>
+                    <Building2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <span className="truncate">{activeStory.hospital}</span>
                   </div>
                   <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/60">
-                    <MapPin className="w-3.5 h-3.5 text-primary" />
-                    <span>{activeStory.city}, India</span>
+                    <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <span>{activeStory.city}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-200/60 ml-auto">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Verified Hospital Case</span>
+                  <div className="flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                    <span>Verified</span>
                   </div>
                 </div>
 
                 {/* Patient Quote */}
-                <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mb-6">
+                <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4 sm:mb-6">
                   &ldquo;{activeStory.quote}&rdquo;
                 </h3>
 
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
+                <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6 sm:mb-8">
                   {activeStory.fullStory}
                 </p>
               </div>
 
               {/* Bottom Surgeon Reference & Consultation Action */}
-              <div className="pt-6 border-t border-slate-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="pt-4 sm:pt-6 border-t border-slate-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">Treating Super-Specialist</p>
-                  <p className="text-base font-bold text-slate-900">{activeStory.doctor}</p>
+                  <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">Treating Super-Specialist</p>
+                  <p className="text-sm sm:text-base font-bold text-slate-900">{activeStory.doctor}</p>
                   <p className="text-xs text-primary font-medium">{activeStory.specialty}</p>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                   <EnquiryForm>
-                    <Button className="rounded-full shadow-md bg-primary hover:bg-primary/90 px-6 font-semibold h-11">
+                    <Button className="flex-1 sm:flex-none rounded-full shadow-md bg-primary hover:bg-primary/90 px-5 sm:px-6 font-semibold h-10 sm:h-11 text-xs sm:text-sm">
                       Consult Similar Doctor
                     </Button>
                   </EnquiryForm>
 
                   {/* Carousel Controls */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1.5 shrink-0">
                     <button
                       onClick={handlePrev}
-                      className="w-10 h-10 rounded-full glass-card hover:bg-white flex items-center justify-center text-slate-700 hover:text-primary transition-colors border border-slate-200"
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card hover:bg-white flex items-center justify-center text-slate-700 hover:text-primary transition-colors border border-slate-200"
                       aria-label="Previous Story"
                     >
-                      <ChevronLeft className="w-5 h-5" />
+                      <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                     <button
                       onClick={handleNext}
-                      className="w-10 h-10 rounded-full glass-card hover:bg-white flex items-center justify-center text-slate-700 hover:text-primary transition-colors border border-slate-200"
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card hover:bg-white flex items-center justify-center text-slate-700 hover:text-primary transition-colors border border-slate-200"
                       aria-label="Next Story"
                     >
-                      <ChevronRight className="w-5 h-5" />
+                      <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                   </div>
                 </div>
@@ -315,30 +314,30 @@ export function PatientStories() {
         </div>
 
         {/* Thumbnail Preview Strip */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4">
           {filteredStories.map((story, idx) => {
             const isSelected = activeStory.id === story.id;
             return (
               <div
                 key={story.id}
                 onClick={() => setCurrentIndex(idx)}
-                className={`glass-card p-3 rounded-2xl cursor-pointer transition-all duration-300 flex items-center gap-3 ${
+                className={`glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 flex items-center gap-2 sm:gap-3 ${
                   isSelected 
-                    ? 'border-primary ring-2 ring-primary/20 bg-white shadow-lg scale-102' 
-                    : 'hover:border-primary/40 opacity-75 hover:opacity-100'
+                    ? 'border-primary ring-2 ring-primary/20 bg-white shadow-md sm:shadow-lg scale-102' 
+                    : 'hover:border-primary/40 opacity-80 hover:opacity-100 bg-white/80'
                 }`}
               >
                 <img 
                   src={story.image} 
                   alt={story.name}
-                  className="w-12 h-12 rounded-xl object-cover shrink-0" 
+                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl object-cover shrink-0" 
                 />
-                <div className="min-w-0">
+                <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1">
-                    <span>{story.flag}</span>
+                    <span className="text-xs">{story.flag}</span>
                     <p className="text-xs font-bold text-slate-900 truncate">{story.name.split('&')[0]}</p>
                   </div>
-                  <p className="text-[11px] text-slate-500 truncate">{story.specialty}</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 truncate">{story.specialty}</p>
                 </div>
               </div>
             );
@@ -350,15 +349,15 @@ export function PatientStories() {
       {/* Video Story Modal Dialog */}
       {selectedStory && (
         <Dialog open={!!selectedStory} onOpenChange={(open) => !open && setSelectedStory(null)}>
-          <DialogContent className="sm:max-w-[700px] glass-panel rounded-3xl p-6 border border-white shadow-2xl">
+          <DialogContent className="sm:max-w-[700px] glass-panel rounded-3xl p-4 sm:p-6 border border-white shadow-2xl">
             <DialogHeader>
               <div className="flex items-center justify-between pr-4">
                 <div>
-                  <DialogTitle className="text-xl font-bold text-slate-900 flex items-center gap-2">
+                  <DialogTitle className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
                     <span>{selectedStory.flag}</span>
-                    <span>{selectedStory.name}&apos;s Treatment Journey</span>
+                    <span>{selectedStory.name}&apos;s Journey</span>
                   </DialogTitle>
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-slate-500 mt-0.5 truncate">
                     {selectedStory.treatment} &bull; {selectedStory.hospital}
                   </p>
                 </div>
@@ -366,38 +365,38 @@ export function PatientStories() {
             </DialogHeader>
 
             {/* Video Container Mock */}
-            <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video flex items-center justify-center mt-3 shadow-inner group">
+            <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video flex items-center justify-center mt-2 shadow-inner group">
               <img 
                 src={selectedStory.image} 
                 alt={selectedStory.name} 
                 className="w-full h-full object-cover opacity-60"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent flex flex-col justify-between p-6 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-between p-4 sm:p-6 text-white">
                 <div className="flex items-center justify-between">
-                  <span className="glass-pill px-3 py-1 rounded-full text-xs font-bold text-white bg-black/40 border border-white/20">
+                  <span className="glass-pill px-2.5 py-0.5 rounded-full text-[11px] font-bold text-white bg-black/40 border border-white/20">
                     Patient Testimonial ({selectedStory.videoDuration})
                   </span>
                 </div>
                 
-                <div className="text-center">
-                  <div className="w-16 h-16 rounded-full bg-primary text-white flex items-center justify-center mx-auto shadow-2xl border-2 border-white/40 mb-3 animate-pulse">
-                    <Play className="w-6 h-6 fill-white ml-1" />
+                <div className="text-center px-2">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary text-white flex items-center justify-center mx-auto shadow-2xl border-2 border-white/40 mb-2 animate-pulse">
+                    <Play className="w-5 h-5 sm:w-6 sm:h-6 fill-white ml-1" />
                   </div>
-                  <p className="text-sm font-semibold">&ldquo;{selectedStory.quote}&rdquo;</p>
+                  <p className="text-xs sm:text-sm font-semibold line-clamp-2">&ldquo;{selectedStory.quote}&rdquo;</p>
                 </div>
 
-                <div className="flex items-center justify-between text-xs text-slate-300">
-                  <span>Treated by {selectedStory.doctor}</span>
-                  <span className="text-emerald-400 font-bold">{selectedStory.savings}</span>
+                <div className="flex items-center justify-between text-[11px] text-slate-300">
+                  <span className="truncate">Treated by {selectedStory.doctor}</span>
+                  <span className="text-emerald-400 font-bold shrink-0">{selectedStory.savings}</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
-              <p className="text-xs text-slate-600">Want a free opinion for your case from {selectedStory.doctor}?</p>
+            <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+              <p className="text-xs text-slate-600 text-center sm:text-left">Want a free opinion from {selectedStory.doctor}?</p>
               <EnquiryForm>
-                <Button className="w-full sm:w-auto rounded-full font-semibold px-6 shadow-md bg-primary hover:bg-primary/90">
-                  Request Consultation on WhatsApp
+                <Button className="w-full sm:w-auto rounded-full font-semibold px-6 shadow-md bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm">
+                  Request Free WhatsApp Consultation
                 </Button>
               </EnquiryForm>
             </div>

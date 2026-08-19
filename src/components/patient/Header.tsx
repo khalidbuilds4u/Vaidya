@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Stethoscope, Menu, X, PhoneCall } from 'lucide-react';
+import { Stethoscope, Menu, X, PhoneCall, Sparkles } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { LanguageSwitcher } from '@/components/patient/LanguageSwitcher';
 
@@ -21,10 +21,15 @@ export function Header() {
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 via-primary/10 to-teal-500/20 flex items-center justify-center border border-primary/20 shadow-sm group-hover:scale-105 transition-transform">
               <Stethoscope className="h-5 w-5 text-primary" />
             </div>
-            <span className="text-xl tracking-tight">
-              <span className="font-extrabold text-slate-900">Asad</span>
-              <span className="font-semibold text-primary ml-1">Healthcare</span>
-            </span>
+            <div className="flex flex-col">
+              <span className="text-xl tracking-tight leading-none">
+                <span className="font-extrabold text-slate-900">Asad</span>
+                <span className="font-semibold text-primary ml-1">Healthcare</span>
+              </span>
+              <span className="text-[9.5px] sm:text-[10px] font-semibold text-primary/90 tracking-tight block mt-0.5">
+                Global Trust • World-Class Healing
+              </span>
+            </div>
           </Link>
         </div>
 
@@ -77,7 +82,11 @@ export function Header() {
 
       {/* Mobile Navigation Overlay */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-16 left-0 w-full bg-white/95 backdrop-blur-2xl border-b border-slate-200/80 shadow-2xl p-5 flex flex-col gap-4 animate-in slide-in-from-top-4 duration-300">
+        <div className="md:hidden absolute top-16 left-0 w-full max-h-[calc(100vh-4rem)] overflow-y-auto bg-white/95 backdrop-blur-2xl border-b border-slate-200/80 shadow-2xl p-5 flex flex-col gap-4 animate-in slide-in-from-top-4 duration-300 z-50">
+          <div className="pb-2 border-b border-slate-100 flex items-center gap-2 text-xs font-bold text-primary">
+            <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <span>Where Global Trust Meets World-Class Healing</span>
+          </div>
           <nav className="flex flex-col gap-1 text-base font-medium">
             <Link href="/hospitals" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Hospitals</Link>
             <Link href="/doctors" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Doctors</Link>

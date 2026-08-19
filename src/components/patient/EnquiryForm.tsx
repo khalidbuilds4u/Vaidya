@@ -92,13 +92,13 @@ ${formData.condition.trim()}
       {children && (
         <DialogTrigger render={children as React.ReactElement} />
       )}
-      <DialogContent className="sm:max-w-[540px] max-h-[90vh] overflow-y-auto glass-panel rounded-3xl border border-white shadow-2xl p-6 sm:p-8">
+      <DialogContent className="w-[95vw] sm:max-w-[540px] max-h-[85vh] overflow-y-auto glass-panel rounded-2xl sm:rounded-3xl border border-white shadow-2xl p-4 sm:p-8 bg-white/95">
         <DialogHeader>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-2 self-start">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-1.5 self-start">
             Instant WhatsApp Route
           </div>
-          <DialogTitle className="text-2xl font-extrabold text-slate-900 tracking-tight">Get a Free Treatment Plan</DialogTitle>
-          <DialogDescription className="text-slate-600 text-sm leading-relaxed">
+          <DialogTitle className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Get a Free Treatment Plan</DialogTitle>
+          <DialogDescription className="text-slate-600 text-xs sm:text-sm leading-relaxed">
             Submit your medical details. Our expert international care coordinators will review your case and connect directly with you on WhatsApp.
           </DialogDescription>
         </DialogHeader>

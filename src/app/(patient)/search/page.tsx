@@ -1,7 +1,7 @@
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { DoctorCard } from '@/components/patient/DoctorCard';
-import { Search, MapPin, AlertCircle } from 'lucide-react';
+import { Search, MapPin, AlertCircle, Sparkles, Building2, Stethoscope, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
@@ -39,55 +39,88 @@ export default async function SearchResultsPage({
   const hasResults = filteredHospitals.length > 0 || filteredDoctors.length > 0;
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
-      {/* Search Header */}
-      <div className="bg-primary text-white py-12 md:py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">Search Results</h1>
-          <div className="flex flex-wrap items-center gap-4 text-primary-foreground/80">
-            {q && (
-              <div className="flex items-center gap-2 bg-primary-foreground/10 px-4 py-2 rounded-full">
-                <Search className="w-4 h-4" />
-                <span>"{q}"</span>
-              </div>
-            )}
-            {city && (
-              <div className="flex items-center gap-2 bg-primary-foreground/10 px-4 py-2 rounded-full">
-                <MapPin className="w-4 h-4" />
-                <span>{city}</span>
-              </div>
-            )}
-            {!q && !city && <span>Showing all providers</span>}
+    <div className="bg-slate-50/50 min-h-screen pb-20">
+      
+      {/* 1. Header Banner with Medical Discovery Network Backdrop */}
+      <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
+        
+        {/* Background Medical Discovery Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
+          style={{
+            backgroundImage: `url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2070&auto=format&fit=crop')`,
+          }}
+        />
+
+        {/* Luminous Gradient Mask */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none" />
+
+        {/* Ambient Glow */}
+        <div className="absolute top-0 left-0 w-80 h-80 bg-primary/25 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3.5 shadow-lg">
+              <Search className="w-3.5 h-3.5" />
+              <span>Medical Network Search</span>
+            </div>
+            
+            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-4 leading-tight">
+              Search Results
+            </h1>
+            
+            <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+              {q && (
+                <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-white font-medium">
+                  <Search className="w-3.5 h-3.5 text-teal-300" />
+                  <span>Keyword: &ldquo;{q}&rdquo;</span>
+                </div>
+              )}
+              {city && (
+                <div className="flex items-center gap-1.5 bg-white/15 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-white font-medium">
+                  <MapPin className="w-3.5 h-3.5 text-teal-300" />
+                  <span>City: {city}</span>
+                </div>
+              )}
+              {!q && !city && <span className="text-slate-300">Showing all accredited hospital providers and doctors</span>}
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="container mx-auto px-4 py-12">
+      {/* 2. Results Content */}
+      <div className="container mx-auto px-4 py-8 sm:py-12">
         {!hasResults ? (
-          <div className="text-center py-20 bg-white rounded-3xl shadow-sm border border-slate-100 max-w-2xl mx-auto">
-            <div className="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
-              <AlertCircle className="w-10 h-10 text-slate-300" />
+          <div className="text-center py-16 sm:py-20 glass-panel rounded-3xl border border-white/90 shadow-xl max-w-xl mx-auto p-6 sm:p-10 bg-white/95">
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary">
+              <AlertCircle className="w-8 h-8" />
             </div>
-            <h2 className="text-2xl font-bold text-slate-800 mb-3">No results found</h2>
-            <p className="text-slate-500 mb-8 max-w-md mx-auto">
-              We couldn't find any hospitals or doctors matching your search criteria. Try adjusting your filters or search terms.
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">No Matching Results Found</h2>
+            <p className="text-slate-600 text-xs sm:text-sm mb-6 max-w-sm mx-auto leading-relaxed">
+              We couldn&apos;t find specific hospitals or doctors for this search. Try using broader medical terms or contact our 24/7 care team.
             </p>
-            <Button render={<Link href="/" />} size="lg" className="rounded-full shadow-md">
+            <Button render={<Link href="/" />} size="lg" className="rounded-full shadow-md bg-primary hover:bg-primary/90 text-white font-semibold text-xs sm:text-sm px-6 h-11">
+              <ArrowLeft className="w-4 h-4 mr-1.5" />
               Back to Home
             </Button>
           </div>
         ) : (
-          <div className="space-y-16">
+          <div className="space-y-12 sm:space-y-16">
+            
             {/* Hospitals Section */}
             {filteredHospitals.length > 0 && (
               <section>
-                <div className="flex justify-between items-end mb-8">
+                <div className="flex justify-between items-end mb-6">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Hospitals</h2>
-                    <p className="text-slate-500">Found {filteredHospitals.length} matching hospitals</p>
+                    <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
+                      <Building2 className="w-4 h-4" />
+                      <span>Accredited Hospitals</span>
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{filteredHospitals.length} Hospitals Found</h2>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
                   {filteredHospitals.map(hospital => (
                     <HospitalCard 
                       key={hospital.slug}
@@ -101,13 +134,16 @@ export default async function SearchResultsPage({
             {/* Doctors Section */}
             {filteredDoctors.length > 0 && (
               <section>
-                <div className="flex justify-between items-end mb-8">
+                <div className="flex justify-between items-end mb-6">
                   <div>
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Specialist Doctors</h2>
-                    <p className="text-slate-500">Found {filteredDoctors.length} matching doctors</p>
+                    <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
+                      <Stethoscope className="w-4 h-4" />
+                      <span>Specialist Doctors</span>
+                    </div>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{filteredDoctors.length} Specialists Found</h2>
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
                   {filteredDoctors.map(doctor => (
                     <DoctorCard 
                       key={doctor.slug}
@@ -117,6 +153,7 @@ export default async function SearchResultsPage({
                 </div>
               </section>
             )}
+
           </div>
         )}
       </div>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Activity, Stethoscope } from 'lucide-react';
+import { ArrowRight, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const POPULAR_CONDITIONS = [
@@ -31,58 +31,58 @@ const POPULAR_CONDITIONS = [
 
 export function PopularConditions() {
   return (
-    <section className="py-24 relative overflow-hidden bg-white">
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col mb-14 text-center items-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-4">
+        <div className="flex flex-col mb-8 sm:mb-12 text-center items-center">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
             Diagnosis &amp; Care
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
             Common Conditions We Treat
           </h2>
-          <p className="text-slate-600 text-base sm:text-lg max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-600 max-w-2xl leading-relaxed">
             Search by your specific diagnosis. Our hospital network specializes in advanced surgical and medical interventions for complex health challenges.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {POPULAR_CONDITIONS.map((condition) => (
             <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}>
-              <div className="glass-card p-7 rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden">
+              <div className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden bg-white/95">
                 
                 {/* Top specialty badge */}
                 <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-11 h-11 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
                       <Activity className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     </div>
-                    <span className={`text-xs font-semibold px-3 py-1 rounded-full border ${condition.badgeColor}`}>
+                    <span className={`text-[11px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full border ${condition.badgeColor}`}>
                       {condition.specialty}
                     </span>
                   </div>
 
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors leading-snug">
                     {condition.name}
                   </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
                     {condition.description}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-slate-100/90 font-semibold text-sm text-primary flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
+                <div className="pt-3 border-t border-slate-100 font-semibold text-xs sm:text-sm text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform">
                   <span>Explore Treatments</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </div>
               </div>
             </Link>
           ))}
         </div>
 
-        <div className="mt-14 text-center">
+        <div className="mt-8 sm:mt-12 text-center">
           <Link href="/conditions">
-            <Button size="lg" className="px-9 h-12 rounded-full font-semibold shadow-md hover:shadow-lg transition-all group">
-              View All 50+ Medical Conditions
-              <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+            <Button size="lg" className="px-6 sm:px-8 h-11 sm:h-12 rounded-xl sm:rounded-full font-semibold shadow-sm bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm group">
+              <span>View All 50+ Medical Conditions</span>
+              <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
