@@ -117,32 +117,56 @@ export default function MedicalTravelPage() {
         </FadeIn>
 
         {/* 3. Concierge Services Grid */}
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              You will be greeted directly at the terminal by our representative holding a personalized placard, followed by private ambulance or sanitised cab transfer to your hospital or hotel.
-            </p>
-          </div>
-
-          <div id="accommodation" className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-              <Hotel className="w-6 h-6" />
+        <FadeIn direction="up">
+          <div className="text-center mb-8 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
+              360-Degree Care
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Hotel &amp; Stay Arrangement</h3>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              We arrange comfortable, hygienically vetted guest apartments and 4/5-star hotels within walking distance of the hospital, catering to your dietary needs and attendant comfort.
-            </p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+              End-to-End Concierge Services
+            </h2>
           </div>
 
-          <div id="interpreters" className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-              <MessageCircle className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Multilingual Interpreters</h3>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              Language is never an obstacle. Dedicated native-speaking translators (Arabic, Russian, French, Bengali, Swahili) accompany you during all medical consultations and ward visits.
-            </p>
-          </div>
+          <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            
+            <FadeIn direction="up">
+              <div className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group h-full">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Plane className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Airport Pickup &amp; Transfer</h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  You will be greeted directly at the terminal by our representative holding a personalized placard, followed by private ambulance or sanitised cab transfer to your hospital or hotel.
+                </p>
+              </div>
+            </FadeIn>
 
-        </div>
+            <FadeIn direction="up">
+              <div id="accommodation" className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group h-full">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <Hotel className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Hotel &amp; Stay Arrangement</h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  We arrange comfortable, hygienically vetted guest apartments and 4/5-star hotels within walking distance of the hospital, catering to your dietary needs and attendant comfort.
+                </p>
+              </div>
+            </FadeIn>
+
+            <FadeIn direction="up">
+              <div id="interpreters" className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group h-full">
+                <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <MessageCircle className="w-6 h-6" />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Multilingual Interpreters</h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  Language is never an obstacle. Dedicated native-speaking translators (Arabic, Russian, French, Bengali, Swahili) accompany you during all medical consultations and ward visits.
+                </p>
+              </div>
+            </FadeIn>
+
+          </StaggerContainer>
+        </FadeIn>
 
       </div>
     </div>
