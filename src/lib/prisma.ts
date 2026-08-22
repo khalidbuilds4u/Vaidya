@@ -6,9 +6,14 @@ const globalForPrisma = globalThis as unknown as {
 };
 
 function createPrismaClient() {
-  const connectionString = process.env.DATABASE_URL;
+  let connectionString = process.env.DATABASE_URL;
   if (!connectionString) {
-    throw new Error("DATABASE_URL is not set");
+    if (process.env.NODE_ENV === "production") {
+      // Fallback for Vercel build step if env vars aren't loaded yet
+      connectionString = "postgresql://postgres:dummy@localhost:5432/dummy";
+    } else {
+      throw new Error("DATABASE_URL is not set");
+    }
   }
 
   // For Prisma Postgres (prisma+postgres:// URLs), use the accelerateUrl
