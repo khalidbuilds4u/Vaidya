@@ -127,6 +127,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
+import { prisma } from '@/lib/prisma';
+
 export default async function SpecialtyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const specialty = getSpecialtyDetails(resolvedParams.slug);
@@ -134,6 +136,12 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
   if (!specialty) {
     notFound();
   }
+
+  const dbConditions = await prisma.condition.findMany({
+    where: { specialty: { slug: resolvedParams.slug } }
+  });
+
+  const dynamicConditions = dbConditions.length > 0 ? dbConditions : specialty.commonConditions;
 
   // Define a mapping of specialty slugs to featured hero images
   const specialtyImages: Record<string, string> = {
@@ -244,8 +252,10 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                   <HospitalCard key={hospital.slug} {...hospital} />
                 ))}
               </div>
-              {/* Common Conditions Treated */}
-              <section className="mt-16">
+            </section>
+            
+            {/* Common Conditions Treated */}
+            <section className="mt-16">
                 <div className="flex items-center gap-3 mb-6">
                   <Activity className="w-6 h-6 text-primary" />
                   <h2 className="text-2xl font-bold">Common Conditions Treated</h2>
@@ -255,7 +265,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                 </p>
                 
                 <div className="grid sm:grid-cols-3 gap-4">
-                  {specialty.commonConditions.map((condition) => (
+                  {dynamicConditions.map((condition) => (
                     <Link key={condition.slug} href={`/conditions/${condition.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer">
                         <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{condition.name}</h3>
@@ -268,7 +278,6 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                   ))}
                 </div>
               </section>
-            </section>
             
           </div>
 

@@ -8,6 +8,7 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { CheckCircle2, Clock, DollarSign, HeartPulse, Activity, ArrowRight, ChevronDown, Check, Info } from 'lucide-react';
 import Link from 'next/link';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
+import { prisma } from '@/lib/prisma';
 
 // Map mockData for Treatment Page schema
 const baseDoctors = MOCK_DOCTORS.slice(0, 3).map(d => ({
@@ -261,11 +262,83 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
-  const treatment = getTreatmentDetails(resolvedParams.slug);
+  
+  // 1. Fetch real treatment from DB
+  const dbTreatment = await prisma.treatment.findUnique({
+    where: { slug: resolvedParams.slug },
+    include: { specialty: true }
+  });
 
-  if (!treatment) {
+  if (!dbTreatment) {
     notFound();
   }
+
+  // 2. Fetch Doctors in this specialty from DB
+  const realDoctors = await prisma.doctor.findMany({
+    where: { specialtyId: dbTreatment.specialtyId },
+    include: { hospital: true, specialty: true },
+    take: 3
+  });
+
+  // 3. Fetch Hospitals that have doctors in this specialty from DB
+  const realHospitals = await prisma.hospital.findMany({
+    where: {
+      doctors: {
+        some: { specialtyId: dbTreatment.specialtyId }
+      }
+    },
+    include: { city: true },
+    take: 3
+  });
+
+  // Map DB Doctors to DoctorCard props
+  const dbTopDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
+    slug: d.slug,
+    name: d.name,
+    specialty: d.specialty.name,
+    hospital: d.hospital.name,
+    image: d.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070",
+    city: 'India',
+    qualifications: d.qualifications || 'Expert Specialist',
+    experience: d.experienceYears ? `${d.experienceYears}+ Years` : '15+ Years',
+    keyExpertise: ['Specialized Care']
+  })) : baseDoctors;
+
+  // Map DB Hospitals to HospitalCard props
+  const dbTopHospitals = realHospitals.length > 0 ? realHospitals.map(h => ({
+    slug: h.slug,
+    name: h.name,
+    city: h.city.name,
+    state: h.city.state || 'India',
+    image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
+    accreditations: h.accreditations || ['NABH'],
+    beds: h.beds || 500,
+    specialties: [dbTreatment.specialty.name],
+    hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
+  })) : baseHospitals;
+
+  // Get rich mock content but override with real DB data
+  const baseTreatment = getTreatmentDetails(resolvedParams.slug);
+  const treatment = {
+    ...baseTreatment,
+    name: dbTreatment.name,
+    specialty: dbTreatment.specialty.name,
+    minEstimate: dbTreatment.minEstimate || baseTreatment.minEstimate,
+    maxEstimate: dbTreatment.maxEstimate || baseTreatment.maxEstimate,
+    overview: dbTreatment.overview || dbTreatment.description || baseTreatment.overview,
+    recoveryTime: dbTreatment.recovery || baseTreatment.recoveryTime,
+    risks: dbTreatment.risks ? dbTreatment.risks.split('\n') : baseTreatment.risks,
+    
+    causesAndSymptoms: dbTreatment.causesAndSymptoms?.length > 0 ? dbTreatment.causesAndSymptoms : baseTreatment.causesAndSymptoms,
+    diagnosis: dbTreatment.diagnosis?.length > 0 ? dbTreatment.diagnosis : baseTreatment.diagnosis,
+    preOpPrep: dbTreatment.preOpPrep?.length > 0 ? dbTreatment.preOpPrep : baseTreatment.preOpPrep,
+    postOpCare: dbTreatment.postOpCare?.length > 0 ? dbTreatment.postOpCare : baseTreatment.postOpCare,
+    procedureDetails: dbTreatment.procedureDetails?.length > 0 ? dbTreatment.procedureDetails : baseTreatment.procedureDetails,
+    faqs: (dbTreatment.faqs && Array.isArray(dbTreatment.faqs) && dbTreatment.faqs.length > 0) ? dbTreatment.faqs : baseTreatment.faqs,
+    
+    topDoctors: dbTopDoctors,
+    topHospitals: dbTopHospitals,
+  };
 
   // Fallback image if main image is not defined
   const mainImage = (treatment as any).image || 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop';
@@ -297,11 +370,13 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             </div>
             
             <div className="w-full lg:w-1/2">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-64 md:h-96">
-                <img 
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-64 md:h-96 relative">
+                <Image 
                   src={mainImage} 
                   alt={treatment.name} 
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -400,10 +475,12 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                     <Card key={idx} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
                       {sub.image && (
                         <div className="h-40 overflow-hidden relative border-b border-slate-100">
-                          <img 
+                          <Image 
                             src={sub.image} 
                             alt={sub.name} 
-                            className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover transition-transform hover:scale-105 duration-500"
                           />
                         </div>
                       )}
@@ -492,12 +569,15 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
               <section className="pt-8">
                 <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
                 <div className="space-y-4">
-                  {treatment.faqs.map((faq, idx) => (
-                    <Card key={idx} className="p-6">
-                      <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
-                      <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
-                    </Card>
-                  ))}
+                  {treatment.faqs.map((faqRaw: any, idx: number) => {
+                    const faq = faqRaw as { question: string, answer: string };
+                    return (
+                      <Card key={idx} className="p-6">
+                        <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
+                        <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                      </Card>
+                    );
+                  })}
                 </div>
               </section>
             )}

@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { MapPin, BriefcaseMedical, Star, ArrowRight } from 'lucide-react';
-import Image from 'next/image';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 
 export interface DoctorCardProps {
@@ -36,13 +35,11 @@ export function DoctorCard({
         
         {/* Doctor Image with Frosted Frame & Rating */}
         <div className="relative shrink-0">
-          <div className="w-18 h-18 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border-2 border-white shadow-md relative group">
-            <Image 
+          <div className="w-18 h-18 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border-2 border-white shadow-md relative group bg-slate-100">
+            <img 
               src={image} 
               alt={name}
-              fill
-              sizes="112px"
-              className="object-cover group-hover:scale-105 transition-transform duration-500"
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
           <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 glass-pill px-2 py-0.5 rounded-full flex items-center gap-1 bg-white/95 shadow-xs border border-white">

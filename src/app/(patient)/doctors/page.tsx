@@ -1,35 +1,59 @@
 import { Metadata } from 'next';
-import { Search, Filter, Stethoscope, Sparkles } from 'lucide-react';
+import { Search, Filter, Stethoscope } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { MOCK_DOCTORS } from '@/lib/mockData';
 import { DoctorCard } from '@/components/patient/DoctorCard';
+import { prisma } from '@/lib/prisma';
 
 export const metadata: Metadata = {
   title: 'Top Medical Specialists in India | AsadHealthcare',
   description: 'Find and consult with India\'s top doctors, surgeons, and medical specialists.',
 };
 
-export default function DoctorsDirectory() {
+export const revalidate = 60;
+
+export default async function DoctorsDirectory({
+  searchParams,
+}: {
+  searchParams: Promise<{ search?: string; city?: string; specialty?: string }>;
+}) {
+  const { search, city, specialty } = await searchParams;
+
+  const whereClause: any = {};
+  if (search) {
+    whereClause.name = { contains: search, mode: 'insensitive' };
+  }
+  if (city) {
+    whereClause.hospital = { city: { slug: city } };
+  }
+  if (specialty) {
+    whereClause.specialty = { slug: specialty };
+  }
+
+  const doctors = await prisma.doctor.findMany({
+    where: whereClause,
+    include: {
+      hospital: {
+        include: { city: true }
+      },
+      specialty: true,
+    }
+  });
+
+  const cities = await prisma.city.findMany({ orderBy: { name: 'asc' } });
+  const specialties = await prisma.specialty.findMany({ orderBy: { name: 'asc' } });
+
   return (
     <div className="bg-slate-50/50 min-h-screen pb-20">
       
-      {/* 1. Header Banner with Doctors & Surgeons Clinical Team Backdrop */}
+      {/* Header Banner */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
-        
-        {/* Background Doctors/Clinical Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop')`,
-          }}
+          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2070&auto=format&fit=crop')` }}
         />
-
-        {/* Luminous Gradient Mask */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none" />
-
-        {/* Ambient Glow */}
         <div className="absolute top-0 left-0 w-80 h-80 bg-primary/25 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -39,7 +63,7 @@ export default function DoctorsDirectory() {
               <span>Leading Clinical Specialists</span>
             </div>
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
-              Find Top Doctors &amp; Surgeons in India
+              Find Top Doctors & Surgeons in India
             </h1>
             <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
               Consult with internationally trained surgeons, department directors, and pioneers in complex surgeries trusted by thousands of global patients.
@@ -59,52 +83,46 @@ export default function DoctorsDirectory() {
                 <h2 className="text-base font-bold text-slate-900">Filter Specialists</h2>
               </div>
               
-              <div className="space-y-4 sm:space-y-5">
-                {/* Search */}
+              <form method="GET" action="/doctors" className="space-y-4 sm:space-y-5">
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">Search Doctor</label>
                   <div className="relative">
                     <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
-                    <Input type="text" placeholder="Name or specialty..." className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
+                    <Input name="search" defaultValue={search || ""} type="text" placeholder="Name or keyword..." className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
                   </div>
                 </div>
                 
-                {/* Specialty Filter */}
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">Specialty</label>
-                  <select className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">All Specialties</option>
-                    <option value="cardiology">Cardiology</option>
-                    <option value="oncology">Oncology</option>
-                    <option value="orthopedics">Orthopedics</option>
-                    <option value="neurology">Neurology</option>
-                    <option value="transplant">Organ Transplant</option>
+                    {specialties.map(s => (
+                      <option key={s.id} value={s.slug}>{s.name}</option>
+                    ))}
                   </select>
                 </div>
 
-                {/* City Filter */}
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">City</label>
-                  <select className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">All Cities</option>
-                    <option value="delhi">New Delhi</option>
-                    <option value="gurgaon">Gurgaon</option>
-                    <option value="mumbai">Mumbai</option>
-                    <option value="chennai">Chennai</option>
+                    {cities.map(c => (
+                      <option key={c.id} value={c.slug}>{c.name}</option>
+                    ))}
                   </select>
                 </div>
 
-                <Button className="w-full rounded-xl sm:rounded-full shadow-xs bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm font-semibold text-white">
+                <Button type="submit" className="w-full rounded-xl sm:rounded-full shadow-xs bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm font-semibold text-white">
                   Apply Filters
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
 
           {/* Doctor List */}
           <div className="w-full lg:w-3/4">
             <div className="flex justify-between items-center mb-4 sm:mb-6">
-              <h2 className="font-bold text-base sm:text-lg text-slate-900">{MOCK_DOCTORS.length} Specialists Available</h2>
+              <h2 className="font-bold text-base sm:text-lg text-slate-900">{doctors.length} Specialists Available</h2>
               <div className="flex items-center gap-1.5 text-xs sm:text-sm">
                 <span className="text-slate-500">Sort by:</span>
                 <select className="border-0 bg-transparent font-semibold text-primary cursor-pointer focus:ring-0 text-xs sm:text-sm">
@@ -115,18 +133,18 @@ export default function DoctorsDirectory() {
             </div>
 
             <div className="space-y-4 sm:space-y-6">
-              {MOCK_DOCTORS.map((doctor) => (
+              {doctors.map((doctor) => (
                 <DoctorCard 
-                  key={doctor.slug} 
+                  key={doctor.id} 
                   slug={doctor.slug}
                   name={doctor.name}
-                  specialty={doctor.specialty}
-                  qualifications="MBBS, MS, MCh"
-                  experience={doctor.experience}
-                  hospital={doctor.hospital}
-                  city="India"
-                  image={doctor.image}
-                  keyExpertise={[doctor.specialty, "Advanced Surgery"]}
+                  specialty={doctor.specialty.name}
+                  qualifications={doctor.qualifications || "MBBS, MS"}
+                  experience={`${doctor.experienceYears || 15}+ Years`}
+                  hospital={doctor.hospital.name}
+                  city={doctor.hospital.city.name}
+                  image={doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"}
+                  keyExpertise={[doctor.specialty.name, "Advanced Care"]}
                 />
               ))}
             </div>

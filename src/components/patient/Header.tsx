@@ -34,34 +34,38 @@ export function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2 text-sm font-medium">
-          <Link href="/hospitals" className="px-3.5 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+        <nav className="hidden md:flex flex-wrap items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium">
+          <Link href="/" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+            Home
+          </Link>
+          <Link href="/hospitals" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
             Hospitals
           </Link>
-          <Link href="/doctors" className="px-3.5 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+          <Link href="/doctors" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
             Doctors
           </Link>
-          <Link href="/treatments" className="px-3.5 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Treatments
+          <Link href="/treatments" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+            Procedures
           </Link>
-          <Link href="/cities" className="px-3.5 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Cities
+          <Link href="/patient-stories" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
+            Patient Stories
           </Link>
-          <Link href="/medical-travel" className="px-3.5 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Medical Travel
+          <Link href="/gallery" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+            Gallery
+          </Link>
+          <Link href="/blogs" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+            Blogs
+          </Link>
+          <Link href="/about-us" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
+            About Us
+          </Link>
+          <Link href="/contact-us" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
+            Contact Us
           </Link>
         </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
-          
-          <a 
-            href="tel:+919451187513" 
-            className="hidden lg:inline-flex items-center gap-1.5 text-xs font-semibold text-slate-700 hover:text-primary transition-all bg-slate-100/80 hover:bg-primary/10 px-3.5 py-2 rounded-full border border-slate-200/60 shadow-sm whitespace-nowrap shrink-0"
-          >
-            <PhoneCall className="w-3.5 h-3.5 text-primary shrink-0" />
-            <span className="whitespace-nowrap font-mono">+91&nbsp;94511&nbsp;87513</span>
-          </a>
           
           <EnquiryForm>
             <Button className="hidden sm:inline-flex rounded-full px-5 shadow-[0_4px_16px_rgba(15,118,110,0.35)] hover:shadow-[0_6px_24px_rgba(15,118,110,0.45)] hover:-translate-y-0.5 hover:bg-primary/90 transition-all shrink-0">
@@ -88,11 +92,15 @@ export function Header() {
             <span>Where Global Trust Meets World-Class Healing</span>
           </div>
           <nav className="flex flex-col gap-1 text-base font-medium">
+            <Link href="/" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Home</Link>
             <Link href="/hospitals" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Hospitals</Link>
             <Link href="/doctors" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Doctors</Link>
-            <Link href="/treatments" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Treatments</Link>
-            <Link href="/cities" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Cities</Link>
-            <Link href="/medical-travel" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Medical Travel</Link>
+            <Link href="/treatments" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Procedures</Link>
+            <Link href="/patient-stories" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Patient Stories</Link>
+            <Link href="/gallery" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Gallery</Link>
+            <Link href="/blogs" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Blogs</Link>
+            <Link href="/about-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>About Us</Link>
+            <Link href="/contact-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Contact Us</Link>
             <a 
               href="tel:+919451187513" 
               className="py-2.5 px-3 rounded-lg bg-primary/5 text-primary font-semibold flex items-center gap-2 mt-2" 

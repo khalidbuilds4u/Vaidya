@@ -4,8 +4,19 @@ import Link from 'next/link';
 import { MOCK_HOSPITALS } from '@/lib/mockData';
 import { ArrowRight } from 'lucide-react';
 
-export function FeaturedHospitals() {
-  const featuredHospitals = MOCK_HOSPITALS.slice(0, 3);
+import { prisma } from '@/lib/prisma';
+
+export async function FeaturedHospitals() {
+  const featuredHospitals = await prisma.hospital.findMany({
+    take: 3,
+    orderBy: {
+      createdAt: 'desc'
+    },
+    include: {
+      city: true,
+      specialties: true
+    }
+  });
   return (
     <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/70">
       {/* Background Glow */}
@@ -26,7 +37,18 @@ export function FeaturedHospitals() {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {featuredHospitals.map((hospital) => (
-            <HospitalCard key={hospital.slug} {...hospital} />
+            <HospitalCard 
+              key={hospital.id} 
+              slug={hospital.slug}
+              name={hospital.name}
+              city={hospital.city.name}
+              state={hospital.city.state || undefined}
+              image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
+              accreditations={hospital.accreditations}
+              beds={hospital.beds || 0}
+              specialties={hospital.specialties.map(s => s.name)}
+              hasInternationalSupport={hospital.internationalServices.length > 0}
+            />
           ))}
         </div>
         

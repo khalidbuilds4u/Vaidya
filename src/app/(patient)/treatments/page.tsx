@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import Image from 'next/image';
 import { Search, Stethoscope, HeartPulse, Brain, Bone, ArrowRight, Activity, Sparkles } from 'lucide-react';
 
 export const metadata: Metadata = {
@@ -10,41 +11,24 @@ export const metadata: Metadata = {
   description: 'Explore world-class medical treatments, surgeries, and procedures available at top hospitals in India with estimated cost guides.',
 };
 
-// Seed Data for Development
-const MOCK_TREATMENTS = [
-  {
-    slug: 'knee-replacement',
-    name: 'Knee Replacement Surgery',
-    specialty: 'Orthopedics',
-    icon: Bone,
-    minEstimate: 4500,
-    maxEstimate: 6500,
-    recoveryTime: '2-3 Weeks',
-    description: 'A minimally invasive surgical procedure to replace damaged cartilage and bone with high-durability prosthetic implants.',
-  },
-  {
-    slug: 'coronary-artery-bypass',
-    name: 'Coronary Artery Bypass Grafting (CABG)',
-    specialty: 'Cardiology',
-    icon: HeartPulse,
-    minEstimate: 5500,
-    maxEstimate: 8000,
-    recoveryTime: '4-6 Weeks',
-    description: 'Advanced beating-heart and robotic surgical bypass improving coronary blood flow with high long-term success rates.',
-  },
-  {
-    slug: 'brain-tumor-surgery',
-    name: 'Brain Tumor Surgery & Radiosurgery',
-    specialty: 'Neurology',
-    icon: Brain,
-    minEstimate: 6000,
-    maxEstimate: 9500,
-    recoveryTime: '4-8 Weeks',
-    description: 'Cutting-edge intraoperative MRI and CyberKnife robotic radiosurgery to precisely excise abnormal cranial lesions.',
-  }
-];
+import { prisma } from '@/lib/prisma';
 
-export default function TreatmentsDirectory() {
+function getIconForSpecialty(specialtyName: string) {
+  const name = specialtyName.toLowerCase();
+  if (name.includes('orthopedic')) return Bone;
+  if (name.includes('cardio')) return HeartPulse;
+  if (name.includes('neuro') || name.includes('brain')) return Brain;
+  return Stethoscope;
+}
+
+export const revalidate = 60;
+
+export default async function TreatmentsDirectory() {
+  const dbTreatments = await prisma.treatment.findMany({
+    include: { specialty: true },
+    orderBy: { name: 'asc' }
+  });
+
   return (
     <div className="bg-slate-50/50 min-h-screen pb-20">
       
@@ -112,14 +96,20 @@ export default function TreatmentsDirectory() {
               { name: 'Gastroenterology', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop' },
               { name: 'Organ Transplant', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop' },
               { name: 'Cosmetic Surgery', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop' },
-              { name: 'Dental', image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop' }
+              { name: 'Dental', image: 'https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'IVF & Fertility', image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop' },
+              { name: 'Bariatric Surgery', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop' },
+              { name: 'Ophthalmology', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop' },
+              { name: 'Urology', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop' }
             ].map(spec => (
-              <Link key={spec.name} href={`/specialties/${spec.name.toLowerCase().replace(/\s+/g, '-')}`}>
+              <Link key={spec.name} href={`/specialties/${spec.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
                 <div className="rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer h-36 sm:h-44 relative border border-white/80">
-                  <img 
+                  <Image 
                     src={spec.image} 
                     alt={spec.name} 
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700"
+                    fill
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                    className="object-cover transition-transform group-hover:scale-105 duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex items-end p-3.5 sm:p-5">
                     <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-teal-300 transition-colors">{spec.name}</h3>
@@ -134,8 +124,8 @@ export default function TreatmentsDirectory() {
         <div>
           <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">Popular Surgical Procedures</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-            {MOCK_TREATMENTS.map((treatment) => {
-              const Icon = treatment.icon;
+            {dbTreatments.map((treatment) => {
+              const Icon = getIconForSpecialty(treatment.specialty?.name || "");
               return (
                 <div key={treatment.slug} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white/95 border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300">
                   <div className="p-5 sm:p-6 flex-1">
@@ -144,7 +134,7 @@ export default function TreatmentsDirectory() {
                         <Icon className="w-6 h-6" />
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-primary">{treatment.specialty}</p>
+                        <p className="text-xs font-semibold text-primary">{treatment.specialty?.name || "General"}</p>
                         <h3 className="text-base sm:text-lg font-bold leading-tight text-slate-900">
                           <Link href={`/treatments/${treatment.slug}`} className="hover:text-primary transition-colors">
                             {treatment.name}
@@ -153,18 +143,20 @@ export default function TreatmentsDirectory() {
                       </div>
                     </div>
                     
-                    <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
                       {treatment.description}
                     </p>
                     
                     <div className="space-y-2 py-3 px-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs sm:text-sm">
                       <div className="flex justify-between pb-1.5 border-b border-slate-200/60">
                         <span className="text-slate-500">Est. Package:</span>
-                        <span className="font-bold text-emerald-600">${treatment.minEstimate.toLocaleString()} - ${treatment.maxEstimate.toLocaleString()}</span>
+                        <span className="font-bold text-emerald-600">
+                          {treatment.minEstimate ? `$${treatment.minEstimate.toLocaleString()} - $${treatment.maxEstimate?.toLocaleString()}` : 'Custom Quote'}
+                        </span>
                       </div>
                       <div className="flex justify-between pt-0.5">
                         <span className="text-slate-500">Recovery:</span>
-                        <span className="font-semibold text-slate-800">{treatment.recoveryTime}</span>
+                        <span className="font-semibold text-slate-800">{treatment.recovery || 'Varies'}</span>
                       </div>
                     </div>
                   </div>

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { MapPin, Award, BedDouble, Stethoscope, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
@@ -33,12 +32,10 @@ export function HospitalCard({
         
         {/* Image Section with Glass Badge */}
         <div className="w-full md:w-5/12 h-48 sm:h-60 md:h-auto bg-slate-100 relative overflow-hidden shrink-0">
-          <Image 
+          <img 
             src={image}
             alt={name}
-            fill
-            sizes="(max-width: 768px) 100vw, 40vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-700"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:hidden" />
           

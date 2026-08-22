@@ -1,19 +1,43 @@
 import { Button } from '@/components/ui/button';
 import { HeartPulse, Bone, Brain, Baby, Activity, Microscope, ScanHeart, Stethoscope, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { prisma } from '@/lib/prisma';
 
 const SPECIALTIES = [
   { name: 'Cardiology', icon: HeartPulse, count: '120+ Doctors', color: 'from-rose-500/10 to-pink-500/10 text-rose-600' },
+  { name: 'Oncology', icon: Microscope, count: '200+ Doctors', color: 'from-blue-500/10 to-cyan-500/10 text-blue-600' },
   { name: 'Orthopedics', icon: Bone, count: '150+ Doctors', color: 'from-amber-500/10 to-orange-500/10 text-amber-600' },
   { name: 'Neurology', icon: Brain, count: '85+ Doctors', color: 'from-purple-500/10 to-indigo-500/10 text-purple-600' },
-  { name: 'Oncology', icon: Microscope, count: '200+ Doctors', color: 'from-blue-500/10 to-cyan-500/10 text-blue-600' },
-  { name: 'Organ Transplant', icon: ScanHeart, count: '45+ Centers', color: 'from-teal-500/10 to-emerald-500/10 text-teal-600' },
-  { name: 'IVF & Fertility', icon: Baby, count: '90+ Centers', color: 'from-pink-500/10 to-rose-500/10 text-pink-600' },
   { name: 'Gastroenterology', icon: Activity, count: '110+ Doctors', color: 'from-emerald-500/10 to-green-500/10 text-emerald-600' },
-  { name: 'General Surgery', icon: Stethoscope, count: '300+ Doctors', color: 'from-cyan-500/10 to-blue-500/10 text-cyan-600' },
+  { name: 'Organ Transplant', icon: ScanHeart, count: '45+ Centers', color: 'from-teal-500/10 to-emerald-500/10 text-teal-600' },
+  { name: 'Cosmetic Surgery', icon: Baby, count: '90+ Centers', color: 'from-pink-500/10 to-rose-500/10 text-pink-600' },
+  { name: 'Dental', icon: Stethoscope, count: '300+ Doctors', color: 'from-cyan-500/10 to-blue-500/10 text-cyan-600' },
+  { name: 'IVF & Fertility', icon: Baby, count: '80+ Centers', color: 'from-pink-500/10 to-rose-500/10 text-pink-600' },
+  { name: 'Bariatric Surgery', icon: Activity, count: '100+ Doctors', color: 'from-amber-500/10 to-orange-500/10 text-amber-600' },
+  { name: 'Ophthalmology', icon: Microscope, count: '120+ Doctors', color: 'from-teal-500/10 to-emerald-500/10 text-teal-600' },
+  { name: 'Urology', icon: Activity, count: '150+ Doctors', color: 'from-blue-500/10 to-cyan-500/10 text-blue-600' }
 ];
 
-export function PopularSpecialties() {
+export async function PopularSpecialties() {
+  const dbSpecialties = await prisma.specialty.findMany({
+    take: 12,
+    orderBy: { name: 'asc' }
+  });
+
+  const mergedSpecialties = dbSpecialties.map(dbSpec => {
+    const defaultData = SPECIALTIES.find(s => s.name.toLowerCase() === dbSpec.name.toLowerCase()) || {
+      icon: Activity,
+      count: 'Explore Doctors',
+      color: 'from-slate-500/10 to-gray-500/10 text-slate-600'
+    };
+    return {
+      ...dbSpec,
+      icon: defaultData.icon,
+      count: defaultData.count,
+      color: defaultData.color
+    };
+  });
+
   return (
     <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/60">
       {/* Subtle Ambient Orb */}
@@ -31,11 +55,10 @@ export function PopularSpecialties() {
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
-          {SPECIALTIES.map((spec) => {
+          {mergedSpecialties.map((spec) => {
             const Icon = spec.icon;
-            const slug = spec.name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
             return (
-              <Link key={spec.name} href={`/specialties/${slug}`}>
+              <Link key={spec.id} href={`/specialties/${spec.slug}`}>
                 <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl text-center cursor-pointer h-full flex flex-col justify-between items-center group relative overflow-hidden bg-white/95">
                   
                   <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${spec.color} flex items-center justify-center mb-3 sm:mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs`}>

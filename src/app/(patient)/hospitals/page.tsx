@@ -2,34 +2,61 @@ import { Metadata } from 'next';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { Search, Filter, Building2, Sparkles, ShieldCheck } from 'lucide-react';
-import { MOCK_HOSPITALS } from '@/lib/mockData';
+import { Search, Filter, Building2 } from 'lucide-react';
+import { prisma } from '@/lib/prisma';
 
 export const metadata: Metadata = {
   title: 'Top Accredited Hospitals in India | AsadHealthcare',
   description: 'Discover and compare the best JCI and NABH accredited hospitals in India for international patients.',
 };
 
-export default function HospitalsDirectory() {
+export const revalidate = 60;
+
+export default async function HospitalsDirectory({
+  searchParams,
+}: {
+  searchParams: Promise<{ search?: string; city?: string; specialty?: string }>;
+}) {
+  const { search, city, specialty } = await searchParams;
+
+  const whereClause: any = {};
+  if (search) {
+    whereClause.name = { contains: search, mode: 'insensitive' };
+  }
+  if (city) {
+    whereClause.city = { slug: city };
+  }
+  if (specialty) {
+    whereClause.doctors = { some: { specialty: { slug: specialty } } };
+  }
+
+  const hospitals = await prisma.hospital.findMany({
+    where: whereClause,
+    include: {
+      city: true,
+    },
+    orderBy: { createdAt: "desc" }
+  });
+
+  const cities = await prisma.city.findMany({ orderBy: { name: 'asc' } });
+  const specialties = await prisma.specialty.findMany({ orderBy: { name: 'asc' } });
+
+  const selectedCityName = cities.find(c => c.slug === city)?.name;
+  const pageTitle = selectedCityName 
+    ? `Top Accredited Hospitals in ${selectedCityName}`
+    : "Top Accredited Hospitals in India";
+
   return (
     <div className="bg-slate-50/50 min-h-screen pb-20">
       
-      {/* 1. Header Banner with Hospital Campus Image */}
+      {/* Header Banner */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
-        
-        {/* Background Hospital Campus Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center lg:bg-right bg-no-repeat pointer-events-none opacity-40 sm:opacity-50 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('/images/hero-hospital.jpg')`,
-          }}
+          style={{ backgroundImage: `url('/images/hero-hospital.jpg')` }}
         />
-
-        {/* Luminous Gradient Mask for 100% Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none" />
-
-        {/* Ambient Glow */}
         <div className="absolute top-0 left-0 w-80 h-80 bg-primary/25 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
@@ -39,10 +66,10 @@ export default function HospitalsDirectory() {
               <span>Accredited Healthcare Network</span>
             </div>
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
-              Top Accredited Hospitals in India
+              {pageTitle}
             </h1>
             <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Compare internationally certified JCI &amp; NABH hospital facilities equipped with advanced robotic suites and dedicated international patient lounges.
+              Compare internationally certified JCI & NABH hospital facilities equipped with advanced robotic suites and dedicated international patient lounges.
             </p>
           </div>
         </div>
@@ -59,53 +86,46 @@ export default function HospitalsDirectory() {
                 <h2 className="text-base font-bold text-slate-900">Filter Hospitals</h2>
               </div>
               
-              <div className="space-y-4 sm:space-y-5">
-                {/* Search */}
+              <form method="GET" action="/hospitals" className="space-y-4 sm:space-y-5">
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">Search</label>
                   <div className="relative">
                     <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
-                    <Input type="text" placeholder="Name or keyword..." className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
+                    <Input name="search" defaultValue={search || ""} type="text" placeholder="Name or keyword..." className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
                   </div>
                 </div>
 
-                {/* City Filter */}
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">City</label>
-                  <select className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">All Cities (India)</option>
-                    <option value="delhi">New Delhi</option>
-                    <option value="gurgaon">Gurgaon</option>
-                    <option value="mumbai">Mumbai</option>
-                    <option value="chennai">Chennai</option>
-                    <option value="bangalore">Bangalore</option>
+                    {cities.map(c => (
+                      <option key={c.id} value={c.slug}>{c.name}</option>
+                    ))}
                   </select>
                 </div>
                 
-                {/* Specialty Filter */}
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">Specialty</label>
-                  <select className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
+                  <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">All Specialties</option>
-                    <option value="cardiology">Cardiology</option>
-                    <option value="oncology">Oncology</option>
-                    <option value="orthopedics">Orthopedics</option>
-                    <option value="neurology">Neurology</option>
-                    <option value="transplant">Organ Transplant</option>
+                    {specialties.map(s => (
+                      <option key={s.id} value={s.slug}>{s.name}</option>
+                    ))}
                   </select>
                 </div>
 
-                <Button className="w-full rounded-xl sm:rounded-full shadow-xs bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm font-semibold text-white">
+                <Button type="submit" className="w-full rounded-xl sm:rounded-full shadow-xs bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm font-semibold text-white">
                   Apply Filters
                 </Button>
-              </div>
+              </form>
             </div>
           </div>
 
           {/* Hospital List */}
           <div className="w-full lg:w-3/4">
             <div className="flex justify-between items-center mb-4 sm:mb-6">
-              <h2 className="font-bold text-base sm:text-lg text-slate-900">{MOCK_HOSPITALS.length} Hospitals Available</h2>
+              <h2 className="font-bold text-base sm:text-lg text-slate-900">{hospitals.length} Hospitals Available</h2>
               <div className="flex items-center gap-1.5 text-xs sm:text-sm">
                 <span className="text-slate-500">Sort by:</span>
                 <select className="border-0 bg-transparent font-semibold text-primary cursor-pointer focus:ring-0 text-xs sm:text-sm">
@@ -116,9 +136,23 @@ export default function HospitalsDirectory() {
             </div>
 
             <div className="space-y-4 sm:space-y-6">
-              {MOCK_HOSPITALS.map((hospital) => (
-                <HospitalCard key={hospital.slug} {...hospital} />
-              ))}
+              {hospitals.map((hospital) => {
+                
+                return (
+                  <HospitalCard 
+                    key={hospital.id} 
+                    slug={hospital.slug}
+                    name={hospital.name}
+                    city={hospital.city.name}
+                    state={hospital.city.state || undefined}
+                    image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
+                    accreditations={hospital.accreditations}
+                    beds={hospital.beds || 0}
+                    specialties={[]}
+                    hasInternationalSupport={hospital.internationalServices.length > 0}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>
