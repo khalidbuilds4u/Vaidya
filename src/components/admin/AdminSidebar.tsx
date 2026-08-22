@@ -16,6 +16,7 @@ import {
   Image as ImageIcon,
   FileText,
   MessageSquare,
+  Settings,
 } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -30,6 +31,7 @@ const NAV_ITEMS = [
   { label: "Gallery", href: "/admin/gallery", icon: ImageIcon },
   { label: "Blogs", href: "/admin/blogs", icon: FileText },
   { label: "Messages", href: "/admin/contact-messages", icon: MessageSquare },
+  { label: "Settings", href: "/admin/settings", icon: Settings },
 ];
 
 interface AdminSidebarProps {
