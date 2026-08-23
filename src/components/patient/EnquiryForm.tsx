@@ -105,7 +105,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
       {children && (
-        <span onClick={() => setIsOpen(true)} className="inline-block cursor-pointer w-full text-center">
+        <span onClick={() => setIsOpen(true)} className="contents cursor-pointer">
           {children}
         </span>
       )}
