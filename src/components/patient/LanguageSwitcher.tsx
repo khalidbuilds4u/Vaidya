@@ -11,12 +11,12 @@ import {
 import { Button } from "@/components/ui/button";
 
 const LANGUAGES = [
-  { code: "en", name: "English", flag: "🇬🇧" },
-  { code: "ar", name: "العربية (Arabic)", flag: "🇸🇦" },
-  { code: "ru", name: "Русский (Russian)", flag: "🇷🇺" },
-  { code: "fr", name: "Français (French)", flag: "🇫🇷" },
-  { code: "bn", name: "বাংলা (Bengali)", flag: "🇧🇩" },
-  { code: "sw", name: "Kiswahili (Swahili)", flag: "🇰🇪" },
+  { code: "en", name: "English", shortName: "English", flag: "🇬🇧" },
+  { code: "ar", name: "العربية (Arabic)", shortName: "Arabic", flag: "🇸🇦" },
+  { code: "ru", name: "Русский (Russian)", shortName: "Russian", flag: "🇷🇺" },
+  { code: "fr", name: "Français (French)", shortName: "French", flag: "🇫🇷" },
+  { code: "bn", name: "বাংলা (Bengali)", shortName: "Bengali", flag: "🇧🇩" },
+  { code: "sw", name: "Kiswahili (Swahili)", shortName: "Swahili", flag: "🇰🇪" },
 ];
 
 export function LanguageSwitcher() {
@@ -60,7 +60,7 @@ export function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger render={<Button variant="ghost" size="sm" className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex" />}>
         <Globe className="w-4 h-4 text-slate-500" />
-        <span className="font-medium text-slate-700">{activeLang.code.toUpperCase()}</span>
+        <span className="font-medium text-slate-700">{activeLang.shortName}</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[180px] rounded-xl shadow-lg border-slate-100 p-1">
         {LANGUAGES.map((lang) => (
