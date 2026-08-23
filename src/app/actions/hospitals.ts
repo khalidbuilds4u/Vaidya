@@ -250,6 +250,21 @@ export async function updateHospital(id: string, formData: FormData) {
   const description_ar = formData.get("description_ar") as string;
   const address_ar = formData.get("address_ar") as string;
 
+  const parseJsonArrayAr = (name: string) => {
+    const val = parseString(formData.get(name));
+    if (val) {
+      try {
+        const parsed = JSON.parse(val);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      } catch (e) {
+        if (val.includes(',')) return val.split(',').map(s => s.trim()).filter(Boolean);
+        if (val.includes('\n')) return val.split('\n').map(s => s.trim()).filter(Boolean);
+        return [val.trim()];
+      }
+    }
+    return undefined;
+  };
+
   const premiumFacilities_ar = parseJsonArrayAr("premiumFacilities_ar");
   const multiSpecialties_ar = parseJsonArrayAr("multiSpecialties_ar");
   const advancedTechnologies_ar = parseJsonArrayAr("advancedTechnologies_ar");
