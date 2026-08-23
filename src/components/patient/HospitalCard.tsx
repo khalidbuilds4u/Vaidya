@@ -100,11 +100,13 @@ export function HospitalCard({
           {/* Side-by-Side Responsive Action Buttons */}
           <div className="grid grid-cols-2 gap-2 pt-3.5 sm:pt-4 border-t border-slate-100 mt-4">
             <Button 
-              render={<Link href={`/hospitals/${slug}`} />} 
+              asChild
               variant="outline" 
               className="w-full rounded-xl border-slate-200 hover:bg-slate-100 text-slate-800 font-semibold h-10 text-xs sm:text-sm px-2 truncate"
             >
-              View Profile
+              <Link href={`/hospitals/${slug}`}>
+                View Profile
+              </Link>
             </Button>
             <EnquiryForm>
               <Button className="w-full rounded-xl shadow-xs bg-gradient-to-r from-primary to-teal-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold h-10 text-xs sm:text-sm px-2 flex items-center justify-center gap-1">
