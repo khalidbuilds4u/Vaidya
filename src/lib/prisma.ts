@@ -27,6 +27,13 @@ function createPrismaClient() {
   // Strip Prisma-specific query parameters from the URL before passing to pg.Pool
   // because the pg library will pass them to the Postgres server, which will reject them.
   let pgConnectionString = connectionString;
+  
+  // Auto-correct invalid Supabase pooler hostnames if the user accidentally replaced 'aws' with their project name
+  pgConnectionString = pgConnectionString.replace(
+    /tourism2026-0-([a-z0-9-]+)\.pooler\.supabase\.com/,
+    'aws-0-$1.pooler.supabase.com'
+  );
+
   try {
     const url = new URL(pgConnectionString);
     url.searchParams.delete("pgbouncer");
