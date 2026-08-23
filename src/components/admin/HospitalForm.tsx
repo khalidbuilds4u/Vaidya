@@ -20,6 +20,13 @@ type Hospital = {
   otCount: number | null;
   accreditations: string[];
   internationalServices: string[];
+  established?: number | null;
+  airportDistance?: number | null;
+  premiumFacilities?: string[];
+  advancedTechnologies?: string[];
+  connectivityLocation?: string[];
+  excellenceInCare?: string[];
+  hospitalFacilities?: any;
   specialties?: { id: string; name: string }[];
 };
 
@@ -133,6 +140,88 @@ export function HospitalForm({ initialData, allSpecialties, allCities }: { initi
                 ))}
               </select>
             </div>
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-300">Accreditations (comma separated)</label>
+              <textarea
+                name="accreditations"
+                defaultValue={initialData?.accreditations?.join(", ") || ""}
+                rows={2}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                placeholder="JCI, NABH, ISO"
+              />
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-300">International Services (comma separated)</label>
+              <textarea
+                name="internationalServices"
+                defaultValue={initialData?.internationalServices?.join(", ") || ""}
+                rows={2}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                placeholder="Airport Transfer, Visa Assistance, Interpreter"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-300">Premium Facilities (newline separated)</label>
+              <textarea
+                name="premiumFacilities"
+                defaultValue={initialData?.premiumFacilities?.join("\n") || ""}
+                rows={3}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                placeholder="Enter each facility on a new line"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-300">Advanced Technologies (newline separated)</label>
+              <textarea
+                name="advancedTechnologies"
+                defaultValue={initialData?.advancedTechnologies?.join("\n") || ""}
+                rows={3}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                placeholder="Enter each technology on a new line"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-300">Connectivity & Location (newline separated)</label>
+              <textarea
+                name="connectivityLocation"
+                defaultValue={initialData?.connectivityLocation?.join("\n") || ""}
+                rows={3}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                placeholder="Enter each point on a new line"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium text-slate-300">Excellence in Care (newline separated)</label>
+              <textarea
+                name="excellenceInCare"
+                defaultValue={initialData?.excellenceInCare?.join("\n") || ""}
+                rows={3}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                placeholder="Enter each point on a new line"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium flex justify-between text-slate-300">
+                <span>Hospital Facilities (JSON format)</span>
+                <span className="text-xs text-slate-400">e.g. &#123; "Food": ["Restaurant", "Diet on request"], "Comfort": ["TV"] &#125;</span>
+              </label>
+              <textarea
+                name="hospitalFacilities"
+                defaultValue={initialData?.hospitalFacilities ? JSON.stringify(initialData.hospitalFacilities, null, 2) : ""}
+                rows={5}
+                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-mono text-white"
+                placeholder='{
+  "Food": ["Diet on Request", "Restaurant"],
+  "Transportation": ["Airport pickup"]
+}'
+              />
+            </div>
             <div>
               <label className="block text-sm font-semibold text-slate-300 mb-2">Street Address</label>
               <input
@@ -161,35 +250,58 @@ export function HospitalForm({ initialData, allSpecialties, allCities }: { initi
             Infrastructure & Facilities
           </h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">Total Beds</label>
-              <input
-                type="number"
-                name="beds"
-                defaultValue={initialData?.beds || ""}
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-              />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-300">Beds</label>
+                <input
+                  type="number"
+                  name="beds"
+                  defaultValue={initialData?.beds || ""}
+                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                  placeholder="Total beds"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-300">ICU Beds</label>
+                <input
+                  type="number"
+                  name="icuBeds"
+                  defaultValue={initialData?.icuBeds || ""}
+                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                  placeholder="ICU beds"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-300">OT Count</label>
+                <input
+                  type="number"
+                  name="otCount"
+                  defaultValue={initialData?.otCount || ""}
+                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                  placeholder="Operation theaters"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-300">Established Year</label>
+                <input
+                  type="number"
+                  name="established"
+                  defaultValue={initialData?.established || ""}
+                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                  placeholder="e.g. 2006"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-medium text-slate-300">Airport Distance (km)</label>
+                <input
+                  type="number"
+                  name="airportDistance"
+                  defaultValue={initialData?.airportDistance || ""}
+                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
+                  placeholder="e.g. 13"
+                />
+              </div>
             </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">ICU Beds</label>
-              <input
-                type="number"
-                name="icuBeds"
-                defaultValue={initialData?.icuBeds || ""}
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">OT Count</label>
-              <input
-                type="number"
-                name="otCount"
-                defaultValue={initialData?.otCount || ""}
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-              />
-            </div>
-          </div>
         </div>
 
         {/* Section 2.5: Specialties */}

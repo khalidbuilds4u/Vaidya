@@ -56,6 +56,29 @@ export async function createHospital(formData: FormData) {
     throw new Error("City is required");
   }
 
+  const established = parseNumber(formData.get("established"));
+  const airportDistance = parseNumber(formData.get("airportDistance"));
+  
+  const parseStringArray = (name: string) => {
+    const val = parseString(formData.get(name));
+    return val ? val.split("\n").map(s => s.trim()).filter(Boolean) : [];
+  };
+
+  const premiumFacilities = parseStringArray("premiumFacilities");
+  const advancedTechnologies = parseStringArray("advancedTechnologies");
+  const connectivityLocation = parseStringArray("connectivityLocation");
+  const excellenceInCare = parseStringArray("excellenceInCare");
+  
+  let hospitalFacilities = null;
+  const hfStr = parseString(formData.get("hospitalFacilities"));
+  if (hfStr) {
+    try {
+      hospitalFacilities = JSON.parse(hfStr);
+    } catch (e) {
+      console.error("Invalid JSON in hospitalFacilities");
+    }
+  }
+
   await prisma.hospital.create({
     data: {
       name,
@@ -68,6 +91,13 @@ export async function createHospital(formData: FormData) {
       otCount,
       accreditations,
       internationalServices,
+      established,
+      airportDistance,
+      premiumFacilities,
+      advancedTechnologies,
+      connectivityLocation,
+      excellenceInCare,
+      hospitalFacilities: hospitalFacilities || undefined,
       cityId,
       specialties: {
         connect: specialtyIds.map(id => ({ id }))
@@ -118,6 +148,29 @@ export async function updateHospital(id: string, formData: FormData) {
   const specialtyIds = formData.getAll("specialtyIds").map(id => id.toString());
   const cityId = parseString(formData.get("cityId"));
 
+  const established = parseNumber(formData.get("established"));
+  const airportDistance = parseNumber(formData.get("airportDistance"));
+  
+  const parseStringArray = (name: string) => {
+    const val = parseString(formData.get(name));
+    return val ? val.split("\n").map(s => s.trim()).filter(Boolean) : [];
+  };
+
+  const premiumFacilities = parseStringArray("premiumFacilities");
+  const advancedTechnologies = parseStringArray("advancedTechnologies");
+  const connectivityLocation = parseStringArray("connectivityLocation");
+  const excellenceInCare = parseStringArray("excellenceInCare");
+  
+  let hospitalFacilities = null;
+  const hfStr = parseString(formData.get("hospitalFacilities"));
+  if (hfStr) {
+    try {
+      hospitalFacilities = JSON.parse(hfStr);
+    } catch (e) {
+      console.error("Invalid JSON in hospitalFacilities");
+    }
+  }
+
   await prisma.hospital.update({
     where: { id },
     data: {
@@ -131,6 +184,13 @@ export async function updateHospital(id: string, formData: FormData) {
       otCount,
       accreditations,
       internationalServices,
+      established,
+      airportDistance,
+      premiumFacilities,
+      advancedTechnologies,
+      connectivityLocation,
+      excellenceInCare,
+      hospitalFacilities: hospitalFacilities || undefined,
       cityId: cityId || undefined,
       specialties: {
         set: specialtyIds.map(id => ({ id }))

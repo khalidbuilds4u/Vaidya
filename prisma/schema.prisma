@@ -104,6 +104,13 @@ model Hospital {
   otCount               Int?
   accreditations        String[]
   internationalServices String[]
+  established           Int?
+  airportDistance       Int?
+  premiumFacilities     String[]       @default([])
+  advancedTechnologies  String[]       @default([])
+  connectivityLocation  String[]       @default([])
+  excellenceInCare      String[]       @default([])
+  hospitalFacilities    Json?
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
   imageUrl              String?
