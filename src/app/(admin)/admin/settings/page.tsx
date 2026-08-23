@@ -5,6 +5,9 @@ import { ShieldCheck, Loader2, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { updateAdminPassword } from "@/app/actions/admin-settings";
 
+export const dynamic = "force-dynamic";
+
+
 export default function AdminSettingsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });

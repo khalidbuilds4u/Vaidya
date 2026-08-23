@@ -1,6 +1,9 @@
 import { Metadata } from "next"
 import { BlogForm } from "./BlogForm"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Write Blog Post | Admin Dashboard",
 }

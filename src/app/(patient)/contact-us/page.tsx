@@ -2,6 +2,9 @@ import { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Contact Us | Asad Healthcare",
   description: "Get in touch with Asad Healthcare for your medical travel needs. We're here to help you 24/7.",

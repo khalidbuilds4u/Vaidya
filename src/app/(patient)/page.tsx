@@ -8,6 +8,9 @@ import { HowProcessWorks } from '@/components/patient/home/HowProcessWorks';
 import { FAQSection } from '@/components/patient/home/FAQSection';
 import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
 
+export const dynamic = "force-dynamic";
+
+
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50">

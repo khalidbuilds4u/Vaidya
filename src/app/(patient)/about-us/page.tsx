@@ -4,6 +4,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "About Asad Healthcare | Medical Tourism in India",
   description: "Learn about Asad Healthcare, our mission, our values, and our commitment to bringing world-class healthcare to international patients.",

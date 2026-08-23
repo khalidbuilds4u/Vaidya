@@ -6,6 +6,9 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { CheckCircle2, Clock, DollarSign, Activity, Microscope, Stethoscope } from 'lucide-react';
 import Link from 'next/link';
 
+export const dynamic = "force-dynamic";
+
+
 // Mock DB Fetch
 const getSubTreatmentDetails = (slug: string, subSlug: string) => {
   const name = subSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');

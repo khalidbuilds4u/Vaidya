@@ -4,6 +4,9 @@ import { Search, Activity, Sparkles, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: 'Medical Conditions & Diseases Guide | AsadHealthcare',
   description: 'Learn about common medical conditions, symptoms, causes, and the best treatment options available in India.',

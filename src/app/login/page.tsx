@@ -5,6 +5,9 @@ import { loginAction } from "@/app/actions/auth";
 import { ShieldCheck, Eye, EyeOff, Loader2 } from "lucide-react";
 import { useState } from "react";
 
+export const dynamic = "force-dynamic";
+
+
 export default function LoginPage() {
   const [state, formAction, isPending] = useActionState(loginAction, undefined);
   const [showPassword, setShowPassword] = useState(false);

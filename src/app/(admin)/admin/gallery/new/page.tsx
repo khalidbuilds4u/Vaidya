@@ -1,6 +1,9 @@
 import { Metadata } from "next"
 import { GalleryForm } from "./GalleryForm"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Upload Gallery Image | Admin Dashboard",
 }

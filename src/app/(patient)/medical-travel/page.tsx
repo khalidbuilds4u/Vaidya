@@ -3,6 +3,9 @@ import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Plane, Hotel, MessageCircle, FileText, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: 'Medical Travel & Visa Assistance | AsadHealthcare',
   description: 'Complete end-to-end medical travel assistance including visa letters, airport pickup, accommodation, and language interpreters in India.',
