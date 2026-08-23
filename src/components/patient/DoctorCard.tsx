@@ -34,26 +34,25 @@ export function DoctorCard({
   biography,
 }: DoctorCardProps) {
   return (
-    <Link href={`/doctors/${slug}`} className="block">
-      <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/60 flex flex-col group relative bg-white shadow-sm hover:shadow-xl transition-all duration-300">
-        
-        {/* Large Inset Image at Top */}
-        <div className="w-full h-56 sm:h-64 lg:h-72 rounded-xl overflow-hidden bg-slate-100 relative mb-4">
-          <img 
-            src={image} 
-            alt={name}
-            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-          />
-        </div>
+    <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/60 flex flex-col group relative bg-white shadow-sm hover:shadow-xl transition-all duration-300">
+      
+      {/* Large Inset Image at Top */}
+      <Link href={`/doctors/${slug}`} className="w-full h-56 sm:h-64 lg:h-72 rounded-xl overflow-hidden bg-slate-100 relative mb-4 block">
+        <img 
+          src={image} 
+          alt={name}
+          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+        />
+      </Link>
 
         {/* Content Area */}
         <div className="flex flex-col flex-1 px-1 sm:px-2">
           
-          {/* Title Row */}
-          <div className="flex flex-wrap items-center gap-2 mb-1">
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">
-              {name}
-            </h3>
+        {/* Title Row */}
+        <div className="flex flex-wrap items-center gap-2 mb-1">
+          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+            <Link href={`/doctors/${slug}`}>{name}</Link>
+          </h3>
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border border-emerald-200/60 bg-emerald-50 text-emerald-700 text-[10px] font-bold shadow-sm">
               <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
               Profile Authorized
@@ -88,19 +87,24 @@ export function DoctorCard({
             </div>
           </div>
 
-          {/* View Profile Button (Left Aligned) */}
-          <div className="mt-auto flex justify-start pt-2 border-t border-slate-100">
-            <Button 
-              asChild 
-              variant="outline" 
-              className="mt-4 rounded-lg border-primary text-primary hover:bg-primary/5 hover:text-primary font-bold h-10 px-6"
-            >
-              <div>View Profile</div>
+        {/* Action Buttons */}
+        <div className="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+          <Button 
+            asChild 
+            variant="outline" 
+            className="rounded-lg border-primary text-primary hover:bg-primary/5 hover:text-primary font-bold h-10 px-2 truncate"
+          >
+            <Link href={`/doctors/${slug}`}>View Profile</Link>
+          </Button>
+          <EnquiryForm>
+            <Button className="w-full rounded-lg shadow-xs bg-gradient-to-r from-primary to-teal-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold h-10 px-2 flex items-center justify-center gap-1">
+              <span>Book Consult</span>
+              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </Button>
-          </div>
-
+          </EnquiryForm>
         </div>
+
       </div>
-    </Link>
+    </div>
   );
 }
