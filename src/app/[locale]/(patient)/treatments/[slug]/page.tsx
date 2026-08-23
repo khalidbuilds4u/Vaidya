@@ -10,6 +10,8 @@ import { CheckCircle2, Clock, DollarSign, HeartPulse, Activity, ArrowRight, Chev
 import Link from 'next/link';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 import { prisma } from '@/lib/prisma';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -264,8 +266,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function TreatmentDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+  const t = await getTranslations('TreatmentDetail');
   
   // 1. Fetch real treatment from DB
   const dbTreatment = await prisma.treatment.findUnique({
@@ -355,19 +359,19 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="w-full lg:w-1/2">
               <span className="text-primary-foreground/80 font-medium tracking-wider uppercase text-sm mb-4 block">
-                {treatment.specialty}
+                {getTranslation(dbTreatment.specialty, 'name', locale)}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {treatment.name} in India
+                {t('hero.inIndia', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                {treatment.overview}
+                {getTranslation(dbTreatment, 'overview', locale) || baseTreatment.overview}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <EnquiryForm>
                   <Button size="lg" className="bg-white text-primary hover:bg-slate-100 px-8 text-md h-12">
-                    Get Personalized Estimate
+                    {t('hero.getEstimate')}
                   </Button>
                 </EnquiryForm>
               </div>
@@ -398,17 +402,17 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <Card className="p-4 flex flex-col justify-center items-center text-center">
                 <DollarSign className="w-8 h-8 text-primary mb-2" />
-                <p className="text-sm text-muted-foreground">Est. Cost Range</p>
+                <p className="text-sm text-muted-foreground">{t('stats.estCost')}</p>
                 <p className="font-bold text-lg">${treatment.minEstimate} - ${treatment.maxEstimate}</p>
               </Card>
               <Card className="p-4 flex flex-col justify-center items-center text-center">
                 <Clock className="w-8 h-8 text-primary mb-2" />
-                <p className="text-sm text-muted-foreground">Recovery Time</p>
+                <p className="text-sm text-muted-foreground">{t('stats.recovery')}</p>
                 <p className="font-bold text-lg">{treatment.recoveryTime}</p>
               </Card>
               <Card className="p-4 flex flex-col justify-center items-center text-center col-span-2 md:col-span-1">
                 <Activity className="w-8 h-8 text-primary mb-2" />
-                <p className="text-sm text-muted-foreground">Hospital Stay</p>
+                <p className="text-sm text-muted-foreground">{t('stats.hospitalStay')}</p>
                 <p className="font-bold text-lg">{treatment.hospitalStay}</p>
               </Card>
             </div>
@@ -417,8 +421,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             <section className="bg-white p-8 rounded-2xl shadow-sm border space-y-8">
               
               <div>
-                <h2 className="text-2xl font-bold mb-4">When is {treatment.name} Required?</h2>
-                <p className="text-slate-600 mb-4">Common symptoms and causes that indicate the need for this procedure include:</p>
+                <h2 className="text-2xl font-bold mb-4">{t('required.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
+                <p className="text-slate-600 mb-4">{t('required.desc')}</p>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {treatment.causesAndSymptoms?.map((item, i) => (
                     <li key={i} className="flex items-start">
@@ -430,8 +434,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
               </div>
 
               <div className="border-t pt-8">
-                <h2 className="text-2xl font-bold mb-4">Diagnosis & Evaluation</h2>
-                <p className="text-slate-600 mb-4">Before recommending surgery, doctors typically perform the following tests:</p>
+                <h2 className="text-2xl font-bold mb-4">{t('diagnosis.title')}</h2>
+                <p className="text-slate-600 mb-4">{t('diagnosis.desc')}</p>
                 <ul className="space-y-3">
                   {treatment.diagnosis?.map((item, i) => (
                     <li key={i} className="flex items-center text-slate-700">
@@ -449,19 +453,19 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
               <section>
                 <div className="flex items-center gap-3 mb-6">
                   <Activity className="w-6 h-6 text-primary" />
-                  <h2 className="text-2xl font-bold">Conditions Treated by this Procedure</h2>
+                  <h2 className="text-2xl font-bold">{t('conditions.title')}</h2>
                 </div>
                 <p className="text-slate-600 mb-6 text-lg">
-                  {treatment.name} is highly effective in treating or managing the following diseases and conditions:
+                  {t('conditions.desc', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {(treatment as any).treatsConditions.map((condition: any) => (
-                    <Link key={condition.slug} href={`/conditions/${condition.slug}`}>
+                    <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
                         <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{condition.name}</h3>
                         <p className="text-sm text-slate-600 line-clamp-2 mb-4 flex-1">{condition.description}</p>
                         <span className="text-primary text-sm font-medium flex items-center gap-1">
-                          Read about this condition <ArrowRight className="w-3 h-3" />
+                          {t('conditions.readMore')} <ArrowRight className="w-3 h-3" />
                         </span>
                       </Card>
                     </Link>
@@ -473,7 +477,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {/* Sub-Treatments */}
             {treatment.subTreatments && treatment.subTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">Types of {treatment.name}</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('types.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {treatment.subTreatments.map((sub, idx) => (
                     <Card key={idx} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
@@ -492,7 +496,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                         <h3 className="font-bold text-lg mb-2">{sub.name}</h3>
                         <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">{sub.description}</p>
                         <Button asChild variant="outline" className="w-full">
-                          <Link href={`/treatments/${resolvedParams.slug}/${sub.slug}`}>View Specific Details</Link>
+                          <Link href={`/${locale}/treatments/${resolvedParams.slug}/${sub.slug}`}>{t('types.viewDetails')}</Link>
                         </Button>
                       </div>
                     </Card>
@@ -505,7 +509,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             <section className="bg-white p-8 rounded-2xl shadow-sm border">
               <h2 className="text-2xl font-bold mb-6 flex items-center">
                 <HeartPulse className="w-6 h-6 text-primary mr-3" />
-                How is the procedure performed?
+                {t('procedure.title')}
               </h2>
               <ul className="space-y-4">
                 {treatment.procedureDetails.map((step, idx) => (
@@ -523,7 +527,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             <section className="bg-white p-8 rounded-2xl shadow-sm border space-y-8">
               
               <div>
-                <h2 className="text-2xl font-bold mb-4">Preparation & Pre-Op</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('postOp.prepTitle')}</h2>
                 <ul className="space-y-3">
                   {treatment.preOpPrep?.map((item, i) => (
                     <li key={i} className="flex items-center text-slate-700">
@@ -535,7 +539,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
               </div>
 
               <div className="border-t pt-8">
-                <h2 className="text-2xl font-bold mb-4">Recovery & Post-Op Care</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('postOp.recoveryTitle')}</h2>
                 <ul className="space-y-3">
                   {treatment.postOpCare?.map((item, i) => (
                     <li key={i} className="flex items-center text-slate-700">
@@ -550,7 +554,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             {/* Doctors Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">Top Specialists for {treatment.name}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('doctors.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
               <div className="space-y-6">
                 {treatment.topDoctors.map(doctor => (
                   <DoctorCard key={doctor.slug} {...doctor} />
@@ -560,7 +564,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             {/* Hospitals Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">Best Hospitals for {treatment.name}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('hospitals.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
               <div className="space-y-6">
                 {treatment.topHospitals.map(hospital => (
                   <HospitalCard key={hospital.slug} {...hospital} />
@@ -571,7 +575,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {/* FAQs */}
             {treatment.faqs && treatment.faqs.length > 0 && (
               <section className="pt-8">
-                <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('faqs.title')}</h2>
                 <div className="space-y-4">
                   {treatment.faqs.map((faqRaw: any, idx: number) => {
                     const faq = faqRaw as { question: string, answer: string };
@@ -592,21 +596,21 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
           <div className="w-full lg:w-1/3">
             <div className="sticky top-24 space-y-6">
               <Card className="p-6 border-primary/20 bg-primary/5">
-                <h3 className="text-xl font-bold mb-2">Need Help Deciding?</h3>
+                <h3 className="text-xl font-bold mb-2">{t('sidebar.helpTitle')}</h3>
                 <p className="text-muted-foreground mb-6 text-sm">
-                  Share your medical reports with our experts to get a free medical opinion and precise cost estimate from multiple top hospitals.
+                  {t('sidebar.helpDesc')}
                 </p>
                 <EnquiryForm>
-                  <Button className="w-full h-12 text-md">Request Medical Opinion</Button>
+                  <Button className="w-full h-12 text-md">{t('sidebar.requestOpinion')}</Button>
                 </EnquiryForm>
                 <p className="text-xs text-center text-muted-foreground mt-4 flex justify-center items-center">
                   <CheckCircle2 className="w-3 h-3 mr-1 text-green-600" />
-                  100% Free & Confidential
+                  {t('sidebar.freeConfidential')}
                 </p>
               </Card>
 
               <Card className="p-6">
-                <h3 className="font-bold mb-4 border-b pb-2">Potential Risks</h3>
+                <h3 className="font-bold mb-4 border-b pb-2">{t('sidebar.risksTitle')}</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
                   {treatment.risks.map((risk, idx) => (
                     <li key={idx} className="flex items-center">
@@ -616,7 +620,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                   ))}
                 </ul>
                 <p className="text-xs text-muted-foreground mt-4 italic">
-                  * All surgical procedures carry some risk. Your doctor will discuss these with you during consultation.
+                  {t('sidebar.risksDisclaimer')}
                 </p>
               </Card>
             </div>

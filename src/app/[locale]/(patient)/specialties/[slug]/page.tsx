@@ -128,12 +128,16 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 import { prisma } from '@/lib/prisma';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
 
-export default async function SpecialtyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function SpecialtyDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+  const t = await getTranslations('SpecialtyDetail');
   const specialty = getSpecialtyDetails(resolvedParams.slug);
 
   if (!specialty) {
@@ -168,11 +172,11 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                   <Stethoscope className="w-6 h-6 text-white" />
                 </div>
                 <span className="text-primary-foreground/80 font-medium tracking-wider uppercase text-sm">
-                  Medical Specialty
+                  {t('hero.tag')}
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {specialty.name} in India
+                {t('hero.inIndia', { name: specialty.name })}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
                 {specialty.overview}
@@ -180,7 +184,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
               
               <EnquiryForm>
                 <Button size="lg" className="bg-white text-primary hover:bg-slate-100 px-8 text-md h-12">
-                  Get Free Consultation Plan
+                  {t('hero.getPlan')}
                 </Button>
               </EnquiryForm>
             </div>
@@ -206,7 +210,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             
             {/* Popular Treatments in this Specialty */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">Popular {specialty.name} Treatments</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: specialty.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {specialty.popularTreatments.map(treatment => (
                   <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
@@ -223,7 +227,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                         {treatment.description}
                       </p>
                       <Button asChild className="w-full">
-                        <Link href={`/treatments/${treatment.slug}`}>View Treatment Details</Link>
+                        <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
                       </Button>
                     </div>
                   </Card>
@@ -234,8 +238,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Doctors Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold">Top Specialists</h2>
-                <Link href="/doctors" className="text-primary hover:underline font-medium text-sm">View All</Link>
+                <h2 className="text-2xl font-bold">{t('doctors.title')}</h2>
+                <Link href={`/${locale}/doctors`} className="text-primary hover:underline font-medium text-sm">{t('doctors.viewAll')}</Link>
               </div>
               <div className="space-y-6">
                 {specialty.topDoctors.map(doctor => (
@@ -247,8 +251,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Hospitals Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold">Best Hospitals for {specialty.name}</h2>
-                <Link href="/hospitals" className="text-primary hover:underline font-medium text-sm">View All</Link>
+                <h2 className="text-2xl font-bold">{t('hospitals.title', { name: specialty.name })}</h2>
+                <Link href={`/${locale}/hospitals`} className="text-primary hover:underline font-medium text-sm">{t('hospitals.viewAll')}</Link>
               </div>
               <div className="space-y-6">
                 {specialty.topHospitals.map(hospital => (
@@ -257,24 +261,23 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
               </div>
             </section>
             
-            {/* Common Conditions Treated */}
             <section className="mt-16">
                 <div className="flex items-center gap-3 mb-6">
                   <Activity className="w-6 h-6 text-primary" />
-                  <h2 className="text-2xl font-bold">Common Conditions Treated</h2>
+                  <h2 className="text-2xl font-bold">{t('conditions.title')}</h2>
                 </div>
                 <p className="text-slate-600 mb-6 text-lg">
-                  Patients from around the world travel to India for the expert management of these complex {specialty.name.toLowerCase()} conditions:
+                  {t('conditions.desc', { name: specialty.name.toLowerCase() })}
                 </p>
                 
                 <div className="grid sm:grid-cols-3 gap-4">
                   {dynamicConditions.map((condition) => (
-                    <Link key={condition.slug} href={`/conditions/${condition.slug}`}>
+                    <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer">
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{condition.name}</h3>
-                        <p className="text-sm text-slate-600 line-clamp-2 mb-4">{condition.description}</p>
+                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(condition, 'name', locale)}</h3>
+                        <p className="text-sm text-slate-600 line-clamp-2 mb-4">{getTranslation(condition, 'description', locale)}</p>
                         <span className="text-primary text-sm font-medium flex items-center gap-1">
-                          View details <ArrowRight className="w-3 h-3" />
+                          {t('conditions.viewDetails')} <ArrowRight className="w-3 h-3" />
                         </span>
                       </Card>
                     </Link>
@@ -288,25 +291,25 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
           <div className="w-full lg:w-1/3">
             <div className="sticky top-24">
               <Card className="p-6 border-slate-200 shadow-xl shadow-slate-200/40">
-                <h3 className="text-xl font-bold mb-4">Request a Medical Opinion</h3>
+                <h3 className="text-xl font-bold mb-4">{t('sidebar.title')}</h3>
                 <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
-                  Upload your reports and get a customized treatment plan from India's leading {specialty.name.toLowerCase()} experts within 48 hours.
+                  {t('sidebar.desc', { name: specialty.name.toLowerCase() })}
                 </p>
                 <EnquiryForm>
-                  <Button className="w-full h-14 text-md">Start Your Journey</Button>
+                  <Button className="w-full h-14 text-md">{t('sidebar.startJourney')}</Button>
                 </EnquiryForm>
                 <div className="mt-6 space-y-3 pt-6 border-t border-slate-100">
                   <div className="flex items-center text-sm text-slate-600">
                     <span className="w-2 h-2 rounded-full bg-green-500 mr-3"></span>
-                    No obligation to proceed
+                    {t('sidebar.noObligation')}
                   </div>
                   <div className="flex items-center text-sm text-slate-600">
                     <span className="w-2 h-2 rounded-full bg-green-500 mr-3"></span>
-                    Multiple hospital quotes
+                    {t('sidebar.multipleQuotes')}
                   </div>
                   <div className="flex items-center text-sm text-slate-600">
                     <span className="w-2 h-2 rounded-full bg-green-500 mr-3"></span>
-                    Dedicated care manager
+                    {t('sidebar.dedicatedManager')}
                   </div>
                 </div>
               </Card>

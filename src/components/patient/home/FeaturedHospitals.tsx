@@ -3,10 +3,14 @@ import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { MOCK_HOSPITALS } from '@/lib/mockData';
 import { ArrowRight } from 'lucide-react';
-
+import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslation } from '@/lib/utils';
 import { prisma } from '@/lib/prisma';
 
 export async function FeaturedHospitals() {
+  const locale = await getLocale();
+  const t = await getTranslations('FeaturedHospitals');
+
   let featuredHospitals;
   let dbError = null;
   try {
@@ -33,13 +37,13 @@ export async function FeaturedHospitals() {
       <div className="container mx-auto px-4">
         <div className="flex flex-col mb-8 sm:mb-12 text-center items-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            Accredited Centers
+            {t('tag')}
           </div>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
-            Featured Partner Hospitals
+            {t('title')}
           </h2>
           <p className="text-xs sm:text-base text-slate-600 max-w-2xl leading-relaxed">
-            We collaborate with India&apos;s leading JCI &amp; NABH accredited institutions with dedicated international patient suites and multilingual support.
+            {t('desc')}
           </p>
         </div>
         
@@ -54,22 +58,22 @@ export async function FeaturedHospitals() {
             <HospitalCard 
               key={hospital.id} 
               slug={hospital.slug}
-              name={hospital.name}
-              city={hospital.city.name}
+              name={getTranslation(hospital, 'name', locale)}
+              city={getTranslation(hospital.city, 'name', locale)}
               state={hospital.city.state || undefined}
               image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
               accreditations={hospital.accreditations}
               beds={hospital.beds || 0}
-              specialties={hospital.specialties.map(s => s.name)}
+              specialties={hospital.specialties.map(s => getTranslation(s, 'name', locale))}
               hasInternationalSupport={hospital.internationalServices.length > 0}
             />
           ))}
         </div>
         
         <div className="mt-8 sm:mt-12 text-center">
-          <Link href="/hospitals">
+          <Link href={`/${locale}/hospitals`}>
             <Button size="lg" className="px-6 sm:px-8 h-11 sm:h-12 rounded-xl sm:rounded-full font-semibold shadow-sm bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm group">
-              <span>Explore All 50+ Accredited Hospitals</span>
+              <span>{t('explore')}</span>
               <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

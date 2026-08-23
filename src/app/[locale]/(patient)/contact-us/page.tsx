@@ -1,26 +1,27 @@
 import { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
-
 
 export const metadata: Metadata = {
   title: "Contact Us | Asad Healthcare",
   description: "Get in touch with Asad Healthcare for your medical travel needs. We're here to help you 24/7.",
 }
 
-export default function ContactUsPage() {
+export default async function ContactUsPage() {
+  const t = await getTranslations('ContactUs');
   return (
     <div className="bg-slate-50 min-h-screen pb-24">
       {/* Hero Section */}
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight">
-            Get in Touch
+            {t('hero.title')}
           </h1>
           <p className="text-lg text-slate-300">
-            Have questions about medical treatments in India? Our international care team is available 24/7 to assist you.
+            {t('hero.desc')}
           </p>
         </div>
       </section>
@@ -31,16 +32,16 @@ export default function ContactUsPage() {
           <div className="grid grid-cols-1 lg:grid-cols-5">
             {/* Contact Information */}
             <div className="lg:col-span-2 bg-primary p-8 sm:p-12 text-white">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('info.title')}</h2>
               <p className="text-primary-foreground/80 mb-8 leading-relaxed">
-                Reach out to us for free medical estimates, visa assistance, or any inquiries regarding your travel.
+                {t('info.desc')}
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
                   <Phone className="w-6 h-6 shrink-0 text-teal-300" />
                   <div>
-                    <h4 className="font-semibold">Phone / WhatsApp</h4>
+                    <h4 className="font-semibold">{t('info.phone')}</h4>
                     <a href="tel:+919451187513" className="text-primary-foreground/90 hover:text-white mt-1 block">
                       +91 94511 87513
                     </a>
@@ -50,7 +51,7 @@ export default function ContactUsPage() {
                 <div className="flex items-start gap-4">
                   <Mail className="w-6 h-6 shrink-0 text-teal-300" />
                   <div>
-                    <h4 className="font-semibold">Email Support</h4>
+                    <h4 className="font-semibold">{t('info.email')}</h4>
                     <a href="mailto:care@asadhealthcare.com" className="text-primary-foreground/90 hover:text-white mt-1 block">
                       care@asadhealthcare.com
                     </a>
@@ -60,10 +61,9 @@ export default function ContactUsPage() {
                 <div className="flex items-start gap-4">
                   <MapPin className="w-6 h-6 shrink-0 text-teal-300" />
                   <div>
-                    <h4 className="font-semibold">Head Office</h4>
-                    <p className="text-primary-foreground/90 mt-1 leading-relaxed">
-                      Sector 62, Noida<br />
-                      Delhi NCR, India 201309
+                    <h4 className="font-semibold">{t('info.office')}</h4>
+                    <p className="text-primary-foreground/90 mt-1 leading-relaxed whitespace-pre-line">
+                      {t('info.officeAddress')}
                     </p>
                   </div>
                 </div>
@@ -71,9 +71,9 @@ export default function ContactUsPage() {
                 <div className="flex items-start gap-4">
                   <Clock className="w-6 h-6 shrink-0 text-teal-300" />
                   <div>
-                    <h4 className="font-semibold">Working Hours</h4>
+                    <h4 className="font-semibold">{t('info.hours')}</h4>
                     <p className="text-primary-foreground/90 mt-1">
-                      24/7 Support for International Patients
+                      {t('info.hoursDesc')}
                     </p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ export default function ContactUsPage() {
 
             {/* Contact Form */}
             <div className="lg:col-span-3 p-8 sm:p-12 bg-white">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">Send us a Message</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-6">{t('form.title')}</h2>
               <ContactForm />
             </div>
           </div>

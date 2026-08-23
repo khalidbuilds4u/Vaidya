@@ -97,5 +97,520 @@
     "desc": "Comprehensive care across all major clinical departments. Consult with India's most distinguished surgeons and medical teams.",
     "view": "View Treatments",
     "browseAll": "Browse All Treatments & Procedures"
+  },
+  "Footer": {
+    "tagline": "Where Global Trust Meets World-Class Healing",
+    "desc": "Your premier international patient partner for world-class, affordable medical surgery in India. Connecting you directly with JCI & NABH accredited hospital networks.",
+    "badges": {
+      "nabh": "NABH & JCI Hospitals",
+      "support": "24/7 International Desk",
+      "free": "100% Free Consultation"
+    },
+    "discover": {
+      "title": "Discover",
+      "hospitals": "Accredited Hospitals",
+      "doctors": "Specialist Surgeons",
+      "treatments": "Treatments & Costs",
+      "specialties": "Medical Specialties",
+      "conditions": "Conditions Guide",
+      "cities": "Medical Cities in India"
+    },
+    "support": {
+      "title": "Patient Support",
+      "visa": "Medical Visa (Med Visa)",
+      "accommodation": "Accommodation & Stay",
+      "interpreters": "Language Interpreters",
+      "airport": "Airport Transfer",
+      "search": "Search Providers"
+    },
+    "contact": {
+      "title": "24/7 Helpline",
+      "whatsapp": "WhatsApp Consultation",
+      "responseTime": "Response Time: < 24 Hours"
+    },
+    "legal": {
+      "title": "Legal & Privacy",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "disclaimer": "Medical Disclaimer",
+      "safety": "Patient Safety Guidelines"
+    },
+    "copyright": "© {year} AsadHealthcare. All rights reserved.",
+    "certified": "Certified partner network with JCI & NABH accredited hospitals across India."
+  },
+  "FAQ": {
+    "tag": "Patient Support & Clarity",
+    "title": "Frequently Asked Questions",
+    "desc": "Everything you need to know about planning your medical journey, visa assistance, and hospital stay in India.",
+    "faqs": {
+      "q1": {
+        "question": "Why should I choose India for medical treatment?",
+        "answer": "India offers world-class medical facilities, internationally accredited hospitals (JCI & NABH), highly skilled doctors trained in the US/UK, and advanced medical technology at 60–80% lower costs compared to Western nations, with virtually zero waiting times."
+      },
+      "q2": {
+        "question": "Will there be a language barrier during my hospital stay?",
+        "answer": "No. English is the official operational language across all accredited Indian hospitals. Furthermore, our team assigns a dedicated translator (Arabic, Russian, French, Bengali, Swahili) to assist you during all consultations and hospital admissions."
+      },
+      "q3": {
+        "question": "How do I obtain an Indian Medical Visa (Med Visa)?",
+        "answer": "Once you share your medical reports and select your preferred hospital, we arrange an official Visa Invitation Letter (VIL) from the hospital. You can use this to obtain an e-Medical Visa online within 48 to 72 hours."
+      },
+      "q4": {
+        "question": "Can family members or attendants travel with me?",
+        "answer": "Yes, up to two family members or attendants can travel with you on a Medical Attendant Visa (MED-X). The official hospital invitation letter will explicitly include their details."
+      },
+      "q5": {
+        "question": "How does the quotation and payment process work?",
+        "answer": "Our consultation and concierge coordination is 100% free for patients. All treatment payments are settled directly with the hospital upon arrival via credit card, bank wire transfer, or foreign currency."
+      },
+      "q6": {
+        "question": "What happens when I land at the airport in India?",
+        "answer": "Our representative will receive you directly at the airport terminal with a personalized name placard, transport you to your hotel or hospital room, and provide you with a local SIM card and currency exchange assistance."
+      }
+    },
+    "bottom": {
+      "title": "Still have questions?",
+      "desc": "Our medical assistance team is available 24/7 on WhatsApp & Phone.",
+      "button": "Ask a Specialist"
+    }
+  },
+  "Conditions": {
+    "tag": "Diagnosis & Care",
+    "title": "Common Conditions We Treat",
+    "desc": "Search by your specific diagnosis. Our hospital network specializes in advanced surgical and medical interventions for complex health challenges.",
+    "items": {
+      "c1": {
+        "name": "Coronary Artery Disease",
+        "specialty": "Cardiology",
+        "desc": "Minimally invasive bypass grafting (CABG), angioplasty, and robotic heart surgery."
+      },
+      "c2": {
+        "name": "Osteoarthritis",
+        "specialty": "Orthopedics",
+        "desc": "Robotic-assisted total knee & hip replacements with ultra-fast recovery protocols."
+      },
+      "c3": {
+        "name": "Brain Tumor & Epilepsy",
+        "specialty": "Neurology",
+        "desc": "Advanced microsurgery, CyberKnife radiosurgery, and functional neuro-resection."
+      },
+      "c4": {
+        "name": "Breast & Prostate Cancer",
+        "specialty": "Oncology",
+        "desc": "Targeted immunotherapy, precision radiation, and organ-preserving surgical oncology."
+      }
+    },
+    "explore": "Explore Treatments",
+    "viewAll": "View All 50+ Medical Conditions"
+  },
+  "FeaturedHospitals": {
+    "tag": "Accredited Centers",
+    "title": "Featured Partner Hospitals",
+    "desc": "We collaborate with India's leading JCI & NABH accredited institutions with dedicated international patient suites and multilingual support.",
+    "explore": "Explore All 50+ Accredited Hospitals"
+  },
+  "PatientStories": {
+    "tag": "Verified Patient Journeys",
+    "title": "Real Stories. Real Healing.",
+    "subtitle": "Life-Changing Recoveries.",
+    "desc": "Hear directly from international patients who trusted Asad Healthcare for their complex surgeries in India.",
+    "filters": {
+      "All": "All",
+      "Orthopedics": "Orthopedics",
+      "Cardiology": "Cardiology",
+      "Oncology": "Oncology",
+      "Organ Transplant": "Organ Transplant"
+    },
+    "stats": {
+      "financial": "Financial Benefit",
+      "clinical": "Clinical Result",
+      "verified": "Verified"
+    },
+    "doctor": {
+      "treating": "Treating Super-Specialist",
+      "consult": "Consult Similar Doctor"
+    },
+    "modal": {
+      "journey": "{name}'s Journey",
+      "testimonial": "Patient Testimonial ({duration})",
+      "treatedBy": "Treated by {doctor}",
+      "wantFreeOpinion": "Want a free opinion from {doctor}?",
+      "requestConsult": "Request Free WhatsApp Consultation"
+    }
+  },
+  "HospitalsPage": {
+    "tag": "Accredited Healthcare Network",
+    "title": "Top Accredited Hospitals in India",
+    "titleCity": "Top Accredited Hospitals in {city}",
+    "desc": "Compare internationally certified JCI & NABH hospital facilities equipped with advanced robotic suites and dedicated international patient lounges.",
+    "filters": {
+      "title": "Filter Hospitals",
+      "search": "Search",
+      "searchPlaceholder": "Name or keyword...",
+      "city": "City",
+      "allCities": "All Cities (India)",
+      "specialty": "Specialty",
+      "allSpecialties": "All Specialties",
+      "apply": "Apply Filters"
+    },
+    "results": {
+      "count": "{count} Hospitals Available",
+      "sortBy": "Sort by:",
+      "sortRecommended": "Recommended",
+      "sortBeds": "Most Beds"
+    }
+  },
+  "HospitalDetail": {
+    "breadcrumbs": {
+      "home": "Home",
+      "hospitals": "Hospitals"
+    },
+    "search": "Search hospitals, doctors, or specializations...",
+    "about": "About Hospital",
+    "multiSpecialties": "Multi Speciality Services",
+    "premiumFacilities": "Premium Facilities during Hospital Stay",
+    "technologies": "Advanced Medical Technologies",
+    "connectivity": "Connectivity & Location",
+    "excellence": "Excellence in patient care",
+    "facilities": "Hospital Facilities",
+    "overview": {
+      "title": "Hospital Overview",
+      "established": "Established",
+      "airport": "Airport",
+      "beds": "Beds"
+    },
+    "askButton": "Ask Asad about this Hospital",
+    "address": "Hospital Address",
+    "toc": "Table of Contents",
+    "share": {
+      "title": "Share Hospital",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "copy": "Copy Link"
+    }
+  },
+  "DoctorsPage": {
+    "tag": "Leading Clinical Specialists",
+    "title": "Find Top Doctors & Surgeons in India",
+    "desc": "Consult with internationally trained surgeons, department directors, and pioneers in complex surgeries trusted by thousands of global patients.",
+    "filters": {
+      "title": "Filter Specialists",
+      "search": "Search Doctor",
+      "searchPlaceholder": "Name or keyword...",
+      "specialty": "Specialty",
+      "allSpecialties": "All Specialties",
+      "city": "City",
+      "allCities": "All Cities",
+      "apply": "Apply Filters"
+    },
+    "results": {
+      "count": "{count} Specialists Available",
+      "sortBy": "Sort by:",
+      "sortRecommended": "Recommended",
+      "sortExperience": "Most Experience"
+    }
+  },
+  "DoctorDetail": {
+    "breadcrumbs": {
+      "home": "Home",
+      "doctors": "Doctors"
+    },
+    "authorized": "Profile Authorized",
+    "experience": "{years}+ Years of Experience",
+    "highlyExperienced": "Highly Experienced",
+    "askButton": "Ask Asad Healthcare",
+    "enquiryDisclaimer": "Your enquiry is received by Asad Healthcare's care team and is not sent directly to the doctor.",
+    "about": "About Doctor",
+    "aboutFallback": "{name} is a highly experienced specialist.",
+    "qualifications": "Medical Qualification",
+    "professionalExperience": "Professional Experience",
+    "specialInterests": "Special Interests",
+    "careerHighlights": "Career Highlights",
+    "researchFellowships": "Research & Fellowships",
+    "awardsRecognitions": "Awards & Recognition",
+    "allTreatments": "All Treatments",
+    "disclaimer": "Authorization means that permission to publish this profile has been recorded. It does not mean that Asad Healthcare ranks, medically endorses or guarantees the services or outcomes of the doctor.",
+    "toc": "Table of Contents",
+    "share": {
+      "title": "Share Doctor",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "facebook": "Facebook",
+      "copy": "Copy Link"
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Us?",
+      "subtitle": "There are multiple ways we lighten your burdens",
+      "benefits": [
+        "Patient room upgrade",
+        "Stress-Free Airport Transfers",
+        "Free City Tour",
+        "Free Teleconsultations",
+        "Enjoy a Complimentary Hotel Stay",
+        "Priority Appointments for Swift Care",
+        "Tailored Care to Accelerate Recovery",
+        "Round-the-Clock Patient Care"
+      ]
+    },
+    "related": "Related Doctors",
+    "experienceShort": "{years}+ Years Exp."
+  },
+  "TreatmentsPage": {
+    "tag": "Advanced Clinical Procedures",
+    "title": "Medical Treatments & Cost Estimates",
+    "desc": "Compare transparent surgical packages, recovery timelines, and accredited hospital quotes in India with savings up to 70%.",
+    "search": {
+      "placeholder": "Search treatments, surgeries, procedures...",
+      "button": "Search"
+    },
+    "browse": {
+      "title": "Browse by Medical Specialty",
+      "viewAll": "View All"
+    },
+    "popular": {
+      "title": "Popular Surgical Procedures",
+      "general": "General",
+      "estPackage": "Est. Package:",
+      "customQuote": "Custom Quote",
+      "recovery": "Recovery:",
+      "varies": "Varies",
+      "viewOptions": "View Treatment & Doctor Options"
+    },
+    "specialties": {
+      "Cardiology": "Cardiology",
+      "Oncology": "Oncology",
+      "Orthopedics": "Orthopedics",
+      "Neurology": "Neurology",
+      "Gastroenterology": "Gastroenterology",
+      "Organ Transplant": "Organ Transplant",
+      "Cosmetic Surgery": "Cosmetic Surgery",
+      "Dental": "Dental",
+      "IVF & Fertility": "IVF & Fertility",
+      "Bariatric Surgery": "Bariatric Surgery",
+      "Ophthalmology": "Ophthalmology",
+      "Urology": "Urology"
+    }
+  },
+  "TreatmentDetail": {
+    "hero": {
+      "inIndia": "{name} in India",
+      "getEstimate": "Get Personalized Estimate"
+    },
+    "stats": {
+      "estCost": "Est. Cost Range",
+      "recovery": "Recovery Time",
+      "hospitalStay": "Hospital Stay"
+    },
+    "required": {
+      "title": "When is {name} Required?",
+      "desc": "Common symptoms and causes that indicate the need for this procedure include:"
+    },
+    "diagnosis": {
+      "title": "Diagnosis & Evaluation",
+      "desc": "Before recommending surgery, doctors typically perform the following tests:"
+    },
+    "conditions": {
+      "title": "Conditions Treated by this Procedure",
+      "desc": "{name} is highly effective in treating or managing the following diseases and conditions:",
+      "readMore": "Read about this condition"
+    },
+    "types": {
+      "title": "Types of {name}",
+      "viewDetails": "View Specific Details"
+    },
+    "procedure": {
+      "title": "How is the procedure performed?"
+    },
+    "postOp": {
+      "prepTitle": "Preparation & Pre-Op",
+      "recoveryTitle": "Recovery & Post-Op Care"
+    },
+    "doctors": {
+      "title": "Top Specialists for {name}"
+    },
+    "hospitals": {
+      "title": "Best Hospitals for {name}"
+    },
+    "faqs": {
+      "title": "Frequently Asked Questions"
+    },
+    "sidebar": {
+      "helpTitle": "Need Help Deciding?",
+      "helpDesc": "Share your medical reports with our experts to get a free medical opinion and precise cost estimate from multiple top hospitals.",
+      "requestOpinion": "Request Medical Opinion",
+      "freeConfidential": "100% Free & Confidential",
+      "risksTitle": "Potential Risks",
+      "risksDisclaimer": "* All surgical procedures carry some risk. Your doctor will discuss these with you during consultation."
+    }
+  },
+  "SpecialtyDetail": {
+    "hero": {
+      "tag": "Medical Specialty",
+      "inIndia": "{name} in India",
+      "getPlan": "Get Free Consultation Plan"
+    },
+    "treatments": {
+      "title": "Popular {name} Treatments",
+      "viewDetails": "View Treatment Details"
+    },
+    "doctors": {
+      "title": "Top Specialists",
+      "viewAll": "View All"
+    },
+    "hospitals": {
+      "title": "Best Hospitals for {name}",
+      "viewAll": "View All"
+    },
+    "conditions": {
+      "title": "Common Conditions Treated",
+      "desc": "Patients from around the world travel to India for the expert management of these complex {name} conditions:",
+      "viewDetails": "View details"
+    },
+    "sidebar": {
+      "title": "Request a Medical Opinion",
+      "desc": "Upload your reports and get a customized treatment plan from India's leading {name} experts within 48 hours.",
+      "startJourney": "Start Your Journey",
+      "noObligation": "No obligation to proceed",
+      "multipleQuotes": "Multiple hospital quotes",
+      "dedicatedManager": "Dedicated care manager"
+    }
+  },
+  "AboutUs": {
+    "hero": {
+      "tag": "Global Trust, World-Class Healing",
+      "title1": "Bridging Borders for",
+      "title2": "Better Healthcare.",
+      "desc": "We are India's premier medical tourism facilitator, connecting international patients with accredited hospitals, renowned surgeons, and a seamless recovery experience."
+    },
+    "mission": {
+      "title": "Our Mission",
+      "p1": "At Asad Healthcare, our mission is to eliminate the geographical barriers to high-quality medical treatment. We believe that every patient deserves access to the best healthcare facilities in the world, regardless of where they live.",
+      "p2": "By partnering with JCI and NABH accredited hospitals across India, we ensure that you receive world-class care at a fraction of the cost, complete with dedicated concierge support from the moment you land until you safely return home.",
+      "accredited": "Accredited",
+      "accreditedDesc": "JCI & NABH Hospitals",
+      "global": "Global",
+      "globalDesc": "50+ Countries Served"
+    },
+    "values": {
+      "title": "Why Choose Us?",
+      "desc": "We don't just connect you to a hospital; we walk with you through every step of your healing journey.",
+      "transparencyTitle": "Transparency",
+      "transparencyDesc": "No hidden fees, no surprise costs. We provide clear treatment estimates and honest medical opinions directly from senior surgeons.",
+      "compassionTitle": "Compassion",
+      "compassionDesc": "Medical travel can be daunting. Our concierge team acts as your local family in India, ensuring your absolute comfort and peace of mind.",
+      "excellenceTitle": "Excellence",
+      "excellenceDesc": "We rigorously vet our partner hospitals to ensure they maintain the highest international standards in clinical excellence and technology."
+    },
+    "cta": {
+      "title": "Ready to start your journey?",
+      "button": "Contact Our Medical Team"
+    }
+  },
+  "ContactUs": {
+    "hero": {
+      "title": "Get in Touch",
+      "desc": "Have questions about medical treatments in India? Our international care team is available 24/7 to assist you."
+    },
+    "info": {
+      "title": "Contact Information",
+      "desc": "Reach out to us for free medical estimates, visa assistance, or any inquiries regarding your travel.",
+      "phone": "Phone / WhatsApp",
+      "email": "Email Support",
+      "office": "Head Office",
+      "officeAddress": "Sector 62, Noida\nDelhi NCR, India 201309",
+      "hours": "Working Hours",
+      "hoursDesc": "24/7 Support for International Patients"
+    },
+    "form": {
+      "title": "Send us a Message"
+    }
+  },
+  "MedicalTravel": {
+    "hero": {
+      "tag": "Complete Concierge & Visa Assistance",
+      "title1": "Seamless Medical Travel",
+      "title2": "To India, From Day One.",
+      "desc": "Focus on your health while we take care of the entire logistics. From express medical visas (VIL) and airport transfers to private patient accommodations, our dedicated concierge ensures a stress-free recovery journey.",
+      "requestBtn": "Request Travel Assistance"
+    },
+    "visa": {
+      "fastTrack": "Fast-Track Approval",
+      "title": "Medical Visa (Med Visa) Assistance",
+      "desc": "Traveling for medical treatment requires an official Indian Medical Visa (e-Med Visa). We fast-track this process by coordinating directly with accredited hospitals to issue government-recognized documentation within 24 to 48 hours.",
+      "bullet1": "Official Visa Invitation Letter (VIL) on hospital letterhead.",
+      "bullet2": "Medical Attendant Visa (MED-X) coverage for up to 2 family members.",
+      "bullet3": "Assistance with hospital-backed visa extensions if treatment requires longer recovery.",
+      "guarantee": "Guaranteed Fast Documentation",
+      "guaranteeDesc": "E-Medical Visa turnaround within 48 hours"
+    },
+    "concierge": {
+      "tag": "360-Degree Care",
+      "title": "End-to-End Concierge Services",
+      "pickupTitle": "Airport Pickup & Transfer",
+      "pickupDesc": "You will be greeted directly at the terminal by our representative holding a personalized placard, followed by private ambulance or sanitised cab transfer to your hospital or hotel.",
+      "hotelTitle": "Hotel & Stay Arrangement",
+      "hotelDesc": "We arrange comfortable, hygienically vetted guest apartments and 4/5-star hotels within walking distance of the hospital, catering to your dietary needs and attendant comfort.",
+      "interpreterTitle": "Multilingual Interpreters",
+      "interpreterDesc": "Language is never an obstacle. Dedicated native-speaking translators (Arabic, Russian, French, Bengali, Swahili) accompany you during all medical consultations and ward visits."
+    }
+  },
+  "EnquiryForm": {
+    "success": {
+      "title": "Request Received!",
+      "desc": "Thank you for submitting your medical details. Our expert care coordinators are reviewing your case and will contact you shortly to discuss your treatment plan.",
+      "button": "Done"
+    },
+    "header": {
+      "title": "Get a Free Treatment Plan",
+      "desc": "Submit your medical details. Our expert international care coordinators will review your case and connect with you shortly."
+    },
+    "form": {
+      "firstName": "First Name *",
+      "firstNamePlaceholder": "e.g. John",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "e.g. Doe",
+      "email": "Email Address *",
+      "emailPlaceholder": "e.g. john@example.com",
+      "phone": "Phone / WhatsApp Number *",
+      "phonePlaceholder": "e.g. +1 234 567 8900",
+      "dob": "Date of Birth",
+      "age": "Age",
+      "agePlaceholder": "e.g. 45",
+      "country": "Country of Residence *",
+      "countryPlaceholder": "Select your country",
+      "condition": "Medical Condition / Required Treatment *",
+      "conditionPlaceholder": "Briefly describe your diagnosis, symptoms, or requested procedure...",
+      "cancel": "Cancel",
+      "submit": "Submit Request",
+      "submitting": "Sending...",
+      "error": "Something went wrong. Please try again."
+    },
+    "countries": {
+      "United States": "United States",
+      "United Kingdom": "United Kingdom",
+      "United Arab Emirates": "United Arab Emirates",
+      "Saudi Arabia": "Saudi Arabia",
+      "Oman": "Oman",
+      "Qatar": "Qatar",
+      "Kuwait": "Kuwait",
+      "Bahrain": "Bahrain",
+      "Iraq": "Iraq",
+      "Bangladesh": "Bangladesh",
+      "Kenya": "Kenya",
+      "Nigeria": "Nigeria",
+      "Tanzania": "Tanzania",
+      "Uganda": "Uganda",
+      "Ghana": "Ghana",
+      "Uzbekistan": "Uzbekistan",
+      "Russia": "Russia",
+      "Kazakhstan": "Kazakhstan",
+      "Canada": "Canada",
+      "Australia": "Australia",
+      "Other": "Other"
+    }
+  },
+  "FloatingContact": {
+    "whatsapp": "WhatsApp",
+    "call": "Call Helpline"
   }
 }

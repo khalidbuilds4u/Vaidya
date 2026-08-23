@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { MapPin, CalendarDays, Plane, BedDouble, Search, ChevronRight, Copy } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -20,8 +22,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function HospitalProfilePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function HospitalProfilePage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
+  const { slug, locale } = await params;
+  const t = await getTranslations('HospitalDetail');
   
   const hospital = await prisma.hospital.findUnique({
     where: { slug },
@@ -40,11 +43,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
       {/* Breadcrumb and Search */}
       <div className="container mx-auto px-4 py-6 flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="text-sm font-medium text-slate-500 flex items-center gap-2">
-          <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+          <Link href={`/${locale}`} className="hover:text-primary transition-colors">{t('breadcrumbs.home')}</Link>
           <ChevronRight className="w-4 h-4" />
-          <Link href="/hospitals" className="hover:text-primary transition-colors">Hospitals</Link>
+          <Link href={`/${locale}/hospitals`} className="hover:text-primary transition-colors">{t('breadcrumbs.hospitals')}</Link>
           <ChevronRight className="w-4 h-4" />
-          <span className="text-slate-900 font-semibold truncate max-w-[200px] sm:max-w-none">{hospital.name}</span>
+          <span className="text-slate-900 font-semibold truncate max-w-[200px] sm:max-w-none">{getTranslation(hospital, 'name', locale)}</span>
         </div>
         
         {/* Simple Search Bar Simulation */}
@@ -52,7 +55,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input 
             type="text" 
-            placeholder="Search hospitals, doctors, or specializations..." 
+            placeholder={t('search')} 
             className="w-full pl-10 pr-4 py-2 rounded-lg border border-slate-200 bg-white text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm"
           />
         </div>
@@ -76,15 +79,15 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
 
             {/* Title */}
             <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              {hospital.name}
+              {getTranslation(hospital, 'name', locale)}
             </h1>
 
             {/* About Hospital */}
             <section id="about" className="scroll-mt-24">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">About Hospital</h2>
+              <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('about')}</h2>
               <div className="prose prose-slate max-w-none prose-p:text-slate-600 prose-p:leading-relaxed">
                 <p>
-                  {hospital.description || `${hospital.name} is a premier healthcare institution located in ${hospital.city.name}. Equipped with state-of-the-art medical technology and staffed by internationally trained specialists, the hospital offers comprehensive medical care across various disciplines.`}
+                  {getTranslation(hospital, 'description', locale) || `${getTranslation(hospital, 'name', locale)} is a premier healthcare institution located in ${getTranslation(hospital.city, 'name', locale)}. Equipped with state-of-the-art medical technology and staffed by internationally trained specialists, the hospital offers comprehensive medical care across various disciplines.`}
                 </p>
               </div>
             </section>
@@ -92,7 +95,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {/* Multi Speciality Services */}
             {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && (
               <section id="specialities" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Multi Speciality Services</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('multiSpecialties')}</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-3">
                   {hospital.multiSpecialties.map((spec, idx) => (
                     <li key={idx} className="flex items-center gap-2">
@@ -107,7 +110,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {/* Premium Facilities */}
             {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && (
               <section id="premium-facilities" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Premium Facilities during Hospital Stay</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('premiumFacilities')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                   {hospital.premiumFacilities.map((facility, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -122,7 +125,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {/* Advanced Medical Technologies */}
             {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && (
               <section id="technologies" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Advanced Medical Technologies</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('technologies')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
                   {hospital.advancedTechnologies.map((tech, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -137,7 +140,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {/* Connectivity & Location */}
             {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && (
               <section id="connectivity" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Connectivity & Location</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('connectivity')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                   {hospital.connectivityLocation.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -152,7 +155,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {/* Excellence in Patient Care */}
             {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && (
               <section id="excellence" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Excellence in patient care</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('excellence')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
                   {hospital.excellenceInCare.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
@@ -167,7 +170,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {/* Hospital Facilities Cards */}
             {hospital.hospitalFacilities && typeof hospital.hospitalFacilities === 'object' && Object.keys(hospital.hospitalFacilities).length > 0 && (
               <section id="facilities" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Hospital Facilities</h2>
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('facilities')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {Object.entries(hospital.hospitalFacilities as Record<string, string[]>).map(([category, items], idx) => (
                     <div key={idx} className="rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col h-full">
@@ -198,12 +201,12 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
               
               {/* Hospital Overview Card */}
               <div className="rounded-2xl border border-slate-200 bg-white shadow-sm overflow-hidden p-6">
-                <h3 className="text-lg font-bold text-primary mb-6">Hospital Overview</h3>
+                <h3 className="text-lg font-bold text-primary mb-6">{t('overview.title')}</h3>
                 <div className="space-y-6">
                   <div className="flex gap-4">
                     <MapPin className="w-5 h-5 text-teal-500 shrink-0" />
                     <div>
-                      <div className="text-sm font-semibold text-slate-900">{hospital.city.name}</div>
+                      <div className="text-sm font-semibold text-slate-900">{getTranslation(hospital.city, 'name', locale)}</div>
                       <div className="text-xs text-slate-500 mt-0.5">{hospital.city.country}</div>
                     </div>
                   </div>
@@ -211,7 +214,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     <div className="flex gap-4">
                       <CalendarDays className="w-5 h-5 text-teal-500 shrink-0" />
                       <div>
-                        <div className="text-sm font-semibold text-slate-900">Established</div>
+                        <div className="text-sm font-semibold text-slate-900">{t('overview.established')}</div>
                         <div className="text-xs text-slate-500 mt-0.5">{hospital.established}</div>
                       </div>
                     </div>
@@ -220,7 +223,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     <div className="flex gap-4">
                       <Plane className="w-5 h-5 text-teal-500 shrink-0" />
                       <div>
-                        <div className="text-sm font-semibold text-slate-900">Airport</div>
+                        <div className="text-sm font-semibold text-slate-900">{t('overview.airport')}</div>
                         <div className="text-xs text-slate-500 mt-0.5">{hospital.airportDistance} km</div>
                       </div>
                     </div>
@@ -229,7 +232,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     <div className="flex gap-4">
                       <BedDouble className="w-5 h-5 text-teal-500 shrink-0" />
                       <div>
-                        <div className="text-sm font-semibold text-slate-900">Beds</div>
+                        <div className="text-sm font-semibold text-slate-900">{t('overview.beds')}</div>
                         <div className="text-xs text-slate-500 mt-0.5">{hospital.beds}</div>
                       </div>
                     </div>
@@ -240,47 +243,47 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
               {/* Ask Asad Button */}
               <EnquiryForm>
                 <Button className="w-full rounded-xl h-14 bg-teal-500 hover:bg-teal-600 text-white font-bold text-base shadow-sm hover:shadow-md transition-all">
-                  Ask Asad about this Hospital
+                  {t('askButton')}
                 </Button>
               </EnquiryForm>
 
               {/* Address Card */}
               <div className="rounded-2xl border border-slate-200 bg-white shadow-sm p-6">
-                <h3 className="text-sm font-semibold text-slate-500 mb-2">Hospital Address</h3>
+                <h3 className="text-sm font-semibold text-slate-500 mb-2">{t('address')}</h3>
                 <p className="text-sm text-slate-700 leading-relaxed font-medium">
-                  {hospital.address || `${hospital.name}, ${hospital.city.name}, ${hospital.city.country}`}
+                  {getTranslation(hospital, 'address', locale) || `${getTranslation(hospital, 'name', locale)}, ${getTranslation(hospital.city, 'name', locale)}, ${hospital.city.country}`}
                 </p>
               </div>
 
               {/* Table of Contents Card */}
               <div className="rounded-2xl border border-slate-200 bg-white shadow-sm p-6 hidden md:block">
-                <h3 className="text-lg font-bold text-slate-900 mb-4 text-center">Table of Contents</h3>
+                <h3 className="text-lg font-bold text-slate-900 mb-4 text-center">{t('toc')}</h3>
                 <nav className="flex flex-col space-y-3">
-                  <a href="#about" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">About Hospital</a>
-                  {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Premium Facilities during Hospital Stay</a>}
-                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Multi Speciality Services</a>}
-                  {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Advanced Medical Technologies</a>}
-                  {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && <a href="#connectivity" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Connectivity & Location</a>}
-                  {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Excellence in patient care</a>}
-                  {hospital.hospitalFacilities && Object.keys(hospital.hospitalFacilities).length > 0 && <a href="#facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Hospital Facilities</a>}
+                  <a href="#about" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('about')}</a>
+                  {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('premiumFacilities')}</a>}
+                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('multiSpecialties')}</a>}
+                  {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('technologies')}</a>}
+                  {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && <a href="#connectivity" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('connectivity')}</a>}
+                  {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('excellence')}</a>}
+                  {hospital.hospitalFacilities && Object.keys(hospital.hospitalFacilities).length > 0 && <a href="#facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('facilities')}</a>}
                 </nav>
               </div>
 
               {/* Share Card */}
               <div className="rounded-2xl border border-slate-200 bg-white shadow-sm p-6">
-                <h3 className="text-sm font-semibold text-slate-700 mb-4">Share Hospital</h3>
+                <h3 className="text-sm font-semibold text-slate-700 mb-4">{t('share.title')}</h3>
                 <div className="flex flex-col gap-2">
                   <Button variant="outline" className="w-full justify-center gap-2 border-green-200 bg-green-50 text-green-700 hover:bg-green-100 hover:text-green-800">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.086 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    WhatsApp
+                    {t('share.whatsapp')}
                   </Button>
                   <Button variant="outline" className="w-full justify-center gap-2 border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-800">
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-                    Telegram
+                    {t('share.telegram')}
                   </Button>
                   <Button variant="outline" className="w-full justify-center gap-2 border-slate-200 text-slate-700 hover:bg-slate-50">
                     <Copy className="w-4 h-4" />
-                    Copy Link
+                    {t('share.copy')}
                   </Button>
                 </div>
               </div>

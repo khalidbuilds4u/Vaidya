@@ -2,16 +2,17 @@ import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Plane, Hotel, MessageCircle, FileText, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
-
 
 export const metadata: Metadata = {
   title: 'Medical Travel & Visa Assistance | AsadHealthcare',
   description: 'Complete end-to-end medical travel assistance including visa letters, airport pickup, accommodation, and language interpreters in India.',
 };
 
-export default function MedicalTravelPage() {
+export default async function MedicalTravelPage() {
+  const t = await getTranslations('MedicalTravel');
   return (
     <div className="bg-slate-50 min-h-screen pb-20">
       
@@ -36,24 +37,24 @@ export default function MedicalTravelPage() {
             
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-4 shadow-lg">
               <ShieldCheck className="w-3.5 h-3.5 text-teal-300 shrink-0 animate-pulse" />
-              <span>Complete Concierge &amp; Visa Assistance</span>
+              <span>{t('hero.tag')}</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-4 sm:mb-6 leading-[1.15] text-white">
-              Seamless Medical Travel <br className="hidden sm:inline" />
+              {t('hero.title1')} <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-300 to-cyan-300">
-                To India, From Day One.
+                {t('hero.title2')}
               </span>
             </h1>
             
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed mb-6 sm:mb-8 font-normal max-w-2xl">
-              Focus on your health while we take care of the entire logistics. From express medical visas (VIL) and airport transfers to private patient accommodations, our dedicated concierge ensures a stress-free recovery journey.
+              {t('hero.desc')}
             </p>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <EnquiryForm>
                 <Button size="lg" className="h-12 px-7 rounded-full bg-gradient-to-r from-primary to-teal-600 hover:from-teal-600 hover:to-emerald-700 text-white font-semibold shadow-[0_8px_25px_rgba(15,118,110,0.5)] transition-all active:scale-95 text-xs sm:text-sm flex items-center justify-center gap-2 whitespace-nowrap shrink-0 w-full sm:w-auto">
-                  <span>Request Travel Assistance</span>
+                  <span>{t('hero.requestBtn')}</span>
                   <ArrowRight className="w-4 h-4" />
                 </Button>
               </EnquiryForm>
@@ -70,27 +71,27 @@ export default function MedicalTravelPage() {
               <FileText className="w-6 h-6 sm:w-7 sm:h-7" />
             </div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-2">
-              Fast-Track Approval
+              {t('visa.fastTrack')}
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
-              Medical Visa (Med Visa) Assistance
+              {t('visa.title')}
             </h2>
             <p className="text-xs sm:text-base text-slate-600 mb-6 leading-relaxed">
-              Traveling for medical treatment requires an official Indian Medical Visa (e-Med Visa). We fast-track this process by coordinating directly with accredited hospitals to issue government-recognized documentation within 24 to 48 hours.
+              {t('visa.desc')}
             </p>
             
             <ul className="space-y-3 sm:space-y-3.5">
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm text-slate-700 font-medium">Official Visa Invitation Letter (VIL) on hospital letterhead.</span>
+                <span className="text-xs sm:text-sm text-slate-700 font-medium">{t('visa.bullet1')}</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm text-slate-700 font-medium">Medical Attendant Visa (MED-X) coverage for up to 2 family members.</span>
+                <span className="text-xs sm:text-sm text-slate-700 font-medium">{t('visa.bullet2')}</span>
               </li>
               <li className="flex items-start gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="text-xs sm:text-sm text-slate-700 font-medium">Assistance with hospital-backed visa extensions if treatment requires longer recovery.</span>
+                <span className="text-xs sm:text-sm text-slate-700 font-medium">{t('visa.bullet3')}</span>
               </li>
             </ul>
           </div>
@@ -104,8 +105,8 @@ export default function MedicalTravelPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-4 right-4 text-white">
-                <p className="font-bold text-sm sm:text-base">Guaranteed Fast Documentation</p>
-                <p className="text-[11px] sm:text-xs text-teal-300 font-medium">E-Medical Visa turnaround within 48 hours</p>
+                <p className="font-bold text-sm sm:text-base">{t('visa.guarantee')}</p>
+                <p className="text-[11px] sm:text-xs text-teal-300 font-medium">{t('visa.guaranteeDesc')}</p>
               </div>
             </div>
           </div>
@@ -114,10 +115,10 @@ export default function MedicalTravelPage() {
         {/* 3. Concierge Services Grid */}
         <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            360-Degree Care
+            {t('concierge.tag')}
           </div>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            End-to-End Concierge Services
+            {t('concierge.title')}
           </h2>
         </div>
 
@@ -127,9 +128,9 @@ export default function MedicalTravelPage() {
             <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
               <Plane className="w-6 h-6" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Airport Pickup &amp; Transfer</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{t('concierge.pickupTitle')}</h3>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              You will be greeted directly at the terminal by our representative holding a personalized placard, followed by private ambulance or sanitised cab transfer to your hospital or hotel.
+              {t('concierge.pickupDesc')}
             </p>
           </div>
 
@@ -137,9 +138,9 @@ export default function MedicalTravelPage() {
             <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
               <Hotel className="w-6 h-6" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Hotel &amp; Stay Arrangement</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{t('concierge.hotelTitle')}</h3>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              We arrange comfortable, hygienically vetted guest apartments and 4/5-star hotels within walking distance of the hospital, catering to your dietary needs and attendant comfort.
+              {t('concierge.hotelDesc')}
             </p>
           </div>
 
@@ -147,9 +148,9 @@ export default function MedicalTravelPage() {
             <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
               <MessageCircle className="w-6 h-6" />
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">Multilingual Interpreters</h3>
+            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{t('concierge.interpreterTitle')}</h3>
             <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              Language is never an obstacle. Dedicated native-speaking translators (Arabic, Russian, French, Bengali, Swahili) accompany you during all medical consultations and ward visits.
+              {t('concierge.interpreterDesc')}
             </p>
           </div>
 

@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { submitPatientLead } from '@/app/actions/publicLeadActions';
 import { Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const COUNTRIES = [
   "United States",
@@ -34,6 +35,7 @@ const COUNTRIES = [
 const WHATSAPP_NUMBER = "919451187513";
 
 export function EnquiryForm({ children }: { children: React.ReactNode }) {
+  const t = useTranslations('EnquiryForm');
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -75,7 +77,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
       setIsSuccess(true);
     } catch (error) {
       console.error("Failed to submit lead", error);
-      alert("Something went wrong. Please try again.");
+      alert(t('form.error'));
     } finally {
       setIsSubmitting(false);
     }
@@ -118,71 +120,71 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">Request Received!</h2>
+            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('success.title')}</h2>
             <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
-              Thank you for submitting your medical details. Our expert care coordinators are reviewing your case and will contact you shortly to discuss your treatment plan.
+              {t('success.desc')}
             </p>
             <div className="pt-6">
               <Button onClick={() => handleClose(false)} className="rounded-full shadow-lg bg-primary hover:bg-primary/90 h-11 px-8 font-semibold w-full sm:w-auto">
-                Done
+                {t('success.button')}
               </Button>
             </div>
           </div>
         ) : (
           <>
             <DialogHeader>
-              <DialogTitle className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">Get a Free Treatment Plan</DialogTitle>
+              <DialogTitle className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">{t('header.title')}</DialogTitle>
               <DialogDescription className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Submit your medical details. Our expert international care coordinators will review your case and connect with you shortly.
+                {t('header.desc')}
               </DialogDescription>
             </DialogHeader>
         
         <form className="space-y-4 mt-3" onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">First Name *</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.firstName')}</label>
               <Input 
                 name="firstName"
                 value={formData.firstName}
                 onChange={handleChange}
-                placeholder="e.g. John" 
+                placeholder={t('form.firstNamePlaceholder')} 
                 className="glass-input rounded-xl h-11"
                 required 
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Last Name</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.lastName')}</label>
               <Input 
                 name="lastName"
                 value={formData.lastName}
                 onChange={handleChange}
-                placeholder="e.g. Doe" 
+                placeholder={t('form.lastNamePlaceholder')} 
                 className="glass-input rounded-xl h-11"
               />
             </div>
           </div>
           
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Email Address *</label>
+            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.email')}</label>
             <Input 
               type="email" 
               name="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder="e.g. john@example.com" 
+              placeholder={t('form.emailPlaceholder')} 
               className="glass-input rounded-xl h-11"
               required 
             />
           </div>
           
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Phone / WhatsApp Number *</label>
+            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.phone')}</label>
             <Input 
               type="tel" 
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              placeholder="e.g. +1 234 567 8900" 
+              placeholder={t('form.phonePlaceholder')} 
               className="glass-input rounded-xl h-11"
               required 
             />
@@ -190,7 +192,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Date of Birth</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.dob')}</label>
               <Input 
                 type="date"
                 name="dob"
@@ -200,7 +202,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
               />
             </div>
             <div className="space-y-1.5">
-              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Age</label>
+              <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.age')}</label>
               <Input 
                 type="number"
                 name="age"
@@ -208,14 +210,14 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                 max="120"
                 value={formData.age}
                 onChange={handleChange}
-                placeholder="e.g. 45" 
+                placeholder={t('form.agePlaceholder')} 
                 className="glass-input rounded-xl h-11"
               />
             </div>
           </div>
 
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Country of Residence *</label>
+            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.country')}</label>
             <select 
               name="country"
               value={formData.country}
@@ -223,36 +225,39 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
               className="flex h-11 w-full rounded-xl glass-input px-3.5 py-2 text-sm text-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary font-medium" 
               required
             >
-              <option value="">Select your country</option>
+              <option value="">{t('form.countryPlaceholder')}</option>
               {COUNTRIES.map((c) => (
-                <option key={c} value={c}>{c}</option>
+                <option key={c} value={c}>
+                  {/* We use an optional chain so it falls back to English if translation missing just in case */}
+                  {t(`countries.${c}`) || c}
+                </option>
               ))}
             </select>
           </div>
           
           <div className="space-y-1.5">
-            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">Medical Condition / Required Treatment *</label>
+            <label className="text-xs font-bold uppercase tracking-wider text-slate-700">{t('form.condition')}</label>
             <textarea 
               name="condition"
               value={formData.condition}
               onChange={handleChange}
               rows={3}
               className="flex min-h-[95px] w-full rounded-xl glass-input px-3.5 py-2.5 text-sm placeholder:text-slate-400 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary text-slate-900"
-              placeholder="Briefly describe your diagnosis, symptoms, or requested procedure..."
+              placeholder={t('form.conditionPlaceholder')}
               required
             ></textarea>
           </div>
           
           <div className="pt-3 flex flex-col-reverse sm:flex-row justify-end gap-2.5">
-            <Button variant="outline" type="button" className="rounded-full h-11" onClick={() => handleClose(false)} disabled={isSubmitting}>Cancel</Button>
+            <Button variant="outline" type="button" className="rounded-full h-11" onClick={() => handleClose(false)} disabled={isSubmitting}>{t('form.cancel')}</Button>
             <Button type="submit" className="rounded-full shadow-lg bg-primary hover:bg-primary/90 h-11 px-6 font-semibold" disabled={isSubmitting}>
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Sending...
+                  {t('form.submitting')}
                 </>
               ) : (
-                "Submit Request"
+                t('form.submit')
               )}
             </Button>
           </div>

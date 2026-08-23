@@ -5,6 +5,7 @@ import { Star, Quote, Play, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, M
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { useTranslations } from 'next-intl';
 
 interface PatientStory {
   id: string;
@@ -121,9 +122,18 @@ const STORIES: PatientStory[] = [
 const SPECIALTY_FILTERS = ['All', 'Orthopedics', 'Cardiology', 'Oncology', 'Organ Transplant'];
 
 export function PatientStories() {
+  const t = useTranslations('PatientStories');
   const [activeFilter, setActiveFilter] = useState('All');
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedStory, setSelectedStory] = useState<PatientStory | null>(null);
+
+  const localizedFilters = [
+    { key: 'All', label: t('filters.All') },
+    { key: 'Orthopedics', label: t('filters.Orthopedics') },
+    { key: 'Cardiology', label: t('filters.Cardiology') },
+    { key: 'Oncology', label: t('filters.Oncology') },
+    { key: 'Organ Transplant', label: t('filters.Organ Transplant') }
+  ];
 
   const filteredStories = activeFilter === 'All' 
     ? STORIES 
@@ -152,32 +162,32 @@ export function PatientStories() {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
               <Sparkles className="w-3.5 h-3.5 text-primary" />
-              Verified Patient Journeys
+              {t('tag')}
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
-              Real Stories. Real Healing. <br />
+              {t('title')} <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
-                Life-Changing Recoveries.
+                {t('subtitle')}
               </span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base lg:text-lg mt-2 leading-relaxed">
-              Hear directly from international patients who trusted Asad Healthcare for their complex surgeries in India.
+              {t('desc')}
             </p>
           </div>
 
           {/* Specialty Filter Pills with horizontal scroll on mobile */}
           <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full no-scrollbar">
-            {SPECIALTY_FILTERS.map((filter) => (
+            {localizedFilters.map((filter) => (
               <button
-                key={filter}
-                onClick={() => { setActiveFilter(filter); setCurrentIndex(0); }}
+                key={filter.key}
+                onClick={() => { setActiveFilter(filter.key); setCurrentIndex(0); }}
                 className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer shrink-0 ${
-                  activeFilter === filter
+                  activeFilter === filter.key
                     ? 'bg-primary text-white shadow-md shadow-primary/25 scale-105'
                     : 'glass-card text-slate-700 hover:text-primary hover:border-primary/30'
                 }`}
               >
-                {filter}
+                {filter.label}
               </button>
             ))}
           </div>
@@ -229,11 +239,11 @@ export function PatientStories() {
               {/* Quick Highlight Stats Bar */}
               <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-3 sm:mt-4 pt-1 sm:pt-2">
                 <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 bg-white/95">
-                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Financial Benefit</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('stats.financial')}</p>
                   <p className="text-xs sm:text-sm font-extrabold text-emerald-600 mt-0.5">{activeStory.savings}</p>
                 </div>
                 <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 bg-white/95">
-                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">Clinical Result</p>
+                  <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('stats.clinical')}</p>
                   <p className="text-xs sm:text-sm font-extrabold text-slate-900 mt-0.5 truncate">{activeStory.recoveryTimeline}</p>
                 </div>
               </div>
@@ -259,7 +269,7 @@ export function PatientStories() {
                   </div>
                   <div className="flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
                     <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                    <span>Verified</span>
+                    <span>{t('stats.verified')}</span>
                   </div>
                 </div>
 
@@ -276,7 +286,7 @@ export function PatientStories() {
               {/* Bottom Surgeon Reference & Consultation Action */}
               <div className="pt-4 sm:pt-6 border-t border-slate-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                  <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">Treating Super-Specialist</p>
+                  <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">{t('doctor.treating')}</p>
                   <p className="text-sm sm:text-base font-bold text-slate-900">{activeStory.doctor}</p>
                   <p className="text-xs text-primary font-medium">{activeStory.specialty}</p>
                 </div>
@@ -284,7 +294,7 @@ export function PatientStories() {
                 <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                   <EnquiryForm>
                     <Button className="flex-1 sm:flex-none rounded-full shadow-md bg-primary hover:bg-primary/90 px-5 sm:px-6 font-semibold h-10 sm:h-11 text-xs sm:text-sm">
-                      Consult Similar Doctor
+                      {t('doctor.consult')}
                     </Button>
                   </EnquiryForm>
 
@@ -355,7 +365,7 @@ export function PatientStories() {
                 <div>
                   <DialogTitle className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
                     <span>{selectedStory.flag}</span>
-                    <span>{selectedStory.name}&apos;s Journey</span>
+                    <span>{t('modal.journey', { name: selectedStory.name.split('&')[0].trim() })}</span>
                   </DialogTitle>
                   <p className="text-xs text-slate-500 mt-0.5 truncate">
                     {selectedStory.treatment} &bull; {selectedStory.hospital}
@@ -374,7 +384,7 @@ export function PatientStories() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-between p-4 sm:p-6 text-white">
                 <div className="flex items-center justify-between">
                   <span className="glass-pill px-2.5 py-0.5 rounded-full text-[11px] font-bold text-white bg-black/40 border border-white/20">
-                    Patient Testimonial ({selectedStory.videoDuration})
+                    {t('modal.testimonial', { duration: selectedStory.videoDuration })}
                   </span>
                 </div>
                 
@@ -386,17 +396,17 @@ export function PatientStories() {
                 </div>
 
                 <div className="flex items-center justify-between text-[11px] text-slate-300">
-                  <span className="truncate">Treated by {selectedStory.doctor}</span>
+                  <span className="truncate">{t('modal.treatedBy', { doctor: selectedStory.doctor })}</span>
                   <span className="text-emerald-400 font-bold shrink-0">{selectedStory.savings}</span>
                 </div>
               </div>
             </div>
 
             <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2.5">
-              <p className="text-xs text-slate-600 text-center sm:text-left">Want a free opinion from {selectedStory.doctor}?</p>
+              <p className="text-xs text-slate-600 text-center sm:text-left">{t('modal.wantFreeOpinion', { doctor: selectedStory.doctor })}</p>
               <EnquiryForm>
                 <Button className="w-full sm:w-auto rounded-full font-semibold px-6 shadow-md bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm">
-                  Request Free WhatsApp Consultation
+                  {t('modal.requestConsult')}
                 </Button>
               </EnquiryForm>
             </div>

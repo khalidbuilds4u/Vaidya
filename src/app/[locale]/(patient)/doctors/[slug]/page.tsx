@@ -6,6 +6,8 @@ import { MapPin, CalendarDays, CheckCircle2, Share2, MessageCircle, Link as Link
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { MobileTOC } from '@/components/patient/MobileTOC';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -21,8 +23,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function DoctorProfilePage({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function DoctorProfilePage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
+  const { slug, locale } = await params;
+  const t = await getTranslations('DoctorDetail');
   
   const doctor = await prisma.doctor.findUnique({
     where: { slug },
@@ -51,18 +54,18 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
   });
 
   const city = doctor.city || doctor.hospital.city;
-  const experienceText = doctor.experienceYears ? `${doctor.experienceYears}+ Years of Experience` : 'Highly Experienced';
+  const experienceText = doctor.experienceYears ? t('experience', { years: doctor.experienceYears }) : t('highlyExperienced');
   const profileImage = doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop";
 
   const tocItems = [
-    { id: 'about', label: 'About Doctor', show: true },
-    { id: 'qualifications', label: 'Medical Qualification', show: doctor.medicalQualifications.length > 0 },
-    { id: 'experience', label: 'Professional Experience', show: doctor.professionalExperience.length > 0 },
-    { id: 'interests', label: 'Special Interests', show: doctor.specialInterests.length > 0 },
-    { id: 'highlights', label: 'Career Highlights', show: doctor.careerHighlights.length > 0 },
-    { id: 'research', label: 'Research & Fellowships', show: doctor.researchFellowships.length > 0 },
-    { id: 'awards', label: 'Awards & Recognition', show: doctor.awardsRecognitions.length > 0 },
-    { id: 'treatments', label: 'All Treatments', show: doctor.allTreatments.length > 0 },
+    { id: 'about', label: t('about'), show: true },
+    { id: 'qualifications', label: t('qualifications'), show: doctor.medicalQualifications.length > 0 },
+    { id: 'experience', label: t('professionalExperience'), show: doctor.professionalExperience.length > 0 },
+    { id: 'interests', label: t('specialInterests'), show: doctor.specialInterests.length > 0 },
+    { id: 'highlights', label: t('careerHighlights'), show: doctor.careerHighlights.length > 0 },
+    { id: 'research', label: t('researchFellowships'), show: doctor.researchFellowships.length > 0 },
+    { id: 'awards', label: t('awardsRecognitions'), show: doctor.awardsRecognitions.length > 0 },
+    { id: 'treatments', label: t('allTreatments'), show: doctor.allTreatments.length > 0 },
   ];
 
   return (
@@ -75,11 +78,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-sm text-slate-500 font-medium mb-8">
-          <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+          <Link href={`/${locale}`} className="hover:text-primary transition-colors">{t('breadcrumbs.home')}</Link>
           <span>/</span>
-          <Link href="/doctors" className="hover:text-primary transition-colors">Doctors</Link>
+          <Link href={`/${locale}/doctors`} className="hover:text-primary transition-colors">{t('breadcrumbs.doctors')}</Link>
           <span>/</span>
-          <span className="text-slate-900">{doctor.name}</span>
+          <span className="text-slate-900">{getTranslation(doctor, 'name', locale)}</span>
         </div>
 
         {/* Hero Section */}
@@ -104,15 +107,15 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             <div className="flex flex-col justify-center lg:justify-start lg:pt-2 space-y-2 lg:space-y-4">
               <div className="flex flex-col xl:flex-row xl:items-center items-start gap-2 sm:gap-3">
                 <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-none">
-                  {doctor.name}
+                  {getTranslation(doctor, 'name', locale)}
                 </h1>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm shrink-0">
-                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" /> Profile Authorized
+                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" /> {t('authorized')}
                 </span>
               </div>
               
               <p className="text-sm sm:text-lg lg:text-xl text-slate-700 font-semibold">
-                {doctor.specialty.name}
+                {getTranslation(doctor.specialty, 'name', locale)}
               </p>
             </div>
 
@@ -120,11 +123,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             <div className="col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-2 flex flex-row flex-wrap items-center gap-y-2.5 gap-x-4 sm:gap-x-6 text-[12px] sm:text-sm text-slate-500 font-medium pt-3 border-t border-slate-100 lg:pt-0 lg:border-t-0">
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
-                <span className="truncate max-w-[180px] sm:max-w-none">{doctor.hospital.name}</span>
+                <span className="truncate max-w-[180px] sm:max-w-none">{getTranslation(doctor.hospital, 'name', locale)}</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
-                {city.name}
+                {getTranslation(city, 'name', locale)}
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2">
                 <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
@@ -137,11 +140,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           <div className="lg:max-w-xs w-full bg-slate-50 p-5 rounded-2xl border border-slate-100 relative z-10 shrink-0 mt-2 lg:mt-0">
             <EnquiryForm>
               <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-xl px-6 h-12 text-sm transition-all shadow-md shadow-primary/20">
-                Ask Asad Healthcare
+                {t('askButton')}
               </Button>
             </EnquiryForm>
             <p className="text-[11px] text-slate-500 mt-3 leading-relaxed text-center font-medium">
-              Your enquiry is received by Asad Healthcare's care team and is not sent directly to the doctor.
+              {t('enquiryDisclaimer')}
             </p>
           </div>
         </div>
@@ -156,13 +159,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             <section id="about" className="scroll-mt-32">
               <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                 <div className="w-2 h-8 bg-primary rounded-full"></div>
-                About Doctor
+                {t('about')}
               </h2>
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-[15px]">
-                {doctor.biography ? (
-                  <p className="whitespace-pre-wrap">{doctor.biography}</p>
+                {getTranslation(doctor, 'biography', locale) ? (
+                  <p className="whitespace-pre-wrap">{getTranslation(doctor, 'biography', locale)}</p>
                 ) : (
-                  <p>{doctor.name} is a highly experienced specialist.</p>
+                  <p>{t('aboutFallback', { name: getTranslation(doctor, 'name', locale) })}</p>
                 )}
               </div>
             </section>
@@ -172,7 +175,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="qualifications" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  Medical Qualification
+                  {t('qualifications')}
                 </h2>
                 <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
                   {doctor.medicalQualifications.map((q, idx) => (
@@ -187,7 +190,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="experience" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  Professional Experience
+                  {t('professionalExperience')}
                 </h2>
                 <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
                   {doctor.professionalExperience.map((exp, idx) => (
@@ -202,7 +205,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="interests" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  Special Interests
+                  {t('specialInterests')}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
                   {doctor.specialInterests.map((interest, idx) => (
@@ -217,7 +220,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="highlights" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  Career Highlights
+                  {t('careerHighlights')}
                 </h2>
                 <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] leading-relaxed marker:text-primary/60">
                   {doctor.careerHighlights.map((highlight, idx) => (
@@ -232,7 +235,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="research" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  Research & Fellowships
+                  {t('researchFellowships')}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
                   {doctor.researchFellowships.map((res, idx) => (
@@ -247,7 +250,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="awards" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  Awards & Recognition
+                  {t('awardsRecognitions')}
                 </h2>
                 <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] leading-relaxed marker:text-primary/60">
                   {doctor.awardsRecognitions.map((award, idx) => (
@@ -262,7 +265,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="treatments" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  All Treatments
+                  {t('allTreatments')}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
                   {doctor.allTreatments.map((treatment, idx) => (
@@ -275,7 +278,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             )}
             
             <div className="pt-8 mt-12 text-[11px] text-slate-400 border-t border-slate-100 max-w-3xl leading-relaxed">
-              Authorization means that permission to publish this profile has been recorded. It does not mean that Asad Healthcare ranks, medically endorses or guarantees the services or outcomes of the doctor.
+              {t('disclaimer')}
             </div>
 
           </div>
@@ -287,7 +290,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               {/* Table of Contents (Desktop Only) */}
               <div className="hidden lg:block bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
                 <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
-                  Table of Contents
+                  {t('toc')}
                 </h3>
                 <nav className="space-y-3.5 flex flex-col font-medium">
                   {tocItems.filter(item => item.show).map(item => (
@@ -301,20 +304,20 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               {/* Share Doctor */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
                 <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
-                  Share Doctor
+                  {t('share.title')}
                 </h3>
                 <div className="space-y-3">
                   <button className="w-full flex items-center justify-center gap-2 bg-green-50 text-green-600 font-bold py-3 rounded-xl hover:bg-green-100 transition-colors text-sm border border-green-100">
-                    <MessageCircle className="w-4 h-4" /> WhatsApp
+                    <MessageCircle className="w-4 h-4" /> {t('share.whatsapp')}
                   </button>
                   <button className="w-full flex items-center justify-center gap-2 bg-blue-50 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-100 transition-colors text-sm border border-blue-100">
-                    <Send className="w-4 h-4" /> Telegram
+                    <Send className="w-4 h-4" /> {t('share.telegram')}
                   </button>
                   <button className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl hover:bg-indigo-100 transition-colors text-sm border border-indigo-100">
-                    Facebook
+                    {t('share.facebook')}
                   </button>
                   <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm mt-2 shadow-md">
-                    <LinkIcon className="w-4 h-4" /> Copy Link
+                    <LinkIcon className="w-4 h-4" /> {t('share.copy')}
                   </button>
                 </div>
               </div>
@@ -322,22 +325,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               {/* Why Choose Us */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
                 <h3 className="text-xl font-extrabold text-slate-900 mb-2">
-                  Why Choose Us?
+                  {t('whyChooseUs.title')}
                 </h3>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
-                  There are multiple ways we lighten your burdens
+                  {t('whyChooseUs.subtitle')}
                 </p>
                 <div className="space-y-4">
-                  {[
-                    "Patient room upgrade",
-                    "Stress-Free Airport Transfers",
-                    "Free City Tour",
-                    "Free Teleconsultations",
-                    "Enjoy a Complimentary Hotel Stay",
-                    "Priority Appointments for Swift Care",
-                    "Tailored Care to Accelerate Recovery",
-                    "Round-the-Clock Patient Care"
-                  ].map((benefit, i) => (
+                  {(t.raw('whyChooseUs.benefits') as string[]).map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                       <span className="text-sm font-medium text-slate-700">{benefit}</span>
@@ -359,29 +353,29 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           <div className="mt-10 sm:mt-12 bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm border border-slate-200">
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6 sm:mb-8 flex items-center gap-3">
               <div className="w-2 h-8 bg-primary rounded-full"></div>
-              Related Doctors
+              {t('related')}
             </h2>
             
             <div className="flex overflow-x-auto pb-2 -mx-6 px-6 sm:pb-0 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {relatedDoctors.map((rd) => (
                 <Link 
-                  href={`/doctors/${rd.slug}`} 
+                  href={`/${locale}/doctors/${rd.slug}`} 
                   key={rd.id} 
                   className="group bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all flex flex-col items-center text-center min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start"
                 >
                   <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm relative">
                     <img 
                       src={rd.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"} 
-                      alt={rd.name} 
+                      alt={getTranslation(rd, 'name', locale)} 
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
                     />
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors line-clamp-1">{rd.name}</h4>
-                  <p className="text-[11px] sm:text-xs font-semibold text-primary/80 mb-3 line-clamp-1">{rd.specialty.name}</p>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors line-clamp-1">{getTranslation(rd, 'name', locale)}</h4>
+                  <p className="text-[11px] sm:text-xs font-semibold text-primary/80 mb-3 line-clamp-1">{getTranslation(rd.specialty, 'name', locale)}</p>
                   
                   <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-slate-500 mt-auto pt-3 border-t border-slate-200/60 w-full justify-center">
                     <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
-                    {rd.experienceYears ? `${rd.experienceYears}+ Years Exp.` : 'Highly Experienced'}
+                    {rd.experienceYears ? t('experienceShort', { years: rd.experienceYears }) : t('highlyExperienced')}
                   </div>
                 </Link>
               ))}

@@ -2,8 +2,10 @@
 
 import Link from 'next/link';
 import { PhoneCall } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export function FloatingContact() {
+  const t = useTranslations('FloatingContact');
   const phoneNumber = "+919451187513";
   const whatsappNumber = "919451187513";
 
@@ -18,7 +20,7 @@ export function FloatingContact() {
       >
         <div className="flex items-center bg-emerald-500/90 hover:bg-emerald-600 backdrop-blur-md text-white rounded-full shadow-[0_8px_25px_rgba(16,185,129,0.35)] border border-emerald-400/40 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1">
           <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-xs pl-0 group-hover:pl-4 hidden sm:block tracking-wide">
-            WhatsApp
+            {t('whatsapp')}
           </span>
           <div className="p-3">
             <svg 
@@ -40,7 +42,7 @@ export function FloatingContact() {
       >
         <div className="flex items-center bg-primary/90 hover:bg-primary backdrop-blur-md text-white rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] border border-teal-400/40 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1">
           <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-xs pl-0 group-hover:pl-4 hidden sm:block tracking-wide">
-            Call Helpline
+            {t('call')}
           </span>
           <div className="p-3">
             <PhoneCall className="w-5 h-5" />

@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ChevronDown, HelpCircle, PhoneCall, Sparkles } from "lucide-react";
 import { EnquiryForm } from "@/components/patient/EnquiryForm";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 const FAQS = [
   {
@@ -34,6 +35,16 @@ const FAQS = [
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const t = useTranslations('FAQ');
+
+  const localizedFaqs = [
+    { question: t('faqs.q1.question'), answer: t('faqs.q1.answer') },
+    { question: t('faqs.q2.question'), answer: t('faqs.q2.answer') },
+    { question: t('faqs.q3.question'), answer: t('faqs.q3.answer') },
+    { question: t('faqs.q4.question'), answer: t('faqs.q4.answer') },
+    { question: t('faqs.q5.question'), answer: t('faqs.q5.answer') },
+    { question: t('faqs.q6.question'), answer: t('faqs.q6.answer') }
+  ];
 
   return (
     <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70">
@@ -44,18 +55,18 @@ export function FAQSection() {
         <div className="text-center mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
             <Sparkles className="w-3.5 h-3.5" />
-            Patient Support &amp; Clarity
+            {t('tag')}
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
-            Frequently Asked Questions
+            {t('title')}
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Everything you need to know about planning your medical journey, visa assistance, and hospital stay in India.
+            {t('desc')}
           </p>
         </div>
 
         <div className="space-y-3 sm:space-y-4">
-          {FAQS.map((faq, index) => {
+          {localizedFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div 
@@ -94,8 +105,8 @@ export function FAQSection() {
         {/* Bottom Help Glass Box with Perfect Alignment */}
         <div className="mt-10 sm:mt-14 glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col md:flex-row items-center justify-between gap-5 border border-white bg-white/95 shadow-lg">
           <div className="text-center md:text-left">
-            <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">Still have questions?</h3>
-            <p className="text-xs sm:text-sm text-slate-600">Our medical assistance team is available 24/7 on WhatsApp &amp; Phone.</p>
+            <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">{t('bottom.title')}</h3>
+            <p className="text-xs sm:text-sm text-slate-600">{t('bottom.desc')}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
@@ -109,7 +120,7 @@ export function FAQSection() {
             
             <EnquiryForm>
               <Button className="w-full sm:w-auto rounded-full shadow-md bg-primary hover:bg-primary/90 font-bold px-6 text-xs sm:text-sm h-11 shrink-0 whitespace-nowrap text-white active:scale-95">
-                Ask a Specialist
+                {t('bottom.button')}
               </Button>
             </EnquiryForm>
           </div>

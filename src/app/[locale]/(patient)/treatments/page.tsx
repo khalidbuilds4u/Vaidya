@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 import { prisma } from '@/lib/prisma';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -25,7 +27,10 @@ function getIconForSpecialty(specialtyName: string) {
 }
 
 
-export default async function TreatmentsDirectory() {
+export default async function TreatmentsDirectory({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('TreatmentsPage');
+
   const dbTreatments = await prisma.treatment.findMany({
     include: { specialty: true },
     orderBy: { name: 'asc' }
@@ -56,13 +61,13 @@ export default async function TreatmentsDirectory() {
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3.5 shadow-lg">
               <Activity className="w-3.5 h-3.5" />
-              <span>Advanced Clinical Procedures</span>
+              <span>{t('tag')}</span>
             </div>
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
-              Medical Treatments &amp; Cost Estimates
+              {t('title')}
             </h1>
             <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal mb-6">
-              Compare transparent surgical packages, recovery timelines, and accredited hospital quotes in India with savings up to 70%.
+              {t('desc')}
             </p>
 
             {/* Quick Search Capsule */}
@@ -70,11 +75,11 @@ export default async function TreatmentsDirectory() {
               <Search className="h-4 w-4 text-primary ml-3 mr-1 shrink-0" />
               <Input 
                 type="text" 
-                placeholder="Search treatments, surgeries, procedures..." 
+                placeholder={t('search.placeholder')} 
                 className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 bg-transparent placeholder:text-slate-400"
               />
               <Button size="sm" className="rounded-lg sm:rounded-full h-8 sm:h-9 px-5 bg-primary hover:bg-primary/90 text-white font-semibold text-xs shrink-0">
-                Search
+                {t('search.button')}
               </Button>
             </div>
           </div>
@@ -86,8 +91,8 @@ export default async function TreatmentsDirectory() {
         {/* Specialties Grid */}
         <div className="mb-14 sm:mb-16">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Browse by Medical Specialty</h2>
-            <Link href="/specialties" className="text-xs sm:text-sm font-semibold text-primary hover:underline">View All</Link>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{t('browse.title')}</h2>
+            <Link href={`/${locale}/specialties`} className="text-xs sm:text-sm font-semibold text-primary hover:underline">{t('browse.viewAll')}</Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {[
@@ -104,17 +109,17 @@ export default async function TreatmentsDirectory() {
               { name: 'Ophthalmology', image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop' },
               { name: 'Urology', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop' }
             ].map(spec => (
-              <Link key={spec.name} href={`/specialties/${spec.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
+              <Link key={spec.name} href={`/${locale}/specialties/${spec.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
                 <div className="rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer h-36 sm:h-44 relative border border-white/80">
                   <Image 
                     src={spec.image} 
-                    alt={spec.name} 
+                    alt={t(`specialties.${spec.name as keyof typeof t}`)} 
                     fill
                     sizes="(max-width: 768px) 50vw, 25vw"
                     className="object-cover transition-transform group-hover:scale-105 duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent flex items-end p-3.5 sm:p-5">
-                    <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-teal-300 transition-colors">{spec.name}</h3>
+                    <h3 className="font-bold text-white text-sm sm:text-base group-hover:text-teal-300 transition-colors">{t(`specialties.${spec.name as keyof typeof t}`)}</h3>
                   </div>
                 </div>
               </Link>
@@ -124,7 +129,7 @@ export default async function TreatmentsDirectory() {
 
         {/* Popular Treatments */}
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">Popular Surgical Procedures</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">{t('popular.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {dbTreatments.map((treatment) => {
               const Icon = getIconForSpecialty(treatment.specialty?.name || "");
@@ -136,38 +141,38 @@ export default async function TreatmentsDirectory() {
                         {/* <Icon className="w-6 h-6" /> */}
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-primary">{treatment.specialty?.name || "General"}</p>
+                        <p className="text-xs font-semibold text-primary">{getTranslation(treatment.specialty, 'name', locale) || t('popular.general')}</p>
                         <h3 className="text-base sm:text-lg font-bold leading-tight text-slate-900">
-                          <Link href={`/treatments/${treatment.slug}`} className="hover:text-primary transition-colors">
-                            {treatment.name}
+                          <Link href={`/${locale}/treatments/${treatment.slug}`} className="hover:text-primary transition-colors">
+                            {getTranslation(treatment, 'name', locale)}
                           </Link>
                         </h3>
                       </div>
                     </div>
                     
                     <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
-                      {treatment.description}
+                      {getTranslation(treatment, 'description', locale)}
                     </p>
                     
                     <div className="space-y-2 py-3 px-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs sm:text-sm">
                       <div className="flex justify-between pb-1.5 border-b border-slate-200/60">
-                        <span className="text-slate-500">Est. Package:</span>
+                        <span className="text-slate-500">{t('popular.estPackage')}</span>
                         <span className="font-bold text-emerald-600">
-                          {treatment.minEstimate ? `$${treatment.minEstimate} - $${treatment.maxEstimate || ''}` : 'Custom Quote'}
+                          {treatment.minEstimate ? `$${treatment.minEstimate} - $${treatment.maxEstimate || ''}` : t('popular.customQuote')}
                         </span>
                       </div>
                       <div className="flex justify-between pt-0.5">
-                        <span className="text-slate-500">Recovery:</span>
-                        <span className="font-semibold text-slate-800">{treatment.recovery || 'Varies'}</span>
+                        <span className="text-slate-500">{t('popular.recovery')}</span>
+                        <span className="font-semibold text-slate-800">{getTranslation(treatment, 'recovery', locale) || t('popular.varies')}</span>
                       </div>
                     </div>
                   </div>
                   
                   <Link 
-                    href={`/treatments/${treatment.slug}`}
+                    href={`/${locale}/treatments/${treatment.slug}`}
                     className="bg-slate-50/90 p-3.5 sm:p-4 border-t border-slate-100 flex justify-between items-center group cursor-pointer hover:bg-primary hover:text-white transition-colors text-xs sm:text-sm font-semibold text-slate-800"
                   >
-                    <span>View Treatment &amp; Doctor Options</span>
+                    <span>{t('popular.viewOptions')}</span>
                     <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-transform group-hover:translate-x-1" />
                   </Link>
                 </div>

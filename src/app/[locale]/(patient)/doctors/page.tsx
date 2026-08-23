@@ -4,6 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 import { prisma } from '@/lib/prisma';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -15,11 +17,15 @@ export const metadata: Metadata = {
 
 
 export default async function DoctorsDirectory({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ search?: string; city?: string; specialty?: string }>;
 }) {
+  const { locale } = await params;
   const { search, city, specialty } = await searchParams;
+  const t = await getTranslations('DoctorsPage');
 
   const whereClause: any = {};
   if (search) {
@@ -62,13 +68,13 @@ export default async function DoctorsDirectory({
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3.5 shadow-lg">
               <Stethoscope className="w-3.5 h-3.5" />
-              <span>Leading Clinical Specialists</span>
+              <span>{t('tag')}</span>
             </div>
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
-              Find Top Doctors & Surgeons in India
+              {t('title')}
             </h1>
             <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Consult with internationally trained surgeons, department directors, and pioneers in complex surgeries trusted by thousands of global patients.
+              {t('desc')}
             </p>
           </div>
         </div>
@@ -82,40 +88,40 @@ export default async function DoctorsDirectory({
             <div className="glass-panel p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/90 shadow-lg lg:sticky lg:top-24 bg-white/95">
               <div className="flex items-center gap-2 mb-5 pb-3 border-b border-slate-100">
                 <Filter className="w-4 h-4 text-primary" />
-                <h2 className="text-base font-bold text-slate-900">Filter Specialists</h2>
+                <h2 className="text-base font-bold text-slate-900">{t('filters.title')}</h2>
               </div>
               
-              <form method="GET" action="/doctors" className="space-y-4 sm:space-y-5">
+              <form method="GET" action={`/${locale}/doctors`} className="space-y-4 sm:space-y-5">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">Search Doctor</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">{t('filters.search')}</label>
                   <div className="relative">
                     <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
-                    <Input name="search" defaultValue={search || ""} type="text" placeholder="Name or keyword..." className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
+                    <Input name="search" defaultValue={search || ""} type="text" placeholder={t('filters.searchPlaceholder')} className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
                   </div>
                 </div>
                 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">Specialty</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">{t('filters.specialty')}</label>
                   <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="">All Specialties</option>
+                    <option value="">{t('filters.allSpecialties')}</option>
                     {specialties.map(s => (
-                      <option key={s.id} value={s.slug}>{s.name}</option>
+                      <option key={s.id} value={s.slug}>{getTranslation(s, 'name', locale)}</option>
                     ))}
                   </select>
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">City</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">{t('filters.city')}</label>
                   <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="">All Cities</option>
+                    <option value="">{t('filters.allCities')}</option>
                     {cities.map(c => (
-                      <option key={c.id} value={c.slug}>{c.name}</option>
+                      <option key={c.id} value={c.slug}>{getTranslation(c, 'name', locale)}</option>
                     ))}
                   </select>
                 </div>
 
                 <Button type="submit" className="w-full rounded-xl sm:rounded-full shadow-xs bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm font-semibold text-white">
-                  Apply Filters
+                  {t('filters.apply')}
                 </Button>
               </form>
             </div>
@@ -124,12 +130,12 @@ export default async function DoctorsDirectory({
           {/* Doctor List */}
           <div className="w-full lg:w-3/4">
             <div className="flex justify-between items-center mb-4 sm:mb-6">
-              <h2 className="font-bold text-base sm:text-lg text-slate-900">{doctors.length} Specialists Available</h2>
+              <h2 className="font-bold text-base sm:text-lg text-slate-900">{t('results.count', { count: doctors.length })}</h2>
               <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-                <span className="text-slate-500">Sort by:</span>
+                <span className="text-slate-500">{t('results.sortBy')}</span>
                 <select className="border-0 bg-transparent font-semibold text-primary cursor-pointer focus:ring-0 text-xs sm:text-sm">
-                  <option>Recommended</option>
-                  <option>Most Experience</option>
+                  <option>{t('results.sortRecommended')}</option>
+                  <option>{t('results.sortExperience')}</option>
                 </select>
               </div>
             </div>
@@ -139,14 +145,14 @@ export default async function DoctorsDirectory({
                 <DoctorCard 
                   key={doctor.id} 
                   slug={doctor.slug}
-                  name={doctor.name}
-                  specialty={doctor.specialty.name}
+                  name={getTranslation(doctor, 'name', locale)}
+                  specialty={getTranslation(doctor.specialty, 'name', locale)}
                   qualifications={doctor.qualifications || "MBBS, MS"}
                   experience={`${doctor.experienceYears || 15}+ Years`}
-                  hospital={doctor.hospital.name}
-                  city={doctor.hospital.city.name}
+                  hospital={getTranslation(doctor.hospital, 'name', locale)}
+                  city={getTranslation(doctor.hospital.city, 'name', locale)}
                   image={doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"}
-                  keyExpertise={[doctor.specialty.name, "Advanced Care"]}
+                  keyExpertise={[getTranslation(doctor.specialty, 'name', locale), "Advanced Care"]}
                 />
               ))}
             </div>
