@@ -171,10 +171,10 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {Object.entries(hospital.hospitalFacilities as Record<string, string[]>).map(([category, items], idx) => (
                     <div key={idx} className="rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col h-full">
-                      <div className="bg-teal-50 py-3 px-4 text-center">
-                        <h3 className="text-teal-900 font-bold text-sm tracking-wide">{category}</h3>
+                      <div className="bg-teal-500 py-3 px-4 text-center">
+                        <h3 className="text-white font-bold text-sm tracking-wide">{category}</h3>
                       </div>
-                      <ul className="p-5 space-y-3 flex-1 bg-white">
+                      <ul className="p-5 space-y-3 flex-1 bg-slate-50/30">
                         {Array.isArray(items) ? items.map((item, itemIdx) => (
                           <li key={itemIdx} className="flex items-start gap-2 text-sm text-slate-700">
                             <svg className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
@@ -258,7 +258,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <nav className="flex flex-col space-y-3">
                   <a href="#about" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">About Hospital</a>
                   {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Premium Facilities during Hospital Stay</a>}
-                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-primary">Multi Speciality Services</a>}
+                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Multi Speciality Services</a>}
                   {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Advanced Medical Technologies</a>}
                   {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && <a href="#connectivity" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Connectivity & Location</a>}
                   {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Excellence in patient care</a>}
