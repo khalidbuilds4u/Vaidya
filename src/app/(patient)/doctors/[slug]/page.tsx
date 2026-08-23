@@ -201,15 +201,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             )}
 
             {/* All Treatments (2 Columns) */}
-            {doctor.treatments.length > 0 && (
+            {doctor.allTreatments.length > 0 && (
               <section id="treatments">
                 <h2 className="text-2xl font-bold text-white mb-6">All Treatments</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-300 text-[15px]">
-                  {doctor.treatments.map((treatment) => (
-                    <li key={treatment.id} className="pl-2">
-                      <Link href={`/treatments/${treatment.slug}`} className="hover:text-teal-400 transition-colors">
-                        {treatment.name}
-                      </Link>
+                  {doctor.allTreatments.map((treatment, idx) => (
+                    <li key={idx} className="pl-2">
+                      {treatment}
                     </li>
                   ))}
                 </ul>
@@ -249,7 +247,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   {doctor.awardsRecognitions.length > 0 && (
                     <a href="#awards" className="text-teal-400 font-medium text-sm transition-colors">Awards & Recognition</a>
                   )}
-                  {doctor.treatments.length > 0 && (
+                  {doctor.allTreatments.length > 0 && (
                     <a href="#treatments" className="text-slate-400 hover:text-teal-400 text-sm transition-colors">All Treatments</a>
                   )}
                 </nav>

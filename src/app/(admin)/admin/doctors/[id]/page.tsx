@@ -32,11 +32,10 @@ export default async function DoctorEditor({
     if (!doctor) notFound();
   }
 
-  const [hospitals, specialties, cities, allTreatments] = await Promise.all([
+  const [hospitals, specialties, cities] = await Promise.all([
     prisma.hospital.findMany({ orderBy: { name: "asc" } }),
     prisma.specialty.findMany({ orderBy: { name: "asc" } }),
     prisma.city.findMany({ orderBy: { name: "asc" } }),
-    prisma.treatment.findMany({ orderBy: { name: "asc" } }),
   ]);
 
   const updateDoctorWithId = isNew
@@ -249,23 +248,13 @@ export default async function DoctorEditor({
 
           <div className="pt-6 border-t border-slate-100">
             <h3 className="text-lg font-bold text-slate-900 mb-6">Treatments Performed</h3>
-            <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 max-h-64 overflow-y-auto">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {allTreatments.map(t => (
-                  <label key={t.id} className="flex items-start gap-2 cursor-pointer group">
-                    <input
-                      type="checkbox"
-                      name="treatmentIds"
-                      value={t.id}
-                      defaultChecked={doctor?.treatments?.some((dt: any) => dt.id === t.id)}
-                      className="mt-1 border-slate-300 rounded text-teal-600 focus:ring-teal-500"
-                    />
-                    <span className="text-sm text-slate-700 group-hover:text-slate-900 leading-tight">
-                      {t.name}
-                    </span>
-                  </label>
-                ))}
-              </div>
+            <div className="max-w-md">
+              <DynamicListInput 
+                name="allTreatments" 
+                label="All Treatments" 
+                initialItems={doctor?.allTreatments || []} 
+                placeholder="e.g. Brain Tumor Surgery" 
+              />
             </div>
           </div>
 

@@ -136,6 +136,7 @@ model Doctor {
   careerHighlights       String[]       @default([])
   researchFellowships    String[]       @default([])
   awardsRecognitions     String[]       @default([])
+  allTreatments          String[]       @default([])
   experienceYears        Int?
   biography              String?
   imageUrl               String?
