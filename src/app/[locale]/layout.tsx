@@ -49,7 +49,7 @@ export default async function RootLayout({
   return (
     <html
       lang={locale}
-      dir={isRtl ? 'rtl' : 'ltr'}
+      dir="ltr"
       className={`${isRtl ? cairo.variable : inter.variable} ${isRtl ? 'font-cairo' : 'font-sans'} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
