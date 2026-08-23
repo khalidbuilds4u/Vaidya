@@ -140,8 +140,21 @@ export default async function HospitalsDirectory({
 
             <div className="space-y-4 sm:space-y-6">
               {hospitals.map((hospital) => {
+                
                 return (
-                  <div key={hospital.id}>Hospital Card</div>
+                  <HospitalCard 
+                    key={hospital.id} 
+                    slug={hospital.slug}
+                    name={hospital.name}
+                    city={hospital.city.name}
+                    state={hospital.city.state || undefined}
+                    image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
+                    accreditations={hospital.accreditations}
+                    beds={hospital.beds || 0}
+                    specialties={[]}
+                    hasInternationalSupport={hospital.internationalServices.length > 0}
+                  */}
+                  />
                 );
               })}
             </div>
