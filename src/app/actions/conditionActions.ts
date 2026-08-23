@@ -32,6 +32,19 @@ function parseFaqs(val: FormDataEntryValue | null) {
 }
 
 function extractConditionData(formData: FormData) {
+  const name_ar = formData.get("name_ar") as string;
+  const description_ar = formData.get("description_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || description_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        description: description_ar || undefined,
+      }
+    };
+  }
+
   return {
     name: formData.get("name") as string,
     description: formData.get("description") as string,
@@ -41,6 +54,7 @@ function extractConditionData(formData: FormData) {
     diagnosis: parseTextArray(formData.get("diagnosis")),
     treatmentOptions: parseTextArray(formData.get("treatmentOptions")),
     faqs: parseFaqs(formData.get("faqs")),
+    translations: translations ? translations : undefined,
   };
 }
 

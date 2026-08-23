@@ -95,6 +95,21 @@ export async function createHospital(formData: FormData) {
     "Money Matters": facilityMoney
   };
 
+  const name_ar = formData.get("name_ar") as string;
+  const description_ar = formData.get("description_ar") as string;
+  const address_ar = formData.get("address_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || description_ar || address_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        description: description_ar || undefined,
+        address: address_ar || undefined,
+      }
+    };
+  }
+
   await prisma.hospital.create({
     data: {
       name,
@@ -116,6 +131,7 @@ export async function createHospital(formData: FormData) {
       multiSpecialties,
       hospitalFacilities,
       cityId,
+      translations: translations ? translations : undefined,
       specialties: {
         connect: specialtyIds.map(id => ({ id }))
       }
@@ -204,6 +220,21 @@ export async function updateHospital(id: string, formData: FormData) {
     "Money Matters": facilityMoney
   };
 
+  const name_ar = formData.get("name_ar") as string;
+  const description_ar = formData.get("description_ar") as string;
+  const address_ar = formData.get("address_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || description_ar || address_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        description: description_ar || undefined,
+        address: address_ar || undefined,
+      }
+    };
+  }
+
   await prisma.hospital.update({
     where: { id },
     data: {
@@ -226,6 +257,7 @@ export async function updateHospital(id: string, formData: FormData) {
       multiSpecialties,
       hospitalFacilities,
       cityId: cityId || undefined,
+      translations: translations ? translations : undefined,
       specialties: {
         set: specialtyIds.map(id => ({ id }))
       }

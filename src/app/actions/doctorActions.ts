@@ -30,6 +30,21 @@ export async function createDoctor(formData: FormData) {
 
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
+  const name_ar = formData.get("name_ar") as string;
+  const qualifications_ar = formData.get("qualifications_ar") as string;
+  const biography_ar = formData.get("biography_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || qualifications_ar || biography_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        qualifications: qualifications_ar || undefined,
+        biography: biography_ar || undefined,
+      }
+    };
+  }
+
   await prisma.doctor.create({
     data: {
       name,
@@ -48,6 +63,7 @@ export async function createDoctor(formData: FormData) {
       researchFellowships,
       awardsRecognitions,
       allTreatments,
+      translations: translations ? translations : undefined,
     },
   });
 
@@ -80,6 +96,21 @@ export async function updateDoctor(id: string, formData: FormData) {
   const awardsRecognitions = parseArray("awardsRecognitions");
   const allTreatments = parseArray("allTreatments");
 
+  const name_ar = formData.get("name_ar") as string;
+  const qualifications_ar = formData.get("qualifications_ar") as string;
+  const biography_ar = formData.get("biography_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || qualifications_ar || biography_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        qualifications: qualifications_ar || undefined,
+        biography: biography_ar || undefined,
+      }
+    };
+  }
+
   await prisma.doctor.update({
     where: { id },
     data: {
@@ -98,6 +129,7 @@ export async function updateDoctor(id: string, formData: FormData) {
       researchFellowships,
       awardsRecognitions,
       allTreatments,
+      translations: translations ? translations : undefined,
     },
   });
 

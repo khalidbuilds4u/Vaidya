@@ -13,6 +13,19 @@ export async function createCity(formData: FormData) {
 
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
+  const name_ar = formData.get("name_ar") as string;
+  const description_ar = formData.get("description_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || description_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        description: description_ar || undefined,
+      }
+    };
+  }
+
   await prisma.city.create({
     data: {
       name,
@@ -21,6 +34,7 @@ export async function createCity(formData: FormData) {
       state,
       description,
       imageUrl,
+      translations: translations ? translations : undefined,
     },
   });
 
@@ -35,6 +49,19 @@ export async function updateCity(id: string, formData: FormData) {
   const description = formData.get("description") as string;
   const imageUrl = formData.get("imageUrl") as string;
 
+  const name_ar = formData.get("name_ar") as string;
+  const description_ar = formData.get("description_ar") as string;
+
+  let translations = undefined;
+  if (name_ar || description_ar) {
+    translations = {
+      ar: {
+        name: name_ar || undefined,
+        description: description_ar || undefined,
+      }
+    };
+  }
+
   await prisma.city.update({
     where: { id },
     data: {
@@ -43,6 +70,7 @@ export async function updateCity(id: string, formData: FormData) {
       state,
       description,
       imageUrl,
+      translations: translations ? translations : undefined,
     },
   });
 

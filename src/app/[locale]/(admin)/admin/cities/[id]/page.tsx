@@ -147,6 +147,41 @@ export default async function CityEditor({
             />
           </div>
 
+          {/* Arabic Translations */}
+          <div className="pt-6 border-t border-slate-100">
+            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+              Arabic Translations (الترجمة العربية)
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">
+                  City Name (Arabic)
+                </label>
+                <input
+                  type="text"
+                  name="name_ar"
+                  defaultValue={(city?.translations as any)?.ar?.name || ""}
+                  dir="rtl"
+                  placeholder="اسم المدينة..."
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                />
+              </div>
+            </div>
+            <div className="space-y-2 mt-6">
+              <label className="text-sm font-semibold text-slate-900">
+                Description (Arabic)
+              </label>
+              <textarea
+                name="description_ar"
+                rows={4}
+                defaultValue={(city?.translations as any)?.ar?.description || ""}
+                dir="rtl"
+                placeholder="وصف المدينة..."
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+              />
+            </div>
+          </div>
+
           <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">
             <Link href="/admin/cities">
               <Button
