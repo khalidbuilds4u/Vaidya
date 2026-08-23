@@ -60,10 +60,10 @@ export function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <Button variant="ghost" size="sm" className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex">
+          <button className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex items-center justify-center text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50">
             <Globe className="w-4 h-4 text-slate-500" />
             <span className="font-medium text-slate-700">{activeLang.shortName}</span>
-          </Button>
+          </button>
         }
       />
       <DropdownMenuContent align="end" className="w-[180px] rounded-xl shadow-lg border-slate-100 p-1">
