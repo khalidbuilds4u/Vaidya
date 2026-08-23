@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Globe } from "lucide-react";
+import { Globe, ChevronDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -60,9 +60,10 @@ export function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <button className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex items-center justify-center text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50">
-            <Globe className="w-4 h-4 text-slate-500" />
-            <span className="font-medium text-slate-700">{activeLang.shortName}</span>
+          <button className="gap-2 h-9 px-3.5 rounded-xl border border-teal-500/80 hover:border-teal-400 bg-transparent hover:bg-white/5 transition-all flex items-center justify-center text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50 text-slate-100 shadow-sm">
+            <Globe className="w-4 h-4 text-slate-200" />
+            <span className="font-medium">{activeLang.shortName}</span>
+            <ChevronDown className="w-4 h-4 text-slate-400 ml-1" />
           </button>
         }
       />
