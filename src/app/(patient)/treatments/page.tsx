@@ -134,7 +134,7 @@ export default async function TreatmentsDirectory() {
                   <div className="p-5 sm:p-6 flex-1">
                     <div className="flex items-center gap-3 mb-4">
                       <div className="p-3 bg-primary/10 rounded-2xl text-primary shrink-0">
-                        <Icon className="w-6 h-6" />
+                        {/* <Icon className="w-6 h-6" /> */}
                       </div>
                       <div>
                         <p className="text-xs font-semibold text-primary">{treatment.specialty?.name || "General"}</p>
