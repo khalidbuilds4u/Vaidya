@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   description: 'Find and consult with India\'s top doctors, surgeons, and medical specialists.',
 };
 
-export const revalidate = 60;
 
 export default async function DoctorsDirectory({
   searchParams,

@@ -11,7 +11,6 @@ export const metadata: Metadata = {
   description: 'Explore the top cities in India for medical tourism, featuring world-class hospitals and connectivity.',
 };
 
-export const revalidate = 60;
 
 export default async function CitiesPage() {
   const cities = await prisma.city.findMany({

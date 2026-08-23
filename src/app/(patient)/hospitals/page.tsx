@@ -13,7 +13,6 @@ export const metadata: Metadata = {
   description: 'Discover and compare the best JCI and NABH accredited hospitals in India for international patients.',
 };
 
-export const revalidate = 60;
 
 export default async function HospitalsDirectory({
   searchParams,

@@ -24,7 +24,6 @@ function getIconForSpecialty(specialtyName: string) {
   return Stethoscope;
 }
 
-export const revalidate = 60;
 
 export default async function TreatmentsDirectory() {
   const dbTreatments = await prisma.treatment.findMany({
