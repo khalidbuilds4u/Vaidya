@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { MapPin, CalendarDays, CheckCircle2, Share2, MessageCircle, Link as LinkIcon, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { MobileTOC } from '@/components/patient/MobileTOC';
 
 export const revalidate = 3600;
 
@@ -41,8 +42,23 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
   const experienceText = doctor.experienceYears ? `${doctor.experienceYears}+ Years of Experience` : 'Highly Experienced';
   const profileImage = doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop";
 
+  const tocItems = [
+    { id: 'about', label: 'About Doctor', show: true },
+    { id: 'qualifications', label: 'Medical Qualification', show: doctor.medicalQualifications.length > 0 },
+    { id: 'experience', label: 'Professional Experience', show: doctor.professionalExperience.length > 0 },
+    { id: 'interests', label: 'Special Interests', show: doctor.specialInterests.length > 0 },
+    { id: 'highlights', label: 'Career Highlights', show: doctor.careerHighlights.length > 0 },
+    { id: 'research', label: 'Research & Fellowships', show: doctor.researchFellowships.length > 0 },
+    { id: 'awards', label: 'Awards & Recognition', show: doctor.awardsRecognitions.length > 0 },
+    { id: 'treatments', label: 'All Treatments', show: doctor.allTreatments.length > 0 },
+  ];
+
   return (
     <div className="bg-slate-50 min-h-screen text-slate-600 pb-24 pt-8 font-sans selection:bg-primary/20">
+      
+      {/* Mobile Floating TOC */}
+      <MobileTOC items={tocItems} />
+
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb Navigation */}
@@ -256,34 +272,17 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           <div className="lg:col-span-4 space-y-6">
             <div className="sticky top-24 space-y-6">
               
-              {/* Table of Contents */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+              {/* Table of Contents (Desktop Only) */}
+              <div className="hidden lg:block bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
                 <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
                   Table of Contents
                 </h3>
                 <nav className="space-y-3.5 flex flex-col font-medium">
-                  <a href="#about" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">About Doctor</a>
-                  {doctor.medicalQualifications.length > 0 && (
-                    <a href="#qualifications" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">Medical Qualification</a>
-                  )}
-                  {doctor.professionalExperience.length > 0 && (
-                    <a href="#experience" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">Professional Experience</a>
-                  )}
-                  {doctor.specialInterests.length > 0 && (
-                    <a href="#interests" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">Special Interests</a>
-                  )}
-                  {doctor.careerHighlights.length > 0 && (
-                    <a href="#highlights" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">Career Highlights</a>
-                  )}
-                  {doctor.researchFellowships.length > 0 && (
-                    <a href="#research" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">Research & Fellowships</a>
-                  )}
-                  {doctor.awardsRecognitions.length > 0 && (
-                    <a href="#awards" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">Awards & Recognition</a>
-                  )}
-                  {doctor.allTreatments.length > 0 && (
-                    <a href="#treatments" className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">All Treatments</a>
-                  )}
+                  {tocItems.filter(item => item.show).map(item => (
+                    <a key={item.id} href={`#${item.id}`} className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">
+                      {item.label}
+                    </a>
+                  ))}
                 </nav>
               </div>
 
