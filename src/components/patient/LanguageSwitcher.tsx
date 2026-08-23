@@ -58,9 +58,11 @@ export function LanguageSwitcher() {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger render={<Button variant="ghost" size="sm" className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex" />}>
-        <Globe className="w-4 h-4 text-slate-500" />
-        <span className="font-medium text-slate-700">{activeLang.shortName}</span>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" size="sm" className="gap-2 h-9 px-2 sm:px-3 rounded-full hover:bg-slate-100 transition-colors flex">
+          <Globe className="w-4 h-4 text-slate-500" />
+          <span className="font-medium text-slate-700">{activeLang.shortName}</span>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[180px] rounded-xl shadow-lg border-slate-100 p-1">
         {LANGUAGES.map((lang) => (
