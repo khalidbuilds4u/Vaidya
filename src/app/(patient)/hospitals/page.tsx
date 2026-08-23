@@ -37,6 +37,7 @@ export default async function HospitalsDirectory({
     where: whereClause,
     include: {
       city: true,
+      specialties: true,
     },
     orderBy: { createdAt: "desc" }
   });
@@ -151,7 +152,7 @@ export default async function HospitalsDirectory({
                     image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
                     accreditations={hospital.accreditations}
                     beds={hospital.beds || 0}
-                    specialties={[]}
+                    specialties={hospital.specialties.map(s => s.name)}
                     hasInternationalSupport={hospital.internationalServices.length > 0}
                   />
                 );

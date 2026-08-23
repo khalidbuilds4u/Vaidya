@@ -6,196 +6,316 @@ datasource db {
   provider = "postgresql"
 }
 
-// ---------------------------------------------------------
-// AUTHENTICATION & USERS
-// ---------------------------------------------------------
-
-enum Role {
-  ADMIN          // Full access — the only active role for now
-  CASE_MANAGER   // Future: manage patient cases
-  TRANSLATOR     // Future: translation support
-  COORDINATOR    // Future: logistics coordination
-  HOSPITAL_USER  // Future: hospital-specific access
-}
-
 model User {
-  id             String    @id @default(cuid())
-  email          String    @unique
+  id             String        @id @default(cuid())
+  email          String        @unique
   name           String?
   hashedPassword String?
-  role           Role      @default(ADMIN)
-  createdAt      DateTime  @default(now())
-  updatedAt      DateTime  @updatedAt
-
-  // Relations
+  role           Role          @default(ADMIN)
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
   hospitalUser   HospitalUser?
   staffProfile   StaffProfile?
 }
 
 model StaffProfile {
-  id     String @id @default(cuid())
-  userId String @unique
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  // E.g. languages spoken for translators
+  id              String        @id @default(cuid())
+  userId          String        @unique
   languagesSpoken String[]
-
-  // Cases assigned as a manager
-  managedCases PatientCase[] @relation("CaseManager")
-  
-  // Cases assigned as a translator
+  managedCases    PatientCase[] @relation("CaseManager")
   translatedCases PatientCase[] @relation("CaseTranslator")
+  user            User          @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
-// ---------------------------------------------------------
-// CORE MEDICAL ENTITIES
-// ---------------------------------------------------------
-
 model City {
-  id          String   @id @default(cuid())
-  name        String   @unique
-  slug        String   @unique
+  id          String        @id @default(cuid())
+  name        String        @unique
+  slug        String        @unique
   state       String?
-  country     String   @default("India")
+  country     String        @default("India")
   description String?
   imageUrl    String?
-
-  // Relations
-  hospitals   Hospital[]
   doctors     Doctor[]
+  hospitals   Hospital[]
   cases       PatientCase[] @relation("PreferredCity")
 }
 
 model Specialty {
-  id          String   @id @default(cuid())
-  name        String   @unique
-  slug        String   @unique
+  id          String      @id @default(cuid())
+  name        String      @unique
+  slug        String      @unique
   description String?
   imageUrl    String?
-
-  // Relations
+  conditions  Condition[]
   doctors     Doctor[]
   treatments  Treatment[]
-  conditions  Condition[]
-  hospitals   Hospital[] @relation("HospitalSpecialties")
+  hospitals   Hospital[]  @relation("HospitalSpecialties")
 }
 
 model Condition {
-  id          String   @id @default(cuid())
-  name        String
-  slug        String   @unique
-  description String?
-  
-  // Detailed Fields
-  causesAndSymptoms String[] @default([])
-  diagnosis         String[] @default([])
-  treatmentOptions  String[] @default([])
+  id                String    @id @default(cuid())
+  name              String
+  slug              String    @unique
+  description       String?
+  specialtyId       String
+  causesAndSymptoms String[]  @default([])
+  diagnosis         String[]  @default([])
   faqs              Json?
-  
-  specialtyId String
-  specialty   Specialty @relation(fields: [specialtyId], references: [id])
+  treatmentOptions  String[]  @default([])
+  specialty         Specialty @relation(fields: [specialtyId], references: [id])
 }
 
 model Treatment {
-  id            String   @id @default(cuid())
-  name          String
-  slug          String   @unique
-  description   String?
-  minEstimate   Float?
-  maxEstimate   Float?
-  currency      String   @default("USD")
-  
-  // SEO Content
-  overview      String?
-  procedure     String?
-  recovery      String?
-  risks         String?
-  
-  // Detailed Content Arrays
+  id                String         @id @default(cuid())
+  name              String
+  slug              String         @unique
+  description       String?
+  minEstimate       Float?
+  maxEstimate       Float?
+  currency          String         @default("USD")
+  overview          String?
+  procedure         String?
+  recovery          String?
+  risks             String?
+  specialtyId       String
   causesAndSymptoms String[]
   diagnosis         String[]
-  preOpPrep         String[]
-  postOpCare        String[]
-  procedureDetails  String[]
   faqs              Json?
-  
-  specialtyId   String
-  specialty     Specialty @relation(fields: [specialtyId], references: [id])
-
-  // Relations
-  patientCases  PatientCase[]
-  quotes        CaseQuote[]
-  hospitals     Hospital[]    @relation("TreatmentToHospital")
-  doctors       Doctor[]      @relation("TreatmentToDoctor")
-  stories       PatientStory[]
+  postOpCare        String[]
+  preOpPrep         String[]
+  procedureDetails  String[]
+  quotes            CaseQuote[]
+  patientCases      PatientCase[]
+  stories           PatientStory[]
+  specialty         Specialty      @relation(fields: [specialtyId], references: [id])
+  doctors           Doctor[]       @relation("TreatmentToDoctor")
+  hospitals         Hospital[]     @relation("TreatmentToHospital")
 }
 
-// ---------------------------------------------------------
-// HOSPITAL & DOCTORS
-// ---------------------------------------------------------
-
 model Hospital {
-  id          String   @id @default(cuid())
-  name        String
-  slug        String   @unique
-  description String?
-  address     String?
-  imageUrl    String?
-  cityId      String
-  city        City     @relation(fields: [cityId], references: [id], onDelete: Cascade)
-  
-  // Facilities
-  beds        Int?
-  icuBeds     Int?
-  otCount     Int?
-  accreditations String[]
+  id                    String         @id @default(cuid())
+  name                  String
+  slug                  String         @unique
+  description           String?
+  address               String?
+  cityId                String
+  beds                  Int?
+  icuBeds               Int?
+  otCount               Int?
+  accreditations        String[]
   internationalServices String[]
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  // Relations
-  users       HospitalUser[]
-  doctors     Doctor[]
-  treatments  Treatment[]    @relation("TreatmentToHospital")
-  specialties Specialty[]    @relation("HospitalSpecialties")
-  quotes      CaseQuote[]
-  caseAssignments CaseHospital[]
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  imageUrl              String?
+  caseAssignments       CaseHospital[]
+  quotes                CaseQuote[]
+  doctors               Doctor[]
+  city                  City           @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  users                 HospitalUser[]
+  specialties           Specialty[]    @relation("HospitalSpecialties")
+  treatments            Treatment[]    @relation("TreatmentToHospital")
 }
 
 model HospitalUser {
   id         String   @id @default(cuid())
   userId     String   @unique
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   hospitalId String
-  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
   position   String?
+  hospital   Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model Doctor {
-  id             String   @id @default(cuid())
-  name           String
-  slug           String   @unique
-  qualifications String?
+  id              String         @id @default(cuid())
+  name            String
+  slug            String         @unique
+  qualifications  String?
   experienceYears Int?
-  biography      String?
-  imageUrl       String?
-  
-  hospitalId     String
-  hospital       Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
-  specialtyId    String
-  specialty      Specialty @relation(fields: [specialtyId], references: [id])
-  cityId         String?
-  city           City?    @relation(fields: [cityId], references: [id], onDelete: Cascade)
-
-  // Relations
-  treatments     Treatment[] @relation("TreatmentToDoctor")
-  recommendedIn  CaseHospital[] // Times recommended by hospital in a case
+  biography       String?
+  imageUrl        String?
+  hospitalId      String
+  specialtyId     String
+  cityId          String?
+  recommendedIn   CaseHospital[]
+  city            City?          @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  hospital        Hospital       @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  specialty       Specialty      @relation(fields: [specialtyId], references: [id])
+  treatments      Treatment[]    @relation("TreatmentToDoctor")
 }
 
-// ---------------------------------------------------------
-// CASE MANAGEMENT (THE PATIENT JOURNEY)
-// ---------------------------------------------------------
+model Patient {
+  id        String        @id @default(cuid())
+  firstName String
+  lastName  String?
+  email     String
+  phone     String?
+  country   String?
+  age       Int?
+  createdAt DateTime      @default(now())
+  updatedAt DateTime      @updatedAt
+  dob       DateTime?
+  cases     PatientCase[]
+}
+
+model PatientCase {
+  id               String              @id @default(cuid())
+  referenceId      String              @unique
+  patientId        String
+  medicalCondition String?
+  treatmentId      String?
+  preferredCityId  String?
+  budget           Float?
+  currency         String              @default("USD")
+  status           CaseStatus          @default(NEW)
+  managerId        String?
+  translatorId     String?
+  createdAt        DateTime            @default(now())
+  updatedAt        DateTime            @updatedAt
+  documents        CaseDocument[]
+  hospitals        CaseHospital[]
+  notes            CaseNote[]
+  quotes           CaseQuote[]
+  statusHistory    CaseStatusHistory[]
+  commissions      Commission[]
+  manager          StaffProfile?       @relation("CaseManager", fields: [managerId], references: [id])
+  patient          Patient             @relation(fields: [patientId], references: [id], onDelete: Cascade)
+  preferredCity    City?               @relation("PreferredCity", fields: [preferredCityId], references: [id])
+  translator       StaffProfile?       @relation("CaseTranslator", fields: [translatorId], references: [id])
+  treatment        Treatment?          @relation(fields: [treatmentId], references: [id])
+}
+
+model CaseStatusHistory {
+  id        String      @id @default(cuid())
+  caseId    String
+  status    CaseStatus
+  changedBy String?
+  notes     String?
+  createdAt DateTime    @default(now())
+  case      PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model CaseDocument {
+  id         String      @id @default(cuid())
+  caseId     String
+  fileName   String
+  fileUrl    String
+  fileType   String
+  isPrivate  Boolean     @default(true)
+  uploadedAt DateTime    @default(now())
+  case       PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model CaseHospital {
+  id                  String      @id @default(cuid())
+  caseId              String
+  hospitalId          String
+  recommendedDoctorId String?
+  status              String      @default("CONTACTED")
+  createdAt           DateTime    @default(now())
+  updatedAt           DateTime    @updatedAt
+  case                PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  hospital            Hospital    @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  recommendedDoctor   Doctor?     @relation(fields: [recommendedDoctorId], references: [id])
+
+  @@unique([caseId, hospitalId])
+}
+
+model CaseQuote {
+  id          String      @id @default(cuid())
+  caseId      String
+  hospitalId  String
+  treatmentId String
+  amount      Float
+  currency    String      @default("USD")
+  details     String?
+  documentUrl String?
+  status      String      @default("PENDING")
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+  case        PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+  hospital    Hospital    @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  treatment   Treatment   @relation(fields: [treatmentId], references: [id])
+}
+
+model CaseNote {
+  id         String      @id @default(cuid())
+  caseId     String
+  authorId   String
+  content    String
+  isInternal Boolean     @default(true)
+  createdAt  DateTime    @default(now())
+  case       PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
+}
+
+model Commission {
+  id             String           @id @default(cuid())
+  caseId         String
+  treatmentValue Float
+  percentage     Float
+  amount         Float
+  currency       String           @default("USD")
+  status         CommissionStatus @default(PENDING)
+  invoiceRef     String?
+  dueDate        DateTime?
+  receivedDate   DateTime?
+  notes          String?
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  case           PatientCase      @relation(fields: [caseId], references: [id])
+}
+
+model PatientStory {
+  id          String     @id @default(cuid())
+  title       String
+  slug        String     @unique
+  patientName String
+  content     String
+  imageUrl    String?
+  treatmentId String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  treatment   Treatment? @relation(fields: [treatmentId], references: [id])
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  title     String
+  category  String   @default("General")
+  imageUrl  String
+  createdAt DateTime @default(now())
+}
+
+model BlogPost {
+  id         String   @id @default(cuid())
+  title      String
+  slug       String   @unique
+  excerpt    String?
+  content    String
+  coverImage String?
+  authorName String   @default("Admin")
+  published  Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+  CASE_MANAGER
+  TRANSLATOR
+  COORDINATOR
+  HOSPITAL_USER
+}
 
 enum CaseStatus {
   NEW
@@ -217,206 +337,10 @@ enum CaseStatus {
   DUPLICATE
 }
 
-model Patient {
-  id          String   @id @default(cuid())
-  firstName   String
-  lastName    String?
-  email       String
-  phone       String?
-  country     String?
-  age         Int?
-  dob         DateTime?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  // Relations
-  cases       PatientCase[]
-}
-
-model PatientCase {
-  id                String   @id @default(cuid())
-  referenceId       String   @unique // e.g. CASE-10482
-  patientId         String
-  patient           Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
-  
-  // Medical Needs
-  medicalCondition  String?
-  treatmentId       String?
-  treatment         Treatment? @relation(fields: [treatmentId], references: [id])
-  
-  // Preferences
-  preferredCityId   String?
-  preferredCity     City?    @relation("PreferredCity", fields: [preferredCityId], references: [id], onDelete: SetNull)
-  budget            Float?
-  currency          String   @default("USD")
-
-  // Operations
-  status            CaseStatus @default(NEW)
-  managerId         String?
-  manager           StaffProfile? @relation("CaseManager", fields: [managerId], references: [id])
-  translatorId      String?
-  translator        StaffProfile? @relation("CaseTranslator", fields: [translatorId], references: [id])
-
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-
-  // Relations
-  statusHistory     CaseStatusHistory[]
-  documents         CaseDocument[]
-  hospitals         CaseHospital[]
-  quotes            CaseQuote[]
-  notes             CaseNote[]
-  commissions       Commission[]
-}
-
-model CaseStatusHistory {
-  id        String   @id @default(cuid())
-  caseId    String
-  case      PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  status    CaseStatus
-  changedBy String?  // User ID who changed it
-  notes     String?
-  createdAt DateTime @default(now())
-}
-
-model CaseDocument {
-  id        String   @id @default(cuid())
-  caseId    String
-  case      PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  fileName  String
-  fileUrl   String
-  fileType  String
-  isPrivate Boolean  @default(true)
-  uploadedAt DateTime @default(now())
-}
-
-// Junction table: Which hospitals are assigned/contacted for this case
-model CaseHospital {
-  id            String   @id @default(cuid())
-  caseId        String
-  case          PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  hospitalId    String
-  hospital      Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
-  
-  // The doctor recommended by the hospital for this case
-  recommendedDoctorId String?
-  recommendedDoctor   Doctor? @relation(fields: [recommendedDoctorId], references: [id])
-  
-  status        String   @default("CONTACTED") // e.g. CONTACTED, QUOTED, REJECTED, ACCEPTED
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  
-  // Optional unique constraint so a hospital isn't added twice to the same case
-  @@unique([caseId, hospitalId])
-}
-
-model CaseQuote {
-  id          String   @id @default(cuid())
-  caseId      String
-  case        PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  hospitalId  String
-  hospital    Hospital @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
-  treatmentId String
-  treatment   Treatment @relation(fields: [treatmentId], references: [id])
-  
-  amount      Float
-  currency    String   @default("USD")
-  details     String?
-  documentUrl String?
-  
-  status      String   @default("PENDING") // PENDING, ACCEPTED, REJECTED
-  
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model CaseNote {
-  id        String   @id @default(cuid())
-  caseId    String
-  case      PatientCase @relation(fields: [caseId], references: [id], onDelete: Cascade)
-  authorId  String
-  content   String
-  isInternal Boolean @default(true) // Hidden from hospital
-  createdAt DateTime @default(now())
-}
-
-// ---------------------------------------------------------
-// COMMISSION SYSTEM
-// ---------------------------------------------------------
-
 enum CommissionStatus {
   PENDING
   EXPECTED
   INVOICED
   RECEIVED
   CANCELLED
-}
-
-model Commission {
-  id              String   @id @default(cuid())
-  caseId          String
-  case            PatientCase @relation(fields: [caseId], references: [id])
-  
-  treatmentValue  Float
-  percentage      Float
-  amount          Float
-  currency        String   @default("USD")
-  
-  status          CommissionStatus @default(PENDING)
-  invoiceRef      String?
-  dueDate         DateTime?
-  receivedDate    DateTime?
-  notes           String?
-  
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
-}
-
-// ---------------------------------------------------------
-// CMS & MARKETING
-// ---------------------------------------------------------
-
-model PatientStory {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  patientName String
-  content     String
-  imageUrl    String?
-  treatmentId String?
-  treatment   Treatment? @relation(fields: [treatmentId], references: [id], onDelete: SetNull)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model GalleryImage {
-  id          String   @id @default(cuid())
-  title       String
-  category    String   @default("General") // e.g. Hospital, Success, Team, Events
-  imageUrl    String
-  createdAt   DateTime @default(now())
-}
-
-model BlogPost {
-  id          String   @id @default(cuid())
-  title       String
-  slug        String   @unique
-  excerpt     String?
-  content     String
-  coverImage  String?
-  authorName  String   @default("Admin")
-  published   Boolean  @default(false)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model ContactMessage {
-  id          String   @id @default(cuid())
-  name        String
-  email       String
-  phone       String?
-  subject     String?
-  message     String
-  isRead      Boolean  @default(false)
-  createdAt   DateTime @default(now())
 }
