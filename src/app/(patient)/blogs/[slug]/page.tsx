@@ -7,9 +7,10 @@ import Link from "next/link"
 export const dynamic = "force-dynamic";
 
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const resolvedParams = await params;
   const blog = await prisma.blogPost.findUnique({
-    where: { slug: params.slug }
+    where: { slug: resolvedParams.slug }
   })
   if (!blog) return { title: "Not Found" }
   return {
@@ -18,9 +19,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const resolvedParams = await params;
   const blog = await prisma.blogPost.findUnique({
-    where: { slug: params.slug }
+    where: { slug: resolvedParams.slug }
   })
 
   if (!blog || !blog.published) {
