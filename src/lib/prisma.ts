@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { Pool } from "pg";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -23,8 +24,9 @@ function createPrismaClient() {
     });
   }
 
-  // For direct PostgreSQL connections, use the driver adapter
-  const adapter = new PrismaPg({ connectionString });
+  // For direct PostgreSQL connections, use the pg Pool with a low max for serverless
+  const pool = new Pool({ connectionString, max: 2 });
+  const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });
 }
 
