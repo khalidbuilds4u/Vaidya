@@ -237,10 +237,10 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 </div>
               </div>
 
-              {/* Ask Vaidya Button */}
+              {/* Ask Asad Button */}
               <EnquiryForm>
                 <Button className="w-full rounded-xl h-14 bg-teal-500 hover:bg-teal-600 text-white font-bold text-base shadow-sm hover:shadow-md transition-all">
-                  Ask Vaidya about this Hospital
+                  Ask Asad about this Hospital
                 </Button>
               </EnquiryForm>
 
