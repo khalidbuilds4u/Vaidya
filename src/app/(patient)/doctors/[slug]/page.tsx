@@ -345,7 +345,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   ))}
                 </div>
                 <div className="mt-8 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative h-40">
-                  <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?q=80&w=2070&auto=format&fit=crop" alt="Medical Care Support" className="absolute inset-0 w-full h-full object-cover" />
+                  <img src="/images/hero-hospital.jpg" alt="Medical Care Support" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               </div>
 
