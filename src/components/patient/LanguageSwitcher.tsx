@@ -60,10 +60,10 @@ export function LanguageSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger
         render={
-          <button className="gap-2 h-9 px-4 rounded-full border border-teal-500 hover:border-teal-400 bg-slate-900 hover:bg-slate-800 transition-all flex items-center justify-center text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50 text-white shadow-sm">
-            <Globe className="w-4 h-4 text-slate-200" />
-            <span className="font-medium">{activeLang.shortName}</span>
-            <ChevronDown className="w-4 h-4 text-slate-400 ml-1" />
+          <button className="gap-1.5 sm:gap-2 h-9 px-2.5 sm:px-4 rounded-full border border-teal-500 hover:border-teal-400 bg-slate-900 hover:bg-slate-800 transition-all flex items-center justify-center text-sm font-medium outline-none disabled:pointer-events-none disabled:opacity-50 text-white shadow-sm shrink-0">
+            <Globe className="w-4 h-4 text-slate-200 shrink-0" />
+            <span className="font-medium hidden sm:block">{activeLang.shortName}</span>
+            <ChevronDown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-400 shrink-0 hidden sm:block" />
           </button>
         }
       />
