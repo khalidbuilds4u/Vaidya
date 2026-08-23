@@ -59,15 +59,26 @@ export async function createHospital(formData: FormData) {
   const established = parseNumber(formData.get("established"));
   const airportDistance = parseNumber(formData.get("airportDistance"));
   
-  const parseStringArray = (name: string) => {
+  const parseJsonArray = (name: string) => {
     const val = parseString(formData.get(name));
-    return val ? val.split("\n").map(s => s.trim()).filter(Boolean) : [];
+    if (val) {
+      try {
+        const parsed = JSON.parse(val);
+        if (Array.isArray(parsed)) return parsed;
+      } catch (e) {
+        // Fallback for older formats
+        if (val.includes(',')) return val.split(',').map(s => s.trim()).filter(Boolean);
+        if (val.includes('\n')) return val.split('\n').map(s => s.trim()).filter(Boolean);
+        return [val.trim()];
+      }
+    }
+    return [];
   };
 
-  const premiumFacilities = parseStringArray("premiumFacilities");
-  const advancedTechnologies = parseStringArray("advancedTechnologies");
-  const connectivityLocation = parseStringArray("connectivityLocation");
-  const excellenceInCare = parseStringArray("excellenceInCare");
+  const premiumFacilities = parseJsonArray("premiumFacilities");
+  const advancedTechnologies = parseJsonArray("advancedTechnologies");
+  const connectivityLocation = parseJsonArray("connectivityLocation");
+  const excellenceInCare = parseJsonArray("excellenceInCare");
   
   let hospitalFacilities = null;
   const hfStr = parseString(formData.get("hospitalFacilities"));
@@ -151,15 +162,26 @@ export async function updateHospital(id: string, formData: FormData) {
   const established = parseNumber(formData.get("established"));
   const airportDistance = parseNumber(formData.get("airportDistance"));
   
-  const parseStringArray = (name: string) => {
+  const parseJsonArray = (name: string) => {
     const val = parseString(formData.get(name));
-    return val ? val.split("\n").map(s => s.trim()).filter(Boolean) : [];
+    if (val) {
+      try {
+        const parsed = JSON.parse(val);
+        if (Array.isArray(parsed)) return parsed;
+      } catch (e) {
+        // Fallback for older formats
+        if (val.includes(',')) return val.split(',').map(s => s.trim()).filter(Boolean);
+        if (val.includes('\n')) return val.split('\n').map(s => s.trim()).filter(Boolean);
+        return [val.trim()];
+      }
+    }
+    return [];
   };
 
-  const premiumFacilities = parseStringArray("premiumFacilities");
-  const advancedTechnologies = parseStringArray("advancedTechnologies");
-  const connectivityLocation = parseStringArray("connectivityLocation");
-  const excellenceInCare = parseStringArray("excellenceInCare");
+  const premiumFacilities = parseJsonArray("premiumFacilities");
+  const advancedTechnologies = parseJsonArray("advancedTechnologies");
+  const connectivityLocation = parseJsonArray("connectivityLocation");
+  const excellenceInCare = parseJsonArray("excellenceInCare");
   
   let hospitalFacilities = null;
   const hfStr = parseString(formData.get("hospitalFacilities"));

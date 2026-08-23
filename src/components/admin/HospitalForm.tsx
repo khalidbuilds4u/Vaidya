@@ -1,387 +1,320 @@
 "use client";
 
-import { createHospital, updateHospital, deleteHospital } from "@/app/actions/hospitals";
-import { SubmitButton } from "@/components/admin/SubmitButton";
-import { ArrowLeft, Trash2, ImageIcon } from "lucide-react";
+import { Building2, Save } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { SubmitButton } from "./SubmitButton";
+import { DynamicListInput } from "@/components/admin/forms/DynamicListInput";
 
-type Hospital = {
-  id?: string;
-  name: string;
-  slug: string;
-  description: string | null;
-  address: string | null;
-  cityId?: string;
-  imageUrl?: string | null;
-  beds: number | null;
-  icuBeds: number | null;
-  otCount: number | null;
-  accreditations: string[];
-  internationalServices: string[];
-  established?: number | null;
-  airportDistance?: number | null;
-  premiumFacilities?: string[];
-  advancedTechnologies?: string[];
-  connectivityLocation?: string[];
-  excellenceInCare?: string[];
-  hospitalFacilities?: any;
-  specialties?: { id: string; name: string }[];
+type HospitalFormProps = {
+  initialData?: {
+    name: string;
+    slug: string;
+    description: string | null;
+    address: string | null;
+    imageUrl: string | null;
+    cityId: string;
+    beds: number | null;
+    icuBeds: number | null;
+    otCount: number | null;
+    accreditations: string[];
+    internationalServices: string[];
+    established?: number | null;
+    airportDistance?: number | null;
+    premiumFacilities?: string[];
+    advancedTechnologies?: string[];
+    connectivityLocation?: string[];
+    excellenceInCare?: string[];
+    hospitalFacilities?: any;
+    specialties?: { id: string; name: string }[];
+  };
+  cities: { id: string; name: string }[];
+  specialties: { id: string; name: string }[];
+  action: (formData: FormData) => Promise<void>;
+  isNew?: boolean;
 };
 
-type Specialty = {
-  id: string;
-  name: string;
-};
-
-type City = {
-  id: string;
-  name: string;
-};
-
-export function HospitalForm({ initialData, allSpecialties, allCities }: { initialData?: Hospital, allSpecialties?: Specialty[], allCities?: City[] }) {
-  const isEditing = !!initialData?.id;
-  const router = useRouter();
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  async function clientAction(formData: FormData) {
-    if (isEditing) {
-      await updateHospital(initialData.id!, formData);
-    } else {
-      await createHospital(formData);
-    }
-  }
-
-  async function handleDelete() {
-    if (!initialData?.id) return;
-    if (!confirm("Are you sure you want to delete this hospital? This action cannot be undone.")) return;
-    
-    setIsDeleting(true);
-    await deleteHospital(initialData.id);
-    // Router redirect is handled by the server action revalidatePath in this case, but we can also do it here:
-    router.push("/admin/hospitals");
-  }
-
+export function HospitalForm({
+  initialData,
+  cities,
+  specialties,
+  action,
+  isNew = false,
+}: HospitalFormProps) {
   return (
-    <div className="max-w-4xl mx-auto space-y-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <Link
-            href="/admin/hospitals"
-            className="p-2 rounded-xl bg-white/[0.04] border border-white/[0.06] text-slate-400 hover:text-white hover:bg-white/[0.08] transition-colors"
-          >
-            <ArrowLeft className="w-5 h-5" />
-          </Link>
+    <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
+      <div className="p-6 border-b border-slate-100 bg-slate-50/50">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-teal-100 text-teal-600 flex items-center justify-center">
+            <Building2 className="w-5 h-5" />
+          </div>
           <div>
-            <h1 className="text-2xl font-extrabold text-white tracking-tight">
-              {isEditing ? "Edit Hospital" : "Add New Hospital"}
-            </h1>
+            <h2 className="text-base font-bold text-slate-900">
+              Hospital Profile
+            </h2>
+            <p className="text-sm text-slate-500">
+              Basic information, infrastructure, and facilities.
+            </p>
           </div>
         </div>
-
-        {isEditing && (
-          <button
-            onClick={handleDelete}
-            disabled={isDeleting}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-red-500/10 hover:bg-red-500/20 text-red-500 font-bold text-sm transition-colors disabled:opacity-50"
-          >
-            <Trash2 className="w-4 h-4" />
-            {isDeleting ? "Deleting..." : "Delete Hospital"}
-          </button>
-        )}
       </div>
 
-      <form action={clientAction} className="bg-white/[0.04] border border-white/[0.06] rounded-3xl p-6 sm:p-8 space-y-8">
-        
-        {/* Section 1: Basic Info */}
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-white border-b border-white/[0.06] pb-2">
-            Basic Information
-          </h2>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">Hospital Name</label>
-              <input
-                type="text"
-                name="name"
-                defaultValue={initialData?.name}
-                required
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">URL Slug</label>
-              <input
-                type="text"
-                name="slug"
-                defaultValue={initialData?.slug}
-                required
-                placeholder="apollo-hospitals-delhi"
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm font-mono"
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">City Location</label>
-              <select
-                name="cityId"
-                defaultValue={initialData?.cityId || ""}
-                required
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm appearance-none"
-              >
-                <option value="" disabled>Select a city</option>
-                {allCities?.map(city => (
-                  <option key={city.id} value={city.id}>{city.name}</option>
-                ))}
-              </select>
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">Accreditations (comma separated)</label>
-              <textarea
-                name="accreditations"
-                defaultValue={initialData?.accreditations?.join(", ") || ""}
-                rows={2}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                placeholder="JCI, NABH, ISO"
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">International Services (comma separated)</label>
-              <textarea
-                name="internationalServices"
-                defaultValue={initialData?.internationalServices?.join(", ") || ""}
-                rows={2}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                placeholder="Airport Transfer, Visa Assistance, Interpreter"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">Premium Facilities (newline separated)</label>
-              <textarea
-                name="premiumFacilities"
-                defaultValue={initialData?.premiumFacilities?.join("\n") || ""}
-                rows={3}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                placeholder="Enter each facility on a new line"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">Advanced Technologies (newline separated)</label>
-              <textarea
-                name="advancedTechnologies"
-                defaultValue={initialData?.advancedTechnologies?.join("\n") || ""}
-                rows={3}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                placeholder="Enter each technology on a new line"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">Connectivity & Location (newline separated)</label>
-              <textarea
-                name="connectivityLocation"
-                defaultValue={initialData?.connectivityLocation?.join("\n") || ""}
-                rows={3}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                placeholder="Enter each point on a new line"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium text-slate-300">Excellence in Care (newline separated)</label>
-              <textarea
-                name="excellenceInCare"
-                defaultValue={initialData?.excellenceInCare?.join("\n") || ""}
-                rows={3}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                placeholder="Enter each point on a new line"
-              />
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-sm font-medium flex justify-between text-slate-300">
-                <span>Hospital Facilities (JSON format)</span>
-                <span className="text-xs text-slate-400">e.g. &#123; "Food": ["Restaurant", "Diet on request"], "Comfort": ["TV"] &#125;</span>
-              </label>
-              <textarea
-                name="hospitalFacilities"
-                defaultValue={initialData?.hospitalFacilities ? JSON.stringify(initialData.hospitalFacilities, null, 2) : ""}
-                rows={5}
-                className="flex w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent font-mono text-white"
-                placeholder='{
-  "Food": ["Diet on Request", "Restaurant"],
-  "Transportation": ["Airport pickup"]
-}'
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-semibold text-slate-300 mb-2">Street Address</label>
-              <input
-                type="text"
-                name="address"
-                defaultValue={initialData?.address || ""}
-                className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-slate-300 mb-2">About / Description</label>
-            <textarea
-              name="description"
-              defaultValue={initialData?.description || ""}
-              rows={4}
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm resize-none"
-            />
-          </div>
-        </div>
-
-        {/* Section 2: Facilities */}
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-white border-b border-white/[0.06] pb-2">
-            Infrastructure & Facilities
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Beds</label>
-                <input
-                  type="number"
-                  name="beds"
-                  defaultValue={initialData?.beds || ""}
-                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  placeholder="Total beds"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">ICU Beds</label>
-                <input
-                  type="number"
-                  name="icuBeds"
-                  defaultValue={initialData?.icuBeds || ""}
-                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  placeholder="ICU beds"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">OT Count</label>
-                <input
-                  type="number"
-                  name="otCount"
-                  defaultValue={initialData?.otCount || ""}
-                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  placeholder="Operation theaters"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Established Year</label>
-                <input
-                  type="number"
-                  name="established"
-                  defaultValue={initialData?.established || ""}
-                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  placeholder="e.g. 2006"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-300">Airport Distance (km)</label>
-                <input
-                  type="number"
-                  name="airportDistance"
-                  defaultValue={initialData?.airportDistance || ""}
-                  className="flex h-10 w-full rounded-md border border-slate-300 bg-transparent px-3 py-2 text-sm placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-white"
-                  placeholder="e.g. 13"
-                />
-              </div>
-            </div>
-        </div>
-
-        {/* Section 2.5: Specialties */}
-        {allSpecialties && allSpecialties.length > 0 && (
-          <div className="space-y-4">
-            <h2 className="text-lg font-bold text-white border-b border-white/[0.06] pb-2">
-              Key Clinical Specialties
-            </h2>
-            <p className="text-xs text-slate-400 mb-3">Select the core specialties this hospital is internationally recognized for.</p>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-              {allSpecialties.map((specialty) => {
-                const isSelected = initialData?.specialties?.some(s => s.id === specialty.id) || false;
-                return (
-                  <label key={specialty.id} className="flex items-center gap-3 p-3 rounded-xl border border-white/10 bg-white/[0.02] hover:bg-white/[0.06] cursor-pointer transition-colors">
-                    <input 
-                      type="checkbox" 
-                      name="specialtyIds" 
-                      value={specialty.id} 
-                      defaultChecked={isSelected}
-                      className="w-4 h-4 rounded text-primary focus:ring-primary/50 bg-slate-900 border-white/20"
-                    />
-                    <span className="text-sm text-slate-200 font-medium">{specialty.name}</span>
-                  </label>
-                );
-              })}
-            </div>
-          </div>
-        )}
-
-        {/* Section 3: Tags */}
-        <div className="space-y-4">
-          <h2 className="text-lg font-bold text-white border-b border-white/[0.06] pb-2">
-            Tags & Accreditations
-          </h2>
-          
-          <div>
-            <label className="block text-sm font-semibold text-slate-300 mb-1">Accreditations</label>
-            <p className="text-xs text-slate-500 mb-3">Comma-separated (e.g., JCI, NABH, ISO)</p>
+      <form action={action} className="p-6 sm:p-8 space-y-8">
+        {/* Section 1: Basic Information */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+              Hospital Name <span className="text-red-500">*</span>
+            </label>
             <input
               type="text"
-              name="accreditations"
-              defaultValue={initialData?.accreditations?.join(", ") || ""}
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm font-semibold text-slate-300 mb-1">International Services</label>
-            <p className="text-xs text-slate-500 mb-3">Comma-separated (e.g., Translators, Prayer Room, Visa Assistance)</p>
-            <textarea
-              name="internationalServices"
-              defaultValue={initialData?.internationalServices?.join(", ") || ""}
-              rows={2}
-              placeholder="Translation, Visa Assistance, Airport Transfer..."
-              className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm resize-y"
+              name="name"
+              defaultValue={initialData?.name || ""}
+              required
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              placeholder="Enter hospital name"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm font-semibold text-slate-300 mb-1">Hospital Image URL</label>
-            <div className="relative">
-              <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+              URL Slug <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              name="slug"
+              defaultValue={initialData?.slug || ""}
+              required
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              placeholder="e.g. max-super-speciality"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+              City / Location <span className="text-red-500">*</span>
+            </label>
+            <select
+              name="cityId"
+              defaultValue={initialData?.cityId || ""}
+              required
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+            >
+              <option value="" disabled>Select a city...</option>
+              {cities.map((city) => (
+                <option key={city.id} value={city.id}>
+                  {city.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+              Cover Image URL
+            </label>
+            <input
+              type="url"
+              name="imageUrl"
+              defaultValue={initialData?.imageUrl || ""}
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              placeholder="https://images.unsplash.com/..."
+            />
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+            Description / About Hospital
+          </label>
+          <textarea
+            name="description"
+            rows={4}
+            defaultValue={initialData?.description || ""}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+            placeholder="Detailed description of the hospital..."
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+            Street Address
+          </label>
+          <textarea
+            name="address"
+            rows={2}
+            defaultValue={initialData?.address || ""}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+            placeholder="Full physical address..."
+          />
+        </div>
+
+        {/* Section 2: Infrastructure & Logistics */}
+        <div className="pt-6 border-t border-slate-100">
+          <h3 className="text-lg font-bold text-slate-900 mb-6">Infrastructure & Logistics</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900">Total Beds</label>
               <input
-                type="url"
-                name="imageUrl"
-                defaultValue={initialData?.imageUrl || ""}
-                placeholder="https://images.unsplash.com/..."
-                className="w-full pl-10 pr-4 py-3 rounded-xl bg-white/[0.04] border border-white/10 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-sm"
+                type="number"
+                name="beds"
+                defaultValue={initialData?.beds || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. 500"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900">ICU Beds</label>
+              <input
+                type="number"
+                name="icuBeds"
+                defaultValue={initialData?.icuBeds || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. 150"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900">OT Count</label>
+              <input
+                type="number"
+                name="otCount"
+                defaultValue={initialData?.otCount || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. 15"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900">Established Year</label>
+              <input
+                type="number"
+                name="established"
+                defaultValue={initialData?.established || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. 2006"
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900">Airport Distance (km)</label>
+              <input
+                type="number"
+                name="airportDistance"
+                defaultValue={initialData?.airportDistance || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. 13"
               />
             </div>
           </div>
         </div>
 
-        <div className="pt-4 flex justify-end">
-          <SubmitButton 
-            className="w-full sm:w-auto px-8 py-3 rounded-xl bg-gradient-to-r from-primary to-teal-600 text-white font-bold shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all text-sm h-12"
-            loadingText="Saving..."
-          >
-            {isEditing ? "Save Changes" : "Create Hospital"}
+        {/* Section 3: Lists and Content */}
+        <div className="pt-6 border-t border-slate-100">
+          <h3 className="text-lg font-bold text-slate-900 mb-6">Hospital Highlights & Content</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <DynamicListInput 
+              name="premiumFacilities" 
+              label="Premium Facilities" 
+              initialItems={initialData?.premiumFacilities || []} 
+              placeholder="e.g. 539+ beds in the hospital" 
+            />
+            <DynamicListInput 
+              name="advancedTechnologies" 
+              label="Advanced Medical Technologies" 
+              initialItems={initialData?.advancedTechnologies || []} 
+              placeholder="e.g. TrueBeam Linac with Exactrac" 
+            />
+            <DynamicListInput 
+              name="connectivityLocation" 
+              label="Connectivity & Location" 
+              initialItems={initialData?.connectivityLocation || []} 
+              placeholder="e.g. Airport is 13 km away" 
+            />
+            <DynamicListInput 
+              name="excellenceInCare" 
+              label="Excellence in Patient Care" 
+              initialItems={initialData?.excellenceInCare || []} 
+              placeholder="e.g. Accredited by JCI and NABH" 
+            />
+            <DynamicListInput 
+              name="accreditations" 
+              label="Accreditations & Awards" 
+              initialItems={initialData?.accreditations || []} 
+              placeholder="e.g. JCI, NABH" 
+            />
+            <DynamicListInput 
+              name="internationalServices" 
+              label="International Patient Services" 
+              initialItems={initialData?.internationalServices || []} 
+              placeholder="e.g. Visa Assistance" 
+            />
+          </div>
+        </div>
+
+        {/* Section 4: Complex JSON & Relations */}
+        <div className="pt-6 border-t border-slate-100">
+          <h3 className="text-lg font-bold text-slate-900 mb-6">Facilities & Specialties</h3>
+          
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900 flex items-center justify-between">
+                <span>Categorized Facilities (JSON format)</span>
+                <span className="text-xs text-slate-400 font-normal">Used for the 3 colored facility cards</span>
+              </label>
+              <textarea
+                name="hospitalFacilities"
+                rows={6}
+                defaultValue={initialData?.hospitalFacilities ? JSON.stringify(initialData.hospitalFacilities, null, 2) : ""}
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white font-mono"
+                placeholder='{
+  "Food": ["Diet on Request", "Restaurant"],
+  "Comfort During Stay": ["TV in room", "Private room", "Free wifi"],
+  "Transportation": ["Airport pickup", "Visa / Travel office"]
+}'
+              />
+            </div>
+
+            <div className="space-y-3">
+              <label className="text-sm font-semibold text-slate-900">
+                Multi Speciality Services
+              </label>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
+                {specialties.map((specialty) => {
+                  const isSelected = initialData?.specialties?.some(
+                    (s) => s.id === specialty.id
+                  );
+                  return (
+                    <label
+                      key={specialty.id}
+                      className="flex items-center space-x-3 hover:bg-slate-100/50 p-2 rounded-lg cursor-pointer transition-colors"
+                    >
+                      <input
+                        type="checkbox"
+                        name="specialtyIds"
+                        value={specialty.id}
+                        defaultChecked={isSelected}
+                        className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary"
+                      />
+                      <span className="text-sm text-slate-700 font-medium select-none">
+                        {specialty.name}
+                      </span>
+                    </label>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">
+          <Link href="/admin/hospitals">
+            <button
+              type="button"
+              className="px-6 py-2.5 rounded-xl font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
+            >
+              Cancel
+            </button>
+          </Link>
+          <SubmitButton>
+            <Save className="w-4 h-4 mr-2 inline-block" />
+            {isNew ? "Create Hospital" : "Save Changes"}
           </SubmitButton>
         </div>
       </form>

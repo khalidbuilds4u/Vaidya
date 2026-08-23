@@ -1,9 +1,9 @@
 import { HospitalForm } from "@/components/admin/HospitalForm";
 import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
+import { updateHospital } from "@/app/actions/hospitals";
 
 export const dynamic = "force-dynamic";
-
 
 export default async function EditHospitalPage({
   params,
@@ -28,6 +28,8 @@ export default async function EditHospitalPage({
   if (!hospital) {
     notFound();
   }
+  
+  const updateHospitalWithId = updateHospital.bind(null, hospital.id);
 
-  return <HospitalForm initialData={hospital} allSpecialties={specialties} allCities={cities} />;
+  return <HospitalForm initialData={hospital} specialties={specialties} cities={cities} action={updateHospitalWithId} />;
 }
