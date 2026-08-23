@@ -33,11 +33,11 @@ export function DoctorCard({
 }: DoctorCardProps) {
   return (
     <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-7 border border-white/85 flex flex-col group relative overflow-hidden bg-white/95 shadow-sm hover:shadow-xl transition-all duration-300">
-      <div className="flex flex-col sm:flex-row gap-3.5 sm:gap-6 items-center sm:items-start">
+      <div className="flex flex-col gap-4 items-center">
         
         {/* Doctor Image with Frosted Frame & Rating */}
         <div className="relative shrink-0">
-          <div className="w-18 h-18 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-2xl overflow-hidden border-2 border-white shadow-md relative group bg-slate-100">
+          <div className="w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full overflow-hidden border-4 border-white shadow-sm relative group bg-slate-100">
             <img 
               src={image} 
               alt={name}
@@ -51,10 +51,10 @@ export function DoctorCard({
         </div>
         
         {/* Doctor Details */}
-        <div className="flex-1 text-center sm:text-left w-full">
-          <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start gap-1 sm:gap-2 mb-2">
+        <div className="flex-1 text-center w-full">
+          <div className="flex flex-col justify-center items-center gap-1 sm:gap-1.5 mb-3">
             <div>
-              <h3 className="text-base sm:text-xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-primary transition-colors">
                 <Link href={`/doctors/${slug}`}>
                   {name}
                 </Link>
@@ -63,12 +63,12 @@ export function DoctorCard({
               <p className="text-[11px] sm:text-xs text-slate-400 font-medium mt-0.5">{qualifications}</p>
             </div>
             
-            <div className="inline-flex px-2.5 py-0.5 rounded-full bg-slate-100 text-[10px] sm:text-xs font-semibold text-slate-600 border border-slate-200/60 mt-1 sm:mt-0">
+            <div className="inline-flex px-3 py-1 rounded-full bg-slate-100 text-[10px] sm:text-xs font-semibold text-slate-600 border border-slate-200/60 mt-1">
               {experience} Experience
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 mb-3 text-[11px] sm:text-xs font-medium text-slate-600">
+          <div className="flex flex-wrap items-center justify-center gap-2 mb-3 text-[11px] sm:text-xs font-medium text-slate-600">
             <div className="flex items-center gap-1 bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-100">
               <BriefcaseMedical className="h-3.5 w-3.5 text-primary shrink-0" />
               <span>{experience}</span>
@@ -80,7 +80,7 @@ export function DoctorCard({
           </div>
 
           {keyExpertise.length > 0 && (
-            <div className="flex flex-wrap gap-1 mb-3.5 justify-center sm:justify-start">
+            <div className="flex flex-wrap gap-1.5 mb-4 justify-center">
               {keyExpertise.map((exp, idx) => (
                 <span 
                   key={`${exp}-${idx}`} 
