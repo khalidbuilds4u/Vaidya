@@ -1,6 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { PrismaPg } from "@prisma/adapter-pg";
-import { Pool } from "pg";
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined;
@@ -17,34 +15,13 @@ function createPrismaClient() {
     }
   }
 
-  // For Prisma Postgres (prisma+postgres:// URLs), use the accelerateUrl
-  if (connectionString.startsWith("prisma+postgres://")) {
-    return new PrismaClient({
-      accelerateUrl: connectionString,
-    });
-  }
-
-  // Strip Prisma-specific query parameters from the URL before passing to pg.Pool
-  // because the pg library will pass them to the Postgres server, which will reject them.
-  let pgConnectionString = connectionString;
-  try {
-    const url = new URL(pgConnectionString);
-    url.searchParams.delete("pgbouncer");
-    url.searchParams.delete("connection_limit");
-    url.searchParams.delete("pool_timeout");
-    pgConnectionString = url.toString();
-  } catch (e) {
-    // Ignore URL parsing errors
-  }
-
-  // For direct PostgreSQL connections, use the pg Pool with a low max for serverless
-  const pool = new Pool({ 
-    connectionString: pgConnectionString, 
-    max: 2,
-    ssl: { rejectUnauthorized: false } // Required for Supabase transaction pooler
+  return new PrismaClient({
+    datasources: {
+      db: {
+        url: connectionString
+      }
+    }
   });
-  const adapter = new PrismaPg(pool);
-  return new PrismaClient({ adapter });
 }
 
 export const prisma = globalForPrisma.prisma ?? createPrismaClient();
