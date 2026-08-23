@@ -93,11 +93,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             </section>
 
             {/* Multi Speciality Services */}
-            {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && (
+            {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties) && (getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).length > 0 && (
               <section id="specialities" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('multiSpecialties')}</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-3">
-                  {hospital.multiSpecialties.map((spec, idx) => (
+                  {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).map((spec: string, idx: number) => (
                     <li key={idx} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></div>
                       <span className="text-slate-600 text-sm font-medium">{spec}</span>
@@ -108,11 +108,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             )}
 
             {/* Premium Facilities */}
-            {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && (
+            {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities) && (getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).length > 0 && (
               <section id="premium-facilities" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('premiumFacilities')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  {hospital.premiumFacilities.map((facility, idx) => (
+                  {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).map((facility: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
                       <span className="text-slate-600 leading-relaxed text-sm">{facility}</span>
@@ -123,11 +123,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             )}
 
             {/* Advanced Medical Technologies */}
-            {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && (
+            {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies) && (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).length > 0 && (
               <section id="technologies" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('technologies')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
-                  {hospital.advancedTechnologies.map((tech, idx) => (
+                  {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).map((tech: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0"></div>
                       <span className="text-slate-600 text-sm">{tech}</span>
@@ -138,11 +138,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             )}
 
             {/* Connectivity & Location */}
-            {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && (
+            {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation) && (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).length > 0 && (
               <section id="connectivity" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('connectivity')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  {hospital.connectivityLocation.map((item, idx) => (
+                  {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0"></div>
                       <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
@@ -153,11 +153,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             )}
 
             {/* Excellence in Patient Care */}
-            {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && (
+            {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare) && (getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).length > 0 && (
               <section id="excellence" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('excellence')}</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  {hospital.excellenceInCare.map((item, idx) => (
+                  {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0"></div>
                       <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
@@ -168,11 +168,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             )}
 
             {/* Hospital Facilities Cards */}
-            {hospital.hospitalFacilities && typeof hospital.hospitalFacilities === 'object' && Object.keys(hospital.hospitalFacilities).length > 0 && (
+            {(getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) && typeof (getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) === 'object' && Object.keys((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities)).length > 0 && (
               <section id="facilities" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">{t('facilities')}</h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  {Object.entries(hospital.hospitalFacilities as Record<string, string[]>).map(([category, items], idx) => (
+                  {Object.entries((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) as Record<string, string[]>).map(([category, items], idx) => (
                     <div key={idx} className="rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col h-full">
                       <div className="bg-teal-500 py-3 px-4 text-center">
                         <h3 className="text-white font-bold text-sm tracking-wide">{category}</h3>
@@ -260,12 +260,12 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <h3 className="text-lg font-bold text-slate-900 mb-4 text-center">{t('toc')}</h3>
                 <nav className="flex flex-col space-y-3">
                   <a href="#about" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('about')}</a>
-                  {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('premiumFacilities')}</a>}
-                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('multiSpecialties')}</a>}
-                  {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('technologies')}</a>}
-                  {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && <a href="#connectivity" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('connectivity')}</a>}
-                  {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('excellence')}</a>}
-                  {hospital.hospitalFacilities && Object.keys(hospital.hospitalFacilities).length > 0 && <a href="#facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('facilities')}</a>}
+                  {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities)?.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('premiumFacilities')}</a>}
+                  {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties)?.length > 0 && <a href="#specialities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('multiSpecialties')}</a>}
+                  {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('technologies')}</a>}
+                  {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 && <a href="#connectivity" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('connectivity')}</a>}
+                  {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare)?.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('excellence')}</a>}
+                  {(getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) && Object.keys((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities)).length > 0 && <a href="#facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">{t('facilities')}</a>}
                 </nav>
               </div>
 
