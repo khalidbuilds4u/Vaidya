@@ -38,6 +38,18 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
   if (!doctor) notFound();
 
+  // Fetch related doctors from the same specialty
+  const relatedDoctors = await prisma.doctor.findMany({
+    where: {
+      specialtyId: doctor.specialtyId,
+      id: { not: doctor.id },
+    },
+    include: {
+      specialty: true,
+    },
+    take: 4,
+  });
+
   const city = doctor.city || doctor.hospital.city;
   const experienceText = doctor.experienceYears ? `${doctor.experienceYears}+ Years of Experience` : 'Highly Experienced';
   const profileImage = doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop";
@@ -311,6 +323,41 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           </div>
 
         </div>
+
+        {/* Related Doctors Section */}
+        {relatedDoctors.length > 0 && (
+          <div className="mt-10 sm:mt-12 bg-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-sm border border-slate-200">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6 sm:mb-8 flex items-center gap-3">
+              <div className="w-2 h-8 bg-primary rounded-full"></div>
+              Related Doctors
+            </h2>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {relatedDoctors.map((rd) => (
+                <Link 
+                  href={`/doctors/${rd.slug}`} 
+                  key={rd.id} 
+                  className="group bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all flex flex-col items-center text-center"
+                >
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm relative">
+                    <img 
+                      src={rd.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"} 
+                      alt={rd.name} 
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                    />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors line-clamp-1">{rd.name}</h4>
+                  <p className="text-[11px] sm:text-xs font-semibold text-primary/80 mb-3 line-clamp-1">{rd.specialty.name}</p>
+                  
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-slate-500 mt-auto pt-3 border-t border-slate-200/60 w-full justify-center">
+                    <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
+                    {rd.experienceYears ? `${rd.experienceYears}+ Years Exp.` : 'Highly Experienced'}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
