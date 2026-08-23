@@ -362,12 +362,12 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               Related Doctors
             </h2>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            <div className="flex overflow-x-auto pb-2 -mx-6 px-6 sm:pb-0 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {relatedDoctors.map((rd) => (
                 <Link 
                   href={`/doctors/${rd.slug}`} 
                   key={rd.id} 
-                  className="group bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all flex flex-col items-center text-center"
+                  className="group bg-slate-50 rounded-2xl p-5 border border-slate-100 hover:border-primary/30 hover:shadow-md transition-all flex flex-col items-center text-center min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start"
                 >
                   <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm relative">
                     <img 
