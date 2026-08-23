@@ -90,14 +90,14 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             </section>
 
             {/* Multi Speciality Services */}
-            {hospital.specialties && hospital.specialties.length > 0 && (
+            {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && (
               <section id="specialities" className="scroll-mt-24">
                 <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Multi Speciality Services</h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-3">
-                  {hospital.specialties.map((spec, idx) => (
+                  {hospital.multiSpecialties.map((spec, idx) => (
                     <li key={idx} className="flex items-center gap-2">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 shrink-0"></div>
-                      <span className="text-slate-600 text-sm font-medium">{spec.name}</span>
+                      <span className="text-slate-600 text-sm font-medium">{spec}</span>
                     </li>
                   ))}
                 </ul>
@@ -257,7 +257,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <h3 className="text-lg font-bold text-slate-900 mb-4 text-center">Table of Contents</h3>
                 <nav className="flex flex-col space-y-3">
                   <a href="#about" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">About Hospital</a>
-                  {hospital.specialties && hospital.specialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-primary">Multi Speciality Services</a>}
+                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-primary">Multi Speciality Services</a>}
                   {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Premium Facilities during Hospital Stay</a>}
                   {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Advanced Medical Technologies</a>}
                   {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Excellence in patient care</a>}

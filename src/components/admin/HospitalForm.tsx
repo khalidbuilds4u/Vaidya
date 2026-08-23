@@ -24,6 +24,7 @@ type HospitalFormProps = {
     advancedTechnologies?: string[];
     connectivityLocation?: string[];
     excellenceInCare?: string[];
+    multiSpecialties?: string[];
     hospitalFacilities?: any;
     specialties?: { id: string; name: string }[];
   };
@@ -252,54 +253,31 @@ export function HospitalForm({
         <div className="pt-6 border-t border-slate-100">
           <h3 className="text-lg font-bold text-slate-900 mb-6">Facilities & Specialties</h3>
           
-          <div className="space-y-6">
-            <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-900 flex items-center justify-between">
-                <span>Categorized Facilities (JSON format)</span>
-                <span className="text-xs text-slate-400 font-normal">Used for the 3 colored facility cards</span>
-              </label>
-              <textarea
-                name="hospitalFacilities"
-                rows={6}
-                defaultValue={initialData?.hospitalFacilities ? JSON.stringify(initialData.hospitalFacilities, null, 2) : ""}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white font-mono"
-                placeholder='{
-  "Food": ["Diet on Request", "Restaurant"],
-  "Comfort During Stay": ["TV in room", "Private room", "Free wifi"],
-  "Transportation": ["Airport pickup", "Visa / Travel office"]
-}'
-              />
-            </div>
-
-            <div className="space-y-3">
-              <label className="text-sm font-semibold text-slate-900">
-                Multi Speciality Services
-              </label>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 bg-slate-50/50 p-4 rounded-xl border border-slate-100">
-                {specialties.map((specialty) => {
-                  const isSelected = initialData?.specialties?.some(
-                    (s) => s.id === specialty.id
-                  );
-                  return (
-                    <label
-                      key={specialty.id}
-                      className="flex items-center space-x-3 hover:bg-slate-100/50 p-2 rounded-lg cursor-pointer transition-colors"
-                    >
-                      <input
-                        type="checkbox"
-                        name="specialtyIds"
-                        value={specialty.id}
-                        defaultChecked={isSelected}
-                        className="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary"
-                      />
-                      <span className="text-sm text-slate-700 font-medium select-none">
-                        {specialty.name}
-                      </span>
-                    </label>
-                  );
-                })}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <DynamicListInput 
+              name="multiSpecialties" 
+              label="Multi Speciality Services" 
+              initialItems={initialData?.multiSpecialties || []} 
+              placeholder="e.g. Cardiology, Neurology" 
+            />
+            <DynamicListInput 
+              name="facilityFood" 
+              label="Food Facilities" 
+              initialItems={initialData?.hospitalFacilities?.["Food"] || []} 
+              placeholder="e.g. Diet on Request, Restaurant" 
+            />
+            <DynamicListInput 
+              name="facilityComfort" 
+              label="Comfort During Stay" 
+              initialItems={initialData?.hospitalFacilities?.["Comfort During Stay"] || []} 
+              placeholder="e.g. TV in room, Free wifi" 
+            />
+            <DynamicListInput 
+              name="facilityTransportation" 
+              label="Transportation" 
+              initialItems={initialData?.hospitalFacilities?.["Transportation"] || []} 
+              placeholder="e.g. Airport pickup" 
+            />
           </div>
         </div>
 

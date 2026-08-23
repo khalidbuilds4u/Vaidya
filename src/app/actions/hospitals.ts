@@ -80,15 +80,16 @@ export async function createHospital(formData: FormData) {
   const connectivityLocation = parseJsonArray("connectivityLocation");
   const excellenceInCare = parseJsonArray("excellenceInCare");
   
-  let hospitalFacilities = null;
-  const hfStr = parseString(formData.get("hospitalFacilities"));
-  if (hfStr) {
-    try {
-      hospitalFacilities = JSON.parse(hfStr);
-    } catch (e) {
-      console.error("Invalid JSON in hospitalFacilities");
-    }
-  }
+  const multiSpecialties = parseJsonArray("multiSpecialties");
+  const facilityFood = parseJsonArray("facilityFood");
+  const facilityComfort = parseJsonArray("facilityComfort");
+  const facilityTransportation = parseJsonArray("facilityTransportation");
+
+  const hospitalFacilities = {
+    "Food": facilityFood,
+    "Comfort During Stay": facilityComfort,
+    "Transportation": facilityTransportation
+  };
 
   await prisma.hospital.create({
     data: {
@@ -108,7 +109,8 @@ export async function createHospital(formData: FormData) {
       advancedTechnologies,
       connectivityLocation,
       excellenceInCare,
-      hospitalFacilities: hospitalFacilities || undefined,
+      multiSpecialties,
+      hospitalFacilities,
       cityId,
       specialties: {
         connect: specialtyIds.map(id => ({ id }))
@@ -183,15 +185,16 @@ export async function updateHospital(id: string, formData: FormData) {
   const connectivityLocation = parseJsonArray("connectivityLocation");
   const excellenceInCare = parseJsonArray("excellenceInCare");
   
-  let hospitalFacilities = null;
-  const hfStr = parseString(formData.get("hospitalFacilities"));
-  if (hfStr) {
-    try {
-      hospitalFacilities = JSON.parse(hfStr);
-    } catch (e) {
-      console.error("Invalid JSON in hospitalFacilities");
-    }
-  }
+  const multiSpecialties = parseJsonArray("multiSpecialties");
+  const facilityFood = parseJsonArray("facilityFood");
+  const facilityComfort = parseJsonArray("facilityComfort");
+  const facilityTransportation = parseJsonArray("facilityTransportation");
+
+  const hospitalFacilities = {
+    "Food": facilityFood,
+    "Comfort During Stay": facilityComfort,
+    "Transportation": facilityTransportation
+  };
 
   await prisma.hospital.update({
     where: { id },
@@ -212,7 +215,8 @@ export async function updateHospital(id: string, formData: FormData) {
       advancedTechnologies,
       connectivityLocation,
       excellenceInCare,
-      hospitalFacilities: hospitalFacilities || undefined,
+      multiSpecialties,
+      hospitalFacilities,
       cityId: cityId || undefined,
       specialties: {
         set: specialtyIds.map(id => ({ id }))

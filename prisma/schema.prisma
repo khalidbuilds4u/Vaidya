@@ -110,6 +110,7 @@ model Hospital {
   advancedTechnologies  String[]       @default([])
   connectivityLocation  String[]       @default([])
   excellenceInCare      String[]       @default([])
+  multiSpecialties      String[]       @default([])
   hospitalFacilities    Json?
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
