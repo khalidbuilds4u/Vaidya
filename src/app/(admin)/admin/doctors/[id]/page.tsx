@@ -49,10 +49,10 @@ export default async function DoctorEditor({
           </button>
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h1 className="text-2xl font-bold text-white tracking-tight">
             {isNew ? "Add New Doctor" : "Edit Doctor"}
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-400 mt-1">
             {isNew
               ? "Register a new medical specialist."
               : `Updating details for ${doctor?.name}`}

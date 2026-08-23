@@ -43,10 +43,10 @@ export default async function CityEditor({
           </button>
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h1 className="text-2xl font-bold text-white tracking-tight">
             {isNew ? "Add New City" : "Edit City"}
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-400 mt-1">
             {isNew
               ? "Add a new destination for medical tourism."
               : `Updating details for ${city?.name}`}

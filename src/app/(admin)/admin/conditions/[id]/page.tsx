@@ -45,10 +45,10 @@ export default async function ConditionEditor({
           </button>
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">
+          <h1 className="text-2xl font-bold text-white tracking-tight">
             {isNew ? "Add New Condition" : "Edit Condition"}
           </h1>
-          <p className="text-sm text-slate-500 mt-1">
+          <p className="text-sm text-slate-400 mt-1">
             {isNew
               ? "Add a medical condition that your specialties treat."
               : `Updating details for ${condition?.name}`}
