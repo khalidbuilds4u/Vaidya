@@ -4,6 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, Filter, Building2 } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -15,11 +17,15 @@ export const metadata: Metadata = {
 
 
 export default async function HospitalsDirectory({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ search?: string; city?: string; specialty?: string }>;
 }) {
+  const { locale } = await params;
   const { search, city, specialty } = await searchParams;
+  const t = await getTranslations({ locale, namespace: 'Navigation' });
 
   const whereClause: any = {};
   if (search) {
@@ -44,7 +50,9 @@ export default async function HospitalsDirectory({
   const cities = await prisma.city.findMany({ orderBy: { name: 'asc' } });
   const specialties = await prisma.specialty.findMany({ orderBy: { name: 'asc' } });
 
-  const selectedCityName = cities.find(c => c.slug === city)?.name;
+  const selectedCity = cities.find(c => c.slug === city);
+  const selectedCityName = selectedCity ? getTranslation(selectedCity, 'name', locale) : undefined;
+  
   const pageTitle = selectedCityName 
     ? `Top Accredited Hospitals in ${selectedCityName}`
     : "Top Accredited Hospitals in India";
@@ -103,7 +111,7 @@ export default async function HospitalsDirectory({
                   <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">All Cities (India)</option>
                     {cities.map(c => (
-                      <option key={c.id} value={c.slug}>{c.name}</option>
+                      <option key={c.id} value={c.slug}>{getTranslation(c, 'name', locale)}</option>
                     ))}
                   </select>
                 </div>
@@ -113,7 +121,7 @@ export default async function HospitalsDirectory({
                   <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
                     <option value="">All Specialties</option>
                     {specialties.map(s => (
-                      <option key={s.id} value={s.slug}>{s.name}</option>
+                      <option key={s.id} value={s.slug}>{getTranslation(s, 'name', locale)}</option>
                     ))}
                   </select>
                 </div>
@@ -145,13 +153,13 @@ export default async function HospitalsDirectory({
                   <HospitalCard 
                     key={hospital.id} 
                     slug={hospital.slug}
-                    name={hospital.name}
-                    city={hospital.city.name}
+                    name={getTranslation(hospital, 'name', locale)}
+                    city={getTranslation(hospital.city, 'name', locale)}
                     state={hospital.city.state || undefined}
                     image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
                     accreditations={hospital.accreditations}
                     beds={hospital.beds || 0}
-                    specialties={hospital.specialties.map(s => s.name)}
+                    specialties={hospital.specialties.map(s => getTranslation(s, 'name', locale))}
                     hasInternationalSupport={hospital.internationalServices.length > 0}
                   />
                 );

@@ -1,0 +1,26 @@
+{
+  "Navigation": {
+    "home": "الرئيسية",
+    "hospitals": "المستشفيات",
+    "doctors": "الأطباء",
+    "procedures": "الإجراءات الطبية",
+    "patientStories": "قصص المرضى",
+    "gallery": "معرض الصور",
+    "blogs": "المدونات",
+    "aboutUs": "من نحن",
+    "contactUs": "اتصل بنا",
+    "getTreatmentPlan": "احصل على خطة العلاج",
+    "callHelpline": "اتصل بخط المساعدة: {number}"
+  },
+  "Hero": {
+    "tagline": "حيث تلتقي الثقة العالمية بالشفاء على مستوى عالمي",
+    "titleLine1": "رعاية طبية عالمية المستوى",
+    "titleLine2": "في الهند، بدون أي متاعب.",
+    "subtext": "وصول مباشر إلى المستشفيات المعتمدة من JCI و NABH وأفضل الجراحين، مع دعم كامل ووفورات تصل إلى 70٪.",
+    "getFreePlan": "احصل على خطة مجانية",
+    "exploreHospitals": "استكشف المستشفيات",
+    "searchPlaceholder": "العلاج، المستشفى، الطبيب...",
+    "searchButton": "بحث",
+    "anyCity": "أي مدينة (الهند)"
+  }
+}

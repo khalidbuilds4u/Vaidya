@@ -1,0 +1,26 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "hospitals": "Hospitals",
+    "doctors": "Doctors",
+    "procedures": "Procedures",
+    "patientStories": "Patient Stories",
+    "gallery": "Gallery",
+    "blogs": "Blogs",
+    "aboutUs": "About Us",
+    "contactUs": "Contact Us",
+    "getTreatmentPlan": "Get Treatment Plan",
+    "callHelpline": "Call Helpline: {number}"
+  },
+  "Hero": {
+    "tagline": "Where Global Trust Meets World-Class Healing",
+    "titleLine1": "World-Class Medical Care",
+    "titleLine2": "In India, With Zero Hassle.",
+    "subtext": "Direct access to JCI & NABH accredited super-specialty hospitals, top surgeons, and full concierge support with savings up to 70%.",
+    "getFreePlan": "Get Free Plan",
+    "exploreHospitals": "Explore Hospitals",
+    "searchPlaceholder": "Treatment, hospital, doctor...",
+    "searchButton": "Search",
+    "anyCity": "Any City (India)"
+  }
+}

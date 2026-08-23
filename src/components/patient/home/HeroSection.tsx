@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
+import { useRouter } from '@/i18n/routing';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
@@ -10,6 +11,7 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 
 export function HeroSection() {
   const router = useRouter();
+  const t = useTranslations('Hero');
   const [searchQuery, setSearchQuery] = useState('');
   const [searchCity, setSearchCity] = useState('');
 
@@ -49,20 +51,20 @@ export function HeroSection() {
             {/* Top Tagline Glass Pill */}
             <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/25 bg-white/95 backdrop-blur-md max-w-full">
               <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse" />
-              <span className="truncate">Where Global Trust Meets World-Class Healing</span>
+              <span className="truncate">{t('tagline')}</span>
             </div>
             
             {/* Headline */}
             <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4">
-              World-Class Medical Care <br className="hidden sm:inline" />
+              {t('titleLine1')} <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-600 to-emerald-600">
-                In India, With Zero Hassle.
+                {t('titleLine2')}
               </span>
             </h1>
             
             {/* Subtext */}
             <p className="text-xs sm:text-base md:text-lg text-slate-700 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium">
-              Direct access to JCI &amp; NABH accredited super-specialty hospitals, top surgeons, and full concierge support with savings up to 70%.
+              {t('subtext')}
             </p>
 
             {/* Quick Trust Highlights Row on Mobile */}
@@ -85,7 +87,7 @@ export function HeroSection() {
             <div className="flex flex-row items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8 w-full sm:w-auto">
               <EnquiryForm>
                 <Button size="lg" className="flex-1 sm:flex-none text-xs sm:text-base h-11 sm:h-13 px-5 sm:px-8 rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
-                  Get Free Plan
+                  {t('getFreePlan')}
                   <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5" />
                 </Button>
               </EnquiryForm>
@@ -95,7 +97,7 @@ export function HeroSection() {
                 variant="outline" 
                 className="flex-1 sm:flex-none text-xs sm:text-base h-11 sm:h-13 px-4 sm:px-7 rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
               >
-                <Link href="/hospitals">Explore Hospitals</Link>
+                <Link href="/hospitals">{t('exploreHospitals')}</Link>
               </Button>
             </div>
 
@@ -108,7 +110,7 @@ export function HeroSection() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                  placeholder="Treatment, hospital, doctor..." 
+                  placeholder={t('searchPlaceholder')}
                   className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-slate-400 text-slate-900 font-medium"
                 />
               </div>
@@ -122,7 +124,7 @@ export function HeroSection() {
                   onChange={(e) => setSearchCity(e.target.value)}
                   className="w-full bg-transparent border-0 text-slate-800 font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none"
                 >
-                  <option value="">Any City (India)</option>
+                  <option value="">{t('anyCity')}</option>
                   <option value="New Delhi">New Delhi</option>
                   <option value="Mumbai">Mumbai</option>
                   <option value="Chennai">Chennai</option>
@@ -136,7 +138,7 @@ export function HeroSection() {
                 onClick={handleSearch} 
                 className="w-full sm:w-auto rounded-xl sm:rounded-full h-10 sm:h-11 px-6 shadow-md hover:shadow-lg transition-all font-semibold shrink-0 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm"
               >
-                Search
+                {t('searchButton')}
               </Button>
             </div>
           </div>

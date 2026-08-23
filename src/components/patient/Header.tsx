@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from 'react';
-import Link from 'next/link';
+import { Link } from '@/i18n/routing';
+import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Stethoscope, Menu, X, PhoneCall, Sparkles } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
@@ -9,6 +10,7 @@ import { LanguageSwitcher } from '@/components/patient/LanguageSwitcher';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const t = useTranslations('Navigation');
 
   const toggleMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
   const closeMenu = () => setIsMobileMenuOpen(false);
@@ -36,31 +38,31 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex flex-wrap items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium">
           <Link href="/" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
-            Home Page
+            {t('home')}
           </Link>
           <Link href="/hospitals" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Hospitals
+            {t('hospitals')}
           </Link>
           <Link href="/doctors" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Doctors
+            {t('doctors')}
           </Link>
           <Link href="/treatments" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Procedures
+            {t('procedures')}
           </Link>
           <Link href="/patient-stories" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
-            Patient Stories
+            {t('patientStories')}
           </Link>
           <Link href="/gallery" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Gallery
+            {t('gallery')}
           </Link>
           <Link href="/blogs" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Blogs
+            {t('blogs')}
           </Link>
           <Link href="/about-us" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
-            About Us
+            {t('aboutUs')}
           </Link>
           <Link href="/contact-us" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
-            Contact Us
+            {t('contactUs')}
           </Link>
         </nav>
 
@@ -69,7 +71,7 @@ export function Header() {
           
           <EnquiryForm>
             <Button className="hidden sm:inline-flex rounded-full px-5 shadow-[0_4px_16px_rgba(15,118,110,0.35)] hover:shadow-[0_6px_24px_rgba(15,118,110,0.45)] hover:-translate-y-0.5 hover:bg-primary/90 transition-all shrink-0">
-              Get Treatment Plan
+              {t('getTreatmentPlan')}
             </Button>
           </EnquiryForm>
 
@@ -92,28 +94,28 @@ export function Header() {
             <span>Where Global Trust Meets World-Class Healing</span>
           </div>
           <nav className="flex flex-col gap-1 text-base font-medium">
-            <Link href="/" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Home Page</Link>
-            <Link href="/hospitals" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Hospitals</Link>
-            <Link href="/doctors" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Doctors</Link>
-            <Link href="/treatments" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Procedures</Link>
-            <Link href="/patient-stories" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Patient Stories</Link>
-            <Link href="/gallery" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Gallery</Link>
-            <Link href="/blogs" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Blogs</Link>
-            <Link href="/about-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>About Us</Link>
-            <Link href="/contact-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Contact Us</Link>
+            <Link href="/" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('home')}</Link>
+            <Link href="/hospitals" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('hospitals')}</Link>
+            <Link href="/doctors" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('doctors')}</Link>
+            <Link href="/treatments" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('procedures')}</Link>
+            <Link href="/patient-stories" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('patientStories')}</Link>
+            <Link href="/gallery" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('gallery')}</Link>
+            <Link href="/blogs" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('blogs')}</Link>
+            <Link href="/about-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('aboutUs')}</Link>
+            <Link href="/contact-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('contactUs')}</Link>
             <a 
               href="tel:+919451187513" 
               className="py-2.5 px-3 rounded-lg bg-primary/5 text-primary font-semibold flex items-center gap-2 mt-2" 
               onClick={closeMenu}
             >
               <PhoneCall className="w-4 h-4" />
-              <span>Call Helpline: +91 94511 87513</span>
+              <span>{t('callHelpline', { number: '+91 94511 87513' })}</span>
             </a>
           </nav>
           <div className="pt-2">
             <EnquiryForm>
               <Button className="w-full rounded-full shadow-[0_4px_14px_0_rgba(15,118,110,0.39)] hover:bg-primary/90">
-                Get Treatment Plan
+                {t('getTreatmentPlan')}
               </Button>
             </EnquiryForm>
           </div>

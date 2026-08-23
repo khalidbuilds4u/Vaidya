@@ -1,16 +1,9 @@
-import NextAuth from "next-auth";
-import { authConfig } from "@/lib/auth.config";
-
-/**
- * Middleware runs on the Edge runtime.
- * It only imports auth.config.ts (no Prisma, no bcrypt).
- * This checks JWT tokens and role, blocking unauthorized access
- * to /admin/* before any server rendering happens.
- */
-const { auth } = NextAuth(authConfig);
-
-export default auth;
-
+import createMiddleware from 'next-intl/middleware';
+import {routing} from './i18n/routing';
+ 
+export default createMiddleware(routing);
+ 
 export const config = {
-  matcher: ["/admin/:path*"],
+  // Match only internationalized pathnames
+  matcher: ['/', '/(ar|en)/:path*']
 };
