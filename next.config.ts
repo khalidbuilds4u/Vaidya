@@ -1,23 +1,13 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      }
-    ],
+const nextConfig: NextConfig = {
+  productionBrowserSourceMaps: true,
+  optimization: {
+    minimize: false
   },
-  typescript: {
-    ignoreBuildErrors: true,
+  eslint: {
+    ignoreDuringBuilds: true,
   },
-  serverExternalPackages: ['pg'],
-  // eslint config removed as it's no longer supported here in Next 15+
 };
 
 export default nextConfig;
