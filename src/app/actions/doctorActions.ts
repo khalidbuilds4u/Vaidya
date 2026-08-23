@@ -27,6 +27,8 @@ export async function createDoctor(formData: FormData) {
   const researchFellowships = parseArray("researchFellowships");
   const awardsRecognitions = parseArray("awardsRecognitions");
 
+  const treatmentIds = formData.getAll("treatmentIds") as string[];
+
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
   await prisma.doctor.create({
@@ -46,6 +48,9 @@ export async function createDoctor(formData: FormData) {
       careerHighlights,
       researchFellowships,
       awardsRecognitions,
+      treatments: {
+        connect: treatmentIds.map(id => ({ id })),
+      }
     },
   });
 
@@ -76,6 +81,8 @@ export async function updateDoctor(id: string, formData: FormData) {
   const careerHighlights = parseArray("careerHighlights");
   const researchFellowships = parseArray("researchFellowships");
   const awardsRecognitions = parseArray("awardsRecognitions");
+  
+  const treatmentIds = formData.getAll("treatmentIds") as string[];
 
   await prisma.doctor.update({
     where: { id },
@@ -94,6 +101,9 @@ export async function updateDoctor(id: string, formData: FormData) {
       careerHighlights,
       researchFellowships,
       awardsRecognitions,
+      treatments: {
+        set: treatmentIds.map(id => ({ id })),
+      }
     },
   });
 
