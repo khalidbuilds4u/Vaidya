@@ -55,61 +55,65 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         </div>
 
         {/* Hero Section */}
-        <div className="bg-white rounded-3xl p-6 sm:p-10 shadow-sm border border-slate-200 mb-10 flex flex-col md:flex-row gap-8 items-start relative overflow-hidden">
+        <div className="bg-white rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm border border-slate-200 mb-8 sm:mb-10 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start relative overflow-hidden">
           {/* Subtle gradient background for the hero card */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
-          <div className="shrink-0 relative z-10">
-            <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-2xl overflow-hidden bg-slate-100 shadow-md border-4 border-white">
-              <img 
-                src={profileImage} 
-                alt={doctor.name}
-                className="w-full h-full object-cover"
-              />
+          {/* Left Side: Image + Info */}
+          <div className="flex-1 w-full flex flex-row gap-5 sm:gap-6 relative z-10">
+            {/* Image */}
+            <div className="shrink-0">
+              <div className="w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-slate-100 shadow-md border-2 sm:border-4 border-white">
+                <img 
+                  src={profileImage} 
+                  alt={doctor.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
-          </div>
-          
-          <div className="flex-1 w-full flex flex-col md:flex-row justify-between items-start gap-6 pt-2 relative z-10">
-            <div className="space-y-4">
-              <div className="flex flex-wrap items-center gap-3">
-                <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+
+            {/* Text Info */}
+            <div className="flex-1 space-y-2.5 sm:space-y-4 pt-1 sm:pt-2">
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3">
+                <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-none">
                   {doctor.name}
                 </h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm">
-                  <CheckCircle2 className="w-4 h-4" /> Profile Authorized
+                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm shrink-0">
+                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" /> Profile Authorized
                 </span>
               </div>
               
-              <p className="text-xl text-slate-700 font-semibold">
+              <p className="text-sm sm:text-lg md:text-xl text-slate-700 font-semibold">
                 {doctor.specialty.name}
               </p>
 
-              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-500 pt-2 font-medium">
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
-                  {doctor.hospital.name}
+              <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-y-1.5 sm:gap-y-3 gap-x-6 text-[11px] sm:text-sm text-slate-500 font-medium">
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary shrink-0" />
+                  <span className="truncate max-w-[150px] sm:max-w-none">{doctor.hospital.name}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-primary" />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary shrink-0" />
                   {city.name}
                 </div>
-                <div className="flex items-center gap-2">
-                  <CalendarDays className="w-4 h-4 text-primary" />
+                <div className="flex items-center gap-1.5 sm:gap-2">
+                  <CalendarDays className="w-3 h-3 sm:w-4 sm:h-4 text-primary shrink-0" />
                   {experienceText}
                 </div>
               </div>
             </div>
+          </div>
 
-            <div className="md:max-w-xs w-full bg-slate-50 p-5 rounded-2xl border border-slate-100">
-              <EnquiryForm>
-                <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-xl px-6 h-12 text-sm transition-all shadow-md shadow-primary/20">
-                  Ask Asad Healthcare
-                </Button>
-              </EnquiryForm>
-              <p className="text-[11px] text-slate-500 mt-3 leading-relaxed text-center font-medium">
-                Your enquiry is received by Asad Healthcare's care team and is not sent directly to the doctor.
-              </p>
-            </div>
+          {/* Right Side: Enquiry Form */}
+          <div className="lg:max-w-xs w-full bg-slate-50 p-5 rounded-2xl border border-slate-100 relative z-10 shrink-0 mt-2 lg:mt-0">
+            <EnquiryForm>
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-xl px-6 h-12 text-sm transition-all shadow-md shadow-primary/20">
+                Ask Asad Healthcare
+              </Button>
+            </EnquiryForm>
+            <p className="text-[11px] text-slate-500 mt-3 leading-relaxed text-center font-medium">
+              Your enquiry is received by Asad Healthcare's care team and is not sent directly to the doctor.
+            </p>
           </div>
         </div>
 
