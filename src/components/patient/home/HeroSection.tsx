@@ -71,15 +71,15 @@ export function HeroSection() {
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700">
               <div className="flex items-center gap-1 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-200/80 shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>JCI &amp; NABH Network</span>
+                <span>{t('pill1')}</span>
               </div>
               <div className="flex items-center gap-1 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-200/80 shadow-xs">
                 <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
-                <span>98.5% Success Rate</span>
+                <span>{t('pill2')}</span>
               </div>
               <div className="flex items-center gap-1 bg-white/90 backdrop-blur-md px-2.5 py-1 rounded-lg border border-slate-200/80 shadow-xs">
                 <Clock className="w-3.5 h-3.5 text-primary shrink-0" />
-                <span>&lt; 24h Free Quote</span>
+                <span>{t('pill3')}</span>
               </div>
             </div>
             
@@ -152,9 +152,9 @@ export function HeroSection() {
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Accreditation</p>
-                <p className="text-base font-extrabold text-slate-900 leading-tight">JCI &amp; NABH Certified Network</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">Top 50+ Super-Specialty Hospitals</p>
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('card1Sub')}</p>
+                <p className="text-base font-extrabold text-slate-900 leading-tight">{t('card1Title')}</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">{t('card1Desc')}</p>
               </div>
             </div>
 
@@ -164,9 +164,9 @@ export function HeroSection() {
                 <Building2 className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Clinical Track Record</p>
-                <p className="text-xl font-extrabold text-slate-900 leading-tight">98.5% Success Rate</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">Over 15,000+ Successful Surgeries</p>
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('card2Sub')}</p>
+                <p className="text-xl font-extrabold text-slate-900 leading-tight">{t('card2Title')}</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">{t('card2Desc')}</p>
               </div>
             </div>
 
@@ -177,10 +177,10 @@ export function HeroSection() {
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <p className="text-sm font-bold text-slate-900 leading-snug">&ldquo;Exceptional hospital care &amp; seamless visa support&rdquo;</p>
+              <p className="text-sm font-bold text-slate-900 leading-snug">{t('card3Quote')}</p>
               <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-[11px] text-slate-500 font-medium">
-                <span>- David R., United Kingdom</span>
-                <span className="text-emerald-600 font-bold">Knee Replacement</span>
+                <span>{t('card3Author')}</span>
+                <span className="text-emerald-600 font-bold">{t('card3Proc')}</span>
               </div>
             </div>
 

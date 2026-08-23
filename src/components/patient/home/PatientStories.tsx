@@ -135,9 +135,22 @@ export function PatientStories() {
     { key: 'Organ Transplant', label: t('filters.Organ Transplant') }
   ];
 
+  const localizedStories = STORIES.map((s, idx) => ({
+    ...s,
+    name: t(`patients.${idx}.name`),
+    country: t(`patients.${idx}.country`),
+    specialty: t(`patients.${idx}.spec`),
+    treatment: t(`reviews.${idx}.treatment`),
+    hospital: t(`reviews.${idx}.hospital`),
+    quote: t(`reviews.${idx}.quote`),
+    fullStory: t(`reviews.${idx}.text`),
+    savings: t(`reviews.${idx}.savings`),
+    recoveryTimeline: t(`reviews.${idx}.recovery`)
+  }));
+
   const filteredStories = activeFilter === 'All' 
-    ? STORIES 
-    : STORIES.filter(s => s.specialty.toLowerCase() === activeFilter.toLowerCase());
+    ? localizedStories 
+    : localizedStories.filter(s => s.specialty.toLowerCase() === activeFilter.toLowerCase() || s.specialty === t(`filters.${activeFilter}`));
 
   const activeStory = filteredStories[currentIndex % filteredStories.length] || filteredStories[0];
 

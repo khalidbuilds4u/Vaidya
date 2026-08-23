@@ -88,7 +88,9 @@ export async function PopularSpecialties() {
                     <h3 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-primary transition-colors mb-1">
                       {spec.translatedName}
                     </h3>
-                    <p className="text-[10px] sm:text-xs font-medium text-slate-500">{spec.count}</p>
+                    <p className="text-[10px] sm:text-xs font-medium text-slate-500">
+                      {t(`counts.${spec.count}`) || spec.count}
+                    </p>
                   </div>
 
                   <div className="mt-3 pt-2.5 w-full border-t border-slate-100 flex items-center justify-center text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
