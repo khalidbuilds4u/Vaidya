@@ -1,3 +1,5 @@
+"use client";
+
 import Link from 'next/link';
 import { Stethoscope, ShieldCheck, PhoneCall, Headphones, Clock, Sparkles } from 'lucide-react';
 
