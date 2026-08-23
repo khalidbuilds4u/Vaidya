@@ -17,11 +17,10 @@ export default function GlobalError({
     <div className="flex flex-col items-center justify-center min-h-screen p-8 text-center bg-red-50 text-red-900">
       <h2 className="text-2xl font-bold mb-4">Something went wrong!</h2>
       <div className="bg-white p-6 rounded-lg shadow-lg border border-red-200 text-left w-full max-w-3xl overflow-auto">
-        <p className="font-mono text-sm mb-2 font-bold">Digest: {error.digest}</p>
-        <p className="font-mono text-sm mb-4">Message: {error.message}</p>
-        {error.stack && (
-          <pre className="text-xs font-mono whitespace-pre-wrap">{error.stack}</pre>
-        )}
+        <p className="font-mono text-sm mb-2 font-bold text-red-700">Error Digest: {error.digest}</p>
+        <p className="text-sm text-slate-700 mt-4">
+          A server-side error occurred. If you are the administrator, please check the server logs (or Vercel dashboard) for the digest ID.
+        </p>
       </div>
       <button
         onClick={() => reset()}
