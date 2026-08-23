@@ -25,7 +25,11 @@ function createPrismaClient() {
   }
 
   // For direct PostgreSQL connections, use the pg Pool with a low max for serverless
-  const pool = new Pool({ connectionString, max: 2 });
+  const pool = new Pool({ 
+    connectionString, 
+    max: 2,
+    ssl: { rejectUnauthorized: false } // Required for Supabase transaction pooler
+  });
   const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });
 }
