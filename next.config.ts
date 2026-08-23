@@ -16,6 +16,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  serverExternalPackages: ['pg'],
   // eslint config removed as it's no longer supported here in Next 15+
 };
 

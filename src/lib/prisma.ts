@@ -24,9 +24,22 @@ function createPrismaClient() {
     });
   }
 
+  // Strip Prisma-specific query parameters from the URL before passing to pg.Pool
+  // because the pg library will pass them to the Postgres server, which will reject them.
+  let pgConnectionString = connectionString;
+  try {
+    const url = new URL(pgConnectionString);
+    url.searchParams.delete("pgbouncer");
+    url.searchParams.delete("connection_limit");
+    url.searchParams.delete("pool_timeout");
+    pgConnectionString = url.toString();
+  } catch (e) {
+    // Ignore URL parsing errors
+  }
+
   // For direct PostgreSQL connections, use the pg Pool with a low max for serverless
   const pool = new Pool({ 
-    connectionString, 
+    connectionString: pgConnectionString, 
     max: 2,
     ssl: { rejectUnauthorized: false } // Required for Supabase transaction pooler
   });
