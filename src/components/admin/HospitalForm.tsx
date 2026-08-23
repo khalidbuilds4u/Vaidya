@@ -208,13 +208,19 @@ export function HospitalForm({
 
         {/* Section 3: Lists and Content */}
         <div className="pt-6 border-t border-slate-100">
-          <h3 className="text-lg font-bold text-slate-900 mb-6">Hospital Highlights & Content</h3>
+          <h3 className="text-lg font-bold text-slate-900 mb-6">Hospital Content Sections</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <DynamicListInput 
               name="premiumFacilities" 
-              label="Premium Facilities" 
+              label="Premium Facilities during Hospital Stay" 
               initialItems={initialData?.premiumFacilities || []} 
               placeholder="e.g. 539+ beds in the hospital" 
+            />
+            <DynamicListInput 
+              name="multiSpecialties" 
+              label="Multi Speciality Services" 
+              initialItems={initialData?.multiSpecialties || []} 
+              placeholder="e.g. Cardiology, Neurology" 
             />
             <DynamicListInput 
               name="advancedTechnologies" 
@@ -230,39 +236,21 @@ export function HospitalForm({
             />
             <DynamicListInput 
               name="excellenceInCare" 
-              label="Excellence in Patient Care" 
+              label="Excellence in patient care" 
               initialItems={initialData?.excellenceInCare || []} 
               placeholder="e.g. Accredited by JCI and NABH" 
-            />
-            <DynamicListInput 
-              name="accreditations" 
-              label="Accreditations & Awards" 
-              initialItems={initialData?.accreditations || []} 
-              placeholder="e.g. JCI, NABH" 
-            />
-            <DynamicListInput 
-              name="internationalServices" 
-              label="International Patient Services" 
-              initialItems={initialData?.internationalServices || []} 
-              placeholder="e.g. Visa Assistance" 
             />
           </div>
         </div>
 
-        {/* Section 4: Complex JSON & Relations */}
+        {/* Section 4: Hospital Facilities Categories */}
         <div className="pt-6 border-t border-slate-100">
-          <h3 className="text-lg font-bold text-slate-900 mb-6">Facilities & Specialties</h3>
+          <h3 className="text-lg font-bold text-slate-900 mb-6">Hospital Facilities</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <DynamicListInput 
-              name="multiSpecialties" 
-              label="Multi Speciality Services" 
-              initialItems={initialData?.multiSpecialties || []} 
-              placeholder="e.g. Cardiology, Neurology" 
-            />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <DynamicListInput 
               name="facilityFood" 
-              label="Food Facilities" 
+              label="Food" 
               initialItems={initialData?.hospitalFacilities?.["Food"] || []} 
               placeholder="e.g. Diet on Request, Restaurant" 
             />
@@ -277,6 +265,18 @@ export function HospitalForm({
               label="Transportation" 
               initialItems={initialData?.hospitalFacilities?.["Transportation"] || []} 
               placeholder="e.g. Airport pickup" 
+            />
+            <DynamicListInput 
+              name="facilityLanguage" 
+              label="Language" 
+              initialItems={initialData?.hospitalFacilities?.["Language"] || []} 
+              placeholder="e.g. Interpretation, Translation" 
+            />
+            <DynamicListInput 
+              name="facilityMoney" 
+              label="Money Matters" 
+              initialItems={initialData?.hospitalFacilities?.["Money Matters"] || []} 
+              placeholder="e.g. Health insurance, ATM" 
             />
           </div>
         </div>

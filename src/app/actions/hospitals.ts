@@ -84,11 +84,15 @@ export async function createHospital(formData: FormData) {
   const facilityFood = parseJsonArray("facilityFood");
   const facilityComfort = parseJsonArray("facilityComfort");
   const facilityTransportation = parseJsonArray("facilityTransportation");
+  const facilityLanguage = parseJsonArray("facilityLanguage");
+  const facilityMoney = parseJsonArray("facilityMoney");
 
   const hospitalFacilities = {
     "Food": facilityFood,
     "Comfort During Stay": facilityComfort,
-    "Transportation": facilityTransportation
+    "Transportation": facilityTransportation,
+    "Language": facilityLanguage,
+    "Money Matters": facilityMoney
   };
 
   await prisma.hospital.create({
@@ -189,11 +193,15 @@ export async function updateHospital(id: string, formData: FormData) {
   const facilityFood = parseJsonArray("facilityFood");
   const facilityComfort = parseJsonArray("facilityComfort");
   const facilityTransportation = parseJsonArray("facilityTransportation");
+  const facilityLanguage = parseJsonArray("facilityLanguage");
+  const facilityMoney = parseJsonArray("facilityMoney");
 
   const hospitalFacilities = {
     "Food": facilityFood,
     "Comfort During Stay": facilityComfort,
-    "Transportation": facilityTransportation
+    "Transportation": facilityTransportation,
+    "Language": facilityLanguage,
+    "Money Matters": facilityMoney
   };
 
   await prisma.hospital.update({

@@ -134,12 +134,12 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
               </section>
             )}
 
-            {/* Excellence in Patient Care */}
-            {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && (
-              <section id="excellence" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Excellence in patient care</h2>
+            {/* Connectivity & Location */}
+            {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && (
+              <section id="connectivity" className="scroll-mt-24">
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Connectivity & Location</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  {hospital.excellenceInCare.map((item, idx) => (
+                  {hospital.connectivityLocation.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0"></div>
                       <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
@@ -149,12 +149,12 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
               </section>
             )}
 
-            {/* Connectivity & Location */}
-            {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && (
-              <section id="connectivity" className="scroll-mt-24">
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Connectivity & Location</h2>
+            {/* Excellence in Patient Care */}
+            {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && (
+              <section id="excellence" className="scroll-mt-24">
+                <h2 className="text-2xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Excellence in patient care</h2>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                  {hospital.connectivityLocation.map((item, idx) => (
+                  {hospital.excellenceInCare.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0"></div>
                       <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
@@ -171,17 +171,17 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   {Object.entries(hospital.hospitalFacilities as Record<string, string[]>).map(([category, items], idx) => (
                     <div key={idx} className="rounded-xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col h-full">
-                      <div className="bg-teal-500 py-3 px-4 text-center">
-                        <h3 className="text-white font-bold text-sm tracking-wide">{category}</h3>
+                      <div className="bg-teal-50 py-3 px-4 text-center">
+                        <h3 className="text-teal-900 font-bold text-sm tracking-wide">{category}</h3>
                       </div>
-                      <ul className="p-5 space-y-3 flex-1 bg-slate-50/50">
+                      <ul className="p-5 space-y-3 flex-1 bg-white">
                         {Array.isArray(items) ? items.map((item, itemIdx) => (
-                          <li key={itemIdx} className="flex items-start gap-2 text-sm text-slate-600">
+                          <li key={itemIdx} className="flex items-start gap-2 text-sm text-slate-700">
                             <svg className="w-4 h-4 text-teal-500 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"/></svg>
                             <span>{item}</span>
                           </li>
                         )) : (
-                          <li className="text-sm text-slate-600">{String(items)}</li>
+                          <li className="text-sm text-slate-700">{String(items)}</li>
                         )}
                       </ul>
                     </div>
@@ -257,11 +257,11 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <h3 className="text-lg font-bold text-slate-900 mb-4 text-center">Table of Contents</h3>
                 <nav className="flex flex-col space-y-3">
                   <a href="#about" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">About Hospital</a>
-                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-primary">Multi Speciality Services</a>}
                   {hospital.premiumFacilities && hospital.premiumFacilities.length > 0 && <a href="#premium-facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Premium Facilities during Hospital Stay</a>}
+                  {hospital.multiSpecialties && hospital.multiSpecialties.length > 0 && <a href="#specialities" className="text-sm font-medium text-primary">Multi Speciality Services</a>}
                   {hospital.advancedTechnologies && hospital.advancedTechnologies.length > 0 && <a href="#technologies" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Advanced Medical Technologies</a>}
-                  {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Excellence in patient care</a>}
                   {hospital.connectivityLocation && hospital.connectivityLocation.length > 0 && <a href="#connectivity" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Connectivity & Location</a>}
+                  {hospital.excellenceInCare && hospital.excellenceInCare.length > 0 && <a href="#excellence" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Excellence in patient care</a>}
                   {hospital.hospitalFacilities && Object.keys(hospital.hospitalFacilities).length > 0 && <a href="#facilities" className="text-sm font-medium text-slate-500 hover:text-primary transition-colors">Hospital Facilities</a>}
                 </nav>
               </div>

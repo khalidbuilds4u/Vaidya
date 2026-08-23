@@ -34,6 +34,18 @@ export function DynamicListInput({ name, label, initialItems = [], placeholder =
     }
   };
 
+  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+    const paste = e.clipboardData.getData("text");
+    if (paste.includes("\n")) {
+      e.preventDefault();
+      const lines = paste.split("\n").map(l => l.trim()).filter(l => l && !items.includes(l));
+      if (lines.length > 0) {
+        setItems(prev => [...prev, ...lines]);
+        setInputValue("");
+      }
+    }
+  };
+
   return (
     <div className="space-y-3">
       <label className="text-sm font-semibold text-slate-900 block">
@@ -49,6 +61,7 @@ export function DynamicListInput({ name, label, initialItems = [], placeholder =
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onKeyDown={handleKeyDown}
+          onPaste={handlePaste}
           placeholder={placeholder}
           className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
         />
