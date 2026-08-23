@@ -60,10 +60,10 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
 
           {/* Left Side: Image + Info */}
-          <div className="flex-1 w-full flex flex-row gap-5 sm:gap-6 relative z-10">
+          <div className="flex-1 w-full grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-6 gap-y-4 relative z-10">
             {/* Image */}
-            <div className="shrink-0">
-              <div className="w-24 h-24 sm:w-36 sm:h-36 md:w-48 md:h-48 rounded-2xl overflow-hidden bg-slate-100 shadow-md border-2 sm:border-4 border-white">
+            <div className="row-span-1 lg:row-span-2 shrink-0">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 rounded-2xl overflow-hidden bg-slate-100 shadow-md border-2 sm:border-4 border-white">
                 <img 
                   src={profileImage} 
                   alt={doctor.name}
@@ -72,10 +72,10 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </div>
             </div>
 
-            {/* Text Info */}
-            <div className="flex-1 space-y-2.5 sm:space-y-4 pt-1 sm:pt-2">
-              <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-2 sm:gap-3">
-                <h1 className="text-xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-none">
+            {/* Name, Badge, Specialty */}
+            <div className="flex flex-col justify-center lg:justify-start lg:pt-2 space-y-2 lg:space-y-4">
+              <div className="flex flex-col xl:flex-row xl:items-center items-start gap-2 sm:gap-3">
+                <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-none">
                   {doctor.name}
                 </h1>
                 <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm shrink-0">
@@ -83,23 +83,24 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 </span>
               </div>
               
-              <p className="text-sm sm:text-lg md:text-xl text-slate-700 font-semibold">
+              <p className="text-sm sm:text-lg lg:text-xl text-slate-700 font-semibold">
                 {doctor.specialty.name}
               </p>
+            </div>
 
-              <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-center gap-y-1.5 sm:gap-y-3 gap-x-6 text-[11px] sm:text-sm text-slate-500 font-medium">
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary shrink-0" />
-                  <span className="truncate max-w-[150px] sm:max-w-none">{doctor.hospital.name}</span>
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-primary shrink-0" />
-                  {city.name}
-                </div>
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  <CalendarDays className="w-3 h-3 sm:w-4 sm:h-4 text-primary shrink-0" />
-                  {experienceText}
-                </div>
+            {/* Location & Experience Details */}
+            <div className="col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-2 flex flex-row flex-wrap items-center gap-y-2.5 gap-x-4 sm:gap-x-6 text-[12px] sm:text-sm text-slate-500 font-medium pt-3 border-t border-slate-100 lg:pt-0 lg:border-t-0">
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
+                <span className="truncate max-w-[180px] sm:max-w-none">{doctor.hospital.name}</span>
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
+                {city.name}
+              </div>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
+                {experienceText}
               </div>
             </div>
           </div>
