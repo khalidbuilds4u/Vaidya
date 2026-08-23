@@ -27,6 +27,7 @@ type HospitalFormProps = {
     multiSpecialties?: string[];
     hospitalFacilities?: any;
     specialties?: { id: string; name: string }[];
+    translations?: any;
   };
   cities: { id: string; name: string }[];
   specialties: { id: string; name: string }[];
