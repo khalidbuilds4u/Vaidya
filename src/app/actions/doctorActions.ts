@@ -14,6 +14,19 @@ export async function createDoctor(formData: FormData) {
   const specialtyId = formData.get("specialtyId") as string;
   const cityId = formData.get("cityId") as string || null;
 
+  const parseArray = (key: string) => {
+    const val = formData.get(key) as string;
+    if (!val) return [];
+    try { return JSON.parse(val); } catch { return []; }
+  };
+
+  const medicalQualifications = parseArray("medicalQualifications");
+  const professionalExperience = parseArray("professionalExperience");
+  const specialInterests = parseArray("specialInterests");
+  const careerHighlights = parseArray("careerHighlights");
+  const researchFellowships = parseArray("researchFellowships");
+  const awardsRecognitions = parseArray("awardsRecognitions");
+
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
   await prisma.doctor.create({
@@ -27,6 +40,12 @@ export async function createDoctor(formData: FormData) {
       hospitalId,
       specialtyId,
       cityId,
+      medicalQualifications,
+      professionalExperience,
+      specialInterests,
+      careerHighlights,
+      researchFellowships,
+      awardsRecognitions,
     },
   });
 
@@ -45,6 +64,19 @@ export async function updateDoctor(id: string, formData: FormData) {
   const specialtyId = formData.get("specialtyId") as string;
   const cityId = formData.get("cityId") as string || null;
 
+  const parseArray = (key: string) => {
+    const val = formData.get(key) as string;
+    if (!val) return [];
+    try { return JSON.parse(val); } catch { return []; }
+  };
+
+  const medicalQualifications = parseArray("medicalQualifications");
+  const professionalExperience = parseArray("professionalExperience");
+  const specialInterests = parseArray("specialInterests");
+  const careerHighlights = parseArray("careerHighlights");
+  const researchFellowships = parseArray("researchFellowships");
+  const awardsRecognitions = parseArray("awardsRecognitions");
+
   await prisma.doctor.update({
     where: { id },
     data: {
@@ -56,6 +88,12 @@ export async function updateDoctor(id: string, formData: FormData) {
       hospitalId,
       specialtyId,
       cityId,
+      medicalQualifications,
+      professionalExperience,
+      specialInterests,
+      careerHighlights,
+      researchFellowships,
+      awardsRecognitions,
     },
   });
 

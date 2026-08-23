@@ -126,21 +126,27 @@ model HospitalUser {
 }
 
 model Doctor {
-  id              String         @id @default(cuid())
-  name            String
-  slug            String         @unique
-  qualifications  String?
-  experienceYears Int?
-  biography       String?
-  imageUrl        String?
-  hospitalId      String
-  specialtyId     String
-  cityId          String?
-  recommendedIn   CaseHospital[]
-  city            City?          @relation(fields: [cityId], references: [id], onDelete: Cascade)
-  hospital        Hospital       @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
-  specialty       Specialty      @relation(fields: [specialtyId], references: [id])
-  treatments      Treatment[]    @relation("TreatmentToDoctor")
+  id                     String         @id @default(cuid())
+  name                   String
+  slug                   String         @unique
+  qualifications         String?
+  medicalQualifications  String[]       @default([])
+  professionalExperience String[]       @default([])
+  specialInterests       String[]       @default([])
+  careerHighlights       String[]       @default([])
+  researchFellowships    String[]       @default([])
+  awardsRecognitions     String[]       @default([])
+  experienceYears        Int?
+  biography              String?
+  imageUrl               String?
+  hospitalId             String
+  specialtyId            String
+  cityId                 String?
+  recommendedIn          CaseHospital[]
+  city                   City?          @relation(fields: [cityId], references: [id], onDelete: Cascade)
+  hospital               Hospital       @relation(fields: [hospitalId], references: [id], onDelete: Cascade)
+  specialty              Specialty      @relation(fields: [specialtyId], references: [id])
+  treatments             Treatment[]    @relation("TreatmentToDoctor")
 }
 
 model Patient {

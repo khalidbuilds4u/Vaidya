@@ -5,6 +5,7 @@ import { ArrowLeft, Save, Trash2, UserPlus, Image as ImageIcon } from "lucide-re
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
+import { DynamicListInput } from "@/components/admin/forms/DynamicListInput";
 import { createDoctor, updateDoctor, deleteDoctor } from "@/app/actions/doctorActions";
 
 export const dynamic = "force-dynamic";
@@ -201,6 +202,48 @@ export default async function DoctorEditor({
               placeholder="Brief professional summary..."
               className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
             />
+          </div>
+
+          <div className="pt-6 border-t border-slate-100">
+            <h3 className="text-lg font-bold text-slate-900 mb-6">Detailed Profile Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <DynamicListInput 
+                name="medicalQualifications" 
+                label="Medical Qualifications" 
+                initialItems={doctor?.medicalQualifications || []} 
+                placeholder="e.g. DM (Cardiology), PGIMER" 
+              />
+              <DynamicListInput 
+                name="professionalExperience" 
+                label="Professional Experience" 
+                initialItems={doctor?.professionalExperience || []} 
+                placeholder="e.g. Associate Professor at AFMC" 
+              />
+              <DynamicListInput 
+                name="specialInterests" 
+                label="Special Interests" 
+                initialItems={doctor?.specialInterests || []} 
+                placeholder="e.g. Balloon Atrial Septostomy" 
+              />
+              <DynamicListInput 
+                name="careerHighlights" 
+                label="Career Highlights" 
+                initialItems={doctor?.careerHighlights || []} 
+                placeholder="e.g. Performed 10,000+ interventions" 
+              />
+              <DynamicListInput 
+                name="researchFellowships" 
+                label="Research & Fellowships" 
+                initialItems={doctor?.researchFellowships || []} 
+                placeholder="e.g. Member of Delhi Medical Council" 
+              />
+              <DynamicListInput 
+                name="awardsRecognitions" 
+                label="Awards & Recognition" 
+                initialItems={doctor?.awardsRecognitions || []} 
+                placeholder="e.g. Vishist Seva Medal" 
+              />
+            </div>
           </div>
 
           <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">

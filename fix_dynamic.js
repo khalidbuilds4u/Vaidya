@@ -1,0 +1,25 @@
+const fs = require('fs');
+const path = require('path');
+
+function walkDir(dir, callback) {
+  fs.readdirSync(dir).forEach(f => {
+    let dirPath = path.join(dir, f);
+    let isDirectory = fs.statSync(dirPath).isDirectory();
+    isDirectory ? walkDir(dirPath, callback) : callback(path.join(dir, f));
+  });
+}
+
+let modified = 0;
+walkDir('./src/app/(patient)', function(filePath) {
+  if (filePath.endsWith('.tsx') || filePath.endsWith('.ts')) {
+    let content = fs.readFileSync(filePath, 'utf8');
+    if (content.includes('export const dynamic = "force-dynamic";')) {
+      content = content.replace(/export const dynamic = "force-dynamic";/g, 'export const revalidate = 3600;');
+      fs.writeFileSync(filePath, content, 'utf8');
+      console.log('Updated', filePath);
+      modified++;
+    }
+  }
+});
+
+console.log(`Updated ${modified} files.`);
