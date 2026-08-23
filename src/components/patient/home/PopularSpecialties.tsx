@@ -19,10 +19,17 @@ const SPECIALTIES = [
 ];
 
 export async function PopularSpecialties() {
-  const dbSpecialties = await prisma.specialty.findMany({
-    take: 12,
-    orderBy: { name: 'asc' }
-  });
+  let dbSpecialties;
+  let dbError = null;
+  try {
+    dbSpecialties = await prisma.specialty.findMany({
+      take: 12,
+      orderBy: { name: 'asc' }
+    });
+  } catch (e: any) {
+    dbError = e.message || String(e);
+    dbSpecialties = [];
+  }
 
   const mergedSpecialties = dbSpecialties.map(dbSpec => {
     const defaultData = SPECIALTIES.find(s => s.name.toLowerCase() === dbSpec.name.toLowerCase()) || {
@@ -54,7 +61,13 @@ export async function PopularSpecialties() {
           Comprehensive care across all major clinical departments. Consult with India&apos;s most distinguished surgeons and medical teams.
         </p>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+        {dbError && (
+          <div className="bg-red-500/10 border border-red-500/50 text-red-500 p-4 rounded-xl mb-8">
+            DEBUG ERROR: {dbError}
+          </div>
+        )}
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 relative z-10">
           {mergedSpecialties.map((spec) => {
             const Icon = spec.icon;
             return (

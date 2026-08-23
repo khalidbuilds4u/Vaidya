@@ -7,16 +7,24 @@ import { ArrowRight } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 
 export async function FeaturedHospitals() {
-  const featuredHospitals = await prisma.hospital.findMany({
-    take: 3,
-    orderBy: {
-      createdAt: 'desc'
-    },
-    include: {
-      city: true,
-      specialties: true
-    }
-  });
+  let featuredHospitals;
+  let dbError = null;
+  try {
+    featuredHospitals = await prisma.hospital.findMany({
+      take: 3,
+      orderBy: {
+        createdAt: 'desc'
+      },
+      include: {
+        city: true,
+        specialties: true
+      }
+    });
+  } catch (e: any) {
+    dbError = e.message || String(e);
+    featuredHospitals = [];
+  }
+
   return (
     <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/70">
       {/* Background Glow */}
@@ -34,6 +42,12 @@ export async function FeaturedHospitals() {
             We collaborate with India&apos;s leading JCI &amp; NABH accredited institutions with dedicated international patient suites and multilingual support.
           </p>
         </div>
+        
+        {dbError && (
+          <div className="bg-red-500/10 border border-red-500/50 text-red-500 p-4 rounded-xl mb-8">
+            DEBUG ERROR: {dbError}
+          </div>
+        )}
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
           {featuredHospitals.map((hospital) => (

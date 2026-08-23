@@ -8,10 +8,14 @@ export default function PatientLayout({
 }: {
   children: React.ReactNode
 }) {
+  const isDbSet = !!process.env.DATABASE_URL;
   return (
-    <div className="flex min-h-screen flex-col relative">
+    <div className="flex min-h-screen flex-col relative overflow-hidden bg-slate-50/50">
+      <div id="debug-db-status" style={{ display: 'none' }}>
+        DB_STATUS: {isDbSet ? "SET" : "MISSING"}
+      </div>
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 relative z-10">
         {children}
       </main>
       <Footer />
