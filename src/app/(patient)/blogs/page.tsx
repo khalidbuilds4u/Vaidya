@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { FileText, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export const metadata: Metadata = {

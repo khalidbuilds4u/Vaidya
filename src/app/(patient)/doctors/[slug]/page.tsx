@@ -6,7 +6,7 @@ import { MapPin, Stethoscope, BriefcaseMedical, CheckCircle2, CalendarDays, Grad
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 

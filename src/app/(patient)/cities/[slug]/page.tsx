@@ -6,7 +6,7 @@ import { MapPin, Building2, Stethoscope, BriefcaseMedical, CheckCircle2, Chevron
 import { Button } from '@/components/ui/button';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 

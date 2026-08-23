@@ -10,7 +10,7 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 // Fallbacks if the DB doesn't have doctors/hospitals

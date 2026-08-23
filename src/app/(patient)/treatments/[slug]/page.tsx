@@ -11,7 +11,7 @@ import Link from 'next/link';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 import { prisma } from '@/lib/prisma';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 // Map mockData for Treatment Page schema

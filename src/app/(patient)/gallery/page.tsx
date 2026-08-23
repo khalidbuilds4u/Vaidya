@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { prisma } from "@/lib/prisma"
 import { Image as ImageIcon } from "lucide-react"
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export const metadata: Metadata = {

@@ -2,7 +2,7 @@ import { Metadata } from "next"
 import { ContactForm } from "./ContactForm"
 import { Mail, Phone, MapPin, Clock } from "lucide-react"
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export const metadata: Metadata = {

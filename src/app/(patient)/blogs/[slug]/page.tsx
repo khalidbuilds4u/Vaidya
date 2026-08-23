@@ -4,7 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar, User } from "lucide-react"
 import Link from "next/link"
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

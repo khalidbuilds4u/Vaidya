@@ -129,7 +129,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 import { prisma } from '@/lib/prisma';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export default async function SpecialtyDetailPage({ params }: { params: Promise<{ slug: string }> }) {

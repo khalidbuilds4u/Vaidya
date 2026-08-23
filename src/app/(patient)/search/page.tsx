@@ -5,7 +5,7 @@ import { Search, MapPin, AlertCircle, Sparkles, Building2, Stethoscope, ArrowLef
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export default async function SearchResultsPage({

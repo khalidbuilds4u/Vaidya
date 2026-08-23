@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 

@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Plane, Hotel, MessageCircle, FileText, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react';
 
-export const dynamic = "force-dynamic";
+export const revalidate = 3600;
 
 
 export const metadata: Metadata = {
