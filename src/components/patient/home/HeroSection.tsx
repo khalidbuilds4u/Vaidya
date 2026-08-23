@@ -90,12 +90,12 @@ export function HeroSection() {
                 </Button>
               </EnquiryForm>
               <Button 
+                asChild
                 size="lg" 
                 variant="outline" 
                 className="flex-1 sm:flex-none text-xs sm:text-base h-11 sm:h-13 px-4 sm:px-7 rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
-                render={<Link href="/hospitals" />}
               >
-                Explore Hospitals
+                <Link href="/hospitals">Explore Hospitals</Link>
               </Button>
             </div>
 

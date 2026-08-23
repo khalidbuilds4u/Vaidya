@@ -222,8 +222,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                       <p className="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">
                         {treatment.description}
                       </p>
-                      <Button render={<Link href={`/treatments/${treatment.slug}`} />} className="w-full">
-                        View Treatment Details
+                      <Button asChild className="w-full">
+                        <Link href={`/treatments/${treatment.slug}`}>View Treatment Details</Link>
                       </Button>
                     </div>
                   </Card>

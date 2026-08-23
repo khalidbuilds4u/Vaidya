@@ -491,8 +491,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                       <div className="p-5 flex flex-col flex-1">
                         <h3 className="font-bold text-lg mb-2">{sub.name}</h3>
                         <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">{sub.description}</p>
-                        <Button render={<Link href={`/treatments/${resolvedParams.slug}/${sub.slug}`} />} variant="outline" className="w-full">
-                          View Specific Details
+                        <Button asChild variant="outline" className="w-full">
+                          <Link href={`/treatments/${resolvedParams.slug}/${sub.slug}`}>View Specific Details</Link>
                         </Button>
                       </div>
                     </Card>

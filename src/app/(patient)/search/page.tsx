@@ -103,9 +103,11 @@ export default async function SearchResultsPage({
             <p className="text-slate-600 text-xs sm:text-sm mb-6 max-w-sm mx-auto leading-relaxed">
               We couldn&apos;t find specific hospitals or doctors for this search. Try using broader medical terms or contact our 24/7 care team.
             </p>
-            <Button render={<Link href="/" />} size="lg" className="rounded-full shadow-md bg-primary hover:bg-primary/90 text-white font-semibold text-xs sm:text-sm px-6 h-11">
-              <ArrowLeft className="w-4 h-4 mr-1.5" />
-              Back to Home
+            <Button asChild size="lg" className="rounded-full shadow-md bg-primary hover:bg-primary/90 text-white font-semibold text-xs sm:text-sm px-6 h-11">
+              <Link href="/">
+                <ArrowLeft className="w-4 h-4 mr-1.5" />
+                Back to Home
+              </Link>
             </Button>
           </div>
         ) : (
