@@ -43,7 +43,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
   return (
     <div className="bg-[#1C2621] min-h-screen text-slate-200 pb-24 pt-8 font-sans selection:bg-teal-500/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb Navigation */}
         <div className="flex items-center gap-2 text-sm text-slate-400 font-medium mb-8">
@@ -54,10 +54,10 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           <span className="text-white">{doctor.name}</span>
         </div>
 
-        {/* Hero Section (Screenshot 1) */}
+        {/* Hero Section */}
         <div className="bg-[#24302A] rounded-2xl p-6 sm:p-10 shadow-lg border border-white/5 mb-10 flex flex-col md:flex-row gap-8 items-start">
           <div className="shrink-0">
-            <div className="w-40 h-48 sm:w-56 sm:h-64 rounded-xl overflow-hidden bg-white">
+            <div className="w-32 h-32 sm:w-48 sm:h-48 rounded-xl overflow-hidden bg-white">
               <img 
                 src={profileImage} 
                 alt={doctor.name}
@@ -66,42 +66,44 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             </div>
           </div>
           
-          <div className="flex-1 space-y-4 pt-2">
-            <div className="flex flex-wrap items-center gap-3">
-              <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-                {doctor.name}
-              </h1>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">
-                <CheckCircle2 className="w-3.5 h-3.5" /> Profile Authorized
-              </span>
-            </div>
-            
-            <p className="text-xl text-slate-300 font-medium">
-              {doctor.specialty.name}
-            </p>
+          <div className="flex-1 w-full flex flex-col md:flex-row justify-between items-start gap-6 pt-2">
+            <div className="space-y-4">
+              <div className="flex flex-wrap items-center gap-3">
+                <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+                  {doctor.name}
+                </h1>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-teal-500/10 text-teal-400 border border-teal-500/20">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Profile Authorized
+                </span>
+              </div>
+              
+              <p className="text-xl text-slate-300 font-medium">
+                {doctor.specialty.name}
+              </p>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400 pt-2">
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-slate-500" />
-                {doctor.hospital.name}
-              </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-slate-500" />
-                {city.name}
-              </div>
-              <div className="flex items-center gap-2">
-                <CalendarDays className="w-4 h-4 text-slate-500" />
-                {experienceText}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400 pt-2">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-slate-500" />
+                  {doctor.hospital.name}
+                </div>
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-slate-500" />
+                  {city.name}
+                </div>
+                <div className="flex items-center gap-2">
+                  <CalendarDays className="w-4 h-4 text-slate-500" />
+                  {experienceText}
+                </div>
               </div>
             </div>
 
-            <div className="pt-6">
+            <div className="md:max-w-xs w-full">
               <EnquiryForm>
-                <Button className="bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold rounded-lg px-8 h-12 text-sm transition-colors shadow-lg shadow-teal-500/20">
+                <Button className="w-full bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold rounded-lg px-6 h-12 text-sm transition-colors shadow-lg shadow-teal-500/20">
                   Ask Asad Healthcare about this Doctor
                 </Button>
               </EnquiryForm>
-              <p className="text-xs text-slate-500 mt-4 max-w-lg leading-relaxed">
+              <p className="text-[11px] text-slate-500 mt-3 leading-relaxed">
                 Your enquiry is received by Asad Healthcare's care team and is not sent directly to the doctor. Appointments and availability remain subject to confirmation.
               </p>
             </div>
@@ -109,7 +111,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         </div>
 
         {/* Two Column Layout for Profile Data and Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* Main Content (Left, 8 cols) */}
           <div className="lg:col-span-8 space-y-12">
@@ -226,7 +228,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               
               {/* Table of Contents */}
               <div className="bg-[#24302A] rounded-2xl p-6 border border-white/5 shadow-lg">
-                <h3 className="text-lg font-bold text-white mb-4 text-center">Table of Contents</h3>
+                <h3 className="text-base font-bold text-white mb-4">Table of Contents</h3>
                 <nav className="space-y-3 flex flex-col">
                   <a href="#about" className="text-slate-400 hover:text-teal-400 text-sm transition-colors">About Doctor</a>
                   {doctor.medicalQualifications.length > 0 && (
