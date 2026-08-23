@@ -35,8 +35,8 @@ export function Header() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex flex-wrap items-center gap-1 xl:gap-2 text-xs xl:text-sm font-medium">
-          <Link href="/" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            Home
+          <Link href="/" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
+            Home Page
           </Link>
           <Link href="/hospitals" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
             Hospitals
@@ -92,7 +92,7 @@ export function Header() {
             <span>Where Global Trust Meets World-Class Healing</span>
           </div>
           <nav className="flex flex-col gap-1 text-base font-medium">
-            <Link href="/" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Home</Link>
+            <Link href="/" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Home Page</Link>
             <Link href="/hospitals" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Hospitals</Link>
             <Link href="/doctors" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Doctors</Link>
             <Link href="/treatments" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>Procedures</Link>
