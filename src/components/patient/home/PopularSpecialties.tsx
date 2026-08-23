@@ -2,6 +2,8 @@ import { Button } from '@/components/ui/button';
 import { HeartPulse, Bone, Brain, Baby, Activity, Microscope, ScanHeart, Stethoscope, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslation } from '@/lib/utils';
 
 const SPECIALTIES = [
   { name: 'Cardiology', icon: HeartPulse, count: '120+ Doctors', color: 'from-rose-500/10 to-pink-500/10 text-rose-600' },
@@ -19,6 +21,9 @@ const SPECIALTIES = [
 ];
 
 export async function PopularSpecialties() {
+  const locale = await getLocale();
+  const t = await getTranslations('Specialties');
+
   let dbSpecialties;
   let dbError = null;
   try {
@@ -39,6 +44,7 @@ export async function PopularSpecialties() {
     };
     return {
       ...dbSpec,
+      translatedName: getTranslation(dbSpec, 'name', locale),
       icon: defaultData.icon,
       count: defaultData.count,
       color: defaultData.color
@@ -52,13 +58,13 @@ export async function PopularSpecialties() {
 
       <div className="container mx-auto px-4 text-center">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-          Specialized Excellence
+          {t('tag')}
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
-          Explore by Medical Specialty
+          {t('title')}
         </h2>
         <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto mb-8 sm:mb-12 leading-relaxed">
-          Comprehensive care across all major clinical departments. Consult with India&apos;s most distinguished surgeons and medical teams.
+          {t('desc')}
         </p>
         
         {dbError && (
@@ -80,13 +86,13 @@ export async function PopularSpecialties() {
                   
                   <div>
                     <h3 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-primary transition-colors mb-1">
-                      {spec.name}
+                      {spec.translatedName}
                     </h3>
                     <p className="text-[10px] sm:text-xs font-medium text-slate-500">{spec.count}</p>
                   </div>
 
                   <div className="mt-3 pt-2.5 w-full border-t border-slate-100 flex items-center justify-center text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span>View Treatments</span>
+                    <span>{t('view')}</span>
                     <ArrowRight className="w-3.5 h-3.5 ml-1" />
                   </div>
                 </div>
@@ -96,9 +102,9 @@ export async function PopularSpecialties() {
         </div>
         
         <div className="mt-8 sm:mt-12 text-center">
-          <Link href="/treatments">
+          <Link href={`/${locale}/treatments`}>
             <Button size="lg" className="px-6 sm:px-8 h-11 sm:h-12 rounded-xl sm:rounded-full font-semibold shadow-sm bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm group">
-              <span>Browse All Treatments &amp; Procedures</span>
+              <span>{t('browseAll')}</span>
               <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>

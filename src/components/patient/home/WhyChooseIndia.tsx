@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Award, Zap, DollarSign, Clock, Cpu, Languages, ChevronRight, ChevronLeft, ShieldCheck, Sparkles } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const REASONS = [
   {
@@ -65,6 +66,17 @@ const SLIDES = [
 
 export function WhyChooseIndia() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const t = useTranslations('WhyChoose');
+
+  // Generate localized REASONS dynamically
+  const localizedReasons = [
+    { icon: Award, title: t('reasons.surgeons.title'), desc: t('reasons.surgeons.desc') },
+    { icon: DollarSign, title: t('reasons.savings.title'), desc: t('reasons.savings.desc') },
+    { icon: Clock, title: t('reasons.zeroWait.title'), desc: t('reasons.zeroWait.desc') },
+    { icon: Cpu, title: t('reasons.robotic.title'), desc: t('reasons.robotic.desc') },
+    { icon: Languages, title: t('reasons.language.title'), desc: t('reasons.language.desc') },
+    { icon: Zap, title: t('reasons.jci.title'), desc: t('reasons.jci.desc') }
+  ];
 
   // Auto-advance slides every 4.5 seconds
   useEffect(() => {
@@ -88,21 +100,21 @@ export function WhyChooseIndia() {
             <div>
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
-                Global Healthcare Destination
+                {t('tag')}
               </div>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
-                Why Choose India for Your <br className="hidden sm:inline" />
+                {t('title1')} <br className="hidden sm:inline" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
-                  Medical Treatment?
+                  {t('title2')}
                 </span>
               </h2>
               <p className="text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl">
-                India has become the world&apos;s leading healthcare hub, combining renowned clinical excellence, ultra-modern robotic technology, and comprehensive patient hospitality.
+                {t('desc')}
               </p>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-              {REASONS.map((item, idx) => {
+              {localizedReasons.map((item, idx) => {
                 const Icon = item.icon;
                 return (
                   <div 
@@ -191,8 +203,8 @@ export function WhyChooseIndia() {
                 #1
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-extrabold text-slate-900 leading-tight">Fastest Growing Hub</p>
-                <p className="text-[10px] text-slate-500 font-medium">2M+ International Patients</p>
+                <p className="text-[11px] sm:text-xs font-extrabold text-slate-900 leading-tight">{t('hub.title')}</p>
+                <p className="text-[10px] text-slate-500 font-medium">{t('hub.subtitle')}</p>
               </div>
             </div>
 

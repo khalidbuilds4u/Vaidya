@@ -7,11 +7,14 @@ import { PatientStories } from '@/components/patient/home/PatientStories';
 import { HowProcessWorks } from '@/components/patient/home/HowProcessWorks';
 import { FAQSection } from '@/components/patient/home/FAQSection';
 import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 export const revalidate = 3600;
 
 
 export default function Home() {
+  const t = useTranslations('Stats');
+
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50">
       <HeroSection />
@@ -27,7 +30,7 @@ export default function Home() {
               </div>
               <div className="min-w-0">
                 <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">50+</div>
-                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">JCI &amp; NABH Hospitals</div>
+                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">{t('hospitals')}</div>
               </div>
             </div>
 
@@ -37,7 +40,7 @@ export default function Home() {
               </div>
               <div className="min-w-0">
                 <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">500+</div>
-                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">Top Specialist Surgeons</div>
+                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">{t('surgeons')}</div>
               </div>
             </div>
 
@@ -47,7 +50,7 @@ export default function Home() {
               </div>
               <div className="min-w-0">
                 <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">10,000+</div>
-                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">Global Patients</div>
+                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">{t('patients')}</div>
               </div>
             </div>
 
@@ -57,7 +60,7 @@ export default function Home() {
               </div>
               <div className="min-w-0">
                 <div className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">24/7</div>
-                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">Personal Coordinator</div>
+                <div className="text-slate-600 text-[11px] sm:text-xs lg:text-sm font-medium truncate">{t('coordinator')}</div>
               </div>
             </div>
 

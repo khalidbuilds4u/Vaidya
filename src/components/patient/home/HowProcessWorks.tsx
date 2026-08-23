@@ -1,4 +1,5 @@
 import { FileText, Stethoscope, Plane, HeartHandshake } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 
 const STEPS = [
   {
@@ -28,6 +29,35 @@ const STEPS = [
 ];
 
 export function HowProcessWorks() {
+  const t = useTranslations('Process');
+
+  const localizedSteps = [
+    {
+      step: '01',
+      title: t('steps.step1.title'),
+      description: t('steps.step1.desc'),
+      icon: FileText,
+    },
+    {
+      step: '02',
+      title: t('steps.step2.title'),
+      description: t('steps.step2.desc'),
+      icon: Stethoscope,
+    },
+    {
+      step: '03',
+      title: t('steps.step3.title'),
+      description: t('steps.step3.desc'),
+      icon: Plane,
+    },
+    {
+      step: '04',
+      title: t('steps.step4.title'),
+      description: t('steps.step4.desc'),
+      icon: HeartHandshake,
+    }
+  ];
+
   return (
     <section className="py-16 sm:py-24 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white">
       {/* Background Ambient Glows */}
@@ -37,18 +67,18 @@ export function HowProcessWorks() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-teal-300 text-xs font-bold uppercase tracking-wider mb-3">
-            Stress-Free Patient Journey
+            {t('tag')}
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3 text-white">
-            How It Works in 4 Simple Steps
+            {t('title')}
           </h2>
           <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-            From your first inquiry to arriving in India and returning home safely, we handle every detail with complete clinical transparency.
+            {t('desc')}
           </p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
-          {STEPS.map((step) => {
+          {localizedSteps.map((step) => {
             const Icon = step.icon;
             return (
               <div 

@@ -22,5 +22,80 @@
     "searchPlaceholder": "Treatment, hospital, doctor...",
     "searchButton": "Search",
     "anyCity": "Any City (India)"
+  },
+  "Stats": {
+    "hospitals": "JCI & NABH Hospitals",
+    "surgeons": "Top Specialist Surgeons",
+    "patients": "Global Patients",
+    "coordinator": "Personal Coordinator"
+  },
+  "WhyChoose": {
+    "tag": "Global Healthcare Destination",
+    "title1": "Why Choose India for Your",
+    "title2": "Medical Treatment?",
+    "desc": "India has become the world's leading healthcare hub, combining renowned clinical excellence, ultra-modern robotic technology, and comprehensive patient hospitality.",
+    "reasons": {
+      "surgeons": {
+        "title": "Top-Tier Surgeons",
+        "desc": "Doctors trained in US/UK with decades of complex surgery expertise"
+      },
+      "savings": {
+        "title": "Up to 70% Cost Savings",
+        "desc": "World-class procedures at a fraction of Western healthcare costs"
+      },
+      "zeroWait": {
+        "title": "Zero Waiting Time",
+        "desc": "Instant admissions and scheduled surgeries without delay"
+      },
+      "robotic": {
+        "title": "Robotic & AI Technology",
+        "desc": "Latest Da Vinci surgical systems, CyberKnife, and PET-CT diagnostics"
+      },
+      "language": {
+        "title": "Language Translators",
+        "desc": "Arabic, Russian, French, and Swahili interpreters assigned to each case"
+      },
+      "jci": {
+        "title": "JCI & NABH Accredited",
+        "desc": "Rigorous international safety standards and sterile infection control"
+      }
+    },
+    "hub": {
+      "title": "Fastest Growing Hub",
+      "subtitle": "2M+ International Patients"
+    }
+  },
+  "Process": {
+    "tag": "How It Works",
+    "title": "Your Journey to Healing in 4 Simple Steps",
+    "desc": "We handle every detail—from medical visas to hospital admission—so you can focus entirely on your recovery.",
+    "steps": {
+      "step1": {
+        "title": "Submit Medical Records",
+        "desc": "Upload your reports via our secure portal. Our team signs an NDA to protect your privacy."
+      },
+      "step2": {
+        "title": "Get Free Treatment Plan",
+        "desc": "Receive a detailed clinical evaluation, doctor profiles, and transparent cost estimates within 24 hours."
+      },
+      "step3": {
+        "title": "Visa & Travel Assistance",
+        "desc": "We provide Medical Visa invitation letters, book flights, and arrange comfortable accommodation."
+      },
+      "step4": {
+        "title": "Treatment & Recovery",
+        "desc": "Receive VIP airport pickup, dedicated language translator, and 24/7 care throughout your stay."
+      }
+    },
+    "ctaTitle": "Ready to Start Your Treatment Journey?",
+    "ctaDesc": "Get a free, no-obligation medical opinion from India's top specialists today.",
+    "ctaButton": "Get Free Consultation"
+  },
+  "Specialties": {
+    "tag": "Specialized Excellence",
+    "title": "Explore by Medical Specialty",
+    "desc": "Comprehensive care across all major clinical departments. Consult with India's most distinguished surgeons and medical teams.",
+    "view": "View Treatments",
+    "browseAll": "Browse All Treatments & Procedures"
   }
 }
