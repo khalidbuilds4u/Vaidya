@@ -328,6 +328,42 @@ export function HospitalForm({
               className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
             />
           </div>
+
+          <h4 className="text-md font-bold text-slate-900 mt-8 mb-4">
+            Hospital Content Sections (Arabic)
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <DynamicListInput 
+              name="premiumFacilities_ar" 
+              label="المرافق المتميزة أثناء الإقامة (Premium Facilities)" 
+              initialItems={(initialData?.translations as any)?.ar?.premiumFacilities || []} 
+              placeholder="أدخل المرفق المتميز..." 
+            />
+            <DynamicListInput 
+              name="multiSpecialties_ar" 
+              label="خدمات متعددة التخصصات (Multi Specialties)" 
+              initialItems={(initialData?.translations as any)?.ar?.multiSpecialties || []} 
+              placeholder="أدخل التخصص..." 
+            />
+            <DynamicListInput 
+              name="advancedTechnologies_ar" 
+              label="التقنيات الطبية المتقدمة (Advanced Technologies)" 
+              initialItems={(initialData?.translations as any)?.ar?.advancedTechnologies || []} 
+              placeholder="أدخل التقنية..." 
+            />
+            <DynamicListInput 
+              name="connectivityLocation_ar" 
+              label="الاتصال والموقع (Connectivity)" 
+              initialItems={(initialData?.translations as any)?.ar?.connectivityLocation || []} 
+              placeholder="أدخل تفاصيل الموقع..." 
+            />
+            <DynamicListInput 
+              name="excellenceInCare_ar" 
+              label="التميز في رعاية المرضى (Excellence in Care)" 
+              initialItems={(initialData?.translations as any)?.ar?.excellenceInCare || []} 
+              placeholder="أدخل تفاصيل التميز..." 
+            />
+          </div>
         </div>
 
         <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">

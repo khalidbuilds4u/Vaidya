@@ -99,13 +99,39 @@ export async function createHospital(formData: FormData) {
   const description_ar = formData.get("description_ar") as string;
   const address_ar = formData.get("address_ar") as string;
 
+  const parseJsonArrayAr = (name: string) => {
+    const val = parseString(formData.get(name));
+    if (val) {
+      try {
+        const parsed = JSON.parse(val);
+        if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+      } catch (e) {
+        if (val.includes(',')) return val.split(',').map(s => s.trim()).filter(Boolean);
+        if (val.includes('\n')) return val.split('\n').map(s => s.trim()).filter(Boolean);
+        return [val.trim()];
+      }
+    }
+    return undefined;
+  };
+
+  const premiumFacilities_ar = parseJsonArrayAr("premiumFacilities_ar");
+  const multiSpecialties_ar = parseJsonArrayAr("multiSpecialties_ar");
+  const advancedTechnologies_ar = parseJsonArrayAr("advancedTechnologies_ar");
+  const connectivityLocation_ar = parseJsonArrayAr("connectivityLocation_ar");
+  const excellenceInCare_ar = parseJsonArrayAr("excellenceInCare_ar");
+
   let translations = undefined;
-  if (name_ar || description_ar || address_ar) {
+  if (name_ar || description_ar || address_ar || premiumFacilities_ar || multiSpecialties_ar || advancedTechnologies_ar || connectivityLocation_ar || excellenceInCare_ar) {
     translations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
         address: address_ar || undefined,
+        premiumFacilities: premiumFacilities_ar,
+        multiSpecialties: multiSpecialties_ar,
+        advancedTechnologies: advancedTechnologies_ar,
+        connectivityLocation: connectivityLocation_ar,
+        excellenceInCare: excellenceInCare_ar,
       }
     };
   }
@@ -224,13 +250,24 @@ export async function updateHospital(id: string, formData: FormData) {
   const description_ar = formData.get("description_ar") as string;
   const address_ar = formData.get("address_ar") as string;
 
+  const premiumFacilities_ar = parseJsonArrayAr("premiumFacilities_ar");
+  const multiSpecialties_ar = parseJsonArrayAr("multiSpecialties_ar");
+  const advancedTechnologies_ar = parseJsonArrayAr("advancedTechnologies_ar");
+  const connectivityLocation_ar = parseJsonArrayAr("connectivityLocation_ar");
+  const excellenceInCare_ar = parseJsonArrayAr("excellenceInCare_ar");
+
   let translations = undefined;
-  if (name_ar || description_ar || address_ar) {
+  if (name_ar || description_ar || address_ar || premiumFacilities_ar || multiSpecialties_ar || advancedTechnologies_ar || connectivityLocation_ar || excellenceInCare_ar) {
     translations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
         address: address_ar || undefined,
+        premiumFacilities: premiumFacilities_ar,
+        multiSpecialties: multiSpecialties_ar,
+        advancedTechnologies: advancedTechnologies_ar,
+        connectivityLocation: connectivityLocation_ar,
+        excellenceInCare: excellenceInCare_ar,
       }
     };
   }
