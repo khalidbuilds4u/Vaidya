@@ -319,6 +319,36 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 </div>
               </div>
 
+              {/* Why Choose Us */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+                  Why Choose Us?
+                </h3>
+                <p className="text-xs text-slate-500 mb-6 font-medium">
+                  There are multiple ways we lighten your burdens
+                </p>
+                <div className="space-y-4">
+                  {[
+                    "Patient room upgrade",
+                    "Stress-Free Airport Transfers",
+                    "Free City Tour",
+                    "Free Teleconsultations",
+                    "Enjoy a Complimentary Hotel Stay",
+                    "Priority Appointments for Swift Care",
+                    "Tailored Care to Accelerate Recovery",
+                    "Round-the-Clock Patient Care"
+                  ].map((benefit, i) => (
+                    <div key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
+                      <span className="text-sm font-medium text-slate-700">{benefit}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-8 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative h-40">
+                  <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?q=80&w=2070&auto=format&fit=crop" alt="Medical Care Support" className="absolute inset-0 w-full h-full object-cover" />
+                </div>
+              </div>
+
             </div>
           </div>
 
