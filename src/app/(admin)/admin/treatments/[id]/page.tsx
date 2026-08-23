@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { createTreatment, updateTreatment, deleteTreatment } from "@/app/actions/treatmentActions";
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Procedure Editor | Asad Healthcare",
 };

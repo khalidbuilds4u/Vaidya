@@ -13,6 +13,9 @@ export const metadata: Metadata = {
 
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = "force-dynamic";
+
+
 function getIconForSpecialty(specialtyName: string) {
   const name = specialtyName.toLowerCase();
   if (name.includes('orthopedic')) return Bone;

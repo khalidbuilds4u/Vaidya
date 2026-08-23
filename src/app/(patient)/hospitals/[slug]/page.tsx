@@ -7,6 +7,9 @@ import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 
+export const dynamic = "force-dynamic";
+
+
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

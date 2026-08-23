@@ -11,6 +11,9 @@ import Link from 'next/link';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = "force-dynamic";
+
+
 // Map mockData for Treatment Page schema
 const baseDoctors = MOCK_DOCTORS.slice(0, 3).map(d => ({
   slug: d.slug,

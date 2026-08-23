@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 import { Search, Filter, Building2 } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: 'Top Accredited Hospitals in India | AsadHealthcare',
   description: 'Discover and compare the best JCI and NABH accredited hospitals in India for international patients.',

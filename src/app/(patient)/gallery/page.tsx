@@ -2,6 +2,9 @@ import { Metadata } from "next"
 import { prisma } from "@/lib/prisma"
 import { Image as ImageIcon } from "lucide-react"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Gallery | Asad Healthcare",
   description: "View our medical facilities, successful treatments, and expert medical teams.",

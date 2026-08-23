@@ -3,6 +3,9 @@ import { prisma } from "@/lib/prisma"
 import { Heart, Quote } from "lucide-react"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Patient Success Stories | Asad Healthcare",
   description: "Read inspiring stories from our patients who travelled to India for world-class medical treatments.",

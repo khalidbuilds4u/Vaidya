@@ -2,6 +2,9 @@ import { Metadata } from "next"
 import { StoryForm } from "./StoryForm"
 import { prisma } from "@/lib/prisma"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Add Patient Story | Admin Dashboard",
 }

@@ -5,6 +5,9 @@ import { Button } from '@/components/ui/button';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: 'Top Medical Specialists in India | AsadHealthcare',
   description: 'Find and consult with India\'s top doctors, surgeons, and medical specialists.',

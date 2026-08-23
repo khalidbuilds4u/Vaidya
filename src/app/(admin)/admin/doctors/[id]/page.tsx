@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { createDoctor, updateDoctor, deleteDoctor } from "@/app/actions/doctorActions";
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Doctor Editor | Asad Healthcare",
 };

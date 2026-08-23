@@ -6,6 +6,9 @@ import { MapPin, Stethoscope, BriefcaseMedical, CheckCircle2, CalendarDays, Grad
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 
+export const dynamic = "force-dynamic";
+
+
 export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {

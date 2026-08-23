@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { createCondition, updateCondition, deleteCondition } from "@/app/actions/conditionActions";
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Condition Editor | Asad Healthcare",
 };

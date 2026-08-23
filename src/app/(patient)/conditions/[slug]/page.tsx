@@ -10,6 +10,9 @@ import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 
+export const dynamic = "force-dynamic";
+
+
 // Fallbacks if the DB doesn't have doctors/hospitals
 const baseDoctors = MOCK_DOCTORS.slice(0, 3).map(d => ({
   slug: d.slug,

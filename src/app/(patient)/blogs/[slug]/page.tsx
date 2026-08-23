@@ -4,6 +4,9 @@ import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar, User } from "lucide-react"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic";
+
+
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const blog = await prisma.blogPost.findUnique({
     where: { slug: params.slug }

@@ -3,6 +3,9 @@ import { prisma } from "@/lib/prisma"
 import { FileText, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Health & Wellness Blog | Asad Healthcare",
   description: "Read the latest insights, news, and tips on medical treatments and wellness.",

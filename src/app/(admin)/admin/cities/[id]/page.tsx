@@ -8,6 +8,9 @@ import { SubmitButton } from "@/components/admin/SubmitButton";
 import { DeleteCityForm } from "@/components/admin/DeleteCityForm";
 import { createCity, updateCity, deleteCity } from "@/app/actions/cityActions";
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "City Editor | Asad Healthcare",
 };

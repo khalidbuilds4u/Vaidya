@@ -129,6 +129,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = "force-dynamic";
+
+
 export default async function SpecialtyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const resolvedParams = await params;
   const specialty = getSpecialtyDetails(resolvedParams.slug);

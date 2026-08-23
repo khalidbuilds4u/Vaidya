@@ -2,6 +2,9 @@ import { Metadata } from "next"
 import { prisma } from "@/lib/prisma"
 import { ContactMessageList } from "./ContactMessageList"
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: "Contact Messages | Admin Dashboard",
 }

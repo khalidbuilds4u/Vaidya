@@ -3,6 +3,9 @@ import Link from 'next/link';
 import { MapPin, Building2, Stethoscope, Plane, ArrowRight } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
 
+export const dynamic = "force-dynamic";
+
+
 export const metadata: Metadata = {
   title: 'Top Medical Hubs in India | AsadHealthcare',
   description: 'Explore the top cities in India for medical tourism, featuring world-class hospitals and connectivity.',
