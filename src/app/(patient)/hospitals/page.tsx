@@ -153,7 +153,6 @@ export default async function HospitalsDirectory({
                     beds={hospital.beds || 0}
                     specialties={[]}
                     hasInternationalSupport={hospital.internationalServices.length > 0}
-                  */}
                   />
                 );
               })}

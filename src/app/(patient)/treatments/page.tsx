@@ -154,7 +154,7 @@ export default async function TreatmentsDirectory() {
                       <div className="flex justify-between pb-1.5 border-b border-slate-200/60">
                         <span className="text-slate-500">Est. Package:</span>
                         <span className="font-bold text-emerald-600">
-                          {treatment.minEstimate ? `$${treatment.minEstimate.toLocaleString()} - $${treatment.maxEstimate?.toLocaleString()}` : 'Custom Quote'}
+                          {treatment.minEstimate ? `$${treatment.minEstimate} - $${treatment.maxEstimate || ''}` : 'Custom Quote'}
                         </span>
                       </div>
                       <div className="flex justify-between pt-0.5">
