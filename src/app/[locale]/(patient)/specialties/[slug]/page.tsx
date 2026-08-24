@@ -173,6 +173,29 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     where: { specialty: { slug: resolvedParams.slug } }
   });
 
+  const dbTreatments = await prisma.treatment.findMany({
+    where: { specialty: { slug: resolvedParams.slug } },
+    take: 4
+  });
+
+  // Map DB Treatments to UI format
+  const displayTreatments = dbTreatments.length > 0 ? dbTreatments.map((t, idx) => {
+    // Provide some varied placeholder images if we don't have real ones
+    const images = [
+      'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop',
+      'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=2070&auto=format&fit=crop'
+    ];
+    return {
+      isReal: true,
+      slug: t.slug,
+      name: getTranslation(t, 'name', locale) || t.name,
+      description: getTranslation(t, 'description', locale) || t.description || `Specialized ${t.name} procedures at accredited hospitals in India.`,
+      image: images[idx % images.length]
+    };
+  }) : specialty.popularTreatments.map(t => ({ ...t, isReal: false }));
+
   // Map DB Doctors to DoctorCard props
   const topDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
     slug: d.slug,
@@ -263,7 +286,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             <section>
               <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-6">
-                {specialty.popularTreatments.map(treatment => (
+                {displayTreatments.map(treatment => (
                   <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
                     <div className="h-48 overflow-hidden relative">
                       <img 
@@ -277,9 +300,15 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                       <p className="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">
                         {treatment.description}
                       </p>
-                      <Button asChild className="w-full">
-                        <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
-                      </Button>
+                      {treatment.isReal ? (
+                        <Button asChild className="w-full">
+                          <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
+                        </Button>
+                      ) : (
+                        <EnquiryForm>
+                          <Button variant="outline" className="w-full font-medium">Request Info</Button>
+                        </EnquiryForm>
+                      )}
                     </div>
                   </Card>
                 ))}
