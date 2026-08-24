@@ -99,7 +99,14 @@ export function StoryForm({ treatments, initialData }: { treatments: any[], init
       </div>
 
       <div className="pt-6 border-t border-slate-100">
-        <h3 className="text-lg font-bold text-slate-900 mb-4">Arabic Translations</h3>
+                    <div className="mb-6">
+              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                Arabic Translations (الترجمة العربية)
+              </h3>
+              <p className="text-sm text-amber-600 mt-1 font-medium bg-amber-50 p-2 rounded border border-amber-100">
+                ✨ <strong>Optional:</strong> Leave these fields completely blank to automatically translate them from English using AI.
+              </p>
+            </div>
         <div className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor="title_ar">Story Title (Arabic)</Label>
