@@ -298,6 +298,103 @@ export default async function TreatmentEditor({
                 className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
               />
             </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">
+                  Recovery Time (Arabic)
+                </label>
+                <input
+                  type="text"
+                  name="recovery_ar"
+                  defaultValue={(treatment?.translations as any)?.ar?.recovery || ""}
+                  dir="rtl"
+                  placeholder="وقت التعافي..."
+                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">Causes & Symptoms (Arabic)</label>
+                <textarea
+                  name="causesAndSymptoms_ar"
+                  rows={4}
+                  defaultValue={(treatment?.translations as any)?.ar?.causesAndSymptoms?.join('\n') || ""}
+                  dir="rtl"
+                  placeholder="الأسباب والأعراض..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">Diagnosis & Tests (Arabic)</label>
+                <textarea
+                  name="diagnosis_ar"
+                  rows={4}
+                  defaultValue={(treatment?.translations as any)?.ar?.diagnosis?.join('\n') || ""}
+                  dir="rtl"
+                  placeholder="التشخيص والفحوصات..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">Pre-Op Preparation (Arabic)</label>
+                <textarea
+                  name="preOpPrep_ar"
+                  rows={4}
+                  defaultValue={(treatment?.translations as any)?.ar?.preOpPrep?.join('\n') || ""}
+                  dir="rtl"
+                  placeholder="التحضير قبل العملية..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">Post-Op Care (Arabic)</label>
+                <textarea
+                  name="postOpCare_ar"
+                  rows={4}
+                  defaultValue={(treatment?.translations as any)?.ar?.postOpCare?.join('\n') || ""}
+                  dir="rtl"
+                  placeholder="الرعاية بعد العملية..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">Procedure Details (Arabic)</label>
+                <textarea
+                  name="procedureDetails_ar"
+                  rows={4}
+                  defaultValue={(treatment?.translations as any)?.ar?.procedureDetails?.join('\n') || ""}
+                  dir="rtl"
+                  placeholder="تفاصيل العملية..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900">Potential Risks (Arabic)</label>
+                <textarea
+                  name="risks_ar"
+                  rows={4}
+                  defaultValue={(treatment?.translations as any)?.ar?.risks || ""}
+                  dir="rtl"
+                  placeholder="المخاطر المحتملة..."
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                />
+              </div>
+            </div>
+
+            <div className="space-y-2 mt-6">
+              <label className="text-sm font-semibold text-slate-900">FAQs (Arabic) (Q & A format)</label>
+              <textarea
+                name="faqs_ar"
+                rows={6}
+                defaultValue={(treatment?.translations as any)?.ar?.faqs ? ((treatment?.translations as any).ar.faqs as any[]).map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n') : ""}
+                dir="rtl"
+                placeholder="س: هل العملية مؤلمة؟&#10;ج: ستتلقى تخديراً...&#10;&#10;س: متى يمكنني العودة للعمل؟&#10;ج: عادة بعد 3-4 أسابيع."
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y font-mono"
+              />
+            </div>
           </div>
 
           <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">

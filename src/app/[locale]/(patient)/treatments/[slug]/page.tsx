@@ -325,24 +325,33 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
   })) : baseHospitals;
 
+  // Helper for array fields that might be stringified or actual arrays
+  const getArrayField = (field: string) => {
+    const translated = getTranslation(dbTreatment, field, locale);
+    if (translated && Array.isArray(translated) && translated.length > 0) return translated;
+    
+    // Fallback to base mock data if db is empty
+    return (dbTreatment as any)[field]?.length > 0 ? (dbTreatment as any)[field] : (baseTreatment as any)[field];
+  };
+
   // Get rich mock content but override with real DB data
   const baseTreatment = getTreatmentDetails(resolvedParams.slug);
   const treatment = {
     ...baseTreatment,
-    name: dbTreatment.name,
-    specialty: dbTreatment.specialty.name,
+    name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name,
+    specialty: getTranslation(dbTreatment.specialty, 'name', locale) || baseTreatment.specialty,
     minEstimate: dbTreatment.minEstimate || baseTreatment.minEstimate,
     maxEstimate: dbTreatment.maxEstimate || baseTreatment.maxEstimate,
-    overview: dbTreatment.overview || dbTreatment.description || baseTreatment.overview,
-    recoveryTime: dbTreatment.recovery || baseTreatment.recoveryTime,
-    risks: dbTreatment.risks ? dbTreatment.risks.split('\n') : baseTreatment.risks,
+    overview: getTranslation(dbTreatment, 'overview', locale) || getTranslation(dbTreatment, 'description', locale) || baseTreatment.overview,
+    recoveryTime: getTranslation(dbTreatment, 'recovery', locale) || baseTreatment.recoveryTime,
+    risks: getTranslation(dbTreatment, 'risks', locale) ? getTranslation(dbTreatment, 'risks', locale).split('\n') : baseTreatment.risks,
     
-    causesAndSymptoms: dbTreatment.causesAndSymptoms?.length > 0 ? dbTreatment.causesAndSymptoms : baseTreatment.causesAndSymptoms,
-    diagnosis: dbTreatment.diagnosis?.length > 0 ? dbTreatment.diagnosis : baseTreatment.diagnosis,
-    preOpPrep: dbTreatment.preOpPrep?.length > 0 ? dbTreatment.preOpPrep : baseTreatment.preOpPrep,
-    postOpCare: dbTreatment.postOpCare?.length > 0 ? dbTreatment.postOpCare : baseTreatment.postOpCare,
-    procedureDetails: dbTreatment.procedureDetails?.length > 0 ? dbTreatment.procedureDetails : baseTreatment.procedureDetails,
-    faqs: (dbTreatment.faqs && Array.isArray(dbTreatment.faqs) && dbTreatment.faqs.length > 0) ? dbTreatment.faqs : baseTreatment.faqs,
+    causesAndSymptoms: getArrayField('causesAndSymptoms'),
+    diagnosis: getArrayField('diagnosis'),
+    preOpPrep: getArrayField('preOpPrep'),
+    postOpCare: getArrayField('postOpCare'),
+    procedureDetails: getArrayField('procedureDetails'),
+    faqs: getArrayField('faqs'),
     
     topDoctors: dbTopDoctors,
     topHospitals: dbTopHospitals,
@@ -362,10 +371,10 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                 {getTranslation(dbTreatment.specialty, 'name', locale)}
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {t('hero.inIndia', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}
+                {t('hero.inIndia', { name: treatment.name })}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                {getTranslation(dbTreatment, 'overview', locale) || baseTreatment.overview}
+                {treatment.overview}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -421,7 +430,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             <section className="bg-white p-8 rounded-2xl shadow-sm border space-y-8">
               
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('required.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
+                <h2 className="text-2xl font-bold mb-4">{t('required.title', { name: treatment.name })}</h2>
                 <p className="text-slate-600 mb-4">{t('required.desc')}</p>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {treatment.causesAndSymptoms?.map((item, i) => (
@@ -456,7 +465,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                   <h2 className="text-2xl font-bold">{t('conditions.title')}</h2>
                 </div>
                 <p className="text-slate-600 mb-6 text-lg">
-                  {t('conditions.desc', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}
+                  {t('conditions.desc', { name: treatment.name })}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {(treatment as any).treatsConditions.map((condition: any) => (
@@ -477,7 +486,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {/* Sub-Treatments */}
             {treatment.subTreatments && treatment.subTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">{t('types.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
+                <h2 className="text-2xl font-bold mb-6">{t('types.title', { name: treatment.name })}</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {treatment.subTreatments.map((sub, idx) => (
                     <Card key={idx} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
@@ -554,7 +563,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             {/* Doctors Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{t('doctors.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('doctors.title', { name: treatment.name })}</h2>
               <div className="space-y-6">
                 {treatment.topDoctors.map(doctor => (
                   <DoctorCard key={doctor.slug} {...doctor} />
@@ -564,7 +573,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             {/* Hospitals Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{t('hospitals.title', { name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name })}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('hospitals.title', { name: treatment.name })}</h2>
               <div className="space-y-6">
                 {treatment.topHospitals.map(hospital => (
                   <HospitalCard key={hospital.slug} {...hospital} />
