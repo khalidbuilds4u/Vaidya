@@ -523,6 +523,52 @@
       "freeConfidential": "100% Free & Confidential",
       "risksTitle": "Potential Risks",
       "risksDisclaimer": "* All surgical procedures carry some risk. Your doctor will discuss these with you during consultation."
+    },
+    "mockArrays": {
+      "causesAndSymptoms": [
+        "Symptoms specific to the condition requiring this treatment",
+        "Failure of conservative management or medications",
+        "Deterioration of quality of life or physical function"
+      ],
+      "diagnosis": [
+        "Standard diagnostic imaging (X-ray, MRI, CT Scan)",
+        "Comprehensive blood and laboratory tests",
+        "Specialist physical examination"
+      ],
+      "preOpPrep": [
+        "Complete physical examination to ensure surgical fitness",
+        "Adjusting current medications",
+        "Pre-operative fasting and preparation"
+      ],
+      "postOpCare": [
+        "Observation in the recovery or intensive care unit",
+        "Physical or occupational therapy (if applicable)",
+        "Strict wound care and medication management",
+        "Gradual return to normal activities"
+      ],
+      "procedureDetails": [
+        "Anesthesia is administered.",
+        "The surgical site is prepared and incisions are made.",
+        "The specific medical intervention is performed.",
+        "Implants or corrections are verified.",
+        "The incision is closed and bandaged."
+      ],
+      "risks": [
+        "Infection",
+        "Bleeding or blood clots",
+        "Adverse reaction to anesthesia",
+        "Nerve damage"
+      ],
+      "faqs": [
+        {
+          "question": "How long does recovery take?",
+          "answer": "Recovery varies by patient but typically takes a few weeks to months depending on the procedure."
+        },
+        {
+          "question": "Is this procedure safe?",
+          "answer": "Yes, our partner hospitals use state-of-the-art technology and the procedures are performed by highly experienced specialists."
+        }
+      ]
     }
   },
   "SpecialtyDetail": {

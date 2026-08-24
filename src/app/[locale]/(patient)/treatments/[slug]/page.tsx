@@ -330,22 +330,29 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     const translated = getTranslation(dbTreatment, field, locale);
     if (translated && Array.isArray(translated) && translated.length > 0) return translated;
     
-    // Fallback to base mock data if db is empty
+    // Fallback to localized mock array if db is empty
+    try {
+      const mockArray = t.raw(`mockArrays.${field}`);
+      if (mockArray && Array.isArray(mockArray) && mockArray.length > 0) return mockArray;
+    } catch(e) {}
+
     return (dbTreatment as any)[field]?.length > 0 ? (dbTreatment as any)[field] : (baseTreatment as any)[field];
   };
 
   // Get rich mock content but override with real DB data
   const baseTreatment = getTreatmentDetails(resolvedParams.slug);
+  const treatmentName = getTranslation(dbTreatment, 'name', locale) || baseTreatment.name;
+  
   const treatment = {
     ...baseTreatment,
-    name: getTranslation(dbTreatment, 'name', locale) || baseTreatment.name,
+    name: treatmentName,
     specialty: getTranslation(dbTreatment.specialty, 'name', locale) || baseTreatment.specialty,
     minEstimate: dbTreatment.minEstimate || baseTreatment.minEstimate,
     maxEstimate: dbTreatment.maxEstimate || baseTreatment.maxEstimate,
     overview: getTranslation(dbTreatment, 'overview', locale) || getTranslation(dbTreatment, 'description', locale) || baseTreatment.overview,
     recoveryTime: getTranslation(dbTreatment, 'recovery', locale) || baseTreatment.recoveryTime,
     hospitalStay: getTranslation(dbTreatment, 'hospitalStay', locale) || baseTreatment.hospitalStay,
-    risks: getTranslation(dbTreatment, 'risks', locale) ? getTranslation(dbTreatment, 'risks', locale).split('\n') : baseTreatment.risks,
+    risks: getTranslation(dbTreatment, 'risks', locale) ? getTranslation(dbTreatment, 'risks', locale).split('\n') : getArrayField('risks'),
     treatsConditions: getTranslation(dbTreatment, 'treatsConditions', locale) || baseTreatment.treatsConditions,
     subTreatments: getTranslation(dbTreatment, 'subTreatments', locale) || baseTreatment.subTreatments,
     
