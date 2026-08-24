@@ -57,6 +57,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
   const t = await getTranslations('Hero'); // Using common namespace for simple strings
+  const tc = await getTranslations('ConditionDetail');
   
   // 1. Fetch condition from DB
   const condition = await prisma.condition.findUnique({
@@ -160,9 +161,9 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
               <section className="bg-white p-8 rounded-2xl shadow-sm border">
                 <h2 className="text-2xl font-bold mb-4 flex items-center">
                   <Activity className="w-6 h-6 text-primary mr-3" />
-                  Causes & Symptoms
+                  {tc('causes')}
                 </h2>
-                <p className="text-slate-600 mb-6 text-sm">Understanding the primary indicators and root causes of this condition:</p>
+                <p className="text-slate-600 mb-6 text-sm">{tc('causesDesc')}</p>
                 <ul className="grid sm:grid-cols-2 gap-4">
                   {condition.causesAndSymptoms.map((item, i) => (
                     <li key={i} className="flex items-start">
@@ -177,8 +178,8 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* Diagnosis */}
             {condition.diagnosis && condition.diagnosis.length > 0 && (
               <section className="bg-white p-8 rounded-2xl shadow-sm border">
-                <h2 className="text-2xl font-bold mb-4">Diagnosis & Evaluation</h2>
-                <p className="text-slate-600 mb-6 text-sm">Common methods used by specialists to accurately diagnose {condition.name}:</p>
+                <h2 className="text-2xl font-bold mb-4">{tc('diagnosis')}</h2>
+                <p className="text-slate-600 mb-6 text-sm">{tc('diagnosisDesc', { name: getTranslation(condition, 'name', locale) || condition.name })}</p>
                 <ul className="space-y-4">
                   {condition.diagnosis.map((item, i) => (
                     <li key={i} className="flex items-center text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-100">
@@ -193,8 +194,8 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* Treatment Options */}
             {condition.treatmentOptions && condition.treatmentOptions.length > 0 && (
               <section className="bg-white p-8 rounded-2xl shadow-sm border">
-                <h2 className="text-2xl font-bold mb-4">Treatment Options</h2>
-                <p className="text-slate-600 mb-6 text-sm">Depending on the severity, the following treatments may be recommended:</p>
+                <h2 className="text-2xl font-bold mb-4">{tc('treatments')}</h2>
+                <p className="text-slate-600 mb-6 text-sm">{tc('treatmentsDesc')}</p>
                 <ul className="space-y-3">
                   {condition.treatmentOptions.map((item, i) => (
                     <li key={i} className="flex items-start">
@@ -209,14 +210,14 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* Related Treatments linking */}
             {relatedTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">Popular {getTranslation(condition.specialty, 'name', locale)} Procedures</h2>
+                <h2 className="text-2xl font-bold mb-6">{tc('relatedProcedures', { name: getTranslation(condition.specialty, 'name', locale) })}</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {relatedTreatments.map((treatment) => (
                     <Link key={treatment.slug} href={`/${locale}/treatments/${treatment.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
                         <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(treatment, 'name', locale)}</h3>
                         <span className="text-primary text-sm font-medium flex items-center gap-1 mt-auto pt-4">
-                          View procedure details <ArrowRight className="w-4 h-4" />
+                          {tc('viewDetails')} <ArrowRight className="w-4 h-4" />
                         </span>
                       </Card>
                     </Link>
@@ -227,7 +228,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
 
             {/* Doctors Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">Top Specialists for {condition.name}</h2>
+              <h2 className="text-2xl font-bold mb-6">{tc('topSpecialists', { name: getTranslation(condition, 'name', locale) || condition.name })}</h2>
               <div className="space-y-6">
                 {topDoctors.map(doctor => (
                   <DoctorCard key={doctor.slug} {...doctor} />
@@ -237,7 +238,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
 
             {/* Hospitals Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">Best Hospitals for {condition.specialty.name}</h2>
+              <h2 className="text-2xl font-bold mb-6">{tc('bestHospitals', { name: getTranslation(condition.specialty, 'name', locale) })}</h2>
               <div className="space-y-6">
                 {topHospitals.map(hospital => (
                   <HospitalCard key={hospital.slug} {...hospital} />
@@ -248,7 +249,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* FAQs */}
             {condition.faqs && (condition.faqs as any[]).length > 0 && (
               <section className="pt-8">
-                <h2 className="text-2xl font-bold mb-6">Frequently Asked Questions</h2>
+                <h2 className="text-2xl font-bold mb-6">{tc('faqs')}</h2>
                 <div className="space-y-4">
                   {(condition.faqs as any[]).map((faqRaw: any, idx: number) => {
                     const faq = faqRaw as { question: string, answer: string };
@@ -269,18 +270,18 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
           <div className="w-full lg:w-1/3">
             <div className="sticky top-24 space-y-6">
               <Card className="p-6 border-primary/20 bg-primary/5">
-                <h3 className="text-xl font-bold mb-2">Need a Medical Opinion?</h3>
+                <h3 className="text-xl font-bold mb-2">{tc('needOpinion')}</h3>
                 <p className="text-muted-foreground mb-6 text-sm">
-                  Share your medical reports with our experts to get a free medical opinion and precise treatment plan from multiple top hospitals.
+                  {tc('shareReports')}
                 </p>
                 <EnquiryForm>
                   <span className="inline-block cursor-pointer w-full">
-                    <Button className="w-full h-12 text-md">Request Medical Opinion</Button>
+                    <Button className="w-full h-12 text-md">{tc('requestOpinion')}</Button>
                   </span>
                 </EnquiryForm>
                 <p className="text-xs text-center text-muted-foreground mt-4 flex justify-center items-center">
                   <CheckCircle2 className="w-3 h-3 mr-1 text-green-600" />
-                  100% Free & Confidential
+                  {tc('freeConfidential')}
                 </p>
               </Card>
             </div>

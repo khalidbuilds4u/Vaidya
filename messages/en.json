@@ -701,5 +701,22 @@
     "keySpecialties": "Key Specialties",
     "viewProfile": "View Profile",
     "freeQuote": "Free Quote"
+  },
+  "ConditionDetail": {
+    "causes": "Causes & Symptoms",
+    "causesDesc": "Understanding the primary indicators and root causes of this condition:",
+    "diagnosis": "Diagnosis & Evaluation",
+    "diagnosisDesc": "Common methods used by specialists to accurately diagnose {name}:",
+    "treatments": "Treatment Options",
+    "treatmentsDesc": "Depending on the severity, the following treatments may be recommended:",
+    "relatedProcedures": "Popular {name} Procedures",
+    "viewDetails": "View procedure details",
+    "topSpecialists": "Top Specialists for {name}",
+    "bestHospitals": "Best Hospitals for {name}",
+    "faqs": "Frequently Asked Questions",
+    "needOpinion": "Need a Medical Opinion?",
+    "shareReports": "Share your medical reports with our experts to get a free medical opinion and precise treatment plan from multiple top hospitals.",
+    "requestOpinion": "Request Medical Opinion",
+    "freeConfidential": "100% Free & Confidential"
   }
 }

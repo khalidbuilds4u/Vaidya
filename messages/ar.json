@@ -701,5 +701,22 @@
     "keySpecialties": "التخصصات الرئيسية",
     "viewProfile": "عرض الملف",
     "freeQuote": "عرض سعر مجاني"
+  },
+  "ConditionDetail": {
+    "causes": "الأسباب والأعراض",
+    "causesDesc": "فهم المؤشرات الأولية والأسباب الجذرية لهذه الحالة:",
+    "diagnosis": "التشخيص والتقييم",
+    "diagnosisDesc": "الطرق الشائعة التي يستخدمها المتخصصون لتشخيص {name} بدقة:",
+    "treatments": "خيارات العلاج",
+    "treatmentsDesc": "اعتمادًا على الشدة، قد يوصى بالعلاجات التالية:",
+    "relatedProcedures": "إجراءات {name} الشائعة",
+    "viewDetails": "عرض تفاصيل الإجراء",
+    "topSpecialists": "أفضل المتخصصين لـ {name}",
+    "bestHospitals": "أفضل المستشفيات لـ {name}",
+    "faqs": "الأسئلة الشائعة",
+    "needOpinion": "هل تحتاج إلى رأي طبي؟",
+    "shareReports": "شارك تقاريرك الطبية مع خبرائنا للحصول على رأي طبي مجاني وخطة علاج دقيقة من أفضل المستشفيات.",
+    "requestOpinion": "طلب رأي طبي",
+    "freeConfidential": "مجاني وسري 100%"
   }
 }
