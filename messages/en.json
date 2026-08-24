@@ -10,8 +10,7 @@
     "viewHospital": "View Hospital",
     "getEstimate": "Get Estimate",
     "highlyExperienced": "{name} is a highly experienced {specialty} with {experience} of experience. They have successfully performed numerous complex procedures and are trusted by thousands of global patients.",
-    "topHospitalDesc": "{name} is a premium healthcare facility located in {city}. It is widely recognized for its state-of-the-art infrastructure and exceptional patient care standards.",
-    "india": "India"
+    "topHospitalDesc": "{name} is a premium healthcare facility located in {city}. It is widely recognized for its state-of-the-art infrastructure and exceptional patient care standards."
   },
   "Navigation": {
     "home": "Home",
@@ -780,7 +779,8 @@
     "beds": "{count} Beds",
     "keySpecialties": "Key Specialties",
     "viewProfile": "View Profile",
-    "freeQuote": "Free Quote"
+    "freeQuote": "Free Quote",
+    "india": "India"
   },
   "ConditionDetail": {
     "causes": "Causes & Symptoms",
