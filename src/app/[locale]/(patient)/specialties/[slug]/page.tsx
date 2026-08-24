@@ -216,16 +216,17 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     keyExpertise: ['Specialized Care']
   })) : specialty.topDoctors;
 
-  // Map DB Hospitals to HospitalCard props
   const topHospitals = realHospitals.length > 0 ? realHospitals.map(h => ({
     slug: h.slug,
     name: getTranslation(h, 'name', locale) || h.name,
+    description: getTranslation(h, 'description', locale) || h.description || undefined,
     city: getTranslation(h.city, 'name', locale) || h.city.name,
     state: getTranslation(h.city, 'state', locale) || h.city.state || '',
     image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
     accreditations: h.accreditations || ['NABH'],
     beds: h.beds || 500,
-    specialties: [translatedName],
+    established: h.established || undefined,
+    airportDistance: h.airportDistance || undefined,
     hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
   })) : specialty.topHospitals;
 

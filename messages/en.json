@@ -780,7 +780,9 @@
     "keySpecialties": "Key Specialties",
     "viewProfile": "View Profile",
     "freeQuote": "Free Quote",
-    "india": "India"
+    "india": "India",
+    "estbIn": "ESTB in {year}",
+    "kmFromAirport": "{dist} km from airport"
   },
   "ConditionDetail": {
     "causes": "Causes & Symptoms",

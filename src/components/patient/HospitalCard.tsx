@@ -1,121 +1,128 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MapPin, Award, BedDouble, Stethoscope, ArrowRight } from 'lucide-react';
+import { MapPin, BedDouble, Plane, Building2, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 
 export interface HospitalCardProps {
   slug: string;
   name: string;
+  description?: string;
   city: string;
   state?: string;
   image: string;
   accreditations: string[];
   beds: number;
-  specialties: string[];
+  established?: number;
+  airportDistance?: number;
+  specialties?: string[];
   hasInternationalSupport?: boolean;
 }
 
 export function HospitalCard({
   slug,
   name,
+  description,
   city,
   state,
   image,
   accreditations,
   beds,
-  specialties = [],
+  established,
+  airportDistance,
   hasInternationalSupport = true
 }: HospitalCardProps) {
   const t = useTranslations('HospitalCard');
+  
   return (
-    <div className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden border border-white/80 flex flex-col h-full group bg-white/95 shadow-sm hover:shadow-xl transition-all duration-300">
+    <div className="rounded-xl overflow-hidden border border-slate-200 flex flex-col h-full group bg-white shadow-sm hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col md:flex-row flex-1">
         
-        {/* Image Section with Glass Badge */}
-        <div className="w-full md:w-5/12 h-48 sm:h-60 md:h-auto bg-slate-100 relative overflow-hidden shrink-0">
+        {/* Image Section */}
+        <div className="w-full md:w-[35%] h-48 sm:h-56 md:h-auto relative overflow-hidden shrink-0">
           <img 
             src={image}
             alt={name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:hidden" />
-          
           {hasInternationalSupport && (
-            <div className="absolute top-3 left-3 sm:top-4 sm:left-4 glass-pill px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full text-[10px] sm:text-[11px] font-bold text-primary bg-white/95 backdrop-blur-md shadow-sm border border-white/90">
+            <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20">
               {t('internationalPatientCare')}
             </div>
           )}
         </div>
         
         {/* Content Section */}
-        <div className="flex-1 p-4 sm:p-6 lg:p-7 flex flex-col justify-between">
+        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <div className="flex justify-between items-start mb-1">
-              <h3 className="text-base sm:text-xl font-bold text-slate-900 leading-snug">
-                <Link href={`/hospitals/${slug}`} className="hover:text-primary transition-colors">
-                  {name}
-                </Link>
-              </h3>
-            </div>
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug mb-2">
+              <Link href={`/hospitals/${slug}`} className="hover:text-primary transition-colors">
+                {name}
+              </Link>
+            </h3>
             
-            <div className="flex items-center text-xs sm:text-sm text-slate-500 font-medium mb-3 sm:mb-4">
-              <MapPin className="h-3.5 w-3.5 mr-1 text-primary/70 shrink-0" />
-              {city}{state ? `, ${state}` : `, ${t('india', { fallback: 'India' })}`}
-            </div>
+            {description && (
+              <p className="text-sm text-slate-600 line-clamp-3 mb-5 leading-relaxed">
+                {description}
+              </p>
+            )}
 
-            <div className="flex flex-wrap items-center gap-2 sm:gap-3 py-1.5 sm:py-2.5 px-2.5 sm:px-3.5 rounded-xl bg-slate-50 border border-slate-100 mb-3 sm:mb-4 text-[11px] sm:text-xs font-semibold text-slate-700">
-              <div className="flex items-center gap-1">
-                <BedDouble className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span>{t('beds', { count: beds })}</span>
+            {/* Metrics Row */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+              <div className="flex items-center text-sm font-medium text-slate-700">
+                <MapPin className="h-4 w-4 mr-1.5 text-primary" />
+                {city}{state ? `, ${state}` : `, ${t('india', { fallback: 'India' })}`}
               </div>
-              <span className="text-slate-300">•</span>
-              <div className="flex items-center gap-1 truncate">
-                <Award className="h-3.5 w-3.5 text-primary shrink-0" />
-                <span className="truncate">{accreditations.join(', ')}</span>
-              </div>
-            </div>
+              
+              {established && (
+                <div className="flex items-center text-sm font-medium text-slate-700">
+                  <Building2 className="h-4 w-4 mr-1.5 text-primary" />
+                  {t('estbIn', { year: established })}
+                </div>
+              )}
+              
+              {airportDistance && (
+                <div className="flex items-center text-sm font-medium text-slate-700">
+                  <Plane className="h-4 w-4 mr-1.5 text-primary" />
+                  {t('kmFromAirport', { dist: airportDistance })}
+                </div>
+              )}
 
-            <div>
-              <div className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1.5 flex items-center gap-1">
-                <Stethoscope className="h-3 w-3" />
-                {t('keySpecialties')}
-              </div>
-              <div className="flex flex-wrap gap-1">
-                {specialties?.slice(0, 3).map((specialty, idx) => (
-                  <span 
-                    key={`${specialty}-${idx}`} 
-                    className="text-[10px] sm:text-xs font-medium px-2 py-0.5 rounded-md bg-slate-100 text-slate-700"
-                  >
-                    {specialty}
-                  </span>
-                ))}
-                {specialties && specialties.length > 3 && (
-                  <span className="text-[10px] sm:text-xs font-medium px-1.5 py-0.5 rounded-md bg-primary/5 text-primary">
-                    +{specialties.length - 3}
-                  </span>
-                )}
+              <div className="flex items-center text-sm font-medium text-slate-700">
+                <BedDouble className="h-4 w-4 mr-1.5 text-primary" />
+                {t('beds', { count: beds })}
               </div>
             </div>
           </div>
           
-          {/* Side-by-Side Responsive Action Buttons */}
-          <div className="grid grid-cols-2 gap-2 pt-3.5 sm:pt-4 border-t border-slate-100 mt-4">
-            <Button 
-              asChild
-              variant="outline" 
-              className="w-full rounded-xl border-slate-200 hover:bg-slate-100 text-slate-800 font-semibold h-10 text-xs sm:text-sm px-2 truncate"
-            >
-              <Link href={`/hospitals/${slug}`}>
-                {t('viewProfile')}
-              </Link>
-            </Button>
-            <EnquiryForm>
-              <Button className="w-full rounded-xl shadow-xs bg-gradient-to-r from-primary to-teal-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold h-10 text-xs sm:text-sm px-2 flex items-center justify-center gap-1">
-                <span>{t('freeQuote')}</span>
-                <ArrowRight className="w-3.5 h-3.5 shrink-0" />
+          {/* Bottom Row: Accreditations & Actions */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-100">
+            {/* Accreditation Badges */}
+            <div className="flex flex-wrap items-center gap-2">
+              {accreditations.map((acc, idx) => (
+                <div 
+                  key={idx} 
+                  className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-amber-400 bg-amber-50 text-[9px] font-bold text-amber-700 shadow-sm"
+                  title={acc}
+                >
+                  {acc.substring(0, 4)}
+                </div>
+              ))}
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <EnquiryForm>
+                <Button variant="outline" className="flex-1 sm:flex-none rounded-md border-primary text-primary hover:bg-primary/5 font-semibold px-4 h-10">
+                  {t('freeQuote')}
+                </Button>
+              </EnquiryForm>
+              <Button asChild className="flex-1 sm:flex-none rounded-md bg-[#0f5132] hover:bg-[#0b3b24] text-white font-semibold px-6 h-10">
+                <Link href={`/hospitals/${slug}`}>
+                  {t('viewProfile')} <ArrowRight className="ml-1.5 w-4 h-4" />
+                </Link>
               </Button>
-            </EnquiryForm>
+            </div>
           </div>
 
         </div>

@@ -780,7 +780,9 @@
     "keySpecialties": "التخصصات الرئيسية",
     "viewProfile": "عرض الملف",
     "freeQuote": "عرض سعر مجاني",
-    "india": "الهند"
+    "india": "الهند",
+    "estbIn": "تأسست عام {year}",
+    "kmFromAirport": "{dist} كم من المطار"
   },
   "ConditionDetail": {
     "causes": "الأسباب والأعراض",

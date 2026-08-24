@@ -154,12 +154,14 @@ export default async function HospitalsDirectory({
                     key={hospital.id} 
                     slug={hospital.slug}
                     name={getTranslation(hospital, 'name', locale)}
+                    description={getTranslation(hospital, 'description', locale) || hospital.description || undefined}
                     city={getTranslation(hospital.city, 'name', locale)}
                     state={getTranslation(hospital.city, 'state', locale) || undefined}
                     image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
                     accreditations={hospital.accreditations}
                     beds={hospital.beds || 0}
-                    specialties={hospital.specialties.map(s => getTranslation(s, 'name', locale))}
+                    established={hospital.established || undefined}
+                    airportDistance={hospital.airportDistance || undefined}
                     hasInternationalSupport={hospital.internationalServices.length > 0}
                   />
                 );
