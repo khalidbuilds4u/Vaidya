@@ -33,6 +33,7 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
 
   const dbTreatments = await prisma.treatment.findMany({
     include: { specialty: true },
+    take: 6,
     orderBy: { name: 'asc' }
   });
 
