@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { Edit2, Trash2 } from "lucide-react"
+import Link from "next/link"
 
 import { deleteStory } from "@/app/actions/cmsActions"
 
@@ -63,8 +64,10 @@ export function PatientStoryList({ initialStories }: { initialStories: any[] }) 
               <TableCell>{new Date(story.createdAt).toLocaleDateString()}</TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
-                  <Button variant="ghost" size="icon">
-                    <Edit2 className="w-4 h-4" />
+                  <Button variant="ghost" size="icon" asChild>
+                    <Link href={`/admin/stories/${story.id}`}>
+                      <Edit2 className="w-4 h-4" />
+                    </Link>
                   </Button>
                   <Button 
                     variant="ghost" 

@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
 import { Edit2, Trash2, Eye, EyeOff } from "lucide-react"
+import Link from "next/link"
 
 import { deleteBlog } from "@/app/actions/cmsActions"
 
@@ -73,8 +74,10 @@ export function BlogList({ initialBlogs }: { initialBlogs: any[] }) {
               <TableCell>{new Date(blog.createdAt).toLocaleDateString()}</TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
-                  <Button variant="ghost" size="icon">
-                    <Edit2 className="w-4 h-4" />
+                  <Button variant="ghost" size="icon" asChild>
+                    <Link href={`/admin/blogs/${blog.id}`}>
+                      <Edit2 className="w-4 h-4" />
+                    </Link>
                   </Button>
                   <Button 
                     variant="ghost" 

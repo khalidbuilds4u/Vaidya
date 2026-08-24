@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { createBlog } from "@/app/actions/cmsActions"
+import { createBlog, updateBlog } from "@/app/actions/cmsActions"
 import { Switch } from "@/components/ui/switch"
 
-export function BlogForm() {
+export function BlogForm({ initialData }: { initialData?: any }) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
@@ -32,10 +32,17 @@ export function BlogForm() {
       coverImage: formData.get("coverImage") || null,
       authorName: formData.get("authorName") || "Admin",
       published: formData.get("published") === "on",
+      title_ar: formData.get("title_ar") || null,
+      excerpt_ar: formData.get("excerpt_ar") || null,
+      content_ar: formData.get("content_ar") || null,
     }
 
     try {
-      await createBlog(data)
+      if (initialData) {
+        await updateBlog(initialData.id, data)
+      } else {
+        await createBlog(data)
+      }
       router.push("/admin/blogs")
     } catch (err: any) {
       setError(err.message || "Failed to publish blog post")
@@ -49,18 +56,18 @@ export function BlogForm() {
       
       <div className="space-y-2">
         <Label htmlFor="title">Post Title <span className="text-red-500">*</span></Label>
-        <Input id="title" name="title" required placeholder="Enter an engaging title..." />
+        <Input id="title" name="title" defaultValue={initialData?.title} required placeholder="Enter an engaging title..." />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="authorName">Author Name</Label>
-          <Input id="authorName" name="authorName" defaultValue="Admin" />
+          <Input id="authorName" name="authorName" defaultValue={initialData?.authorName || "Admin"} />
         </div>
         
         <div className="space-y-2">
           <Label htmlFor="coverImage">Cover Image URL</Label>
-          <Input id="coverImage" name="coverImage" placeholder="https://example.com/image.jpg" />
+          <Input id="coverImage" name="coverImage" defaultValue={initialData?.coverImage || ""} placeholder="https://example.com/image.jpg" />
         </div>
       </div>
 
@@ -69,6 +76,7 @@ export function BlogForm() {
         <Textarea 
           id="excerpt" 
           name="excerpt" 
+          defaultValue={initialData?.excerpt || ""}
           placeholder="A short summary of the post..." 
           className="min-h-[80px]" 
         />
@@ -79,14 +87,47 @@ export function BlogForm() {
         <Textarea 
           id="content" 
           name="content" 
+          defaultValue={initialData?.content}
           required 
           placeholder="Write your blog post here..." 
           className="min-h-[300px]" 
         />
       </div>
 
-      <div className="flex items-center space-x-2 p-4 bg-slate-50 rounded-lg border border-slate-100">
-        <Switch id="published" name="published" defaultChecked />
+      <div className="pt-6 border-t border-slate-100">
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Arabic Translations</h3>
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <Label htmlFor="title_ar">Post Title (Arabic)</Label>
+            <Input id="title_ar" name="title_ar" defaultValue={initialData?.translations?.ar?.title || ""} dir="rtl" placeholder="عنوان المقال..." />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="excerpt_ar">Excerpt (Arabic)</Label>
+            <Textarea 
+              id="excerpt_ar" 
+              name="excerpt_ar" 
+              defaultValue={initialData?.translations?.ar?.excerpt || ""}
+              dir="rtl"
+              placeholder="ملخص المقال..." 
+              className="min-h-[80px]" 
+            />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="content_ar">Full Content (Arabic)</Label>
+            <Textarea 
+              id="content_ar" 
+              name="content_ar" 
+              defaultValue={initialData?.translations?.ar?.content || ""}
+              dir="rtl"
+              placeholder="محتوى المقال..." 
+              className="min-h-[300px]" 
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="flex items-center space-x-2 p-4 bg-slate-50 rounded-lg border border-slate-100 mt-6">
+        <Switch id="published" name="published" defaultChecked={initialData ? initialData.published : true} />
         <Label htmlFor="published" className="cursor-pointer">Publish immediately</Label>
       </div>
 

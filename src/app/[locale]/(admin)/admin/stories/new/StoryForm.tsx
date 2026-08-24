@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { createStory } from "@/app/actions/cmsActions"
+import { createStory, updateStory } from "@/app/actions/cmsActions"
 
-export function StoryForm({ treatments }: { treatments: any[] }) {
+export function StoryForm({ treatments, initialData }: { treatments: any[], initialData?: any }) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
@@ -31,10 +31,16 @@ export function StoryForm({ treatments }: { treatments: any[] }) {
       treatmentId: formData.get("treatmentId") || null,
       imageUrl: formData.get("imageUrl") || null,
       content: formData.get("content"),
+      title_ar: formData.get("title_ar") || null,
+      content_ar: formData.get("content_ar") || null,
     }
 
     try {
-      await createStory(data)
+      if (initialData) {
+        await updateStory(initialData.id, data)
+      } else {
+        await createStory(data)
+      }
       router.push("/admin/stories")
     } catch (err: any) {
       setError(err.message || "Failed to create story")
@@ -49,12 +55,12 @@ export function StoryForm({ treatments }: { treatments: any[] }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="title">Story Title <span className="text-red-500">*</span></Label>
-          <Input id="title" name="title" required placeholder="e.g. Life changing surgery in India" />
+          <Input id="title" name="title" defaultValue={initialData?.title} required placeholder="e.g. Life changing surgery in India" />
         </div>
         
         <div className="space-y-2">
           <Label htmlFor="patientName">Patient Name <span className="text-red-500">*</span></Label>
-          <Input id="patientName" name="patientName" required placeholder="e.g. John Doe" />
+          <Input id="patientName" name="patientName" defaultValue={initialData?.patientName} required placeholder="e.g. John Doe" />
         </div>
       </div>
 
@@ -64,6 +70,7 @@ export function StoryForm({ treatments }: { treatments: any[] }) {
           <select 
             id="treatmentId" 
             name="treatmentId"
+            defaultValue={initialData?.treatmentId || ""}
             className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
           >
             <option value="">None / General</option>
@@ -75,7 +82,7 @@ export function StoryForm({ treatments }: { treatments: any[] }) {
         
         <div className="space-y-2">
           <Label htmlFor="imageUrl">Image URL</Label>
-          <Input id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg" />
+          <Input id="imageUrl" name="imageUrl" defaultValue={initialData?.imageUrl || ""} placeholder="https://example.com/image.jpg" />
         </div>
       </div>
 
@@ -84,10 +91,32 @@ export function StoryForm({ treatments }: { treatments: any[] }) {
         <Textarea 
           id="content" 
           name="content" 
+          defaultValue={initialData?.content}
           required 
           placeholder="Write the patient's story here..." 
           className="min-h-[200px]" 
         />
+      </div>
+
+      <div className="pt-6 border-t border-slate-100">
+        <h3 className="text-lg font-bold text-slate-900 mb-4">Arabic Translations</h3>
+        <div className="space-y-6">
+          <div className="space-y-2">
+            <Label htmlFor="title_ar">Story Title (Arabic)</Label>
+            <Input id="title_ar" name="title_ar" defaultValue={initialData?.translations?.ar?.title || ""} dir="rtl" placeholder="عنوان القصة..." />
+          </div>
+          <div className="space-y-2">
+            <Label htmlFor="content_ar">Story Content (Arabic)</Label>
+            <Textarea 
+              id="content_ar" 
+              name="content_ar" 
+              defaultValue={initialData?.translations?.ar?.content || ""}
+              dir="rtl"
+              placeholder="محتوى القصة..." 
+              className="min-h-[200px]" 
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex justify-end gap-3 pt-4 border-t">
