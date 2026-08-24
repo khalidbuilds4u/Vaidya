@@ -1,4 +1,17 @@
 {
+  "Cards": {
+    "profileAuthorized": "Profile Authorized",
+    "viewProfile": "View Profile",
+    "bookConsult": "Book Consult",
+    "experience": "Experience",
+    "beds": "Beds",
+    "jciAccredited": "JCI & NABH Accredited",
+    "intlSupport": "International Desk",
+    "viewHospital": "View Hospital",
+    "getEstimate": "Get Estimate",
+    "highlyExperienced": "{name} is a highly experienced {specialty} with {experience} of experience. They have successfully performed numerous complex procedures and are trusted by thousands of global patients.",
+    "topHospitalDesc": "{name} is a premium healthcare facility located in {city}. It is widely recognized for its state-of-the-art infrastructure and exceptional patient care standards."
+  },
   "Navigation": {
     "home": "Home",
     "hospitals": "Hospitals",

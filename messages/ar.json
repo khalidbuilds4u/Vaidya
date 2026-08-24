@@ -1,4 +1,17 @@
 {
+  "Cards": {
+    "profileAuthorized": "الملف الشخصي معتمد",
+    "viewProfile": "عرض الملف الشخصي",
+    "bookConsult": "حجز استشارة",
+    "experience": "الخبرة",
+    "beds": "سرير",
+    "jciAccredited": "معتمد من JCI و NABH",
+    "intlSupport": "المكتب الدولي",
+    "viewHospital": "عرض المستشفى",
+    "getEstimate": "الحصول على عرض سعر",
+    "highlyExperienced": "{name} هو أخصائي ذو خبرة عالية في {specialty} بخبرة تصل إلى {experience}. لقد أجروا بنجاح العديد من الإجراءات المعقدة وموثوقون من قبل آلاف المرضى العالميين.",
+    "topHospitalDesc": "{name} هي منشأة رعاية صحية متميزة تقع في {city}. معترف بها على نطاق واسع لبنيتها التحتية المتطورة ومعايير رعاية المرضى الاستثنائية."
+  },
   "Navigation": {
     "home": "الرئيسية",
     "hospitals": "المستشفيات",

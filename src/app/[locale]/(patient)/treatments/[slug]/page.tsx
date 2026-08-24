@@ -284,7 +284,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   // 2. Fetch Doctors in this specialty from DB
   const realDoctors = await prisma.doctor.findMany({
     where: { specialtyId: dbTreatment.specialtyId },
-    include: { hospital: true, specialty: true },
+    include: { hospital: { include: { city: true } }, specialty: true },
     take: 3
   });
 
@@ -302,26 +302,26 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   // Map DB Doctors to DoctorCard props
   const dbTopDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
     slug: d.slug,
-    name: d.name,
-    specialty: d.specialty.name,
-    hospital: d.hospital.name,
+    name: getTranslation(d, 'name', locale) || d.name,
+    specialty: getTranslation(d.specialty, 'name', locale) || d.specialty.name,
+    hospital: getTranslation(d.hospital, 'name', locale) || d.hospital.name,
     image: d.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070",
-    city: 'India',
-    qualifications: d.qualifications || 'Expert Specialist',
-    experience: d.experienceYears ? `${d.experienceYears}+ Years` : '15+ Years',
+    city: getTranslation(d.hospital.city, 'name', locale) || 'India',
+    qualifications: getTranslation(d, 'qualifications', locale) || 'Expert Specialist',
+    experience: d.experienceYears ? `${d.experienceYears}` : '15+',
     keyExpertise: ['Specialized Care']
   })) : baseDoctors;
 
   // Map DB Hospitals to HospitalCard props
   const dbTopHospitals = realHospitals.length > 0 ? realHospitals.map(h => ({
     slug: h.slug,
-    name: h.name,
-    city: h.city.name,
-    state: h.city.state || 'India',
+    name: getTranslation(h, 'name', locale) || h.name,
+    city: getTranslation(h.city, 'name', locale) || h.city.name,
+    state: getTranslation(h.city, 'state', locale) || h.city.state || 'India',
     image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
     accreditations: h.accreditations || ['NABH'],
     beds: h.beds || 500,
-    specialties: [dbTreatment.specialty.name],
+    specialties: [getTranslation(dbTreatment.specialty, 'name', locale) || dbTreatment.specialty.name],
     hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
   })) : baseHospitals;
 

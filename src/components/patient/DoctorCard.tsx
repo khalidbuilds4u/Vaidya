@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { MapPin, BriefcaseMedical, Star, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { useTranslations } from 'next-intl';
 
 export interface DoctorCardProps {
   slug: string;
@@ -33,6 +34,8 @@ export function DoctorCard({
   rating = 4.9,
   biography,
 }: DoctorCardProps) {
+  const t = useTranslations('Cards');
+
   return (
     <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/60 flex flex-col group relative bg-white shadow-sm hover:shadow-xl transition-all duration-300">
       
@@ -55,7 +58,7 @@ export function DoctorCard({
           </h3>
             <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border border-emerald-200/60 bg-emerald-50 text-emerald-700 text-[10px] font-bold shadow-sm">
               <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-              Profile Authorized
+              {t('profileAuthorized')}
             </span>
           </div>
 
@@ -71,7 +74,7 @@ export function DoctorCard({
             </p>
           ) : (
             <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
-              {name} is a highly experienced {specialty.toLowerCase()} with {experience} of experience. They have successfully performed numerous complex procedures and are trusted by thousands of global patients.
+              {t('highlyExperienced', { name, specialty: specialty.toLowerCase(), experience })}
             </p>
           )}
 
@@ -83,7 +86,7 @@ export function DoctorCard({
             </div>
             <div className="flex items-start gap-1.5 text-[11px] sm:text-xs font-semibold text-slate-700">
               <BriefcaseMedical className="h-4 w-4 text-slate-400 shrink-0 mt-0.5" />
-              <span className="line-clamp-2 leading-tight">{experience} Experience</span>
+              <span className="line-clamp-2 leading-tight">{experience} {t('experience')}</span>
             </div>
           </div>
 
@@ -94,11 +97,11 @@ export function DoctorCard({
             variant="outline" 
             className="rounded-lg border-primary text-primary hover:bg-primary/5 hover:text-primary font-bold h-10 px-2 truncate"
           >
-            <Link href={`/doctors/${slug}`}>View Profile</Link>
+            <Link href={`/doctors/${slug}`}>{t('viewProfile')}</Link>
           </Button>
           <EnquiryForm>
             <Button className="w-full rounded-lg shadow-xs bg-gradient-to-r from-primary to-teal-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold h-10 px-2 flex items-center justify-center gap-1">
-              <span>Book Consult</span>
+              <span>{t('bookConsult')}</span>
               <ArrowRight className="w-3.5 h-3.5 shrink-0" />
             </Button>
           </EnquiryForm>

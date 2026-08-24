@@ -6,6 +6,13 @@ import { redirect } from "next/navigation"
 
 // --- PATIENT STORIES ---
 export async function createStory(data: any) {
+  const title_ar = data.title_ar;
+  const content_ar = data.content_ar;
+  let translations = undefined;
+  if (title_ar || content_ar) {
+    translations = { ar: { title: title_ar || undefined, content: content_ar || undefined } };
+  }
+
   const story = await prisma.patientStory.create({
     data: {
       title: data.title,
@@ -14,6 +21,7 @@ export async function createStory(data: any) {
       content: data.content,
       imageUrl: data.imageUrl || null,
       treatmentId: data.treatmentId || null,
+      translations: translations,
     }
   })
   revalidatePath("/admin/stories")
@@ -22,6 +30,13 @@ export async function createStory(data: any) {
 }
 
 export async function updateStory(id: string, data: any) {
+  const title_ar = data.title_ar;
+  const content_ar = data.content_ar;
+  let translations = undefined;
+  if (title_ar || content_ar) {
+    translations = { ar: { title: title_ar || undefined, content: content_ar || undefined } };
+  }
+
   await prisma.patientStory.update({
     where: { id },
     data: {
@@ -31,6 +46,7 @@ export async function updateStory(id: string, data: any) {
       content: data.content,
       imageUrl: data.imageUrl || null,
       treatmentId: data.treatmentId || null,
+      translations: translations,
     }
   })
   revalidatePath("/admin/stories")
@@ -68,6 +84,14 @@ export async function deleteGalleryImage(id: string) {
 
 // --- BLOGS ---
 export async function createBlog(data: any) {
+  const title_ar = data.title_ar;
+  const excerpt_ar = data.excerpt_ar;
+  const content_ar = data.content_ar;
+  let translations = undefined;
+  if (title_ar || excerpt_ar || content_ar) {
+    translations = { ar: { title: title_ar || undefined, excerpt: excerpt_ar || undefined, content: content_ar || undefined } };
+  }
+
   const blog = await prisma.blogPost.create({
     data: {
       title: data.title,
@@ -77,6 +101,7 @@ export async function createBlog(data: any) {
       coverImage: data.coverImage || null,
       authorName: data.authorName || "Admin",
       published: data.published || false,
+      translations: translations,
     }
   })
   revalidatePath("/admin/blogs")
@@ -85,6 +110,14 @@ export async function createBlog(data: any) {
 }
 
 export async function updateBlog(id: string, data: any) {
+  const title_ar = data.title_ar;
+  const excerpt_ar = data.excerpt_ar;
+  const content_ar = data.content_ar;
+  let translations = undefined;
+  if (title_ar || excerpt_ar || content_ar) {
+    translations = { ar: { title: title_ar || undefined, excerpt: excerpt_ar || undefined, content: content_ar || undefined } };
+  }
+
   await prisma.blogPost.update({
     where: { id },
     data: {
@@ -95,6 +128,7 @@ export async function updateBlog(id: string, data: any) {
       coverImage: data.coverImage || null,
       authorName: data.authorName,
       published: data.published,
+      translations: translations,
     }
   })
   revalidatePath("/admin/blogs")
