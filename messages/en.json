@@ -10,7 +10,8 @@
     "viewHospital": "View Hospital",
     "getEstimate": "Get Estimate",
     "highlyExperienced": "{name} is a highly experienced {specialty} with {experience} of experience. They have successfully performed numerous complex procedures and are trusted by thousands of global patients.",
-    "topHospitalDesc": "{name} is a premium healthcare facility located in {city}. It is widely recognized for its state-of-the-art infrastructure and exceptional patient care standards."
+    "topHospitalDesc": "{name} is a premium healthcare facility located in {city}. It is widely recognized for its state-of-the-art infrastructure and exceptional patient care standards.",
+    "india": "India"
   },
   "Navigation": {
     "home": "Home",

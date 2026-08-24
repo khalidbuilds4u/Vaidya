@@ -221,7 +221,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     slug: h.slug,
     name: getTranslation(h, 'name', locale) || h.name,
     city: getTranslation(h.city, 'name', locale) || h.city.name,
-    state: getTranslation(h.city, 'state', locale) || h.city.state || 'India',
+    state: getTranslation(h.city, 'state', locale) || h.city.state || '',
     image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
     accreditations: h.accreditations || ['NABH'],
     beds: h.beds || 500,
