@@ -2,6 +2,7 @@ import { Metadata } from "next"
 import { prisma } from "@/lib/prisma"
 import { FileText, ArrowRight } from "lucide-react"
 import Link from "next/link"
+import { getTranslation } from "@/lib/utils"
 
 export const revalidate = 3600;
 
@@ -11,7 +12,8 @@ export const metadata: Metadata = {
   description: "Read the latest insights, news, and tips on medical treatments and wellness.",
 }
 
-export default async function BlogsPage() {
+export default async function BlogsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
   const blogs = await prisma.blogPost.findMany({
     where: { published: true },
     orderBy: { createdAt: "desc" }
@@ -45,21 +47,25 @@ export default async function BlogsPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {blogs.map(blog => (
-              <Link href={`/blogs/${blog.slug}`} key={blog.id} className="bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-xl transition-all group flex flex-col">
-                <div className="aspect-video bg-slate-100 overflow-hidden relative">
+            {blogs.map((blog) => (
+              <Link key={blog.id} href={`/${resolvedParams.locale}/blogs/${blog.slug}`} className="group h-full flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <div className="relative h-48 overflow-hidden bg-slate-100">
                   {blog.coverImage ? (
-                    <img src={blog.coverImage} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={blog.coverImage} alt={getTranslation(blog, 'title', resolvedParams.locale) || blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-slate-300 bg-slate-200">
-                      <FileText className="w-10 h-10" />
+                    <div className="w-full h-full flex items-center justify-center text-slate-400">
+                      <span className="text-sm font-medium">No Image</span>
                     </div>
                   )}
                 </div>
-                <div className="p-6 flex-1 flex flex-col">
+                <div className="p-6 flex flex-col flex-grow">
                   <p className="text-xs text-slate-500 font-medium mb-3">{new Date(blog.createdAt).toLocaleDateString()} • By {blog.authorName}</p>
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">{blog.title}</h3>
-                  <p className="text-slate-600 line-clamp-3 mb-6 flex-1">{blog.excerpt || blog.content.substring(0, 150) + "..."}</p>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-primary transition-colors line-clamp-2">
+                    {getTranslation(blog, 'title', resolvedParams.locale)}
+                  </h3>
+                  <p className="text-slate-600 mb-6 line-clamp-3 text-sm leading-relaxed flex-1">
+                    {getTranslation(blog, 'excerpt', resolvedParams.locale)}
+                  </p>
                   <div className="flex items-center text-primary font-semibold text-sm group-hover:gap-2 transition-all">
                     Read Article <ArrowRight className="w-4 h-4 ml-1" />
                   </div>

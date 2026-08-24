@@ -6,12 +6,15 @@ import Link from "next/link"
 export const revalidate = 3600;
 
 
+import { getTranslation } from "@/lib/utils"
+
 export const metadata: Metadata = {
   title: "Patient Success Stories | Asad Healthcare",
   description: "Read inspiring stories from our patients who travelled to India for world-class medical treatments.",
 }
 
-export default async function PatientStoriesPage() {
+export default async function PatientStoriesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
   const stories = await prisma.patientStory.findMany({
     orderBy: { createdAt: "desc" },
     include: { treatment: true }
@@ -53,13 +56,13 @@ export default async function PatientStoriesPage() {
                 <div className="p-6 flex-1 flex flex-col">
                   {story.treatment && (
                     <span className="text-xs font-bold text-primary uppercase tracking-wider mb-2">
-                      {story.treatment.name}
+                      {getTranslation(story.treatment, 'name', resolvedParams.locale)}
                     </span>
                   )}
-                  <h3 className="text-xl font-bold text-slate-900 mb-3 line-clamp-2">{story.title}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 line-clamp-2">{getTranslation(story, 'title', resolvedParams.locale)}</h3>
                   <div className="relative mb-4 flex-1">
                     <Quote className="absolute -top-1 -left-2 w-8 h-8 text-slate-100 -z-10 transform rotate-180" />
-                    <p className="text-slate-600 line-clamp-4 relative z-10">{story.content}</p>
+                    <p className="text-slate-600 line-clamp-4 relative z-10">{getTranslation(story, 'content', resolvedParams.locale)}</p>
                   </div>
                   <div className="pt-4 border-t border-slate-100 mt-auto flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold">
