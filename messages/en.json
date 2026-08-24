@@ -529,7 +529,8 @@
     "hero": {
       "tag": "Medical Specialty",
       "inIndia": "{name} in India",
-      "getPlan": "Get Free Consultation Plan"
+      "getPlan": "Get Free Consultation Plan",
+      "fallbackOverview": "{name} is a specialized branch of medicine dealing with specific aspects of healthcare. Our partner hospitals in India provide world-class treatments using state-of-the-art technology."
     },
     "treatments": {
       "title": "Popular {name} Treatments",
@@ -555,6 +556,38 @@
       "noObligation": "No obligation to proceed",
       "multipleQuotes": "Multiple hospital quotes",
       "dedicatedManager": "Dedicated care manager"
+    },
+    "mockTreatments": {
+      "consultation": {
+        "name": "{name} Consultation",
+        "desc": "Comprehensive evaluation and diagnosis by top {name} experts."
+      },
+      "diagnostics": {
+        "name": "Advanced Diagnostics",
+        "desc": "State-of-the-art diagnostic procedures for precise medical planning."
+      },
+      "surgery": {
+        "name": "Minimally Invasive Surgery",
+        "desc": "Advanced surgical techniques resulting in less pain and faster recovery."
+      },
+      "interventions": {
+        "name": "Complex Interventions",
+        "desc": "High-precision complex procedures performed by highly experienced specialists."
+      }
+    },
+    "mockConditions": {
+      "general1": {
+        "name": "General {name} Disorders",
+        "desc": "Comprehensive care for a wide range of common {name} conditions."
+      },
+      "general2": {
+        "name": "Chronic {name} Conditions",
+        "desc": "Long-term management and specialized treatment for chronic cases."
+      },
+      "general3": {
+        "name": "Acute {name} Emergencies",
+        "desc": "Rapid response and critical care for severe acute conditions."
+      }
     }
   },
   "AboutUs": {

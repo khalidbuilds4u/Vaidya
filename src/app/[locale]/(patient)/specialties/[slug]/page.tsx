@@ -178,6 +178,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     take: 4
   });
 
+  const translatedName = dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name;
+
   // Map DB Treatments to UI format
   const displayTreatments = dbTreatments.length > 0 ? dbTreatments.map((t, idx) => {
     // Provide some varied placeholder images if we don't have real ones
@@ -194,7 +196,12 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
       description: getTranslation(t, 'description', locale) || t.description || `Specialized ${t.name} procedures at accredited hospitals in India.`,
       image: images[idx % images.length]
     };
-  }) : specialty.popularTreatments.map(t => ({ ...t, isReal: false }));
+  }) : [
+    { name: t('mockTreatments.consultation.name', { name: translatedName }), slug: 'consultation', image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.consultation.desc', { name: translatedName }), isReal: false },
+    { name: t('mockTreatments.diagnostics.name'), slug: 'diagnostics', image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.diagnostics.desc'), isReal: false },
+    { name: t('mockTreatments.surgery.name'), slug: 'surgery', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.surgery.desc'), isReal: false },
+    { name: t('mockTreatments.interventions.name'), slug: 'interventions', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.interventions.desc'), isReal: false }
+  ];
 
   // Map DB Doctors to DoctorCard props
   const topDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
@@ -218,11 +225,15 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
     accreditations: h.accreditations || ['NABH'],
     beds: h.beds || 500,
-    specialties: [getTranslation(dbSpecialty, 'name', locale) || specialty.name],
+    specialties: [translatedName],
     hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
   })) : specialty.topHospitals;
 
-  const dynamicConditions = dbConditions.length > 0 ? dbConditions : specialty.commonConditions;
+  const dynamicConditions = dbConditions.length > 0 ? dbConditions : [
+    { name: t('mockConditions.general1.name', { name: translatedName }), slug: 'general-1', description: t('mockConditions.general1.desc', { name: translatedName }) },
+    { name: t('mockConditions.general2.name', { name: translatedName }), slug: 'general-2', description: t('mockConditions.general2.desc', { name: translatedName }) },
+    { name: t('mockConditions.general3.name', { name: translatedName }), slug: 'general-3', description: t('mockConditions.general3.desc', { name: translatedName }) }
+  ];
 
   // Define a mapping of specialty slugs to featured hero images
   const specialtyImages: Record<string, string> = {
@@ -250,10 +261,10 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {t('hero.inIndia', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}
+                {t('hero.inIndia', { name: translatedName })}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                {dbSpecialty ? getTranslation(dbSpecialty, 'description', locale) || specialty.overview : specialty.overview}
+                {dbSpecialty ? (getTranslation(dbSpecialty, 'description', locale) || t('hero.fallbackOverview', { name: translatedName })) : t('hero.fallbackOverview', { name: translatedName })}
               </p>
               
               <EnquiryForm>
