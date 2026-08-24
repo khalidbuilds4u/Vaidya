@@ -147,12 +147,12 @@ export default async function DoctorsDirectory({
                   slug={doctor.slug}
                   name={getTranslation(doctor, 'name', locale)}
                   specialty={getTranslation(doctor.specialty, 'name', locale)}
-                  qualifications={doctor.qualifications || "MBBS, MS"}
-                  experience={`${doctor.experienceYears || 15}+ Years`}
+                  qualifications={doctor.qualifications || undefined}
+                  experience={`${doctor.experienceYears || 15}+`}
                   hospital={getTranslation(doctor.hospital, 'name', locale)}
                   city={getTranslation(doctor.hospital.city, 'name', locale)}
                   image={doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"}
-                  keyExpertise={[getTranslation(doctor.specialty, 'name', locale), "Advanced Care"]}
+                  biography={getTranslation(doctor, 'biography', locale) || doctor.biography || undefined}
                 />
               ))}
             </div>

@@ -1,8 +1,6 @@
-"use client";
-
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MapPin, BriefcaseMedical, Star, ArrowRight } from 'lucide-react';
+import { MapPin, BriefcaseMedical, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 
@@ -25,88 +23,92 @@ export function DoctorCard({
   slug,
   name,
   specialty,
-  qualifications = "MBBS, MS",
+  qualifications,
   experience,
   hospital,
   city = "India",
   image,
-  keyExpertise = [],
-  rating = 4.9,
   biography,
 }: DoctorCardProps) {
   const t = useTranslations('Cards');
+  
+  // Use qualifications as the subtitle, fallback to specialty
+  const subtitle = qualifications || specialty;
 
   return (
-    <div className="glass-card rounded-2xl sm:rounded-3xl p-4 sm:p-5 border border-slate-200/60 flex flex-col group relative bg-white shadow-sm hover:shadow-xl transition-all duration-300">
-      
-      {/* Large Inset Image at Top */}
-      <Link href={`/doctors/${slug}`} className="w-full h-56 sm:h-64 lg:h-72 rounded-xl overflow-hidden bg-slate-100 relative mb-4 block">
-        <img 
-          src={image} 
-          alt={name}
-          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
-        />
-      </Link>
+    <div className="rounded-xl overflow-hidden border border-slate-200 flex flex-col group relative bg-white shadow-sm hover:shadow-lg transition-all duration-300 h-full">
+      <div className="flex flex-col md:flex-row flex-1 p-5 sm:p-6 gap-6">
+        
+        {/* Left Image Section */}
+        <Link href={`/doctors/${slug}`} className="w-full md:w-48 lg:w-56 shrink-0 aspect-[4/5] md:aspect-auto md:h-auto rounded-xl overflow-hidden bg-sky-50 relative block border border-slate-100">
+          <img 
+            src={image} 
+            alt={name}
+            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 absolute inset-0"
+          />
+        </Link>
 
-        {/* Content Area */}
-        <div className="flex flex-col flex-1 px-1 sm:px-2">
-          
-        {/* Title Row */}
-        <div className="flex flex-wrap items-center gap-2 mb-1">
-          <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">
-            <Link href={`/doctors/${slug}`}>{name}</Link>
-          </h3>
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded border border-emerald-200/60 bg-emerald-50 text-emerald-700 text-[10px] font-bold shadow-sm">
-              <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
-              {t('profileAuthorized')}
-            </span>
+        {/* Right Content Section */}
+        <div className="flex flex-col flex-1">
+          {/* Title Row */}
+          <div className="flex justify-between items-start mb-1">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 group-hover:text-primary transition-colors">
+              <Link href={`/doctors/${slug}`}>{name}</Link>
+            </h3>
           </div>
 
-          {/* Subtitle */}
+          {/* Subtitle (Qualifications / Specialty) */}
           <p className="text-slate-800 font-semibold text-sm sm:text-base mb-3">
-            {specialty}
+            {subtitle}
           </p>
 
           {/* Biography */}
           {biography ? (
-            <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
+            <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-6 line-clamp-4">
               {biography}
             </p>
           ) : (
-            <p className="text-[13px] sm:text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
+            <p className="text-[13px] sm:text-sm text-slate-600 leading-relaxed mb-6 line-clamp-4">
               {t('highlyExperienced', { name, specialty: specialty.toLowerCase(), experience })}
             </p>
           )}
 
-          {/* Footer (Hospital & Experience) */}
-          <div className="grid grid-cols-2 gap-4 mb-6">
-            <div className="flex items-start gap-1.5 text-[11px] sm:text-xs font-semibold text-slate-700">
-              <MapPin className="h-4 w-4 text-slate-400 shrink-0 mt-0.5" />
-              <span className="line-clamp-2 leading-tight">{hospital}, {city}</span>
+          {/* Spacer */}
+          <div className="flex-1"></div>
+
+          {/* Bottom Area: Location, Experience, Actions */}
+          <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-4 mt-2">
+            
+            {/* Info Metrics */}
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+              <div className="flex items-center text-sm font-medium text-slate-700">
+                <MapPin className="h-4 w-4 mr-1.5 text-slate-400" />
+                {city}
+              </div>
+              {experience && (
+                <div className="flex items-center text-sm font-medium text-slate-700">
+                  <BriefcaseMedical className="h-4 w-4 mr-1.5 text-slate-400" />
+                  {experience} {t('experience')}
+                </div>
+              )}
             </div>
-            <div className="flex items-start gap-1.5 text-[11px] sm:text-xs font-semibold text-slate-700">
-              <BriefcaseMedical className="h-4 w-4 text-slate-400 shrink-0 mt-0.5" />
-              <span className="line-clamp-2 leading-tight">{experience} {t('experience')}</span>
+
+            {/* Action Buttons */}
+            <div className="flex items-center gap-2 w-full xl:w-auto mt-4 xl:mt-0">
+              <EnquiryForm>
+                <Button variant="outline" className="flex-1 xl:flex-none rounded-md border-primary text-primary hover:bg-primary/5 font-semibold px-4 h-10">
+                  {t('bookConsult')}
+                </Button>
+              </EnquiryForm>
+              <Button asChild className="flex-1 xl:flex-none rounded-md bg-[#0f5132] hover:bg-[#0b3b24] text-white font-semibold px-6 h-10">
+                <Link href={`/doctors/${slug}`}>
+                  {t('viewProfile')} <ArrowRight className="ml-1.5 w-4 h-4" />
+                </Link>
+              </Button>
             </div>
           </div>
 
-        {/* Action Buttons */}
-        <div className="mt-auto grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
-          <Button 
-            asChild 
-            variant="outline" 
-            className="rounded-lg border-primary text-primary hover:bg-primary/5 hover:text-primary font-bold h-10 px-2 truncate"
-          >
-            <Link href={`/doctors/${slug}`}>{t('viewProfile')}</Link>
-          </Button>
-          <EnquiryForm>
-            <Button className="w-full rounded-lg shadow-xs bg-gradient-to-r from-primary to-teal-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold h-10 px-2 flex items-center justify-center gap-1">
-              <span>{t('bookConsult')}</span>
-              <ArrowRight className="w-3.5 h-3.5 shrink-0" />
-            </Button>
-          </EnquiryForm>
         </div>
-
       </div>
     </div>
   );

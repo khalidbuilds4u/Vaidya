@@ -211,8 +211,9 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     hospital: getTranslation(d.hospital, 'name', locale) || d.hospital.name,
     image: d.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070",
     city: getTranslation(d.hospital.city, 'name', locale) || 'India',
-    qualifications: getTranslation(d, 'qualifications', locale) || 'Expert Specialist',
-    experience: d.experienceYears ? `${d.experienceYears}` : '15+',
+    qualifications: getTranslation(d, 'qualifications', locale) || d.qualifications || undefined,
+    experience: d.experienceYears ? `${d.experienceYears}+` : '',
+    biography: getTranslation(d, 'biography', locale) || d.biography || undefined,
     keyExpertise: ['Specialized Care']
   })) : specialty.topDoctors;
 
