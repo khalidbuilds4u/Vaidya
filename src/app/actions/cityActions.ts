@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { buildTranslations } from "@/lib/translator";
 
 export async function createCity(formData: FormData) {
   const name = formData.get("name") as string;
@@ -16,15 +17,19 @@ export async function createCity(formData: FormData) {
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || description_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
       }
     };
   }
+
+  const finalTranslations = await buildTranslations({
+    name, description
+  }, manualTranslations);
 
   await prisma.city.create({
     data: {
@@ -34,7 +39,7 @@ export async function createCity(formData: FormData) {
       state,
       description,
       imageUrl,
-      translations: translations ? translations : undefined,
+      translations: finalTranslations ? finalTranslations : undefined,
     },
   });
 
@@ -52,15 +57,26 @@ export async function updateCity(id: string, formData: FormData) {
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || description_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
       }
     };
   }
+
+  const existingCity = await prisma.city.findUnique({ where: { id }, select: { translations: true } });
+  const existingTranslations = (existingCity?.translations as any) || {};
+
+  if (manualTranslations?.ar) {
+    existingTranslations.ar = { ...existingTranslations.ar, ...manualTranslations.ar };
+  }
+
+  const finalTranslations = await buildTranslations({
+    name, description
+  }, existingTranslations);
 
   await prisma.city.update({
     where: { id },
@@ -70,7 +86,7 @@ export async function updateCity(id: string, formData: FormData) {
       state,
       description,
       imageUrl,
-      translations: translations ? translations : undefined,
+      translations: finalTranslations ? finalTranslations : undefined,
     },
   });
 

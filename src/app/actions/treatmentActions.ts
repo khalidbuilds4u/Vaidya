@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { buildTranslations } from "@/lib/translator";
 
 function parseTextArray(val: FormDataEntryValue | null): string[] {
   if (!val) return [];
@@ -32,8 +33,7 @@ function parseFaqs(val: FormDataEntryValue | null) {
   }
   return faqs;
 }
-
-function extractTreatmentData(formData: FormData) {
+async function extractTreatmentData(formData: FormData, existingId?: string) {
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;
   const overview_ar = formData.get("overview_ar") as string;
@@ -46,9 +46,9 @@ function extractTreatmentData(formData: FormData) {
   const procedureDetails_ar = parseTextArray(formData.get("procedureDetails_ar"));
   const faqs_ar = parseFaqs(formData.get("faqs_ar"));
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || description_ar || overview_ar || recovery_ar || risks_ar || causesAndSymptoms_ar.length > 0 || diagnosis_ar.length > 0 || preOpPrep_ar.length > 0 || postOpCare_ar.length > 0 || procedureDetails_ar.length > 0 || faqs_ar.length > 0) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
@@ -65,16 +65,42 @@ function extractTreatmentData(formData: FormData) {
     };
   }
 
+  const name = formData.get("name") as string;
+  const description = formData.get("description") as string;
+  const overview = (formData.get("overview") as string) || null;
+  const recovery = (formData.get("recovery") as string) || null;
+  const risks = (formData.get("risks") as string) || null;
+  
+  const causesAndSymptoms = parseTextArray(formData.get("causesAndSymptoms"));
+  const diagnosis = parseTextArray(formData.get("diagnosis"));
+  const preOpPrep = parseTextArray(formData.get("preOpPrep"));
+  const postOpCare = parseTextArray(formData.get("postOpCare"));
+  const procedureDetails = parseTextArray(formData.get("procedureDetails"));
+  
+  const existingTreatment = existingId ? await prisma.treatment.findUnique({ where: { id: existingId }, select: { translations: true } }) : null;
+  const existingTranslations = (existingTreatment?.translations as any) || {};
+
+  if (manualTranslations?.ar) {
+    existingTranslations.ar = { ...existingTranslations.ar, ...manualTranslations.ar };
+  }
+
+  // NOTE: faqs is an array of objects, we'd need to translate it carefully, but it's complex so we skip auto-translating faqs for now
+  // or we can just translate the string arrays.
+  const finalTranslations = await buildTranslations({
+    name, description, overview, recovery, risks,
+    causesAndSymptoms, diagnosis, preOpPrep, postOpCare, procedureDetails
+  }, existingTranslations);
+
   return {
-    name: formData.get("name") as string,
-    description: formData.get("description") as string,
+    name,
+    description,
     specialtyId: formData.get("specialtyId") as string,
     
     // New rich fields
-    overview: (formData.get("overview") as string) || null,
+    overview,
     procedure: (formData.get("procedure") as string) || null,
-    recovery: (formData.get("recovery") as string) || null,
-    risks: (formData.get("risks") as string) || null,
+    recovery,
+    risks,
     minEstimate: formData.get("minEstimate") ? parseFloat(formData.get("minEstimate") as string) : null,
     maxEstimate: formData.get("maxEstimate") ? parseFloat(formData.get("maxEstimate") as string) : null,
 
@@ -85,12 +111,12 @@ function extractTreatmentData(formData: FormData) {
     procedureDetails: parseTextArray(formData.get("procedureDetails")),
     
     faqs: parseFaqs(formData.get("faqs")),
-    translations: translations ? translations : undefined,
+    translations: finalTranslations ? finalTranslations : undefined,
   };
 }
 
 export async function createTreatment(formData: FormData) {
-  const data = extractTreatmentData(formData);
+  const data = await extractTreatmentData(formData);
   const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
   await prisma.treatment.create({
@@ -105,7 +131,7 @@ export async function createTreatment(formData: FormData) {
 }
 
 export async function updateTreatment(id: string, formData: FormData) {
-  const data = extractTreatmentData(formData);
+  const data = await extractTreatmentData(formData, id);
 
   await prisma.treatment.update({
     where: { id },

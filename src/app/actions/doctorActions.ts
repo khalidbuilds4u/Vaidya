@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { buildTranslations } from "@/lib/translator";
 
 export async function createDoctor(formData: FormData) {
   const name = formData.get("name") as string;
@@ -34,9 +35,9 @@ export async function createDoctor(formData: FormData) {
   const qualifications_ar = formData.get("qualifications_ar") as string;
   const biography_ar = formData.get("biography_ar") as string;
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || qualifications_ar || biography_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         qualifications: qualifications_ar || undefined,
@@ -44,6 +45,12 @@ export async function createDoctor(formData: FormData) {
       }
     };
   }
+
+  const finalTranslations = await buildTranslations({
+    name,
+    qualifications,
+    biography
+  }, manualTranslations);
 
   await prisma.doctor.create({
     data: {
@@ -63,7 +70,7 @@ export async function createDoctor(formData: FormData) {
       researchFellowships,
       awardsRecognitions,
       allTreatments,
-      translations: translations ? translations : undefined,
+      translations: finalTranslations ? finalTranslations : undefined,
     },
   });
 
@@ -100,9 +107,9 @@ export async function updateDoctor(id: string, formData: FormData) {
   const qualifications_ar = formData.get("qualifications_ar") as string;
   const biography_ar = formData.get("biography_ar") as string;
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || qualifications_ar || biography_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         qualifications: qualifications_ar || undefined,
@@ -110,6 +117,21 @@ export async function updateDoctor(id: string, formData: FormData) {
       }
     };
   }
+
+  // Preserve existing translations from DB to avoid overwriting unrelated languages
+  const existingDoctor = await prisma.doctor.findUnique({ where: { id }, select: { translations: true } });
+  const existingTranslations = (existingDoctor?.translations as any) || {};
+
+  // Merge manual translations over existing ones
+  if (manualTranslations?.ar) {
+    existingTranslations.ar = { ...existingTranslations.ar, ...manualTranslations.ar };
+  }
+
+  const finalTranslations = await buildTranslations({
+    name,
+    qualifications,
+    biography
+  }, existingTranslations);
 
   await prisma.doctor.update({
     where: { id },
@@ -129,7 +151,7 @@ export async function updateDoctor(id: string, formData: FormData) {
       researchFellowships,
       awardsRecognitions,
       allTreatments,
-      translations: translations ? translations : undefined,
+      translations: finalTranslations ? finalTranslations : undefined,
     },
   });
 

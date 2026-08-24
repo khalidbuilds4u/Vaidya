@@ -3,6 +3,7 @@
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { buildTranslations } from "@/lib/translator";
 
 function parseTextArray(val: FormDataEntryValue | null): string[] {
   if (!val) return [];
@@ -31,13 +32,13 @@ function parseFaqs(val: FormDataEntryValue | null) {
   return faqs;
 }
 
-function extractConditionData(formData: FormData) {
+async function extractConditionData(formData: FormData, existingId?: string) {
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || description_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
@@ -45,21 +46,38 @@ function extractConditionData(formData: FormData) {
     };
   }
 
+  const name = formData.get("name") as string;
+  const description = formData.get("description") as string;
+  const causesAndSymptoms = parseTextArray(formData.get("causesAndSymptoms"));
+  const diagnosis = parseTextArray(formData.get("diagnosis"));
+  const treatmentOptions = parseTextArray(formData.get("treatmentOptions"));
+
+  const existingCondition = existingId ? await prisma.condition.findUnique({ where: { id: existingId }, select: { translations: true } }) : null;
+  const existingTranslations = (existingCondition?.translations as any) || {};
+
+  if (manualTranslations?.ar) {
+    existingTranslations.ar = { ...existingTranslations.ar, ...manualTranslations.ar };
+  }
+
+  const finalTranslations = await buildTranslations({
+    name, description, causesAndSymptoms, diagnosis, treatmentOptions
+  }, existingTranslations);
+
   return {
-    name: formData.get("name") as string,
-    description: formData.get("description") as string,
+    name,
+    description,
     specialtyId: formData.get("specialtyId") as string,
     
-    causesAndSymptoms: parseTextArray(formData.get("causesAndSymptoms")),
-    diagnosis: parseTextArray(formData.get("diagnosis")),
-    treatmentOptions: parseTextArray(formData.get("treatmentOptions")),
+    causesAndSymptoms,
+    diagnosis,
+    treatmentOptions,
     faqs: parseFaqs(formData.get("faqs")),
-    translations: translations ? translations : undefined,
+    translations: finalTranslations ? finalTranslations : undefined,
   };
 }
 
 export async function createCondition(formData: FormData) {
-  const data = extractConditionData(formData);
+  const data = await extractConditionData(formData);
   const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
   await prisma.condition.create({
@@ -74,7 +92,7 @@ export async function createCondition(formData: FormData) {
 }
 
 export async function updateCondition(id: string, formData: FormData) {
-  const data = extractConditionData(formData);
+  const data = await extractConditionData(formData, id);
 
   await prisma.condition.update({
     where: { id },

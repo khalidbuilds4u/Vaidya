@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
+import { buildTranslations } from "@/lib/translator";
 
 // Ensure user is an admin
 async function checkAuth() {
@@ -120,9 +121,9 @@ export async function createHospital(formData: FormData) {
   const connectivityLocation_ar = parseJsonArrayAr("connectivityLocation_ar");
   const excellenceInCare_ar = parseJsonArrayAr("excellenceInCare_ar");
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || description_ar || address_ar || premiumFacilities_ar || multiSpecialties_ar || advancedTechnologies_ar || connectivityLocation_ar || excellenceInCare_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
@@ -135,6 +136,17 @@ export async function createHospital(formData: FormData) {
       }
     };
   }
+
+  const finalTranslations = await buildTranslations({
+    name,
+    description,
+    address,
+    premiumFacilities,
+    multiSpecialties,
+    advancedTechnologies,
+    connectivityLocation,
+    excellenceInCare
+  }, manualTranslations);
 
   await prisma.hospital.create({
     data: {
@@ -157,7 +169,7 @@ export async function createHospital(formData: FormData) {
       multiSpecialties,
       hospitalFacilities,
       cityId,
-      translations: translations ? translations : undefined,
+      translations: finalTranslations ? finalTranslations : undefined,
       specialties: {
         connect: specialtyIds.map(id => ({ id }))
       }
@@ -271,9 +283,9 @@ export async function updateHospital(id: string, formData: FormData) {
   const connectivityLocation_ar = parseJsonArrayAr("connectivityLocation_ar");
   const excellenceInCare_ar = parseJsonArrayAr("excellenceInCare_ar");
 
-  let translations = undefined;
+  let manualTranslations = undefined;
   if (name_ar || description_ar || address_ar || premiumFacilities_ar || multiSpecialties_ar || advancedTechnologies_ar || connectivityLocation_ar || excellenceInCare_ar) {
-    translations = {
+    manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
@@ -286,6 +298,24 @@ export async function updateHospital(id: string, formData: FormData) {
       }
     };
   }
+
+  const existingHospital = await prisma.hospital.findUnique({ where: { id }, select: { translations: true } });
+  const existingTranslations = (existingHospital?.translations as any) || {};
+
+  if (manualTranslations?.ar) {
+    existingTranslations.ar = { ...existingTranslations.ar, ...manualTranslations.ar };
+  }
+
+  const finalTranslations = await buildTranslations({
+    name,
+    description,
+    address,
+    premiumFacilities,
+    multiSpecialties,
+    advancedTechnologies,
+    connectivityLocation,
+    excellenceInCare
+  }, existingTranslations);
 
   await prisma.hospital.update({
     where: { id },
@@ -309,7 +339,7 @@ export async function updateHospital(id: string, formData: FormData) {
       multiSpecialties,
       hospitalFacilities,
       cityId: cityId || undefined,
-      translations: translations ? translations : undefined,
+      translations: finalTranslations ? finalTranslations : undefined,
       specialties: {
         set: specialtyIds.map(id => ({ id }))
       }
