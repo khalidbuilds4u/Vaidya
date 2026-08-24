@@ -9,6 +9,8 @@ import { CheckCircle2, Activity, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
 
@@ -38,7 +40,7 @@ const baseHospitals = MOCK_HOSPITALS.slice(0, 3).map(h => ({
   hasInternationalSupport: true
 }));
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string, locale: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
   const condition = await prisma.condition.findUnique({
     where: { slug: resolvedParams.slug },
@@ -51,8 +53,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   };
 }
 
-export default async function ConditionDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ConditionDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+  const t = await getTranslations('Hero'); // Using common namespace for simple strings
   
   // 1. Fetch condition from DB
   const condition = await prisma.condition.findUnique({
@@ -67,7 +71,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
   // 2. Fetch Doctors in this specialty from DB
   const realDoctors = await prisma.doctor.findMany({
     where: { specialtyId: condition.specialtyId },
-    include: { hospital: true, specialty: true },
+    include: { hospital: { include: { city: true } }, specialty: true },
     take: 3
   });
 
@@ -85,26 +89,26 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
   // Map DB Doctors to DoctorCard props
   const topDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
     slug: d.slug,
-    name: d.name,
-    specialty: d.specialty.name,
-    hospital: d.hospital.name,
+    name: getTranslation(d, 'name', locale) || d.name,
+    specialty: getTranslation(d.specialty, 'name', locale) || d.specialty.name,
+    hospital: getTranslation(d.hospital, 'name', locale) || d.hospital.name,
     image: d.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070",
-    city: 'India',
-    qualifications: d.qualifications || 'Expert Specialist',
-    experience: d.experienceYears ? `${d.experienceYears}+ Years` : '15+ Years',
+    city: getTranslation(d.hospital.city, 'name', locale) || 'India',
+    qualifications: getTranslation(d, 'qualifications', locale) || 'Expert Specialist',
+    experience: d.experienceYears ? `${d.experienceYears}` : '15+',
     keyExpertise: ['Specialized Care']
   })) : baseDoctors;
 
   // Map DB Hospitals to HospitalCard props
   const topHospitals = realHospitals.length > 0 ? realHospitals.map(h => ({
     slug: h.slug,
-    name: h.name,
-    city: h.city.name,
-    state: h.city.state || 'India',
+    name: getTranslation(h, 'name', locale) || h.name,
+    city: getTranslation(h.city, 'name', locale) || h.city.name,
+    state: getTranslation(h.city, 'state', locale) || h.city.state || 'India',
     image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
     accreditations: h.accreditations || ['NABH'],
     beds: h.beds || 500,
-    specialties: [condition.specialty.name],
+    specialties: [getTranslation(condition.specialty, 'name', locale) || condition.specialty.name],
     hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
   })) : baseHospitals;
 
@@ -122,20 +126,20 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
           <div className="flex flex-col lg:flex-row items-center gap-12">
             <div className="w-full lg:w-2/3">
               <span className="text-primary-foreground/80 font-medium tracking-wider uppercase text-sm mb-4 block">
-                {condition.specialty.name} Condition
+                {getTranslation(condition.specialty, 'name', locale)} Condition
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {condition.name}
+                {getTranslation(condition, 'name', locale) || condition.name}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed max-w-2xl">
-                {condition.description || `Comprehensive guide to ${condition.name} treatment, symptoms, and diagnosis in India.`}
+                {getTranslation(condition, 'description', locale) || condition.description || `Comprehensive guide to ${condition.name} treatment, symptoms, and diagnosis in India.`}
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <EnquiryForm>
                   <span className="inline-block cursor-pointer">
                     <Button size="lg" className="bg-white text-primary hover:bg-slate-100 px-8 text-md h-12">
-                      Get a Treatment Plan
+                      {t('getFreePlan')}
                     </Button>
                   </span>
                 </EnquiryForm>
@@ -205,12 +209,12 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* Related Treatments linking */}
             {relatedTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">Popular {condition.specialty.name} Procedures</h2>
+                <h2 className="text-2xl font-bold mb-6">Popular {getTranslation(condition.specialty, 'name', locale)} Procedures</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {relatedTreatments.map((treatment) => (
-                    <Link key={treatment.slug} href={`/treatments/${treatment.slug}`}>
+                    <Link key={treatment.slug} href={`/${locale}/treatments/${treatment.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{treatment.name}</h3>
+                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(treatment, 'name', locale)}</h3>
                         <span className="text-primary text-sm font-medium flex items-center gap-1 mt-auto pt-4">
                           View procedure details <ArrowRight className="w-4 h-4" />
                         </span>
