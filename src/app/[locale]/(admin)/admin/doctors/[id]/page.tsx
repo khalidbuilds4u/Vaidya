@@ -258,58 +258,7 @@ export default async function DoctorEditor({
             </div>
           </div>
 
-          {/* Arabic Translations */}
-          <div className="pt-6 border-t border-slate-100">
-                        <div className="mb-6">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                Arabic Translations (الترجمة العربية)
-              </h3>
-              <p className="text-sm text-amber-600 mt-1 font-medium bg-amber-50 p-2 rounded border border-amber-100">
-                ✨ <strong>Optional:</strong> Leave these fields completely blank to automatically translate them from English using AI.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-900">
-                  Doctor Name (Arabic)
-                </label>
-                <input
-                  type="text"
-                  name="name_ar"
-                  defaultValue={(doctor?.translations as any)?.ar?.name || ""}
-                  dir="rtl"
-                  placeholder="اسم الطبيب..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
-                />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold text-slate-900">
-                  Qualifications (Arabic)
-                </label>
-                <input
-                  type="text"
-                  name="qualifications_ar"
-                  defaultValue={(doctor?.translations as any)?.ar?.qualifications || ""}
-                  dir="rtl"
-                  placeholder="المؤهلات..."
-                  className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
-                />
-              </div>
-            </div>
-            <div className="space-y-2 mt-6">
-              <label className="text-sm font-semibold text-slate-900">
-                Biography (Arabic)
-              </label>
-              <textarea
-                name="biography_ar"
-                rows={4}
-                defaultValue={(doctor?.translations as any)?.ar?.biography || ""}
-                dir="rtl"
-                placeholder="السيرة الذاتية..."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
-              />
-            </div>
-          </div>
+
 
           <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">
             <Link href="/admin/doctors">

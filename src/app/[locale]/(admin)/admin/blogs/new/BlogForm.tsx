@@ -94,44 +94,7 @@ export function BlogForm({ initialData }: { initialData?: any }) {
         />
       </div>
 
-      <div className="pt-6 border-t border-slate-100">
-                    <div className="mb-6">
-              <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-                Arabic Translations (الترجمة العربية)
-              </h3>
-              <p className="text-sm text-amber-600 mt-1 font-medium bg-amber-50 p-2 rounded border border-amber-100">
-                ✨ <strong>Optional:</strong> Leave these fields completely blank to automatically translate them from English using AI.
-              </p>
-            </div>
-        <div className="space-y-6">
-          <div className="space-y-2">
-            <Label htmlFor="title_ar">Post Title (Arabic)</Label>
-            <Input id="title_ar" name="title_ar" defaultValue={initialData?.translations?.ar?.title || ""} dir="rtl" placeholder="عنوان المقال..." />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="excerpt_ar">Excerpt (Arabic)</Label>
-            <Textarea 
-              id="excerpt_ar" 
-              name="excerpt_ar" 
-              defaultValue={initialData?.translations?.ar?.excerpt || ""}
-              dir="rtl"
-              placeholder="ملخص المقال..." 
-              className="min-h-[80px]" 
-            />
-          </div>
-          <div className="space-y-2">
-            <Label htmlFor="content_ar">Full Content (Arabic)</Label>
-            <Textarea 
-              id="content_ar" 
-              name="content_ar" 
-              defaultValue={initialData?.translations?.ar?.content || ""}
-              dir="rtl"
-              placeholder="محتوى المقال..." 
-              className="min-h-[300px]" 
-            />
-          </div>
-        </div>
-      </div>
+
 
       <div className="flex items-center space-x-2 p-4 bg-slate-50 rounded-lg border border-slate-100 mt-6">
         <Switch id="published" name="published" defaultChecked={initialData ? initialData.published : true} />
