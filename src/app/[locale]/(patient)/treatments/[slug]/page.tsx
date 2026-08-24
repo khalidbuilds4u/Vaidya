@@ -344,7 +344,10 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     maxEstimate: dbTreatment.maxEstimate || baseTreatment.maxEstimate,
     overview: getTranslation(dbTreatment, 'overview', locale) || getTranslation(dbTreatment, 'description', locale) || baseTreatment.overview,
     recoveryTime: getTranslation(dbTreatment, 'recovery', locale) || baseTreatment.recoveryTime,
+    hospitalStay: getTranslation(dbTreatment, 'hospitalStay', locale) || baseTreatment.hospitalStay,
     risks: getTranslation(dbTreatment, 'risks', locale) ? getTranslation(dbTreatment, 'risks', locale).split('\n') : baseTreatment.risks,
+    treatsConditions: getTranslation(dbTreatment, 'treatsConditions', locale) || baseTreatment.treatsConditions,
+    subTreatments: getTranslation(dbTreatment, 'subTreatments', locale) || baseTreatment.subTreatments,
     
     causesAndSymptoms: getArrayField('causesAndSymptoms'),
     diagnosis: getArrayField('diagnosis'),
