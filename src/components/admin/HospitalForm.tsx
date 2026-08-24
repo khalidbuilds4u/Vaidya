@@ -204,6 +204,26 @@ export function HospitalForm({
                 placeholder="e.g. 13"
               />
             </div>
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900">Accreditations (comma-separated)</label>
+              <input
+                type="text"
+                name="accreditations"
+                defaultValue={initialData?.accreditations?.join(", ") || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. JCI, NABH, ISO"
+              />
+            </div>
+            <div className="space-y-2 md:col-span-2">
+              <label className="text-sm font-semibold text-slate-900">International Services (comma-separated)</label>
+              <input
+                type="text"
+                name="internationalServices"
+                defaultValue={initialData?.internationalServices?.join(", ") || ""}
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                placeholder="e.g. Airport Transfer, Translators"
+              />
+            </div>
           </div>
         </div>
 
