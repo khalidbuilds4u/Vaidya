@@ -138,15 +138,66 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
   const t = await getTranslations('SpecialtyDetail');
+  
+  // Get mock specialty base data
   const specialty = getSpecialtyDetails(resolvedParams.slug);
 
   if (!specialty) {
     notFound();
   }
 
+  // 1. Fetch specialty from DB to get translated name
+  const dbSpecialty = await prisma.specialty.findUnique({
+    where: { slug: resolvedParams.slug }
+  });
+
+  // 2. Fetch Doctors in this specialty from DB
+  const realDoctors = await prisma.doctor.findMany({
+    where: { specialty: { slug: resolvedParams.slug } },
+    include: { hospital: { include: { city: true } }, specialty: true },
+    take: 3
+  });
+
+  // 3. Fetch Hospitals that have doctors in this specialty from DB
+  const realHospitals = await prisma.hospital.findMany({
+    where: {
+      doctors: {
+        some: { specialty: { slug: resolvedParams.slug } }
+      }
+    },
+    include: { city: true },
+    take: 3
+  });
+
   const dbConditions = await prisma.condition.findMany({
     where: { specialty: { slug: resolvedParams.slug } }
   });
+
+  // Map DB Doctors to DoctorCard props
+  const topDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
+    slug: d.slug,
+    name: getTranslation(d, 'name', locale) || d.name,
+    specialty: getTranslation(d.specialty, 'name', locale) || d.specialty.name,
+    hospital: getTranslation(d.hospital, 'name', locale) || d.hospital.name,
+    image: d.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070",
+    city: getTranslation(d.hospital.city, 'name', locale) || 'India',
+    qualifications: getTranslation(d, 'qualifications', locale) || 'Expert Specialist',
+    experience: d.experienceYears ? `${d.experienceYears}` : '15+',
+    keyExpertise: ['Specialized Care']
+  })) : specialty.topDoctors;
+
+  // Map DB Hospitals to HospitalCard props
+  const topHospitals = realHospitals.length > 0 ? realHospitals.map(h => ({
+    slug: h.slug,
+    name: getTranslation(h, 'name', locale) || h.name,
+    city: getTranslation(h.city, 'name', locale) || h.city.name,
+    state: getTranslation(h.city, 'state', locale) || h.city.state || 'India',
+    image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
+    accreditations: h.accreditations || ['NABH'],
+    beds: h.beds || 500,
+    specialties: [getTranslation(dbSpecialty, 'name', locale) || specialty.name],
+    hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
+  })) : specialty.topHospitals;
 
   const dynamicConditions = dbConditions.length > 0 ? dbConditions : specialty.commonConditions;
 
@@ -176,10 +227,10 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                 </span>
               </div>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                {t('hero.inIndia', { name: specialty.name })}
+                {t('hero.inIndia', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                {specialty.overview}
+                {dbSpecialty ? getTranslation(dbSpecialty, 'description', locale) || specialty.overview : specialty.overview}
               </p>
               
               <EnquiryForm>
@@ -210,7 +261,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             
             {/* Popular Treatments in this Specialty */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: specialty.name })}</h2>
+              <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
               <div className="grid sm:grid-cols-2 gap-6">
                 {specialty.popularTreatments.map(treatment => (
                   <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
@@ -238,11 +289,11 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Doctors Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold">{t('doctors.title')}</h2>
+                <h2 className="text-2xl font-bold">{t('doctors.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
                 <Link href={`/${locale}/doctors`} className="text-primary hover:underline font-medium text-sm">{t('doctors.viewAll')}</Link>
               </div>
               <div className="space-y-6">
-                {specialty.topDoctors.map(doctor => (
+                {topDoctors.map(doctor => (
                   <DoctorCard key={doctor.slug} {...doctor} />
                 ))}
               </div>
@@ -251,11 +302,11 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Hospitals Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold">{t('hospitals.title', { name: specialty.name })}</h2>
+                <h2 className="text-2xl font-bold">{t('hospitals.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
                 <Link href={`/${locale}/hospitals`} className="text-primary hover:underline font-medium text-sm">{t('hospitals.viewAll')}</Link>
               </div>
               <div className="space-y-6">
-                {specialty.topHospitals.map(hospital => (
+                {topHospitals.map(hospital => (
                   <HospitalCard key={hospital.slug} {...hospital} />
                 ))}
               </div>
@@ -267,16 +318,16 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                   <h2 className="text-2xl font-bold">{t('conditions.title')}</h2>
                 </div>
                 <p className="text-slate-600 mb-6 text-lg">
-                  {t('conditions.desc', { name: specialty.name.toLowerCase() })}
+                  {t('conditions.desc', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name.toLowerCase() : specialty.name.toLowerCase() })}
                 </p>
                 
                 <div className="grid sm:grid-cols-3 gap-4">
                   {dynamicConditions.map((condition) => (
                     <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
-                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer">
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(condition, 'name', locale)}</h3>
-                        <p className="text-sm text-slate-600 line-clamp-2 mb-4">{getTranslation(condition, 'description', locale)}</p>
-                        <span className="text-primary text-sm font-medium flex items-center gap-1">
+                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
+                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(condition, 'name', locale) || condition.name}</h3>
+                        <p className="text-sm text-slate-600 line-clamp-2 mb-4 flex-1">{getTranslation(condition, 'description', locale) || condition.description}</p>
+                        <span className="text-primary text-sm font-medium flex items-center gap-1 mt-auto pt-2">
                           {t('conditions.viewDetails')} <ArrowRight className="w-3 h-3" />
                         </span>
                       </Card>
