@@ -439,7 +439,20 @@
       ]
     },
     "related": "أطباء ذو صلة",
-    "experienceShort": "{years}+ سنوات خبرة"
+    "experienceShort": "{years}+ سنوات خبرة",
+    "forInternationalPatients": "للمرضى الدوليين",
+    "trust": {
+      "highlyExperienced": "خبرة عالية",
+      "thousandsOfCases": "آلاف الحالات الناجحة",
+      "yearsOfPractice": "+{years} سنوات من الممارسة",
+      "decadesOfExpertise": "عقود من الخبرة",
+      "boardCertified": "أخصائي معتمد",
+      "specializedFocus": "تخصص دقيق",
+      "advancedSurgicalTechniques": "تقنيات جراحية متقدمة",
+      "provenTrackRecord": "سجل حافل بالنجاح",
+      "highSuccessRates": "معدلات نجاح سريرية عالية",
+      "patientCenteredCare": "رعاية تتمحور حول المريض"
+    }
   },
   "TreatmentsPage": {
     "tag": "الإجراءات السريرية المتقدمة",

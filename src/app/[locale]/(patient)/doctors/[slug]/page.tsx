@@ -80,7 +80,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
     { id: 'awards', label: t('awardsRecognitions'), show: doctor.awardsRecognitions.length > 0 },
     { id: 'memberships', label: t('professionalMemberships'), show: doctor.professionalMemberships.length > 0 },
     { id: 'why', label: t('whyChooseThisDoctor'), show: doctor.whyChooseThisDoctor.length > 0 },
-    { id: 'international', label: "For International Patients", show: true },
+    { id: 'international', label: t('forInternationalPatients'), show: true },
     { id: 'whyChooseUs', label: t('whyChooseUs.title'), show: true },
   ];
 
@@ -171,15 +171,15 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <Award className="w-5 h-5 text-emerald-400" />
               </div>
               <div className="text-sm font-medium text-slate-300 w-full">
-                <span className="text-white font-bold block mb-2">Highly Experienced</span>
+                <span className="text-white font-bold block mb-2">{t('trust.highlyExperienced')}</span>
                 <ul className="space-y-1.5 text-slate-400 text-xs">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"/> 
-                    <span className="leading-tight">Thousands of successful cases</span>
+                    <span className="leading-tight">{t('trust.thousandsOfCases')}</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"/> 
-                    <span className="leading-tight">Board-certified specialist</span>
+                    <span className="leading-tight">{t('trust.boardCertified')}</span>
                   </li>
                 </ul>
               </div>
@@ -190,7 +190,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <Stethoscope className="w-5 h-5 text-blue-400" />
               </div>
               <div className="text-sm font-medium text-slate-300 w-full">
-                <span className="text-white font-bold block mb-2">Specialized Focus</span>
+                <span className="text-white font-bold block mb-2">{t('trust.specializedFocus')}</span>
                 <ul className="space-y-1.5 text-slate-400 text-xs">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5"/> 
@@ -198,7 +198,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5"/> 
-                    <span className="leading-tight">Advanced surgical techniques</span>
+                    <span className="leading-tight">{t('trust.advancedSurgicalTechniques')}</span>
                   </li>
                 </ul>
               </div>
@@ -209,15 +209,15 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <ShieldCheck className="w-5 h-5 text-yellow-400" />
               </div>
               <div className="text-sm font-medium text-slate-300 w-full">
-                <span className="text-white font-bold block mb-2">Proven Track Record</span>
+                <span className="text-white font-bold block mb-2">{t('trust.provenTrackRecord')}</span>
                 <ul className="space-y-1.5 text-slate-400 text-xs">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-yellow-400 shrink-0 mt-0.5"/> 
-                    <span className="leading-tight">High clinical success rates</span>
+                    <span className="leading-tight">{t('trust.highSuccessRates')}</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-yellow-400 shrink-0 mt-0.5"/> 
-                    <span className="leading-tight">Patient-centered care</span>
+                    <span className="leading-tight">{t('trust.patientCenteredCare')}</span>
                   </li>
                 </ul>
               </div>
@@ -430,7 +430,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             )}
             {/* For International Patients Section (Static) */}
             <section id="international" className="scroll-mt-32 mt-12">
-              <SectionHeader title="For International Patients" />
+              <SectionHeader title={t('forInternationalPatients')} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-4">

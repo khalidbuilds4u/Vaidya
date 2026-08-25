@@ -439,7 +439,20 @@
       ]
     },
     "related": "Related Doctors",
-    "experienceShort": "{years}+ Years Exp."
+    "experienceShort": "{years}+ Years Exp.",
+    "forInternationalPatients": "For International Patients",
+    "trust": {
+      "highlyExperienced": "Highly Experienced",
+      "thousandsOfCases": "Thousands of successful cases",
+      "yearsOfPractice": "{years}+ Years of practice",
+      "decadesOfExpertise": "Decades of expertise",
+      "boardCertified": "Board-certified specialist",
+      "specializedFocus": "Specialized Focus",
+      "advancedSurgicalTechniques": "Advanced surgical techniques",
+      "provenTrackRecord": "Proven Track Record",
+      "highSuccessRates": "High clinical success rates",
+      "patientCenteredCare": "Patient-centered care"
+    }
   },
   "TreatmentsPage": {
     "tag": "Advanced Clinical Procedures",
