@@ -105,7 +105,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         <div className="bg-[#123654] text-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden">
           
           {/* Top Section */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start relative z-10 w-full mb-10">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-10">
             {/* Image */}
             <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-white shadow-xl border-4 border-white/20 shrink-0 relative">
               <img 
@@ -116,8 +116,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             </div>
 
             {/* Info */}
-            <div className="flex-1 flex flex-col justify-center space-y-3 lg:pt-2">
-              <div className="flex flex-col xl:flex-row xl:items-center items-start gap-3">
+            <div className="flex-1 flex flex-col items-center lg:items-start justify-center space-y-3 lg:pt-2">
+              <div className="flex flex-col xl:flex-row xl:items-center items-center lg:items-start gap-3">
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white">
                   {getTranslation(doctor, 'name', locale)}
                 </h1>
@@ -126,14 +126,14 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 </span>
               </div>
               
-              <p className="text-sm sm:text-base text-slate-300 font-medium flex items-center gap-2 flex-wrap">
+              <p className="text-sm sm:text-base text-slate-300 font-medium flex items-center justify-center lg:justify-start gap-2 flex-wrap">
                 <span>{getTranslation(doctor, 'designation', locale) || getTranslation(doctor.specialty, 'name', locale)}</span>
                 <span className="text-slate-500">•</span>
                 <span>{getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}</span>
               </p>
 
               {/* Pill Badges */}
-              <div className="flex flex-wrap gap-2.5 pt-2">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-2">
                 <span className="px-3 py-1.5 rounded-full border border-yellow-500/40 text-yellow-500 text-xs font-semibold bg-yellow-500/10">
                   {getTranslation(doctor.specialty, 'name', locale)}
                 </span>
@@ -570,11 +570,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   key={rd.id} 
                   className="group bg-white rounded-2xl p-5 border border-slate-200 hover:border-primary/40 hover:shadow-lg transition-all flex flex-col items-center text-center min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start"
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm relative">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm bg-white relative">
                     <img 
-                      src={rd.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"} 
+                      src={(rd.imageUrl && rd.imageUrl.trim() !== "") ? rd.imageUrl : "/images/doctor-fallback.png"} 
                       alt={getTranslation(rd, 'name', locale)} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" 
+                      className="w-full h-full object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-500" 
                     />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors line-clamp-1">{getTranslation(rd, 'name', locale)}</h4>
