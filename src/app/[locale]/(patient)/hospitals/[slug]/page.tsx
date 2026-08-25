@@ -35,6 +35,8 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
       city: true,
       specialties: true
     }
+  });
+
   if (!hospital) notFound();
   if (!hospital.isPublished && !isAdmin) notFound();
 

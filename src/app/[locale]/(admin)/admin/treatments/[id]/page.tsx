@@ -277,7 +277,6 @@ export default async function TreatmentEditor({
 
 
 
-          </div>
 
           <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
