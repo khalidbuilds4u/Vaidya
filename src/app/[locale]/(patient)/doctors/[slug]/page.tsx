@@ -258,13 +258,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="qualifications" className="scroll-mt-32">
                 <SectionHeader title={t('qualifications')} />
                 <div className="space-y-4">
-                  {doctor.medicalQualifications.map((q, idx) => (
+                  {(getTranslation(doctor, 'medicalQualifications', locale) || doctor.medicalQualifications).map((qual: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
                       <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors">
                         <GraduationCap className="w-5 h-5 text-slate-600 group-hover:text-primary transition-colors" />
                       </div>
                       <div className="flex flex-col pt-0.5">
-                        <span className="text-[15px] font-bold text-slate-900 leading-snug">{q}</span>
+                        <span className="text-[15px] font-bold text-slate-900 leading-snug">{qual}</span>
                       </div>
                     </div>
                   ))}
@@ -277,7 +277,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="experience" className="scroll-mt-32">
                 <SectionHeader title={t('professionalExperience')} />
                 <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:inset-y-2 before:left-[11px] sm:before:left-[15px] before:w-px before:bg-slate-200">
-                  {doctor.professionalExperience.map((exp, idx) => (
+                  {(getTranslation(doctor, 'professionalExperience', locale) || doctor.professionalExperience).map((exp: string, idx: number) => (
                     <div key={idx} className="relative">
                       {/* Timeline Node */}
                       <div className="absolute -left-[29px] sm:-left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-white bg-primary shadow-sm" />
@@ -295,7 +295,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="expertise" className="scroll-mt-32">
                 <SectionHeader title={t('areasOfExpertise')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {doctor.areasOfExpertise.map((item, idx) => (
+                  {(getTranslation(doctor, 'areasOfExpertise', locale) || doctor.areasOfExpertise).map((item: string, idx: number) => (
                     <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 bg-white hover:border-primary/30 transition-colors">
                       <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center shrink-0">
                         <Stethoscope className="w-4 h-4 text-primary" />
@@ -312,7 +312,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="treatments" className="scroll-mt-32">
                 <SectionHeader title={t('treatmentsAndProcedures')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  {doctor.allTreatments.map((treatment, idx) => (
+                  {(getTranslation(doctor, 'allTreatments', locale) || doctor.allTreatments).map((treatment: string, idx: number) => (
                     <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 bg-white hover:border-primary/40 hover:shadow-sm transition-all cursor-pointer group">
                       <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-primary transition-colors shrink-0" />
                       <span className="text-[14px] font-medium text-slate-700 group-hover:text-primary transition-colors">{treatment}</span>
@@ -327,7 +327,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="interests" className="scroll-mt-32">
                 <SectionHeader title={t('specialInterests')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {doctor.specialInterests.map((interest, idx) => (
+                  {(getTranslation(doctor, 'specialInterests', locale) || doctor.specialInterests).map((interest: string, idx: number) => (
                     <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 bg-white hover:border-primary/30 transition-colors">
                       <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
                         <Zap className="w-4 h-4 text-orange-500" />
@@ -344,7 +344,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="fellowships" className="scroll-mt-32">
                 <SectionHeader title={t('fellowshipsAndTraining')} />
                 <div className="space-y-4">
-                  {doctor.fellowshipsAndTraining.map((item, idx) => (
+                  {(getTranslation(doctor, 'fellowshipsAndTraining', locale) || doctor.fellowshipsAndTraining).map((item: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
                       <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
                         {String(idx + 1).padStart(2, '0')}
@@ -363,7 +363,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="research" className="scroll-mt-32">
                 <SectionHeader title={t('researchPublications')} />
                 <div className="space-y-4">
-                  {doctor.researchPublications.map((item, idx) => (
+                  {(getTranslation(doctor, 'researchPublications', locale) || doctor.researchPublications).map((item: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
                       <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
                         {String(idx + 1).padStart(2, '0')}
@@ -382,7 +382,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="awards" className="scroll-mt-32">
                 <SectionHeader title={t('awardsRecognitions')} />
                 <div className="space-y-4">
-                  {doctor.awardsRecognitions.map((award, idx) => (
+                  {(getTranslation(doctor, 'awardsRecognitions', locale) || doctor.awardsRecognitions).map((award: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-yellow-500/30 hover:shadow-md transition-all group">
                       <div className="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center shrink-0 border border-yellow-100 group-hover:bg-yellow-100/50 transition-colors">
                         <Award className="w-5 h-5 text-yellow-600" />
@@ -415,7 +415,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <section id="why" className="scroll-mt-32">
                 <SectionHeader title={t('whyChooseThisDoctor')} />
                 <div className="space-y-4">
-                  {doctor.whyChooseThisDoctor.map((item, idx) => (
+                  {(getTranslation(doctor, 'whyChooseThisDoctor', locale) || doctor.whyChooseThisDoctor).map((item: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
                       <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
                         {String(idx + 1).padStart(2, '0')}

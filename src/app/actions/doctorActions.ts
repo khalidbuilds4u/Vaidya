@@ -54,7 +54,19 @@ export async function createDoctor(formData: FormData) {
   const finalTranslations = await buildTranslations({
     name,
     qualifications,
-    biography
+    biography,
+    medicalQualifications,
+    professionalExperience,
+    specialInterests,
+    careerHighlights,
+    researchFellowships,
+    awardsRecognitions,
+    allTreatments,
+    areasOfExpertise,
+    fellowshipsAndTraining,
+    researchPublications,
+    professionalMemberships,
+    whyChooseThisDoctor
   }, manualTranslations);
 
   await prisma.doctor.create({
@@ -145,7 +157,19 @@ export async function updateDoctor(id: string, formData: FormData) {
   const finalTranslations = await buildTranslations({
     name,
     qualifications,
-    biography
+    biography,
+    medicalQualifications,
+    professionalExperience,
+    specialInterests,
+    careerHighlights,
+    researchFellowships,
+    awardsRecognitions,
+    allTreatments,
+    areasOfExpertise,
+    fellowshipsAndTraining,
+    researchPublications,
+    professionalMemberships,
+    whyChooseThisDoctor
   }, existingTranslations);
 
   await prisma.doctor.update({

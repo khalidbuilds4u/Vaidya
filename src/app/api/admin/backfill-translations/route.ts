@@ -57,15 +57,26 @@ export async function GET(request: Request) {
     if (!type || type === 'doctor') {
       const doctors = await prisma.doctor.findMany();
       for (const d of doctors) {
-        if (needsTranslation(d)) {
-          const trans = await buildTranslations({
-            name: d.name,
-            qualifications: d.qualifications,
-            biography: d.biography
-          }, d.translations);
-          await prisma.doctor.update({ where: { id: d.id }, data: { translations: trans } });
-          updatedCount++;
-        }
+        console.log("Translating doctor:", d.name);
+        const trans = await buildTranslations({
+          name: d.name,
+          qualifications: d.qualifications,
+          biography: d.biography,
+          medicalQualifications: d.medicalQualifications,
+          professionalExperience: d.professionalExperience,
+          specialInterests: d.specialInterests,
+          careerHighlights: d.careerHighlights,
+          researchFellowships: d.researchFellowships,
+          awardsRecognitions: d.awardsRecognitions,
+          allTreatments: d.allTreatments,
+          areasOfExpertise: d.areasOfExpertise,
+          fellowshipsAndTraining: d.fellowshipsAndTraining,
+          researchPublications: d.researchPublications,
+          professionalMemberships: d.professionalMemberships,
+          whyChooseThisDoctor: d.whyChooseThisDoctor
+        }, d.translations);
+        await prisma.doctor.update({ where: { id: d.id }, data: { translations: trans } });
+        updatedCount++;
       }
     }
 
