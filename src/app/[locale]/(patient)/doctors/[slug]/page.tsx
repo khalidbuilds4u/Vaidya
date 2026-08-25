@@ -130,8 +130,6 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <span>{getTranslation(doctor, 'designation', locale) || getTranslation(doctor.specialty, 'name', locale)}</span>
                 <span className="text-slate-500">•</span>
                 <span>{getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}</span>
-                <span className="text-slate-500">•</span>
-                <span>JCI & NABH Accredited</span>
               </p>
 
               {/* Pill Badges */}
