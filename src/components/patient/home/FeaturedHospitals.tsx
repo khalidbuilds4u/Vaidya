@@ -62,8 +62,11 @@ export async function FeaturedHospitals() {
               city={getTranslation(hospital.city, 'name', locale)}
               state={hospital.city.state || undefined}
               image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
+              description={getTranslation(hospital, 'description', locale) || hospital.description || undefined}
               accreditations={hospital.accreditations}
               beds={hospital.beds || 0}
+              established={hospital.established || undefined}
+              airportDistance={hospital.airportDistance || undefined}
               specialties={hospital.specialties.map(s => getTranslation(s, 'name', locale))}
               hasInternationalSupport={hospital.internationalServices.length > 0}
             />
