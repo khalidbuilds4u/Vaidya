@@ -111,7 +111,7 @@ export function HospitalCard({
           <div className="flex-1"></div>
           
           {/* Bottom Row: Actions */}
-          <div className="flex flex-row items-center justify-end gap-1.5 sm:gap-2 w-full mt-2 pt-2">
+          <div className="flex flex-row items-center justify-start gap-1.5 sm:gap-2 w-full mt-2 pt-2">
             <EnquiryForm>
               <Button variant="outline" className="flex-1 sm:flex-none rounded-md border-[#0f5132] text-[#0f5132] hover:bg-[#0f5132]/5 font-bold text-[9px] sm:text-[11px] px-2 sm:px-4 h-7 sm:h-8 whitespace-nowrap">
                 {t('freeQuote')}
