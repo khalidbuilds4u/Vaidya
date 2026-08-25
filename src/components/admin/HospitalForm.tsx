@@ -26,8 +26,8 @@ type HospitalFormProps = {
     excellenceInCare?: string[];
     multiSpecialties?: string[];
     hospitalFacilities?: any;
-    specialties?: { id: string; name: string }[];
     translations?: any;
+    isPublished?: boolean;
   };
   cities: { id: string; name: string }[];
   specialties: { id: string; name: string }[];
@@ -58,6 +58,16 @@ export function HospitalForm({
             </p>
           </div>
         </div>
+        {!isNew && initialData?.slug && (
+          <div className="mt-4 flex items-center justify-end gap-2">
+            {initialData.isPublished === false && (
+              <span className="px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/20">Draft</span>
+            )}
+            <Link href={`/en/hospitals/${initialData.slug}`} target="_blank">
+              <button type="button" className="px-4 py-2 text-sm font-semibold rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 shadow-sm transition-all">Preview on Website</button>
+            </Link>
+          </div>
+        )}
       </div>
 
       <form action={action} className="p-6 sm:p-8 space-y-8">
@@ -302,19 +312,29 @@ export function HospitalForm({
           </div>
         </div>
 
-        <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">
-          <Link href="/admin/hospitals">
-            <button
-              type="button"
-              className="px-6 py-2.5 rounded-xl font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
-            >
-              Cancel
-            </button>
-          </Link>
-          <SubmitButton>
-            <Save className="w-4 h-4 mr-2 inline-block" />
-            {isNew ? "Create Hospital" : "Save Changes"}
-          </SubmitButton>
+        <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+          <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+            <label className="text-sm font-semibold text-slate-900">Visibility Status:</label>
+            <select name="isPublished" defaultValue={initialData?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary">
+              <option value="true">Published (Public)</option>
+              <option value="false">Draft (Hidden)</option>
+            </select>
+          </div>
+          
+          <div className="flex items-center gap-3">
+            <Link href="/admin/hospitals">
+              <button
+                type="button"
+                className="px-6 py-2.5 rounded-xl font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 transition-colors"
+              >
+                Cancel
+              </button>
+            </Link>
+            <SubmitButton>
+              <Save className="w-4 h-4 mr-2 inline-block" />
+              {isNew ? "Create Hospital" : "Save Changes"}
+            </SubmitButton>
+          </div>
         </div>
       </form>
     </div>

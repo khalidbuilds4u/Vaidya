@@ -12,6 +12,7 @@ import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 import { prisma } from '@/lib/prisma';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { auth } from '@/lib/auth';
 
 export const revalidate = 3600;
 
@@ -270,6 +271,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
   const t = await getTranslations('TreatmentDetail');
+  const session = await auth();
+  const isAdmin = (session?.user as any)?.role === 'ADMIN';
   
   // 1. Fetch real treatment from DB
   const dbTreatment = await prisma.treatment.findUnique({
@@ -280,10 +283,16 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   if (!dbTreatment) {
     notFound();
   }
+  if (!dbTreatment.isPublished && !isAdmin) {
+    notFound();
+  }
 
   // 2. Fetch Doctors in this specialty from DB
   const realDoctors = await prisma.doctor.findMany({
-    where: { specialtyId: dbTreatment.specialtyId },
+    where: { 
+      specialtyId: dbTreatment.specialtyId,
+      isPublished: true
+    },
     include: { hospital: { include: { city: true } }, specialty: true },
     take: 3
   });
@@ -291,6 +300,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   // 3. Fetch Hospitals that have doctors in this specialty from DB
   const realHospitals = await prisma.hospital.findMany({
     where: {
+      isPublished: true,
       doctors: {
         some: { specialtyId: dbTreatment.specialtyId }
       }

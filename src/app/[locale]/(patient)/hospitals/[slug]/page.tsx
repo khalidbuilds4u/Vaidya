@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { auth } from '@/lib/auth';
 
 export const revalidate = 3600;
 
@@ -25,6 +26,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function HospitalProfilePage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const t = await getTranslations('HospitalDetail');
+  const session = await auth();
+  const isAdmin = (session?.user as any)?.role === 'ADMIN';
   
   const hospital = await prisma.hospital.findUnique({
     where: { slug },
@@ -32,9 +35,8 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
       city: true,
       specialties: true
     }
-  });
-
   if (!hospital) notFound();
+  if (!hospital.isPublished && !isAdmin) notFound();
 
   const heroImage = hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop";
 

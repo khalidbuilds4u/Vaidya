@@ -111,6 +111,7 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
     procedureDetails: parseTextArray(formData.get("procedureDetails")),
     
     faqs: parseFaqs(formData.get("faqs")),
+    isPublished: formData.get("isPublished") === "true",
     translations: finalTranslations ? finalTranslations : undefined,
   };
 }

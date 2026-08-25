@@ -27,7 +27,7 @@ export default async function DoctorsDirectory({
   const { search, city, specialty } = await searchParams;
   const t = await getTranslations('DoctorsPage');
 
-  const whereClause: any = {};
+  const whereClause: any = { isPublished: true };
   if (search) {
     whereClause.name = { contains: search, mode: 'insensitive' };
   }

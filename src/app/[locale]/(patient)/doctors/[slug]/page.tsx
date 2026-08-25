@@ -9,6 +9,7 @@ import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { ShareButtons } from '@/components/patient/ShareButtons';
 import { MobileTOC } from '@/components/patient/MobileTOC';
+import { auth } from '@/lib/auth';
 
 const SectionHeader = ({ title }: { title: string }) => (
   <div className="flex items-center gap-4 mb-8">
@@ -37,6 +38,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 export default async function DoctorProfilePage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const { slug, locale } = await params;
   const t = await getTranslations('DoctorDetail');
+  const session = await auth();
+  const isAdmin = (session?.user as any)?.role === 'ADMIN';
   
   const doctor = await prisma.doctor.findUnique({
     where: { slug },
@@ -51,12 +54,14 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
   });
 
   if (!doctor) notFound();
+  if (!doctor.isPublished && !isAdmin) notFound();
 
   // Fetch related doctors from the same specialty
   const relatedDoctors = await prisma.doctor.findMany({
     where: {
       specialtyId: doctor.specialtyId,
       id: { not: doctor.id },
+      isPublished: true,
     },
     include: {
       specialty: true,

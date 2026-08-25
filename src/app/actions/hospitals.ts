@@ -59,6 +59,7 @@ export async function createHospital(formData: FormData) {
 
   const established = parseNumber(formData.get("established"));
   const airportDistance = parseNumber(formData.get("airportDistance"));
+  const isPublished = formData.get("isPublished") === "true";
   
   const parseJsonArray = (name: string) => {
     const val = parseString(formData.get(name));
@@ -168,6 +169,7 @@ export async function createHospital(formData: FormData) {
       excellenceInCare,
       multiSpecialties,
       hospitalFacilities,
+      isPublished,
       cityId,
       translations: finalTranslations ? finalTranslations : undefined,
       specialties: {
@@ -221,6 +223,7 @@ export async function updateHospital(id: string, formData: FormData) {
 
   const established = parseNumber(formData.get("established"));
   const airportDistance = parseNumber(formData.get("airportDistance"));
+  const isPublished = formData.get("isPublished") === "true";
   
   const parseJsonArray = (name: string) => {
     const val = parseString(formData.get(name));
@@ -338,6 +341,7 @@ export async function updateHospital(id: string, formData: FormData) {
       excellenceInCare,
       multiSpecialties,
       hospitalFacilities,
+      isPublished,
       cityId: cityId || undefined,
       translations: finalTranslations ? finalTranslations : undefined,
       specialties: {

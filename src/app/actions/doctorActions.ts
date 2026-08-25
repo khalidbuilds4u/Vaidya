@@ -15,6 +15,7 @@ export async function createDoctor(formData: FormData) {
   const hospitalId = formData.get("hospitalId") as string;
   const specialtyId = formData.get("specialtyId") as string;
   const cityId = formData.get("cityId") as string || null;
+  const isPublished = formData.get("isPublished") === "true";
 
   const parseArray = (key: string) => {
     const val = formData.get(key) as string;
@@ -85,6 +86,7 @@ export async function createDoctor(formData: FormData) {
       hospitalId,
       specialtyId,
       cityId,
+      isPublished,
       medicalQualifications,
       professionalExperience,
       specialInterests,
@@ -116,6 +118,7 @@ export async function updateDoctor(id: string, formData: FormData) {
   const hospitalId = formData.get("hospitalId") as string;
   const specialtyId = formData.get("specialtyId") as string;
   const cityId = formData.get("cityId") as string || null;
+  const isPublished = formData.get("isPublished") === "true";
 
   const parseArray = (key: string) => {
     const val = formData.get(key) as string;
@@ -193,6 +196,7 @@ export async function updateDoctor(id: string, formData: FormData) {
       hospitalId,
       specialtyId,
       cityId,
+      isPublished,
       medicalQualifications,
       professionalExperience,
       specialInterests,

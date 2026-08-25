@@ -81,6 +81,7 @@ model Treatment {
   recovery          String?
   risks             String?
   translations      Json?
+  isPublished       Boolean        @default(true)
   specialtyId       String
   causesAndSymptoms String[]
   diagnosis         String[]
@@ -117,6 +118,7 @@ model Hospital {
   excellenceInCare      String[]       @default([])
   multiSpecialties      String[]       @default([])
   hospitalFacilities    Json?
+  isPublished           Boolean        @default(true)
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
   imageUrl              String?
@@ -159,6 +161,7 @@ model Doctor {
   experienceYears        Int?
   biography              String?
   translations           Json?
+  isPublished            Boolean        @default(true)
   imageUrl               String?
   hospitalId             String
   specialtyId            String
@@ -196,6 +199,7 @@ model PatientCase {
   status           CaseStatus          @default(NEW)
   managerId        String?
   translatorId     String?
+  translations      Json?
   createdAt        DateTime            @default(now())
   updatedAt        DateTime            @updatedAt
   documents        CaseDocument[]

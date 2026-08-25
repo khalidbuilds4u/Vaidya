@@ -62,6 +62,16 @@ export default async function DoctorEditor({
               : `Updating details for ${doctor?.name}`}
           </p>
         </div>
+        {!isNew && doctor && (
+          <div className="ml-auto flex items-center gap-2">
+            {!doctor.isPublished && (
+              <span className="px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/20">Draft</span>
+            )}
+            <Link href={`/en/doctors/${doctor.slug}`} target="_blank">
+              <Button variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20">Preview on Website</Button>
+            </Link>
+          </div>
+        )}
       </div>
 
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -321,20 +331,32 @@ export default async function DoctorEditor({
 
 
 
-          <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">
-            <Link href="/admin/doctors">
-              <Button
-                type="button"
-                variant="outline"
-                className="rounded-xl h-11 px-6 font-semibold"
-              >
-                Cancel
-              </Button>
-            </Link>
-            <SubmitButton>
-              <Save className="w-4 h-4 mr-2 inline-block" />
-              {isNew ? "Create Doctor" : "Save Changes"}
-            </SubmitButton>
+          </div>
+
+          <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+            <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <label className="text-sm font-semibold text-slate-900">Visibility Status:</label>
+              <select name="isPublished" defaultValue={doctor?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary">
+                <option value="true">Published (Public)</option>
+                <option value="false">Draft (Hidden)</option>
+              </select>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <Link href="/admin/doctors">
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="rounded-xl h-11 px-6 font-semibold"
+                >
+                  Cancel
+                </Button>
+              </Link>
+              <SubmitButton>
+                <Save className="w-4 h-4 mr-2 inline-block" />
+                {isNew ? "Save Doctor" : "Save Changes"}
+              </SubmitButton>
+            </div>
           </div>
         </form>
       </div>
