@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import { MobileTOC } from '@/components/patient/MobileTOC';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { ShareButtons } from '@/components/patient/ShareButtons';
+import { MobileTOC } from '@/components/patient/MobileTOC';
 
 const SectionHeader = ({ title }: { title: string }) => (
   <div className="flex items-center gap-4 mb-8">
@@ -522,20 +523,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
                 {t('share.title')}
               </h3>
-              <div className="space-y-3 mt-auto">
-                <button className="w-full flex items-center justify-center gap-2 bg-green-50 text-green-600 font-bold py-3 rounded-xl hover:bg-green-100 transition-colors text-sm border border-green-100">
-                  <MessageCircle className="w-4 h-4" /> {t('share.whatsapp')}
-                </button>
-                <button className="w-full flex items-center justify-center gap-2 bg-blue-50 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-100 transition-colors text-sm border border-blue-100">
-                  <Send className="w-4 h-4" /> {t('share.telegram')}
-                </button>
-                <button className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl hover:bg-indigo-100 transition-colors text-sm border border-indigo-100">
-                  {t('share.facebook')}
-                </button>
-                <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm mt-2 shadow-md">
-                  <LinkIcon className="w-4 h-4" /> {t('share.copy')}
-                </button>
-              </div>
+              <ShareButtons 
+                whatsappText={t('share.whatsapp')}
+                telegramText={t('share.telegram')}
+                facebookText={t('share.facebook')}
+                copyText={t('share.copy')}
+                doctorName={getTranslation(doctor, 'name', locale)}
+              />
             </div>
           </div>
         </div>
