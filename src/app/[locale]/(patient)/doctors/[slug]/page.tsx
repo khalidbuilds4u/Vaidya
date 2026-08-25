@@ -337,17 +337,15 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Fellowships and Professional Training */}
+            {/* Fellowships and Professional Training — Timeline Style */}
             {doctor.fellowshipsAndTraining.length > 0 && (
               <section id="fellowships" className="scroll-mt-32">
                 <SectionHeader title={t('fellowshipsAndTraining')} />
-                <div className="space-y-4">
+                <div className="relative pl-8 border-l-2 border-primary/20 space-y-6">
                   {(getTranslation(doctor, 'fellowshipsAndTraining', locale) || doctor.fellowshipsAndTraining).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
-                      <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
-                        {String(idx + 1).padStart(2, '0')}
-                      </div>
-                      <div className="flex flex-col pt-2">
+                    <div key={idx} className="relative group">
+                      <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full bg-white border-[3px] border-primary group-hover:bg-primary group-hover:border-primary transition-all duration-300" />
+                      <div className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all">
                         <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
                       </div>
                     </div>
@@ -356,19 +354,17 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Research and Publications */}
+            {/* Research and Publications — Checkmark Style */}
             {doctor.researchPublications.length > 0 && (
               <section id="research" className="scroll-mt-32">
                 <SectionHeader title={t('researchPublications')} />
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {(getTranslation(doctor, 'researchPublications', locale) || doctor.researchPublications).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
-                      <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
-                        {String(idx + 1).padStart(2, '0')}
+                    <div key={idx} className="flex gap-3 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
+                      <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-200 transition-colors">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                       </div>
-                      <div className="flex flex-col pt-2">
-                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
-                      </div>
+                      <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -408,17 +404,18 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Why Choose This Doctor */}
+            {/* Why Choose This Doctor — Gradient Accent Cards */}
             {doctor.whyChooseThisDoctor.length > 0 && (
               <section id="why" className="scroll-mt-32">
                 <SectionHeader title={t('whyChooseThisDoctor')} />
-                <div className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'whyChooseThisDoctor', locale) || doctor.whyChooseThisDoctor).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
-                      <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
-                        {String(idx + 1).padStart(2, '0')}
-                      </div>
-                      <div className="flex flex-col pt-2">
+                    <div key={idx} className="relative p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-primary/30 transition-all group overflow-hidden">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 rounded-l-2xl" />
+                      <div className="pl-4 flex items-start gap-3">
+                        <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
+                          <Star className="w-4 h-4 text-primary" />
+                        </div>
                         <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
                       </div>
                     </div>
