@@ -436,32 +436,32 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
                     <MessageSquare className="w-5 h-5 text-slate-500" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">Virtual Consultation</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Online second opinion and pre-travel consultation before you book your journey to India.</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.virtualConsultation.title')}</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.virtualConsultation.desc')}</p>
                 </div>
                 
                 <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
                     <Plane className="w-5 h-5 text-blue-500" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">Medical Visa Support</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Invitation letters and full documentation assistance for your medical visa application.</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.visaSupport.title')}</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.visaSupport.desc')}</p>
                 </div>
 
                 <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
                     <ClipboardList className="w-5 h-5 text-orange-600" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">Transparent Cost Estimate</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Detailed treatment cost provided upfront. No hidden charges, no surprises on arrival.</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.costEstimate.title')}</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.costEstimate.desc')}</p>
                 </div>
 
                 <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
                   <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
                     <Stethoscope className="w-5 h-5 text-emerald-600" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">Post-Op Follow-Up</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Structured rehabilitation plan and remote follow-up care after you return home.</p>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.postOp.title')}</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.postOp.desc')}</p>
                 </div>
               </div>
             </section>

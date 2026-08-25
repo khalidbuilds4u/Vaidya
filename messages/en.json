@@ -426,17 +426,35 @@
     },
     "whyChooseUs": {
       "title": "Why Choose Us?",
-      "subtitle": "There are multiple ways we lighten your burdens",
+      "subtitle": "Multiple ways we ease your burden",
       "benefits": [
-        "Patient room upgrade",
-        "Stress-Free Airport Transfers",
-        "Free City Tour",
-        "Free Teleconsultations",
+        "Patient Room Upgrade",
+        "Stress-Free Free Airport Transfer",
+        "Complimentary City Tour",
+        "Free Tele-consultations",
         "Enjoy a Complimentary Hotel Stay",
-        "Priority Appointments for Swift Care",
-        "Tailored Care to Accelerate Recovery",
-        "Round-the-Clock Patient Care"
+        "Priority Appointments for Prompt Care",
+        "Tailored Care for Faster Recovery",
+        "Round-the-clock Patient Care"
       ]
+    },
+    "international": {
+      "virtualConsultation": {
+        "title": "Virtual Consultation",
+        "desc": "Online second opinion and pre-travel consultation before you book your journey to India."
+      },
+      "visaSupport": {
+        "title": "Medical Visa Support",
+        "desc": "Invitation letters and full documentation assistance for your medical visa application."
+      },
+      "costEstimate": {
+        "title": "Transparent Cost Estimate",
+        "desc": "Detailed treatment cost provided upfront. No hidden charges, no surprises on arrival."
+      },
+      "postOp": {
+        "title": "Post-Op Follow-Up",
+        "desc": "Structured rehabilitation plan and remote follow-up care after you return home."
+      }
     },
     "related": "Related Doctors",
     "experienceShort": "{years}+ Years Exp.",

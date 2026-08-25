@@ -12,6 +12,7 @@ export async function translateText(text: string | null | undefined, toLanguage 
   
   try {
     const result = await translate(text, { from: 'en', to: toLanguage });
+    console.log(`Successfully translated "${text.substring(0, 20)}..." to:`, result);
     return result;
   } catch (error) {
     console.error(`Failed to translate text: "${text.substring(0, 50)}..."`, error);
@@ -50,12 +51,14 @@ export async function buildTranslations(
       // Only translate if the field isn't already manually provided for this language
       if (!translations[lang][field] || (Array.isArray(translations[lang][field]) && translations[lang][field].length === 0)) {
         if (Array.isArray(text)) {
-          // Translate each string in the array concurrently
-          const translatedArray = await Promise.all(
-            text.map(item => translateText(item, lang))
-          );
-          // Filter out any undefined results
-          const validTranslations = translatedArray.filter(Boolean);
+          // Translate each string in the array sequentially to avoid rate limits
+          const validTranslations = [];
+          for (const item of text) {
+            const translated = await translateText(item, lang);
+            if (translated) validTranslations.push(translated);
+            // Add a small 200ms delay to avoid rate limiting
+            await new Promise(resolve => setTimeout(resolve, 200));
+          }
           if (validTranslations.length > 0) {
             translations[lang][field] = validTranslations;
           }
