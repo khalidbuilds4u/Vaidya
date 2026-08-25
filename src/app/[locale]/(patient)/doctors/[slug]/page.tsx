@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
-import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart } from 'lucide-react';
+import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { MobileTOC } from '@/components/patient/MobileTOC';
@@ -161,6 +161,37 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           </div>
 
 
+
+          {/* Key Trust Markers */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 mt-4 border-t border-slate-700/50 relative z-10">
+            <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              </div>
+              <div className="text-sm font-medium text-slate-300">
+                <span className="text-white font-bold block">Verified Expert</span>
+                Top-rated specialist
+              </div>
+            </div>
+            <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                <Globe2 className="w-5 h-5 text-blue-400" />
+              </div>
+              <div className="text-sm font-medium text-slate-300">
+                <span className="text-white font-bold block">Global Care</span>
+                International support
+              </div>
+            </div>
+            <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center shrink-0">
+                <Award className="w-5 h-5 text-yellow-400" />
+              </div>
+              <div className="text-sm font-medium text-slate-300">
+                <span className="text-white font-bold block">Accredited</span>
+                JCI & NABH standards
+              </div>
+            </div>
+          </div>
 
           {/* Mobile Enquiry Button */}
           <div className="lg:hidden mt-8 pt-6 border-t border-slate-700/50 relative z-10">
