@@ -107,11 +107,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           {/* Top Section */}
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start relative z-10 w-full mb-10">
             {/* Image */}
-            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-slate-100 shadow-xl border-4 border-white/10 shrink-0 relative">
+            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-white shadow-xl border-4 border-white/20 shrink-0 relative">
               <img 
                 src={profileImage} 
                 alt={doctor.name}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover scale-110"
               />
             </div>
 
