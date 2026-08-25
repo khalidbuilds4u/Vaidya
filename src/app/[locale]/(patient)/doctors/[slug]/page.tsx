@@ -160,21 +160,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             </div>
           </div>
 
-          {/* Stats Row */}
-          <div className="grid grid-cols-3 divide-x divide-slate-700/50 border-t border-slate-700/50 pt-8 mt-2 relative z-10 text-center">
-            <div className="flex flex-col items-center justify-center">
-              <div className="text-2xl sm:text-4xl font-bold text-white mb-1">5,000<span className="text-yellow-500 text-xl align-top">+</span></div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium">Successful<br/>Surgeries</div>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="text-2xl sm:text-4xl font-bold text-white mb-1">15,000<span className="text-yellow-500 text-xl align-top">+</span></div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium">Patients<br/>Treated</div>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <div className="text-2xl sm:text-4xl font-bold text-white mb-1">40<span className="text-yellow-500 text-xl align-top">+</span></div>
-              <div className="text-xs sm:text-sm text-slate-400 font-medium">Countries<br/>Served</div>
-            </div>
-          </div>
+
 
           {/* Mobile Enquiry Button */}
           <div className="lg:hidden mt-8 pt-6 border-t border-slate-700/50 relative z-10">
