@@ -417,29 +417,6 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </div>
             </section>
 
-            {/* Book Consultation Banner */}
-            <div className="mt-12 bg-[#123654] rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-lg border border-slate-700">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
-              
-              <div className="flex-1 text-center md:text-left relative z-10">
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-2">
-                  Book a consultation with {getTranslation(doctor, 'name', locale)}
-                </h3>
-                <p className="text-[13px] sm:text-sm text-slate-300 font-medium">
-                  In-person & virtual appointments available • {getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}
-                </p>
-              </div>
-
-              <EnquiryForm>
-                <Button className="w-full md:w-auto bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-6 h-12 transition-all shadow-lg shrink-0 gap-2">
-                  <CalendarHeart className="w-4 h-4 text-red-500" /> Book Appointment
-                </Button>
-              </EnquiryForm>
-            </div>
-            
-            <div className="pt-8 mt-12 text-[11px] text-slate-400 border-t border-slate-100 max-w-3xl leading-relaxed">
-              {t('disclaimer')}
-            </div>
 
           </div>
 
@@ -461,26 +438,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 </nav>
               </div>
 
-              {/* Share Doctor */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
-                  {t('share.title')}
-                </h3>
-                <div className="space-y-3">
-                  <button className="w-full flex items-center justify-center gap-2 bg-green-50 text-green-600 font-bold py-3 rounded-xl hover:bg-green-100 transition-colors text-sm border border-green-100">
-                    <MessageCircle className="w-4 h-4" /> {t('share.whatsapp')}
-                  </button>
-                  <button className="w-full flex items-center justify-center gap-2 bg-blue-50 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-100 transition-colors text-sm border border-blue-100">
-                    <Send className="w-4 h-4" /> {t('share.telegram')}
-                  </button>
-                  <button className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl hover:bg-indigo-100 transition-colors text-sm border border-indigo-100">
-                    {t('share.facebook')}
-                  </button>
-                  <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm mt-2 shadow-md">
-                    <LinkIcon className="w-4 h-4" /> {t('share.copy')}
-                  </button>
-                </div>
-              </div>
+
 
               {/* Why Choose Us */}
               <div id="whyChooseUs" className="scroll-mt-32 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
@@ -505,6 +463,59 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
             </div>
           </div>
+
+        {/* Bottom CTA and Share Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 mb-12">
+          
+          <div className="lg:col-span-8 flex flex-col order-2 lg:order-1 justify-end">
+            {/* Book Consultation Banner */}
+            <div className="bg-[#123654] rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-lg border border-slate-700">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+              
+              <div className="flex-1 text-center md:text-left relative z-10">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-2">
+                  Book a consultation with {getTranslation(doctor, 'name', locale)}
+                </h3>
+                <p className="text-[13px] sm:text-sm text-slate-300 font-medium">
+                  In-person & virtual appointments available • {getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}
+                </p>
+              </div>
+
+              <EnquiryForm>
+                <Button className="w-full md:w-auto bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-6 h-12 transition-all shadow-lg shrink-0 gap-2">
+                  <CalendarHeart className="w-4 h-4 text-red-500" /> Book Appointment
+                </Button>
+              </EnquiryForm>
+            </div>
+            
+            <div className="pt-8 mt-8 text-[11px] text-slate-400 border-t border-slate-100 leading-relaxed">
+              {t('disclaimer')}
+            </div>
+          </div>
+
+          <div className="lg:col-span-4 order-1 lg:order-2">
+            {/* Share Doctor */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm h-full flex flex-col">
+              <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                {t('share.title')}
+              </h3>
+              <div className="space-y-3 mt-auto">
+                <button className="w-full flex items-center justify-center gap-2 bg-green-50 text-green-600 font-bold py-3 rounded-xl hover:bg-green-100 transition-colors text-sm border border-green-100">
+                  <MessageCircle className="w-4 h-4" /> {t('share.whatsapp')}
+                </button>
+                <button className="w-full flex items-center justify-center gap-2 bg-blue-50 text-blue-600 font-bold py-3 rounded-xl hover:bg-blue-100 transition-colors text-sm border border-blue-100">
+                  <Send className="w-4 h-4" /> {t('share.telegram')}
+                </button>
+                <button className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl hover:bg-indigo-100 transition-colors text-sm border border-indigo-100">
+                  {t('share.facebook')}
+                </button>
+                <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl hover:bg-slate-800 transition-colors text-sm mt-2 shadow-md">
+                  <LinkIcon className="w-4 h-4" /> {t('share.copy')}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         </div>
 
