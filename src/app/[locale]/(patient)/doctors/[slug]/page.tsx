@@ -143,9 +143,6 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">
                   English • Hindi
                 </span>
-                <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">
-                  {getTranslation(city, 'name', locale)}
-                </span>
               </div>
             </div>
 
