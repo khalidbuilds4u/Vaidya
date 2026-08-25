@@ -112,6 +112,19 @@ export default async function DoctorEditor({
 
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
+                Designation / Role
+              </label>
+              <input
+                type="text"
+                name="designation"
+                defaultValue={doctor?.designation || ""}
+                placeholder="e.g. Cardiologist, Senior Surgeon"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
                 Hospital Affiliation <span className="text-red-500">*</span>
               </label>
               <select

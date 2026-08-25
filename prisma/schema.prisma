@@ -143,6 +143,7 @@ model Doctor {
   name                   String
   slug                   String         @unique
   qualifications         String?
+  designation            String?
   medicalQualifications  String[]       @default([])
   professionalExperience String[]       @default([])
   areasOfExpertise       String[]       @default([])

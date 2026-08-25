@@ -127,7 +127,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </div>
               
               <p className="text-sm sm:text-base text-slate-300 font-medium flex items-center gap-2 flex-wrap">
-                <span>{getTranslation(doctor.specialty, 'name', locale)}</span>
+                <span>{getTranslation(doctor, 'designation', locale) || getTranslation(doctor.specialty, 'name', locale)}</span>
                 <span className="text-slate-500">•</span>
                 <span>{getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}</span>
                 <span className="text-slate-500">•</span>

@@ -8,6 +8,7 @@ import { buildTranslations } from "@/lib/translator";
 export async function createDoctor(formData: FormData) {
   const name = formData.get("name") as string;
   const qualifications = formData.get("qualifications") as string;
+  const designation = formData.get("designation") as string;
   const experienceYears = parseInt(formData.get("experienceYears") as string) || 0;
   const biography = formData.get("biography") as string;
   const imageUrl = formData.get("imageUrl") as string;
@@ -38,14 +39,16 @@ export async function createDoctor(formData: FormData) {
 
   const name_ar = formData.get("name_ar") as string;
   const qualifications_ar = formData.get("qualifications_ar") as string;
+  const designation_ar = formData.get("designation_ar") as string;
   const biography_ar = formData.get("biography_ar") as string;
 
   let manualTranslations = undefined;
-  if (name_ar || qualifications_ar || biography_ar) {
+  if (name_ar || qualifications_ar || designation_ar || biography_ar) {
     manualTranslations = {
       ar: {
         name: name_ar || undefined,
         qualifications: qualifications_ar || undefined,
+        designation: designation_ar || undefined,
         biography: biography_ar || undefined,
       }
     };
@@ -54,6 +57,7 @@ export async function createDoctor(formData: FormData) {
   const finalTranslations = await buildTranslations({
     name,
     qualifications,
+    designation,
     biography,
     medicalQualifications,
     professionalExperience,
@@ -74,6 +78,7 @@ export async function createDoctor(formData: FormData) {
       name,
       slug,
       qualifications,
+      designation,
       experienceYears,
       biography,
       imageUrl,
@@ -104,6 +109,7 @@ export async function createDoctor(formData: FormData) {
 export async function updateDoctor(id: string, formData: FormData) {
   const name = formData.get("name") as string;
   const qualifications = formData.get("qualifications") as string;
+  const designation = formData.get("designation") as string;
   const experienceYears = parseInt(formData.get("experienceYears") as string) || 0;
   const biography = formData.get("biography") as string;
   const imageUrl = formData.get("imageUrl") as string;
@@ -132,14 +138,16 @@ export async function updateDoctor(id: string, formData: FormData) {
 
   const name_ar = formData.get("name_ar") as string;
   const qualifications_ar = formData.get("qualifications_ar") as string;
+  const designation_ar = formData.get("designation_ar") as string;
   const biography_ar = formData.get("biography_ar") as string;
 
   let manualTranslations = undefined;
-  if (name_ar || qualifications_ar || biography_ar) {
+  if (name_ar || qualifications_ar || designation_ar || biography_ar) {
     manualTranslations = {
       ar: {
         name: name_ar || undefined,
         qualifications: qualifications_ar || undefined,
+        designation: designation_ar || undefined,
         biography: biography_ar || undefined,
       }
     };
@@ -157,6 +165,7 @@ export async function updateDoctor(id: string, formData: FormData) {
   const finalTranslations = await buildTranslations({
     name,
     qualifications,
+    designation,
     biography,
     medicalQualifications,
     professionalExperience,
@@ -177,6 +186,7 @@ export async function updateDoctor(id: string, formData: FormData) {
     data: {
       name,
       qualifications,
+      designation,
       experienceYears,
       biography,
       imageUrl,
