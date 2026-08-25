@@ -98,10 +98,10 @@ export function HospitalCard({
           <div className="flex-1"></div>
           
           {/* Bottom Row: Accreditations & Actions */}
-          <div className="flex flex-row items-end justify-between gap-2 mt-2 pt-2">
+          <div className="flex flex-col xl:flex-row xl:items-end justify-between gap-3 mt-2 pt-2">
             
-            {/* Accreditation Badges - Stacked Vertically */}
-            <div className="flex flex-col gap-1.5 shrink-0">
+            {/* Accreditation Badges - Horizontal */}
+            <div className="flex flex-row flex-wrap items-center gap-1.5 shrink-0">
               {accreditations.slice(0, 3).map((acc, idx) => (
                 <div 
                   key={idx} 
@@ -114,7 +114,7 @@ export function HospitalCard({
             </div>
 
             {/* Actions */}
-            <div className="flex flex-row items-center justify-end gap-1.5 sm:gap-2 w-full">
+            <div className="flex flex-row items-center justify-start xl:justify-end gap-1.5 sm:gap-2 w-full xl:w-auto">
               <EnquiryForm>
                 <Button variant="outline" className="flex-1 rounded-md border-[#0f5132] text-[#0f5132] hover:bg-[#0f5132]/5 font-bold text-[9px] sm:text-[11px] px-2 h-7 sm:h-8 whitespace-nowrap">
                   {t('freeQuote')}
