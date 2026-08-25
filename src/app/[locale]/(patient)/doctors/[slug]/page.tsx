@@ -175,7 +175,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <ul className="space-y-1.5 text-slate-400 text-xs">
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"/> 
-                    <span className="leading-tight">{doctor.experienceYears ? `${doctor.experienceYears}+ Years of practice` : 'Decades of expertise'}</span>
+                    <span className="leading-tight">Thousands of successful cases</span>
                   </li>
                   <li className="flex items-start gap-1.5">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"/> 
