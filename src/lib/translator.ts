@@ -68,6 +68,8 @@ export async function buildTranslations(
           if (translated) {
             translations[lang][field] = translated;
           }
+          // Add a small 200ms delay to avoid rate limiting for string fields too
+          await new Promise(resolve => setTimeout(resolve, 200));
         }
       }
     }
