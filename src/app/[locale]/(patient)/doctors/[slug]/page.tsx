@@ -164,35 +164,62 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
 
           {/* Key Trust Markers (Doctor Specific) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 mt-4 border-t border-slate-700/50 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 mt-2 border-t border-slate-700/50 relative z-10">
             
-            <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-1">
                 <Award className="w-5 h-5 text-emerald-400" />
               </div>
-              <div className="text-sm font-medium text-slate-300">
-                <span className="text-white font-bold block">Highly Experienced</span>
-                {doctor.experienceYears ? `${doctor.experienceYears}+ Years of practice` : 'Decades of expertise'}
+              <div className="text-sm font-medium text-slate-300 w-full">
+                <span className="text-white font-bold block mb-2">Highly Experienced</span>
+                <ul className="space-y-1.5 text-slate-400 text-xs">
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"/> 
+                    <span className="leading-tight">{doctor.experienceYears ? `${doctor.experienceYears}+ Years of practice` : 'Decades of expertise'}</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"/> 
+                    <span className="leading-tight">Board-certified specialist</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-1">
                 <Stethoscope className="w-5 h-5 text-blue-400" />
               </div>
-              <div className="text-sm font-medium text-slate-300">
-                <span className="text-white font-bold block">Specialized Focus</span>
-                <span className="line-clamp-1">{getTranslation(doctor.specialty, 'name', locale)}</span>
+              <div className="text-sm font-medium text-slate-300 w-full">
+                <span className="text-white font-bold block mb-2">Specialized Focus</span>
+                <ul className="space-y-1.5 text-slate-400 text-xs">
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5"/> 
+                    <span className="leading-tight">{getTranslation(doctor.specialty, 'name', locale)}</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0 mt-0.5"/> 
+                    <span className="leading-tight">Advanced surgical techniques</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
-            <div className="flex items-center gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center shrink-0">
+            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-yellow-500/20 flex items-center justify-center shrink-0 mt-1">
                 <ShieldCheck className="w-5 h-5 text-yellow-400" />
               </div>
-              <div className="text-sm font-medium text-slate-300">
-                <span className="text-white font-bold block">Proven Track Record</span>
-                High clinical success rates
+              <div className="text-sm font-medium text-slate-300 w-full">
+                <span className="text-white font-bold block mb-2">Proven Track Record</span>
+                <ul className="space-y-1.5 text-slate-400 text-xs">
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-yellow-400 shrink-0 mt-0.5"/> 
+                    <span className="leading-tight">High clinical success rates</span>
+                  </li>
+                  <li className="flex items-start gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-yellow-400 shrink-0 mt-0.5"/> 
+                    <span className="leading-tight">Patient-centered care</span>
+                  </li>
+                </ul>
               </div>
             </div>
 
