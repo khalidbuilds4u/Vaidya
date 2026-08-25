@@ -464,6 +464,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             </div>
           </div>
 
+        </div>
+
         {/* Bottom CTA and Share Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-12 mb-12">
           
@@ -517,7 +519,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           </div>
         </div>
 
-        </div>
+
 
         {/* Related Doctors Section */}
         {relatedDoctors.length > 0 && (
