@@ -145,11 +145,16 @@ model Doctor {
   qualifications         String?
   medicalQualifications  String[]       @default([])
   professionalExperience String[]       @default([])
+  areasOfExpertise       String[]       @default([])
   specialInterests       String[]       @default([])
   careerHighlights       String[]       @default([])
   researchFellowships    String[]       @default([])
+  fellowshipsAndTraining String[]       @default([])
+  researchPublications   String[]       @default([])
   awardsRecognitions     String[]       @default([])
+  professionalMemberships String[]      @default([])
   allTreatments          String[]       @default([])
+  whyChooseThisDoctor    String[]       @default([])
   experienceYears        Int?
   biography              String?
   translations           Json?

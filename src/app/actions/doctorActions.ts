@@ -28,6 +28,11 @@ export async function createDoctor(formData: FormData) {
   const researchFellowships = parseArray("researchFellowships");
   const awardsRecognitions = parseArray("awardsRecognitions");
   const allTreatments = parseArray("allTreatments");
+  const areasOfExpertise = parseArray("areasOfExpertise");
+  const fellowshipsAndTraining = parseArray("fellowshipsAndTraining");
+  const researchPublications = parseArray("researchPublications");
+  const professionalMemberships = parseArray("professionalMemberships");
+  const whyChooseThisDoctor = parseArray("whyChooseThisDoctor");
 
   const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
 
@@ -70,6 +75,11 @@ export async function createDoctor(formData: FormData) {
       researchFellowships,
       awardsRecognitions,
       allTreatments,
+      areasOfExpertise,
+      fellowshipsAndTraining,
+      researchPublications,
+      professionalMemberships,
+      whyChooseThisDoctor,
       translations: finalTranslations ? finalTranslations : undefined,
     },
   });
@@ -102,6 +112,11 @@ export async function updateDoctor(id: string, formData: FormData) {
   const researchFellowships = parseArray("researchFellowships");
   const awardsRecognitions = parseArray("awardsRecognitions");
   const allTreatments = parseArray("allTreatments");
+  const areasOfExpertise = parseArray("areasOfExpertise");
+  const fellowshipsAndTraining = parseArray("fellowshipsAndTraining");
+  const researchPublications = parseArray("researchPublications");
+  const professionalMemberships = parseArray("professionalMemberships");
+  const whyChooseThisDoctor = parseArray("whyChooseThisDoctor");
 
   const name_ar = formData.get("name_ar") as string;
   const qualifications_ar = formData.get("qualifications_ar") as string;
@@ -151,6 +166,11 @@ export async function updateDoctor(id: string, formData: FormData) {
       researchFellowships,
       awardsRecognitions,
       allTreatments,
+      areasOfExpertise,
+      fellowshipsAndTraining,
+      researchPublications,
+      professionalMemberships,
+      whyChooseThisDoctor,
       translations: finalTranslations ? finalTranslations : undefined,
     },
   });

@@ -209,7 +209,7 @@ export default async function DoctorEditor({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <DynamicListInput 
                 name="medicalQualifications" 
-                label="Medical Qualifications" 
+                label="Education and Training" 
                 initialItems={doctor?.medicalQualifications || []} 
                 placeholder="e.g. DM (Cardiology), PGIMER" 
               />
@@ -220,29 +220,49 @@ export default async function DoctorEditor({
                 placeholder="e.g. Associate Professor at AFMC" 
               />
               <DynamicListInput 
+                name="areasOfExpertise" 
+                label="Areas of Expertise" 
+                initialItems={doctor?.areasOfExpertise || []} 
+                placeholder="e.g. Complex Angioplasty" 
+              />
+              <DynamicListInput 
                 name="specialInterests" 
-                label="Special Interests" 
+                label="Advanced Techniques and Special Interests" 
                 initialItems={doctor?.specialInterests || []} 
                 placeholder="e.g. Balloon Atrial Septostomy" 
               />
               <DynamicListInput 
-                name="careerHighlights" 
-                label="Career Highlights" 
-                initialItems={doctor?.careerHighlights || []} 
-                placeholder="e.g. Performed 10,000+ interventions" 
+                name="fellowshipsAndTraining" 
+                label="Fellowships and Professional Training" 
+                initialItems={doctor?.fellowshipsAndTraining || []} 
+                placeholder="e.g. Fellowship in Interventional Cardiology, USA" 
               />
               <DynamicListInput 
-                name="researchFellowships" 
-                label="Research & Fellowships" 
-                initialItems={doctor?.researchFellowships || []} 
-                placeholder="e.g. Member of Delhi Medical Council" 
+                name="researchPublications" 
+                label="Research and Publications" 
+                initialItems={doctor?.researchPublications || []} 
+                placeholder="e.g. Published 50+ papers in leading journals" 
               />
               <DynamicListInput 
                 name="awardsRecognitions" 
-                label="Awards & Recognition" 
+                label="Awards and Professional Recognition" 
                 initialItems={doctor?.awardsRecognitions || []} 
                 placeholder="e.g. Vishist Seva Medal" 
               />
+              <DynamicListInput 
+                name="professionalMemberships" 
+                label="Professional Memberships" 
+                initialItems={doctor?.professionalMemberships || []} 
+                placeholder="e.g. Member of Delhi Medical Council" 
+              />
+              <div className="md:col-span-2">
+                <DynamicListInput 
+                  name="whyChooseThisDoctor" 
+                  label="Why Choose This Doctor?" 
+                  initialItems={doctor?.whyChooseThisDoctor || []} 
+                  placeholder="e.g. Over 25 years of specialized experience in neurosurgery." 
+                />
+              </div>
             </div>
           </div>
 

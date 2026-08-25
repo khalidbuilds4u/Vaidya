@@ -61,11 +61,14 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
     { id: 'about', label: t('about'), show: true },
     { id: 'qualifications', label: t('qualifications'), show: doctor.medicalQualifications.length > 0 },
     { id: 'experience', label: t('professionalExperience'), show: doctor.professionalExperience.length > 0 },
+    { id: 'expertise', label: t('areasOfExpertise'), show: doctor.areasOfExpertise.length > 0 },
+    { id: 'treatments', label: t('treatmentsAndProcedures'), show: doctor.allTreatments.length > 0 },
     { id: 'interests', label: t('specialInterests'), show: doctor.specialInterests.length > 0 },
-    { id: 'highlights', label: t('careerHighlights'), show: doctor.careerHighlights.length > 0 },
-    { id: 'research', label: t('researchFellowships'), show: doctor.researchFellowships.length > 0 },
+    { id: 'fellowships', label: t('fellowshipsAndTraining'), show: doctor.fellowshipsAndTraining.length > 0 },
+    { id: 'research', label: t('researchPublications'), show: doctor.researchPublications.length > 0 },
     { id: 'awards', label: t('awardsRecognitions'), show: doctor.awardsRecognitions.length > 0 },
-    { id: 'treatments', label: t('allTreatments'), show: doctor.allTreatments.length > 0 },
+    { id: 'memberships', label: t('professionalMemberships'), show: doctor.professionalMemberships.length > 0 },
+    { id: 'why', label: t('whyChooseThisDoctor'), show: doctor.whyChooseThisDoctor.length > 0 },
   ];
 
   return (
@@ -200,7 +203,37 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Special Interests (2 Columns) */}
+            {/* Areas of Expertise */}
+            {doctor.areasOfExpertise.length > 0 && (
+              <section id="expertise" className="scroll-mt-32">
+                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                  <div className="w-2 h-8 bg-primary rounded-full"></div>
+                  {t('areasOfExpertise')}
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                  {doctor.areasOfExpertise.map((item, idx) => (
+                    <li key={idx} className="pl-2">{item}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Treatments & Procedures */}
+            {doctor.allTreatments.length > 0 && (
+              <section id="treatments" className="scroll-mt-32">
+                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                  <div className="w-2 h-8 bg-primary rounded-full"></div>
+                  {t('treatmentsAndProcedures')}
+                </h2>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                  {doctor.allTreatments.map((treatment, idx) => (
+                    <li key={idx} className="pl-2">{treatment}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Advanced Techniques and Special Interests */}
             {doctor.specialInterests.length > 0 && (
               <section id="interests" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
@@ -215,31 +248,31 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Career Highlights */}
-            {doctor.careerHighlights.length > 0 && (
-              <section id="highlights" className="scroll-mt-32">
+            {/* Fellowships and Professional Training */}
+            {doctor.fellowshipsAndTraining.length > 0 && (
+              <section id="fellowships" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('careerHighlights')}
+                  {t('fellowshipsAndTraining')}
                 </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] leading-relaxed marker:text-primary/60">
-                  {doctor.careerHighlights.map((highlight, idx) => (
-                    <li key={idx} className="pl-2">{highlight}</li>
+                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                  {doctor.fellowshipsAndTraining.map((item, idx) => (
+                    <li key={idx} className="pl-2">{item}</li>
                   ))}
                 </ul>
               </section>
             )}
 
-            {/* Research & Fellowships (2 Columns) */}
-            {doctor.researchFellowships.length > 0 && (
+            {/* Research and Publications */}
+            {doctor.researchPublications.length > 0 && (
               <section id="research" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('researchFellowships')}
+                  {t('researchPublications')}
                 </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
-                  {doctor.researchFellowships.map((res, idx) => (
-                    <li key={idx} className="pl-2">{res}</li>
+                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                  {doctor.researchPublications.map((item, idx) => (
+                    <li key={idx} className="pl-2">{item}</li>
                   ))}
                 </ul>
               </section>
@@ -260,18 +293,31 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* All Treatments (2 Columns) */}
-            {doctor.allTreatments.length > 0 && (
-              <section id="treatments" className="scroll-mt-32">
+            {/* Professional Memberships */}
+            {doctor.professionalMemberships.length > 0 && (
+              <section id="memberships" className="scroll-mt-32">
                 <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
                   <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('allTreatments')}
+                  {t('professionalMemberships')}
                 </h2>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
-                  {doctor.allTreatments.map((treatment, idx) => (
-                    <li key={idx} className="pl-2">
-                      {treatment}
-                    </li>
+                  {doctor.professionalMemberships.map((item, idx) => (
+                    <li key={idx} className="pl-2">{item}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* Why Choose This Doctor */}
+            {doctor.whyChooseThisDoctor.length > 0 && (
+              <section id="why" className="scroll-mt-32">
+                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                  <div className="w-2 h-8 bg-primary rounded-full"></div>
+                  {t('whyChooseThisDoctor')}
+                </h2>
+                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] leading-relaxed marker:text-primary/60">
+                  {doctor.whyChooseThisDoctor.map((item, idx) => (
+                    <li key={idx} className="pl-2">{item}</li>
                   ))}
                 </ul>
               </section>
