@@ -151,7 +151,7 @@ export default async function DoctorsDirectory({
                   experience={`${doctor.experienceYears || 15}+`}
                   hospital={getTranslation(doctor.hospital, 'name', locale)}
                   city={getTranslation(doctor.hospital.city, 'name', locale)}
-                  image={doctor.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop"}
+                  image={doctor.imageUrl || ""}
                   biography={getTranslation(doctor, 'biography', locale) || doctor.biography || undefined}
                 />
               ))}
