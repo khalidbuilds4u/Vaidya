@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
-import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send } from 'lucide-react';
+import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { MobileTOC } from '@/components/patient/MobileTOC';
@@ -377,6 +377,63 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 </div>
               </section>
             )}
+            {/* For International Patients Section (Static) */}
+            <section id="international" className="scroll-mt-32 mt-12">
+              <SectionHeader title="For International Patients" />
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
+                    <MessageSquare className="w-5 h-5 text-slate-500" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">Virtual Consultation</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Online second opinion and pre-travel consultation before you book your journey to India.</p>
+                </div>
+                
+                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+                    <Plane className="w-5 h-5 text-blue-500" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">Medical Visa Support</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Invitation letters and full documentation assistance for your medical visa application.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+                    <ClipboardList className="w-5 h-5 text-orange-600" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">Transparent Cost Estimate</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Detailed treatment cost provided upfront. No hidden charges, no surprises on arrival.</p>
+                </div>
+
+                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
+                    <Stethoscope className="w-5 h-5 text-emerald-600" />
+                  </div>
+                  <h4 className="text-sm font-bold text-slate-900 mb-2">Post-Op Follow-Up</h4>
+                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">Structured rehabilitation plan and remote follow-up care after you return home.</p>
+                </div>
+              </div>
+            </section>
+
+            {/* Book Consultation Banner */}
+            <div className="mt-12 bg-[#123654] rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden shadow-lg border border-slate-700">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+              
+              <div className="flex-1 text-center md:text-left relative z-10">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-white mb-2">
+                  Book a consultation with {getTranslation(doctor, 'name', locale)}
+                </h3>
+                <p className="text-[13px] sm:text-sm text-slate-300 font-medium">
+                  In-person & virtual appointments available • {getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}
+                </p>
+              </div>
+
+              <EnquiryForm>
+                <Button className="w-full md:w-auto bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-6 h-12 transition-all shadow-lg shrink-0 gap-2">
+                  <CalendarHeart className="w-4 h-4 text-red-500" /> Book Appointment
+                </Button>
+              </EnquiryForm>
+            </div>
             
             <div className="pt-8 mt-12 text-[11px] text-slate-400 border-t border-slate-100 max-w-3xl leading-relaxed">
               {t('disclaimer')}
