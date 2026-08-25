@@ -2,12 +2,22 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
-import { MapPin, CalendarDays, CheckCircle2, Share2, MessageCircle, Link as LinkIcon, Send } from 'lucide-react';
+import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { MobileTOC } from '@/components/patient/MobileTOC';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+
+const SectionHeader = ({ title }: { title: string }) => (
+  <div className="flex items-center gap-4 mb-8">
+    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 shrink-0">
+      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+      {title}
+    </div>
+    <div className="flex-1 h-px bg-slate-100" />
+  </div>
+);
 
 export const revalidate = 3600;
 
@@ -89,66 +99,88 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         </div>
 
         {/* Hero Section */}
-        <div className="bg-white rounded-3xl p-5 sm:p-8 lg:p-10 shadow-sm border border-slate-200 mb-8 sm:mb-10 flex flex-col lg:flex-row gap-6 lg:gap-8 items-start relative overflow-hidden">
-          {/* Subtle gradient background for the hero card */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -mr-20 -mt-20 pointer-events-none"></div>
-
-          {/* Left Side: Image + Info */}
-          <div className="flex-1 w-full grid grid-cols-[auto_1fr] gap-x-5 sm:gap-x-6 gap-y-4 relative z-10">
+        <div className="bg-[#123654] text-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden">
+          
+          {/* Top Section */}
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start relative z-10 w-full mb-10">
             {/* Image */}
-            <div className="row-span-1 lg:row-span-2 shrink-0">
-              <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-48 lg:h-48 rounded-2xl overflow-hidden bg-slate-100 shadow-md border-2 sm:border-4 border-white">
-                <img 
-                  src={profileImage} 
-                  alt={doctor.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-slate-100 shadow-xl border-4 border-white/10 shrink-0 relative">
+              <img 
+                src={profileImage} 
+                alt={doctor.name}
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            {/* Name, Badge, Specialty */}
-            <div className="flex flex-col justify-center lg:justify-start lg:pt-2 space-y-2 lg:space-y-4">
-              <div className="flex flex-col xl:flex-row xl:items-center items-start gap-2 sm:gap-3">
-                <h1 className="text-xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight sm:leading-none">
+            {/* Info */}
+            <div className="flex-1 flex flex-col justify-center space-y-3 lg:pt-2">
+              <div className="flex flex-col xl:flex-row xl:items-center items-start gap-3">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white">
                   {getTranslation(doctor, 'name', locale)}
                 </h1>
-                <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] sm:text-xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 shadow-sm shrink-0">
-                  <CheckCircle2 className="w-3 h-3 sm:w-4 sm:h-4" /> {t('authorized')}
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                  <CheckCircle2 className="w-4 h-4" /> {t('authorized')}
                 </span>
               </div>
               
-              <p className="text-sm sm:text-lg lg:text-xl text-slate-700 font-semibold">
-                {getTranslation(doctor.specialty, 'name', locale)}
+              <p className="text-sm sm:text-base text-slate-300 font-medium flex items-center gap-2 flex-wrap">
+                <span>{getTranslation(doctor.specialty, 'name', locale)}</span>
+                <span className="text-slate-500">•</span>
+                <span>{getTranslation(doctor.hospital, 'name', locale)}, {getTranslation(city, 'name', locale)}</span>
+                <span className="text-slate-500">•</span>
+                <span>JCI & NABH Accredited</span>
               </p>
+
+              {/* Pill Badges */}
+              <div className="flex flex-wrap gap-2.5 pt-2">
+                <span className="px-3 py-1.5 rounded-full border border-yellow-500/40 text-yellow-500 text-xs font-semibold bg-yellow-500/10">
+                  {getTranslation(doctor.specialty, 'name', locale)}
+                </span>
+                <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">
+                  {experienceText}
+                </span>
+                <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">
+                  English • Hindi
+                </span>
+                <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium">
+                  {getTranslation(city, 'name', locale)}
+                </span>
+              </div>
             </div>
 
-            {/* Location & Experience Details */}
-            <div className="col-span-2 lg:col-span-1 lg:col-start-2 lg:row-start-2 flex flex-row flex-wrap items-center gap-y-2.5 gap-x-4 sm:gap-x-6 text-[12px] sm:text-sm text-slate-500 font-medium pt-3 border-t border-slate-100 lg:pt-0 lg:border-t-0">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
-                <span className="truncate max-w-[180px] sm:max-w-none">{getTranslation(doctor.hospital, 'name', locale)}</span>
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
-                {getTranslation(city, 'name', locale)}
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <CalendarDays className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-primary shrink-0" />
-                {experienceText}
-              </div>
+            {/* Right Side: Enquiry CTA for Desktop */}
+            <div className="hidden lg:block shrink-0 pt-2">
+              <EnquiryForm>
+                <Button className="w-full bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-8 h-12 transition-all shadow-lg">
+                  {t('askButton')}
+                </Button>
+              </EnquiryForm>
             </div>
           </div>
 
-          {/* Right Side: Enquiry Form */}
-          <div className="lg:max-w-xs w-full bg-slate-50 p-5 rounded-2xl border border-slate-100 relative z-10 shrink-0 mt-2 lg:mt-0">
+          {/* Stats Row */}
+          <div className="grid grid-cols-3 divide-x divide-slate-700/50 border-t border-slate-700/50 pt-8 mt-2 relative z-10 text-center">
+            <div className="flex flex-col items-center justify-center">
+              <div className="text-2xl sm:text-4xl font-bold text-white mb-1">5,000<span className="text-yellow-500 text-xl align-top">+</span></div>
+              <div className="text-xs sm:text-sm text-slate-400 font-medium">Successful<br/>Surgeries</div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <div className="text-2xl sm:text-4xl font-bold text-white mb-1">15,000<span className="text-yellow-500 text-xl align-top">+</span></div>
+              <div className="text-xs sm:text-sm text-slate-400 font-medium">Patients<br/>Treated</div>
+            </div>
+            <div className="flex flex-col items-center justify-center">
+              <div className="text-2xl sm:text-4xl font-bold text-white mb-1">40<span className="text-yellow-500 text-xl align-top">+</span></div>
+              <div className="text-xs sm:text-sm text-slate-400 font-medium">Countries<br/>Served</div>
+            </div>
+          </div>
+
+          {/* Mobile Enquiry Button */}
+          <div className="lg:hidden mt-8 pt-6 border-t border-slate-700/50 relative z-10">
             <EnquiryForm>
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white font-bold rounded-xl px-6 h-12 text-sm transition-all shadow-md shadow-primary/20">
+              <Button className="w-full bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-6 h-12 transition-all shadow-lg">
                 {t('askButton')}
               </Button>
             </EnquiryForm>
-            <p className="text-[11px] text-slate-500 mt-3 leading-relaxed text-center font-medium">
-              {t('enquiryDisclaimer')}
-            </p>
           </div>
         </div>
 
@@ -160,10 +192,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             
             {/* About Doctor */}
             <section id="about" className="scroll-mt-32">
-              <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                <div className="w-2 h-8 bg-primary rounded-full"></div>
-                {t('about')}
-              </h2>
+              <SectionHeader title={t('about')} />
               <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-[15px]">
                 {getTranslation(doctor, 'biography', locale) ? (
                   <p className="whitespace-pre-wrap">{getTranslation(doctor, 'biography', locale)}</p>
@@ -176,150 +205,176 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             {/* Medical Qualification */}
             {doctor.medicalQualifications.length > 0 && (
               <section id="qualifications" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('qualifications')}
-                </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('qualifications')} />
+                <div className="space-y-4">
                   {doctor.medicalQualifications.map((q, idx) => (
-                    <li key={idx} className="pl-2">{q}</li>
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
+                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors">
+                        <GraduationCap className="w-5 h-5 text-slate-600 group-hover:text-primary transition-colors" />
+                      </div>
+                      <div className="flex flex-col pt-0.5">
+                        <span className="text-[15px] font-bold text-slate-900 leading-snug">{q}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Professional Experience */}
             {doctor.professionalExperience.length > 0 && (
               <section id="experience" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('professionalExperience')}
-                </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('professionalExperience')} />
+                <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:inset-y-2 before:left-[11px] sm:before:left-[15px] before:w-px before:bg-slate-200">
                   {doctor.professionalExperience.map((exp, idx) => (
-                    <li key={idx} className="pl-2">{exp}</li>
+                    <div key={idx} className="relative">
+                      {/* Timeline Node */}
+                      <div className="absolute -left-[29px] sm:-left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-white bg-primary shadow-sm" />
+                      <div className="flex flex-col">
+                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{exp}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Areas of Expertise */}
             {doctor.areasOfExpertise.length > 0 && (
               <section id="expertise" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('areasOfExpertise')}
-                </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('areasOfExpertise')} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {doctor.areasOfExpertise.map((item, idx) => (
-                    <li key={idx} className="pl-2">{item}</li>
+                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 bg-white hover:border-primary/30 transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center shrink-0">
+                        <Stethoscope className="w-4 h-4 text-primary" />
+                      </div>
+                      <span className="text-[14px] font-semibold text-slate-700 leading-snug">{item}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Treatments & Procedures */}
             {doctor.allTreatments.length > 0 && (
               <section id="treatments" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('treatmentsAndProcedures')}
-                </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('treatmentsAndProcedures')} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {doctor.allTreatments.map((treatment, idx) => (
-                    <li key={idx} className="pl-2">{treatment}</li>
+                    <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 bg-white hover:border-primary/40 hover:shadow-sm transition-all cursor-pointer group">
+                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-primary transition-colors shrink-0" />
+                      <span className="text-[14px] font-medium text-slate-700 group-hover:text-primary transition-colors">{treatment}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Advanced Techniques and Special Interests */}
             {doctor.specialInterests.length > 0 && (
               <section id="interests" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('specialInterests')}
-                </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('specialInterests')} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {doctor.specialInterests.map((interest, idx) => (
-                    <li key={idx} className="pl-2">{interest}</li>
+                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 bg-white hover:border-primary/30 transition-colors">
+                      <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
+                        <Zap className="w-4 h-4 text-orange-500" />
+                      </div>
+                      <span className="text-[14px] font-semibold text-slate-700 leading-snug">{interest}</span>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Fellowships and Professional Training */}
             {doctor.fellowshipsAndTraining.length > 0 && (
               <section id="fellowships" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('fellowshipsAndTraining')}
-                </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('fellowshipsAndTraining')} />
+                <div className="space-y-4">
                   {doctor.fellowshipsAndTraining.map((item, idx) => (
-                    <li key={idx} className="pl-2">{item}</li>
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
+                      <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
+                        {String(idx + 1).padStart(2, '0')}
+                      </div>
+                      <div className="flex flex-col pt-2">
+                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Research and Publications */}
             {doctor.researchPublications.length > 0 && (
               <section id="research" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('researchPublications')}
-                </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('researchPublications')} />
+                <div className="space-y-4">
                   {doctor.researchPublications.map((item, idx) => (
-                    <li key={idx} className="pl-2">{item}</li>
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
+                      <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
+                        {String(idx + 1).padStart(2, '0')}
+                      </div>
+                      <div className="flex flex-col pt-2">
+                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Awards & Recognition */}
             {doctor.awardsRecognitions.length > 0 && (
               <section id="awards" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('awardsRecognitions')}
-                </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] leading-relaxed marker:text-primary/60">
+                <SectionHeader title={t('awardsRecognitions')} />
+                <div className="space-y-4">
                   {doctor.awardsRecognitions.map((award, idx) => (
-                    <li key={idx} className="pl-2">{award}</li>
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-yellow-500/30 hover:shadow-md transition-all group">
+                      <div className="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center shrink-0 border border-yellow-100 group-hover:bg-yellow-100/50 transition-colors">
+                        <Award className="w-5 h-5 text-yellow-600" />
+                      </div>
+                      <div className="flex flex-col pt-2">
+                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{award}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Professional Memberships */}
             {doctor.professionalMemberships.length > 0 && (
               <section id="memberships" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('professionalMemberships')}
-                </h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3 list-disc pl-5 text-slate-600 text-[15px] marker:text-primary/60">
+                <SectionHeader title={t('professionalMemberships')} />
+                <div className="flex flex-wrap gap-2.5">
                   {doctor.professionalMemberships.map((item, idx) => (
-                    <li key={idx} className="pl-2">{item}</li>
+                    <span key={idx} className="px-4 py-2 rounded-full border border-primary/20 text-primary text-[13px] font-medium bg-white hover:bg-primary/5 transition-colors">
+                      {item}
+                    </span>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
             {/* Why Choose This Doctor */}
             {doctor.whyChooseThisDoctor.length > 0 && (
               <section id="why" className="scroll-mt-32">
-                <h2 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
-                  <div className="w-2 h-8 bg-primary rounded-full"></div>
-                  {t('whyChooseThisDoctor')}
-                </h2>
-                <ul className="space-y-3 list-disc pl-5 text-slate-600 text-[15px] leading-relaxed marker:text-primary/60">
+                <SectionHeader title={t('whyChooseThisDoctor')} />
+                <div className="space-y-4">
                   {doctor.whyChooseThisDoctor.map((item, idx) => (
-                    <li key={idx} className="pl-2">{item}</li>
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
+                      <div className="w-10 h-10 rounded-full bg-[#123654] flex items-center justify-center shrink-0 text-white font-bold text-sm">
+                        {String(idx + 1).padStart(2, '0')}
+                      </div>
+                      <div className="flex flex-col pt-2">
+                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
+                      </div>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
             
