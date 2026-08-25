@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MapPin, BedDouble, Plane, Building2, ArrowRight } from 'lucide-react';
+import { MapPin, BedDouble, Plane, Building2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 
@@ -39,70 +39,73 @@ export function HospitalCard({
       <div className="flex flex-col md:flex-row flex-1">
         
         {/* Image Section */}
-        <div className="w-full md:w-[35%] h-48 sm:h-56 md:h-auto relative overflow-hidden shrink-0">
+        <div className="w-full md:w-[35%] lg:w-[40%] h-48 sm:h-56 md:h-auto relative overflow-hidden shrink-0">
           <img 
             src={image}
             alt={name}
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
           />
           {hasInternationalSupport && (
-            <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-bold text-white bg-black/60 backdrop-blur-sm border border-white/20">
+            <div className="absolute top-3 left-3 px-3 py-1 rounded-full text-[10px] font-medium text-white bg-black/60 backdrop-blur-sm">
               {t('internationalPatientCare')}
             </div>
           )}
         </div>
         
         {/* Content Section */}
-        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug mb-2">
-              <Link href={`/hospitals/${slug}`} className="hover:text-primary transition-colors">
+        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between bg-white">
+          <div className="mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-900 leading-snug mb-3">
+              <Link href={`/hospitals/${slug}`} className="hover:text-[#0f5132] transition-colors">
                 {name}
               </Link>
             </h3>
             
-            {description && (
-              <p className="text-sm text-slate-600 line-clamp-3 mb-5 leading-relaxed">
-                {description}
-              </p>
-            )}
-
             {/* Metrics Row */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
-              <div className="flex items-center text-sm font-medium text-slate-700">
-                <MapPin className="h-4 w-4 mr-1.5 text-primary" />
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3">
+              <div className="flex items-center text-xs sm:text-sm font-medium text-slate-600">
+                <MapPin className="h-4 w-4 mr-1.5 text-[#0f5132]" />
                 {city}{state ? `, ${state}` : `, ${t('india', { fallback: 'India' })}`}
               </div>
               
+              <div className="flex items-center text-xs sm:text-sm font-medium text-slate-600">
+                <BedDouble className="h-4 w-4 mr-1.5 text-[#0f5132]" />
+                {t('beds', { count: beds })}
+              </div>
+
               {established && (
-                <div className="flex items-center text-sm font-medium text-slate-700">
-                  <Building2 className="h-4 w-4 mr-1.5 text-primary" />
+                <div className="flex items-center text-xs sm:text-sm font-medium text-slate-600">
+                  <Building2 className="h-4 w-4 mr-1.5 text-[#0f5132]" />
                   {t('estbIn', { year: established })}
                 </div>
               )}
               
               {airportDistance && (
-                <div className="flex items-center text-sm font-medium text-slate-700">
-                  <Plane className="h-4 w-4 mr-1.5 text-primary" />
+                <div className="flex items-center text-xs sm:text-sm font-medium text-slate-600">
+                  <Plane className="h-4 w-4 mr-1.5 text-[#0f5132]" />
                   {t('kmFromAirport', { dist: airportDistance })}
                 </div>
               )}
-
-              <div className="flex items-center text-sm font-medium text-slate-700">
-                <BedDouble className="h-4 w-4 mr-1.5 text-primary" />
-                {t('beds', { count: beds })}
-              </div>
             </div>
+
+            {description && (
+              <p className="text-[13px] sm:text-sm text-slate-600 line-clamp-3 mt-4 leading-relaxed">
+                {description}
+              </p>
+            )}
           </div>
           
+          <div className="flex-1"></div>
+          
           {/* Bottom Row: Accreditations & Actions */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-100">
-            {/* Accreditation Badges */}
-            <div className="flex flex-wrap items-center gap-2">
-              {accreditations.map((acc, idx) => (
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mt-2">
+            
+            {/* Accreditation Badges - Stacked Vertically */}
+            <div className="flex flex-col gap-2">
+              {accreditations.slice(0, 3).map((acc, idx) => (
                 <div 
                   key={idx} 
-                  className="flex items-center justify-center w-10 h-10 rounded-full border-2 border-amber-400 bg-amber-50 text-[9px] font-bold text-amber-700 shadow-sm"
+                  className="flex items-center justify-center w-9 h-9 rounded-full border border-amber-400 bg-white text-[9px] font-bold text-amber-500 shadow-sm"
                   title={acc}
                 >
                   {acc.substring(0, 4)}
@@ -111,15 +114,15 @@ export function HospitalCard({
             </div>
 
             {/* Actions */}
-            <div className="flex items-center gap-2 w-full sm:w-auto">
+            <div className="flex items-center gap-3 w-full sm:w-auto">
               <EnquiryForm>
-                <Button variant="outline" className="flex-1 sm:flex-none rounded-md border-primary text-primary hover:bg-primary/5 font-semibold px-4 h-10">
+                <Button variant="outline" className="flex-1 sm:flex-none rounded-md border-[#0f5132] text-[#0f5132] hover:bg-[#0f5132]/5 font-semibold text-xs sm:text-sm px-4 sm:px-5 h-9 sm:h-10">
                   {t('freeQuote')}
                 </Button>
               </EnquiryForm>
-              <Button asChild className="flex-1 sm:flex-none rounded-md bg-[#0f5132] hover:bg-[#0b3b24] text-white font-semibold px-6 h-10">
+              <Button asChild className="flex-1 sm:flex-none rounded-md bg-[#0f5132] hover:bg-[#0b3b24] text-white font-semibold text-xs sm:text-sm px-4 sm:px-6 h-9 sm:h-10">
                 <Link href={`/hospitals/${slug}`}>
-                  {t('viewProfile')} <ArrowRight className="ml-1.5 w-4 h-4" />
+                  {t('viewProfile')}
                 </Link>
               </Button>
             </div>
