@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
-import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2, User } from 'lucide-react';
+import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { getTranslation } from '@/lib/utils';
@@ -66,7 +66,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
   const city = doctor.city || doctor.hospital.city;
   const experienceText = doctor.experienceYears ? t('experience', { years: doctor.experienceYears }) : t('highlyExperienced');
-  const profileImage = doctor.imageUrl || "";
+  const profileImage = doctor.imageUrl || "/images/doctor-fallback.png";
 
   const tocItems = [
     { id: 'about', label: t('about'), show: true },
@@ -107,16 +107,12 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           {/* Top Section */}
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start relative z-10 w-full mb-10">
             {/* Image */}
-            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-[#0d2a42] shadow-xl border-4 border-white/10 shrink-0 relative flex items-center justify-center">
-              {profileImage ? (
-                <img 
-                  src={profileImage} 
-                  alt={doctor.name}
-                  className="w-full h-full object-cover"
-                />
-              ) : (
-                <User className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 text-slate-400 stroke-[1.5]" />
-              )}
+            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-slate-100 shadow-xl border-4 border-white/10 shrink-0 relative">
+              <img 
+                src={profileImage} 
+                alt={doctor.name}
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Info */}

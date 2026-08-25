@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { MapPin, BriefcaseMedical, ArrowRight, User } from 'lucide-react';
+import { MapPin, BriefcaseMedical, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 
@@ -42,18 +42,12 @@ export function DoctorCard({
       <div className="flex flex-col sm:flex-row flex-1 gap-4 sm:gap-6">
         
         {/* Image Section */}
-        <Link href={`/doctors/${slug}`} className="w-full sm:w-40 md:w-48 lg:w-56 shrink-0 aspect-square sm:aspect-[4/5] md:aspect-auto sm:h-auto rounded-xl overflow-hidden bg-sky-50 relative block border border-slate-100 group-hover:bg-sky-100/50 transition-colors">
-          {image ? (
-            <img 
-              src={image} 
-              alt={name}
-              className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 absolute inset-0"
-            />
-          ) : (
-            <div className="w-full h-full absolute inset-0 flex items-center justify-center text-slate-300/50 group-hover:text-slate-300 transition-colors">
-              <User className="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 stroke-[1.5]" />
-            </div>
-          )}
+        <Link href={`/doctors/${slug}`} className="w-full sm:w-40 md:w-48 lg:w-56 shrink-0 aspect-square sm:aspect-[4/5] md:aspect-auto sm:h-auto rounded-xl overflow-hidden bg-sky-50 relative block border border-slate-100">
+          <img 
+            src={image || "/images/doctor-fallback.png"} 
+            alt={name}
+            className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 absolute inset-0"
+          />
         </Link>
         
         {/* Right Content Section */}
