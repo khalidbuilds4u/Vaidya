@@ -291,6 +291,34 @@ export default async function DoctorEditor({
             </div>
           </div>
 
+          <div className="pt-6 border-t border-slate-100">
+            <div className="flex items-center gap-2 mb-2">
+              <h3 className="text-lg font-bold text-slate-900">Manual Arabic Translations</h3>
+              <span className="text-xs font-medium text-slate-500 bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200">Optional</span>
+            </div>
+            <p className="text-sm text-slate-500 mb-6">If the auto-translation fails for long text (like Biography), or you want to override defaults, enter the Arabic text here.</p>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Name (Arabic)</label>
+                <input type="text" name="name_ar" defaultValue={(doctor?.translations as any)?.ar?.name || ""} placeholder="دكتور سارة جونسون" className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right" dir="rtl" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Qualifications (Arabic)</label>
+                <input type="text" name="qualifications_ar" defaultValue={(doctor?.translations as any)?.ar?.qualifications || ""} placeholder="بكالوريوس الطب والجراحة..." className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right" dir="rtl" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Designation (Arabic)</label>
+                <input type="text" name="designation_ar" defaultValue={(doctor?.translations as any)?.ar?.designation || ""} placeholder="استشاري أول..." className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right" dir="rtl" />
+              </div>
+            </div>
+            
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Biography (Arabic)</label>
+              <textarea name="biography_ar" rows={5} defaultValue={(doctor?.translations as any)?.ar?.biography || ""} placeholder="نبذة شخصية..." className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-right" dir="rtl" />
+            </div>
+          </div>
+
 
 
           <div className="pt-6 border-t border-slate-100 flex items-center justify-end gap-3">
