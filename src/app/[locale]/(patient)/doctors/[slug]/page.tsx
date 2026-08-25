@@ -185,10 +185,10 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         </div>
 
         {/* Two Column Layout for Profile Data and Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           
           {/* Main Content (Left, 8 cols) */}
-          <div className="lg:col-span-8 space-y-12 bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-slate-200">
+          <div className="lg:col-span-8 space-y-12">
             
             {/* About Doctor */}
             <section id="about" className="scroll-mt-32">
