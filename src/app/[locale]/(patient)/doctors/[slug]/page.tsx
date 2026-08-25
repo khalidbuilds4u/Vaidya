@@ -79,6 +79,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
     { id: 'awards', label: t('awardsRecognitions'), show: doctor.awardsRecognitions.length > 0 },
     { id: 'memberships', label: t('professionalMemberships'), show: doctor.professionalMemberships.length > 0 },
     { id: 'why', label: t('whyChooseThisDoctor'), show: doctor.whyChooseThisDoctor.length > 0 },
+    { id: 'international', label: "For International Patients", show: true },
+    { id: 'whyChooseUs', label: t('whyChooseUs.title'), show: true },
   ];
 
   return (
@@ -481,7 +483,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </div>
 
               {/* Why Choose Us */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+              <div id="whyChooseUs" className="scroll-mt-32 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
                 <h3 className="text-xl font-extrabold text-slate-900 mb-2">
                   {t('whyChooseUs.title')}
                 </h3>
