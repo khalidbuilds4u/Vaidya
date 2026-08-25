@@ -66,7 +66,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
   const city = doctor.city || doctor.hospital.city;
   const experienceText = doctor.experienceYears ? t('experience', { years: doctor.experienceYears }) : t('highlyExperienced');
-  const profileImage = doctor.imageUrl || "/images/doctor-fallback.png";
+  const profileImage = (doctor.imageUrl && doctor.imageUrl.trim() !== "") ? doctor.imageUrl : "/images/doctor-fallback.png";
 
   const tocItems = [
     { id: 'about', label: t('about'), show: true },

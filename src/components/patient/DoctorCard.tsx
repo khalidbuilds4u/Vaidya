@@ -44,7 +44,7 @@ export function DoctorCard({
         {/* Image Section */}
         <Link href={`/doctors/${slug}`} className="w-full sm:w-40 md:w-48 lg:w-56 shrink-0 aspect-square sm:aspect-[4/5] md:aspect-auto sm:h-auto rounded-xl overflow-hidden bg-sky-50 relative block border border-slate-100">
           <img 
-            src={image || "/images/doctor-fallback.png"} 
+            src={(image && image.trim() !== "") ? image : "/images/doctor-fallback.png"} 
             alt={name}
             className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 absolute inset-0"
           />
