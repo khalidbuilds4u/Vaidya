@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, BedDouble, Plane, Building2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export interface HospitalCardProps {
   slug: string;
@@ -40,10 +41,12 @@ export function HospitalCard({
         
         {/* Image Section */}
         <div className="w-full sm:w-[35%] lg:w-[40%] h-48 sm:h-auto relative overflow-hidden shrink-0">
-          <img 
-            src={image}
+          <Image 
+            src={image || "/images/hospital-placeholder.jpg"}
             alt={name}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 35vw, 40vw"
+            className="object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
           />
           {hasInternationalSupport && (
             <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[8px] sm:text-[9px] font-bold text-white bg-black/60 backdrop-blur-sm shadow-sm">

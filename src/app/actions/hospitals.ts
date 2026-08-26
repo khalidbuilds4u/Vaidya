@@ -179,6 +179,7 @@ export async function createHospital(formData: FormData) {
   });
 
   revalidatePath("/admin/hospitals");
+  revalidatePath("/hospitals");
   redirect("/admin/hospitals");
 }
 
@@ -352,6 +353,7 @@ export async function updateHospital(id: string, formData: FormData) {
 
   revalidatePath("/admin/hospitals");
   revalidatePath(`/admin/hospitals/${id}`);
+  revalidatePath("/hospitals");
   redirect("/admin/hospitals");
 }
 
@@ -363,4 +365,5 @@ export async function deleteHospital(id: string) {
   });
 
   revalidatePath("/admin/hospitals");
+  revalidatePath("/hospitals");
 }

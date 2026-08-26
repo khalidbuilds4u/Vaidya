@@ -3,9 +3,9 @@ import { HospitalCard } from '@/components/patient/HospitalCard';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, Filter, Building2 } from 'lucide-react';
-import { prisma } from '@/lib/prisma';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { getCachedHospitals, getCachedCities, getCachedSpecialties } from '@/lib/api';
 
 export const revalidate = 3600;
 
@@ -27,28 +27,19 @@ export default async function HospitalsDirectory({
   const { search, city, specialty } = await searchParams;
   const t = await getTranslations('HospitalsPage');
 
-  const whereClause: any = { isPublished: true };
-  if (search) {
-    whereClause.name = { contains: search, mode: 'insensitive' };
-  }
-  if (city) {
-    whereClause.city = { slug: city };
-  }
-  if (specialty) {
-    whereClause.doctors = { some: { specialty: { slug: specialty } } };
-  }
+  const allHospitals = await getCachedHospitals();
+  const cities = await getCachedCities();
+  const specialties = await getCachedSpecialties();
 
-  const hospitals = await prisma.hospital.findMany({
-    where: whereClause,
-    include: {
-      city: true,
-      specialties: true,
-    },
-    orderBy: { createdAt: "desc" }
+  // Sort hospitals by createdAt desc (or similar logic)
+  const sortedHospitals = [...allHospitals].reverse();
+
+  const hospitals = sortedHospitals.filter(h => {
+    if (search && !h.name.toLowerCase().includes(search.toLowerCase())) return false;
+    if (city && h.city.slug !== city) return false;
+    if (specialty && !h.specialties.some(s => s.slug === specialty)) return false;
+    return true;
   });
-
-  const cities = await prisma.city.findMany({ orderBy: { name: 'asc' } });
-  const specialties = await prisma.specialty.findMany({ orderBy: { name: 'asc' } });
 
   const selectedCity = cities.find(c => c.slug === city);
   const selectedCityName = selectedCity ? getTranslation(selectedCity, 'name', locale) : undefined;

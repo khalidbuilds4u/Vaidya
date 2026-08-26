@@ -128,6 +128,7 @@ export async function createTreatment(formData: FormData) {
   });
 
   revalidatePath("/admin/treatments");
+  revalidatePath("/treatments");
   redirect("/admin/treatments");
 }
 
@@ -149,5 +150,7 @@ export async function deleteTreatment(id: string) {
   });
 
   revalidatePath("/admin/treatments");
+  revalidatePath(`/admin/treatments/${id}`);
+  revalidatePath("/treatments");
   redirect("/admin/treatments");
 }

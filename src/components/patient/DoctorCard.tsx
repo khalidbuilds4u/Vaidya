@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button';
 import { MapPin, BriefcaseMedical, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 export interface DoctorCardProps {
   slug: string;
@@ -43,10 +44,12 @@ export function DoctorCard({
         
         {/* Image Section */}
         <Link href={`/doctors/${slug}`} className="w-full sm:w-40 md:w-48 lg:w-56 shrink-0 aspect-square sm:aspect-[4/5] md:aspect-auto sm:h-auto rounded-xl overflow-hidden bg-white relative block border border-slate-100">
-          <img 
+          <Image 
             src={(image && image.trim() !== "") ? image : "/images/doctor-fallback.png"} 
             alt={name}
-            className="w-full h-full object-cover object-top scale-110 group-hover:scale-[1.15] transition-transform duration-700 absolute inset-0"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 250px, 300px"
+            className="object-cover object-top scale-110 group-hover:scale-[1.15] transition-transform duration-700 absolute inset-0"
           />
         </Link>
         

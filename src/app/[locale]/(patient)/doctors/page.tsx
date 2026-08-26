@@ -3,9 +3,9 @@ import { Search, Filter, Stethoscope } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { DoctorCard } from '@/components/patient/DoctorCard';
-import { prisma } from '@/lib/prisma';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { getCachedDoctors, getCachedCities, getCachedSpecialties } from '@/lib/api';
 
 export const revalidate = 3600;
 
@@ -27,29 +27,16 @@ export default async function DoctorsDirectory({
   const { search, city, specialty } = await searchParams;
   const t = await getTranslations('DoctorsPage');
 
-  const whereClause: any = { isPublished: true };
-  if (search) {
-    whereClause.name = { contains: search, mode: 'insensitive' };
-  }
-  if (city) {
-    whereClause.hospital = { city: { slug: city } };
-  }
-  if (specialty) {
-    whereClause.specialty = { slug: specialty };
-  }
+  const allDoctors = await getCachedDoctors();
+  const cities = await getCachedCities();
+  const specialties = await getCachedSpecialties();
 
-  const doctors = await prisma.doctor.findMany({
-    where: whereClause,
-    include: {
-      hospital: {
-        include: { city: true }
-      },
-      specialty: true,
-    }
+  const doctors = allDoctors.filter(d => {
+    if (search && !d.name.toLowerCase().includes(search.toLowerCase())) return false;
+    if (city && d.hospital.city.slug !== city) return false;
+    if (specialty && d.specialty.slug !== specialty) return false;
+    return true;
   });
-
-  const cities = await prisma.city.findMany({ orderBy: { name: 'asc' } });
-  const specialties = await prisma.specialty.findMany({ orderBy: { name: 'asc' } });
 
   return (
     <div className="bg-slate-50/50 min-h-screen pb-20">

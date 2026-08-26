@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   description: 'Explore world-class medical treatments, surgeries, and procedures available at top hospitals in India with estimated cost guides.',
 };
 
-import { prisma } from '@/lib/prisma';
 import { getTranslation } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { getCachedTreatments } from '@/lib/api';
 
 export const revalidate = 3600;
 
@@ -31,12 +31,11 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
   const { locale } = await params;
   const t = await getTranslations('TreatmentsPage');
 
-  const dbTreatments = await prisma.treatment.findMany({
-    where: { isPublished: true },
-    include: { specialty: true },
-    take: 6,
-    orderBy: { name: 'asc' }
-  });
+  const allTreatments = await getCachedTreatments();
+  // We only show 6 on the main treatments page, ordered by name (or you could sort manually)
+  const dbTreatments = allTreatments
+    .sort((a, b) => a.name.localeCompare(b.name))
+    .slice(0, 6);
 
   return (
     <div className="bg-slate-50/50 min-h-screen pb-20">
