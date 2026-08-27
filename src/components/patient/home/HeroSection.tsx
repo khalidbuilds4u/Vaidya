@@ -36,12 +36,13 @@ export function HeroSection() {
         }}
       />
 
-      {/* 2. Very Subtle Dark/Vignette Overlay (Lets the vibrancy shine through but ensures text is readable) */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-900/30 via-transparent to-slate-900/10 pointer-events-none" />
+      {/* 2. Dark/Vignette Overlay (Stronger on the left for text readability) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/50 to-transparent pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-slate-900/20 pointer-events-none z-[1]" />
 
       {/* 3. Ambient Glowing Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-400/20 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-teal-500/20 blur-[150px] pointer-events-none" />
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/20 blur-[120px] pointer-events-none z-[2]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-teal-500/20 blur-[150px] pointer-events-none z-[2]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -50,7 +51,7 @@ export function HeroSection() {
           <div className="w-full lg:w-7/12 flex flex-col items-start text-left z-10">
             
             {/* Top Tagline Glass Pill */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-lg border border-white/20 bg-black/30 backdrop-blur-md max-w-full">
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-lg border border-white/30 bg-white/10 backdrop-blur-md max-w-full">
               <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0 animate-pulse" />
               <span className="truncate">{t('tagline')}</span>
             </div>
@@ -70,15 +71,15 @@ export function HeroSection() {
 
             {/* Quick Trust Highlights Row on Mobile */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-white">
-              <div className="flex items-center gap-1.5 bg-black/20 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
+              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>{t('pill1')}</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-black/20 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
+              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                 <span>{t('pill2')}</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-black/20 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
+              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
                 <Clock className="w-4 h-4 text-amber-400 shrink-0" />
                 <span>{t('pill3')}</span>
               </div>
@@ -103,27 +104,27 @@ export function HeroSection() {
             </div>
 
             {/* Sleek Frosted Glass Search Capsule */}
-            <div className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_8px_32px_rgba(0,0,0,0.15)] bg-white/10 backdrop-blur-2xl border border-white/30">
-              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-white/40 sm:bg-transparent rounded-xl sm:rounded-none">
-                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-white mr-2 shrink-0" />
+            <div className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_8px_32px_rgba(0,0,0,0.25)] bg-white/15 backdrop-blur-2xl border border-white/30">
+              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-white/20 sm:bg-transparent rounded-xl sm:rounded-none">
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-white mr-2 shrink-0 drop-shadow-sm" />
                 <Input 
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   placeholder={t('searchPlaceholder')}
-                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-white/80 text-white font-medium"
+                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-white/70 text-white font-medium drop-shadow-sm"
                 />
               </div>
               
-              <div className="hidden sm:block w-px h-8 bg-white/20 mx-1"></div>
+              <div className="hidden sm:block w-px h-8 bg-white/30 mx-1"></div>
               
-              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-white/40 sm:bg-transparent rounded-xl sm:rounded-none">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white mr-1.5 shrink-0" />
+              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-white/20 sm:bg-transparent rounded-xl sm:rounded-none">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white mr-1.5 shrink-0 drop-shadow-sm" />
                 <select 
                   value={searchCity}
                   onChange={(e) => setSearchCity(e.target.value)}
-                  className="w-full bg-transparent border-0 text-white font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none appearance-none"
+                  className="w-full bg-transparent border-0 text-white font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none appearance-none drop-shadow-sm"
                 >
                   <option value="" className="text-slate-900">{t('anyCity')}</option>
                   <option value="New Delhi" className="text-slate-900">New Delhi</option>
