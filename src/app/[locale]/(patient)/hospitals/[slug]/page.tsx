@@ -52,6 +52,19 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
   if (!hospital) notFound();
   if (!hospital.isPublished && !isAdmin) notFound();
 
+  // Fetch related hospitals from the same city
+  const relatedHospitals = await prisma.hospital.findMany({
+    where: {
+      cityId: hospital.cityId,
+      id: { not: hospital.id },
+      isPublished: true,
+    },
+    include: {
+      city: true,
+    },
+    take: 4,
+  });
+
   const heroImage = hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop";
 
   const tocItems = [
@@ -422,6 +435,48 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
           </div>
 
         </div>
+
+        {/* Related Hospitals Section */}
+        {relatedHospitals.length > 0 && (
+          <div className="mt-10 sm:mt-12 mb-10">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6 sm:mb-8 flex items-center gap-3">
+              <div className="w-2 h-8 bg-primary rounded-full"></div>
+              {t('related')}
+            </h2>
+            
+            <div className="flex overflow-x-auto pb-2 -mx-6 px-6 sm:pb-0 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+              {relatedHospitals.map((rh) => (
+                <Link 
+                  href={`/${locale}/hospitals/${rh.slug}`} 
+                  key={rh.id} 
+                  className="group bg-white rounded-2xl p-5 border border-slate-200 hover:border-primary/40 hover:shadow-lg transition-all flex flex-col min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start"
+                >
+                  <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-slate-100 relative">
+                    <img 
+                      src={(rh.imageUrl && rh.imageUrl.trim() !== "") ? rh.imageUrl : "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"} 
+                      alt={getTranslation(rh, 'name', locale)} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors line-clamp-1">{getTranslation(rh, 'name', locale)}</h4>
+                  <p className="text-[11px] sm:text-xs font-semibold text-slate-500 mb-3 flex items-center gap-1.5 line-clamp-1">
+                    <MapPin className="w-3.5 h-3.5 text-primary" />
+                    {getTranslation(rh.city, 'name', locale)}
+                  </p>
+                  
+                  <div className="flex flex-col gap-1.5 text-[11px] sm:text-xs font-medium text-slate-500 mt-auto pt-3 border-t border-slate-200/60 w-full">
+                    {rh.beds && (
+                      <div className="flex items-center gap-2">
+                        <BedDouble className="w-3.5 h-3.5 text-slate-400" />
+                        <span>{rh.beds}+ Beds</span>
+                      </div>
+                    )}
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
 
       </div>

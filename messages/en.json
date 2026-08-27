@@ -370,7 +370,8 @@
       "telegram": "Telegram",
       "facebook": "Facebook",
       "copy": "Copy Link"
-    }
+    },
+    "related": "Related Hospitals"
   },
   "DoctorsPage": {
     "tag": "Leading Clinical Specialists",
