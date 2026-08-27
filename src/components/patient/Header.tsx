@@ -52,8 +52,8 @@ export function Header() {
           <Link href="/patient-stories" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
             {t('patientStories')}
           </Link>
-          <Link href="/gallery" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
-            {t('gallery')}
+          <Link href="/services" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
+            {t('services')}
           </Link>
           <Link href="/blogs" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 hover:text-primary hover:bg-primary/5 transition-all">
             {t('blogs')}
@@ -99,7 +99,7 @@ export function Header() {
             <Link href="/doctors" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('doctors')}</Link>
             <Link href="/treatments" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('procedures')}</Link>
             <Link href="/patient-stories" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('patientStories')}</Link>
-            <Link href="/gallery" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('gallery')}</Link>
+            <Link href="/services" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('services')}</Link>
             <Link href="/blogs" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('blogs')}</Link>
             <Link href="/about-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('aboutUs')}</Link>
             <Link href="/contact-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('contactUs')}</Link>

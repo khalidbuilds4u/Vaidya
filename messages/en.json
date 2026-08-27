@@ -19,6 +19,7 @@
     "procedures": "Procedures",
     "patientStories": "Patient Stories",
     "gallery": "Gallery",
+    "services": "Services",
     "blogs": "Blogs",
     "aboutUs": "About Us",
     "contactUs": "Contact Us",
@@ -148,6 +149,7 @@
       "hospitals": "Accredited Hospitals",
       "doctors": "Specialist Surgeons",
       "treatments": "Treatments & Costs",
+      "gallery": "Photo Gallery",
       "specialties": "Medical Specialties",
       "conditions": "Conditions Guide",
       "cities": "Medical Cities in India"

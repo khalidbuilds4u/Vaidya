@@ -68,6 +68,7 @@ export function Footer() {
               <li><Link href="/hospitals" className="hover:text-teal-300 transition-colors">{t('discover.hospitals')}</Link></li>
               <li><Link href="/doctors" className="hover:text-teal-300 transition-colors">{t('discover.doctors')}</Link></li>
               <li><Link href="/treatments" className="hover:text-teal-300 transition-colors">{t('discover.treatments')}</Link></li>
+              <li><Link href="/gallery" className="hover:text-teal-300 transition-colors">{t('discover.gallery')}</Link></li>
               <li><Link href="/specialties" className="hover:text-teal-300 transition-colors">{t('discover.specialties')}</Link></li>
               <li><Link href="/conditions" className="hover:text-teal-300 transition-colors">{t('discover.conditions')}</Link></li>
               <li><Link href="/cities" className="hover:text-teal-300 transition-colors">{t('discover.cities')}</Link></li>
