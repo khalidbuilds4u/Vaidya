@@ -53,7 +53,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
   if (!hospital.isPublished && !isAdmin) notFound();
 
   // Fetch related hospitals from the same city
-  const relatedHospitals = await prisma.hospital.findMany({
+  let relatedHospitals = await prisma.hospital.findMany({
     where: {
       cityId: hospital.cityId,
       id: { not: hospital.id },
@@ -64,6 +64,21 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
     },
     take: 4,
   });
+
+  // If we don't have enough hospitals in the same city, fetch some others to fill the gap (useful for testing/demo)
+  if (relatedHospitals.length < 4) {
+    const additionalHospitals = await prisma.hospital.findMany({
+      where: {
+        id: { notIn: [hospital.id, ...relatedHospitals.map(h => h.id)] },
+        isPublished: true,
+      },
+      include: {
+        city: true,
+      },
+      take: 4 - relatedHospitals.length,
+    });
+    relatedHospitals = [...relatedHospitals, ...additionalHospitals];
+  }
 
   const heroImage = hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop";
 
