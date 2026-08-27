@@ -1,7 +1,24 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle, Send, Link as LinkIcon, Check, Facebook } from "lucide-react";
+import { MessageCircle, Send, Link as LinkIcon, Check } from "lucide-react";
+
+const FacebookIcon = ({ className }: { className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+  </svg>
+);
 
 interface ShareButtonsProps {
   whatsappText: string;
@@ -47,7 +64,7 @@ export function ShareButtons({
         <Send className="w-4 h-4" /> {telegramText}
       </button>
       <button className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl text-sm border border-indigo-100">
-        <Facebook className="w-4 h-4" /> {facebookText}
+        <FacebookIcon className="w-4 h-4" /> {facebookText}
       </button>
       <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl text-sm mt-2 shadow-md">
         <LinkIcon className="w-4 h-4" /> {copyText}
@@ -81,7 +98,7 @@ export function ShareButtons({
         rel="noopener noreferrer"
         className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl hover:bg-indigo-100 transition-colors text-sm border border-indigo-100"
       >
-        <Facebook className="w-4 h-4" /> {facebookText}
+        <FacebookIcon className="w-4 h-4" /> {facebookText}
       </a>
       
       <button 
