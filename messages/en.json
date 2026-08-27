@@ -92,24 +92,24 @@
   },
   "Process": {
     "tag": "How It Works",
-    "title": "Your Journey to Healing in 4 Simple Steps",
-    "desc": "We handle every detail—from medical visas to hospital admission—so you can focus entirely on your recovery.",
+    "title": "Your Journey to Better Health, 4 Simple Steps",
+    "desc": "We provide complete support throughout your medical journey, handling everything from visa assistance to hospital admission, so you can focus on your treatment and recovery.",
     "steps": {
       "step1": {
-        "title": "Submit Medical Records",
-        "desc": "Upload your reports via our secure portal. Our team signs an NDA to protect your privacy."
+        "title": "Share Your Medical Information",
+        "desc": "Send us your medical reports, diagnosis, test results, and treatment requirements. Our team carefully reviews your case to understand your medical needs."
       },
       "step2": {
-        "title": "Get Free Treatment Plan",
-        "desc": "Receive a detailed clinical evaluation, doctor profiles, and transparent cost estimates within 24 hours."
+        "title": "Receive a Personalized Treatment Plan",
+        "desc": "We connect you with the appropriate specialist and hospital based on your medical condition. You receive treatment options, an estimated cost, and a proposed treatment timeline."
       },
       "step3": {
-        "title": "Visa & Travel Assistance",
-        "desc": "We provide Medical Visa invitation letters, book flights, and arrange comfortable accommodation."
+        "title": "Plan Your Medical Journey to India",
+        "desc": "Once you decide to proceed, we assist with hospital appointments, medical visa support, airport transfers, accommodation, local transportation, and professional interpretation."
       },
       "step4": {
-        "title": "Treatment & Recovery",
-        "desc": "Receive VIP airport pickup, dedicated language translator, and 24/7 care throughout your stay."
+        "title": "Treatment & Complete Patient Support",
+        "desc": "From hospital admission to treatment, discharge, and follow-up, our team stays connected with you. We help make your medical journey smooth, comfortable, and well-coordinated."
       }
     },
     "ctaTitle": "Ready to Start Your Treatment Journey?",
