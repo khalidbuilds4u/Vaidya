@@ -36,13 +36,13 @@ export function HeroSection() {
         }}
       />
 
-      {/* 2. Dark/Vignette Overlay (Stronger on the left for text readability) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-900/50 to-transparent pointer-events-none z-[1]" />
-      <div className="absolute inset-0 bg-slate-900/20 pointer-events-none z-[1]" />
+      {/* 2. Light Left Gradient Overlay (keeps left text area crisp white) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 to-transparent pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent pointer-events-none z-[1]" />
 
-      {/* 3. Ambient Glowing Orbs */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-500/20 blur-[120px] pointer-events-none z-[2]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-teal-500/20 blur-[150px] pointer-events-none z-[2]" />
+      {/* 3. Ambient Glowing Orbs (Soft, light-toned) */}
+      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-300/20 blur-[120px] pointer-events-none z-[2]" />
+      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-teal-300/20 blur-[120px] pointer-events-none z-[2]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
@@ -51,36 +51,36 @@ export function HeroSection() {
           <div className="w-full lg:w-7/12 flex flex-col items-start text-left z-10">
             
             {/* Top Tagline Glass Pill */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-white text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-lg border border-white/30 bg-white/10 backdrop-blur-md max-w-full">
-              <Sparkles className="w-3.5 h-3.5 text-amber-300 shrink-0 animate-pulse" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full">
+              <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse" />
               <span className="truncate">{t('tagline')}</span>
             </div>
             
             {/* Headline */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4 drop-shadow-md">
+            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4">
               {t('titleLine1')} <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 via-teal-200 to-cyan-300">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-600 to-emerald-500">
                 {t('titleLine2')}
               </span>
             </h1>
             
             {/* Subtext */}
-            <p className="text-xs sm:text-base md:text-lg text-slate-100 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium drop-shadow-sm">
+            <p className="text-xs sm:text-base md:text-lg text-slate-700 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium">
               {t('subtext')}
             </p>
 
             {/* Quick Trust Highlights Row on Mobile */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-white">
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700">
+              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>{t('pill1')}</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>{t('pill2')}</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-xl px-3 py-1.5 rounded-lg border border-white/20 shadow-lg">
-                <Clock className="w-4 h-4 text-amber-400 shrink-0" />
+              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
+                <Clock className="w-4 h-4 text-primary shrink-0" />
                 <span>{t('pill3')}</span>
               </div>
             </div>
@@ -104,27 +104,27 @@ export function HeroSection() {
             </div>
 
             {/* Sleek Frosted Glass Search Capsule */}
-            <div className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_8px_32px_rgba(0,0,0,0.25)] bg-white/15 backdrop-blur-2xl border border-white/30">
-              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-white/20 sm:bg-transparent rounded-xl sm:rounded-none">
-                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-white mr-2 shrink-0 drop-shadow-sm" />
+            <div className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] bg-white/90 backdrop-blur-xl border border-white">
+              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 sm:bg-transparent rounded-xl sm:rounded-none">
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 shrink-0" />
                 <Input 
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   placeholder={t('searchPlaceholder')}
-                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-white/70 text-white font-medium drop-shadow-sm"
+                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-slate-400 text-slate-900 font-medium"
                 />
               </div>
               
-              <div className="hidden sm:block w-px h-8 bg-white/30 mx-1"></div>
+              <div className="hidden sm:block w-px h-8 bg-slate-200 mx-1"></div>
               
-              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-white/20 sm:bg-transparent rounded-xl sm:rounded-none">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-white mr-1.5 shrink-0 drop-shadow-sm" />
+              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-slate-50/60 sm:bg-transparent rounded-xl sm:rounded-none">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-1.5 shrink-0" />
                 <select 
                   value={searchCity}
                   onChange={(e) => setSearchCity(e.target.value)}
-                  className="w-full bg-transparent border-0 text-white font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none appearance-none drop-shadow-sm"
+                  className="w-full bg-transparent border-0 text-slate-800 font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none"
                 >
                   <option value="" className="text-slate-900">{t('anyCity')}</option>
                   <option value="New Delhi" className="text-slate-900">New Delhi</option>
@@ -149,40 +149,40 @@ export function HeroSection() {
           <div className="hidden lg:flex w-full lg:w-5/12 flex-col gap-4 items-end justify-center">
             
             {/* Glass Highlight Card 1 (JCI & NABH Accreditation) */}
-            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/40 flex items-center gap-3.5 bg-white/20 backdrop-blur-2xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-white/30 border border-white/40 flex items-center justify-center shrink-0 text-white shadow-inner backdrop-blur-md">
+            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-400/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-600 shadow-inner">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[11px] font-bold text-white/80 uppercase tracking-wider">{t('card1Sub')}</p>
-                <p className="text-base font-extrabold text-white leading-tight">{t('card1Title')}</p>
-                <p className="text-[11px] text-white/90 mt-0.5">{t('card1Desc')}</p>
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('card1Sub')}</p>
+                <p className="text-base font-extrabold text-slate-900 leading-tight">{t('card1Title')}</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">{t('card1Desc')}</p>
               </div>
             </div>
 
             {/* Glass Highlight Card 2 (Success Rate & Volume) */}
-            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/40 flex items-center gap-3.5 bg-white/20 backdrop-blur-2xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300 -translate-x-4">
-              <div className="w-12 h-12 rounded-2xl bg-white/30 border border-white/40 flex items-center justify-center shrink-0 text-white shadow-inner backdrop-blur-md">
+            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300 -translate-x-4">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary shadow-inner">
                 <Building2 className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[11px] font-bold text-white/80 uppercase tracking-wider">{t('card2Sub')}</p>
-                <p className="text-xl font-extrabold text-white leading-tight">{t('card2Title')}</p>
-                <p className="text-[11px] text-white/90 mt-0.5">{t('card2Desc')}</p>
+                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('card2Sub')}</p>
+                <p className="text-xl font-extrabold text-slate-900 leading-tight">{t('card2Title')}</p>
+                <p className="text-[11px] text-slate-500 mt-0.5">{t('card2Desc')}</p>
               </div>
             </div>
 
             {/* Glass Highlight Card 3 (Verified Patient Review) */}
-            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/40 bg-white/20 backdrop-blur-2xl max-w-sm w-full animate-float-delayed hover:-translate-y-1 transition-transform duration-300">
+            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 bg-white/85 backdrop-blur-xl max-w-sm w-full animate-float-delayed hover:-translate-y-1 transition-transform duration-300">
               <div className="flex items-center gap-1 mb-1.5">
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-amber-300 text-amber-300 drop-shadow-sm" />
+                  <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <p className="text-sm font-bold text-white leading-snug drop-shadow-sm">{t('card3Quote')}</p>
-              <div className="flex items-center justify-between mt-2 pt-2 border-t border-white/20 text-[11px] text-white/90 font-medium">
+              <p className="text-sm font-bold text-slate-900 leading-snug">{t('card3Quote')}</p>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-[11px] text-slate-500 font-medium">
                 <span>{t('card3Author')}</span>
-                <span className="text-amber-300 font-bold drop-shadow-sm">{t('card3Proc')}</span>
+                <span className="text-emerald-600 font-bold">{t('card3Proc')}</span>
               </div>
             </div>
 
