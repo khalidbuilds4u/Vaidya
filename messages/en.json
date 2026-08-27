@@ -330,6 +330,13 @@
     "tag": "Real Stories. Real Healing.",
     "title": "Life-Changing Recovery.",
     "desc": "Hear directly from international patients who trusted Asad Healthcare with their complex medical journeys to India.",
+    "filters": {
+      "All": "All",
+      "Orthopedics": "Orthopedics",
+      "Cardiology": "Cardiology",
+      "Oncology": "Oncology",
+      "Organ Transplant": "Organ Transplant"
+    },
     "reviews": [
       {
         "quote": "The NHS waitlist was over 18 months. With Asad Healthcare, I landed in Delhi on Monday, had robotic surgery on Wednesday, and was pain-free within weeks!",
