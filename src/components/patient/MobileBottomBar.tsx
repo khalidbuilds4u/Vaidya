@@ -8,8 +8,8 @@ export function MobileBottomBar() {
   const whatsappNumber = "919451187513";
 
   return (
-    <div className="md:hidden fixed bottom-6 right-4 z-50 pointer-events-auto pb-[env(safe-area-inset-bottom)]">
-      <div className="glass-panel p-1.5 rounded-full shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-white/95 flex flex-col items-center gap-2 bg-white/95 backdrop-blur-2xl">
+    <div className="md:hidden fixed top-[calc(50%+3.5rem)] right-2 z-40 pointer-events-auto pb-[env(safe-area-inset-bottom)]">
+      <div className="glass-panel p-1.5 rounded-full shadow-[0_4px_15px_rgba(0,0,0,0.15)] border border-white/50 flex flex-col items-center gap-2 bg-slate-200/50 backdrop-blur-md">
         
         {/* WhatsApp Action Button */}
         <a 
