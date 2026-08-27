@@ -163,7 +163,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                         24/7 Emergency
                       </span>
                       <span className="px-3.5 py-2 rounded-full border border-purple-400/30 text-purple-400 text-xs font-bold bg-purple-500/10 backdrop-blur-md">
-                        International Patients
+                        World-Class Care
                       </span>
                     </>
                   )}
