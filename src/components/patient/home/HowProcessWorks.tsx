@@ -112,6 +112,15 @@ export function HowProcessWorks() {
             );
           })}
         </div>
+
+        {/* Closing Support Banner */}
+        <div className="mt-12 sm:mt-16 mx-auto max-w-4xl bg-gradient-to-r from-teal-500/10 via-teal-400/5 to-emerald-500/10 border border-teal-500/20 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden group hover:border-teal-400/40 transition-colors duration-300">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-400/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+          <p className="text-teal-50 text-base sm:text-lg lg:text-xl font-medium tracking-wide leading-relaxed relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+            <HeartHandshake className="w-6 h-6 sm:w-7 sm:h-7 text-teal-400 shrink-0" />
+            <span>Your health is our priority. We are here to support you throughout your medical journey in India.</span>
+          </p>
+        </div>
       </div>
     </section>
   );
