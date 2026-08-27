@@ -85,7 +85,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
         <div className="bg-[#123654] text-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden">
           
           {/* Top Section */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-10">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-6">
             {/* Image */}
             <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden bg-white shadow-xl border-4 border-white/20 shrink-0 relative">
               <img 
@@ -135,29 +135,40 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 ))}
               </div>
             </div>
-          </div>
-          
-          {/* Action Bottom Bar */}
-          <div className="relative z-10 w-full pt-6 border-t border-slate-700/50 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm font-medium">
-              <span className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-emerald-400" /> Premium Facilities</span>
-              <span className="hidden sm:inline text-slate-600">|</span>
-              <span className="flex items-center gap-2"><Building2 className="w-4 h-4 text-emerald-400" /> Multi-Speciality</span>
-            </div>
-            <div className="flex w-full sm:w-auto items-center gap-3">
-              <ShareButtons 
-                whatsappText={t('share.whatsapp') || "WhatsApp"}
-                telegramText={t('share.telegram') || "Telegram"}
-                facebookText={t('share.facebook') || "Facebook"}
-                copyText={t('share.copy') || "Copy Link"}
-                doctorName={getTranslation(hospital, 'name', locale)}
-              />
+
+            {/* Right Side: Enquiry CTA for Desktop */}
+            <div className="hidden lg:block shrink-0 pt-2">
               <EnquiryForm>
-                <Button className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white font-bold rounded-full px-8 h-12">
+                <Button className="w-full bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-8 h-12 transition-all shadow-lg">
                   {t('askButton')}
                 </Button>
               </EnquiryForm>
             </div>
+          </div>
+          
+          {/* Action Bottom Bar (Highlights) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-2 border-t border-slate-700/50 relative z-10 w-full">
+            
+            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-1">
+                <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              </div>
+              <div className="text-sm font-medium text-slate-300 w-full">
+                <span className="text-white font-bold block mb-1">Premium Facilities</span>
+                <span className="text-slate-400 text-xs leading-relaxed block">State-of-the-art infrastructure & medical technology.</span>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-1">
+                <Building2 className="w-5 h-5 text-blue-400" />
+              </div>
+              <div className="text-sm font-medium text-slate-300 w-full">
+                <span className="text-white font-bold block mb-1">Multi-Speciality Care</span>
+                <span className="text-slate-400 text-xs leading-relaxed block">Comprehensive treatment across all disciplines.</span>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -361,6 +372,20 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   </li>
                 </ul>
               </div>
+            </div>
+            
+            {/* Share Hospital */}
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+              <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                {t('share.title')}
+              </h3>
+              <ShareButtons 
+                whatsappText={t('share.whatsapp') || "WhatsApp"}
+                telegramText={t('share.telegram') || "Telegram"}
+                facebookText={t('share.facebook') || "Facebook"}
+                copyText={t('share.copy') || "Copy Link"}
+                doctorName={getTranslation(hospital, 'name', locale)}
+              />
             </div>
 
           </div>
