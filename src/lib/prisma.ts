@@ -44,10 +44,11 @@ function createPrismaClient() {
     // Ignore URL parsing errors
   }
 
-  // For direct PostgreSQL connections, use the pg Pool with a low max for serverless
+  // For direct PostgreSQL connections, use the pg Pool.
+  // Increase max to allow concurrent Next.js Server Components to fetch without queuing
   const pool = new Pool({ 
     connectionString: pgConnectionString, 
-    max: 2,
+    max: 20,
     ssl: { rejectUnauthorized: false } // Required for Supabase transaction pooler
   });
   const adapter = new PrismaPg(pool);
