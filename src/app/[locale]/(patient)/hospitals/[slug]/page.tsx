@@ -55,13 +55,15 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
   const heroImage = hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop";
 
   const tocItems = [
-    { id: 'about', label: t('about'), show: !!hospital.description },
-    { id: 'premium-facilities', label: t('premiumFacilities'), show: (getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities)?.length > 0 },
-    { id: 'specialities', label: t('multiSpecialties'), show: (getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties)?.length > 0 },
-    { id: 'technologies', label: t('technologies'), show: (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 },
-    { id: 'connectivity', label: t('connectivity'), show: (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 },
-    { id: 'excellence', label: t('excellence'), show: (getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare)?.length > 0 },
-    { id: 'facilities', label: t('facilities'), show: (getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) && Object.keys((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities)).length > 0 },
+    { id: 'about', label: 'About the Hospital', show: !!hospital.description },
+    { id: 'key-highlights', label: 'Key Highlights', show: (getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights)?.length > 0 },
+    { id: 'specialities', label: 'Specialities & Centres of Excellence', show: (getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres)?.length > 0 },
+    { id: 'technologies', label: 'Advanced Medical Technology', show: (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 },
+    { id: 'infrastructure', label: 'Infrastructure & Hospital Facilities', show: (getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities)?.length > 0 },
+    { id: 'patient-care', label: 'Patient Care', show: (getTranslation(hospital, 'patientCare', locale) || hospital.patientCare)?.length > 0 },
+    { id: 'international-services', label: 'International Patient Services', show: (getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices)?.length > 0 },
+    { id: 'connectivity', label: 'Location & Connectivity', show: (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 },
+    { id: 'why-choose', label: 'Why Choose This Hospital', show: (getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital)?.length > 0 },
   ];
 
   return (
@@ -195,128 +197,148 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8 lg:mt-12">
           
           {/* Main Content (Left, 8 cols) */}
-          <div className="lg:col-span-8 space-y-12">
-            
-            {/* About Hospital */}
+                    <div className="lg:col-span-8 space-y-12 pb-10">
+            {/* 1. About */}
             {hospital.description && (
-              <section id="about" className="scroll-mt-32">
-                <SectionHeader title={t('about')} />
-                <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-[15px]">
-                  <p className="whitespace-pre-wrap">
-                    {getTranslation(hospital, 'description', locale) || `${getTranslation(hospital, 'name', locale)} is a premier healthcare institution located in ${getTranslation(hospital.city, 'name', locale)}. Equipped with state-of-the-art medical technology and staffed by internationally trained specialists, the hospital offers comprehensive medical care across various disciplines.`}
-                  </p>
+              <section id="about" className="scroll-mt-28">
+                <SectionHeader title="About the Hospital" />
+                <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-sm sm:text-base whitespace-pre-wrap">
+                  {getTranslation(hospital, 'description', locale)}
                 </div>
               </section>
             )}
 
-            {/* Premium Facilities */}
-            {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities) && (getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).length > 0 && (
-              <section id="premium-facilities" className="scroll-mt-32">
-                <SectionHeader title={t('premiumFacilities')} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                  {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).map((facility: string, idx: number) => (
-                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
-                        <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+            {/* 2. Key Highlights */}
+            {(getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights)?.length > 0 && (
+              <section id="key-highlights" className="scroll-mt-28">
+                <SectionHeader title="Key Highlights" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights).map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                      <div className="w-8 h-8 rounded-full bg-teal-50 flex items-center justify-center shrink-0 mt-0.5">
+                        <CheckCircle2 className="w-4 h-4 text-teal-600" />
                       </div>
-                      <p className="text-slate-700 font-medium leading-relaxed pt-2">{facility}</p>
+                      <span className="text-sm font-medium text-slate-700 leading-relaxed pt-1">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 3. Specialities & Centres of Excellence */}
+            {(getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres)?.length > 0 && (
+              <section id="specialities" className="scroll-mt-28">
+                <SectionHeader title="Specialities & Centres of Excellence" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres).map((spec: string, idx: number) => (
+                    <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl border border-slate-100 bg-white shadow-sm hover:border-teal-500/30 transition-colors">
+                      <div className="w-10 h-10 rounded-full bg-blue-50 text-blue-500 flex items-center justify-center shrink-0">
+                        <Stethoscope className="w-5 h-5" />
+                      </div>
+                      <span className="font-semibold text-slate-800 text-sm">{spec}</span>
                     </div>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Multi Speciality Services */}
-            {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties) && (getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).length > 0 && (
-              <section id="specialities" className="scroll-mt-32">
-                <SectionHeader title={t('multiSpecialties')} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                  {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).map((spec: string, idx: number) => (
-                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
-                        <Stethoscope className="w-5 h-5 text-teal-500" />
-                      </div>
-                      <p className="text-slate-700 font-medium leading-relaxed">{spec}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Advanced Medical Technologies */}
-            {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies) && (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).length > 0 && (
-              <section id="technologies" className="scroll-mt-32">
-                <SectionHeader title={t('technologies')} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+            {/* 4. Advanced Medical Technology */}
+            {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 && (
+              <section id="technologies" className="scroll-mt-28">
+                <SectionHeader title="Advanced Medical Technology" />
+                <ul className="grid grid-cols-1 gap-3">
                   {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).map((tech: string, idx: number) => (
-                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
-                      <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
-                      <p className="text-slate-700 font-medium leading-relaxed">{tech}</p>
-                    </div>
+                    <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+                      <div className="w-2 h-2 rounded-full bg-teal-500 mt-2 shrink-0" />
+                      <span className="text-sm text-slate-700 font-medium leading-relaxed">{tech}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </section>
             )}
 
-            {/* Connectivity & Location */}
-            {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation) && (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).length > 0 && (
-              <section id="connectivity" className="scroll-mt-32">
-                <SectionHeader title={t('connectivity')} />
-                <div className="space-y-4 mt-6">
-                  {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).map((item: string, idx: number) => (
-                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-                      <div className="w-2 h-2 rounded-full bg-slate-300 shrink-0 mt-2" />
-                      <p className="text-slate-700 font-medium leading-relaxed">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Excellence in Patient Care */}
-            {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare) && (getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).length > 0 && (
-              <section id="excellence" className="scroll-mt-32">
-                <SectionHeader title={t('excellence')} />
-                <div className="space-y-4 mt-6">
-                  {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).map((item: string, idx: number) => (
-                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
-                      <div className="w-2 h-2 rounded-full bg-slate-300 shrink-0 mt-2" />
-                      <p className="text-slate-700 font-medium leading-relaxed">{item}</p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
-            {/* Hospital Facilities Cards */}
-            {(getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) && typeof (getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) === 'object' && Object.keys((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities)).length > 0 && (
-              <section id="facilities" className="scroll-mt-32">
-                <SectionHeader title={t('facilities')} />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                  {Object.entries((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) as Record<string, string[]>).map(([category, items], idx) => (
-                    <div key={idx} className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
-                      <div className="bg-slate-50 py-4 px-5 border-b border-slate-100 flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-full bg-teal-500/10 flex items-center justify-center shrink-0">
-                          <CheckCircle2 className="w-4 h-4 text-teal-600" />
-                        </div>
-                        <h3 className="text-slate-900 font-bold text-base">{category}</h3>
+            {/* 5. Infrastructure & Hospital Facilities */}
+            {(getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities)?.length > 0 && (
+              <section id="infrastructure" className="scroll-mt-28">
+                <SectionHeader title="Infrastructure & Hospital Facilities" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities).map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-3 bg-white p-4 rounded-2xl border border-slate-100 shadow-sm">
+                      <div className="w-8 h-8 rounded-full bg-emerald-50 flex items-center justify-center shrink-0 mt-0.5">
+                        <Building2 className="w-4 h-4 text-emerald-600" />
                       </div>
-                      <ul className="p-5 space-y-3 flex-1">
-                        {Array.isArray(items) ? items.map((item, itemIdx) => (
-                          <li key={itemIdx} className="flex items-start gap-2.5 text-sm text-slate-600">
-                            <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2.5 shrink-0"></div>
-                            <span className="leading-relaxed">{item}</span>
-                          </li>
-                        )) : (
-                          <li className="text-sm text-slate-600 leading-relaxed">{String(items)}</li>
-                        )}
-                      </ul>
-                    </div>
+                      <span className="text-sm font-medium text-slate-700 leading-relaxed pt-1">{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </section>
             )}
-            
+
+            {/* 6. Patient Care */}
+            {(getTranslation(hospital, 'patientCare', locale) || hospital.patientCare)?.length > 0 && (
+              <section id="patient-care" className="scroll-mt-28">
+                <SectionHeader title="Patient Care" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(hospital, 'patientCare', locale) || hospital.patientCare).map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm hover:border-teal-500/30 transition-colors">
+                      <div className="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center shrink-0 mt-0.5">
+                        <ShieldCheck className="w-4 h-4 text-rose-500" />
+                      </div>
+                      <span className="text-sm text-slate-700 font-medium leading-relaxed pt-1.5">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 7. International Patient Services */}
+            {(getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices)?.length > 0 && (
+              <section id="international-services" className="scroll-mt-28">
+                <SectionHeader title="International Patient Services" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices).map((service: string, idx: number) => (
+                    <li key={idx} className="flex items-center gap-3 p-4 rounded-2xl border border-slate-100 bg-white shadow-sm hover:border-teal-500/30 transition-colors">
+                      <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                        <Plane className="w-4 h-4 text-blue-500" />
+                      </div>
+                      <span className="font-semibold text-slate-700 text-sm">{service}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 8. Location & Connectivity */}
+            {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 && (
+              <section id="connectivity" className="scroll-mt-28">
+                <SectionHeader title="Location & Connectivity" />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).map((loc: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-3 p-4 rounded-2xl border border-slate-100 bg-white shadow-sm">
+                      <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 mt-0.5">
+                        <MapPin className="w-4 h-4 text-amber-600" />
+                      </div>
+                      <span className="text-sm font-medium text-slate-700 pt-1 leading-relaxed">{loc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 9. Why Choose This Hospital */}
+            {(getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital)?.length > 0 && (
+              <section id="why-choose" className="scroll-mt-28">
+                <SectionHeader title="Why Choose This Hospital" />
+                <ul className="grid grid-cols-1 gap-3">
+                  {(getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital).map((item: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm border-l-4 border-l-teal-500">
+                      <span className="text-sm text-slate-700 font-medium leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
           </div>
 
           {/* Right Column (Sidebar, 4 cols) */}

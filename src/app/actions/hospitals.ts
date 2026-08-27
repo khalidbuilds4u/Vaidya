@@ -77,25 +77,17 @@ export async function createHospital(formData: FormData) {
     return [];
   };
 
-  const premiumFacilities = parseJsonArray("premiumFacilities");
+  const keyHighlights = parseJsonArray("keyHighlights");
+  const whyChooseThisHospital = parseJsonArray("whyChooseThisHospital");
+  const patientCare = parseJsonArray("patientCare");
+  const infrastructureAndFacilities = parseJsonArray("infrastructureAndFacilities");
+  const specialitiesAndCentres = parseJsonArray("specialitiesAndCentres");
   const advancedTechnologies = parseJsonArray("advancedTechnologies");
   const connectivityLocation = parseJsonArray("connectivityLocation");
-  const excellenceInCare = parseJsonArray("excellenceInCare");
   
-  const multiSpecialties = parseJsonArray("multiSpecialties");
-  const facilityFood = parseJsonArray("facilityFood");
-  const facilityComfort = parseJsonArray("facilityComfort");
-  const facilityTransportation = parseJsonArray("facilityTransportation");
-  const facilityLanguage = parseJsonArray("facilityLanguage");
-  const facilityMoney = parseJsonArray("facilityMoney");
-
-  const hospitalFacilities = {
-    "Food": facilityFood,
-    "Comfort During Stay": facilityComfort,
-    "Transportation": facilityTransportation,
-    "Language": facilityLanguage,
-    "Money Matters": facilityMoney
-  };
+  
+  
+  
 
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;
@@ -116,24 +108,30 @@ export async function createHospital(formData: FormData) {
     return undefined;
   };
 
-  const premiumFacilities_ar = parseJsonArrayAr("premiumFacilities_ar");
-  const multiSpecialties_ar = parseJsonArrayAr("multiSpecialties_ar");
+  const keyHighlights_ar = parseJsonArrayAr("keyHighlights_ar");
+  const whyChooseThisHospital_ar = parseJsonArrayAr("whyChooseThisHospital_ar");
+  const patientCare_ar = parseJsonArrayAr("patientCare_ar");
+  const infrastructureAndFacilities_ar = parseJsonArrayAr("infrastructureAndFacilities_ar");
+  const specialitiesAndCentres_ar = parseJsonArrayAr("specialitiesAndCentres_ar");
+  
   const advancedTechnologies_ar = parseJsonArrayAr("advancedTechnologies_ar");
   const connectivityLocation_ar = parseJsonArrayAr("connectivityLocation_ar");
-  const excellenceInCare_ar = parseJsonArrayAr("excellenceInCare_ar");
+  
 
   let manualTranslations = undefined;
-  if (name_ar || description_ar || address_ar || premiumFacilities_ar || multiSpecialties_ar || advancedTechnologies_ar || connectivityLocation_ar || excellenceInCare_ar) {
+  if (name_ar || description_ar || address_ar || keyHighlights_ar || specialitiesAndCentres_ar || advancedTechnologies_ar || connectivityLocation_ar || infrastructureAndFacilities_ar || patientCare_ar || whyChooseThisHospital_ar) {
     manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
         address: address_ar || undefined,
-        premiumFacilities: premiumFacilities_ar,
-        multiSpecialties: multiSpecialties_ar,
+        keyHighlights: keyHighlights_ar,
+        specialitiesAndCentres: specialitiesAndCentres_ar,
         advancedTechnologies: advancedTechnologies_ar,
         connectivityLocation: connectivityLocation_ar,
-        excellenceInCare: excellenceInCare_ar,
+        infrastructureAndFacilities: infrastructureAndFacilities_ar,
+        patientCare: patientCare_ar,
+        whyChooseThisHospital: whyChooseThisHospital_ar,
       }
     };
   }
@@ -142,11 +140,13 @@ export async function createHospital(formData: FormData) {
     name,
     description,
     address,
-    premiumFacilities,
-    multiSpecialties,
+    keyHighlights,
+    specialitiesAndCentres,
     advancedTechnologies,
     connectivityLocation,
-    excellenceInCare
+    infrastructureAndFacilities,
+    patientCare,
+    whyChooseThisHospital
   }, manualTranslations);
 
   await prisma.hospital.create({
@@ -163,12 +163,13 @@ export async function createHospital(formData: FormData) {
       internationalServices,
       established,
       airportDistance,
-      premiumFacilities,
+      keyHighlights,
       advancedTechnologies,
       connectivityLocation,
-      excellenceInCare,
-      multiSpecialties,
-      hospitalFacilities,
+      patientCare,
+      specialitiesAndCentres,
+      infrastructureAndFacilities,
+      whyChooseThisHospital,
       isPublished,
       cityId,
       translations: finalTranslations ? finalTranslations : undefined,
@@ -242,25 +243,17 @@ export async function updateHospital(id: string, formData: FormData) {
     return [];
   };
 
-  const premiumFacilities = parseJsonArray("premiumFacilities");
+  const keyHighlights = parseJsonArray("keyHighlights");
+  const whyChooseThisHospital = parseJsonArray("whyChooseThisHospital");
+  const patientCare = parseJsonArray("patientCare");
+  const infrastructureAndFacilities = parseJsonArray("infrastructureAndFacilities");
+  const specialitiesAndCentres = parseJsonArray("specialitiesAndCentres");
   const advancedTechnologies = parseJsonArray("advancedTechnologies");
   const connectivityLocation = parseJsonArray("connectivityLocation");
-  const excellenceInCare = parseJsonArray("excellenceInCare");
   
-  const multiSpecialties = parseJsonArray("multiSpecialties");
-  const facilityFood = parseJsonArray("facilityFood");
-  const facilityComfort = parseJsonArray("facilityComfort");
-  const facilityTransportation = parseJsonArray("facilityTransportation");
-  const facilityLanguage = parseJsonArray("facilityLanguage");
-  const facilityMoney = parseJsonArray("facilityMoney");
-
-  const hospitalFacilities = {
-    "Food": facilityFood,
-    "Comfort During Stay": facilityComfort,
-    "Transportation": facilityTransportation,
-    "Language": facilityLanguage,
-    "Money Matters": facilityMoney
-  };
+  
+  
+  
 
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;
@@ -281,24 +274,30 @@ export async function updateHospital(id: string, formData: FormData) {
     return undefined;
   };
 
-  const premiumFacilities_ar = parseJsonArrayAr("premiumFacilities_ar");
-  const multiSpecialties_ar = parseJsonArrayAr("multiSpecialties_ar");
+  const keyHighlights_ar = parseJsonArrayAr("keyHighlights_ar");
+  const whyChooseThisHospital_ar = parseJsonArrayAr("whyChooseThisHospital_ar");
+  const patientCare_ar = parseJsonArrayAr("patientCare_ar");
+  const infrastructureAndFacilities_ar = parseJsonArrayAr("infrastructureAndFacilities_ar");
+  const specialitiesAndCentres_ar = parseJsonArrayAr("specialitiesAndCentres_ar");
+  
   const advancedTechnologies_ar = parseJsonArrayAr("advancedTechnologies_ar");
   const connectivityLocation_ar = parseJsonArrayAr("connectivityLocation_ar");
-  const excellenceInCare_ar = parseJsonArrayAr("excellenceInCare_ar");
+  
 
   let manualTranslations = undefined;
-  if (name_ar || description_ar || address_ar || premiumFacilities_ar || multiSpecialties_ar || advancedTechnologies_ar || connectivityLocation_ar || excellenceInCare_ar) {
+  if (name_ar || description_ar || address_ar || keyHighlights_ar || specialitiesAndCentres_ar || advancedTechnologies_ar || connectivityLocation_ar || infrastructureAndFacilities_ar || patientCare_ar || whyChooseThisHospital_ar) {
     manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
         address: address_ar || undefined,
-        premiumFacilities: premiumFacilities_ar,
-        multiSpecialties: multiSpecialties_ar,
+        keyHighlights: keyHighlights_ar,
+        specialitiesAndCentres: specialitiesAndCentres_ar,
         advancedTechnologies: advancedTechnologies_ar,
         connectivityLocation: connectivityLocation_ar,
-        excellenceInCare: excellenceInCare_ar,
+        infrastructureAndFacilities: infrastructureAndFacilities_ar,
+        patientCare: patientCare_ar,
+        whyChooseThisHospital: whyChooseThisHospital_ar,
       }
     };
   }
@@ -314,11 +313,13 @@ export async function updateHospital(id: string, formData: FormData) {
     name,
     description,
     address,
-    premiumFacilities,
-    multiSpecialties,
+    keyHighlights,
+    specialitiesAndCentres,
     advancedTechnologies,
     connectivityLocation,
-    excellenceInCare
+    infrastructureAndFacilities,
+    patientCare,
+    whyChooseThisHospital
   }, existingTranslations);
 
   await prisma.hospital.update({
@@ -336,12 +337,13 @@ export async function updateHospital(id: string, formData: FormData) {
       internationalServices,
       established,
       airportDistance,
-      premiumFacilities,
+      keyHighlights,
       advancedTechnologies,
       connectivityLocation,
-      excellenceInCare,
-      multiSpecialties,
-      hospitalFacilities,
+      patientCare,
+      specialitiesAndCentres,
+      infrastructureAndFacilities,
+      whyChooseThisHospital,
       isPublished,
       cityId: cityId || undefined,
       translations: finalTranslations ? finalTranslations : undefined,

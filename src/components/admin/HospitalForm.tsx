@@ -20,12 +20,16 @@ type HospitalFormProps = {
     internationalServices: string[];
     established?: number | null;
     airportDistance?: number | null;
-    premiumFacilities?: string[];
+    keyHighlights?: string[];
+    specialitiesAndCentres?: string[];
+    infrastructureAndFacilities?: string[];
+    patientCare?: string[];
+    whyChooseThisHospital?: string[];
     advancedTechnologies?: string[];
     connectivityLocation?: string[];
-    excellenceInCare?: string[];
-    multiSpecialties?: string[];
-    hospitalFacilities?: any;
+    
+    
+    
     translations?: any;
     isPublished?: boolean;
   };
@@ -242,72 +246,45 @@ export function HospitalForm({
           <h3 className="text-lg font-bold text-slate-900 mb-6">Hospital Content Sections</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <DynamicListInput 
-              name="premiumFacilities" 
-              label="Premium Facilities during Hospital Stay" 
-              initialItems={initialData?.premiumFacilities || []} 
-              placeholder="e.g. 539+ beds in the hospital" 
+              name="keyHighlights" 
+              label="Key Highlights" 
+              initialItems={initialData?.keyHighlights || []} 
             />
+            
             <DynamicListInput 
-              name="multiSpecialties" 
-              label="Multi Speciality Services" 
-              initialItems={initialData?.multiSpecialties || []} 
-              placeholder="e.g. Cardiology, Neurology" 
+              name="specialitiesAndCentres" 
+              label="Specialities & Centres of Excellence" 
+              initialItems={initialData?.specialitiesAndCentres || []} 
             />
+            
             <DynamicListInput 
               name="advancedTechnologies" 
               label="Advanced Medical Technologies" 
               initialItems={initialData?.advancedTechnologies || []} 
-              placeholder="e.g. TrueBeam Linac with Exactrac" 
             />
+            
+            <DynamicListInput 
+              name="infrastructureAndFacilities" 
+              label="Infrastructure & Hospital Facilities" 
+              initialItems={initialData?.infrastructureAndFacilities || []} 
+            />
+            
+            <DynamicListInput 
+              name="patientCare" 
+              label="Patient Care" 
+              initialItems={initialData?.patientCare || []} 
+            />
+            
             <DynamicListInput 
               name="connectivityLocation" 
-              label="Connectivity & Location" 
+              label="Location & Connectivity" 
               initialItems={initialData?.connectivityLocation || []} 
-              placeholder="e.g. Airport is 13 km away" 
             />
+            
             <DynamicListInput 
-              name="excellenceInCare" 
-              label="Excellence in patient care" 
-              initialItems={initialData?.excellenceInCare || []} 
-              placeholder="e.g. Accredited by JCI and NABH" 
-            />
-          </div>
-        </div>
-
-        {/* Section 4: Hospital Facilities Categories */}
-        <div className="pt-6 border-t border-slate-100">
-          <h3 className="text-lg font-bold text-slate-900 mb-6">Hospital Facilities</h3>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <DynamicListInput 
-              name="facilityFood" 
-              label="Food" 
-              initialItems={initialData?.hospitalFacilities?.["Food"] || []} 
-              placeholder="e.g. Diet on Request, Restaurant" 
-            />
-            <DynamicListInput 
-              name="facilityComfort" 
-              label="Comfort During Stay" 
-              initialItems={initialData?.hospitalFacilities?.["Comfort During Stay"] || []} 
-              placeholder="e.g. TV in room, Free wifi" 
-            />
-            <DynamicListInput 
-              name="facilityTransportation" 
-              label="Transportation" 
-              initialItems={initialData?.hospitalFacilities?.["Transportation"] || []} 
-              placeholder="e.g. Airport pickup" 
-            />
-            <DynamicListInput 
-              name="facilityLanguage" 
-              label="Language" 
-              initialItems={initialData?.hospitalFacilities?.["Language"] || []} 
-              placeholder="e.g. Interpretation, Translation" 
-            />
-            <DynamicListInput 
-              name="facilityMoney" 
-              label="Money Matters" 
-              initialItems={initialData?.hospitalFacilities?.["Money Matters"] || []} 
-              placeholder="e.g. Health insurance, ATM" 
+              name="whyChooseThisHospital" 
+              label="Why Choose This Hospital" 
+              initialItems={initialData?.whyChooseThisHospital || []} 
             />
           </div>
         </div>

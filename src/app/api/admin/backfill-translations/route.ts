@@ -42,11 +42,13 @@ export async function GET(request: Request) {
             name: h.name,
             address: h.address,
             description: h.description,
-            premiumFacilities: h.premiumFacilities,
-            multiSpecialties: h.multiSpecialties,
+            keyHighlights: h.keyHighlights,
+            specialitiesAndCentres: h.specialitiesAndCentres,
             advancedTechnologies: h.advancedTechnologies,
+            infrastructureAndFacilities: h.infrastructureAndFacilities,
+            patientCare: h.patientCare,
             connectivityLocation: h.connectivityLocation,
-            excellenceInCare: h.excellenceInCare
+            whyChooseThisHospital: h.whyChooseThisHospital
           }, h.translations);
           await prisma.hospital.update({ where: { id: h.id }, data: { translations: trans } });
           updatedCount++;

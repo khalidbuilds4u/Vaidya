@@ -109,15 +109,16 @@ model Hospital {
   icuBeds               Int?
   otCount               Int?
   accreditations        String[]
-  internationalServices String[]
-  established           Int?
-  airportDistance       Int?
-  premiumFacilities     String[]       @default([])
-  advancedTechnologies  String[]       @default([])
-  connectivityLocation  String[]       @default([])
-  excellenceInCare      String[]       @default([])
-  multiSpecialties      String[]       @default([])
-  hospitalFacilities    Json?
+  internationalServices       String[]       @default([])
+  established                 Int?
+  airportDistance             Int?
+  keyHighlights               String[]       @default([])
+  specialitiesAndCentres      String[]       @default([])
+  advancedTechnologies        String[]       @default([])
+  infrastructureAndFacilities String[]       @default([])
+  patientCare                 String[]       @default([])
+  connectivityLocation        String[]       @default([])
+  whyChooseThisHospital       String[]       @default([])
   isPublished           Boolean        @default(true)
   createdAt             DateTime       @default(now())
   updatedAt             DateTime       @updatedAt
