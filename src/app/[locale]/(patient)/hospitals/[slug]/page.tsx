@@ -160,10 +160,10 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   ) : (
                     <>
                       <span className="px-3.5 py-2 rounded-full border border-blue-400/30 text-blue-400 text-xs font-bold bg-blue-500/10 backdrop-blur-md">
-                        Multi-Speciality
+                        24/7 Emergency
                       </span>
                       <span className="px-3.5 py-2 rounded-full border border-purple-400/30 text-purple-400 text-xs font-bold bg-purple-500/10 backdrop-blur-md">
-                        World-Class Care
+                        International Patients
                       </span>
                     </>
                   )}
