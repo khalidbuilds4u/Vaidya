@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MessageCircle, Send, Link as LinkIcon, Check } from "lucide-react";
+import { MessageCircle, Send, Link as LinkIcon, Check, Facebook } from "lucide-react";
 
 interface ShareButtonsProps {
   whatsappText: string;
@@ -47,7 +47,7 @@ export function ShareButtons({
         <Send className="w-4 h-4" /> {telegramText}
       </button>
       <button className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl text-sm border border-indigo-100">
-        {facebookText}
+        <Facebook className="w-4 h-4" /> {facebookText}
       </button>
       <button className="w-full flex items-center justify-center gap-2 bg-slate-900 text-white font-bold py-3 rounded-xl text-sm mt-2 shadow-md">
         <LinkIcon className="w-4 h-4" /> {copyText}
@@ -81,7 +81,7 @@ export function ShareButtons({
         rel="noopener noreferrer"
         className="w-full flex items-center justify-center gap-2 bg-indigo-50 text-indigo-600 font-bold py-3 rounded-xl hover:bg-indigo-100 transition-colors text-sm border border-indigo-100"
       >
-        {facebookText}
+        <Facebook className="w-4 h-4" /> {facebookText}
       </a>
       
       <button 
