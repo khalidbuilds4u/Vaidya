@@ -35,16 +35,17 @@ const FAQS = [
 
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [showAll, setShowAll] = useState(false);
   const t = useTranslations('FAQ');
-  const localizedFaqs = [
-    { question: t('faqs.q1.question'), answer: t('faqs.q1.answer') },
-    { question: t('faqs.q2.question'), answer: t('faqs.q2.answer') },
-    { question: t('faqs.q3.question'), answer: t('faqs.q3.answer') },
-    { question: t('faqs.q4.question'), answer: t('faqs.q4.answer') },
-    { question: t('faqs.q5.question'), answer: t('faqs.q5.answer') },
-    { question: t('faqs.q6.question'), answer: t('faqs.q6.answer') },
-    { question: t('faqs.q7.question'), answer: t('faqs.q7.answer') }
-  ];
+  const localizedFaqs = Array.from({ length: 20 }, (_, i) => {
+    const key = `q${i + 1}` as any;
+    return {
+      question: t(`faqs.${key}.question`),
+      answer: t(`faqs.${key}.answer`)
+    };
+  });
+
+  const visibleFaqs = showAll ? localizedFaqs : localizedFaqs.slice(0, 6);
 
   return (
     <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70">
@@ -66,7 +67,7 @@ export function FAQSection() {
         </div>
 
         <div className="space-y-3 sm:space-y-4">
-          {localizedFaqs.map((faq, index) => {
+          {visibleFaqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
               <div 
@@ -100,6 +101,16 @@ export function FAQSection() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Button 
+            variant="outline" 
+            className="rounded-full px-8 py-5 border-slate-300 text-slate-700 hover:text-primary hover:bg-slate-50 hover:border-primary font-bold shadow-sm transition-all"
+            onClick={() => setShowAll(!showAll)}
+          >
+            {showAll ? 'Show Less Questions' : 'Read All Questions'}
+          </Button>
         </div>
 
         {/* Bottom Help Glass Box with Perfect Alignment */}

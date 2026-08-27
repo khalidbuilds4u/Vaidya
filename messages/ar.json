@@ -185,28 +185,80 @@
         "answer": "Medical tourism means traveling to India for medical treatment, surgery, diagnosis, or healthcare services."
       },
       "q2": {
-        "question": "لماذا يجب أن أختار الهند للعلاج الطبي؟",
-        "answer": "تقدم الهند مرافق طبية عالمية المستوى، ومستشفيات معتمدة دوليًا (JCI و NABH)، وأطباء ذوي مهارات عالية مدربين في الولايات المتحدة / المملكة المتحدة، وتكنولوجيا طبية متقدمة بتكاليف أقل بنسبة 60-80% مقارنة بالدول الغربية، مع عدم وجود أوقات انتظار تقريبًا."
+        "question": "Why choose India for medical treatment?",
+        "answer": "India offers experienced doctors, advanced hospitals, modern technology, and affordable treatment options."
       },
       "q3": {
-        "question": "هل سيكون هناك حاجز لغوي أثناء إقامتي في المستشفى؟",
-        "answer": "لا. اللغة الإنجليزية هي اللغة التشغيلية الرسمية في جميع المستشفيات الهندية المعتمدة. علاوة على ذلك، يعين فريقنا مترجماً مخصصاً (عربي، روسي، فرنسي، بنغالي، سواحيلي) لمساعدتك خلال جميع الاستشارات ودخول المستشفى."
+        "question": "What services does your company provide?",
+        "answer": "We provide hospital coordination, doctor appointments, medical treatment support, travel assistance, accommodation, and patient coordination."
       },
       "q4": {
-        "question": "كيف أحصل على تأشيرة طبية هندية (Med Visa)؟",
-        "answer": "بمجرد مشاركة تقاريرك الطبية واختيار المستشفى المفضل لديك، نرتب خطاب دعوة تأشيرة رسمي (VIL) من المستشفى. يمكنك استخدامه للحصول على تأشيرة طبية إلكترونية عبر الإنترنت في غضون 48 إلى 72 ساعة."
+        "question": "Can you help me choose a hospital?",
+        "answer": "Yes, we can help you find a suitable hospital based on your medical needs and preferences."
       },
       "q5": {
-        "question": "هل يمكن لأفراد الأسرة أو المرافقين السفر معي؟",
-        "answer": "نعم، يمكن لما يصل إلى اثنين من أفراد الأسرة أو المرافقين السفر معك بتأشيرة مرافق طبي (MED-X). سيشمل خطاب الدعوة الرسمي للمستشفى تفاصيلهم صراحةً."
+        "question": "Can you help me choose a doctor?",
+        "answer": "Yes, we can help arrange consultation with a suitable specialist."
       },
       "q6": {
-        "question": "كيف تعمل عملية التسعير والدفع؟",
-        "answer": "استشارتنا وتنسيق الكونسيرج لدينا مجانية 100% للمرضى. تتم تسوية جميع مدفوعات العلاج مباشرة مع المستشفى عند الوصول عن طريق بطاقة الائتمان، أو التحويل المصرفي، أو العملة الأجنبية."
+        "question": "Can I send my medical reports before traveling?",
+        "answer": "Yes. You can share your medical reports for review and treatment planning."
       },
       "q7": {
-        "question": "ماذا يحدث عندما أهبط في المطار في الهند؟",
-        "answer": "سيستقبلك ممثلنا مباشرة في مبنى المطار بلوحة اسم مخصصة، وينقلك إلى غرفتك في الفندق أو المستشفى، ويزودك ببطاقة SIM محلية ومساعدة في صرف العملات."
+        "question": "Can you provide a treatment estimate?",
+        "answer": "Yes, we can request a treatment estimate from the hospital based on your medical reports."
+      },
+      "q8": {
+        "question": "Do you arrange doctor appointments?",
+        "answer": "Yes, we can arrange appointments with doctors and specialists."
+      },
+      "q9": {
+        "question": "Do you provide language interpretation?",
+        "answer": "Yes, we provide language interpretation and communication support for international patients."
+      },
+      "q10": {
+        "question": "Do you help with a medical visa?",
+        "answer": "Yes, we can provide guidance and coordination for the medical visa process."
+      },
+      "q11": {
+        "question": "Do you arrange airport pickup?",
+        "answer": "Yes, we can arrange airport pickup and transportation as required."
+      },
+      "q12": {
+        "question": "Do you arrange accommodation?",
+        "answer": "Yes, we can help arrange suitable accommodation near the hospital."
+      },
+      "q13": {
+        "question": "Do you provide local transportation?",
+        "answer": "Yes, transportation can be arranged for hospital visits, airport transfers, and other necessary travel."
+      },
+      "q14": {
+        "question": "Will someone assist me during my hospital visit?",
+        "answer": "Yes, our patient coordinator can assist with hospital communication and coordination."
+      },
+      "q15": {
+        "question": "Can family members travel with the patient?",
+        "answer": "Yes, family members can travel with the patient, subject to visa and travel requirements."
+      },
+      "q16": {
+        "question": "Can you help after the treatment?",
+        "answer": "Yes, we can assist with follow-up appointments, reports, and other post-treatment coordination."
+      },
+      "q17": {
+        "question": "How long will my treatment take?",
+        "answer": "The treatment duration depends on the patient's condition, treatment plan, and doctor's recommendation."
+      },
+      "q18": {
+        "question": "How much does treatment in India cost?",
+        "answer": "The cost depends on the hospital, doctor, treatment, medical condition, and required services."
+      },
+      "q19": {
+        "question": "How do I start my medical treatment journey in India?",
+        "answer": "Send us your medical reports and requirements. We will guide you through the next steps."
+      },
+      "q20": {
+        "question": "Why choose our medical tourism company?",
+        "answer": "We provide end-to-end support to help international patients have a smooth, organized, and comfortable medical journey in India."
       }
     },
     "bottom": {

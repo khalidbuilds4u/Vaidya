@@ -185,28 +185,80 @@
         "answer": "Medical tourism means traveling to India for medical treatment, surgery, diagnosis, or healthcare services."
       },
       "q2": {
-        "question": "Why should I choose India for medical treatment?",
-        "answer": "India offers world-class medical facilities, internationally accredited hospitals (JCI & NABH), highly skilled doctors trained in the US/UK, and advanced medical technology at 60–80% lower costs compared to Western nations, with virtually zero waiting times."
+        "question": "Why choose India for medical treatment?",
+        "answer": "India offers experienced doctors, advanced hospitals, modern technology, and affordable treatment options."
       },
       "q3": {
-        "question": "Will there be a language barrier during my hospital stay?",
-        "answer": "No. English is the official operational language across all accredited Indian hospitals. Furthermore, our team assigns a dedicated translator (Arabic, Russian, French, Bengali, Swahili) to assist you during all consultations and hospital admissions."
+        "question": "What services does your company provide?",
+        "answer": "We provide hospital coordination, doctor appointments, medical treatment support, travel assistance, accommodation, and patient coordination."
       },
       "q4": {
-        "question": "How do I obtain an Indian Medical Visa (Med Visa)?",
-        "answer": "Once you share your medical reports and select your preferred hospital, we arrange an official Visa Invitation Letter (VIL) from the hospital. You can use this to obtain an e-Medical Visa online within 48 to 72 hours."
+        "question": "Can you help me choose a hospital?",
+        "answer": "Yes, we can help you find a suitable hospital based on your medical needs and preferences."
       },
       "q5": {
-        "question": "Can family members or attendants travel with me?",
-        "answer": "Yes, up to two family members or attendants can travel with you on a Medical Attendant Visa (MED-X). The official hospital invitation letter will explicitly include their details."
+        "question": "Can you help me choose a doctor?",
+        "answer": "Yes, we can help arrange consultation with a suitable specialist."
       },
       "q6": {
-        "question": "How does the quotation and payment process work?",
-        "answer": "Our consultation and concierge coordination is 100% free for patients. All treatment payments are settled directly with the hospital upon arrival via credit card, bank wire transfer, or foreign currency."
+        "question": "Can I send my medical reports before traveling?",
+        "answer": "Yes. You can share your medical reports for review and treatment planning."
       },
       "q7": {
-        "question": "What happens when I land at the airport in India?",
-        "answer": "Our representative will receive you directly at the airport terminal with a personalized name placard, transport you to your hotel or hospital room, and provide you with a local SIM card and currency exchange assistance."
+        "question": "Can you provide a treatment estimate?",
+        "answer": "Yes, we can request a treatment estimate from the hospital based on your medical reports."
+      },
+      "q8": {
+        "question": "Do you arrange doctor appointments?",
+        "answer": "Yes, we can arrange appointments with doctors and specialists."
+      },
+      "q9": {
+        "question": "Do you provide language interpretation?",
+        "answer": "Yes, we provide language interpretation and communication support for international patients."
+      },
+      "q10": {
+        "question": "Do you help with a medical visa?",
+        "answer": "Yes, we can provide guidance and coordination for the medical visa process."
+      },
+      "q11": {
+        "question": "Do you arrange airport pickup?",
+        "answer": "Yes, we can arrange airport pickup and transportation as required."
+      },
+      "q12": {
+        "question": "Do you arrange accommodation?",
+        "answer": "Yes, we can help arrange suitable accommodation near the hospital."
+      },
+      "q13": {
+        "question": "Do you provide local transportation?",
+        "answer": "Yes, transportation can be arranged for hospital visits, airport transfers, and other necessary travel."
+      },
+      "q14": {
+        "question": "Will someone assist me during my hospital visit?",
+        "answer": "Yes, our patient coordinator can assist with hospital communication and coordination."
+      },
+      "q15": {
+        "question": "Can family members travel with the patient?",
+        "answer": "Yes, family members can travel with the patient, subject to visa and travel requirements."
+      },
+      "q16": {
+        "question": "Can you help after the treatment?",
+        "answer": "Yes, we can assist with follow-up appointments, reports, and other post-treatment coordination."
+      },
+      "q17": {
+        "question": "How long will my treatment take?",
+        "answer": "The treatment duration depends on the patient's condition, treatment plan, and doctor's recommendation."
+      },
+      "q18": {
+        "question": "How much does treatment in India cost?",
+        "answer": "The cost depends on the hospital, doctor, treatment, medical condition, and required services."
+      },
+      "q19": {
+        "question": "How do I start my medical treatment journey in India?",
+        "answer": "Send us your medical reports and requirements. We will guide you through the next steps."
+      },
+      "q20": {
+        "question": "Why choose our medical tourism company?",
+        "answer": "We provide end-to-end support to help international patients have a smooth, organized, and comfortable medical journey in India."
       }
     },
     "bottom": {
