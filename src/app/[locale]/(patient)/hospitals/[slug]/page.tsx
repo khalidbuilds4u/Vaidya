@@ -85,15 +85,15 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
         <div className="bg-[#123654] text-white rounded-3xl shadow-xl border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden min-h-[400px] lg:min-h-[480px]">
           
           {/* Background Image with Gradient Overlay */}
-          <div className="absolute inset-0 z-0">
+          <div className="absolute top-0 right-0 h-full w-full lg:w-2/3 z-0">
             <img 
               src={heroImage} 
               alt={hospital.name}
-              className="w-full h-full object-cover opacity-30 object-center mix-blend-overlay"
+              className="w-full h-full object-cover object-center lg:object-right opacity-60"
             />
-            {/* Gradient to ensure text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#123654] via-[#123654]/95 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#123654] via-transparent to-transparent" />
+            {/* Gradient to ensure smooth blending with the left solid blue area */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#123654] via-[#123654]/90 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#123654] via-transparent to-transparent opacity-80" />
           </div>
 
           <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-between flex-1">
