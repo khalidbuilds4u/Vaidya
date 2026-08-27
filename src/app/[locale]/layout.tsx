@@ -7,6 +7,8 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import NextTopLoader from 'nextjs-toploader';
 
+import { SplashScreen } from '@/components/patient/SplashScreen';
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -54,6 +56,7 @@ export default async function RootLayout({
       className={`${isRtl ? cairo.variable : inter.variable} ${isRtl ? 'font-cairo' : 'font-sans'} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+          <SplashScreen />
           <NextTopLoader
             color="#0f766e"
             initialPosition={0.08}
