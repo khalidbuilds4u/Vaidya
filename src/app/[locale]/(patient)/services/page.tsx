@@ -118,7 +118,7 @@ type CardProps = { icon: React.ElementType; title: string; desc: string; bg: str
 
 function ServiceCard({ icon: Icon, title, desc, bg, shadow, iconColor }: CardProps) {
   return (
-    <div className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+    <div className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center">
       <div
         className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 relative"
         style={{
