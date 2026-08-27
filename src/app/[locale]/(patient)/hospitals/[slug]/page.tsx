@@ -151,11 +151,22 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                       <Plane className="w-4 h-4 text-teal-400" /> {hospital.airportDistance} km
                     </span>
                   )}
-                  {hospital.specialties && hospital.specialties.slice(0, 3).map((spec, idx) => (
-                    <span key={idx} className="px-3.5 py-2 rounded-full border border-blue-400/30 text-blue-400 text-xs font-bold bg-blue-500/10 backdrop-blur-md">
-                      {getTranslation(spec, 'name', locale)}
-                    </span>
-                  ))}
+                  {hospital.specialties && hospital.specialties.length > 0 ? (
+                    hospital.specialties.slice(0, 3).map((spec, idx) => (
+                      <span key={idx} className="px-3.5 py-2 rounded-full border border-blue-400/30 text-blue-400 text-xs font-bold bg-blue-500/10 backdrop-blur-md">
+                        {getTranslation(spec, 'name', locale)}
+                      </span>
+                    ))
+                  ) : (
+                    <>
+                      <span className="px-3.5 py-2 rounded-full border border-blue-400/30 text-blue-400 text-xs font-bold bg-blue-500/10 backdrop-blur-md">
+                        Multi-Speciality
+                      </span>
+                      <span className="px-3.5 py-2 rounded-full border border-purple-400/30 text-purple-400 text-xs font-bold bg-purple-500/10 backdrop-blur-md">
+                        World-Class Care
+                      </span>
+                    </>
+                  )}
                 </div>
               </div>
 
