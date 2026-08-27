@@ -15,6 +15,10 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.rihlatmed.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'static.hospidio.com',
+      },
     ],
   },
 };

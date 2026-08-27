@@ -331,7 +331,17 @@
   "PatientStories": {
     "tag": "Real Stories. Real Healing.",
     "title": "Life-Changing Recovery.",
+    "subtitle": "A Second Chance at Life",
     "desc": "Hear directly from international patients who trusted Asad Healthcare with their complex medical journeys to India.",
+    "stats": {
+      "financial": "Financial Impact",
+      "clinical": "Clinical Outcome",
+      "verified": "Verified Patient Record"
+    },
+    "doctor": {
+      "treating": "Treating Specialist",
+      "consult": "Consult This Doctor"
+    },
     "filters": {
       "All": "All",
       "Orthopedics": "Orthopedics",
