@@ -151,9 +151,9 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                       <Plane className="w-4 h-4 text-teal-400" /> {hospital.airportDistance} km
                     </span>
                   )}
-                  {hospital.accreditations && hospital.accreditations.slice(0, 3).map((acc, idx) => (
-                    <span key={idx} className="px-3.5 py-2 rounded-full border border-yellow-500/30 text-yellow-500 text-xs font-bold bg-yellow-500/10 backdrop-blur-md">
-                      {acc}
+                  {hospital.specialties && hospital.specialties.slice(0, 3).map((spec, idx) => (
+                    <span key={idx} className="px-3.5 py-2 rounded-full border border-blue-400/30 text-blue-400 text-xs font-bold bg-blue-500/10 backdrop-blur-md">
+                      {getTranslation(spec, 'name', locale)}
                     </span>
                   ))}
                 </div>
