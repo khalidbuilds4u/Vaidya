@@ -266,11 +266,11 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-r from-primary via-teal-600 to-emerald-600 py-12">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-[11px] font-bold uppercase tracking-wider mb-4">
-            <CheckCircle2 className="w-3 h-3" />Zero Hidden Agency Fees
+            <CheckCircle2 className="w-3 h-3" />Zero Hidden Charges
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">Complimentary Coordination Services</h2>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">100% Free for Patients</h2>
           <p className="text-white/85 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
-            Our dedicated concierge and medical coordination services are provided at <strong className="text-white">no extra cost</strong> to you. You pay your medical bills directly to the hospital at their standard rates, while we ensure your journey is seamless from start to finish.
+            Our consultation and concierge coordination services are completely <strong className="text-white">free of charge</strong> for patients. All treatment fees are settled directly with the hospital. We are compensated by our hospital partners — you pay <strong className="text-white">nothing extra</strong>.
           </p>
         </div>
       </section>
