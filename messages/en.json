@@ -852,6 +852,9 @@
       "desc": "Submit your medical details. Our expert international care coordinators will review your case and connect with you shortly."
     },
     "form": {
+      "personalInfo": "Personal Information",
+      "contactInfo": "Contact Details",
+      "medicalInfo": "Medical Details",
       "firstName": "First Name *",
       "firstNamePlaceholder": "e.g. John",
       "lastName": "Last Name",
