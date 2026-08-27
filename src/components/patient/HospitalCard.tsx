@@ -1,9 +1,12 @@
+"use client";
+
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { MapPin, BedDouble, Plane, Building2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { useState } from 'react';
 
 export interface HospitalCardProps {
   slug: string;
@@ -34,15 +37,21 @@ export function HospitalCard({
   hasInternationalSupport = true
 }: HospitalCardProps) {
   const t = useTranslations('HospitalCard');
+  const [imgError, setImgError] = useState(false);
+  
+  const displayImage = (!image || image.trim() === "" || imgError) 
+    ? "/images/hospital-placeholder.jpg" 
+    : image;
   
   return (
     <div className="rounded-xl overflow-hidden border border-slate-200 flex flex-col h-full group bg-white shadow-sm hover:shadow-lg transition-all duration-300">
       <div className="flex flex-col sm:flex-row flex-1">
         
         {/* Image Section */}
-        <div className="w-full sm:w-[35%] lg:w-[40%] h-48 sm:h-auto relative overflow-hidden shrink-0">
+        <div className="w-full sm:w-[35%] lg:w-[40%] h-48 sm:h-auto relative overflow-hidden shrink-0 bg-slate-100">
           <Image 
-            src={image || "/images/hospital-placeholder.jpg"}
+            src={displayImage}
+            onError={() => setImgError(true)}
             alt={name}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 35vw, 40vw"
