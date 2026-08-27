@@ -5,6 +5,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
+import NextTopLoader from 'nextjs-toploader';
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,6 +54,17 @@ export default async function RootLayout({
       className={`${isRtl ? cairo.variable : inter.variable} ${isRtl ? 'font-cairo' : 'font-sans'} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+          <NextTopLoader
+            color="#0f766e"
+            initialPosition={0.08}
+            crawlSpeed={200}
+            height={3}
+            crawl={true}
+            showSpinner={false}
+            easing="ease"
+            speed={200}
+            shadow="0 0 10px #0f766e, 0 0 5px #0f766e"
+          />
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>
