@@ -36,14 +36,14 @@ const FAQS = [
 export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const t = useTranslations('FAQ');
-
   const localizedFaqs = [
     { question: t('faqs.q1.question'), answer: t('faqs.q1.answer') },
     { question: t('faqs.q2.question'), answer: t('faqs.q2.answer') },
     { question: t('faqs.q3.question'), answer: t('faqs.q3.answer') },
     { question: t('faqs.q4.question'), answer: t('faqs.q4.answer') },
     { question: t('faqs.q5.question'), answer: t('faqs.q5.answer') },
-    { question: t('faqs.q6.question'), answer: t('faqs.q6.answer') }
+    { question: t('faqs.q6.question'), answer: t('faqs.q6.answer') },
+    { question: t('faqs.q7.question'), answer: t('faqs.q7.answer') }
   ];
 
   return (
