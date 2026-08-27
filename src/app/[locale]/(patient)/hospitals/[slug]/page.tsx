@@ -82,93 +82,112 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
         </div>
 
         {/* Hero Section */}
-        <div className="bg-[#123654] text-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden">
+        <div className="bg-[#123654] text-white rounded-3xl shadow-xl border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden min-h-[400px] lg:min-h-[480px]">
           
-          {/* Top Section */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-6">
-            {/* Image */}
-            <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-2xl overflow-hidden bg-white shadow-xl border-4 border-white/20 shrink-0 relative">
-              <img 
-                src={heroImage} 
-                alt={hospital.name}
-                className="w-full h-full object-cover scale-105"
-              />
-            </div>
+          {/* Background Image with Gradient Overlay */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src={heroImage} 
+              alt={hospital.name}
+              className="w-full h-full object-cover opacity-30 object-center mix-blend-overlay"
+            />
+            {/* Gradient to ensure text readability */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#123654] via-[#123654]/95 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#123654] via-transparent to-transparent" />
+          </div>
 
-            {/* Info */}
-            <div className="flex-1 flex flex-col items-center lg:items-start justify-center space-y-3 lg:pt-2">
-              <div className="flex flex-col xl:flex-row xl:items-center items-center lg:items-start gap-3">
-                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white">
+          <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-between flex-1">
+            
+            {/* Top Section */}
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-8 w-full mb-10">
+              
+              {/* Info */}
+              <div className="flex-1 flex flex-col space-y-4 max-w-3xl">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-sm">
+                    <CheckCircle2 className="w-4 h-4" /> {t('overview.title') || "Verified Hospital"}
+                  </span>
+                </div>
+
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-extrabold tracking-tight text-white leading-[1.1]">
                   {getTranslation(hospital, 'name', locale)}
                 </h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
-                  <CheckCircle2 className="w-4 h-4" /> {t('overview.title') || "Verified"}
-                </span>
+                
+                <p className="text-base sm:text-lg text-slate-300 font-medium flex items-center gap-2 flex-wrap">
+                  <MapPin className="w-5 h-5 text-teal-400" /> 
+                  <span>{getTranslation(hospital.city, 'name', locale)}, {hospital.city.country}</span>
+                  {hospital.established && (
+                    <>
+                      <span className="text-slate-500 mx-2">•</span>
+                      <span>{t('overview.established')}: {hospital.established}</span>
+                    </>
+                  )}
+                </p>
+
+                {/* Pill Badges */}
+                <div className="flex flex-wrap gap-2.5 pt-3">
+                  {hospital.beds && (
+                    <span className="px-3.5 py-2 rounded-full border border-white/20 bg-white/5 text-slate-200 text-xs font-medium flex items-center gap-2 backdrop-blur-md">
+                      <BedDouble className="w-4 h-4 text-teal-400" /> {hospital.beds} {t('overview.beds')}
+                    </span>
+                  )}
+                  {hospital.airportDistance && (
+                    <span className="px-3.5 py-2 rounded-full border border-white/20 bg-white/5 text-slate-200 text-xs font-medium flex items-center gap-2 backdrop-blur-md">
+                      <Plane className="w-4 h-4 text-teal-400" /> {hospital.airportDistance} km
+                    </span>
+                  )}
+                  {hospital.accreditations && hospital.accreditations.slice(0, 3).map((acc, idx) => (
+                    <span key={idx} className="px-3.5 py-2 rounded-full border border-yellow-500/30 text-yellow-500 text-xs font-bold bg-yellow-500/10 backdrop-blur-md">
+                      {acc}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right Side: Enquiry CTA */}
+              <div className="shrink-0 w-full lg:w-auto flex justify-start lg:justify-end mt-4 lg:mt-0">
+                <EnquiryForm>
+                  <Button className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white font-bold rounded-xl px-8 h-12 sm:h-14 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_25px_rgba(20,184,166,0.5)]">
+                    {t('askButton')}
+                  </Button>
+                </EnquiryForm>
+              </div>
+            </div>
+            
+            {/* Action Bottom Bar (Highlights) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-white/10 w-full mt-auto">
+              
+              <div className="flex items-start gap-4 bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <ShieldCheck className="w-6 h-6 text-emerald-400" />
+                </div>
+                <div className="text-sm font-medium text-slate-300 w-full">
+                  <span className="text-white font-bold text-base block mb-1">Premium Facilities</span>
+                  <span className="text-slate-400 text-[13px] leading-relaxed block">State-of-the-art infrastructure & medical technology.</span>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm">
+                <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <Building2 className="w-6 h-6 text-blue-400" />
+                </div>
+                <div className="text-sm font-medium text-slate-300 w-full">
+                  <span className="text-white font-bold text-base block mb-1">Multi-Speciality Care</span>
+                  <span className="text-slate-400 text-[13px] leading-relaxed block">Comprehensive treatment across all disciplines.</span>
+                </div>
               </div>
               
-              <p className="text-sm sm:text-base text-slate-300 font-medium flex items-center justify-center lg:justify-start gap-2 flex-wrap">
-                <span><MapPin className="w-4 h-4 inline-block mr-1" /> {getTranslation(hospital.city, 'name', locale)}, {hospital.city.country}</span>
-                {hospital.established && (
-                  <>
-                    <span className="text-slate-500">•</span>
-                    <span>{t('overview.established')}: {hospital.established}</span>
-                  </>
-                )}
-              </p>
+              <div className="flex items-start gap-4 bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm hidden lg:flex">
+                <div className="w-12 h-12 rounded-full bg-purple-500/20 flex items-center justify-center shrink-0 mt-0.5">
+                  <CheckCircle2 className="w-6 h-6 text-purple-400" />
+                </div>
+                <div className="text-sm font-medium text-slate-300 w-full">
+                  <span className="text-white font-bold text-base block mb-1">Global Standard</span>
+                  <span className="text-slate-400 text-[13px] leading-relaxed block">Internationally recognized for clinical excellence.</span>
+                </div>
+              </div>
 
-              {/* Pill Badges */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-2.5 pt-2">
-                {hospital.beds && (
-                  <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium flex items-center gap-1.5">
-                    <BedDouble className="w-3.5 h-3.5" /> {hospital.beds} {t('overview.beds')}
-                  </span>
-                )}
-                {hospital.airportDistance && (
-                  <span className="px-3 py-1.5 rounded-full border border-slate-600 text-slate-300 text-xs font-medium flex items-center gap-1.5">
-                    <Plane className="w-3.5 h-3.5" /> {hospital.airportDistance} km
-                  </span>
-                )}
-                {hospital.accreditations && hospital.accreditations.slice(0, 2).map((acc, idx) => (
-                  <span key={idx} className="px-3 py-1.5 rounded-full border border-yellow-500/40 text-yellow-500 text-xs font-semibold bg-yellow-500/10">
-                    {acc}
-                  </span>
-                ))}
-              </div>
             </div>
-
-            {/* Right Side: Enquiry CTA for Desktop */}
-            <div className="hidden lg:block shrink-0 pt-2">
-              <EnquiryForm>
-                <Button className="w-full bg-white hover:bg-slate-100 text-[#123654] font-bold rounded-xl px-8 h-12 transition-all shadow-lg">
-                  {t('askButton')}
-                </Button>
-              </EnquiryForm>
-            </div>
-          </div>
-          
-          {/* Action Bottom Bar (Highlights) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-6 mt-2 border-t border-slate-700/50 relative z-10 w-full">
-            
-            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-1">
-                <ShieldCheck className="w-5 h-5 text-emerald-400" />
-              </div>
-              <div className="text-sm font-medium text-slate-300 w-full">
-                <span className="text-white font-bold block mb-1">Premium Facilities</span>
-                <span className="text-slate-400 text-xs leading-relaxed block">State-of-the-art infrastructure & medical technology.</span>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
-              <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0 mt-1">
-                <Building2 className="w-5 h-5 text-blue-400" />
-              </div>
-              <div className="text-sm font-medium text-slate-300 w-full">
-                <span className="text-white font-bold block mb-1">Multi-Speciality Care</span>
-                <span className="text-slate-400 text-xs leading-relaxed block">Comprehensive treatment across all disciplines.</span>
-              </div>
-            </div>
-
           </div>
         </div>
 
