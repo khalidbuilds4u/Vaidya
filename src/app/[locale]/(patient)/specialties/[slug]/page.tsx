@@ -181,7 +181,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
   const translatedName = dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name;
 
   // Map DB Treatments to UI format
-  const displayTreatments = dbTreatments.length > 0 ? dbTreatments.map((t, idx) => {
+  const displayTreatments = dbTreatments.map((t, idx) => {
     // Provide some varied placeholder images if we don't have real ones
     const images = [
       'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop',
@@ -196,12 +196,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
       description: getTranslation(t, 'description', locale) || t.description || `Specialized ${t.name} procedures at accredited hospitals in India.`,
       image: images[idx % images.length]
     };
-  }) : [
-    { name: t('mockTreatments.consultation.name', { name: translatedName }), slug: 'consultation', image: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.consultation.desc', { name: translatedName }), isReal: false },
-    { name: t('mockTreatments.diagnostics.name'), slug: 'diagnostics', image: 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.diagnostics.desc'), isReal: false },
-    { name: t('mockTreatments.surgery.name'), slug: 'surgery', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.surgery.desc'), isReal: false },
-    { name: t('mockTreatments.interventions.name'), slug: 'interventions', image: 'https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?q=80&w=2070&auto=format&fit=crop', description: t('mockTreatments.interventions.desc'), isReal: false }
-  ];
+  });
 
   // Map DB Doctors to DoctorCard props
   const topDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
@@ -296,37 +291,39 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
           <div className="w-full lg:w-2/3 space-y-16">
             
             {/* Popular Treatments in this Specialty */}
-            <section>
-              <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
-              <div className="grid sm:grid-cols-2 gap-6">
-                {displayTreatments.map(treatment => (
-                  <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
-                    <div className="h-48 overflow-hidden relative">
-                      <img 
-                        src={treatment.image} 
-                        alt={treatment.name} 
-                        className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
-                      />
-                    </div>
-                    <div className="p-5 flex flex-col flex-1">
-                      <h3 className="font-bold text-xl mb-2">{treatment.name}</h3>
-                      <p className="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">
-                        {treatment.description}
-                      </p>
-                      {treatment.isReal ? (
-                        <Button asChild className="w-full">
-                          <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
-                        </Button>
-                      ) : (
-                        <EnquiryForm>
-                          <Button variant="outline" className="w-full font-medium">Request Info</Button>
-                        </EnquiryForm>
-                      )}
-                    </div>
-                  </Card>
-                ))}
-              </div>
-            </section>
+            {displayTreatments.length > 0 && (
+              <section>
+                <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  {displayTreatments.map(treatment => (
+                    <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
+                      <div className="h-48 overflow-hidden relative">
+                        <img 
+                          src={treatment.image} 
+                          alt={treatment.name} 
+                          className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                        />
+                      </div>
+                      <div className="p-5 flex flex-col flex-1">
+                        <h3 className="font-bold text-xl mb-2">{treatment.name}</h3>
+                        <p className="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">
+                          {treatment.description}
+                        </p>
+                        {treatment.isReal ? (
+                          <Button asChild className="w-full">
+                            <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
+                          </Button>
+                        ) : (
+                          <EnquiryForm>
+                            <Button variant="outline" className="w-full font-medium">Request Info</Button>
+                          </EnquiryForm>
+                        )}
+                      </div>
+                    </Card>
+                  ))}
+                </div>
+              </section>
+            )}
 
             {/* Doctors Section */}
             <section>
