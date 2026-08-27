@@ -2,10 +2,15 @@ import type { Metadata } from 'next';
 import {
   HeartPulse, Plane, Hotel, Languages, ShieldCheck,
   CalendarCheck, FileText, Ambulance, Users, PhoneCall,
-  ArrowRight, CheckCircle2, Sparkles, Clock, MapPin,
+  ArrowRight, CheckCircle2, Sparkles, Clock,
   Stethoscope, FlaskConical, Pill, MessageCircle,
   ClipboardList, Star, BadgeCheck, Globe, Handshake,
-  ChevronRight, Package, HomeIcon
+  Package, Home, Car, KeyRound, FilePen,
+  PlaneLanding, PlaneTakeoff, HeartHandshake,
+  Microscope, DoorOpen, Luggage, MessageSquare,
+  ScanSearch, Building2, Receipt, CarFront,
+  CalendarClock, ClipboardPlus, UserCheck,
+  Route, Map, MessageSquareDot
 } from 'lucide-react';
 import { Link } from '@/i18n/routing';
 import { Button } from '@/components/ui/button';
@@ -17,76 +22,67 @@ export const metadata: Metadata = {
 };
 
 const preArrival = [
-  { icon: ClipboardList, title: 'Medical Case Assessment', desc: 'We collect your medical reports and understand your medical requirements before planning your treatment journey.' },
-  { icon: Stethoscope, title: 'Doctor & Hospital Selection', desc: 'We help identify suitable hospitals and doctors based on your medical condition and treatment needs.' },
-  { icon: FileText, title: 'Medical Opinion', desc: 'We coordinate with doctors to obtain a preliminary medical opinion and understand the possible treatment approach.' },
-  { icon: FileText, title: 'Treatment Cost Estimate', desc: 'We help you understand the expected treatment cost and other major expenses before your journey.' },
-  { icon: CalendarCheck, title: 'Appointment Scheduling', desc: 'We arrange consultations, diagnostic tests, and hospital appointments according to your treatment plan.' },
-  { icon: ShieldCheck, title: 'Medical Visa Assistance', desc: 'We guide patients and attendants with the medical visa process and required hospital documents.' },
-  { icon: Plane, title: 'Flight & Travel Assistance', desc: 'We assist with travel planning and help coordinate your journey to India.' },
-  { icon: Hotel, title: 'Accommodation Arrangement', desc: 'We help arrange suitable hotels, guest houses, or other accommodation close to the hospital.' },
-  { icon: MapPin, title: 'Airport Transfer Planning', desc: 'We can arrange airport pickup and transportation to your hotel or hospital.' },
-  { icon: Package, title: 'Personalized Treatment Plan', desc: 'We prepare a clear schedule for your consultations, tests, treatment, hospital visits, and other important arrangements.' },
+  { icon: ScanSearch,    title: 'Medical Case Assessment',    desc: 'We collect your medical reports and understand your medical requirements before planning your treatment journey.' },
+  { icon: Building2,     title: 'Doctor & Hospital Selection', desc: 'We help identify suitable hospitals and doctors based on your medical condition and treatment needs.' },
+  { icon: Stethoscope,   title: 'Medical Opinion',            desc: 'We coordinate with doctors to obtain a preliminary medical opinion and understand the possible treatment approach.' },
+  { icon: Receipt,       title: 'Treatment Cost Estimate',    desc: 'We help you understand the expected treatment cost and other major expenses before your journey.' },
+  { icon: CalendarCheck, title: 'Appointment Scheduling',     desc: 'We arrange consultations, diagnostic tests, and hospital appointments according to your treatment plan.' },
+  { icon: ShieldCheck,   title: 'Medical Visa Assistance',    desc: 'We guide patients and attendants with the medical visa process and required hospital documents.' },
+  { icon: Plane,         title: 'Flight & Travel Assistance', desc: 'We assist with travel planning and help coordinate your journey to India.' },
+  { icon: Hotel,         title: 'Accommodation Arrangement',  desc: 'We help arrange suitable hotels, guest houses, or other accommodation close to the hospital.' },
+  { icon: CarFront,      title: 'Airport Transfer Planning',  desc: 'We can arrange airport pickup and transportation to your hotel or hospital.' },
+  { icon: ClipboardList, title: 'Personalized Treatment Plan',desc: 'We prepare a clear schedule for your consultations, tests, treatment, hospital visits, and other important arrangements.' },
 ];
 
 const onArrival = [
-  { icon: Plane, title: 'Airport Pickup', desc: 'We welcome you at the airport and assist with your transfer to the hotel, guest house, or hospital.' },
-  { icon: Hotel, title: 'Hotel & Accommodation Support', desc: 'We assist with check-in and help resolve basic accommodation-related requirements.' },
-  { icon: ClipboardList, title: 'Hospital Registration', desc: 'We assist patients with hospital registration, documentation, and admission formalities.' },
-  { icon: Stethoscope, title: 'Doctor Consultation Assistance', desc: 'We accompany and assist patients during doctor consultations and help with communication.' },
-  { icon: Languages, title: 'Arabic-English Interpretation', desc: 'We provide language interpretation between patients and doctors or hospital staff to support clear communication.' },
-  { icon: FlaskConical, title: 'Diagnostic Test Coordination', desc: 'We help coordinate blood tests, scans, imaging, and other investigations as advised by the doctor.' },
-  { icon: HeartPulse, title: 'Treatment Coordination', desc: 'We coordinate with the hospital and concerned departments throughout the treatment process.' },
-  { icon: Ambulance, title: 'Hospital Admission Support', desc: 'We assist patients and attendants with admission procedures and important hospital formalities.' },
-  { icon: Users, title: 'Patient & Attendant Support', desc: 'We provide practical assistance to patients and their attendants during their stay in India.' },
-  { icon: MapPin, title: 'Local Transportation', desc: 'We help coordinate transportation for hospital visits, diagnostic tests, accommodation, and other essential journeys.' },
-  { icon: Pill, title: 'Pharmacy & Medical Support', desc: 'We assist patients with understanding prescriptions and locating medicines or medical supplies when required.' },
-  { icon: MessageCircle, title: 'Daily Coordination', desc: 'We stay connected with the patient and help coordinate important requirements throughout the medical journey.' },
+  { icon: PlaneLanding,   title: 'Airport Pickup',                 desc: 'We welcome you at the airport and assist with your transfer to the hotel, guest house, or hospital.' },
+  { icon: KeyRound,       title: 'Hotel & Accommodation Support',  desc: 'We assist with check-in and help resolve basic accommodation-related requirements.' },
+  { icon: FilePen,        title: 'Hospital Registration',          desc: 'We assist patients with hospital registration, documentation, and admission formalities.' },
+  { icon: Stethoscope,    title: 'Doctor Consultation Assistance', desc: 'We accompany and assist patients during doctor consultations and help with communication.' },
+  { icon: Languages,      title: 'Arabic-English Interpretation',  desc: 'We provide language interpretation between patients and doctors or hospital staff to support clear communication.' },
+  { icon: FlaskConical,   title: 'Diagnostic Test Coordination',   desc: 'We help coordinate blood tests, scans, imaging, and other investigations as advised by the doctor.' },
+  { icon: HeartPulse,     title: 'Treatment Coordination',         desc: 'We coordinate with the hospital and concerned departments throughout the treatment process.' },
+  { icon: ClipboardPlus,  title: 'Hospital Admission Support',     desc: 'We assist patients and attendants with admission procedures and important hospital formalities.' },
+  { icon: Users,          title: 'Patient & Attendant Support',    desc: 'We provide practical assistance to patients and their attendants during their stay in India.' },
+  { icon: Car,            title: 'Local Transportation',           desc: 'We help coordinate transportation for hospital visits, diagnostic tests, accommodation, and other essential journeys.' },
+  { icon: Pill,           title: 'Pharmacy & Medical Support',     desc: 'We assist patients with understanding prescriptions and locating medicines or medical supplies when required.' },
+  { icon: CalendarClock,  title: 'Daily Coordination',             desc: 'We stay connected with the patient and help coordinate important requirements throughout the medical journey.' },
 ];
 
 const postTreatment = [
-  { icon: ClipboardList, title: 'Discharge Assistance', desc: 'We assist patients with the discharge process and help them understand the necessary formalities.' },
-  { icon: FileText, title: 'Medical Documents', desc: 'We help patients collect important documents such as discharge summaries, prescriptions, reports, and treatment records.' },
-  { icon: CalendarCheck, title: "Doctor's Follow-Up", desc: 'We coordinate follow-up consultations and help patients stay connected with their treating doctor.' },
-  { icon: Pill, title: 'Medication Guidance', desc: 'We help patients understand their prescriptions and instructions provided by the medical team.' },
-  { icon: HeartPulse, title: 'Recovery & Aftercare Coordination', desc: 'We help coordinate recommended follow-up care and other post-treatment requirements.' },
-  { icon: Stethoscope, title: 'Final Medical Review', desc: 'We assist in coordinating the final consultation or medical review before the patient returns home, when advised.' },
-  { icon: Plane, title: 'Travel Preparation', desc: 'We help coordinate the patient\'s travel arrangements after completing the required treatment and medical formalities.' },
-  { icon: MapPin, title: 'Airport Transfer', desc: 'We can arrange transportation from the hotel or hospital to the airport for the return journey.' },
-  { icon: HomeIcon, title: 'Return Journey Support', desc: 'We help make the departure process smooth and organized so patients can return home comfortably.' },
-  { icon: MessageCircle, title: 'Continued Communication', desc: 'Our support can continue after you return home through communication and follow-up coordination with the hospital or doctor when required.' },
+  { icon: DoorOpen,       title: 'Discharge Assistance',           desc: 'We assist patients with the discharge process and help them understand the necessary formalities.' },
+  { icon: FileText,       title: 'Medical Documents',              desc: 'We help patients collect important documents such as discharge summaries, prescriptions, reports, and treatment records.' },
+  { icon: PhoneCall,      title: "Doctor's Follow-Up",             desc: 'We coordinate follow-up consultations and help patients stay connected with their treating doctor.' },
+  { icon: Pill,           title: 'Medication Guidance',            desc: 'We help patients understand their prescriptions and instructions provided by the medical team.' },
+  { icon: HeartHandshake, title: 'Recovery & Aftercare',           desc: 'We help coordinate recommended follow-up care and other post-treatment requirements.' },
+  { icon: Microscope,     title: 'Final Medical Review',           desc: 'We assist in coordinating the final consultation or medical review before the patient returns home, when advised.' },
+  { icon: Luggage,        title: 'Travel Preparation',             desc: "We help coordinate the patient's travel arrangements after completing the required treatment and medical formalities." },
+  { icon: PlaneTakeoff,   title: 'Airport Transfer',               desc: 'We can arrange transportation from the hotel or hospital to the airport for the return journey.' },
+  { icon: Home,           title: 'Return Journey Support',         desc: 'We help make the departure process smooth and organized so patients can return home comfortably.' },
+  { icon: MessageSquare,  title: 'Continued Communication',        desc: 'Our support can continue after you return home through communication and follow-up coordination with the hospital or doctor when required.' },
 ];
 
 const whyChoose = [
-  { icon: Users, title: 'Personalized Patient Support', desc: 'Every patient is different. We provide personalized assistance based on your medical needs, preferences, and treatment plan.' },
-  { icon: HeartPulse, title: 'Experienced Medical Coordination', desc: 'We coordinate with hospitals, doctors, and healthcare teams to help make your treatment journey smooth and well organized.' },
-  { icon: Languages, title: 'Professional Language Interpretation', desc: 'We help bridge the language gap between international patients and healthcare professionals for clear and comfortable communication.' },
-  { icon: Package, title: 'End-to-End Assistance', desc: 'From your first enquiry and hospital appointment to treatment, discharge, and return home, we support you throughout your journey.' },
-  { icon: BadgeCheck, title: 'Trusted Hospital Coordination', desc: 'We assist patients in connecting with suitable hospitals and medical specialists according to their treatment requirements.' },
-  { icon: MessageCircle, title: 'Transparent & Clear Communication', desc: 'We provide clear information about appointments, treatment coordination, estimated costs, and important arrangements.' },
-  { icon: Globe, title: 'Travel & Local Assistance', desc: 'We help coordinate accommodation, airport transfers, local transportation, and other essential arrangements during your stay in India.' },
-  { icon: Handshake, title: 'Support Beyond Treatment', desc: 'Our assistance can continue after you return home through follow-up coordination and communication with the hospital or doctor when required.' },
+  { icon: UserCheck,       title: 'Personalized Patient Support',          desc: 'Every patient is different. We provide personalized assistance based on your medical needs, preferences, and treatment plan.' },
+  { icon: HeartPulse,      title: 'Experienced Medical Coordination',      desc: 'We coordinate with hospitals, doctors, and healthcare teams to help make your treatment journey smooth and well organized.' },
+  { icon: Languages,       title: 'Professional Language Interpretation',  desc: 'We help bridge the language gap between international patients and healthcare professionals for clear and comfortable communication.' },
+  { icon: Route,           title: 'End-to-End Assistance',                 desc: 'From your first enquiry and hospital appointment to treatment, discharge, and return home, we support you throughout your journey.' },
+  { icon: BadgeCheck,      title: 'Trusted Hospital Coordination',         desc: 'We assist patients in connecting with suitable hospitals and medical specialists according to their treatment requirements.' },
+  { icon: MessageSquareDot,title: 'Transparent & Clear Communication',     desc: 'We provide clear information about appointments, treatment coordination, estimated costs, and important arrangements.' },
+  { icon: Map,             title: 'Travel & Local Assistance',             desc: 'We help coordinate accommodation, airport transfers, local transportation, and other essential arrangements during your stay in India.' },
+  { icon: HeartHandshake,  title: 'Support Beyond Treatment',              desc: 'Our assistance can continue after you return home through follow-up coordination and communication with the hospital or doctor when required.' },
 ];
 
-const phases = [
-  { id: 'pre', label: 'Pre-Arrival', color: 'text-violet-600 bg-violet-50 border-violet-200', dot: 'bg-violet-500', accent: 'from-violet-500/10', services: preArrival },
-  { id: 'on', label: 'During Treatment', color: 'text-primary bg-primary/5 border-primary/20', dot: 'bg-primary', accent: 'from-teal-500/10', services: onArrival },
-  { id: 'post', label: 'Post-Treatment', color: 'text-emerald-700 bg-emerald-50 border-emerald-200', dot: 'bg-emerald-500', accent: 'from-emerald-500/10', services: postTreatment },
-];
+type ServiceCardProps = { icon: React.ElementType; title: string; desc: string; iconBg: string; iconColor: string };
 
-function ServiceCard({ icon: Icon, title, desc, index, accentColor }: { icon: any; title: string; desc: string; index: number; accentColor: string }) {
+function ServiceCard({ icon: Icon, title, desc, iconBg, iconColor }: ServiceCardProps) {
   return (
-    <div className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 flex gap-4">
-      <div className={`shrink-0 w-9 h-9 rounded-xl ${accentColor} flex items-center justify-center`}>
-        <Icon className="w-4 h-4" />
+    <div className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+      <div className={`w-14 h-14 rounded-2xl ${iconBg} flex items-center justify-center mb-4 shadow-sm`}>
+        <Icon className={`w-7 h-7 ${iconColor}`} strokeWidth={1.5} />
       </div>
-      <div className="min-w-0">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="text-[10px] font-bold text-slate-400 tabular-nums">{String(index).padStart(2, '0')}</span>
-          <h3 className="text-sm font-bold text-slate-900 leading-tight">{title}</h3>
-        </div>
-        <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
-      </div>
+      <h3 className="text-sm font-extrabold text-slate-900 leading-snug mb-1.5">{title}</h3>
+      <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
     </div>
   );
 }
@@ -100,32 +96,27 @@ export default function ServicesPage() {
         <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-emerald-50 pointer-events-none" />
         <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-teal-200/20 blur-[100px] pointer-events-none" />
         <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-emerald-200/20 blur-[80px] pointer-events-none" />
-
         <div className="container mx-auto px-4 relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-wider mb-6">
             <Sparkles className="w-3 h-3 animate-pulse" />
             <span>End-to-End Medical Tourism Support</span>
           </div>
-
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.12] mb-6">
             Our{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-600 to-emerald-500">
               Services
             </span>
           </h1>
-
           <div className="max-w-3xl space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
             <p>At <strong className="text-slate-800">Asad Healthcare</strong>, we provide end-to-end support for international patients seeking medical treatment in India. From planning your journey to returning home, we help coordinate the important details of your medical trip.</p>
             <p>Our services are designed to make the healthcare journey simple, comfortable, transparent, and well organized. We coordinate with hospitals, doctors, patients, and attendants to ensure smooth communication and better support.</p>
             <p>We assist with medical coordination, interpretation, travel arrangements, accommodation, hospital visits, documentation, and local support according to each patient's needs.</p>
             <p className="font-semibold text-slate-800 pt-1">Your health is your priority. We take care of the coordination.</p>
           </div>
-
           <div className="flex flex-col sm:flex-row gap-3">
             <EnquiryForm>
               <Button size="lg" className="rounded-full px-8 shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold">
-                Get Free Consultation
-                <ArrowRight className="w-4 h-4 ml-2" />
+                Get Free Consultation <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </EnquiryForm>
             <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200 text-slate-700 hover:bg-slate-50">
@@ -135,26 +126,20 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* ── Phase Tabs / Quick Nav ── */}
+      {/* ── Sticky Phase Nav ── */}
       <div className="sticky top-16 z-20 bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-1 sm:gap-2 overflow-x-auto py-3 no-scrollbar">
-            {phases.map((p) => (
-              <a key={p.id} href={`#${p.id}`} className={`shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 ${p.color}`}>
-                <span className={`w-2 h-2 rounded-full ${p.dot}`} />
-                {p.label}
-              </a>
-            ))}
-            <a href="#why" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-amber-700 bg-amber-50 border-amber-200">
-              <Star className="w-3 h-3" />
-              Why Choose Us
-            </a>
+          <div className="flex items-center gap-2 overflow-x-auto py-3 no-scrollbar">
+            <a href="#pre"  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-violet-700 bg-violet-50 border-violet-200"><span className="w-2 h-2 rounded-full bg-violet-500" />Pre-Arrival</a>
+            <a href="#on"   className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-primary bg-primary/5 border-primary/20"><span className="w-2 h-2 rounded-full bg-primary" />During Treatment</a>
+            <a href="#post" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-emerald-700 bg-emerald-50 border-emerald-200"><span className="w-2 h-2 rounded-full bg-emerald-500" />Post-Treatment</a>
+            <a href="#why"  className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-amber-700 bg-amber-50 border-amber-200"><Star className="w-3 h-3 fill-amber-500 text-amber-500" />Why Choose Us</a>
           </div>
         </div>
       </div>
 
       {/* ── Service Phases ── */}
-      <div className="container mx-auto px-4 max-w-6xl py-12 sm:py-16 space-y-16">
+      <div className="container mx-auto px-4 max-w-6xl py-12 sm:py-16 space-y-20">
 
         {/* Pre-Arrival */}
         <section id="pre">
@@ -164,16 +149,17 @@ export default function ServicesPage() {
               <span className="text-sm font-extrabold text-violet-700">Pre-Arrival Services</span>
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-violet-200 to-transparent" />
-            <span className="text-xs text-slate-400 font-semibold">{preArrival.length} Services</span>
+            <span className="text-xs text-slate-400 font-semibold shrink-0">{preArrival.length} Services</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {preArrival.map((s, i) => (
-              <ServiceCard key={s.title} icon={s.icon} title={s.title} desc={s.desc} index={i + 1} accentColor="bg-violet-100 text-violet-600" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {preArrival.map((s) => (
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} desc={s.desc}
+                iconBg="bg-gradient-to-br from-violet-100 to-purple-50" iconColor="text-violet-600" />
             ))}
           </div>
         </section>
 
-        {/* On Arrival */}
+        {/* On-Arrival */}
         <section id="on">
           <div className="flex items-center gap-3 mb-8">
             <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-primary/5 border border-primary/20">
@@ -181,11 +167,12 @@ export default function ServicesPage() {
               <span className="text-sm font-extrabold text-primary">On-Arrival & During Treatment</span>
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-teal-200 to-transparent" />
-            <span className="text-xs text-slate-400 font-semibold">{onArrival.length} Services</span>
+            <span className="text-xs text-slate-400 font-semibold shrink-0">{onArrival.length} Services</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {onArrival.map((s, i) => (
-              <ServiceCard key={s.title} icon={s.icon} title={s.title} desc={s.desc} index={i + 1} accentColor="bg-teal-100 text-primary" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {onArrival.map((s) => (
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} desc={s.desc}
+                iconBg="bg-gradient-to-br from-teal-100 to-emerald-50" iconColor="text-primary" />
             ))}
           </div>
         </section>
@@ -198,11 +185,12 @@ export default function ServicesPage() {
               <span className="text-sm font-extrabold text-emerald-700">Post-Treatment & Departure</span>
             </div>
             <div className="flex-1 h-px bg-gradient-to-r from-emerald-200 to-transparent" />
-            <span className="text-xs text-slate-400 font-semibold">{postTreatment.length} Services</span>
+            <span className="text-xs text-slate-400 font-semibold shrink-0">{postTreatment.length} Services</span>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {postTreatment.map((s, i) => (
-              <ServiceCard key={s.title} icon={s.icon} title={s.title} desc={s.desc} index={i + 1} accentColor="bg-emerald-100 text-emerald-600" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+            {postTreatment.map((s) => (
+              <ServiceCard key={s.title} icon={s.icon} title={s.title} desc={s.desc}
+                iconBg="bg-gradient-to-br from-emerald-100 to-teal-50" iconColor="text-emerald-600" />
             ))}
           </div>
         </section>
@@ -213,24 +201,20 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-bold uppercase tracking-wider mb-4">
-              <Star className="w-3 h-3 fill-amber-500 text-amber-500" />
-              Why Choose Us
+              <Star className="w-3 h-3 fill-amber-500 text-amber-500" />Why Choose Us
             </div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Why Choose Asad Healthcare</h2>
-            <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto">
-              Thousands of international patients have trusted us with their medical journey. Here is what makes us different.
-            </p>
+            <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto">Thousands of international patients have trusted us with their medical journey. Here is what makes us different.</p>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {whyChoose.map((w, i) => {
+            {whyChoose.map((w) => {
               const Icon = w.icon;
               return (
-                <div key={w.title} className="bg-gradient-to-b from-slate-50 to-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/15 flex items-center justify-center mb-3 text-primary">
-                    <Icon className="w-5 h-5" />
+                <div key={w.title} className="group bg-gradient-to-b from-slate-50 to-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/15 to-teal-50 border border-primary/10 flex items-center justify-center mb-4 text-primary">
+                    <Icon className="w-6 h-6" strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-sm font-extrabold text-slate-900 mb-1.5 leading-snug">{w.title}</h3>
+                  <h3 className="text-sm font-extrabold text-slate-900 mb-2 leading-snug">{w.title}</h3>
                   <p className="text-xs text-slate-500 leading-relaxed">{w.desc}</p>
                 </div>
               );
@@ -243,8 +227,7 @@ export default function ServicesPage() {
       <section className="bg-gradient-to-r from-primary via-teal-600 to-emerald-600 py-12">
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/20 border border-white/30 text-white text-[11px] font-bold uppercase tracking-wider mb-4">
-            <CheckCircle2 className="w-3 h-3" />
-            Zero Hidden Charges
+            <CheckCircle2 className="w-3 h-3" />Zero Hidden Charges
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-3">100% Free for Patients</h2>
           <p className="text-white/85 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
@@ -257,24 +240,19 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20 bg-white">
         <div className="container mx-auto px-4 max-w-2xl text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold uppercase tracking-wider mb-5">
-            <Clock className="w-3 h-3" />
-            Response within 24 hours
+            <Clock className="w-3 h-3" />Response within 24 hours
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Ready to Start Your Medical Journey?</h2>
-          <p className="text-slate-500 text-sm sm:text-base mb-8 leading-relaxed">
-            Share your medical reports and requirements with us today. Our team will respond within 24 hours with a personalised treatment plan and cost estimate.
-          </p>
+          <p className="text-slate-500 text-sm sm:text-base mb-8 leading-relaxed">Share your medical reports and requirements with us today. Our team will respond within 24 hours with a personalised treatment plan and cost estimate.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <EnquiryForm>
               <Button size="lg" className="rounded-full px-8 shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold">
-                Get Free Treatment Plan
-                <ArrowRight className="w-4 h-4 ml-2" />
+                Get Free Treatment Plan <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </EnquiryForm>
             <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200">
               <a href="https://wa.me/919451187513" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <PhoneCall className="w-4 h-4 text-emerald-600" />
-                WhatsApp Us Now
+                <PhoneCall className="w-4 h-4 text-emerald-600" />WhatsApp Us Now
               </a>
             </Button>
           </div>
