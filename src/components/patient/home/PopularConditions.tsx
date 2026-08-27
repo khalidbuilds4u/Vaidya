@@ -1,64 +1,31 @@
 import Link from 'next/link';
 import { ArrowRight, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { useTranslations } from 'next-intl';
+import { getLocale, getTranslations } from 'next-intl/server';
+import { getTranslation } from '@/lib/utils';
+import { prisma } from '@/lib/prisma';
 
-const POPULAR_CONDITIONS = [
-  { 
-    name: 'Coronary Artery Disease', 
-    specialty: 'Cardiology', 
-    description: 'Minimally invasive bypass grafting (CABG), angioplasty, and robotic heart surgery.',
-    badgeColor: 'bg-rose-500/10 text-rose-700 border-rose-500/20'
-  },
-  { 
-    name: 'Osteoarthritis', 
-    specialty: 'Orthopedics', 
-    description: 'Robotic-assisted total knee & hip replacements with ultra-fast recovery protocols.',
-    badgeColor: 'bg-amber-500/10 text-amber-700 border-amber-500/20'
-  },
-  { 
-    name: 'Brain Tumor & Epilepsy', 
-    specialty: 'Neurology', 
-    description: 'Advanced microsurgery, CyberKnife radiosurgery, and functional neuro-resection.',
-    badgeColor: 'bg-purple-500/10 text-purple-700 border-purple-500/20'
-  },
-  { 
-    name: 'Breast & Prostate Cancer', 
-    specialty: 'Oncology', 
-    description: 'Targeted immunotherapy, precision radiation, and organ-preserving surgical oncology.',
-    badgeColor: 'bg-blue-500/10 text-blue-700 border-blue-500/20'
-  }
+const COLORS = [
+  'bg-rose-500/10 text-rose-700 border-rose-500/20',
+  'bg-amber-500/10 text-amber-700 border-amber-500/20',
+  'bg-purple-500/10 text-purple-700 border-purple-500/20',
+  'bg-blue-500/10 text-blue-700 border-blue-500/20',
+  'bg-emerald-500/10 text-emerald-700 border-emerald-500/20',
 ];
 
-export function PopularConditions() {
-  const t = useTranslations('Conditions');
+export async function PopularConditions() {
+  const t = await getTranslations('Conditions');
+  const locale = await getLocale();
 
-  const localizedConditions = [
-    { 
-      name: t('items.c1.name'), 
-      specialty: t('items.c1.specialty'), 
-      description: t('items.c1.desc'),
-      badgeColor: 'bg-rose-500/10 text-rose-700 border-rose-500/20'
-    },
-    { 
-      name: t('items.c2.name'), 
-      specialty: t('items.c2.specialty'), 
-      description: t('items.c2.desc'),
-      badgeColor: 'bg-amber-500/10 text-amber-700 border-amber-500/20'
-    },
-    { 
-      name: t('items.c3.name'), 
-      specialty: t('items.c3.specialty'), 
-      description: t('items.c3.desc'),
-      badgeColor: 'bg-purple-500/10 text-purple-700 border-purple-500/20'
-    },
-    { 
-      name: t('items.c4.name'), 
-      specialty: t('items.c4.specialty'), 
-      description: t('items.c4.desc'),
-      badgeColor: 'bg-blue-500/10 text-blue-700 border-blue-500/20'
-    }
-  ];
+  let conditions: any[] = [];
+  try {
+    conditions = await prisma.condition.findMany({
+      take: 4,
+      include: { specialty: true },
+    });
+  } catch (e) {
+    console.error(e);
+  }
 
   return (
     <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white">
@@ -76,26 +43,34 @@ export function PopularConditions() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {localizedConditions.map((condition) => (
-            <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}>
-              <div className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden bg-white/95">
+          {conditions.map((condition, i) => {
+            const badgeColor = COLORS[i % COLORS.length];
+            const name = getTranslation(condition, 'name', locale);
+            const description = getTranslation(condition, 'description', locale) || '';
+            const specialtyName = condition.specialty ? getTranslation(condition.specialty, 'name', locale) : '';
+            
+            return (
+            <Link key={condition.id} href={`/${locale}/conditions/${condition.slug}`}>
+              <div className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden bg-white/95 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
                 
                 {/* Top specialty badge */}
                 <div>
                   <div className="flex items-center justify-between mb-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
+                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
                       <Activity className="w-5 h-5 group-hover:scale-110 transition-transform" />
                     </div>
-                    <span className={`text-[11px] sm:text-xs font-semibold px-2.5 py-0.5 rounded-full border ${condition.badgeColor}`}>
-                      {condition.specialty}
-                    </span>
+                    {specialtyName && (
+                      <span className={`text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full border ${badgeColor}`}>
+                        {specialtyName}
+                      </span>
+                    )}
                   </div>
 
                   <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors leading-snug">
-                    {condition.name}
+                    {name}
                   </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
-                    {condition.description}
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3">
+                    {description}
                   </p>
                 </div>
 
@@ -105,11 +80,11 @@ export function PopularConditions() {
                 </div>
               </div>
             </Link>
-          ))}
+          )})}
         </div>
 
         <div className="mt-8 sm:mt-12 text-center">
-          <Link href="/conditions">
+          <Link href={`/${locale}/conditions`}>
             <Button size="lg" className="px-6 sm:px-8 h-11 sm:h-12 rounded-xl sm:rounded-full font-semibold shadow-sm bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm group">
               <span>{t('viewAll')}</span>
               <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
