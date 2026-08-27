@@ -62,7 +62,7 @@ const onArrival: ServiceItem[] = [
     bg: 'linear-gradient(145deg,#dbeafe,#93c5fd)', shadow: 'rgba(29,78,216,0.3)',   iconColor: '#1d4ed8' },
   { icon: Stethoscope,   title: 'Doctor Consultation Assistance',  desc: 'We accompany and assist patients during doctor consultations and help with communication.',
     bg: 'linear-gradient(145deg,#ccfbf1,#5eead4)', shadow: 'rgba(17,94,89,0.3)',    iconColor: '#115e59' },
-  { icon: Languages,     title: 'Arabic-English Interpretation',   desc: 'We provide language interpretation between patients and doctors or hospital staff to support clear communication.',
+  { icon: Languages,     title: 'Language Interpretation',   desc: 'We provide language interpretation between patients and doctors or hospital staff to support clear communication.',
     bg: 'linear-gradient(145deg,#ede9fe,#c4b5fd)', shadow: 'rgba(109,40,217,0.3)',  iconColor: '#6d28d9' },
   { icon: FlaskConical,  title: 'Diagnostic Test Coordination',    desc: 'We help coordinate blood tests, scans, imaging, and other investigations as advised by the doctor.',
     bg: 'linear-gradient(145deg,#fdf4ff,#e879f9)', shadow: 'rgba(162,28,175,0.25)', iconColor: '#a21caf' },
