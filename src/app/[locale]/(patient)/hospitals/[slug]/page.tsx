@@ -173,35 +173,17 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-[240px_minmax(0,1fr)_340px] gap-8 xl:gap-10 items-start relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8 lg:mt-12">
           
-          {/* Left Sidebar (Desktop TOC) */}
-          <div className="hidden lg:block sticky top-24">
-            <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
-              <h3 className="font-bold text-slate-900 mb-4 px-2">{t('toc')}</h3>
-              <nav className="flex flex-col space-y-1">
-                {tocItems.filter(i => i.show).map((item) => (
-                  <a 
-                    key={item.id} 
-                    href={`#${item.id}`} 
-                    className="text-sm font-medium text-slate-600 hover:text-primary hover:bg-primary/5 px-3 py-2 rounded-lg transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                ))}
-              </nav>
-            </div>
-          </div>
-
-          {/* Middle Column (Content) */}
-          <div className="min-w-0 flex flex-col gap-12 lg:gap-16">
+          {/* Main Content (Left, 8 cols) */}
+          <div className="lg:col-span-8 space-y-12">
             
             {/* About Hospital */}
             {hospital.description && (
-              <section id="about" className="scroll-mt-24">
+              <section id="about" className="scroll-mt-32">
                 <SectionHeader title={t('about')} />
-                <div className="prose prose-slate max-w-none prose-p:text-slate-600 prose-p:leading-relaxed prose-p:text-[15px] sm:prose-p:text-base prose-strong:text-slate-900 bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                  <p>
+                <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-[15px]">
+                  <p className="whitespace-pre-wrap">
                     {getTranslation(hospital, 'description', locale) || `${getTranslation(hospital, 'name', locale)} is a premier healthcare institution located in ${getTranslation(hospital.city, 'name', locale)}. Equipped with state-of-the-art medical technology and staffed by internationally trained specialists, the hospital offers comprehensive medical care across various disciplines.`}
                   </p>
                 </div>
@@ -210,96 +192,88 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
 
             {/* Premium Facilities */}
             {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities) && (getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).length > 0 && (
-              <section id="premium-facilities" className="scroll-mt-24">
+              <section id="premium-facilities" className="scroll-mt-32">
                 <SectionHeader title={t('premiumFacilities')} />
-                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).map((facility: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                        <span className="text-slate-600 leading-relaxed text-sm">{facility}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                  {(getTranslation(hospital, 'premiumFacilities', locale) || hospital.premiumFacilities).map((facility: string, idx: number) => (
+                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
+                        <CheckCircle2 className="w-5 h-5 text-emerald-500" />
+                      </div>
+                      <p className="text-slate-700 font-medium leading-relaxed pt-2">{facility}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
 
             {/* Multi Speciality Services */}
             {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties) && (getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).length > 0 && (
-              <section id="specialities" className="scroll-mt-24">
+              <section id="specialities" className="scroll-mt-32">
                 <SectionHeader title={t('multiSpecialties')} />
-                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-4">
-                    {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).map((spec: string, idx: number) => (
-                      <li key={idx} className="flex items-center gap-3">
-                        <div className="w-8 h-8 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shrink-0">
-                          <Stethoscope className="w-4 h-4 text-teal-500" />
-                        </div>
-                        <span className="text-slate-700 text-sm font-semibold">{spec}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                  {(getTranslation(hospital, 'multiSpecialties', locale) || hospital.multiSpecialties).map((spec: string, idx: number) => (
+                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100">
+                        <Stethoscope className="w-5 h-5 text-teal-500" />
+                      </div>
+                      <p className="text-slate-700 font-medium leading-relaxed">{spec}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
 
             {/* Advanced Medical Technologies */}
             {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies) && (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).length > 0 && (
-              <section id="technologies" className="scroll-mt-24">
+              <section id="technologies" className="scroll-mt-32">
                 <SectionHeader title={t('technologies')} />
-                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).map((tech: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0"></div>
-                        <span className="text-slate-600 text-sm">{tech}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                  {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).map((tech: string, idx: number) => (
+                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-center gap-4 hover:shadow-md transition-shadow">
+                      <div className="w-2 h-2 rounded-full bg-primary shrink-0" />
+                      <p className="text-slate-700 font-medium leading-relaxed">{tech}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
 
             {/* Connectivity & Location */}
             {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation) && (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).length > 0 && (
-              <section id="connectivity" className="scroll-mt-24">
+              <section id="connectivity" className="scroll-mt-32">
                 <SectionHeader title={t('connectivity')} />
-                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                  <ul className="grid grid-cols-1 gap-y-4">
-                    {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).map((item: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2.5 shrink-0"></div>
-                        <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="space-y-4 mt-6">
+                  {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).map((item: string, idx: number) => (
+                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                      <div className="w-2 h-2 rounded-full bg-slate-300 shrink-0 mt-2" />
+                      <p className="text-slate-700 font-medium leading-relaxed">{item}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
 
             {/* Excellence in Patient Care */}
             {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare) && (getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).length > 0 && (
-              <section id="excellence" className="scroll-mt-24">
+              <section id="excellence" className="scroll-mt-32">
                 <SectionHeader title={t('excellence')} />
-                <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-sm">
-                  <ul className="grid grid-cols-1 gap-y-4">
-                    {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).map((item: string, idx: number) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 mt-2 shrink-0"></div>
-                        <span className="text-slate-600 text-sm leading-relaxed">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="space-y-4 mt-6">
+                  {(getTranslation(hospital, 'excellenceInCare', locale) || hospital.excellenceInCare).map((item: string, idx: number) => (
+                    <div key={idx} className="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                      <div className="w-2 h-2 rounded-full bg-slate-300 shrink-0 mt-2" />
+                      <p className="text-slate-700 font-medium leading-relaxed">{item}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
 
             {/* Hospital Facilities Cards */}
             {(getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) && typeof (getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) === 'object' && Object.keys((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities)).length > 0 && (
-              <section id="facilities" className="scroll-mt-24">
+              <section id="facilities" className="scroll-mt-32">
                 <SectionHeader title={t('facilities')} />
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   {Object.entries((getTranslation(hospital, 'hospitalFacilities', locale) || hospital.hospitalFacilities) as Record<string, string[]>).map(([category, items], idx) => (
                     <div key={idx} className="rounded-2xl overflow-hidden border border-slate-200 bg-white shadow-sm flex flex-col h-full hover:shadow-md transition-shadow">
                       <div className="bg-slate-50 py-4 px-5 border-b border-slate-100 flex items-center gap-3">
@@ -326,71 +300,89 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             
           </div>
 
-          {/* Right Sidebar */}
-          <div className="lg:sticky lg:top-24 flex flex-col gap-6">
-            
-            {/* Ask Asad Form Card */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200">
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{t('askButton')}</h3>
-              <p className="text-sm text-slate-500 mb-6">Get a personalized treatment plan and cost estimate.</p>
+          {/* Right Column (Sidebar, 4 cols) */}
+          <div className="lg:col-span-4 space-y-6">
+            <div className="sticky top-24 space-y-6">
               
-              <EnquiryForm>
-                <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-sm hover:shadow-md transition-all">
-                  Request Consultation
-                </Button>
-              </EnquiryForm>
-            </div>
-
-            {/* Why Choose Us / Value Prop Card */}
-            <div className="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-3xl p-6 sm:p-8 shadow-lg text-white relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
-              
-              <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-6">International Patient Care</h3>
-                
-                <ul className="space-y-4">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold text-sm">Visa Assistance</h4>
-                      <p className="text-xs text-teal-100 mt-0.5 opacity-90">Medical visa invitation letters</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold text-sm">Airport Transfers</h4>
-                      <p className="text-xs text-teal-100 mt-0.5 opacity-90">Complimentary pickup & drop</p>
-                    </div>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold text-sm">Language Interpreters</h4>
-                      <p className="text-xs text-teal-100 mt-0.5 opacity-90">Dedicated translators</p>
-                    </div>
-                  </li>
-                </ul>
+              {/* Table of Contents (Desktop Only) */}
+              <div className="hidden lg:block bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+                <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                  {t('toc')}
+                </h3>
+                <nav className="space-y-3.5 flex flex-col font-medium">
+                  {tocItems.filter(item => item.show).map(item => (
+                    <a key={item.id} href={`#${item.id}`} className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">
+                      {item.label}
+                    </a>
+                  ))}
+                </nav>
               </div>
-            </div>
-            
-            {/* Share Hospital */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-              <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
-                {t('share.title')}
-              </h3>
-              <ShareButtons 
-                whatsappText={t('share.whatsapp') || "WhatsApp"}
-                telegramText={t('share.telegram') || "Telegram"}
-                facebookText={t('share.facebook') || "Facebook"}
-                copyText={t('share.copy') || "Copy Link"}
-                doctorName={getTranslation(hospital, 'name', locale)}
-              />
-            </div>
 
+              {/* Ask Asad Form Card */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-200">
+                <h3 className="text-xl font-bold text-slate-900 mb-2">{t('askButton')}</h3>
+                <p className="text-sm text-slate-500 mb-6">Get a personalized treatment plan and cost estimate.</p>
+                
+                <EnquiryForm>
+                  <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-sm hover:shadow-md transition-all">
+                    Request Consultation
+                  </Button>
+                </EnquiryForm>
+              </div>
+
+              {/* Why Choose Us / Value Prop Card */}
+              <div className="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-3xl p-6 sm:p-8 shadow-lg text-white relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
+                
+                <div className="relative z-10">
+                  <h3 className="text-xl font-bold mb-6">International Patient Care</h3>
+                  
+                  <ul className="space-y-4">
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-sm">Visa Assistance</h4>
+                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">Medical visa invitation letters</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-sm">Airport Transfers</h4>
+                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">Complimentary pickup & drop</p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="font-semibold text-sm">Language Interpreters</h4>
+                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">Dedicated translators</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              
+              {/* Share Hospital */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col h-full">
+                <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+                  {t('share.title')}
+                </h3>
+                <ShareButtons 
+                  whatsappText={t('share.whatsapp') || "WhatsApp"}
+                  telegramText={t('share.telegram') || "Telegram"}
+                  facebookText={t('share.facebook') || "Facebook"}
+                  copyText={t('share.copy') || "Copy Link"}
+                  doctorName={getTranslation(hospital, 'name', locale)}
+                />
+              </div>
+
+            </div>
           </div>
 
         </div>
+
+
       </div>
     </div>
   );
