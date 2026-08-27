@@ -259,6 +259,30 @@
       "q20": {
         "question": "Why choose our medical tourism company?",
         "answer": "We provide end-to-end support to help international patients have a smooth, organized, and comfortable medical journey in India."
+      },
+      "q21": {
+        "question": "Why should I choose India for medical treatment?",
+        "answer": "India offers world-class medical facilities, internationally accredited hospitals (JCI & NABH), highly skilled doctors trained in the US/UK, and advanced medical technology at 60–80% lower costs compared to Western nations, with virtually zero waiting times."
+      },
+      "q22": {
+        "question": "Will there be a language barrier during my hospital stay?",
+        "answer": "No. English is the official operational language across all accredited Indian hospitals. Furthermore, our team assigns a dedicated translator (Arabic, Russian, French, Bengali, Swahili) to assist you during all consultations and hospital admissions."
+      },
+      "q23": {
+        "question": "How do I obtain an Indian Medical Visa (Med Visa)?",
+        "answer": "Once you share your medical reports and select your preferred hospital, we arrange an official Visa Invitation Letter (VIL) from the hospital. You can use this to obtain an e-Medical Visa online within 48 to 72 hours."
+      },
+      "q24": {
+        "question": "Can family members or attendants travel with me?",
+        "answer": "Yes, up to two family members or attendants can travel with you on a Medical Attendant Visa (MED-X). The official hospital invitation letter will explicitly include their details."
+      },
+      "q25": {
+        "question": "How does the quotation and payment process work?",
+        "answer": "Our consultation and concierge coordination is 100% free for patients. All treatment payments are settled directly with the hospital upon arrival via credit card, bank wire transfer, or foreign currency."
+      },
+      "q26": {
+        "question": "What happens when I land at the airport in India?",
+        "answer": "Our representative will receive you directly at the airport terminal with a personalized name placard, transport you to your hotel or hospital room, and provide you with a local SIM card and currency exchange assistance."
       }
     },
     "bottom": {

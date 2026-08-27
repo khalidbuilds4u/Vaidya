@@ -37,7 +37,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
   const [showAll, setShowAll] = useState(false);
   const t = useTranslations('FAQ');
-  const localizedFaqs = Array.from({ length: 20 }, (_, i) => {
+  const localizedFaqs = Array.from({ length: 26 }, (_, i) => {
     const key = `q${i + 1}` as any;
     return {
       question: t(`faqs.${key}.question`),
