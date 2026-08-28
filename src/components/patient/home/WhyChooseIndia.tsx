@@ -119,7 +119,7 @@ export function WhyChooseIndia() {
               </p>
             </motion.div>
             
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 pb-4 -mx-4 px-4 sm:grid sm:grid-cols-2 sm:overflow-visible sm:snap-none sm:mx-0 sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
               {localizedReasons.map((item, idx) => {
                 const Icon = item.icon;
                 return (
@@ -129,7 +129,7 @@ export function WhyChooseIndia() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="glass-card p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 group hover:border-primary/40 bg-white/90"
+                    className="w-[85vw] shrink-0 snap-start sm:w-auto glass-card p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 group hover:border-primary/40 bg-white/90"
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
                       <Icon className="w-5 h-5" />
