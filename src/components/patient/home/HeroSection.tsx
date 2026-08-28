@@ -111,19 +111,21 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full max-w-xl"
             >
-              <EnquiryForm>
-                <Button size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-8 rounded-xl sm:rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
-                  {t('getFreePlan')}
-                  <ArrowRight className="w-4 h-4 ml-1.5" />
-                </Button>
-              </EnquiryForm>
+              <div className="flex-1">
+                <EnquiryForm>
+                  <Button size="lg" className="w-full text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-8 rounded-xl sm:rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
+                    {t('getFreePlan')}
+                    <ArrowRight className="w-4 h-4 ml-1.5" />
+                  </Button>
+                </EnquiryForm>
+              </div>
               <Button 
                 asChild
                 size="lg" 
                 variant="outline" 
-                className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-7 rounded-xl sm:rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
+                className="flex-1 w-full text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-7 rounded-xl sm:rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
               >
                 <Link href="/hospitals">{t('exploreHospitals')}</Link>
               </Button>
