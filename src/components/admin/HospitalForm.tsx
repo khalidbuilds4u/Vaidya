@@ -27,6 +27,7 @@ type HospitalFormProps = {
     whyChooseThisHospital?: string[];
     advancedTechnologies?: string[];
     connectivityLocation?: string[];
+    specialties?: { id: string; name: string }[];
     
     
     
@@ -235,9 +236,39 @@ export function HospitalForm({
                 name="internationalServices"
                 defaultValue={initialData?.internationalServices?.join(", ") || ""}
                 className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
-                placeholder="e.g. Airport Transfer, Translators"
+                placeholder="e.g. Airport Transfer, Visa Assistance, Translators"
               />
             </div>
+          </div>
+        </div>
+
+        {/* Section: Medical Specialties */}
+        <div className="pt-6 border-t border-slate-100">
+          <h3 className="text-lg font-bold text-slate-900 mb-2">Medical Specialties</h3>
+          <p className="text-sm text-slate-500 mb-6">Select all the medical specialties offered by this hospital. This is used for frontend filtering.</p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100">
+            {specialties.map((specialty) => {
+              const isChecked = initialData?.specialties?.some((s) => s.id === specialty.id);
+              return (
+                <label key={specialty.id} className="flex items-start gap-3 cursor-pointer group">
+                  <div className="relative flex items-center justify-center mt-0.5">
+                    <input
+                      type="checkbox"
+                      name="specialtyIds"
+                      value={specialty.id}
+                      defaultChecked={isChecked}
+                      className="peer appearance-none w-5 h-5 border-2 border-slate-300 rounded-md checked:border-primary checked:bg-primary transition-colors cursor-pointer"
+                    />
+                    <svg className="absolute w-3.5 h-3.5 text-white opacity-0 peer-checked:opacity-100 pointer-events-none" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 5L4.5 8.5L13 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <span className="text-sm font-medium text-slate-700 group-hover:text-slate-900 transition-colors leading-snug">
+                    {specialty.name}
+                  </span>
+                </label>
+              );
+            })}
           </div>
         </div>
 
