@@ -55,12 +55,12 @@ export async function PopularConditions() {
                 
                 {/* Top specialty badge */}
                 <div>
-                  <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-2.5 mb-3.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3.5">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
-                      <Activity className="w-4 h-4 sm:w-5 h-5 group-hover:scale-110 transition-transform" />
+                      <Activity className="w-4 h-4 sm:w-5 sm:h-5 group-hover:scale-110 transition-transform" />
                     </div>
                     {specialtyName && (
-                      <span className={`text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full border self-start xl:self-auto truncate max-w-full ${badgeColor}`}>
+                      <span className={`text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full border self-start sm:self-auto truncate max-w-full ${badgeColor}`}>
                         {specialtyName}
                       </span>
                     )}

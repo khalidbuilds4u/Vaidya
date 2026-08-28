@@ -84,11 +84,11 @@ export default function ConditionsPage() {
             <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}>
               <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between border border-white/90 bg-white/95 cursor-pointer">
                 <div>
-                  <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-2.5 mb-3.5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3.5">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-xs shrink-0">
                       <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-primary border border-slate-200/60 self-start xl:self-auto truncate max-w-full">
+                    <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-primary border border-slate-200/60 self-start sm:self-auto truncate max-w-full">
                       {condition.specialty}
                     </span>
                   </div>
