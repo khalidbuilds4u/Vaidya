@@ -42,7 +42,7 @@ export async function PopularConditions() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {conditions.map((condition, i) => {
             const badgeColor = COLORS[i % COLORS.length];
             const name = getTranslation(condition, 'name', locale);
@@ -51,32 +51,32 @@ export async function PopularConditions() {
             
             return (
             <Link key={condition.id} href={`/${locale}/conditions/${condition.slug}`}>
-              <div className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden bg-white/95 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+              <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl h-full flex flex-col justify-between group cursor-pointer relative overflow-hidden bg-white/95 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 border border-white/90">
                 
                 {/* Top specialty badge */}
                 <div>
-                  <div className="flex items-center justify-between mb-3.5">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm">
-                      <Activity className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-2.5 mb-3.5">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
+                      <Activity className="w-4 h-4 sm:w-5 h-5 group-hover:scale-110 transition-transform" />
                     </div>
                     {specialtyName && (
-                      <span className={`text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full border ${badgeColor}`}>
+                      <span className={`text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full border self-start xl:self-auto truncate max-w-full ${badgeColor}`}>
                         {specialtyName}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-primary transition-colors leading-snug">
+                  <h3 className="text-sm sm:text-lg font-bold text-slate-900 mb-1.5 sm:mb-2 group-hover:text-primary transition-colors leading-snug line-clamp-2">
                     {name}
                   </h3>
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 line-clamp-3">
+                  <p className="text-slate-500 text-[11px] sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
                     {description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-slate-100 font-semibold text-xs sm:text-sm text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                  <span>{t('explore')}</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                <div className="pt-2.5 sm:pt-3 border-t border-slate-100 font-semibold text-[11px] sm:text-sm text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+                  <span>Explore</span>
+                  <ArrowRight className="w-3 h-3 sm:w-3.5 h-3.5 ml-auto sm:ml-0" />
                 </div>
               </div>
             </Link>
