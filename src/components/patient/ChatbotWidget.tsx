@@ -105,13 +105,18 @@ export function ChatbotWidget() {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-[0_10px_40px_rgba(79,70,229,0.4)] flex items-center justify-center hover:shadow-[0_10px_40px_rgba(79,70,229,0.6)] transition-all border border-indigo-400/30"
+            className="fixed right-0 top-[calc(50%+7.5rem)] md:top-[calc(50%+3.5rem)] z-50 p-2 sm:p-4 pointer-events-auto flex items-center justify-end group"
           >
-            <Bot className="w-7 h-7" />
-            <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 border-2 border-white rounded-full animate-pulse"></span>
+            <div className="flex items-center bg-gradient-to-br from-indigo-500/90 to-blue-600/90 hover:from-indigo-600 hover:to-blue-700 backdrop-blur-md text-white rounded-full shadow-[0_8px_25px_rgba(79,70,229,0.35)] border border-indigo-400/40 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1">
+              <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-xs pl-0 group-hover:pl-4 hidden sm:block tracking-wide">
+                Chat
+              </span>
+              <div className="p-3 relative">
+                <Bot className="w-5 h-5" />
+                <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 border border-white rounded-full animate-pulse"></span>
+              </div>
+            </div>
           </motion.button>
         )}
       </AnimatePresence>

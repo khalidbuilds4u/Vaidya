@@ -34,7 +34,6 @@ export function FloatingContact() {
           </div>
         </div>
       </Link>
-
     </div>
   );
 }
