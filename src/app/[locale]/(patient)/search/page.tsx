@@ -17,11 +17,41 @@ export default async function SearchResultsPage({
   const q = typeof resolvedParams.q === 'string' ? resolvedParams.q.toLowerCase() : '';
   const city = typeof resolvedParams.city === 'string' ? resolvedParams.city.toLowerCase() : '';
 
+  // Synonym map for common patient search terms to medical specialties
+  const SYNONYM_MAP: Record<string, string[]> = {
+    'heart': ['cardiology', 'cardiac', 'cardiovascular'],
+    'cancer': ['oncology', 'tumor'],
+    'brain': ['neurology', 'neurosurgeon', 'neuro'],
+    'bone': ['orthopedics', 'orthopaedic', 'joint', 'spine'],
+    'kidney': ['nephrology', 'renal', 'urology'],
+    'liver': ['hepatology', 'transplant'],
+    'stomach': ['gastroenterology', 'gastric'],
+    'lung': ['pulmonology', 'respiratory'],
+    'eye': ['ophthalmology', 'vision'],
+    'skin': ['dermatology'],
+    'child': ['pediatrics', 'paediatrics'],
+    'women': ['gynecology', 'maternity', 'ivf'],
+  };
+
+  // Helper to check if search query matches any synonyms
+  const getSearchTerms = (query: string): string[] => {
+    const terms = [query];
+    for (const [key, values] of Object.entries(SYNONYM_MAP)) {
+      if (key.includes(query) || values.some(v => v.includes(query) || query.includes(v))) {
+        terms.push(key, ...values);
+      }
+    }
+    return terms;
+  };
+
+  const searchTerms = q ? getSearchTerms(q) : [];
+
   // Filter Hospitals
   const filteredHospitals = MOCK_HOSPITALS.filter(hospital => {
-    const matchesQuery = !q || 
-      hospital.name.toLowerCase().includes(q) || 
-      hospital.specialties.some(s => s.toLowerCase().includes(q));
+    const matchesQuery = !q || searchTerms.some(term => 
+      hospital.name.toLowerCase().includes(term) || 
+      hospital.specialties.some(s => s.toLowerCase().includes(term))
+    );
       
     const matchesCity = !city || hospital.city.toLowerCase().includes(city);
     
@@ -30,9 +60,10 @@ export default async function SearchResultsPage({
 
   // Filter Doctors
   const filteredDoctors = MOCK_DOCTORS.filter(doctor => {
-    const matchesQuery = !q || 
-      doctor.name.toLowerCase().includes(q) || 
-      doctor.specialty.toLowerCase().includes(q);
+    const matchesQuery = !q || searchTerms.some(term => 
+      doctor.name.toLowerCase().includes(term) || 
+      doctor.specialty.toLowerCase().includes(term)
+    );
       
     const matchesCity = !city || doctor.hospital.toLowerCase().includes(city);
       
