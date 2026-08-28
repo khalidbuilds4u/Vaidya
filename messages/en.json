@@ -174,7 +174,7 @@
       "disclaimer": "Medical Disclaimer",
       "safety": "Patient Safety Guidelines"
     },
-    "copyright": "© {year} AsadHealthcare. All rights reserved.",
+    "copyright": "© {year} Asad Healthcare. All rights reserved.",
     "certified": "Certified partner network with JCI & NABH accredited hospitals across India."
   },
   "FAQ": {
@@ -944,9 +944,9 @@
     "backToBlogs": "Back to Blogs"
   },
   "ChatbotWidget": {
-    "title": "AsadHealthcare Assistant",
+    "title": "Asad Healthcare Assistant",
     "subtitle": "Online - Replies instantly",
-    "greeting": "Hello! 👋 I'm your AsadHealthcare Assistant. How can I guide you today?",
+    "greeting": "Hello! 👋 I'm your Asad Healthcare Assistant. How can I guide you today?",
     "options": {
       "treatment": "Find a Treatment",
       "quote": "Get a Free Quote",
