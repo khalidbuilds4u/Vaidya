@@ -74,8 +74,12 @@ export function ChatbotWidget() {
               sender: 'bot', 
               text: t('faqsTitle'),
               options: [
+                { id: 'process', label: t('faqOptions.process') },
+                { id: 'cost', label: t('faqOptions.cost') },
                 { id: 'visa', label: t('faqOptions.visa') },
                 { id: 'pickup', label: t('faqOptions.pickup') },
+                { id: 'accommodation', label: t('faqOptions.accommodation') },
+                { id: 'language', label: t('faqOptions.language') },
                 { id: 'hospitals', label: t('faqOptions.hospitals') },
                 { id: 'back', label: t('faqOptions.back') },
               ]

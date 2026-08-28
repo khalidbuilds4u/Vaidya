@@ -955,14 +955,22 @@
     },
     "faqsTitle": "Here are some common questions. What would you like to know?",
     "faqOptions": {
+      "process": "How do I start the process?",
+      "cost": "How much does treatment cost?",
       "visa": "Do you help with Medical Visas?",
       "pickup": "Is Airport Pickup provided?",
+      "accommodation": "Do you help with hotel booking?",
+      "language": "Will there be language barriers?",
       "hospitals": "Are your hospitals certified?",
       "back": "⬅️ Back to Main Menu"
     },
     "faqAnswers": {
+      "process": "It's simple! Share your medical reports with us. Our doctors will review them, provide a treatment plan and cost estimate, and then we assist with your visa and travel arrangements.",
+      "cost": "Costs vary depending on the specific procedure and hospital. Please provide your contact details, and our medical experts will give you a free, personalized cost estimate.",
       "visa": "Yes! We provide complete Medical Visa assistance. Once you select a treatment plan, we send a Visa Invitation Letter to help expedite your process.",
       "pickup": "Absolutely. We offer complimentary airport pickup and drop-off in premium vehicles for all our international patients.",
+      "accommodation": "Yes, we arrange comfortable and safe accommodations (hotels or private guest houses) near your chosen hospital, tailored to your budget.",
+      "language": "Not at all! We provide dedicated language translators who will accompany you during consultations and throughout your hospital stay.",
       "hospitals": "Yes, all our partner hospitals are JCI and NABH accredited, ensuring the highest global standards of medical care and safety."
     },
     "followUpQuote": "Would you like our specialists to contact you with a free, personalized quote?",
