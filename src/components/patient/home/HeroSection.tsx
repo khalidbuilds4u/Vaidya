@@ -49,7 +49,7 @@ export function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           
           {/* Main Hero Card (Frosted Glass Container for High Readability) */}
-          <div className="w-full lg:w-7/12 flex flex-col items-start text-left z-10 min-h-[50vh] sm:min-h-0">
+          <div className="w-full lg:w-7/12 flex flex-col items-start text-left z-10">
             
             {/* Top Tagline Glass Pill */}
             <motion.div 
@@ -111,7 +111,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full max-w-xl mt-auto sm:mt-0 pt-16 sm:pt-0"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-0 sm:mb-10 w-full max-w-xl mt-14 sm:mt-0"
             >
               <div className="flex-1 w-full">
                 <EnquiryForm>
