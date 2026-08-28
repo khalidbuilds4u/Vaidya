@@ -942,5 +942,21 @@
   },
   "BlogDetail": {
     "backToBlogs": "Back to Blogs"
+  },
+  "ChatbotWidget": {
+    "title": "AsadHealthcare Assistant",
+    "subtitle": "Online - Replies instantly",
+    "greeting": "Hello! 👋 I'm your AsadHealthcare Assistant. How can I guide you today?",
+    "options": {
+      "treatment": "Find a Treatment",
+      "quote": "Get a Free Quote",
+      "speakToDoctor": "Speak to a Doctor"
+    },
+    "askName": "Great! Could you please tell me your name?",
+    "askContact": "Nice to meet you, {name}! Please provide your WhatsApp number or email so our specialists can reach out to you with details.",
+    "thankYou": "Thank you, {name}! We have received your request. Our international care team will contact you shortly to assist you further.",
+    "placeholderName": "Type your name...",
+    "placeholderContact": "Type your email or phone...",
+    "send": "Send"
   }
 }

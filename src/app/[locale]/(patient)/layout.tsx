@@ -2,6 +2,7 @@ import { Header } from "@/components/patient/Header"
 import { Footer } from "@/components/patient/Footer"
 import { FloatingContact } from "@/components/patient/FloatingContact"
 import { MobileBottomBar } from "@/components/patient/MobileBottomBar"
+import { ChatbotWidget } from "@/components/patient/ChatbotWidget"
 
 export default function PatientLayout({
   children,
@@ -20,6 +21,7 @@ export default function PatientLayout({
       </main>
       <Footer />
       <FloatingContact />
+      <ChatbotWidget />
       <MobileBottomBar />
     </div>
   )
