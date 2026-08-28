@@ -203,21 +203,21 @@ export function ChatbotWidget() {
             onClick={() => setIsOpen(true)}
             className="fixed right-0 top-[calc(50%+7.5rem)] md:top-[calc(50%+3.5rem)] z-50 p-2 sm:p-4 pointer-events-auto flex items-center justify-end group"
           >
-            <div className="flex items-center bg-white/95 hover:bg-slate-50 backdrop-blur-xl text-slate-800 rounded-full shadow-[0_8px_30px_rgba(14,165,233,0.25)] border border-sky-100 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1 relative overflow-hidden">
-              {/* Subtle animated gradient background for the button */}
-              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 via-blue-500/5 to-teal-500/5 opacity-50 animate-pulse"></div>
+            <div className="flex items-center bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-700 hover:to-teal-700 shadow-[0_8px_30px_rgba(14,165,233,0.4)] border border-sky-400/30 text-white rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-x-1 relative overflow-hidden">
+              {/* Subtle animated gradient overlay for the button */}
+              <div className="absolute inset-0 bg-white/5 opacity-50 animate-pulse"></div>
               
-              <span className="max-w-0 overflow-hidden group-hover:max-w-[140px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-[12px] pl-0 group-hover:pl-4 hidden sm:block tracking-wide text-sky-700 relative z-10">
+              <span className="max-w-0 overflow-hidden group-hover:max-w-[140px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-[13px] pl-0 group-hover:pl-4 hidden sm:block tracking-wide text-white relative z-10 drop-shadow-md">
                 AI Doctor
               </span>
               <div className="p-3.5 relative flex items-center justify-center z-10">
                 {/* Outer rotating ring */}
-                <div className="absolute inset-1.5 rounded-full border border-sky-200 border-t-sky-500 animate-[spin_4s_linear_infinite]"></div>
+                <div className="absolute inset-1.5 rounded-full border border-white/20 border-t-white animate-[spin_4s_linear_infinite]"></div>
                 {/* Inner glowing doctor icon */}
-                <Stethoscope className="w-5 h-5 text-sky-600 drop-shadow-[0_0_8px_rgba(14,165,233,0.4)]" />
+                <Stethoscope className="w-5 h-5 text-white drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]" />
                 {/* Active indicator */}
                 <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping opacity-75"></span>
-                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-emerald-400 rounded-full shadow-[0_0_5px_#34d399]"></span>
+                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-emerald-400 rounded-full shadow-[0_0_5px_rgba(52,211,153,0.8)] border border-emerald-200"></span>
               </div>
             </div>
           </motion.button>
