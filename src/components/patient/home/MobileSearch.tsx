@@ -24,45 +24,49 @@ export function MobileSearch() {
   };
 
   return (
-    <section className="sm:hidden container mx-auto px-4 mt-8 mb-6">
-      <div className="bg-white rounded-[2rem] p-5 shadow-[0_8px_30px_rgba(0,0,0,0.06)] border border-slate-100 flex flex-col gap-3">
-        <h3 className="text-center font-bold text-slate-800 text-lg mb-2">Find your treatment</h3>
+    <section className="sm:hidden container mx-auto px-4 mt-6 mb-4">
+      <div className="bg-white rounded-[1.25rem] p-3.5 shadow-[0_8px_25px_rgba(0,0,0,0.06)] border border-slate-100 flex flex-col gap-2.5">
+        <h3 className="text-center font-bold text-slate-800 text-sm mb-0.5">Find your treatment</h3>
         
-        <div className="flex items-center px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl">
-          <Search className="w-5 h-5 text-primary shrink-0 mr-3" />
+        {/* Search Input Row */}
+        <div className="flex items-center px-3 py-2 bg-slate-50 border border-slate-100 rounded-lg">
+          <Search className="w-4 h-4 text-primary shrink-0 mr-2" />
           <Input 
             type="text" 
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
             placeholder={t('searchPlaceholder')}
-            className="border-0 focus-visible:ring-0 shadow-none h-auto px-0 py-0 bg-transparent placeholder:text-slate-400 text-slate-900 font-medium text-sm w-full"
+            className="border-0 focus-visible:ring-0 shadow-none h-8 px-0 py-0 bg-transparent placeholder:text-slate-400 text-slate-900 font-medium text-xs w-full"
           />
         </div>
         
-        <div className="flex items-center px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl">
-          <MapPin className="w-5 h-5 text-primary shrink-0 mr-3" />
-          <select 
-            value={searchCity}
-            onChange={(e) => setSearchCity(e.target.value)}
-            className="w-full bg-transparent border-0 text-slate-800 font-semibold focus:ring-0 text-sm p-0 m-0 cursor-pointer outline-none"
-          >
-            <option value="" className="text-slate-900">{t('anyCity')}</option>
-            <option value="New Delhi" className="text-slate-900">New Delhi</option>
-            <option value="Mumbai" className="text-slate-900">Mumbai</option>
-            <option value="Chennai" className="text-slate-900">Chennai</option>
-            <option value="Bangalore" className="text-slate-900">Bangalore</option>
-            <option value="Hyderabad" className="text-slate-900">Hyderabad</option>
-          </select>
-        </div>
+        {/* City & Submit Row */}
+        <div className="flex items-stretch gap-2.5 h-10">
+          <div className="flex-1 flex items-center px-3 bg-slate-50 border border-slate-100 rounded-lg min-w-0">
+            <MapPin className="w-4 h-4 text-primary shrink-0 mr-1.5" />
+            <select 
+              value={searchCity}
+              onChange={(e) => setSearchCity(e.target.value)}
+              className="w-full bg-transparent border-0 text-slate-800 font-semibold focus:ring-0 text-xs p-0 m-0 cursor-pointer outline-none truncate"
+            >
+              <option value="" className="text-slate-900">{t('anyCity')}</option>
+              <option value="New Delhi" className="text-slate-900">New Delhi</option>
+              <option value="Mumbai" className="text-slate-900">Mumbai</option>
+              <option value="Chennai" className="text-slate-900">Chennai</option>
+              <option value="Bangalore" className="text-slate-900">Bangalore</option>
+              <option value="Hyderabad" className="text-slate-900">Hyderabad</option>
+            </select>
+          </div>
 
-        <Button 
-          size="lg" 
-          onClick={handleSearch} 
-          className="w-full rounded-xl h-12 shadow-[0_4px_14px_rgba(15,118,110,0.3)] hover:shadow-[0_6px_20px_rgba(15,118,110,0.5)] transition-all font-bold bg-emerald-500 hover:bg-emerald-400 text-white text-sm mt-1"
-        >
-          {t('searchButton')}
-        </Button>
+          <Button 
+            size="sm" 
+            onClick={handleSearch} 
+            className="h-full rounded-lg px-5 shadow-[0_4px_14px_rgba(15,118,110,0.3)] hover:shadow-[0_6px_20px_rgba(15,118,110,0.5)] transition-all font-bold bg-emerald-500 hover:bg-emerald-400 text-white text-xs shrink-0"
+          >
+            {t('searchButton')}
+          </Button>
+        </div>
       </div>
     </section>
   );

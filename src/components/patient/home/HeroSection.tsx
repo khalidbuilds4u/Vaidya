@@ -27,7 +27,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative pt-6 pb-14 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 border-b border-slate-200/80">
+    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 border-b border-slate-200/80">
       
       {/* 1. Vibrant High-Res Background Image */}
       <div 
