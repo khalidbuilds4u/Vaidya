@@ -6,6 +6,7 @@ import { MessageCircle, X, Send, User, Bot, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { submitChatbotLead } from '@/app/actions/publicLeadActions';
 
 type Step = 'greeting' | 'faqs' | 'askFollowUp' | 'askName' | 'askContact' | 'thankYou';
 
@@ -164,6 +165,11 @@ export function ChatbotWidget() {
         setStep('askContact');
       }, 600);
     } else if (step === 'askContact') {
+      const contactInfo = inputValue.trim();
+      
+      // Submit the lead to the backend without awaiting to avoid blocking UI
+      submitChatbotLead(userName, contactInfo).catch(console.error);
+
       setTimeout(() => {
         setMessages((prev) => [
           ...prev,

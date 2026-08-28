@@ -65,3 +65,20 @@ export async function submitPatientLead(formData: FormData) {
 
   return { success: true, referenceId };
 }
+
+export async function submitChatbotLead(name: string, contact: string) {
+  const isEmail = contact.includes('@');
+  
+  await prisma.contactMessage.create({
+    data: {
+      name: name,
+      email: isEmail ? contact : "no-email-provided@chatbot.local",
+      phone: isEmail ? null : contact,
+      subject: "New Chatbot Lead",
+      message: `Lead captured via Medical Tourism Chatbot Widget.\nName: ${name}\nContact: ${contact}`,
+      isRead: false
+    }
+  });
+
+  return { success: true };
+}
