@@ -35,20 +35,6 @@ export function FloatingContact() {
         </div>
       </Link>
 
-      {/* Call Button */}
-      <Link 
-        href={`tel:${phoneNumber}`}
-        className="pointer-events-auto flex items-center justify-end group"
-      >
-        <div className="flex items-center bg-primary/90 hover:bg-primary backdrop-blur-md text-white rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] border border-teal-400/40 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1">
-          <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-xs pl-0 group-hover:pl-4 hidden sm:block tracking-wide">
-            {t('call')}
-          </span>
-          <div className="p-3">
-            <PhoneCall className="w-5 h-5" />
-          </div>
-        </div>
-      </Link>
     </div>
   );
 }

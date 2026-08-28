@@ -108,10 +108,10 @@ export function ChatbotWidget() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-primary text-white shadow-[0_10px_40px_rgba(15,118,110,0.4)] flex items-center justify-center hover:bg-primary/90 transition-colors border border-teal-400/30"
+            className="fixed bottom-6 right-6 z-50 p-4 rounded-full bg-gradient-to-br from-indigo-500 to-blue-600 text-white shadow-[0_10px_40px_rgba(79,70,229,0.4)] flex items-center justify-center hover:shadow-[0_10px_40px_rgba(79,70,229,0.6)] transition-all border border-indigo-400/30"
           >
-            <MessageCircle className="w-7 h-7" />
-            <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 border-2 border-white rounded-full"></span>
+            <Bot className="w-7 h-7" />
+            <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 border-2 border-white rounded-full animate-pulse"></span>
           </motion.button>
         )}
       </AnimatePresence>
