@@ -1,3 +1,5 @@
+"use client";
+
 import { FileText, Stethoscope, Plane, HeartHandshake } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
