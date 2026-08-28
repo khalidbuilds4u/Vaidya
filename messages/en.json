@@ -939,5 +939,8 @@
     "shareReports": "Share your medical reports with our experts to get a free medical opinion and precise treatment plan from multiple top hospitals.",
     "requestOpinion": "Request Medical Opinion",
     "freeConfidential": "100% Free & Confidential"
+  },
+  "BlogDetail": {
+    "backToBlogs": "Back to Blogs"
   }
 }
