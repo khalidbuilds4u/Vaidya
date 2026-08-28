@@ -113,22 +113,24 @@ export function HeroSection() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full max-w-xl"
             >
-              <div className="flex-1">
+              <div className="flex-1 w-full">
                 <EnquiryForm>
-                  <Button size="lg" className="w-full text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-8 rounded-xl sm:rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
+                  <Button size="lg" className="w-full text-sm sm:text-base h-14 sm:h-13 px-6 sm:px-8 rounded-2xl sm:rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95 bg-emerald-600 hover:bg-emerald-500 text-white border-0">
                     {t('getFreePlan')}
                     <ArrowRight className="w-4 h-4 ml-1.5" />
                   </Button>
                 </EnquiryForm>
               </div>
-              <Button 
-                asChild
-                size="lg" 
-                variant="outline" 
-                className="flex-1 w-full text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-7 rounded-xl sm:rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
-              >
-                <Link href="/hospitals">{t('exploreHospitals')}</Link>
-              </Button>
+              <div className="flex-1 w-full">
+                <Button 
+                  asChild
+                  size="lg" 
+                  variant="outline" 
+                  className="w-full text-sm sm:text-base h-14 sm:h-13 px-6 sm:px-7 rounded-2xl sm:rounded-full glass-card hover:bg-white border-2 border-white/90 transition-all shadow-md font-bold text-slate-800 bg-white/95" 
+                >
+                  <Link href="/hospitals">{t('exploreHospitals')}</Link>
+                </Button>
+              </div>
             </motion.div>
 
             {/* Sleek Frosted Glass Search Capsule */}
