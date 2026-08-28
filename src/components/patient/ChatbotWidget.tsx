@@ -203,13 +203,21 @@ export function ChatbotWidget() {
             onClick={() => setIsOpen(true)}
             className="fixed right-0 top-[calc(50%+7.5rem)] md:top-[calc(50%+3.5rem)] z-50 p-2 sm:p-4 pointer-events-auto flex items-center justify-end group"
           >
-            <div className="flex items-center bg-gradient-to-br from-indigo-500/90 to-blue-600/90 hover:from-indigo-600 hover:to-blue-700 backdrop-blur-md text-white rounded-full shadow-[0_8px_25px_rgba(79,70,229,0.35)] border border-indigo-400/40 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1">
-              <span className="max-w-0 overflow-hidden group-hover:max-w-[100px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-xs pl-0 group-hover:pl-4 hidden sm:block tracking-wide">
-                Chat
+            <div className="flex items-center bg-slate-900/95 hover:bg-black backdrop-blur-xl text-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-slate-700/50 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1 relative overflow-hidden">
+              {/* Subtle animated gradient background for the button */}
+              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 via-blue-500/10 to-purple-500/10 opacity-50 animate-pulse"></div>
+              
+              <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-medium text-[11px] pl-0 group-hover:pl-4 hidden sm:block tracking-widest text-teal-400 uppercase relative z-10">
+                AI Assistant
               </span>
-              <div className="p-3 relative">
-                <Bot className="w-5 h-5" />
-                <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 border border-white rounded-full animate-pulse"></span>
+              <div className="p-3.5 relative flex items-center justify-center z-10">
+                {/* Outer rotating ring */}
+                <div className="absolute inset-1.5 rounded-full border border-teal-500/40 border-t-teal-400 animate-[spin_3s_linear_infinite]"></div>
+                {/* Inner glowing bot */}
+                <Bot className="w-5 h-5 text-teal-400 drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]" />
+                {/* Active indicator */}
+                <span className="absolute top-2 right-2 w-2 h-2 bg-teal-400 rounded-full animate-ping opacity-75"></span>
+                <span className="absolute top-2 right-2 w-2 h-2 bg-teal-400 rounded-full shadow-[0_0_5px_#2dd4bf]"></span>
               </div>
             </div>
           </motion.button>
@@ -227,23 +235,29 @@ export function ChatbotWidget() {
             className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 w-[calc(100vw-3rem)] sm:w-[380px] h-[550px] max-h-[80vh] flex flex-col bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-slate-200 overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-primary to-teal-500 p-4 sm:p-5 flex justify-between items-center text-white shrink-0 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/3"></div>
+            <div className="bg-slate-900 p-4 sm:p-5 flex justify-between items-center text-white shrink-0 relative overflow-hidden border-b border-slate-800">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/3"></div>
+              
               <div className="flex items-center gap-3 relative z-10">
-                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shrink-0 shadow-inner">
-                  <Bot className="w-6 h-6 text-white" />
+                <div className="w-11 h-11 rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center shrink-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] relative">
+                  {/* Rotating AI rings */}
+                  <div className="absolute inset-0.5 rounded-full border border-teal-500/30 border-t-teal-400 animate-[spin_4s_linear_infinite]"></div>
+                  <div className="absolute inset-1.5 rounded-full border border-blue-500/20 border-b-blue-400 animate-[spin_3s_linear_infinite_reverse]"></div>
+                  
+                  <Bot className="w-5 h-5 text-teal-400 drop-shadow-[0_0_6px_rgba(45,212,191,0.6)] relative z-10" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-[15px] leading-tight">{t('title')}</span>
+                  <span className="font-bold text-[15px] leading-tight text-slate-100 tracking-wide">{t('title')}</span>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span className="text-[11px] font-medium text-teal-50 opacity-90">{t('subtitle')}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse shadow-[0_0_5px_#2dd4bf]"></span>
+                    <span className="text-[11px] font-medium text-teal-400/80 tracking-widest uppercase">{t('subtitle')}</span>
                   </div>
                 </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 text-white transition-colors relative z-10 shrink-0"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors relative z-10 shrink-0 border border-slate-700"
               >
                 <X className="w-4 h-4" />
               </button>
