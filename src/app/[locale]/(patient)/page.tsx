@@ -8,6 +8,7 @@ import { HowProcessWorks } from '@/components/patient/home/HowProcessWorks';
 import { FAQSection } from '@/components/patient/home/FAQSection';
 import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { MobileSearch } from '@/components/patient/home/MobileSearch';
 
 export const revalidate = 3600;
 
@@ -67,6 +68,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <MobileSearch />
 
       <WhyChooseIndia />
       <PopularSpecialties />

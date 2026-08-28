@@ -134,7 +134,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] bg-white/90 backdrop-blur-xl border border-white"
+              className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] bg-white/90 backdrop-blur-xl border border-white"
             >
               <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 sm:bg-transparent rounded-xl sm:rounded-none">
                 <Search className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 shrink-0" />
