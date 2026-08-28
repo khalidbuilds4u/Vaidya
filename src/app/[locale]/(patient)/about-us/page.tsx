@@ -66,27 +66,50 @@ export default async function AboutUsPage() {
       </section>
 
       {/* Our Healthcare Network */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="relative aspect-[4/3] w-full order-2 lg:order-1">
-            <Image 
-              src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop" 
-              alt="Healthcare Network" 
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="rounded-3xl shadow-2xl relative z-10 object-cover" 
-            />
-            <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-teal-100 rounded-full blur-3xl -z-10" />
-            <div className="absolute -top-8 -right-8 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10" />
-          </div>
-          <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 mb-6">
-              <Building2 className="w-8 h-8" />
+      <section className="container mx-auto px-4 py-24">
+        <div className="bg-white rounded-[2.5rem] p-6 sm:p-12 border border-slate-100 shadow-[0_20px_80px_rgba(0,0,0,0.07)]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            {/* Text Content - Spans 5 columns */}
+            <div className="lg:col-span-5 order-2 lg:order-1">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 text-teal-700 font-bold uppercase tracking-wider mb-6 text-sm shadow-sm">
+                <Building2 className="w-4 h-4" />
+                Global Standards
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6 leading-tight">{t('network.title')}</h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+                {t('network.desc')}
+              </p>
+              
+              {/* Small visual anchors to give the text side more presence */}
+              <div className="flex flex-col gap-4">
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-600 shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <div className="text-sm font-medium text-slate-700">Internationally Accredited Facilities</div>
+                </div>
+                <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100">
+                  <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 shrink-0">
+                    <Stethoscope className="w-5 h-5" />
+                  </div>
+                  <div className="text-sm font-medium text-slate-700">World-Renowned Specialists</div>
+                </div>
+              </div>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">{t('network.title')}</h2>
-            <p className="text-slate-600 text-lg leading-relaxed">
-              {t('network.desc')}
-            </p>
+
+            {/* Image Content - Spans 7 columns */}
+            <div className="lg:col-span-7 order-1 lg:order-2 relative">
+              <div className="relative aspect-[16/9] w-full rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-slate-900/5">
+                <Image 
+                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop" 
+                  alt="Healthcare Network" 
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
+                  className="object-cover hover:scale-105 transition-transform duration-700" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
