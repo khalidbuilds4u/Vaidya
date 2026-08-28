@@ -156,27 +156,34 @@ export default async function AboutUsPage() {
       </section>
 
       {/* Statements (Mission, Vision, Commitment) */}
-      <section className="container mx-auto px-4 py-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-teal-50 p-8 rounded-3xl border border-teal-100 hover:shadow-xl transition-shadow">
+      <section className="container mx-auto px-4 py-20 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Mission Card */}
+          <div className="bg-teal-50 p-8 sm:p-10 rounded-[2rem] border border-teal-100 hover:shadow-xl transition-shadow h-full flex flex-col justify-center">
             <Globe2 className="w-12 h-12 text-teal-600 mb-6" />
             <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('statements.mission.title')}</h3>
-            <p className="text-slate-700 leading-relaxed">{t('statements.mission.desc')}</p>
+            <p className="text-slate-700 leading-relaxed text-lg">{t('statements.mission.desc')}</p>
           </div>
           
-          <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:shadow-xl transition-shadow">
+          {/* Vision Card */}
+          <div className="bg-blue-50 p-8 sm:p-10 rounded-[2rem] border border-blue-100 hover:shadow-xl transition-shadow h-full flex flex-col justify-center">
             <HeartPulse className="w-12 h-12 text-blue-600 mb-6" />
             <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('statements.vision.title')}</h3>
-            <p className="text-slate-700 leading-relaxed">{t('statements.vision.desc')}</p>
+            <p className="text-slate-700 leading-relaxed text-lg">{t('statements.vision.desc')}</p>
           </div>
           
-          <div className="bg-purple-50 p-8 rounded-3xl border border-purple-100 hover:shadow-xl transition-shadow">
-            <Users className="w-12 h-12 text-purple-600 mb-6" />
-            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('statements.commitment.title')}</h3>
-            <div className="space-y-4 text-slate-700 leading-relaxed">
-              <p>{t('statements.commitment.desc1')}</p>
-              <p>{t('statements.commitment.desc2')}</p>
-              <p>{t('statements.commitment.desc3')}</p>
+          {/* Commitment Card - Spans full width */}
+          <div className="bg-purple-50 p-8 sm:p-12 rounded-[2rem] border border-purple-100 hover:shadow-xl transition-shadow md:col-span-2 flex flex-col md:flex-row gap-8 lg:gap-12 items-start">
+            <div className="shrink-0 bg-white p-4 rounded-2xl shadow-sm">
+              <Users className="w-12 h-12 text-purple-600" />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-slate-900 mb-6">{t('statements.commitment.title')}</h3>
+              <div className="space-y-5 text-slate-700 leading-relaxed text-lg">
+                <p>{t('statements.commitment.desc1')}</p>
+                <p>{t('statements.commitment.desc2')}</p>
+                <p>{t('statements.commitment.desc3')}</p>
+              </div>
             </div>
           </div>
         </div>
