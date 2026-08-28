@@ -69,7 +69,7 @@ export function HospitalForm({
               <span className="px-3 py-1 bg-amber-500/10 text-amber-500 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/20">Draft</span>
             )}
             <Link href={`/en/hospitals/${initialData.slug}`} target="_blank">
-              <button type="button" className="px-4 py-2 text-sm font-semibold rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 shadow-sm transition-all">Preview on Website</button>
+              <button type="button" className="px-4 py-2 text-sm font-semibold rounded-lg bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 shadow-sm transition-all cursor-pointer">Preview on Website</button>
             </Link>
           </div>
         )}
