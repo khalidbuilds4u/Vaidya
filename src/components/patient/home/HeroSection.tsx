@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Search, MapPin, ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { motion } from 'framer-motion';
 
 export function HeroSection() {
   const router = useRouter();
@@ -51,26 +52,46 @@ export function HeroSection() {
           <div className="w-full lg:w-7/12 flex flex-col items-start text-left z-10">
             
             {/* Top Tagline Glass Pill */}
-            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
+            >
               <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse" />
               <span className="truncate">{t('tagline')}</span>
-            </div>
+            </motion.div>
             
             {/* Headline */}
-            <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4">
+            <motion.h1 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4"
+            >
               {t('titleLine1')} <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-600 to-emerald-500">
                 {t('titleLine2')}
               </span>
-            </h1>
+            </motion.h1>
             
             {/* Subtext */}
-            <p className="text-xs sm:text-base md:text-lg text-slate-700 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium">
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-xs sm:text-base md:text-lg text-slate-700 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium"
+            >
               {t('subtext')}
-            </p>
+            </motion.p>
 
             {/* Quick Trust Highlights Row on Mobile */}
-            <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700"
+            >
               <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                 <span>{t('pill1')}</span>
@@ -83,10 +104,15 @@ export function HeroSection() {
                 <Clock className="w-4 h-4 text-primary shrink-0" />
                 <span>{t('pill3')}</span>
               </div>
-            </div>
+            </motion.div>
             
             {/* Action Buttons */}
-            <div className="flex flex-row items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8 w-full sm:w-auto">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="flex flex-row items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8 w-full sm:w-auto"
+            >
               <EnquiryForm>
                 <Button size="lg" className="flex-1 sm:flex-none text-xs sm:text-base h-11 sm:h-13 px-5 sm:px-8 rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
                   {t('getFreePlan')}
@@ -101,10 +127,15 @@ export function HeroSection() {
               >
                 <Link href="/hospitals">{t('exploreHospitals')}</Link>
               </Button>
-            </div>
+            </motion.div>
 
             {/* Sleek Frosted Glass Search Capsule */}
-            <div className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] bg-white/90 backdrop-blur-xl border border-white">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="w-full max-w-xl p-1.5 sm:p-2.5 rounded-2xl sm:rounded-full flex flex-col sm:flex-row items-stretch sm:items-center gap-1.5 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] bg-white/90 backdrop-blur-xl border border-white"
+            >
               <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 sm:bg-transparent rounded-xl sm:rounded-none">
                 <Search className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 shrink-0" />
                 <Input 
@@ -142,14 +173,19 @@ export function HeroSection() {
               >
                 {t('searchButton')}
               </Button>
-            </div>
+            </motion.div>
           </div>
 
           {/* Right Floating Glass Highlights (Shown on Tablet & Desktop) */}
           <div className="hidden lg:flex w-full lg:w-5/12 flex-col gap-4 items-end justify-center">
             
             {/* Glass Highlight Card 1 (JCI & NABH Accreditation) */}
-            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300"
+            >
               <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-400/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-600 shadow-inner">
                 <ShieldCheck className="w-6 h-6" />
               </div>
@@ -158,10 +194,15 @@ export function HeroSection() {
                 <p className="text-base font-extrabold text-slate-900 leading-tight">{t('card1Title')}</p>
                 <p className="text-[11px] text-slate-500 mt-0.5">{t('card1Desc')}</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Glass Highlight Card 2 (Success Rate & Volume) */}
-            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300 -translate-x-4">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300 -translate-x-4"
+            >
               <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary shadow-inner">
                 <Building2 className="w-6 h-6" />
               </div>
@@ -170,10 +211,15 @@ export function HeroSection() {
                 <p className="text-xl font-extrabold text-slate-900 leading-tight">{t('card2Title')}</p>
                 <p className="text-[11px] text-slate-500 mt-0.5">{t('card2Desc')}</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Glass Highlight Card 3 (Verified Patient Review) */}
-            <div className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 bg-white/85 backdrop-blur-xl max-w-sm w-full animate-float-delayed hover:-translate-y-1 transition-transform duration-300">
+            <motion.div 
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 bg-white/85 backdrop-blur-xl max-w-sm w-full animate-float-delayed hover:-translate-y-1 transition-transform duration-300"
+            >
               <div className="flex items-center gap-1 mb-1.5">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
@@ -184,7 +230,7 @@ export function HeroSection() {
                 <span>{t('card3Author')}</span>
                 <span className="text-emerald-600 font-bold">{t('card3Proc')}</span>
               </div>
-            </div>
+            </motion.div>
 
           </div>
 

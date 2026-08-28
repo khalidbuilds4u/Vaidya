@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { Award, Zap, DollarSign, Clock, Cpu, Languages, ChevronRight, ChevronLeft, ShieldCheck, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 
 const REASONS = [
   {
@@ -97,7 +98,12 @@ export function WhyChooseIndia() {
           
           {/* Left Text & Glass Benefits Grid */}
           <div className="w-full lg:w-7/12 space-y-6 sm:space-y-8">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6 }}
+            >
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
                 <Sparkles className="w-3.5 h-3.5" />
                 {t('tag')}
@@ -111,14 +117,18 @@ export function WhyChooseIndia() {
               <p className="text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl">
                 {t('desc')}
               </p>
-            </div>
+            </motion.div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {localizedReasons.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <div 
+                  <motion.div 
                     key={idx} 
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: idx * 0.1 }}
                     className="glass-card p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 group hover:border-primary/40 bg-white/90"
                   >
                     <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
@@ -132,14 +142,20 @@ export function WhyChooseIndia() {
                         {item.desc}
                       </p>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
           </div>
 
           {/* Right Interactive Animated Image Slideshow Showcase */}
-          <div className="w-full lg:w-5/12 relative z-10 mt-2 lg:mt-0">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="w-full lg:w-5/12 relative z-10 mt-2 lg:mt-0"
+          >
             <div className="relative glass-panel p-2.5 sm:p-3 rounded-2xl sm:rounded-[2.5rem] shadow-2xl bg-white/95 border border-white">
               
               {/* Slideshow Image Container */}
@@ -208,7 +224,7 @@ export function WhyChooseIndia() {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

@@ -7,6 +7,7 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
+import { motion } from 'framer-motion';
 
 export interface HospitalCardProps {
   slug: string;
@@ -44,7 +45,11 @@ export function HospitalCard({
     : image;
   
   return (
-    <div className="rounded-xl overflow-hidden border border-slate-200 flex flex-col h-full group bg-white shadow-sm hover:shadow-lg transition-all duration-300">
+    <motion.div 
+      whileHover={{ y: -6, scale: 1.02 }}
+      transition={{ duration: 0.2 }}
+      className="rounded-xl overflow-hidden border border-slate-200 flex flex-col h-full group bg-white shadow-sm hover:shadow-xl transition-shadow duration-300"
+    >
       <div className="flex flex-col sm:flex-row flex-1">
         
         {/* Image Section */}
@@ -138,6 +143,6 @@ export function HospitalCard({
 
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

@@ -1,5 +1,6 @@
 import { FileText, Stethoscope, Plane, HeartHandshake } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { motion } from 'framer-motion';
 
 const STEPS = [
   {
@@ -65,7 +66,13 @@ export function HowProcessWorks() {
       <div className="absolute bottom-[10%] right-[-10%] w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-teal-500/15 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto"
+        >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-teal-300 text-xs font-bold uppercase tracking-wider mb-3">
             {t('tag')}
           </div>
@@ -75,14 +82,18 @@ export function HowProcessWorks() {
           <p className="text-slate-300 text-sm sm:text-base lg:text-lg leading-relaxed">
             {t('desc')}
           </p>
-        </div>
+        </motion.div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative">
-          {localizedSteps.map((step) => {
+          {localizedSteps.map((step, index) => {
             const Icon = step.icon;
             return (
-              <div 
+              <motion.div 
                 key={step.title} 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="glass-card-dark rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/15 hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
               >
                 <div>
@@ -98,7 +109,7 @@ export function HowProcessWorks() {
                   <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-white group-hover:text-teal-300 transition-colors leading-snug">
                     {step.title}
                   </h3>
-                  <p className="text-slate-300 leading-relaxed text-xs sm:text-sm">
+                  <p className="text-slate-400 text-sm leading-relaxed font-medium">
                     {step.description}
                   </p>
                 </div>
@@ -108,7 +119,7 @@ export function HowProcessWorks() {
                   <span className="text-slate-500">•</span>
                   <span className="text-slate-400">100% Free</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

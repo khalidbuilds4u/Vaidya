@@ -4,6 +4,7 @@ import { MapPin, BriefcaseMedical, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 export interface DoctorCardProps {
   slug: string;
@@ -37,7 +38,11 @@ export function DoctorCard({
   const subtitle = qualifications || specialty;
 
   return (
-    <div className="rounded-xl overflow-hidden border border-slate-200 flex flex-col group relative bg-white shadow-sm hover:shadow-lg transition-all duration-300 h-full p-4 sm:p-5 md:p-6">
+    <motion.div 
+      whileHover={{ y: -6, scale: 1.02 }}
+      transition={{ duration: 0.2 }}
+      className="rounded-xl overflow-hidden border border-slate-200 flex flex-col group relative bg-white shadow-sm hover:shadow-xl transition-shadow duration-300 h-full p-4 sm:p-5 md:p-6"
+    >
       
       {/* Mobile: Vertical layout, Desktop: Horizontal layout */}
       <div className="flex flex-col sm:flex-row flex-1 gap-4 sm:gap-6">
@@ -115,6 +120,6 @@ export function DoctorCard({
 
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

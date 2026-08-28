@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Stethoscope, Menu, X, PhoneCall, Sparkles } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { LanguageSwitcher } from '@/components/patient/LanguageSwitcher';
+import { motion } from 'framer-motion';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -16,7 +17,12 @@ export function Header() {
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white/75 backdrop-blur-xl border-b border-white/50 shadow-[0_4px_20px_rgba(15,118,110,0.04)] transition-all duration-300">
+    <motion.header 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="sticky top-0 z-50 w-full bg-white/75 backdrop-blur-xl border-b border-white/50 shadow-[0_4px_20px_rgba(15,118,110,0.04)] transition-all duration-300"
+    >
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeMenu}>
@@ -121,6 +127,6 @@ export function Header() {
           </div>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }
