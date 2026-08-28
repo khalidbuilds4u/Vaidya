@@ -29,15 +29,6 @@ export function MobileBottomBar() {
           </svg>
         </a>
 
-        {/* Call Helpline Button */}
-        <a 
-          href={`tel:${phoneNumber}`}
-          className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 shadow-sm transition-all active:scale-95 border border-slate-200/60"
-          aria-label="Call Helpline"
-        >
-          <PhoneCall className="w-4 h-4 text-primary shrink-0" />
-        </a>
-
       </div>
     </div>
   );
