@@ -119,7 +119,7 @@ export function WhyChooseIndia() {
               </p>
             </motion.div>
             
-            <div className="flex overflow-x-auto snap-x snap-mandatory gap-3 sm:gap-4 pb-4 -mx-4 px-4 sm:grid sm:grid-cols-2 sm:overflow-visible sm:snap-none sm:mx-0 sm:px-0 sm:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+            <div className="grid grid-cols-2 gap-2.5 sm:gap-4">
               {localizedReasons.map((item, idx) => {
                 const Icon = item.icon;
                 return (
@@ -129,16 +129,16 @@ export function WhyChooseIndia() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="w-[85vw] shrink-0 snap-start sm:w-auto glass-card p-4 sm:p-5 rounded-2xl flex items-start gap-3.5 group hover:border-primary/40 bg-white/90"
+                    className="glass-card p-3 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 group hover:border-primary/40 bg-white/90"
                   >
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-900 text-sm sm:text-base group-hover:text-primary transition-colors">
+                      <h3 className="font-bold text-slate-900 text-xs sm:text-base group-hover:text-primary transition-colors leading-snug">
                         {item.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                      <p className="hidden sm:block text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
