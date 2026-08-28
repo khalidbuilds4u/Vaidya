@@ -950,7 +950,25 @@
     "options": {
       "treatment": "Find a Treatment",
       "quote": "Get a Free Quote",
+      "faqs": "Frequently Asked Questions",
       "speakToDoctor": "Speak to a Doctor"
+    },
+    "faqsTitle": "Here are some common questions. What would you like to know?",
+    "faqOptions": {
+      "visa": "Do you help with Medical Visas?",
+      "pickup": "Is Airport Pickup provided?",
+      "hospitals": "Are your hospitals certified?",
+      "back": "⬅️ Back to Main Menu"
+    },
+    "faqAnswers": {
+      "visa": "Yes! We provide complete Medical Visa assistance. Once you select a treatment plan, we send a Visa Invitation Letter to help expedite your process.",
+      "pickup": "Absolutely. We offer complimentary airport pickup and drop-off in premium vehicles for all our international patients.",
+      "hospitals": "Yes, all our partner hospitals are JCI and NABH accredited, ensuring the highest global standards of medical care and safety."
+    },
+    "followUpQuote": "Would you like our specialists to contact you with a free, personalized quote?",
+    "followUpOptions": {
+      "yes": "Yes, please",
+      "no": "No, thanks"
     },
     "askName": "Great! Could you please tell me your name?",
     "askContact": "Nice to meet you, {name}! Please provide your WhatsApp number or email so our specialists can reach out to you with details.",

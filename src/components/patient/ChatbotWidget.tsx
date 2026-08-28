@@ -7,7 +7,7 @@ import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-type Step = 'greeting' | 'askName' | 'askContact' | 'thankYou';
+type Step = 'greeting' | 'faqs' | 'askFollowUp' | 'askName' | 'askContact' | 'thankYou';
 
 interface Message {
   id: string;
@@ -35,6 +35,7 @@ export function ChatbotWidget() {
         options: [
           { id: 'treatment', label: t('options.treatment') },
           { id: 'quote', label: t('options.quote') },
+          { id: 'faqs', label: t('options.faqs') },
           { id: 'speakToDoctor', label: t('options.speakToDoctor') },
         ],
       },
@@ -49,15 +50,99 @@ export function ChatbotWidget() {
   const handleOptionClick = (optionId: string, optionLabel: string) => {
     // Add user message
     const userMsg: Message = { id: Date.now().toString(), sender: 'user', text: optionLabel };
-    setMessages((prev) => [...prev, userMsg]);
     
-    // Simulate thinking delay then ask for name
+    // Disable previous options by removing them from the last bot message
+    setMessages((prev) => {
+      const updated = [...prev];
+      if (updated.length > 0) {
+        const lastBotIndex = updated.map(m => m.sender).lastIndexOf('bot');
+        if (lastBotIndex >= 0 && updated[lastBotIndex].options) {
+           updated[lastBotIndex] = { ...updated[lastBotIndex], options: [] };
+        }
+      }
+      return [...updated, userMsg];
+    });
+
     setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { id: Date.now().toString(), sender: 'bot', text: t('askName') },
-      ]);
-      setStep('askName');
+      if (step === 'greeting') {
+        if (optionId === 'faqs') {
+          setMessages((prev) => [
+            ...prev,
+            { 
+              id: Date.now().toString(), 
+              sender: 'bot', 
+              text: t('faqsTitle'),
+              options: [
+                { id: 'visa', label: t('faqOptions.visa') },
+                { id: 'pickup', label: t('faqOptions.pickup') },
+                { id: 'hospitals', label: t('faqOptions.hospitals') },
+                { id: 'back', label: t('faqOptions.back') },
+              ]
+            },
+          ]);
+          setStep('faqs');
+        } else {
+          // It was treatment, quote, or speakToDoctor
+          setMessages((prev) => [
+            ...prev,
+            { id: Date.now().toString(), sender: 'bot', text: t('askName') },
+          ]);
+          setStep('askName');
+        }
+      } else if (step === 'faqs') {
+        if (optionId === 'back') {
+          setMessages((prev) => [
+            ...prev,
+            { 
+              id: Date.now().toString(), 
+              sender: 'bot', 
+              text: t('greeting'),
+              options: [
+                { id: 'treatment', label: t('options.treatment') },
+                { id: 'quote', label: t('options.quote') },
+                { id: 'faqs', label: t('options.faqs') },
+                { id: 'speakToDoctor', label: t('options.speakToDoctor') },
+              ]
+            },
+          ]);
+          setStep('greeting');
+        } else {
+          // An FAQ was clicked. Show the answer, then ask for follow up quote
+          setMessages((prev) => [
+            ...prev,
+            { id: Date.now().toString() + 'ans', sender: 'bot', text: t(`faqAnswers.${optionId}`) },
+          ]);
+          setTimeout(() => {
+            setMessages((prev) => [
+              ...prev,
+              { 
+                id: Date.now().toString() + 'fup', 
+                sender: 'bot', 
+                text: t('followUpQuote'),
+                options: [
+                  { id: 'yes', label: t('followUpOptions.yes') },
+                  { id: 'no', label: t('followUpOptions.no') }
+                ]
+              },
+            ]);
+            setStep('askFollowUp');
+          }, 800);
+        }
+      } else if (step === 'askFollowUp') {
+        if (optionId === 'yes') {
+          setMessages((prev) => [
+            ...prev,
+            { id: Date.now().toString(), sender: 'bot', text: t('askName') },
+          ]);
+          setStep('askName');
+        } else {
+          setMessages((prev) => [
+            ...prev,
+            { id: Date.now().toString(), sender: 'bot', text: "No problem! Feel free to close this chat or click the WhatsApp button to talk to a human." },
+          ]);
+          setStep('thankYou');
+        }
+      }
     }, 600);
   };
 
@@ -181,8 +266,7 @@ export function ChatbotWidget() {
                           <button
                             key={opt.id}
                             onClick={() => handleOptionClick(opt.id, opt.label)}
-                            disabled={step !== 'greeting'}
-                            className="bg-white border border-teal-200 hover:border-primary text-teal-700 hover:text-primary text-[13px] font-semibold py-2 px-3 rounded-xl text-left transition-all shadow-sm disabled:opacity-50 disabled:pointer-events-none hover:shadow-md hover:-translate-y-0.5"
+                            className="bg-white border border-teal-200 hover:border-primary text-teal-700 hover:text-primary text-[13px] font-semibold py-2 px-3 rounded-xl text-left transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5"
                           >
                             {opt.label}
                           </button>
@@ -196,7 +280,7 @@ export function ChatbotWidget() {
             </div>
 
             {/* Input Area */}
-            {step !== 'greeting' && step !== 'thankYou' && (
+            {step !== 'greeting' && step !== 'faqs' && step !== 'askFollowUp' && step !== 'thankYou' && (
               <div className="p-3 sm:p-4 bg-white border-t border-slate-100 shrink-0">
                 <div className="relative flex items-center gap-2">
                   <Input 
