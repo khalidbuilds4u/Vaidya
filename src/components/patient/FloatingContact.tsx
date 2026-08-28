@@ -10,7 +10,7 @@ export function FloatingContact() {
   const whatsappNumber = "919451187513";
 
   return (
-    <div className="hidden md:flex fixed right-0 top-1/2 -translate-y-1/2 z-50 flex-col gap-2.5 p-2 sm:p-4 pointer-events-none">
+    <div className="hidden md:flex fixed right-0 bottom-24 z-50 flex-col gap-2.5 p-2 sm:p-4 pointer-events-none">
       {/* WhatsApp Button */}
       <Link 
         href={`https://wa.me/${whatsappNumber}`}
