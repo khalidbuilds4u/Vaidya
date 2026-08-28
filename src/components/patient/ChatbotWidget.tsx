@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, User, Bot, Sparkles } from 'lucide-react';
+import { MessageCircle, X, Send, User, Stethoscope, Sparkles, HeartPulse } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -203,21 +203,21 @@ export function ChatbotWidget() {
             onClick={() => setIsOpen(true)}
             className="fixed right-0 top-[calc(50%+7.5rem)] md:top-[calc(50%+3.5rem)] z-50 p-2 sm:p-4 pointer-events-auto flex items-center justify-end group"
           >
-            <div className="flex items-center bg-slate-900/95 hover:bg-black backdrop-blur-xl text-white rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-slate-700/50 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1 relative overflow-hidden">
+            <div className="flex items-center bg-white/95 hover:bg-slate-50 backdrop-blur-xl text-slate-800 rounded-full shadow-[0_8px_30px_rgba(14,165,233,0.25)] border border-sky-100 transition-all duration-300 transform hover:scale-105 hover:-translate-x-1 relative overflow-hidden">
               {/* Subtle animated gradient background for the button */}
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/10 via-blue-500/10 to-purple-500/10 opacity-50 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-sky-500/5 via-blue-500/5 to-teal-500/5 opacity-50 animate-pulse"></div>
               
-              <span className="max-w-0 overflow-hidden group-hover:max-w-[120px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-medium text-[11px] pl-0 group-hover:pl-4 hidden sm:block tracking-widest text-teal-400 uppercase relative z-10">
-                AI Assistant
+              <span className="max-w-0 overflow-hidden group-hover:max-w-[140px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-[12px] pl-0 group-hover:pl-4 hidden sm:block tracking-wide text-sky-700 relative z-10">
+                AI Doctor
               </span>
               <div className="p-3.5 relative flex items-center justify-center z-10">
                 {/* Outer rotating ring */}
-                <div className="absolute inset-1.5 rounded-full border border-teal-500/40 border-t-teal-400 animate-[spin_3s_linear_infinite]"></div>
-                {/* Inner glowing bot */}
-                <Bot className="w-5 h-5 text-teal-400 drop-shadow-[0_0_8px_rgba(45,212,191,0.8)]" />
+                <div className="absolute inset-1.5 rounded-full border border-sky-200 border-t-sky-500 animate-[spin_4s_linear_infinite]"></div>
+                {/* Inner glowing doctor icon */}
+                <Stethoscope className="w-5 h-5 text-sky-600 drop-shadow-[0_0_8px_rgba(14,165,233,0.4)]" />
                 {/* Active indicator */}
-                <span className="absolute top-2 right-2 w-2 h-2 bg-teal-400 rounded-full animate-ping opacity-75"></span>
-                <span className="absolute top-2 right-2 w-2 h-2 bg-teal-400 rounded-full shadow-[0_0_5px_#2dd4bf]"></span>
+                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-emerald-400 rounded-full animate-ping opacity-75"></span>
+                <span className="absolute top-2 right-2 w-2.5 h-2.5 bg-emerald-400 rounded-full shadow-[0_0_5px_#34d399]"></span>
               </div>
             </div>
           </motion.button>
@@ -235,29 +235,29 @@ export function ChatbotWidget() {
             className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 w-[calc(100vw-3rem)] sm:w-[380px] h-[550px] max-h-[80vh] flex flex-col bg-white rounded-3xl shadow-[0_20px_60px_rgba(0,0,0,0.15)] border border-slate-200 overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-slate-900 p-4 sm:p-5 flex justify-between items-center text-white shrink-0 relative overflow-hidden border-b border-slate-800">
-              <div className="absolute top-0 right-0 w-40 h-40 bg-teal-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl translate-y-1/2 -translate-x-1/3"></div>
+            <div className="bg-gradient-to-r from-sky-600 to-blue-700 p-4 sm:p-5 flex justify-between items-center text-white shrink-0 relative overflow-hidden border-b border-sky-800">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-teal-400/20 rounded-full blur-2xl translate-y-1/2 -translate-x-1/3"></div>
               
               <div className="flex items-center gap-3 relative z-10">
-                <div className="w-11 h-11 rounded-full bg-slate-950 border border-slate-700 flex items-center justify-center shrink-0 shadow-[inset_0_2px_10px_rgba(0,0,0,0.5)] relative">
+                <div className="w-11 h-11 rounded-full bg-white border border-sky-100 flex items-center justify-center shrink-0 shadow-[0_2px_15px_rgba(0,0,0,0.15)] relative">
                   {/* Rotating AI rings */}
-                  <div className="absolute inset-0.5 rounded-full border border-teal-500/30 border-t-teal-400 animate-[spin_4s_linear_infinite]"></div>
-                  <div className="absolute inset-1.5 rounded-full border border-blue-500/20 border-b-blue-400 animate-[spin_3s_linear_infinite_reverse]"></div>
+                  <div className="absolute inset-0.5 rounded-full border border-sky-100 border-t-sky-500 animate-[spin_5s_linear_infinite]"></div>
                   
-                  <Bot className="w-5 h-5 text-teal-400 drop-shadow-[0_0_6px_rgba(45,212,191,0.6)] relative z-10" />
+                  <Stethoscope className="w-5 h-5 text-sky-600 relative z-10" />
+                  <Sparkles className="w-3 h-3 text-amber-400 absolute top-1.5 right-1.5 z-20" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-[15px] leading-tight text-slate-100 tracking-wide">{t('title')}</span>
+                  <span className="font-bold text-[15px] leading-tight text-white tracking-wide">{t('title')}</span>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse shadow-[0_0_5px_#2dd4bf]"></span>
-                    <span className="text-[11px] font-medium text-teal-400/80 tracking-widest uppercase">{t('subtitle')}</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_5px_#34d399]"></span>
+                    <span className="text-[11px] font-medium text-sky-100 tracking-wider uppercase">AI Doctor • {t('subtitle')}</span>
                   </div>
                 </div>
               </div>
               <button 
                 onClick={() => setIsOpen(false)}
-                className="w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors relative z-10 shrink-0 border border-slate-700"
+                className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors relative z-10 shrink-0 border border-white/20"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -269,8 +269,8 @@ export function ChatbotWidget() {
                 <div key={msg.id} className={`flex ${msg.sender === 'bot' ? 'justify-start' : 'justify-end'} animate-in slide-in-from-bottom-2 duration-300`}>
                   
                   {msg.sender === 'bot' && (
-                    <div className="w-7 h-7 rounded-full bg-teal-100 flex items-center justify-center shrink-0 mr-2 mt-auto mb-1">
-                      <Sparkles className="w-4 h-4 text-teal-600" />
+                    <div className="w-7 h-7 rounded-full bg-sky-100 flex items-center justify-center shrink-0 mr-2 mt-auto mb-1 shadow-sm border border-sky-200">
+                      <Stethoscope className="w-4 h-4 text-sky-600" />
                     </div>
                   )}
 
