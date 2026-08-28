@@ -774,29 +774,91 @@
   },
   "AboutUs": {
     "hero": {
-      "tag": "Global Trust, World-Class Healing",
-      "title1": "Bridging Borders for",
-      "title2": "Better Healthcare.",
-      "desc": "We are India's premier medical tourism facilitator, connecting international patients with accredited hospitals, renowned surgeons, and a seamless recovery experience."
+      "tag": "About Asad Healthcare",
+      "title1": "Your Trusted Partner for",
+      "title2": "Medical Treatment in India",
+      "desc": "Asad Healthcare is a medical tourism company dedicated to helping international patients access trusted healthcare services in India. We connect individuals with experienced doctors, reputed hospitals, advanced treatments, and specialized medical care based on their healthcare needs."
     },
-    "mission": {
-      "title": "Our Mission",
-      "p1": "At Asad Healthcare, our mission is to eliminate the geographical barriers to high-quality medical treatment. We believe that every patient deserves access to the best healthcare facilities in the world, regardless of where they live.",
-      "p2": "By partnering with JCI and NABH accredited hospitals across India, we ensure that you receive world-class care at a fraction of the cost, complete with dedicated concierge support from the moment you land until you safely return home.",
-      "accredited": "Accredited",
-      "accreditedDesc": "JCI & NABH Hospitals",
-      "global": "Global",
-      "globalDesc": "50+ Countries Served"
+    "intro": {
+      "desc": "We understand that seeking treatment in another country involves more than choosing a doctor or hospital. It requires reliable information, careful planning, clear communication, and support throughout the journey. Our role is to simplify this process and help patients make informed decisions with greater confidence."
     },
-    "values": {
-      "title": "Why Choose Us?",
-      "desc": "We don't just connect you to a hospital; we walk with you through every step of your healing journey.",
-      "transparencyTitle": "Transparency",
-      "transparencyDesc": "No hidden fees, no surprise costs. We provide clear treatment estimates and honest medical opinions directly from senior surgeons.",
-      "compassionTitle": "Compassion",
-      "compassionDesc": "Medical travel can be daunting. Our concierge team acts as your local family in India, ensuring your absolute comfort and peace of mind.",
-      "excellenceTitle": "Excellence",
-      "excellenceDesc": "We rigorously vet our partner hospitals to ensure they maintain the highest international standards in clinical excellence and technology."
+    "whatWeDo": {
+      "title": "What We Do",
+      "desc": "We provide end-to-end assistance for individuals exploring medical treatment in India, including:",
+      "list": [
+        "Doctor and specialist selection",
+        "Hospital recommendations",
+        "Medical consultation coordination",
+        "Treatment and surgery options",
+        "Medical records coordination",
+        "Treatment cost estimates",
+        "Appointment scheduling",
+        "Visa and travel assistance",
+        "Accommodation and transportation support",
+        "Assistance throughout the medical journey"
+      ]
+    },
+    "network": {
+      "title": "Our Healthcare Network",
+      "desc": "We work to connect patients with reputed hospitals, experienced specialists, and advanced healthcare facilities across India. Based on the patient's requirements, we help identify suitable healthcare options and coordinate communication with the relevant medical providers."
+    },
+    "approach": {
+      "title": "Our Approach",
+      "items": [
+        {
+          "title": "Patient-Centred Support",
+          "desc": "We focus on understanding each individual's medical requirements, preferences, and travel needs."
+        },
+        {
+          "title": "Clear & Reliable Information",
+          "desc": "We aim to provide straightforward information about hospitals, doctors, treatments, procedures, and associated services."
+        },
+        {
+          "title": "Professional Coordination",
+          "desc": "We help coordinate communication between patients, healthcare providers, and relevant service partners to make the process more organized."
+        },
+        {
+          "title": "Support Throughout the Journey",
+          "desc": "From the initial enquiry to treatment coordination and travel arrangements, our team remains available to assist at key stages of the medical journey."
+        }
+      ]
+    },
+    "whyChooseUs": {
+      "title": "Why Choose Asad Healthcare?",
+      "items": [
+        {
+          "title": "Experienced Healthcare Connections",
+          "desc": "Access to reputed hospitals and experienced medical specialists across India."
+        },
+        {
+          "title": "Personalized Assistance",
+          "desc": "Support tailored to each individual's healthcare and medical travel requirements."
+        },
+        {
+          "title": "Transparent Communication",
+          "desc": "Clear communication to help patients understand their available healthcare options."
+        },
+        {
+          "title": "Complete Medical Travel Support",
+          "desc": "Assistance with medical coordination, travel planning, accommodation, and related arrangements."
+        }
+      ]
+    },
+    "statements": {
+      "mission": {
+        "title": "Our Mission",
+        "desc": "To make quality healthcare in India more accessible to people worldwide by providing trusted connections, clear information, and professional medical travel support."
+      },
+      "vision": {
+        "title": "Our Vision",
+        "desc": "To be a trusted global medical tourism partner, recognized for responsible healthcare coordination, patient-focused service, and a seamless medical travel experience."
+      },
+      "commitment": {
+        "title": "Our Commitment",
+        "desc1": "At Asad Healthcare, we are committed to providing professional, transparent, and responsible medical tourism support.",
+        "desc2": "We do not diagnose medical conditions or make clinical decisions. Medical diagnosis, treatment recommendations, procedures, and surgeries are determined by qualified doctors and healthcare institutions.",
+        "desc3": "Our responsibility is to help patients find suitable healthcare options, understand the process, coordinate their journey, and access medical care in India with greater confidence."
+      }
     },
     "cta": {
       "title": "Ready to start your journey?",

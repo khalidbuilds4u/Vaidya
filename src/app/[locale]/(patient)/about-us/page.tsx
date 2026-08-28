@@ -1,5 +1,5 @@
 import { Metadata } from "next"
-import { ShieldCheck, HeartPulse, Globe2, Award, ArrowRight } from "lucide-react"
+import { ShieldCheck, HeartPulse, Globe2, Award, ArrowRight, CheckCircle2, Stethoscope, Building2, Users } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -39,42 +39,39 @@ export default async function AboutUsPage() {
         </div>
       </section>
 
-      {/* Our Mission */}
+      {/* Intro Section */}
+      <section className="container mx-auto px-4 py-16 text-center max-w-4xl">
+        <p className="text-xl text-slate-600 leading-relaxed font-medium">
+          {t('intro.desc')}
+        </p>
+      </section>
+
+      {/* What We Do */}
+      <section className="bg-white py-20 border-y border-slate-100">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-4">{t('whatWeDo.title')}</h2>
+            <p className="text-slate-600 text-lg">{t('whatWeDo.desc')}</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {[0,1,2,3,4,5,6,7,8,9].map((i) => (
+              <div key={i} className="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+                <CheckCircle2 className="w-6 h-6 text-teal-600 shrink-0" />
+                <span className="font-medium text-slate-800">{t(`whatWeDo.list.${i}`)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Healthcare Network */}
       <section className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">{t('mission.title')}</h2>
-            <p className="text-slate-600 text-lg leading-relaxed mb-6">
-              {t('mission.p1')}
-            </p>
-            <p className="text-slate-600 text-lg leading-relaxed mb-8">
-              {t('mission.p2')}
-            </p>
-            <div className="flex gap-4">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-teal-100 flex items-center justify-center text-teal-700">
-                  <Award className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">{t('mission.accredited')}</h4>
-                  <p className="text-sm text-slate-500">{t('mission.accreditedDesc')}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                  <Globe2 className="w-6 h-6" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-slate-900">{t('mission.global')}</h4>
-                  <p className="text-sm text-slate-500">{t('mission.globalDesc')}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] w-full">
+          <div className="relative aspect-[4/3] w-full order-2 lg:order-1">
             <Image 
               src="https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2000&auto=format&fit=crop" 
-              alt="Medical Team" 
+              alt="Healthcare Network" 
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="rounded-3xl shadow-2xl relative z-10 object-cover" 
@@ -82,53 +79,96 @@ export default async function AboutUsPage() {
             <div className="absolute -bottom-8 -left-8 w-64 h-64 bg-teal-100 rounded-full blur-3xl -z-10" />
             <div className="absolute -top-8 -right-8 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10" />
           </div>
+          <div className="order-1 lg:order-2">
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-teal-50 text-teal-600 mb-6">
+              <Building2 className="w-8 h-8" />
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-6">{t('network.title')}</h2>
+            <p className="text-slate-600 text-lg leading-relaxed">
+              {t('network.desc')}
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Core Values */}
-      <section className="bg-white py-20 border-y border-slate-100">
+      {/* Our Approach */}
+      <section className="bg-slate-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-extrabold text-slate-900 mb-4">{t('values.title')}</h2>
-            <p className="text-slate-600">{t('values.desc')}</p>
+            <h2 className="text-3xl font-extrabold mb-4">{t('approach.title')}</h2>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[0,1,2,3].map((i) => (
+              <div key={i} className="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 hover:bg-slate-800 transition-colors">
+                <h3 className="text-lg font-bold text-teal-400 mb-3">{t(`approach.items.${i}.title`)}</h3>
+                <p className="text-slate-300 text-sm leading-relaxed">{t(`approach.items.${i}.desc`)}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-slate-50 p-8 rounded-3xl text-center border border-slate-100 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 mx-auto bg-primary/10 rounded-2xl flex items-center justify-center text-primary mb-6">
-                <ShieldCheck className="w-8 h-8" />
+      {/* Why Choose Us */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-3xl font-extrabold text-slate-900 mb-4">{t('whyChooseUs.title')}</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {[0,1,2,3].map((i) => (
+              <div key={i} className="flex gap-5 p-6 bg-slate-50 rounded-2xl border border-slate-100 hover:shadow-lg transition-shadow">
+                <div className="w-14 h-14 rounded-full bg-teal-100 flex items-center justify-center shrink-0 text-teal-600">
+                  <ShieldCheck className="w-7 h-7" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{t(`whyChooseUs.items.${i}.title`)}</h3>
+                  <p className="text-slate-600 leading-relaxed">{t(`whyChooseUs.items.${i}.desc`)}</p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t('values.transparencyTitle')}</h3>
-              <p className="text-slate-600">{t('values.transparencyDesc')}</p>
-            </div>
-            
-            <div className="bg-slate-50 p-8 rounded-3xl text-center border border-slate-100 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 mx-auto bg-teal-100 rounded-2xl flex items-center justify-center text-teal-700 mb-6">
-                <HeartPulse className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t('values.compassionTitle')}</h3>
-              <p className="text-slate-600">{t('values.compassionDesc')}</p>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="bg-slate-50 p-8 rounded-3xl text-center border border-slate-100 hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 mx-auto bg-cyan-100 rounded-2xl flex items-center justify-center text-cyan-700 mb-6">
-                <Award className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">{t('values.excellenceTitle')}</h3>
-              <p className="text-slate-600">{t('values.excellenceDesc')}</p>
+      {/* Statements (Mission, Vision, Commitment) */}
+      <section className="container mx-auto px-4 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-teal-50 p-8 rounded-3xl border border-teal-100 hover:shadow-xl transition-shadow">
+            <Globe2 className="w-12 h-12 text-teal-600 mb-6" />
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('statements.mission.title')}</h3>
+            <p className="text-slate-700 leading-relaxed">{t('statements.mission.desc')}</p>
+          </div>
+          
+          <div className="bg-blue-50 p-8 rounded-3xl border border-blue-100 hover:shadow-xl transition-shadow">
+            <HeartPulse className="w-12 h-12 text-blue-600 mb-6" />
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('statements.vision.title')}</h3>
+            <p className="text-slate-700 leading-relaxed">{t('statements.vision.desc')}</p>
+          </div>
+          
+          <div className="bg-purple-50 p-8 rounded-3xl border border-purple-100 hover:shadow-xl transition-shadow">
+            <Users className="w-12 h-12 text-purple-600 mb-6" />
+            <h3 className="text-2xl font-bold text-slate-900 mb-4">{t('statements.commitment.title')}</h3>
+            <div className="space-y-4 text-slate-700 leading-relaxed">
+              <p>{t('statements.commitment.desc1')}</p>
+              <p>{t('statements.commitment.desc2')}</p>
+              <p>{t('statements.commitment.desc3')}</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="container mx-auto px-4 py-20 text-center">
-        <h2 className="text-3xl font-extrabold text-slate-900 mb-6">{t('cta.title')}</h2>
-        <Link href="/contact-us">
-          <Button size="lg" className="rounded-full px-8 h-14 text-base bg-primary hover:bg-teal-700">
-            {t('cta.button')} <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
-        </Link>
+      <section className="bg-white py-20 border-t border-slate-100 text-center">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-extrabold text-slate-900 mb-6">{t('cta.title')}</h2>
+          <Link href="/contact-us">
+            <Button size="lg" className="rounded-full px-10 h-14 text-lg bg-primary hover:bg-teal-700 shadow-lg hover:shadow-xl transition-all">
+              {t('cta.button')} <ArrowRight className="w-6 h-6 ml-2" />
+            </Button>
+          </Link>
+        </div>
       </section>
     </div>
   )
