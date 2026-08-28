@@ -72,7 +72,7 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
             </p>
 
             {/* Quick Search Capsule */}
-            <div className="glass-panel p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white shadow-xl max-w-xl">
+            <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white shadow-xl max-w-xl">
               <Search className="h-4 w-4 text-primary ml-3 mr-1 shrink-0" />
               <Input 
                 type="text" 
