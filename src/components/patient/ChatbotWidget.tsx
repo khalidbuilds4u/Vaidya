@@ -201,7 +201,7 @@ export function ChatbotWidget() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="fixed right-0 top-[calc(50%+7.5rem)] md:top-[calc(50%+3.5rem)] z-50 p-2 sm:p-4 pointer-events-auto flex items-center justify-end group"
+            className="fixed right-0 bottom-4 md:bottom-8 z-50 p-2 sm:p-4 pointer-events-auto flex items-center justify-end group"
           >
             <div className="flex items-center bg-gradient-to-r from-sky-600 to-teal-600 hover:from-sky-700 hover:to-teal-700 shadow-[0_8px_30px_rgba(14,165,233,0.4)] border border-sky-400/30 text-white rounded-full transition-all duration-300 transform hover:scale-105 hover:-translate-x-1 relative overflow-hidden">
               {/* Subtle animated gradient overlay for the button */}

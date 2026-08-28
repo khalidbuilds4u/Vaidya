@@ -56,7 +56,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
+              className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
             >
               <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse" />
               <span className="truncate">{t('tagline')}</span>
@@ -90,7 +90,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700"
+              className="hidden sm:flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700"
             >
               <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -111,19 +111,19 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-row items-center gap-2.5 sm:gap-4 mb-5 sm:mb-8 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto"
             >
               <EnquiryForm>
-                <Button size="lg" className="flex-1 sm:flex-none text-xs sm:text-base h-11 sm:h-13 px-5 sm:px-8 rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
+                <Button size="lg" className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-8 rounded-xl sm:rounded-full shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold active:scale-95">
                   {t('getFreePlan')}
-                  <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 ml-1.5" />
+                  <ArrowRight className="w-4 h-4 ml-1.5" />
                 </Button>
               </EnquiryForm>
               <Button 
                 asChild
                 size="lg" 
                 variant="outline" 
-                className="flex-1 sm:flex-none text-xs sm:text-base h-11 sm:h-13 px-4 sm:px-7 rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
+                className="w-full sm:w-auto text-sm sm:text-base h-12 sm:h-13 px-6 sm:px-7 rounded-xl sm:rounded-full glass-card hover:bg-white border border-slate-300/80 transition-all shadow-xs font-semibold text-slate-800 bg-white/90" 
               >
                 <Link href="/hospitals">{t('exploreHospitals')}</Link>
               </Button>
