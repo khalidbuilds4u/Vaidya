@@ -226,12 +226,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
   })) : specialty.topHospitals;
 
-  const dynamicConditions = dbConditions.length > 0 ? dbConditions : [
-    { name: t('mockConditions.general1.name', { name: translatedName }), slug: 'general-1', description: t('mockConditions.general1.desc', { name: translatedName }) },
-    { name: t('mockConditions.general2.name', { name: translatedName }), slug: 'general-2', description: t('mockConditions.general2.desc', { name: translatedName }) },
-    { name: t('mockConditions.general3.name', { name: translatedName }), slug: 'general-3', description: t('mockConditions.general3.desc', { name: translatedName }) }
-  ];
-
+  // Removed mock conditions fallback
   // Define a mapping of specialty slugs to featured hero images
   const specialtyImages: Record<string, string> = {
     'cardiology': 'https://images.unsplash.com/photo-1530497610245-94d3c16cda28?q=80&w=2080&auto=format&fit=crop',
@@ -351,7 +346,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
               </div>
             </section>
             
-            <section className="mt-16">
+            {dbConditions.length > 0 && (
+              <section className="mt-16">
                 <div className="flex items-center gap-3 mb-6">
                   <Activity className="w-6 h-6 text-primary dark:text-teal-400" />
                   <h2 className="text-2xl font-bold dark:text-white">{t('conditions.title')}</h2>
@@ -361,7 +357,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                 </p>
                 
                 <div className="grid sm:grid-cols-3 gap-4">
-                  {dynamicConditions.map((condition) => (
+                  {dbConditions.map((condition) => (
                     <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-teal-400 bg-white dark:bg-slate-900/95 group cursor-pointer flex flex-col">
                         <h3 className="font-bold text-lg mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{getTranslation(condition, 'name', locale) || condition.name}</h3>
@@ -374,6 +370,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                   ))}
                 </div>
               </section>
+            )}
             
           </div>
 
