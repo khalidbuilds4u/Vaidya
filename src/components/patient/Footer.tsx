@@ -4,8 +4,15 @@ import Link from 'next/link';
 import { Stethoscope, ShieldCheck, PhoneCall, Headphones, Clock, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
+import { usePathname } from 'next/navigation';
+
 export function Footer() {
   const t = useTranslations('Footer');
+  const pathname = usePathname();
+  
+  // Helper to determine if we are already on the medical travel page
+  const isMedTravel = pathname?.endsWith('/medical-travel');
+  const getMedTravelLink = (hash: string) => isMedTravel ? hash : `/medical-travel${hash}`;
 
   return (
     <footer className="bg-slate-950 text-slate-300 border-t-2 border-primary/40 relative overflow-hidden pt-10 sm:pt-14 pb-20 sm:pb-10">
@@ -82,10 +89,10 @@ export function Footer() {
               {t('support.title')}
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li><Link href="/medical-travel#visa" className="hover:text-teal-300 transition-colors">{t('support.visa')}</Link></li>
-              <li><Link href="/medical-travel#accommodation" className="hover:text-teal-300 transition-colors">{t('support.accommodation')}</Link></li>
-              <li><Link href="/medical-travel#interpreters" className="hover:text-teal-300 transition-colors">{t('support.interpreters')}</Link></li>
-              <li><Link href="/medical-travel#airport-transfer" className="hover:text-teal-300 transition-colors">{t('support.airport')}</Link></li>
+              <li><Link href={getMedTravelLink('#visa')} className="hover:text-teal-300 transition-colors">{t('support.visa')}</Link></li>
+              <li><Link href={getMedTravelLink('#accommodation')} className="hover:text-teal-300 transition-colors">{t('support.accommodation')}</Link></li>
+              <li><Link href={getMedTravelLink('#interpreters')} className="hover:text-teal-300 transition-colors">{t('support.interpreters')}</Link></li>
+              <li><Link href={getMedTravelLink('#airport-transfer')} className="hover:text-teal-300 transition-colors">{t('support.airport')}</Link></li>
               <li><Link href="/search" className="hover:text-teal-300 transition-colors">{t('support.search')}</Link></li>
             </ul>
           </div>
