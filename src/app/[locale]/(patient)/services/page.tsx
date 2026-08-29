@@ -182,44 +182,44 @@ type CardProps = { icon: React.ElementType; title: string; desc: string; bg: str
 
 function ServiceCard({ icon: Icon, title, desc, bg, shadow, iconColor }: CardProps) {
   return (
-    <div className="group bg-white rounded-2xl p-5 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center">
+    <div className="group bg-white dark:bg-slate-900/95 rounded-2xl p-5 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:border-teal-400/50 hover:-translate-y-1.5 transition-all duration-300 flex flex-col items-center text-center">
       <div
-        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 relative"
+        className="w-14 h-14 rounded-2xl flex items-center justify-center mb-4 relative transition-colors duration-500"
         style={{
           background: bg,
           boxShadow: `4px 4px 10px ${shadow}, -3px -3px 7px rgba(255,255,255,0.9), inset 0 1px 1px rgba(255,255,255,0.7)`,
           border: '1px solid rgba(255,255,255,0.7)',
         }}
       >
-        <Icon className="w-7 h-7 drop-shadow-sm" style={{ color: iconColor }} strokeWidth={1.5} />
+        <Icon className="w-7 h-7 drop-shadow-sm transition-colors duration-500" style={{ color: iconColor }} strokeWidth={1.5} />
       </div>
-      <h3 className="text-sm font-extrabold text-slate-900 leading-snug mb-1.5">{title}</h3>
-      <p className="text-xs text-slate-500 leading-relaxed">{desc}</p>
+      <h3 className="text-sm font-extrabold text-slate-900 dark:text-white leading-snug mb-1.5 transition-colors duration-500">{title}</h3>
+      <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed transition-colors duration-500">{desc}</p>
     </div>
   );
 }
 
 export default function ServicesPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
 
       {/* Hero */}
-      <section className="relative bg-white border-b border-slate-100 overflow-hidden pt-14 pb-16 sm:pt-20 sm:pb-24">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-emerald-50 pointer-events-none" />
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-teal-200/20 blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-emerald-200/20 blur-[80px] pointer-events-none" />
+      <section className="relative bg-white dark:bg-slate-950 border-b border-slate-100 dark:border-slate-800 overflow-hidden pt-14 pb-16 sm:pt-20 sm:pb-24 transition-colors duration-500">
+        <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-teal-950/20 dark:via-slate-950 dark:to-emerald-950/20 pointer-events-none transition-colors duration-500" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full bg-teal-200/20 dark:bg-teal-500/10 blur-[100px] pointer-events-none" />
+        <div className="absolute -bottom-20 -left-20 w-[400px] h-[400px] rounded-full bg-emerald-200/20 dark:bg-emerald-500/10 blur-[80px] pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10 max-w-4xl">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15 text-primary text-[11px] font-bold uppercase tracking-wider mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/8 dark:bg-teal-400/10 border border-primary/15 dark:border-teal-400/20 text-primary dark:text-teal-400 text-[11px] font-bold uppercase tracking-wider mb-6 transition-colors duration-500">
             <Sparkles className="w-3 h-3 animate-pulse" /><span>End-to-End Medical Tourism Support</span>
           </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-[1.12] mb-6">
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-[1.12] mb-6 transition-colors duration-500">
             Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-600 to-emerald-500">Services</span>
           </h1>
-          <div className="max-w-3xl space-y-3 text-slate-600 text-sm sm:text-base leading-relaxed mb-8">
-            <p>At <strong className="text-slate-800">Asad Healthcare</strong>, we provide end-to-end support for international patients seeking medical treatment in India. From planning your journey to returning home, we help coordinate the important details of your medical trip.</p>
+          <div className="max-w-3xl space-y-3 text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed mb-8 transition-colors duration-500">
+            <p>At <strong className="text-slate-800 dark:text-slate-100">Asad Healthcare</strong>, we provide end-to-end support for international patients seeking medical treatment in India. From planning your journey to returning home, we help coordinate the important details of your medical trip.</p>
             <p>Our services are designed to make the healthcare journey simple, comfortable, transparent, and well organized. We coordinate with hospitals, doctors, patients, and attendants to ensure smooth communication and better support.</p>
             <p>We assist with medical coordination, interpretation, travel arrangements, accommodation, hospital visits, documentation, and local support according to each patient's needs.</p>
-            <p className="font-semibold text-slate-800 pt-1">Your health is your priority. We take care of the coordination.</p>
+            <p className="font-semibold text-slate-800 dark:text-slate-100 pt-1">Your health is your priority. We take care of the coordination.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3">
             <EnquiryForm>
@@ -227,7 +227,7 @@ export default function ServicesPage() {
                 Get Free Consultation <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </EnquiryForm>
-            <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200 text-slate-700 hover:bg-slate-50">
+            <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900">
               <Link href="/contact-us">Talk to Our Team</Link>
             </Button>
           </div>
@@ -235,13 +235,13 @@ export default function ServicesPage() {
       </section>
 
       {/* Sticky Phase Nav */}
-      <div className="sticky top-16 z-20 bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm">
+      <div className="sticky top-16 z-20 bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm transition-colors duration-500">
         <div className="container mx-auto px-4">
           <div className="flex items-center gap-2 overflow-x-auto py-3 no-scrollbar">
-            <a href="#pre" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-violet-700 bg-violet-50 border-violet-200"><span className="w-2 h-2 rounded-full bg-violet-500" />Pre-Arrival</a>
-            <a href="#on" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-primary bg-primary/5 border-primary/20"><span className="w-2 h-2 rounded-full bg-primary" />During Treatment</a>
-            <a href="#post" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-emerald-700 bg-emerald-50 border-emerald-200"><span className="w-2 h-2 rounded-full bg-emerald-500" />Post-Treatment</a>
-            <a href="#why" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-amber-700 bg-amber-50 border-amber-200"><Star className="w-3 h-3 fill-amber-500 text-amber-500" />Why Choose Us</a>
+            <a href="#pre" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-violet-700 dark:text-violet-300 bg-violet-50 dark:bg-violet-500/10 border-violet-200 dark:border-violet-500/20"><span className="w-2 h-2 rounded-full bg-violet-500 dark:bg-violet-400" />Pre-Arrival</a>
+            <a href="#on" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-primary dark:text-teal-300 bg-primary/5 dark:bg-teal-500/10 border-primary/20 dark:border-teal-500/20"><span className="w-2 h-2 rounded-full bg-primary dark:bg-teal-400" />During Treatment</a>
+            <a href="#post" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-500/10 border-emerald-200 dark:border-emerald-500/20"><span className="w-2 h-2 rounded-full bg-emerald-500 dark:bg-emerald-400" />Post-Treatment</a>
+            <a href="#why" className="shrink-0 inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold border transition-all hover:scale-105 text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-500/10 border-amber-200 dark:border-amber-500/20"><Star className="w-3 h-3 fill-amber-500 text-amber-500" />Why Choose Us</a>
           </div>
         </div>
       </div>
@@ -251,11 +251,11 @@ export default function ServicesPage() {
 
         <section id="pre">
           <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-violet-50 border border-violet-200">
-              <span className="w-2.5 h-2.5 rounded-full bg-violet-500" />
-              <span className="text-sm font-extrabold text-violet-700">Pre-Arrival Services</span>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-violet-50 dark:bg-violet-500/10 border border-violet-200 dark:border-violet-500/20 transition-colors duration-500">
+              <span className="w-2.5 h-2.5 rounded-full bg-violet-500 dark:bg-violet-400" />
+              <span className="text-sm font-extrabold text-violet-700 dark:text-violet-300">Pre-Arrival Services</span>
             </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-violet-200 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-violet-200 dark:from-violet-500/20 to-transparent transition-colors duration-500" />
             <span className="text-xs text-slate-400 font-semibold shrink-0">{preArrival.length} Services</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
@@ -265,11 +265,11 @@ export default function ServicesPage() {
 
         <section id="on">
           <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-primary/5 border border-primary/20">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-              <span className="text-sm font-extrabold text-primary">On-Arrival & During Treatment</span>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-primary/5 dark:bg-teal-500/10 border border-primary/20 dark:border-teal-500/20 transition-colors duration-500">
+              <span className="w-2.5 h-2.5 rounded-full bg-primary dark:bg-teal-400" />
+              <span className="text-sm font-extrabold text-primary dark:text-teal-300">On-Arrival & During Treatment</span>
             </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-teal-200 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-teal-200 dark:from-teal-500/20 to-transparent transition-colors duration-500" />
             <span className="text-xs text-slate-400 font-semibold shrink-0">{onArrival.length} Services</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -279,11 +279,11 @@ export default function ServicesPage() {
 
         <section id="post">
           <div className="flex items-center gap-3 mb-8">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-50 border border-emerald-200">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-              <span className="text-sm font-extrabold text-emerald-700">Post-Treatment & Departure</span>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 transition-colors duration-500">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
+              <span className="text-sm font-extrabold text-emerald-700 dark:text-emerald-300">Post-Treatment & Departure</span>
             </div>
-            <div className="flex-1 h-px bg-gradient-to-r from-emerald-200 to-transparent" />
+            <div className="flex-1 h-px bg-gradient-to-r from-emerald-200 dark:from-emerald-500/20 to-transparent transition-colors duration-500" />
             <span className="text-xs text-slate-400 font-semibold shrink-0">{postTreatment.length} Services</span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
@@ -293,32 +293,32 @@ export default function ServicesPage() {
       </div>
 
       {/* Why Choose */}
-      <section id="why" className="bg-white border-t border-slate-100 py-16 sm:py-20">
+      <section id="why" className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-16 sm:py-20 transition-colors duration-500">
         <div className="container mx-auto px-4 max-w-6xl">
           <div className="text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 border border-amber-200 text-amber-700 text-[11px] font-bold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20 text-amber-700 dark:text-amber-400 text-[11px] font-bold uppercase tracking-wider mb-4 transition-colors duration-500">
               <Star className="w-3 h-3 fill-amber-500 text-amber-500" />Why Choose Us
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Why Choose Asad Healthcare</h2>
-            <p className="text-slate-500 text-sm sm:text-base max-w-xl mx-auto">Thousands of international patients have trusted us with their medical journey. Here is what makes us different.</p>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-3 transition-colors duration-500">Why Choose Asad Healthcare</h2>
+            <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base max-w-xl mx-auto transition-colors duration-500">Thousands of international patients have trusted us with their medical journey. Here is what makes us different.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {whyChoose.map((w) => {
               const Icon = w.icon;
               return (
-                <div key={w.title} className="group bg-gradient-to-b from-slate-50 to-white rounded-2xl p-6 border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
+                <div key={w.title} className="group bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900/95 rounded-2xl p-6 border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl dark:shadow-none dark:hover:border-teal-400/50 hover:-translate-y-1.5 transition-all duration-300">
                   <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-colors duration-500"
                     style={{
                       background: w.bg,
                       boxShadow: `4px 4px 10px ${w.shadow}, -3px -3px 7px rgba(255,255,255,0.9), inset 0 1px 1px rgba(255,255,255,0.7)`,
                       border: '1px solid rgba(255,255,255,0.7)',
                     }}
                   >
-                    <Icon className="w-6 h-6 drop-shadow-sm" style={{ color: w.color }} strokeWidth={1.5} />
+                    <Icon className="w-6 h-6 drop-shadow-sm transition-colors duration-500" style={{ color: w.color }} strokeWidth={1.5} />
                   </div>
-                  <h3 className="text-sm font-extrabold text-slate-900 mb-2 leading-snug">{w.title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{w.desc}</p>
+                  <h3 className="text-sm font-extrabold text-slate-900 dark:text-white mb-2 leading-snug transition-colors duration-500">{w.title}</h3>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed transition-colors duration-500">{w.desc}</p>
                 </div>
               );
             })}
@@ -340,22 +340,22 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-16 sm:py-20 bg-white dark:bg-slate-950 transition-colors duration-500">
         <div className="container mx-auto px-4 max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-[11px] font-bold uppercase tracking-wider mb-5">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-[11px] font-bold uppercase tracking-wider mb-5 transition-colors duration-500">
             <Clock className="w-3 h-3" />Response within 24 hours
           </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-3">Ready to Start Your Medical Journey?</h2>
-          <p className="text-slate-500 text-sm sm:text-base mb-8 leading-relaxed">Share your medical reports and requirements with us today. Our team will respond within 24 hours with a personalised treatment plan and cost estimate.</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white mb-3 transition-colors duration-500">Ready to Start Your Medical Journey?</h2>
+          <p className="text-slate-500 dark:text-slate-400 text-sm sm:text-base mb-8 leading-relaxed transition-colors duration-500">Share your medical reports and requirements with us today. Our team will respond within 24 hours with a personalised treatment plan and cost estimate.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <EnquiryForm>
               <Button size="lg" className="rounded-full px-8 shadow-[0_8px_25px_rgba(15,118,110,0.35)] hover:shadow-[0_12px_32px_rgba(15,118,110,0.45)] transition-all font-semibold">
                 Get Free Treatment Plan <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </EnquiryForm>
-            <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200">
+            <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-900">
               <a href="https://wa.me/919918053077" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                <PhoneCall className="w-4 h-4 text-emerald-600" />WhatsApp Us Now
+                <PhoneCall className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />WhatsApp Us Now
               </a>
             </Button>
           </div>
