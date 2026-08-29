@@ -16,13 +16,12 @@ export default async function InterpretersPage() {
     <div className="bg-slate-950 min-h-screen">
       <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden text-white border-b border-teal-900/40 z-20">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-100 mix-blend-luminosity scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-40 scale-105"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop')`,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-teal-950/80 to-slate-950/50 pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
