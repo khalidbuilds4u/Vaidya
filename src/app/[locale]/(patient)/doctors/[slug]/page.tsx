@@ -13,11 +13,11 @@ import { auth } from '@/lib/auth';
 
 const SectionHeader = ({ title }: { title: string }) => (
   <div className="flex items-center gap-4 mb-8">
-    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-primary bg-primary/5 shrink-0">
-      <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 text-[11px] sm:text-xs font-bold uppercase tracking-wider text-primary dark:text-teal-400 bg-primary/5 dark:bg-primary/10 shrink-0">
+      <div className="w-1.5 h-1.5 rounded-full bg-primary dark:bg-teal-400" />
       {title}
     </div>
-    <div className="flex-1 h-px bg-slate-100" />
+    <div className="flex-1 h-px bg-slate-100 dark:bg-slate-800" />
   </div>
 );
 
@@ -90,7 +90,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen text-slate-600 pb-24 pt-8 font-sans selection:bg-primary/20">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-600 dark:text-slate-400 pb-24 pt-8 font-sans selection:bg-primary/20 transition-colors duration-500">
       
       {/* Mobile Floating TOC */}
       <MobileTOC items={tocItems} />
@@ -98,12 +98,12 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumb Navigation */}
-        <div className="flex items-center gap-2 text-sm text-slate-500 font-medium mb-8">
-          <Link href={`/${locale}`} className="hover:text-primary transition-colors">{t('breadcrumbs.home')}</Link>
+        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-medium mb-8">
+          <Link href={`/${locale}`} className="hover:text-primary dark:hover:text-teal-400 transition-colors">{t('breadcrumbs.home')}</Link>
           <span>/</span>
-          <Link href={`/${locale}/doctors`} className="hover:text-primary transition-colors">{t('breadcrumbs.doctors')}</Link>
+          <Link href={`/${locale}/doctors`} className="hover:text-primary dark:hover:text-teal-400 transition-colors">{t('breadcrumbs.doctors')}</Link>
           <span>/</span>
-          <span className="text-slate-900">{getTranslation(doctor, 'name', locale)}</span>
+          <span className="text-slate-900 dark:text-white">{getTranslation(doctor, 'name', locale)}</span>
         </div>
 
         {/* Hero Section */}
@@ -244,7 +244,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             {/* About Doctor */}
             <section id="about" className="scroll-mt-32">
               <SectionHeader title={t('about')} />
-              <div className="prose prose-slate max-w-none text-slate-600 leading-relaxed text-[15px]">
+              <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">
                 {getTranslation(doctor, 'biography', locale) ? (
                   <p className="whitespace-pre-wrap">{getTranslation(doctor, 'biography', locale)}</p>
                 ) : (
@@ -259,12 +259,12 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('qualifications')} />
                 <div className="space-y-4">
                   {(getTranslation(doctor, 'medicalQualifications', locale) || doctor.medicalQualifications).map((qual: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
-                      <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center shrink-0 border border-slate-100 group-hover:bg-primary/5 group-hover:border-primary/20 transition-colors">
-                        <GraduationCap className="w-5 h-5 text-slate-600 group-hover:text-primary transition-colors" />
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 dark:hover:border-teal-400/30 hover:shadow-md transition-all group duration-500">
+                      <div className="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 group-hover:bg-primary/5 dark:group-hover:bg-teal-400/10 transition-colors">
+                        <GraduationCap className="w-5 h-5 text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors" />
                       </div>
                       <div className="flex flex-col pt-0.5">
-                        <span className="text-[15px] font-bold text-slate-900 leading-snug">{qual}</span>
+                        <span className="text-[15px] font-bold text-slate-900 dark:text-white leading-snug">{qual}</span>
                       </div>
                     </div>
                   ))}
@@ -276,13 +276,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             {doctor.professionalExperience.length > 0 && (
               <section id="experience" className="scroll-mt-32">
                 <SectionHeader title={t('professionalExperience')} />
-                <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:inset-y-2 before:left-[11px] sm:before:left-[15px] before:w-px before:bg-slate-200">
+                <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:inset-y-2 before:left-[11px] sm:before:left-[15px] before:w-px before:bg-slate-200 dark:before:bg-slate-700">
                   {(getTranslation(doctor, 'professionalExperience', locale) || doctor.professionalExperience).map((exp: string, idx: number) => (
                     <div key={idx} className="relative">
                       {/* Timeline Node */}
-                      <div className="absolute -left-[29px] sm:-left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-white bg-primary shadow-sm" />
+                      <div className="absolute -left-[29px] sm:-left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-950 bg-primary dark:bg-teal-400 shadow-sm" />
                       <div className="flex flex-col">
-                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{exp}</span>
+                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{exp}</span>
                       </div>
                     </div>
                   ))}
@@ -296,11 +296,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('areasOfExpertise')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'areasOfExpertise', locale) || doctor.areasOfExpertise).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 bg-white hover:border-primary/30 transition-colors">
-                      <div className="w-8 h-8 rounded-lg bg-primary/5 flex items-center justify-center shrink-0">
-                        <Stethoscope className="w-4 h-4 text-primary" />
+                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/30 dark:hover:border-teal-400/30 transition-colors duration-500">
+                      <div className="w-8 h-8 rounded-lg bg-primary/5 dark:bg-teal-400/10 flex items-center justify-center shrink-0">
+                        <Stethoscope className="w-4 h-4 text-primary dark:text-teal-400" />
                       </div>
-                      <span className="text-[14px] font-semibold text-slate-700 leading-snug">{item}</span>
+                      <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -313,9 +313,9 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('treatmentsAndProcedures')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {(getTranslation(doctor, 'allTreatments', locale) || doctor.allTreatments).map((treatment: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 bg-white hover:border-primary/40 hover:shadow-sm transition-all cursor-pointer group">
-                      <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-primary transition-colors shrink-0" />
-                      <span className="text-[14px] font-medium text-slate-700 group-hover:text-primary transition-colors">{treatment}</span>
+                    <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-sm transition-all cursor-pointer group duration-500">
+                      <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors shrink-0" />
+                      <span className="text-[14px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{treatment}</span>
                     </div>
                   ))}
                 </div>
@@ -328,11 +328,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('specialInterests')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'specialInterests', locale) || doctor.specialInterests).map((interest: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 bg-white hover:border-primary/30 transition-colors">
-                      <div className="w-8 h-8 rounded-lg bg-orange-50 flex items-center justify-center shrink-0">
-                        <Zap className="w-4 h-4 text-orange-500" />
+                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/30 dark:hover:border-teal-400/30 transition-colors duration-500">
+                      <div className="w-8 h-8 rounded-lg bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center shrink-0">
+                        <Zap className="w-4 h-4 text-orange-500 dark:text-orange-400" />
                       </div>
-                      <span className="text-[14px] font-semibold text-slate-700 leading-snug">{interest}</span>
+                      <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{interest}</span>
                     </div>
                   ))}
                 </div>
@@ -346,9 +346,9 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <div className="relative pl-8 border-l-2 border-primary/20 space-y-6">
                   {(getTranslation(doctor, 'fellowshipsAndTraining', locale) || doctor.fellowshipsAndTraining).map((item: string, idx: number) => (
                     <div key={idx} className="relative group">
-                      <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full bg-white border-[3px] border-primary group-hover:bg-primary group-hover:border-primary transition-all duration-300" />
-                      <div className="p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all">
-                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
+                      <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full bg-white dark:bg-slate-950 border-[3px] border-primary dark:border-teal-400 group-hover:bg-primary dark:group-hover:bg-teal-400 transition-all duration-300" />
+                      <div className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 dark:hover:border-teal-400/30 hover:shadow-md transition-all duration-500">
+                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{item}</span>
                       </div>
                     </div>
                   ))}
@@ -362,11 +362,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('researchPublications')} />
                 <div className="space-y-3">
                   {(getTranslation(doctor, 'researchPublications', locale) || doctor.researchPublications).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 hover:shadow-md transition-all group">
-                      <div className="w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-200 transition-colors">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                    <div key={idx} className="flex gap-3 items-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 dark:hover:border-teal-400/30 hover:shadow-md transition-all group duration-500">
+                      <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-200 transition-colors">
+                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                       </div>
-                      <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
+                      <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -379,12 +379,12 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('awardsRecognitions')} />
                 <div className="space-y-4">
                   {(getTranslation(doctor, 'awardsRecognitions', locale) || doctor.awardsRecognitions).map((award: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-yellow-500/30 hover:shadow-md transition-all group">
-                      <div className="w-10 h-10 rounded-full bg-yellow-50 flex items-center justify-center shrink-0 border border-yellow-100 group-hover:bg-yellow-100/50 transition-colors">
-                        <Award className="w-5 h-5 text-yellow-600" />
+                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-yellow-500/30 hover:shadow-md transition-all group duration-500">
+                      <div className="w-10 h-10 rounded-full bg-yellow-50 dark:bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-100 dark:border-yellow-900/50 group-hover:bg-yellow-100/50 transition-colors">
+                        <Award className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
                       </div>
                       <div className="flex flex-col pt-2">
-                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{award}</span>
+                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{award}</span>
                       </div>
                     </div>
                   ))}
@@ -398,7 +398,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('professionalMemberships')} />
                 <div className="flex flex-wrap gap-2.5">
                   {doctor.professionalMemberships.map((item, idx) => (
-                    <span key={idx} className="px-4 py-2 rounded-full border border-primary/20 text-primary text-[13px] font-medium bg-white hover:bg-primary/5 transition-colors">
+                    <span key={idx} className="px-4 py-2 rounded-full border border-primary/20 dark:border-teal-400/20 text-primary dark:text-teal-400 text-[13px] font-medium bg-white dark:bg-slate-900/95 hover:bg-primary/5 transition-colors duration-500">
                       {item}
                     </span>
                   ))}
@@ -412,13 +412,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('whyChooseThisDoctor')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'whyChooseThisDoctor', locale) || doctor.whyChooseThisDoctor).map((item: string, idx: number) => (
-                    <div key={idx} className="relative p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md hover:border-primary/30 transition-all group overflow-hidden">
+                    <div key={idx} className="relative p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:shadow-md hover:border-primary/30 transition-all group overflow-hidden duration-500">
                       <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 rounded-l-2xl" />
                       <div className="pl-4 flex items-start gap-3">
                         <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                          <Star className="w-4 h-4 text-primary" />
+                          <Star className="w-4 h-4 text-primary dark:text-teal-400" />
                         </div>
-                        <span className="text-[15px] font-semibold text-slate-800 leading-relaxed">{item}</span>
+                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{item}</span>
                       </div>
                     </div>
                   ))}
@@ -429,36 +429,36 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             <section id="international" className="scroll-mt-32 mt-12">
               <SectionHeader title={t('forInternationalPatients')} />
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-4">
-                    <MessageSquare className="w-5 h-5 text-slate-500" />
+                <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4">
+                    <MessageSquare className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.virtualConsultation.title')}</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.virtualConsultation.desc')}</p>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">{t('international.virtualConsultation.title')}</h4>
+                  <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{t('international.virtualConsultation.desc')}</p>
                 </div>
                 
-                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
-                    <Plane className="w-5 h-5 text-blue-500" />
+                <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center mb-4">
+                    <Plane className="w-5 h-5 text-blue-500 dark:text-blue-400" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.visaSupport.title')}</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.visaSupport.desc')}</p>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">{t('international.visaSupport.title')}</h4>
+                  <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{t('international.visaSupport.desc')}</p>
                 </div>
 
-                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
-                    <ClipboardList className="w-5 h-5 text-orange-600" />
+                <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-xl bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center mb-4">
+                    <ClipboardList className="w-5 h-5 text-orange-600 dark:text-orange-400" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.costEstimate.title')}</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.costEstimate.desc')}</p>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">{t('international.costEstimate.title')}</h4>
+                  <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{t('international.costEstimate.desc')}</p>
                 </div>
 
-                <div className="p-5 rounded-2xl border border-slate-200 bg-white shadow-sm hover:border-primary/30 transition-all">
-                  <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
-                    <Stethoscope className="w-5 h-5 text-emerald-600" />
+                <div className="p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 transition-all duration-500">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center mb-4">
+                    <Stethoscope className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                   </div>
-                  <h4 className="text-sm font-bold text-slate-900 mb-2">{t('international.postOp.title')}</h4>
-                  <p className="text-[13px] text-slate-500 leading-relaxed font-medium">{t('international.postOp.desc')}</p>
+                  <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-2">{t('international.postOp.title')}</h4>
+                  <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed font-medium">{t('international.postOp.desc')}</p>
                 </div>
               </div>
             </section>
@@ -471,13 +471,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             <div className="sticky top-24 space-y-6">
               
               {/* Table of Contents (Desktop Only) */}
-              <div className="hidden lg:block bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+              <div className="hidden lg:block bg-white dark:bg-slate-900/95 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-500">
+                <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                   {t('toc')}
                 </h3>
                 <nav className="space-y-3.5 flex flex-col font-medium">
                   {tocItems.filter(item => item.show).map(item => (
-                    <a key={item.id} href={`#${item.id}`} className="text-slate-500 hover:text-primary hover:translate-x-1 transition-all">
+                    <a key={item.id} href={`#${item.id}`} className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-teal-400 hover:translate-x-1 transition-all">
                       {item.label}
                     </a>
                   ))}
@@ -487,22 +487,22 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
 
               {/* Why Choose Us */}
-              <div id="whyChooseUs" className="scroll-mt-32 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
-                <h3 className="text-xl font-extrabold text-slate-900 mb-2">
+              <div id="whyChooseUs" className="scroll-mt-32 bg-white dark:bg-slate-900/95 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm transition-colors duration-500">
+                <h3 className="text-xl font-extrabold text-slate-900 dark:text-white mb-2">
                   {t('whyChooseUs.title')}
                 </h3>
-                <p className="text-xs text-slate-500 mb-6 font-medium">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mb-6 font-medium">
                   {t('whyChooseUs.subtitle')}
                 </p>
                 <div className="space-y-4">
                   {(t.raw('whyChooseUs.benefits') as string[]).map((benefit, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
-                      <span className="text-sm font-medium text-slate-700">{benefit}</span>
+                      <CheckCircle2 className="w-5 h-5 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
+                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{benefit}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-8 rounded-2xl overflow-hidden border border-slate-100 shadow-sm relative h-40">
+                <div className="mt-8 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm relative h-40">
                   <img src="/images/hero-hospital.jpg" alt="Medical Care Support" className="absolute inset-0 w-full h-full object-cover" />
                 </div>
               </div>
@@ -536,15 +536,15 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </EnquiryForm>
             </div>
             
-            <div className="pt-8 mt-8 text-[11px] text-slate-400 border-t border-slate-100 leading-relaxed">
+            <div className="pt-8 mt-8 text-[11px] text-slate-400 dark:text-slate-500 border-t border-slate-100 dark:border-slate-800 leading-relaxed">
               {t('disclaimer')}
             </div>
           </div>
 
           <div className="lg:col-span-4 order-1 lg:order-2">
             {/* Share Doctor */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm h-full flex flex-col">
-              <h3 className="text-lg font-extrabold text-slate-900 mb-6 flex items-center gap-2">
+            <div className="bg-white dark:bg-slate-900/95 rounded-3xl p-6 sm:p-8 border border-slate-200 dark:border-slate-800 shadow-sm h-full flex flex-col transition-colors duration-500">
+              <h3 className="text-lg font-extrabold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 {t('share.title')}
               </h3>
               <ShareButtons 
@@ -563,8 +563,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         {/* Related Doctors Section */}
         {relatedDoctors.length > 0 && (
           <div className="mt-10 sm:mt-12 mb-10">
-            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 mb-6 sm:mb-8 flex items-center gap-3">
-              <div className="w-2 h-8 bg-primary rounded-full"></div>
+            <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white mb-6 sm:mb-8 flex items-center gap-3">
+              <div className="w-2 h-8 bg-primary dark:bg-teal-400 rounded-full"></div>
               {t('related')}
             </h2>
             
@@ -573,20 +573,20 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <Link 
                   href={`/${locale}/doctors/${rd.slug}`} 
                   key={rd.id} 
-                  className="group bg-white rounded-2xl p-5 border border-slate-200 hover:border-primary/40 hover:shadow-lg transition-all flex flex-col items-center text-center min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start"
+                  className="group bg-white dark:bg-slate-900/95 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-lg transition-all flex flex-col items-center text-center min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start duration-500"
                 >
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white shadow-sm bg-white relative">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white dark:border-slate-800 shadow-sm bg-white dark:bg-slate-800 relative">
                     <img 
                       src={(rd.imageUrl && rd.imageUrl.trim() !== "") ? rd.imageUrl : "/images/doctor-fallback.png"} 
                       alt={getTranslation(rd, 'name', locale)} 
                       className="w-full h-full object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-500" 
                     />
                   </div>
-                  <h4 className="text-sm sm:text-base font-bold text-slate-900 mb-1 group-hover:text-primary transition-colors line-clamp-1">{getTranslation(rd, 'name', locale)}</h4>
-                  <p className="text-[11px] sm:text-xs font-semibold text-primary/80 mb-3 line-clamp-1">{getTranslation(rd.specialty, 'name', locale)}</p>
+                  <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors line-clamp-1">{getTranslation(rd, 'name', locale)}</h4>
+                  <p className="text-[11px] sm:text-xs font-semibold text-primary/80 dark:text-teal-400/80 mb-3 line-clamp-1">{getTranslation(rd.specialty, 'name', locale)}</p>
                   
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-slate-500 mt-auto pt-3 border-t border-slate-200/60 w-full justify-center">
-                    <CalendarDays className="w-3.5 h-3.5 text-slate-400" />
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-medium text-slate-500 dark:text-slate-400 mt-auto pt-3 border-t border-slate-200/60 dark:border-slate-800/60 w-full justify-center transition-colors duration-500">
+                    <CalendarDays className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
                     {rd.experienceYears ? t('experienceShort', { years: rd.experienceYears }) : t('highlyExperienced')}
                   </div>
                 </Link>

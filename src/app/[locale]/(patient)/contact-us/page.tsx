@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default async function ContactUsPage() {
   const t = await getTranslations('ContactUs');
   return (
-    <div className="bg-slate-50 min-h-screen pb-24">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
       {/* Hero Section */}
-      <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
+      <section className="bg-slate-900 dark:bg-slate-950 text-white py-16 sm:py-24 relative overflow-hidden transition-colors duration-500 border-b dark:border-slate-800">
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight">
             {t('hero.title')}
@@ -28,10 +28,10 @@ export default async function ContactUsPage() {
 
       {/* Contact Content */}
       <section className="container mx-auto px-4 -mt-10 relative z-20">
-        <div className="bg-white rounded-2xl shadow-xl border border-slate-100 overflow-hidden max-w-5xl mx-auto">
+        <div className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-xl border border-slate-100 dark:border-slate-800 overflow-hidden max-w-5xl mx-auto transition-colors duration-500">
           <div className="grid grid-cols-1 lg:grid-cols-5">
             {/* Contact Information */}
-            <div className="lg:col-span-2 bg-primary p-8 sm:p-12 text-white">
+            <div className="lg:col-span-2 bg-primary dark:bg-slate-800 p-8 sm:p-12 text-white transition-colors duration-500">
               <h2 className="text-2xl font-bold mb-6">{t('info.title')}</h2>
               <p className="text-primary-foreground/80 mb-8 leading-relaxed">
                 {t('info.desc')}
@@ -81,8 +81,8 @@ export default async function ContactUsPage() {
             </div>
 
             {/* Contact Form */}
-            <div className="lg:col-span-3 p-8 sm:p-12 bg-white">
-              <h2 className="text-2xl font-bold text-slate-900 mb-6">{t('form.title')}</h2>
+            <div className="lg:col-span-3 p-8 sm:p-12 bg-white dark:bg-slate-900/95 transition-colors duration-500">
+              <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">{t('form.title')}</h2>
               <ContactForm />
             </div>
           </div>

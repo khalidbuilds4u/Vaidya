@@ -26,7 +26,7 @@ const MOCK_CONDITIONS = [
 
 export default function ConditionsPage() {
   return (
-    <div className="bg-slate-50/50 min-h-screen pb-20">
+    <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
       {/* 1. Header Banner with Medical Diagnostics Backdrop */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
@@ -61,12 +61,12 @@ export default function ConditionsPage() {
           </p>
           
           {/* Quick Search Capsule */}
-          <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white shadow-xl max-w-xl mx-auto">
-            <Search className="h-4 w-4 text-primary ml-3 mr-1 shrink-0" />
+          <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-white dark:border-slate-800 shadow-xl max-w-xl mx-auto transition-colors duration-500">
+            <Search className="h-4 w-4 text-primary dark:text-teal-400 ml-3 mr-1 shrink-0" />
             <Input 
               type="text" 
               placeholder="Search by diagnosis (e.g. Osteoarthritis, Brain Tumor)..." 
-              className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 bg-transparent placeholder:text-slate-400"
+              className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 dark:text-white bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500"
             />
             <Button size="sm" className="rounded-lg sm:rounded-full h-8 sm:h-9 px-5 bg-primary hover:bg-primary/90 text-white font-semibold text-xs shrink-0">
               Search
@@ -77,31 +77,31 @@ export default function ConditionsPage() {
 
       {/* 2. Conditions Grid */}
       <div className="container mx-auto px-4 py-8 sm:py-12">
-        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6 sm:mb-8">Common Medical Conditions We Treat</h2>
+        <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8">Common Medical Conditions We Treat</h2>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
           {MOCK_CONDITIONS.map((condition) => (
             <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}>
-              <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between border border-white/90 bg-white/95 cursor-pointer">
+              <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between border border-white/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 cursor-pointer">
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3.5">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-xs shrink-0">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 flex items-center justify-center text-primary dark:text-teal-400 group-hover:bg-primary group-hover:text-white transition-all shadow-xs shrink-0">
                       <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 text-primary border border-slate-200/60 self-start sm:self-auto truncate max-w-full">
+                    <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-primary dark:text-teal-400 border border-slate-200/60 dark:border-slate-700/60 self-start sm:self-auto truncate max-w-full transition-colors duration-500">
                       {condition.specialty}
                     </span>
                   </div>
                   
-                  <h3 className="text-sm sm:text-lg font-bold mb-1.5 sm:mb-2 text-slate-900 group-hover:text-primary transition-colors leading-snug line-clamp-2">
+                  <h3 className="text-sm sm:text-lg font-bold mb-1.5 sm:mb-2 text-slate-900 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors leading-snug line-clamp-2">
                     {condition.name}
                   </h3>
-                  <p className="text-slate-500 text-[11px] sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
+                  <p className="text-slate-500 dark:text-slate-400 text-[11px] sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
                     {condition.description}
                   </p>
                 </div>
 
-                <div className="pt-2.5 sm:pt-3 border-t border-slate-100 font-semibold text-[11px] sm:text-sm text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
+                <div className="pt-2.5 sm:pt-3 border-t border-slate-100 dark:border-slate-800 font-semibold text-[11px] sm:text-sm text-primary dark:text-teal-400 flex items-center gap-1 group-hover:translate-x-1 transition-transform mt-auto">
                   <span>Explore</span>
                   <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 ml-auto sm:ml-0" />
                 </div>

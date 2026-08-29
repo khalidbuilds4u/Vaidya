@@ -49,7 +49,7 @@ export default async function HospitalsDirectory({
     : t('title');
 
   return (
-    <div className="bg-slate-50/50 min-h-screen pb-20">
+    <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
       {/* Header Banner */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
@@ -82,37 +82,37 @@ export default async function HospitalsDirectory({
           
           {/* Sidebar Filters */}
           <div className="w-full lg:w-1/4">
-            <div className="glass-panel p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/90 shadow-lg lg:sticky lg:top-24 bg-white/95">
-              <div className="flex items-center gap-2 mb-5 pb-3 border-b border-slate-100">
-                <Filter className="w-4 h-4 text-primary" />
-                <h2 className="text-base font-bold text-slate-900">{t('filters.title')}</h2>
+            <div className="glass-panel p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/90 dark:border-slate-800 shadow-lg lg:sticky lg:top-24 bg-white/95 dark:bg-slate-900/95 transition-colors duration-500">
+              <div className="flex items-center gap-2 mb-5 pb-3 border-b border-slate-100 dark:border-slate-800">
+                <Filter className="w-4 h-4 text-primary dark:text-teal-400" />
+                <h2 className="text-base font-bold text-slate-900 dark:text-white">{t('filters.title')}</h2>
               </div>
               
               <form method="GET" action={`/${locale}/hospitals`} className="space-y-4 sm:space-y-5">
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">{t('filters.search')}</label>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 block">{t('filters.search')}</label>
                   <div className="relative">
-                    <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400" />
-                    <Input name="search" defaultValue={search || ""} type="text" placeholder={t('filters.searchPlaceholder')} className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm" />
+                    <Search className="absolute left-3 top-3 h-4 w-4 text-slate-400 dark:text-slate-500" />
+                    <Input name="search" defaultValue={search || ""} type="text" placeholder={t('filters.searchPlaceholder')} className="pl-9 glass-input rounded-xl h-10 text-xs sm:text-sm dark:bg-slate-800/50 dark:border-slate-700 dark:text-white dark:placeholder:text-slate-500" />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">{t('filters.city')}</label>
-                  <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="">{t('filters.allCities')}</option>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 block">{t('filters.city')}</label>
+                  <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 dark:bg-slate-800/50 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="" className="text-slate-900">{t('filters.allCities')}</option>
                     {cities.map(c => (
-                      <option key={c.id} value={c.slug}>{getTranslation(c, 'name', locale)}</option>
+                      <option key={c.id} value={c.slug} className="text-slate-900">{getTranslation(c, 'name', locale)}</option>
                     ))}
                   </select>
                 </div>
                 
                 <div>
-                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5 block">{t('filters.specialty')}</label>
-                  <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="">{t('filters.allSpecialties')}</option>
+                  <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 block">{t('filters.specialty')}</label>
+                  <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 dark:bg-slate-800/50 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="" className="text-slate-900">{t('filters.allSpecialties')}</option>
                     {specialties.map(s => (
-                      <option key={s.id} value={s.slug}>{getTranslation(s, 'name', locale)}</option>
+                      <option key={s.id} value={s.slug} className="text-slate-900">{getTranslation(s, 'name', locale)}</option>
                     ))}
                   </select>
                 </div>
@@ -127,12 +127,12 @@ export default async function HospitalsDirectory({
           {/* Hospital List */}
           <div className="w-full lg:w-3/4">
             <div className="flex justify-between items-center mb-4 sm:mb-6">
-              <h2 className="font-bold text-base sm:text-lg text-slate-900">{t('results.count', { count: hospitals.length })}</h2>
+              <h2 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white">{t('results.count', { count: hospitals.length })}</h2>
               <div className="flex items-center gap-1.5 text-xs sm:text-sm">
-                <span className="text-slate-500">{t('results.sortBy')}</span>
-                <select className="border-0 bg-transparent font-semibold text-primary cursor-pointer focus:ring-0 text-xs sm:text-sm">
-                  <option>{t('results.sortRecommended')}</option>
-                  <option>{t('results.sortBeds')}</option>
+                <span className="text-slate-500 dark:text-slate-400">{t('results.sortBy')}</span>
+                <select className="border-0 bg-transparent font-semibold text-primary dark:text-teal-400 cursor-pointer focus:ring-0 text-xs sm:text-sm dark:bg-slate-900">
+                  <option className="text-slate-900">{t('results.sortRecommended')}</option>
+                  <option className="text-slate-900">{t('results.sortBeds')}</option>
                 </select>
               </div>
             </div>

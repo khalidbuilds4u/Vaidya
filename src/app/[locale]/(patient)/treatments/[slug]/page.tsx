@@ -382,7 +382,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
   const mainImage = (treatment as any).image || 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop';
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       {/* Treatment Hero */}
       <section className="bg-primary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
@@ -430,46 +430,46 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             
             {/* Quick Stats Grid */}
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              <Card className="p-4 flex flex-col justify-center items-center text-center">
-                <DollarSign className="w-8 h-8 text-primary mb-2" />
+              <Card className="p-4 flex flex-col justify-center items-center text-center dark:bg-slate-900/95 dark:border-slate-800 transition-colors duration-500">
+                <DollarSign className="w-8 h-8 text-primary dark:text-teal-400 mb-2" />
                 <p className="text-sm text-muted-foreground">{t('stats.estCost')}</p>
-                <p className="font-bold text-lg">${treatment.minEstimate} - ${treatment.maxEstimate}</p>
+                <p className="font-bold text-lg dark:text-white">${treatment.minEstimate} - ${treatment.maxEstimate}</p>
               </Card>
-              <Card className="p-4 flex flex-col justify-center items-center text-center">
-                <Clock className="w-8 h-8 text-primary mb-2" />
+              <Card className="p-4 flex flex-col justify-center items-center text-center dark:bg-slate-900/95 dark:border-slate-800 transition-colors duration-500">
+                <Clock className="w-8 h-8 text-primary dark:text-teal-400 mb-2" />
                 <p className="text-sm text-muted-foreground">{t('stats.recovery')}</p>
-                <p className="font-bold text-lg">{treatment.recoveryTime}</p>
+                <p className="font-bold text-lg dark:text-white">{treatment.recoveryTime}</p>
               </Card>
-              <Card className="p-4 flex flex-col justify-center items-center text-center col-span-2 md:col-span-1">
-                <Activity className="w-8 h-8 text-primary mb-2" />
+              <Card className="p-4 flex flex-col justify-center items-center text-center col-span-2 md:col-span-1 dark:bg-slate-900/95 dark:border-slate-800 transition-colors duration-500">
+                <Activity className="w-8 h-8 text-primary dark:text-teal-400 mb-2" />
                 <p className="text-sm text-muted-foreground">{t('stats.hospitalStay')}</p>
-                <p className="font-bold text-lg">{treatment.hospitalStay}</p>
+                <p className="font-bold text-lg dark:text-white">{treatment.hospitalStay}</p>
               </Card>
             </div>
 
             {/* Exhaustive Medical Knowledge */}
-            <section className="bg-white p-8 rounded-2xl shadow-sm border space-y-8">
+            <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 space-y-8 transition-colors duration-500">
               
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('required.title', { name: treatment.name })}</h2>
-                <p className="text-slate-600 mb-4">{t('required.desc')}</p>
+                <h2 className="text-2xl font-bold mb-4 dark:text-white">{t('required.title', { name: treatment.name })}</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-4">{t('required.desc')}</p>
                 <ul className="grid sm:grid-cols-2 gap-3">
                   {treatment.causesAndSymptoms?.map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mr-3 mt-0.5" />
-                      <span className="text-slate-700 text-sm leading-relaxed">{item}</span>
+                      <CheckCircle2 className="w-5 h-5 text-primary dark:text-teal-400 shrink-0 mr-3 mt-0.5" />
+                      <span className="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="border-t pt-8">
-                <h2 className="text-2xl font-bold mb-4">{t('diagnosis.title')}</h2>
-                <p className="text-slate-600 mb-4">{t('diagnosis.desc')}</p>
+              <div className="border-t dark:border-slate-800 pt-8">
+                <h2 className="text-2xl font-bold mb-4 dark:text-white">{t('diagnosis.title')}</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-4">{t('diagnosis.desc')}</p>
                 <ul className="space-y-3">
                   {treatment.diagnosis?.map((item, i) => (
-                    <li key={i} className="flex items-center text-slate-700">
-                      <div className="w-2 h-2 rounded-full bg-slate-300 mr-3"></div>
+                    <li key={i} className="flex items-center text-slate-700 dark:text-slate-300">
+                      <div className="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600 mr-3"></div>
                       {item}
                     </li>
                   ))}
@@ -482,19 +482,19 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {(treatment as any).treatsConditions && (treatment as any).treatsConditions.length > 0 && (
               <section>
                 <div className="flex items-center gap-3 mb-6">
-                  <Activity className="w-6 h-6 text-primary" />
-                  <h2 className="text-2xl font-bold">{t('conditions.title')}</h2>
+                  <Activity className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">{t('conditions.title')}</h2>
                 </div>
-                <p className="text-slate-600 mb-6 text-lg">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-lg">
                   {t('conditions.desc', { name: treatment.name })}
                 </p>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {(treatment as any).treatsConditions.map((condition: any) => (
                     <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
-                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{condition.name}</h3>
-                        <p className="text-sm text-slate-600 line-clamp-2 mb-4 flex-1">{condition.description}</p>
-                        <span className="text-primary text-sm font-medium flex items-center gap-1">
+                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary dark:hover:border-teal-400 group cursor-pointer flex flex-col">
+                        <h3 className="font-bold text-lg mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{condition.name}</h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 flex-1">{condition.description}</p>
+                        <span className="text-primary dark:text-teal-400 text-sm font-medium flex items-center gap-1">
                           {t('conditions.readMore')} <ArrowRight className="w-3 h-3" />
                         </span>
                       </Card>
@@ -507,12 +507,12 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {/* Sub-Treatments */}
             {treatment.subTreatments && treatment.subTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">{t('types.title', { name: treatment.name })}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('types.title', { name: treatment.name })}</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {treatment.subTreatments.map((sub, idx) => (
-                    <Card key={idx} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
+                    <Card key={idx} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 flex flex-col h-full">
                       {sub.image && (
-                        <div className="h-40 overflow-hidden relative border-b border-slate-100">
+                        <div className="h-40 overflow-hidden relative border-b border-slate-100 dark:border-slate-800">
                           <Image 
                             src={sub.image} 
                             alt={sub.name} 
@@ -523,9 +523,9 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                         </div>
                       )}
                       <div className="p-5 flex flex-col flex-1">
-                        <h3 className="font-bold text-lg mb-2">{sub.name}</h3>
+                        <h3 className="font-bold text-lg mb-2 dark:text-white">{sub.name}</h3>
                         <p className="text-sm text-muted-foreground mb-6 flex-1 leading-relaxed">{sub.description}</p>
-                        <Button asChild variant="outline" className="w-full">
+                        <Button asChild variant="outline" className="w-full dark:border-slate-700 dark:hover:bg-slate-800">
                           <Link href={`/${locale}/treatments/${resolvedParams.slug}/${sub.slug}`}>{t('types.viewDetails')}</Link>
                         </Button>
                       </div>
@@ -536,44 +536,44 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             )}
 
             {/* Procedure Details */}
-            <section className="bg-white p-8 rounded-2xl shadow-sm border">
-              <h2 className="text-2xl font-bold mb-6 flex items-center">
-                <HeartPulse className="w-6 h-6 text-primary mr-3" />
+            <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
+              <h2 className="text-2xl font-bold mb-6 flex items-center dark:text-white">
+                <HeartPulse className="w-6 h-6 text-primary dark:text-teal-400 mr-3" />
                 {t('procedure.title')}
               </h2>
               <ul className="space-y-4">
                 {treatment.procedureDetails.map((step, idx) => (
                   <li key={idx} className="flex items-start">
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold mr-4">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary dark:text-teal-400 flex items-center justify-center font-bold mr-4">
                       {idx + 1}
                     </div>
-                    <p className="text-slate-700 pt-1">{step}</p>
+                    <p className="text-slate-700 dark:text-slate-300 pt-1">{step}</p>
                   </li>
                 ))}
               </ul>
             </section>
 
             {/* Recovery & Post-Op */}
-            <section className="bg-white p-8 rounded-2xl shadow-sm border space-y-8">
+            <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 space-y-8 transition-colors duration-500">
               
               <div>
-                <h2 className="text-2xl font-bold mb-4">{t('postOp.prepTitle')}</h2>
+                <h2 className="text-2xl font-bold mb-4 dark:text-white">{t('postOp.prepTitle')}</h2>
                 <ul className="space-y-3">
                   {treatment.preOpPrep?.map((item, i) => (
-                    <li key={i} className="flex items-center text-slate-700">
-                      <div className="w-2 h-2 rounded-full bg-primary mr-3"></div>
+                    <li key={i} className="flex items-center text-slate-700 dark:text-slate-300">
+                      <div className="w-2 h-2 rounded-full bg-primary dark:bg-teal-400 mr-3"></div>
                       {item}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="border-t pt-8">
-                <h2 className="text-2xl font-bold mb-4">{t('postOp.recoveryTitle')}</h2>
+              <div className="border-t dark:border-slate-800 pt-8">
+                <h2 className="text-2xl font-bold mb-4 dark:text-white">{t('postOp.recoveryTitle')}</h2>
                 <ul className="space-y-3">
                   {treatment.postOpCare?.map((item, i) => (
-                    <li key={i} className="flex items-center text-slate-700">
-                      <div className="w-2 h-2 rounded-full bg-primary mr-3"></div>
+                    <li key={i} className="flex items-center text-slate-700 dark:text-slate-300">
+                      <div className="w-2 h-2 rounded-full bg-primary dark:bg-teal-400 mr-3"></div>
                       {item}
                     </li>
                   ))}
@@ -584,7 +584,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             {/* Doctors Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{t('doctors.title', { name: treatment.name })}</h2>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('doctors.title', { name: treatment.name })}</h2>
               <div className="space-y-6">
                 {treatment.topDoctors.map(doctor => (
                   <DoctorCard key={doctor.slug} {...doctor} />
@@ -594,7 +594,7 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
 
             {/* Hospitals Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{t('hospitals.title', { name: treatment.name })}</h2>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('hospitals.title', { name: treatment.name })}</h2>
               <div className="space-y-6">
                 {treatment.topHospitals.map(hospital => (
                   <HospitalCard key={hospital.slug} {...hospital} />
@@ -605,14 +605,14 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
             {/* FAQs */}
             {treatment.faqs && treatment.faqs.length > 0 && (
               <section className="pt-8">
-                <h2 className="text-2xl font-bold mb-6">{t('faqs.title')}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('faqs.title')}</h2>
                 <div className="space-y-4">
                   {treatment.faqs.map((faqRaw: any, idx: number) => {
                     const faq = faqRaw as { question: string, answer: string };
                     return (
-                      <Card key={idx} className="p-6">
-                        <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
-                        <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                      <Card key={idx} className="p-6 dark:bg-slate-900/95 dark:border-slate-800 transition-colors duration-500">
+                        <h3 className="font-bold text-lg mb-2 dark:text-white">{faq.question}</h3>
+                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{faq.answer}</p>
                       </Card>
                     );
                   })}
@@ -625,8 +625,8 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
           {/* Sticky Sidebar */}
           <div className="w-full lg:w-1/3">
             <div className="sticky top-24 space-y-6">
-              <Card className="p-6 border-primary/20 bg-primary/5">
-                <h3 className="text-xl font-bold mb-2">{t('sidebar.helpTitle')}</h3>
+              <Card className="p-6 border-primary/20 dark:border-primary/30 bg-primary/5 dark:bg-primary/10 transition-colors duration-500">
+                <h3 className="text-xl font-bold mb-2 dark:text-white">{t('sidebar.helpTitle')}</h3>
                 <p className="text-muted-foreground mb-6 text-sm">
                   {t('sidebar.helpDesc')}
                 </p>
@@ -634,17 +634,17 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                   <Button className="w-full h-12 text-md">{t('sidebar.requestOpinion')}</Button>
                 </EnquiryForm>
                 <p className="text-xs text-center text-muted-foreground mt-4 flex justify-center items-center">
-                  <CheckCircle2 className="w-3 h-3 mr-1 text-green-600" />
+                  <CheckCircle2 className="w-3 h-3 mr-1 text-green-600 dark:text-green-400" />
                   {t('sidebar.freeConfidential')}
                 </p>
               </Card>
 
-              <Card className="p-6">
-                <h3 className="font-bold mb-4 border-b pb-2">{t('sidebar.risksTitle')}</h3>
-                <ul className="space-y-2 text-sm text-slate-600">
+              <Card className="p-6 dark:bg-slate-900/95 dark:border-slate-800 transition-colors duration-500">
+                <h3 className="font-bold mb-4 border-b dark:border-slate-800 pb-2 dark:text-white">{t('sidebar.risksTitle')}</h3>
+                <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
                   {treatment.risks.map((risk, idx) => (
                     <li key={idx} className="flex items-center">
-                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mr-2"></span>
+                      <span className="w-1.5 h-1.5 bg-slate-400 dark:bg-slate-600 rounded-full mr-2"></span>
                       {risk}
                     </li>
                   ))}

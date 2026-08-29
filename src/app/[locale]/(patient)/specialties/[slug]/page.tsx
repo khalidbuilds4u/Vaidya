@@ -243,7 +243,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
   const mainImage = specialtyImages[specialty.slug] || 'https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop';
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       {/* Specialty Hero */}
       <section className="bg-primary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
@@ -293,11 +293,11 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Popular Treatments in this Specialty */}
             {displayTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {displayTreatments.map(treatment => (
-                    <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 flex flex-col h-full">
-                      <div className="h-48 overflow-hidden relative">
+                    <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 flex flex-col h-full">
+                      <div className="h-48 overflow-hidden relative border-b border-slate-100 dark:border-slate-800">
                         <img 
                           src={treatment.image} 
                           alt={treatment.name} 
@@ -305,17 +305,17 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                         />
                       </div>
                       <div className="p-5 flex flex-col flex-1">
-                        <h3 className="font-bold text-xl mb-2">{treatment.name}</h3>
-                        <p className="text-slate-600 text-sm mb-6 flex-1 leading-relaxed">
+                        <h3 className="font-bold text-xl mb-2 dark:text-white">{treatment.name}</h3>
+                        <p className="text-slate-600 dark:text-slate-400 text-sm mb-6 flex-1 leading-relaxed">
                           {treatment.description}
                         </p>
                         {treatment.isReal ? (
-                          <Button asChild className="w-full">
+                          <Button asChild className="w-full dark:border-slate-700 dark:hover:bg-slate-800">
                             <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
                           </Button>
                         ) : (
                           <EnquiryForm>
-                            <Button variant="outline" className="w-full font-medium">Request Info</Button>
+                            <Button variant="outline" className="w-full font-medium dark:border-slate-700 dark:hover:bg-slate-800">Request Info</Button>
                           </EnquiryForm>
                         )}
                       </div>
@@ -328,8 +328,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Doctors Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold">{t('doctors.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
-                <Link href={`/${locale}/doctors`} className="text-primary hover:underline font-medium text-sm">{t('doctors.viewAll')}</Link>
+                <h2 className="text-2xl font-bold dark:text-white">{t('doctors.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <Link href={`/${locale}/doctors`} className="text-primary dark:text-teal-400 hover:underline font-medium text-sm">{t('doctors.viewAll')}</Link>
               </div>
               <div className="space-y-6">
                 {topDoctors.map(doctor => (
@@ -341,8 +341,8 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Hospitals Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold">{t('hospitals.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
-                <Link href={`/${locale}/hospitals`} className="text-primary hover:underline font-medium text-sm">{t('hospitals.viewAll')}</Link>
+                <h2 className="text-2xl font-bold dark:text-white">{t('hospitals.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <Link href={`/${locale}/hospitals`} className="text-primary dark:text-teal-400 hover:underline font-medium text-sm">{t('hospitals.viewAll')}</Link>
               </div>
               <div className="space-y-6">
                 {topHospitals.map(hospital => (
@@ -353,20 +353,20 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             
             <section className="mt-16">
                 <div className="flex items-center gap-3 mb-6">
-                  <Activity className="w-6 h-6 text-primary" />
-                  <h2 className="text-2xl font-bold">{t('conditions.title')}</h2>
+                  <Activity className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">{t('conditions.title')}</h2>
                 </div>
-                <p className="text-slate-600 mb-6 text-lg">
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-lg">
                   {t('conditions.desc', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name.toLowerCase() : specialty.name.toLowerCase() })}
                 </p>
                 
                 <div className="grid sm:grid-cols-3 gap-4">
                   {dynamicConditions.map((condition) => (
                     <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
-                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(condition, 'name', locale) || condition.name}</h3>
-                        <p className="text-sm text-slate-600 line-clamp-2 mb-4 flex-1">{getTranslation(condition, 'description', locale) || condition.description}</p>
-                        <span className="text-primary text-sm font-medium flex items-center gap-1 mt-auto pt-2">
+                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-teal-400 bg-white dark:bg-slate-900/95 group cursor-pointer flex flex-col">
+                        <h3 className="font-bold text-lg mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{getTranslation(condition, 'name', locale) || condition.name}</h3>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 flex-1">{getTranslation(condition, 'description', locale) || condition.description}</p>
+                        <span className="text-primary dark:text-teal-400 text-sm font-medium flex items-center gap-1 mt-auto pt-2">
                           {t('conditions.viewDetails')} <ArrowRight className="w-3 h-3" />
                         </span>
                       </Card>
@@ -380,25 +380,25 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
           {/* Sticky Sidebar */}
           <div className="w-full lg:w-1/3">
             <div className="sticky top-24">
-              <Card className="p-6 border-slate-200 shadow-xl shadow-slate-200/40">
-                <h3 className="text-xl font-bold mb-4">{t('sidebar.title')}</h3>
+              <Card className="p-6 border-slate-200 dark:border-slate-800 dark:bg-slate-900/95 shadow-xl shadow-slate-200/40 dark:shadow-none transition-colors duration-500">
+                <h3 className="text-xl font-bold mb-4 dark:text-white">{t('sidebar.title')}</h3>
                 <p className="text-muted-foreground mb-6 text-sm leading-relaxed">
                   {t('sidebar.desc', { name: specialty.name.toLowerCase() })}
                 </p>
                 <EnquiryForm>
                   <Button className="w-full h-14 text-md">{t('sidebar.startJourney')}</Button>
                 </EnquiryForm>
-                <div className="mt-6 space-y-3 pt-6 border-t border-slate-100">
-                  <div className="flex items-center text-sm text-slate-600">
-                    <span className="w-2 h-2 rounded-full bg-green-500 mr-3"></span>
+                <div className="mt-6 space-y-3 pt-6 border-t border-slate-100 dark:border-slate-800">
+                  <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                    <span className="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400 mr-3"></span>
                     {t('sidebar.noObligation')}
                   </div>
-                  <div className="flex items-center text-sm text-slate-600">
-                    <span className="w-2 h-2 rounded-full bg-green-500 mr-3"></span>
+                  <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                    <span className="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400 mr-3"></span>
                     {t('sidebar.multipleQuotes')}
                   </div>
-                  <div className="flex items-center text-sm text-slate-600">
-                    <span className="w-2 h-2 rounded-full bg-green-500 mr-3"></span>
+                  <div className="flex items-center text-sm text-slate-600 dark:text-slate-400">
+                    <span className="w-2 h-2 rounded-full bg-green-500 dark:bg-green-400 mr-3"></span>
                     {t('sidebar.dedicatedManager')}
                   </div>
                 </div>

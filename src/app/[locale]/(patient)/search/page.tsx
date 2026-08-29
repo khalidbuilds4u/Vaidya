@@ -73,7 +73,7 @@ export default async function SearchResultsPage({
   const hasResults = filteredHospitals.length > 0 || filteredDoctors.length > 0;
 
   return (
-    <div className="bg-slate-50/50 min-h-screen pb-20">
+    <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
       {/* 1. Header Banner with Medical Discovery Network Backdrop */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
@@ -126,12 +126,12 @@ export default async function SearchResultsPage({
       {/* 2. Results Content */}
       <div className="container mx-auto px-4 py-8 sm:py-12">
         {!hasResults ? (
-          <div className="text-center py-16 sm:py-20 glass-panel rounded-3xl border border-white/90 shadow-xl max-w-xl mx-auto p-6 sm:p-10 bg-white/95">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary">
+          <div className="text-center py-16 sm:py-20 glass-panel rounded-3xl border border-white/90 dark:border-slate-800 shadow-xl max-w-xl mx-auto p-6 sm:p-10 bg-white/95 dark:bg-slate-900/95 transition-colors duration-500">
+            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-primary dark:text-teal-400">
               <AlertCircle className="w-8 h-8" />
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">No Matching Results Found</h2>
-            <p className="text-slate-600 text-xs sm:text-sm mb-6 max-w-sm mx-auto leading-relaxed">
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-2">No Matching Results Found</h2>
+            <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-6 max-w-sm mx-auto leading-relaxed">
               We couldn&apos;t find specific hospitals or doctors for this search. Try using broader medical terms or contact our 24/7 care team.
             </p>
             <Button asChild size="lg" className="rounded-full shadow-md bg-primary hover:bg-primary/90 text-white font-semibold text-xs sm:text-sm px-6 h-11">
@@ -149,11 +149,11 @@ export default async function SearchResultsPage({
               <section>
                 <div className="flex justify-between items-end mb-6">
                   <div>
-                    <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
+                    <div className="flex items-center gap-2 text-primary dark:text-teal-400 font-semibold text-xs uppercase tracking-wider mb-1">
                       <Building2 className="w-4 h-4" />
                       <span>Accredited Hospitals</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{filteredHospitals.length} Hospitals Found</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{filteredHospitals.length} Hospitals Found</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
@@ -172,11 +172,11 @@ export default async function SearchResultsPage({
               <section>
                 <div className="flex justify-between items-end mb-6">
                   <div>
-                    <div className="flex items-center gap-2 text-primary font-semibold text-xs uppercase tracking-wider mb-1">
+                    <div className="flex items-center gap-2 text-primary dark:text-teal-400 font-semibold text-xs uppercase tracking-wider mb-1">
                       <Stethoscope className="w-4 h-4" />
                       <span>Specialist Doctors</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{filteredDoctors.length} Specialists Found</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{filteredDoctors.length} Specialists Found</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">

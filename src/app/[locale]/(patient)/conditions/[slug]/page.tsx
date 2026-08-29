@@ -121,7 +121,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
   });
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       {/* Condition Hero */}
       <section className="bg-primary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
@@ -159,17 +159,17 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             
             {/* Causes & Symptoms */}
             {condition.causesAndSymptoms && condition.causesAndSymptoms.length > 0 && (
-              <section className="bg-white p-8 rounded-2xl shadow-sm border">
-                <h2 className="text-2xl font-bold mb-4 flex items-center">
-                  <Activity className="w-6 h-6 text-primary mr-3" />
+              <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
+                <h2 className="text-2xl font-bold mb-4 flex items-center dark:text-white">
+                  <Activity className="w-6 h-6 text-primary dark:text-teal-400 mr-3" />
                   {tc('causes')}
                 </h2>
-                <p className="text-slate-600 mb-6 text-sm">{tc('causesDesc')}</p>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">{tc('causesDesc')}</p>
                 <ul className="grid sm:grid-cols-2 gap-4">
                   {condition.causesAndSymptoms.map((item, i) => (
                     <li key={i} className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mr-3 mt-0.5" />
-                      <span className="text-slate-700 leading-relaxed text-sm">{item}</span>
+                      <CheckCircle2 className="w-5 h-5 text-primary dark:text-teal-400 shrink-0 mr-3 mt-0.5" />
+                      <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -178,13 +178,13 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
 
             {/* Diagnosis */}
             {condition.diagnosis && condition.diagnosis.length > 0 && (
-              <section className="bg-white p-8 rounded-2xl shadow-sm border">
-                <h2 className="text-2xl font-bold mb-4">{tc('diagnosis')}</h2>
-                <p className="text-slate-600 mb-6 text-sm">{tc('diagnosisDesc', { name: getTranslation(condition, 'name', locale) || condition.name })}</p>
+              <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
+                <h2 className="text-2xl font-bold mb-4 dark:text-white">{tc('diagnosis')}</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">{tc('diagnosisDesc', { name: getTranslation(condition, 'name', locale) || condition.name })}</p>
                 <ul className="space-y-4">
                   {condition.diagnosis.map((item, i) => (
-                    <li key={i} className="flex items-center text-slate-700 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                      <div className="w-2.5 h-2.5 rounded-full bg-primary mr-4 shrink-0"></div>
+                    <li key={i} className="flex items-center text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+                      <div className="w-2.5 h-2.5 rounded-full bg-primary dark:bg-teal-400 mr-4 shrink-0"></div>
                       <span className="font-medium text-sm">{item}</span>
                     </li>
                   ))}
@@ -194,14 +194,14 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
 
             {/* Treatment Options */}
             {condition.treatmentOptions && condition.treatmentOptions.length > 0 && (
-              <section className="bg-white p-8 rounded-2xl shadow-sm border">
-                <h2 className="text-2xl font-bold mb-4">{tc('treatments')}</h2>
-                <p className="text-slate-600 mb-6 text-sm">{tc('treatmentsDesc')}</p>
+              <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
+                <h2 className="text-2xl font-bold mb-4 dark:text-white">{tc('treatments')}</h2>
+                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">{tc('treatmentsDesc')}</p>
                 <ul className="space-y-3">
                   {condition.treatmentOptions.map((item, i) => (
                     <li key={i} className="flex items-start">
                       <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mr-3 mt-0.5" />
-                      <span className="text-slate-700 leading-relaxed text-sm">{item}</span>
+                      <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -211,13 +211,13 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* Related Treatments linking */}
             {relatedTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6">{tc('relatedProcedures', { name: getTranslation(condition.specialty, 'name', locale) })}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{tc('relatedProcedures', { name: getTranslation(condition.specialty, 'name', locale) })}</h2>
                 <div className="grid sm:grid-cols-2 gap-4">
                   {relatedTreatments.map((treatment) => (
                     <Link key={treatment.slug} href={`/${locale}/treatments/${treatment.slug}`}>
-                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 hover:border-primary group cursor-pointer flex flex-col">
-                        <h3 className="font-bold text-lg mb-2 group-hover:text-primary transition-colors">{getTranslation(treatment, 'name', locale)}</h3>
-                        <span className="text-primary text-sm font-medium flex items-center gap-1 mt-auto pt-4">
+                      <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-teal-400 bg-white dark:bg-slate-900/95 group cursor-pointer flex flex-col">
+                        <h3 className="font-bold text-lg mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{getTranslation(treatment, 'name', locale)}</h3>
+                        <span className="text-primary dark:text-teal-400 text-sm font-medium flex items-center gap-1 mt-auto pt-4">
                           {tc('viewDetails')} <ArrowRight className="w-4 h-4" />
                         </span>
                       </Card>
@@ -229,7 +229,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
 
             {/* Doctors Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{tc('topSpecialists', { name: getTranslation(condition, 'name', locale) || condition.name })}</h2>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">{tc('topSpecialists', { name: getTranslation(condition, 'name', locale) || condition.name })}</h2>
               <div className="space-y-6">
                 {topDoctors.map(doctor => (
                   <DoctorCard key={doctor.slug} {...doctor} />
@@ -239,7 +239,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
 
             {/* Hospitals Section */}
             <section>
-              <h2 className="text-2xl font-bold mb-6">{tc('bestHospitals', { name: getTranslation(condition.specialty, 'name', locale) })}</h2>
+              <h2 className="text-2xl font-bold mb-6 dark:text-white">{tc('bestHospitals', { name: getTranslation(condition.specialty, 'name', locale) })}</h2>
               <div className="space-y-6">
                 {topHospitals.map(hospital => (
                   <HospitalCard key={hospital.slug} {...hospital} />
@@ -250,14 +250,14 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
             {/* FAQs */}
             {condition.faqs && (condition.faqs as any[]).length > 0 && (
               <section className="pt-8">
-                <h2 className="text-2xl font-bold mb-6">{tc('faqs')}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{tc('faqs')}</h2>
                 <div className="space-y-4">
                   {(condition.faqs as any[]).map((faqRaw: any, idx: number) => {
                     const faq = faqRaw as { question: string, answer: string };
                     return (
-                      <Card key={idx} className="p-6">
-                        <h3 className="font-bold text-lg mb-2">{faq.question}</h3>
-                        <p className="text-slate-600 leading-relaxed">{faq.answer}</p>
+                      <Card key={idx} className="p-6 dark:bg-slate-900/95 dark:border-slate-800 transition-colors duration-500">
+                        <h3 className="font-bold text-lg mb-2 dark:text-white">{faq.question}</h3>
+                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{faq.answer}</p>
                       </Card>
                     );
                   })}
@@ -270,8 +270,8 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
           {/* Sticky Sidebar */}
           <div className="w-full lg:w-1/3">
             <div className="sticky top-24 space-y-6">
-              <Card className="p-6 border-primary/20 bg-primary/5">
-                <h3 className="text-xl font-bold mb-2">{tc('needOpinion')}</h3>
+              <Card className="p-6 border-primary/20 dark:border-primary/30 bg-primary/5 dark:bg-primary/10 transition-colors duration-500">
+                <h3 className="text-xl font-bold mb-2 dark:text-white">{tc('needOpinion')}</h3>
                 <p className="text-muted-foreground mb-6 text-sm">
                   {tc('shareReports')}
                 </p>
@@ -281,7 +281,7 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
                   </span>
                 </EnquiryForm>
                 <p className="text-xs text-center text-muted-foreground mt-4 flex justify-center items-center">
-                  <CheckCircle2 className="w-3 h-3 mr-1 text-green-600" />
+                  <CheckCircle2 className="w-3 h-3 mr-1 text-green-600 dark:text-green-400" />
                   {tc('freeConfidential')}
                 </p>
               </Card>

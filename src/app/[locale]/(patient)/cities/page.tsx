@@ -27,7 +27,7 @@ export default async function CitiesPage() {
   });
 
   return (
-    <div className="bg-slate-50/50 min-h-screen pb-20">
+    <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
       {/* 1. Header Banner */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
@@ -68,7 +68,7 @@ export default async function CitiesPage() {
             ])).slice(0, 4);
 
             return (
-              <div key={city.id} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group flex flex-col justify-between">
+              <div key={city.id} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden border border-white/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 dark:bg-slate-900/95 group flex flex-col justify-between">
                 <div className="h-48 sm:h-60 overflow-hidden relative">
                   <img 
                     src={city.imageUrl || defaultImage} 
@@ -85,17 +85,17 @@ export default async function CitiesPage() {
 
                 <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
+                    <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
                       {city.description || `${city.name} is a premier healthcare destination offering world-class medical facilities and top-tier specialists.`}
                     </p>
                     
-                    <div className="grid grid-cols-2 gap-3 mb-5 py-2.5 px-3.5 rounded-xl bg-slate-50 border border-slate-100">
-                      <div className="flex items-center text-xs font-semibold text-slate-700">
-                        <Building2 className="w-4 h-4 text-primary mr-1.5 shrink-0" />
+                    <div className="grid grid-cols-2 gap-3 mb-5 py-2.5 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800">
+                      <div className="flex items-center text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        <Building2 className="w-4 h-4 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
                         <span>{hospitalsCount} Hospitals</span>
                       </div>
-                      <div className="flex items-center text-xs font-semibold text-slate-700">
-                        <Plane className="w-4 h-4 text-primary mr-1.5 shrink-0" />
+                      <div className="flex items-center text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        <Plane className="w-4 h-4 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
                         <span>Intl Airport Link</span>
                       </div>
                     </div>
@@ -105,7 +105,7 @@ export default async function CitiesPage() {
                         <h3 className="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Key Clinical Specialties</h3>
                         <div className="flex flex-wrap gap-1.5">
                           {topSpecialties.map(spec => (
-                            <span key={spec} className="bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded-md text-[11px] font-medium">
+                            <span key={spec} className="bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-2.5 py-0.5 rounded-md text-[11px] font-medium transition-colors duration-500">
                               {spec}
                             </span>
                           ))}
@@ -114,7 +114,7 @@ export default async function CitiesPage() {
                     )}
                   </div>
 
-                  <div className="mt-5 pt-3.5 border-t border-slate-100 flex items-center justify-between text-xs sm:text-sm font-semibold text-primary">
+                  <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs sm:text-sm font-semibold text-primary dark:text-teal-400">
                     <Link href={`/hospitals?city=${city.slug}`} className="hover:underline flex items-center gap-1">
                       <span>Explore Hospitals in {city.name.split(' ')[0]}</span>
                       <ArrowRight className="w-3.5 h-3.5" />

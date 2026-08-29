@@ -38,7 +38,7 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
     .slice(0, 6);
 
   return (
-    <div className="bg-slate-50/50 min-h-screen pb-20">
+    <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
       {/* 1. Header Banner with Robotic Surgery & Theater Backdrop */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
@@ -72,12 +72,12 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
             </p>
 
             {/* Quick Search Capsule */}
-            <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 backdrop-blur-xl border border-white shadow-xl max-w-xl">
-              <Search className="h-4 w-4 text-primary ml-3 mr-1 shrink-0" />
+            <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-white dark:border-slate-800 shadow-xl max-w-xl transition-colors duration-500">
+              <Search className="h-4 w-4 text-primary dark:text-teal-400 ml-3 mr-1 shrink-0" />
               <Input 
                 type="text" 
                 placeholder={t('search.placeholder')} 
-                className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 bg-transparent placeholder:text-slate-400"
+                className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 dark:text-white bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500"
               />
               <Button size="sm" className="rounded-lg sm:rounded-full h-8 sm:h-9 px-5 bg-primary hover:bg-primary/90 text-white font-semibold text-xs shrink-0">
                 {t('search.button')}
@@ -92,8 +92,8 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
         {/* Specialties Grid */}
         <div className="mb-14 sm:mb-16">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">{t('browse.title')}</h2>
-            <Link href={`/${locale}/specialties`} className="text-xs sm:text-sm font-semibold text-primary hover:underline">{t('browse.viewAll')}</Link>
+            <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{t('browse.title')}</h2>
+            <Link href={`/${locale}/specialties`} className="text-xs sm:text-sm font-semibold text-primary dark:text-teal-400 hover:underline">{t('browse.viewAll')}</Link>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
             {[
@@ -111,7 +111,7 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
               { name: 'Urology', image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?q=80&w=2070&auto=format&fit=crop' }
             ].map(spec => (
               <Link key={spec.name} href={`/${locale}/specialties/${spec.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}>
-                <div className="rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer h-36 sm:h-44 relative border border-white/80">
+                <div className="rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer h-36 sm:h-44 relative border border-white/80 dark:border-slate-800">
                   <Image 
                     src={spec.image} 
                     alt={t(`specialties.${spec.name as keyof typeof t}`)} 
@@ -130,48 +130,48 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
 
         {/* Popular Treatments */}
         <div>
-          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 mb-6">{t('popular.title')}</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6">{t('popular.title')}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {dbTreatments.map((treatment) => {
               const Icon = getIconForSpecialty(treatment.specialty?.name || "");
               return (
-                <div key={treatment.slug} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white/95 border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300">
+                <div key={treatment.slug} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden flex flex-col justify-between h-full bg-white/95 dark:bg-slate-900/95 border border-white/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300">
                   <div className="p-5 sm:p-6 flex-1">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-3 bg-primary/10 rounded-2xl text-primary shrink-0">
+                      <div className="p-3 bg-primary/10 rounded-2xl text-primary dark:text-teal-400 shrink-0">
                         {/* <Icon className="w-6 h-6" /> */}
                       </div>
                       <div>
-                        <p className="text-xs font-semibold text-primary">{getTranslation(treatment.specialty, 'name', locale) || t('popular.general')}</p>
-                        <h3 className="text-base sm:text-lg font-bold leading-tight text-slate-900">
-                          <Link href={`/${locale}/treatments/${treatment.slug}`} className="hover:text-primary transition-colors">
+                        <p className="text-xs font-semibold text-primary dark:text-teal-400">{getTranslation(treatment.specialty, 'name', locale) || t('popular.general')}</p>
+                        <h3 className="text-base sm:text-lg font-bold leading-tight text-slate-900 dark:text-white">
+                          <Link href={`/${locale}/treatments/${treatment.slug}`} className="hover:text-primary dark:hover:text-teal-400 transition-colors">
                             {getTranslation(treatment, 'name', locale)}
                           </Link>
                         </h3>
                       </div>
                     </div>
                     
-                    <p className="text-slate-600 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
+                    <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
                       {getTranslation(treatment, 'description', locale)}
                     </p>
                     
-                    <div className="space-y-2 py-3 px-3.5 rounded-xl bg-slate-50 border border-slate-100 text-xs sm:text-sm">
-                      <div className="flex justify-between pb-1.5 border-b border-slate-200/60">
-                        <span className="text-slate-500">{t('popular.estPackage')}</span>
-                        <span className="font-bold text-emerald-600">
+                    <div className="space-y-2 py-3 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 text-xs sm:text-sm">
+                      <div className="flex justify-between pb-1.5 border-b border-slate-200/60 dark:border-slate-700">
+                        <span className="text-slate-500 dark:text-slate-400">{t('popular.estPackage')}</span>
+                        <span className="font-bold text-emerald-600 dark:text-emerald-400">
                           {treatment.minEstimate ? `$${treatment.minEstimate} - $${treatment.maxEstimate || ''}` : t('popular.customQuote')}
                         </span>
                       </div>
                       <div className="flex justify-between pt-0.5">
-                        <span className="text-slate-500">{t('popular.recovery')}</span>
-                        <span className="font-semibold text-slate-800">{getTranslation(treatment, 'recovery', locale) || t('popular.varies')}</span>
+                        <span className="text-slate-500 dark:text-slate-400">{t('popular.recovery')}</span>
+                        <span className="font-semibold text-slate-800 dark:text-slate-200">{getTranslation(treatment, 'recovery', locale) || t('popular.varies')}</span>
                       </div>
                     </div>
                   </div>
                   
                   <Link 
                     href={`/${locale}/treatments/${treatment.slug}`}
-                    className="bg-slate-50/90 p-3.5 sm:p-4 border-t border-slate-100 flex justify-between items-center group cursor-pointer hover:bg-primary hover:text-white transition-colors text-xs sm:text-sm font-semibold text-slate-800"
+                    className="bg-slate-50/90 dark:bg-slate-950 p-3.5 sm:p-4 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center group cursor-pointer hover:bg-primary dark:hover:bg-primary hover:text-white transition-colors text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200"
                   >
                     <span>{t('popular.viewOptions')}</span>
                     <ArrowRight className="w-4 h-4 text-primary group-hover:text-white transition-transform group-hover:translate-x-1" />

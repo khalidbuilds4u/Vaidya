@@ -39,15 +39,15 @@ export function ContactForm() {
 
   if (isSuccess) {
     return (
-      <div className="bg-emerald-50 text-emerald-800 p-8 rounded-2xl border border-emerald-100 text-center space-y-4">
-        <CheckCircle2 className="w-12 h-12 mx-auto text-emerald-500" />
+      <div className="bg-emerald-50 dark:bg-emerald-500/10 text-emerald-800 dark:text-emerald-400 p-8 rounded-2xl border border-emerald-100 dark:border-emerald-500/20 text-center space-y-4 transition-colors duration-500">
+        <CheckCircle2 className="w-12 h-12 mx-auto text-emerald-500 dark:text-emerald-400" />
         <h3 className="text-xl font-bold">Message Sent Successfully!</h3>
-        <p className="text-emerald-700/80">
+        <p className="text-emerald-700/80 dark:text-emerald-400/80">
           Thank you for reaching out to Asad Healthcare. Our international care team will review your message and get back to you shortly.
         </p>
         <Button 
           variant="outline" 
-          className="mt-4 bg-white border-emerald-200 hover:bg-emerald-100 text-emerald-700"
+          className="mt-4 bg-white dark:bg-transparent border-emerald-200 dark:border-emerald-500/30 hover:bg-emerald-100 dark:hover:bg-emerald-500/20 text-emerald-700 dark:text-emerald-400 transition-colors"
           onClick={() => setIsSuccess(false)}
         >
           Send Another Message
@@ -58,40 +58,40 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
-      {error && <div className="p-3 bg-red-50 text-red-600 rounded-lg text-sm">{error}</div>}
+      {error && <div className="p-3 bg-red-50 dark:bg-red-500/10 text-red-600 dark:text-red-400 rounded-lg text-sm transition-colors duration-500">{error}</div>}
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="name">Full Name <span className="text-red-500">*</span></Label>
-          <Input id="name" name="name" required placeholder="John Doe" className="bg-slate-50" />
+          <Label htmlFor="name" className="dark:text-slate-200">Full Name <span className="text-red-500 dark:text-red-400">*</span></Label>
+          <Input id="name" name="name" required placeholder="John Doe" className="bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-white transition-colors duration-500" />
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="email">Email Address <span className="text-red-500">*</span></Label>
-          <Input id="email" name="email" type="email" required placeholder="john@example.com" className="bg-slate-50" />
+          <Label htmlFor="email" className="dark:text-slate-200">Email Address <span className="text-red-500 dark:text-red-400">*</span></Label>
+          <Input id="email" name="email" type="email" required placeholder="john@example.com" className="bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-white transition-colors duration-500" />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
-          <Label htmlFor="phone">Phone / WhatsApp</Label>
-          <Input id="phone" name="phone" placeholder="+1 (555) 000-0000" className="bg-slate-50" />
+          <Label htmlFor="phone" className="dark:text-slate-200">Phone / WhatsApp</Label>
+          <Input id="phone" name="phone" placeholder="+1 (555) 000-0000" className="bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-white transition-colors duration-500" />
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="subject">Subject</Label>
-          <Input id="subject" name="subject" placeholder="How can we help?" className="bg-slate-50" />
+          <Label htmlFor="subject" className="dark:text-slate-200">Subject</Label>
+          <Input id="subject" name="subject" placeholder="How can we help?" className="bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-white transition-colors duration-500" />
         </div>
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="message">Your Message <span className="text-red-500">*</span></Label>
+        <Label htmlFor="message" className="dark:text-slate-200">Your Message <span className="text-red-500 dark:text-red-400">*</span></Label>
         <Textarea 
           id="message" 
           name="message" 
           required 
           placeholder="Please describe your medical condition or inquiry..." 
-          className="min-h-[150px] bg-slate-50" 
+          className="min-h-[150px] bg-slate-50 dark:bg-slate-900 dark:border-slate-800 dark:text-white transition-colors duration-500" 
         />
       </div>
 
