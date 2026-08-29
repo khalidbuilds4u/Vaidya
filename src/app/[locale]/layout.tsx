@@ -28,8 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-import { ThemeProvider } from "@/components/ThemeProvider";
-
 export default async function RootLayout({ 
   children,
   params 
@@ -56,15 +54,8 @@ export default async function RootLayout({
       lang={locale}
       dir={isRtl ? 'rtl' : 'ltr'}
       className={`${isRtl ? cairo.variable : inter.variable} ${isRtl ? 'font-cairo' : 'font-sans'} h-full antialiased`}
-      suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
           <SplashScreen />
           <NextTopLoader
             color="#0f766e"
@@ -77,10 +68,9 @@ export default async function RootLayout({
             speed={200}
             shadow="0 0 10px #0f766e, 0 0 5px #0f766e"
           />
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

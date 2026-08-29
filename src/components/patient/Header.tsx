@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Stethoscope, Menu, X, PhoneCall, Sparkles } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { LanguageSwitcher } from '@/components/patient/LanguageSwitcher';
-import { ThemeToggle } from '@/components/ThemeToggle';
 import { motion } from 'framer-motion';
 
 export function Header() {
@@ -75,7 +74,12 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <LanguageSwitcher />
-          <ThemeToggle />
+          
+          <EnquiryForm>
+            <Button className="hidden sm:inline-flex rounded-full px-5 shadow-[0_4px_16px_rgba(15,118,110,0.35)] hover:shadow-[0_6px_24px_rgba(15,118,110,0.45)] hover:-translate-y-0.5 hover:bg-primary/90 transition-all shrink-0">
+              {t('getTreatmentPlan')}
+            </Button>
+          </EnquiryForm>
 
           {/* Mobile Menu Toggle */}
           <button 
