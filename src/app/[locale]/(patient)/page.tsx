@@ -17,7 +17,7 @@ export default function Home() {
   const t = useTranslations('Stats');
 
   return (
-    <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50">
+    <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50 dark:bg-slate-950 transition-colors duration-500">
       <HeroSection />
 
       {/* Floating Glassmorphic Stats Strip */}
