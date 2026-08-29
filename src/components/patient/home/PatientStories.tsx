@@ -163,7 +163,7 @@ export function PatientStories() {
   };
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 border-y border-slate-200/60">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-950/20 border-y border-slate-200/60 dark:border-slate-800/60 transition-colors duration-500">
       {/* Dynamic Ambient Glows */}
       <div className="absolute top-[10%] left-[-10%] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] ambient-glow rounded-full -z-10 opacity-70" />
       <div className="absolute bottom-[10%] right-[-10%] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] ambient-glow-secondary rounded-full -z-10 opacity-70" />
@@ -173,17 +173,17 @@ export function PatientStories() {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-5">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-primary" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">
+              <Sparkles className="w-3.5 h-3.5 text-primary dark:text-teal-400" />
               {t('tag')}
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight transition-colors duration-500">
               {t('title')} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600 dark:from-teal-400 dark:to-emerald-400">
                 {t('subtitle')}
               </span>
             </h2>
-            <p className="text-slate-600 text-sm sm:text-base lg:text-lg mt-2 leading-relaxed">
+            <p className="text-slate-600 dark:text-slate-400 text-sm sm:text-base lg:text-lg mt-2 leading-relaxed transition-colors duration-500">
               {t('desc')}
             </p>
           </div>
@@ -196,8 +196,8 @@ export function PatientStories() {
                 onClick={() => { setActiveFilter(filter.key); setCurrentIndex(0); }}
                 className={`px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer shrink-0 ${
                   activeFilter === filter.key
-                    ? 'bg-primary text-white shadow-md shadow-primary/25 scale-105'
-                    : 'glass-card text-slate-700 hover:text-primary hover:border-primary/30'
+                    ? 'bg-primary dark:bg-teal-600 text-white shadow-md shadow-primary/25 scale-105'
+                    : 'glass-card text-slate-700 dark:text-slate-300 dark:bg-slate-900/50 dark:border-slate-800/80 hover:text-primary dark:hover:text-teal-400 hover:border-primary/30 dark:hover:border-teal-400/30'
                 }`}
               >
                 {filter.label}
@@ -211,7 +211,7 @@ export function PatientStories() {
           
           {/* Left Column: Visual Video Card */}
           <div className="lg:col-span-5 relative">
-            <div className="glass-panel p-3 sm:p-3.5 rounded-2xl sm:rounded-[2.5rem] shadow-xl sm:shadow-2xl h-full flex flex-col">
+            <div className="glass-panel p-3 sm:p-3.5 rounded-2xl sm:rounded-[2.5rem] shadow-xl sm:shadow-2xl h-full flex flex-col dark:bg-slate-900/90 dark:border-slate-800/80 transition-colors duration-500">
               <div className="relative h-[300px] sm:h-[380px] lg:h-[420px] w-full rounded-xl sm:rounded-[2rem] overflow-hidden group">
                 <img 
                   src={activeStory.image} 
@@ -251,13 +251,13 @@ export function PatientStories() {
 
               {/* Quick Highlight Stats Bar */}
               <div className="grid grid-cols-2 gap-2 sm:gap-3 mt-3 sm:mt-4 pt-1 sm:pt-2">
-                <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 bg-white/95">
+                <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 dark:border-slate-800/80 bg-white/95 dark:bg-slate-900/90 transition-colors duration-500">
                   <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('stats.financial')}</p>
-                  <p className="text-xs sm:text-sm font-extrabold text-emerald-600 mt-0.5">{activeStory.savings}</p>
+                  <p className="text-xs sm:text-sm font-extrabold text-emerald-600 dark:text-emerald-400 mt-0.5">{activeStory.savings}</p>
                 </div>
-                <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 bg-white/95">
+                <div className="glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl text-center border border-white/90 dark:border-slate-800/80 bg-white/95 dark:bg-slate-900/90 transition-colors duration-500">
                   <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider">{t('stats.clinical')}</p>
-                  <p className="text-xs sm:text-sm font-extrabold text-slate-900 mt-0.5 truncate">{activeStory.recoveryTimeline}</p>
+                  <p className="text-xs sm:text-sm font-extrabold text-slate-900 dark:text-white mt-0.5 truncate transition-colors duration-500">{activeStory.recoveryTimeline}</p>
                 </div>
               </div>
             </div>
@@ -265,48 +265,48 @@ export function PatientStories() {
 
           {/* Right Column: Detailed Glass Testimonial */}
           <div className="lg:col-span-7 flex flex-col justify-between">
-            <div className="glass-card p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2.5rem] border border-white shadow-xl h-full flex flex-col justify-between relative overflow-hidden bg-white/95">
+            <div className="glass-card p-5 sm:p-8 lg:p-10 rounded-2xl sm:rounded-[2.5rem] border border-white dark:border-slate-800/80 shadow-xl h-full flex flex-col justify-between relative overflow-hidden bg-white/95 dark:bg-slate-900/95 transition-colors duration-500">
               
-              <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 w-16 h-16 sm:w-24 sm:h-24 text-primary/5 -rotate-12 pointer-events-none" />
+              <Quote className="absolute top-4 right-4 sm:top-6 sm:right-6 w-16 h-16 sm:w-24 sm:h-24 text-primary/5 dark:text-teal-400/5 -rotate-12 pointer-events-none" />
 
               <div>
                 {/* Hospital & Specialist Verification Badge */}
-                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-slate-200/70">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 bg-slate-100/90 px-3 py-1.5 rounded-full border border-slate-200/60">
-                    <Building2 className="w-3.5 h-3.5 text-primary shrink-0" />
+                <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4 sm:mb-6 pb-4 sm:pb-6 border-b border-slate-200/70 dark:border-slate-800/80">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-200 bg-slate-100/90 dark:bg-slate-800/90 px-3 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-700/60 transition-colors">
+                    <Building2 className="w-3.5 h-3.5 text-primary dark:text-teal-400 shrink-0" />
                     <span className="truncate">{activeStory.hospital}</span>
                   </div>
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100/80 px-3 py-1.5 rounded-full border border-slate-200/60">
-                    <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                  <div className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 dark:text-slate-300 bg-slate-100/80 dark:bg-slate-800/80 px-3 py-1.5 rounded-full border border-slate-200/60 dark:border-slate-700/60 transition-colors">
+                    <MapPin className="w-3.5 h-3.5 text-primary dark:text-teal-400 shrink-0" />
                     <span>{activeStory.city}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200/60">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                  <div className="flex items-center gap-1 text-xs font-semibold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-200/60 dark:border-emerald-500/20 transition-colors">
+                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     <span>{t('stats.verified')}</span>
                   </div>
                 </div>
 
                 {/* Patient Quote */}
-                <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 tracking-tight leading-snug mb-4 sm:mb-6">
+                <h3 className="text-lg sm:text-2xl lg:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-snug mb-4 sm:mb-6 transition-colors duration-500">
                   &ldquo;{activeStory.quote}&rdquo;
                 </h3>
 
-                <p className="text-slate-600 text-xs sm:text-sm lg:text-base leading-relaxed mb-6 sm:mb-8">
+                <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm lg:text-base leading-relaxed mb-6 sm:mb-8 transition-colors duration-500">
                   {activeStory.fullStory}
                 </p>
               </div>
 
               {/* Bottom Surgeon Reference & Consultation Action */}
-              <div className="pt-4 sm:pt-6 border-t border-slate-200/70 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="pt-4 sm:pt-6 border-t border-slate-200/70 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <p className="text-[10px] sm:text-xs font-semibold text-slate-400 uppercase tracking-wider">{t('doctor.treating')}</p>
-                  <p className="text-sm sm:text-base font-bold text-slate-900">{activeStory.doctor}</p>
-                  <p className="text-xs text-primary font-medium">{activeStory.specialty}</p>
+                  <p className="text-sm sm:text-base font-bold text-slate-900 dark:text-white transition-colors">{activeStory.doctor}</p>
+                  <p className="text-xs text-primary dark:text-teal-400 font-medium">{activeStory.specialty}</p>
                 </div>
 
                 <div className="flex items-center gap-2 sm:gap-3 w-full sm:w-auto">
                   <EnquiryForm>
-                    <Button className="flex-1 sm:flex-none rounded-full shadow-md bg-primary hover:bg-primary/90 px-5 sm:px-6 font-semibold h-10 sm:h-11 text-xs sm:text-sm">
+                    <Button className="flex-1 sm:flex-none rounded-full shadow-md bg-primary hover:bg-primary/90 dark:bg-teal-600 dark:hover:bg-teal-500 px-5 sm:px-6 font-semibold h-10 sm:h-11 text-xs sm:text-sm">
                       {t('doctor.consult')}
                     </Button>
                   </EnquiryForm>
@@ -315,14 +315,14 @@ export function PatientStories() {
                   <div className="flex items-center gap-1.5 shrink-0">
                     <button
                       onClick={handlePrev}
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card hover:bg-white flex items-center justify-center text-slate-700 hover:text-primary transition-colors border border-slate-200"
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card hover:bg-white dark:hover:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-teal-400 transition-colors border border-slate-200 dark:border-slate-700"
                       aria-label="Previous Story"
                     >
                       <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                     <button
                       onClick={handleNext}
-                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card hover:bg-white flex items-center justify-center text-slate-700 hover:text-primary transition-colors border border-slate-200"
+                      className="w-9 h-9 sm:w-10 sm:h-10 rounded-full glass-card hover:bg-white dark:hover:bg-slate-800 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-teal-400 transition-colors border border-slate-200 dark:border-slate-700"
                       aria-label="Next Story"
                     >
                       <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -346,8 +346,8 @@ export function PatientStories() {
                 onClick={() => setCurrentIndex(idx)}
                 className={`glass-card p-2.5 sm:p-3 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 flex items-center gap-2 sm:gap-3 ${
                   isSelected 
-                    ? 'border-primary ring-2 ring-primary/20 bg-white shadow-md sm:shadow-lg scale-102' 
-                    : 'hover:border-primary/40 opacity-80 hover:opacity-100 bg-white/80'
+                    ? 'border-primary ring-2 ring-primary/20 bg-white dark:bg-slate-900 shadow-md sm:shadow-lg scale-102' 
+                    : 'hover:border-primary/40 dark:hover:border-teal-400/40 opacity-80 hover:opacity-100 bg-white/80 dark:bg-slate-900/80 dark:border-slate-800'
                 }`}
               >
                 <img 
@@ -358,9 +358,9 @@ export function PatientStories() {
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1">
                     <span className="text-xs">{story.flag}</span>
-                    <p className="text-xs font-bold text-slate-900 truncate">{story.name.split('&')[0]}</p>
+                    <p className="text-xs font-bold text-slate-900 dark:text-white truncate transition-colors">{story.name.split('&')[0]}</p>
                   </div>
-                  <p className="text-[10px] sm:text-[11px] text-slate-500 truncate">{story.specialty}</p>
+                  <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 truncate">{story.specialty}</p>
                 </div>
               </div>
             );
@@ -372,15 +372,15 @@ export function PatientStories() {
       {/* Video Story Modal Dialog */}
       {selectedStory && (
         <Dialog open={!!selectedStory} onOpenChange={(open) => !open && setSelectedStory(null)}>
-          <DialogContent className="sm:max-w-[700px] glass-panel rounded-3xl p-4 sm:p-6 border border-white shadow-2xl">
+          <DialogContent className="sm:max-w-[700px] glass-panel rounded-3xl p-4 sm:p-6 border border-white dark:border-slate-800 shadow-2xl bg-white/95 dark:bg-slate-900/95 transition-colors">
             <DialogHeader>
               <div className="flex items-center justify-between pr-4">
                 <div>
-                  <DialogTitle className="text-lg sm:text-xl font-bold text-slate-900 flex items-center gap-2">
+                  <DialogTitle className="text-lg sm:text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <span>{selectedStory.flag}</span>
                     <span>{t('modal.journey', { name: selectedStory.name.split('&')[0].trim() })}</span>
                   </DialogTitle>
-                  <p className="text-xs text-slate-500 mt-0.5 truncate">
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">
                     {selectedStory.treatment} &bull; {selectedStory.hospital}
                   </p>
                 </div>
@@ -415,10 +415,10 @@ export function PatientStories() {
               </div>
             </div>
 
-            <div className="mt-3 pt-3 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-2.5">
-              <p className="text-xs text-slate-600 text-center sm:text-left">{t('modal.wantFreeOpinion', { doctor: selectedStory.doctor })}</p>
+            <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2.5">
+              <p className="text-xs text-slate-600 dark:text-slate-400 text-center sm:text-left">{t('modal.wantFreeOpinion', { doctor: selectedStory.doctor })}</p>
               <EnquiryForm>
-                <Button className="w-full sm:w-auto rounded-full font-semibold px-6 shadow-md bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm">
+                <Button className="w-full sm:w-auto rounded-full font-semibold px-6 shadow-md bg-primary hover:bg-primary/90 dark:bg-teal-600 dark:hover:bg-teal-500 h-10 text-xs sm:text-sm">
                   {t('modal.requestConsult')}
                 </Button>
               </EnquiryForm>

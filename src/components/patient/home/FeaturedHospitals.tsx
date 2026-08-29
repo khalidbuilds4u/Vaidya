@@ -30,19 +30,19 @@ export async function FeaturedHospitals() {
   }
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/70">
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900/20 transition-colors duration-500">
       {/* Background Glow */}
       <div className="absolute top-[10%] right-[-5%] w-[400px] h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
 
       <div className="container mx-auto px-4">
         <div className="flex flex-col mb-8 sm:mb-12 text-center items-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">
             {t('tag')}
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 transition-colors duration-500">
             {t('title')}
           </h2>
-          <p className="text-xs sm:text-base text-slate-600 max-w-2xl leading-relaxed">
+          <p className="text-xs sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed transition-colors duration-500">
             {t('desc')}
           </p>
         </div>

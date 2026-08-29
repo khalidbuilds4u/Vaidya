@@ -88,7 +88,7 @@ export function WhyChooseIndia() {
   }, []);
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white">
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500">
       {/* Background Ambient Orbs */}
       <div className="absolute top-[10%] right-[-5%] w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] ambient-glow rounded-full -z-10" />
       <div className="absolute bottom-[10%] left-[-5%] w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] ambient-glow-secondary rounded-full -z-10" />
@@ -104,17 +104,17 @@ export function WhyChooseIndia() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">
                 <Sparkles className="w-3.5 h-3.5" />
                 {t('tag')}
               </div>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight mb-3 sm:mb-4">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3 sm:mb-4 transition-colors duration-500">
                 {t('title1')} <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600 dark:from-teal-400 dark:to-emerald-400">
                   {t('title2')}
                 </span>
               </h2>
-              <p className="text-xs sm:text-base lg:text-lg text-slate-600 leading-relaxed max-w-2xl">
+              <p className="text-xs sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 leading-relaxed max-w-2xl transition-colors duration-500">
                 {t('desc')}
               </p>
             </motion.div>
@@ -129,16 +129,16 @@ export function WhyChooseIndia() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="glass-card p-3 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 group hover:border-primary/40 bg-white/90"
+                    className="glass-card p-3 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 group hover:border-primary/40 dark:hover:border-teal-400/40 bg-white/90 dark:bg-slate-900/90 dark:border-slate-800/80 transition-colors duration-500"
                   >
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 text-primary dark:text-teal-400 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-slate-900 text-xs sm:text-base group-hover:text-primary transition-colors leading-snug">
+                      <h3 className="font-bold text-slate-900 dark:text-white text-xs sm:text-base group-hover:text-primary dark:group-hover:text-teal-400 transition-colors leading-snug">
                         {item.title}
                       </h3>
-                      <p className="hidden sm:block text-xs sm:text-sm text-slate-500 mt-1 leading-relaxed">
+                      <p className="hidden sm:block text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1 leading-relaxed transition-colors duration-500">
                         {item.desc}
                       </p>
                     </div>
@@ -156,7 +156,7 @@ export function WhyChooseIndia() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full lg:w-5/12 relative z-10 mt-2 lg:mt-0"
           >
-            <div className="relative glass-panel p-2.5 sm:p-3 rounded-2xl sm:rounded-[2.5rem] shadow-2xl bg-white/95 border border-white">
+            <div className="relative glass-panel p-2.5 sm:p-3 rounded-2xl sm:rounded-[2.5rem] shadow-2xl bg-white/95 dark:bg-slate-900/95 border border-white dark:border-slate-800/80 transition-colors duration-500">
               
               {/* Slideshow Image Container */}
               <div className="relative h-[280px] sm:h-[380px] lg:h-[450px] w-full rounded-xl sm:rounded-[2rem] overflow-hidden group">
@@ -214,13 +214,13 @@ export function WhyChooseIndia() {
             </div>
             
             {/* Clean Floating Trust Badge Positioned with Zero Overlap */}
-            <div className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 glass-card px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2.5 border border-white bg-white/95 animate-float z-30">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-teal-600 text-white flex items-center justify-center font-extrabold text-sm sm:text-base shadow-sm shrink-0">
+            <div className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 glass-card px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2.5 border border-white dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 animate-float z-30 transition-colors duration-500">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-teal-600 dark:from-teal-600 dark:to-emerald-500 text-white flex items-center justify-center font-extrabold text-sm sm:text-base shadow-sm shrink-0">
                 #1
               </div>
               <div>
-                <p className="text-[11px] sm:text-xs font-extrabold text-slate-900 leading-tight">{t('hub.title')}</p>
-                <p className="text-[10px] text-slate-500 font-medium">{t('hub.subtitle')}</p>
+                <p className="text-[11px] sm:text-xs font-extrabold text-slate-900 dark:text-white leading-tight">{t('hub.title')}</p>
+                <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">{t('hub.subtitle')}</p>
               </div>
             </div>
 

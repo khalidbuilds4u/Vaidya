@@ -48,20 +48,20 @@ export function FAQSection() {
   const visibleFaqs = showAll ? localizedFaqs : localizedFaqs.slice(0, 6);
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900/40 transition-colors duration-500">
       {/* Ambient Lighting */}
       <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
 
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="text-center mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">
             <Sparkles className="w-3.5 h-3.5" />
             {t('tag')}
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 sm:mb-4 transition-colors duration-500">
             {t('title')}
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed transition-colors duration-500">
             {t('desc')}
           </p>
         </div>
@@ -72,8 +72,8 @@ export function FAQSection() {
             return (
               <div 
                 key={index} 
-                className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${
-                  isOpen ? 'border-primary/40 shadow-md sm:shadow-lg bg-white' : 'hover:border-slate-300 bg-white/90'
+                className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 dark:border-slate-800/80 ${
+                  isOpen ? 'border-primary/40 dark:border-teal-400/40 shadow-md sm:shadow-lg bg-white dark:bg-slate-900' : 'hover:border-slate-300 dark:hover:border-slate-600 bg-white/90 dark:bg-slate-900/90'
                 }`}
               >
                 <button
@@ -81,20 +81,20 @@ export function FAQSection() {
                   onClick={() => setOpenIndex(isOpen ? null : index)}
                 >
                   <span className="flex items-center gap-2.5 sm:gap-3 pr-2">
-                    <HelpCircle className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${isOpen ? 'text-primary' : 'text-slate-400'}`} />
-                    <span className={`font-bold text-sm sm:text-lg ${isOpen ? 'text-primary' : 'text-slate-900'}`}>
+                    <HelpCircle className={`w-4 h-4 sm:w-5 sm:h-5 shrink-0 ${isOpen ? 'text-primary dark:text-teal-400' : 'text-slate-400 dark:text-slate-500'}`} />
+                    <span className={`font-bold text-sm sm:text-lg transition-colors ${isOpen ? 'text-primary dark:text-teal-400' : 'text-slate-900 dark:text-white'}`}>
                       {faq.question}
                     </span>
                   </span>
                   <ChevronDown 
                     className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 shrink-0 ${
-                      isOpen ? 'rotate-180 text-primary' : 'text-slate-400'
+                      isOpen ? 'rotate-180 text-primary dark:text-teal-400' : 'text-slate-400 dark:text-slate-500'
                     }`} 
                   />
                 </button>
                 
                 {isOpen && (
-                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-1 text-slate-600 text-xs sm:text-base leading-relaxed border-t border-slate-100/80 animate-in fade-in duration-200">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6 pt-1 text-slate-600 dark:text-slate-400 text-xs sm:text-base leading-relaxed border-t border-slate-100/80 dark:border-slate-800/80 animate-in fade-in duration-200 transition-colors">
                     {faq.answer}
                   </div>
                 )}
@@ -106,7 +106,7 @@ export function FAQSection() {
         <div className="mt-8 flex justify-center">
           <Button 
             variant="outline" 
-            className="rounded-full px-8 py-5 border-slate-300 text-slate-700 hover:text-primary hover:bg-slate-50 hover:border-primary font-bold shadow-sm transition-all"
+            className="rounded-full px-8 py-5 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-primary dark:hover:border-teal-400 font-bold shadow-sm transition-all"
             onClick={() => setShowAll(!showAll)}
           >
             {showAll ? 'Show Less Questions' : 'Read All Questions'}
@@ -114,23 +114,23 @@ export function FAQSection() {
         </div>
 
         {/* Bottom Help Glass Box with Perfect Alignment */}
-        <div className="mt-10 sm:mt-14 glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col md:flex-row items-center justify-between gap-5 border border-white bg-white/95 shadow-lg">
+        <div className="mt-10 sm:mt-14 glass-panel p-6 sm:p-8 rounded-2xl sm:rounded-3xl flex flex-col md:flex-row items-center justify-between gap-5 border border-white dark:border-slate-800/80 bg-white/95 dark:bg-slate-900/95 shadow-lg transition-colors duration-500">
           <div className="text-center md:text-left">
-            <h3 className="font-bold text-base sm:text-lg text-slate-900 mb-1">{t('bottom.title')}</h3>
-            <p className="text-xs sm:text-sm text-slate-600">{t('bottom.desc')}</p>
+            <h3 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1 transition-colors duration-500">{t('bottom.title')}</h3>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-400 transition-colors duration-500">{t('bottom.desc')}</p>
           </div>
           
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
             <a 
               href="tel:+919918053077"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs sm:text-sm font-bold transition-all shadow-xs shrink-0 whitespace-nowrap active:scale-95 border border-slate-200/70"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 h-11 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-white text-xs sm:text-sm font-bold transition-all shadow-xs shrink-0 whitespace-nowrap active:scale-95 border border-slate-200/70 dark:border-slate-700/70"
             >
-              <PhoneCall className="w-4 h-4 text-primary shrink-0" />
-              <span className="whitespace-nowrap font-mono tracking-tight">+91&nbsp;94511&nbsp;87513</span>
+              <PhoneCall className="w-4 h-4 text-primary dark:text-teal-400 shrink-0" />
+              <span className="whitespace-nowrap font-mono tracking-tight">+91 99180 53077</span>
             </a>
             
             <EnquiryForm>
-              <Button className="w-full sm:w-auto rounded-full shadow-md bg-primary hover:bg-primary/90 font-bold px-6 text-xs sm:text-sm h-11 shrink-0 whitespace-nowrap text-white active:scale-95">
+              <Button className="w-full sm:w-auto rounded-full shadow-md bg-primary hover:bg-primary/90 dark:bg-teal-600 dark:hover:bg-teal-500 font-bold px-6 text-xs sm:text-sm h-11 shrink-0 whitespace-nowrap text-white active:scale-95">
                 {t('bottom.button')}
               </Button>
             </EnquiryForm>

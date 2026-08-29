@@ -27,7 +27,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 border-b border-slate-200/80">
+    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
       
       {/* 1. Vibrant High-Res Background Image */}
       <div 
@@ -38,8 +38,8 @@ export function HeroSection() {
       />
 
       {/* 2. Light Left Gradient Overlay (keeps left text area crisp white) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 to-transparent pointer-events-none z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/30 to-transparent pointer-events-none z-[1]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent pointer-events-none z-[1] transition-colors duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-b from-white/30 dark:from-slate-900/40 to-transparent pointer-events-none z-[1] transition-colors duration-500" />
 
       {/* 3. Ambient Glowing Orbs (Soft, light-toned) */}
       <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-300/20 blur-[120px] pointer-events-none z-[2]" />
@@ -67,7 +67,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.18] sm:leading-[1.12] mb-2.5 sm:mb-4 transition-colors duration-500"
             >
               {t('titleLine1')} <br className="hidden sm:inline" />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-teal-600 to-emerald-500">
@@ -80,7 +80,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="text-xs sm:text-base md:text-lg text-slate-700 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium"
+              className="text-xs sm:text-base md:text-lg text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium transition-colors duration-500"
             >
               {t('subtext')}
             </motion.p>
@@ -90,18 +90,18 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="hidden sm:flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700"
+              className="hidden sm:flex flex-wrap items-center gap-2 sm:gap-4 mb-5 sm:mb-6 text-[11px] sm:text-xs font-semibold text-slate-700 dark:text-slate-200"
             >
-              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-1.5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 dark:border-slate-700/80 shadow-sm transition-colors duration-500">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>{t('pill1')}</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-1.5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 dark:border-slate-700/80 shadow-sm transition-colors duration-500">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                 <span>{t('pill2')}</span>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 shadow-sm">
-                <Clock className="w-4 h-4 text-primary shrink-0" />
+              <div className="flex items-center gap-1.5 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-3 py-1.5 rounded-lg border border-slate-200/80 dark:border-slate-700/80 shadow-sm transition-colors duration-500">
+                <Clock className="w-4 h-4 text-primary dark:text-teal-400 shrink-0" />
                 <span>{t('pill3')}</span>
               </div>
             </motion.div>
@@ -126,7 +126,7 @@ export function HeroSection() {
                   asChild
                   size="lg" 
                   variant="outline" 
-                  className="w-full text-sm sm:text-base h-14 sm:h-13 px-6 sm:px-7 rounded-2xl sm:rounded-full glass-card hover:bg-white border-2 border-white/90 transition-all shadow-md font-bold text-slate-800 bg-white/95" 
+                  className="w-full text-sm sm:text-base h-14 sm:h-13 px-6 sm:px-7 rounded-2xl sm:rounded-full glass-card hover:bg-white dark:hover:bg-slate-800 border-2 border-white/90 dark:border-slate-700 transition-all shadow-md font-bold text-slate-800 dark:text-slate-100 bg-white/95 dark:bg-slate-900/95" 
                 >
                   <Link href="/hospitals">{t('exploreHospitals')}</Link>
                 </Button>
@@ -138,28 +138,28 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] bg-white/90 backdrop-blur-xl border border-white"
+              className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white dark:border-slate-700 transition-colors duration-500"
             >
-              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 sm:bg-transparent rounded-xl sm:rounded-none">
-                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-2 shrink-0" />
+              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
+                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-2 shrink-0" />
                 <Input 
                   type="text" 
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
                   placeholder={t('searchPlaceholder')}
-                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-slate-400 text-slate-900 font-medium"
+                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500 text-slate-900 dark:text-white font-medium"
                 />
               </div>
               
-              <div className="hidden sm:block w-px h-8 bg-slate-200 mx-1"></div>
+              <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700 mx-1"></div>
               
-              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-slate-50/60 sm:bg-transparent rounded-xl sm:rounded-none">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary mr-1.5 shrink-0" />
+              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
+                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
                 <select 
                   value={searchCity}
                   onChange={(e) => setSearchCity(e.target.value)}
-                  className="w-full bg-transparent border-0 text-slate-800 font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none"
+                  className="w-full bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none"
                 >
                   <option value="" className="text-slate-900">{t('anyCity')}</option>
                   <option value="New Delhi" className="text-slate-900">New Delhi</option>
@@ -188,15 +188,15 @@ export function HeroSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300"
+              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/80 dark:border-slate-700/80 flex items-center gap-3.5 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-400/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-600 shadow-inner">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-500/20 to-teal-400/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-600 dark:text-emerald-400 shadow-inner">
                 <ShieldCheck className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('card1Sub')}</p>
-                <p className="text-base font-extrabold text-slate-900 leading-tight">{t('card1Title')}</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">{t('card1Desc')}</p>
+                <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t('card1Sub')}</p>
+                <p className="text-base font-extrabold text-slate-900 dark:text-white leading-tight">{t('card1Title')}</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{t('card1Desc')}</p>
               </div>
             </motion.div>
 
@@ -205,15 +205,15 @@ export function HeroSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 flex items-center gap-3.5 bg-white/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-transform duration-300 -translate-x-4"
+              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/80 dark:border-slate-700/80 flex items-center gap-3.5 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl max-w-sm w-full hover:-translate-y-1 transition-all duration-300 -translate-x-4"
             >
-              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary shadow-inner">
+              <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 text-primary dark:text-teal-400 shadow-inner">
                 <Building2 className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">{t('card2Sub')}</p>
-                <p className="text-xl font-extrabold text-slate-900 leading-tight">{t('card2Title')}</p>
-                <p className="text-[11px] text-slate-500 mt-0.5">{t('card2Desc')}</p>
+                <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t('card2Sub')}</p>
+                <p className="text-xl font-extrabold text-slate-900 dark:text-white leading-tight">{t('card2Title')}</p>
+                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{t('card2Desc')}</p>
               </div>
             </motion.div>
 
@@ -222,17 +222,17 @@ export function HeroSection() {
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] border border-white/80 bg-white/85 backdrop-blur-xl max-w-sm w-full animate-float-delayed hover:-translate-y-1 transition-transform duration-300"
+              className="p-5 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.08)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.3)] border border-white/80 dark:border-slate-700/80 bg-white/85 dark:bg-slate-900/85 backdrop-blur-xl max-w-sm w-full animate-float-delayed hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex items-center gap-1 mb-1.5">
                 {[1, 2, 3, 4, 5].map((i) => (
                   <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
-              <p className="text-sm font-bold text-slate-900 leading-snug">{t('card3Quote')}</p>
-              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 text-[11px] text-slate-500 font-medium">
+              <p className="text-sm font-bold text-slate-900 dark:text-white leading-snug">{t('card3Quote')}</p>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 font-medium">
                 <span>{t('card3Author')}</span>
-                <span className="text-emerald-600 font-bold">{t('card3Proc')}</span>
+                <span className="text-emerald-600 dark:text-emerald-400 font-bold">{t('card3Proc')}</span>
               </div>
             </motion.div>
 
