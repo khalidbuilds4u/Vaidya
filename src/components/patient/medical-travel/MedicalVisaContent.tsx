@@ -61,10 +61,6 @@ export function MedicalVisaContent() {
             variants={fadeUpVariant}
             className="bg-white dark:bg-slate-900/95 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-800 relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(15,118,110,0.08)] transition-all duration-300 flex flex-col h-full"
           >
-            <div className="absolute -bottom-6 -right-4 text-[120px] font-black text-slate-50/80 dark:text-slate-800/50 group-hover:text-teal-50/80 dark:group-hover:text-teal-900/30 transition-colors leading-none z-0 pointer-events-none select-none">
-              {idx + 1}
-            </div>
-            
             <div className="relative z-10">
               <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm border border-teal-100/50 dark:border-teal-500/20">
                 <step.icon className="w-6 h-6" />
