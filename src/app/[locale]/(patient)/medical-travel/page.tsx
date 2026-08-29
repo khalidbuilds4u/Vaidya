@@ -109,51 +109,58 @@ export default async function MedicalTravelPage() {
           ))}
         </div>
 
-        {/* 3. Concierge Services Grid */}
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
-            {t('concierge.tag')}
+      {/* 3. Concierge Services Grid */}
+      <section className="relative bg-slate-950 text-white py-16 sm:py-24 mt-16 sm:mt-24 border-t border-teal-900/30 overflow-hidden">
+        
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-900/20 rounded-[100%] blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center mb-12 sm:mb-16">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/10 text-teal-300 text-xs font-bold uppercase tracking-wider mb-4">
+              {t('concierge.tag')}
+            </div>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+              {t('concierge.title')}
+            </h2>
           </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
-            {t('concierge.title')}
-          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+            
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/80 backdrop-blur-sm transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                <Plane className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{t('concierge.pickupTitle')}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('concierge.pickupDesc')}
+              </p>
+            </div>
+
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/80 backdrop-blur-sm transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                <Hotel className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{t('concierge.hotelTitle')}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('concierge.hotelDesc')}
+              </p>
+            </div>
+
+            <div className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 bg-slate-900/50 hover:bg-slate-800/80 backdrop-blur-sm transition-all duration-300 group">
+              <div className="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-400 flex items-center justify-center mb-6 group-hover:bg-teal-500 group-hover:text-white transition-colors">
+                <MessageCircle className="w-6 h-6" />
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold mb-3 text-white">{t('concierge.interpreterTitle')}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">
+                {t('concierge.interpreterDesc')}
+              </p>
+            </div>
+
+          </div>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          
-          <div className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-              <Plane className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{t('concierge.pickupTitle')}</h3>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              {t('concierge.pickupDesc')}
-            </p>
-          </div>
-
-          <div className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-              <Hotel className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{t('concierge.hotelTitle')}</h3>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              {t('concierge.hotelDesc')}
-            </p>
-          </div>
-
-          <div className="glass-card p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 group">
-            <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-              <MessageCircle className="w-6 h-6" />
-            </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-2 text-slate-900">{t('concierge.interpreterTitle')}</h3>
-            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-              {t('concierge.interpreterDesc')}
-            </p>
-          </div>
-
-        </div>
-      </div>
+      </section>
 
       </div>
     </div>
