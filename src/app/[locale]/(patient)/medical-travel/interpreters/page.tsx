@@ -37,7 +37,7 @@ export default async function InterpretersPage() {
               </span>
             </h1>
             <p className="text-sm sm:text-base md:text-lg text-slate-300 leading-relaxed mb-6 sm:mb-8 font-normal max-w-2xl">
-              {t('interpreters.desc')}
+              {t('interpreters.heroDesc')}
             </p>
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
               <EnquiryForm>
