@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Search, Activity, Sparkles, ArrowRight } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -32,12 +33,15 @@ export default function ConditionsPage() {
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
         
         {/* Background Diagnostics Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop')`,
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000">
+          <Image 
+            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" 
+            alt="Conditions Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+          />
+        </div>
 
         {/* Luminous Gradient Mask */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />

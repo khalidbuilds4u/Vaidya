@@ -2,7 +2,7 @@
 
 import { FileText, Stethoscope, Plane, HeartHandshake } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 const STEPS = [
   {

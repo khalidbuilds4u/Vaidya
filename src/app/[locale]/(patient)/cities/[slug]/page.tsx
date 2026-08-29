@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import { MapPin, Building2, Stethoscope, BriefcaseMedical, CheckCircle2, ChevronRight, Activity, Award } from 'lucide-react';
@@ -53,10 +54,12 @@ export default async function CityProfilePage({ params }: { params: Promise<{ sl
     <div className="bg-slate-50 min-h-screen pb-24">
       {/* Hero Section */}
       <div className="relative h-[45vh] min-h-[400px] w-full overflow-hidden bg-slate-900">
-        <img 
+        <Image 
           src={heroImage}
           alt={city.name}
-          className="absolute inset-0 w-full h-full object-cover opacity-60"
+          fill
+          priority
+          className="object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-900/50 to-transparent" />
         

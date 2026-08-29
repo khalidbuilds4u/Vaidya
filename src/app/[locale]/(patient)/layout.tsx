@@ -1,8 +1,10 @@
 import { Header } from "@/components/patient/Header"
-import { Footer } from "@/components/patient/Footer"
-import { FloatingContact } from "@/components/patient/FloatingContact"
-import { MobileBottomBar } from "@/components/patient/MobileBottomBar"
-import { ChatbotWidget } from "@/components/patient/ChatbotWidget"
+import dynamic from 'next/dynamic'
+
+const Footer = dynamic(() => import("@/components/patient/Footer").then(mod => mod.Footer))
+const FloatingContact = dynamic(() => import("@/components/patient/FloatingContact").then(mod => mod.FloatingContact))
+const MobileBottomBar = dynamic(() => import("@/components/patient/MobileBottomBar").then(mod => mod.MobileBottomBar))
+const ChatbotWidget = dynamic(() => import("@/components/patient/ChatbotWidget").then(mod => mod.ChatbotWidget))
 
 export default function PatientLayout({
   children,

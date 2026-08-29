@@ -18,10 +18,15 @@ export default async function AboutUsPage() {
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       {/* Hero Section */}
       <section className="relative py-20 sm:py-32 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
-        <div 
-          className="absolute inset-0 bg-cover bg-center opacity-30 pointer-events-none"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop')" }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-30">
+          <Image 
+            src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop" 
+            alt="About Us Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/50 pointer-events-none" />
         
         <div className="container mx-auto px-4 relative z-10 text-center max-w-4xl">

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -53,10 +54,15 @@ export default async function HospitalsDirectory({
       
       {/* Header Banner */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
-        <div 
-          className="absolute inset-0 bg-cover bg-center lg:bg-right bg-no-repeat pointer-events-none opacity-40 sm:opacity-50 scale-105 transition-transform duration-1000"
-          style={{ backgroundImage: `url('/images/hero-hospital.jpg')` }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-40 sm:opacity-50 scale-105 transition-transform duration-1000">
+          <Image 
+            src="/images/hero-hospital.jpg" 
+            alt="Hospitals Background" 
+            fill 
+            priority 
+            className="object-cover object-center lg:object-right" 
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none" />
         <div className="absolute top-0 left-0 w-80 h-80 bg-primary/25 rounded-full blur-[100px] pointer-events-none" />

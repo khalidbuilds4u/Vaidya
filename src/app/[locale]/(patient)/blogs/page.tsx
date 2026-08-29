@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Image from "next/image"
 import { prisma } from "@/lib/prisma"
 import { FileText, ArrowRight } from "lucide-react"
 import Link from "next/link"
@@ -23,7 +24,9 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
       {/* Hero Section */}
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop')" }} />
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <Image src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2000&auto=format&fit=crop" alt="Blog Background" fill priority className="object-cover" />
+        </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 text-teal-300 font-semibold text-sm mb-6">
             <FileText className="w-4 h-4" /> Medical Insights
@@ -51,7 +54,7 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
               <Link key={blog.id} href={`/${resolvedParams.locale}/blogs/${blog.slug}`} className="group h-full flex flex-col bg-white dark:bg-slate-900/95 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-xl dark:shadow-none transition-all duration-300 hover:-translate-y-1">
                 <div className="relative h-48 overflow-hidden bg-slate-100 dark:bg-slate-800">
                   {blog.coverImage ? (
-                    <img src={blog.coverImage} alt={getTranslation(blog, 'title', resolvedParams.locale) || blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={blog.coverImage} alt={getTranslation(blog, 'title', resolvedParams.locale) || blog.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-400 dark:text-slate-500">
                       <span className="text-sm font-medium">No Image</span>

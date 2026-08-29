@@ -8,7 +8,7 @@ import { Stethoscope, Menu, X, PhoneCall, Sparkles } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { LanguageSwitcher } from '@/components/patient/LanguageSwitcher';
 import { ThemeToggle } from '@/components/ThemeToggle';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

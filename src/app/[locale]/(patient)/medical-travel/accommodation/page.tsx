@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { Hotel, ArrowRight } from 'lucide-react';
@@ -15,12 +16,15 @@ export default async function AccommodationPage() {
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-40 scale-105"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974&auto=format&fit=crop')`,
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-40 scale-105">
+          <Image 
+            src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?q=80&w=1974&auto=format&fit=crop" 
+            alt="Accommodation Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 to-transparent pointer-events-none" />
         <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-teal-500/20 rounded-full blur-[100px] pointer-events-none" />
 

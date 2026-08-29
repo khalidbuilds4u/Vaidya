@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma"
 import { notFound } from "next/navigation"
 import { ArrowLeft, Calendar, User } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { getTranslation } from "@/lib/utils"
 import { getTranslations } from "next-intl/server"
 
@@ -36,10 +37,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Article Header */}
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
         {blog.coverImage && (
-          <div 
-            className="absolute inset-0 opacity-20 pointer-events-none bg-cover bg-center" 
-            style={{ backgroundImage: `url('${blog.coverImage}')` }} 
-          />
+          <div className="absolute inset-0 opacity-20 pointer-events-none">
+            <Image 
+              src={blog.coverImage} 
+              alt={getTranslation(blog, 'title', resolvedParams.locale) || "Blog Cover"} 
+              fill 
+              priority 
+              className="object-cover object-center" 
+            />
+          </div>
         )}
         <div className="container mx-auto px-4 relative z-10 max-w-4xl">
           <Link href={`/${resolvedParams.locale}/blogs`} className="inline-flex items-center text-teal-400 hover:text-teal-300 transition-colors mb-8 font-medium">

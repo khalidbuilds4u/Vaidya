@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import { MapPin, CalendarDays, Plane, BedDouble, Search, ChevronRight, CheckCircle2, Building2, ShieldCheck, Stethoscope } from 'lucide-react';
@@ -101,10 +102,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
           
           {/* Background Image with Gradient Overlay */}
           <div className="absolute top-0 right-0 h-full w-full lg:w-2/3 z-0">
-            <img 
+            <Image 
               src={heroImage} 
               alt={hospital.name}
-              className="w-full h-full object-cover object-center lg:object-right opacity-60"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 66vw"
+              className="object-cover object-center lg:object-right opacity-60"
             />
             {/* Gradient to ensure smooth blending with the left solid blue area */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#123654] via-[#123654]/90 to-transparent" />
@@ -463,10 +467,12 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   className="group bg-white dark:bg-slate-900/95 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-lg transition-all flex flex-col min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start"
                 >
                   <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800 relative">
-                    <img 
+                    <Image 
                       src={(rh.imageUrl && rh.imageUrl.trim() !== "") ? rh.imageUrl : "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"} 
-                      alt={getTranslation(rh, 'name', locale)} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                      alt={getTranslation(rh, 'name', locale)}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" 
+                      className="object-cover group-hover:scale-105 transition-transform duration-500" 
                     />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors line-clamp-1">{getTranslation(rh, 'name', locale)}</h4>

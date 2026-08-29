@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from 'framer-motion';
+import { m as motion, Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { FileText, ShieldCheck, Info, FileSignature, Files, Users, ClipboardList, Clock, ListChecks } from 'lucide-react';
 

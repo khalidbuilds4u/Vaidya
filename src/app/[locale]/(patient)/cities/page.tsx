@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Building2, Stethoscope, Plane, ArrowRight } from 'lucide-react';
 import { prisma } from '@/lib/prisma';
@@ -31,10 +32,15 @@ export default async function CitiesPage() {
       
       {/* 1. Header Banner */}
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=2070&auto=format&fit=crop')` }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000">
+          <Image 
+            src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?q=80&w=2070&auto=format&fit=crop"
+            alt="Medical Hubs in India"
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40 pointer-events-none" />
         <div className="absolute top-0 left-0 w-80 h-80 bg-primary/25 rounded-full blur-[100px] pointer-events-none" />
@@ -70,10 +76,12 @@ export default async function CitiesPage() {
             return (
               <div key={city.id} className="glass-card rounded-2xl sm:rounded-3xl overflow-hidden border border-white/90 dark:border-slate-800 shadow-sm hover:shadow-xl transition-all duration-300 bg-white/95 dark:bg-slate-900/95 group flex flex-col justify-between">
                 <div className="h-48 sm:h-60 overflow-hidden relative">
-                  <img 
+                  <Image 
                     src={city.imageUrl || defaultImage} 
-                    alt={city.name} 
-                    className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-700"
+                    alt={city.name}
+                    fill 
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover transition-transform group-hover:scale-105 duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-5">
                     <h2 className="text-xl sm:text-2xl font-bold text-white flex items-center">

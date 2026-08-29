@@ -6,7 +6,7 @@ import { MapPin, BriefcaseMedical, ArrowRight } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 export interface DoctorCardProps {
   slug: string;

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from 'framer-motion';
+import { m as motion, Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Languages, Ear, Speech, BookOpen, Stethoscope, DoorOpen, Users, Headphones } from 'lucide-react';
 

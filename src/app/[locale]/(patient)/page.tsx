@@ -1,11 +1,13 @@
 import { HeroSection } from '@/components/patient/home/HeroSection';
-import { WhyChooseIndia } from '@/components/patient/home/WhyChooseIndia';
-import { PopularSpecialties } from '@/components/patient/home/PopularSpecialties';
-import { PopularConditions } from '@/components/patient/home/PopularConditions';
-import { FeaturedHospitals } from '@/components/patient/home/FeaturedHospitals';
-import { PatientStories } from '@/components/patient/home/PatientStories';
-import { HowProcessWorks } from '@/components/patient/home/HowProcessWorks';
-import { FAQSection } from '@/components/patient/home/FAQSection';
+import dynamic from 'next/dynamic';
+
+const WhyChooseIndia = dynamic(() => import('@/components/patient/home/WhyChooseIndia').then(mod => mod.WhyChooseIndia));
+const PopularSpecialties = dynamic(() => import('@/components/patient/home/PopularSpecialties').then(mod => mod.PopularSpecialties));
+const PopularConditions = dynamic(() => import('@/components/patient/home/PopularConditions').then(mod => mod.PopularConditions));
+const FeaturedHospitals = dynamic(() => import('@/components/patient/home/FeaturedHospitals').then(mod => mod.FeaturedHospitals));
+const PatientStories = dynamic(() => import('@/components/patient/home/PatientStories').then(mod => mod.PatientStories));
+const HowProcessWorks = dynamic(() => import('@/components/patient/home/HowProcessWorks').then(mod => mod.HowProcessWorks));
+const FAQSection = dynamic(() => import('@/components/patient/home/FAQSection').then(mod => mod.FAQSection));
 import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import { MobileSearch } from '@/components/patient/home/MobileSearch';

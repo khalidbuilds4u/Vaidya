@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Award, Zap, DollarSign, Clock, Cpu, Languages, ChevronRight, ChevronLeft, ShieldCheck, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 const REASONS = [
   {
@@ -168,10 +169,13 @@ export function WhyChooseIndia() {
                       index === currentSlide ? 'opacity-100 z-10 scale-100' : 'opacity-0 z-0 scale-105 pointer-events-none'
                     }`}
                   >
-                    <img 
+                    <Image 
                       src={slide.image} 
                       alt={slide.title}
-                      className="w-full h-full object-cover"
+                      fill
+                      priority={index === 0}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      className="object-cover"
                     />
                     
                     {/* Directional Gradient Shadow for Crisp Typography */}

@@ -3,6 +3,7 @@ import { HospitalCard } from '@/components/patient/HospitalCard';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 import { Search, MapPin, AlertCircle, Sparkles, Building2, Stethoscope, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export const revalidate = 3600;
@@ -79,12 +80,15 @@ export default async function SearchResultsPage({
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
         
         {/* Background Medical Discovery Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2070&auto=format&fit=crop')`,
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000">
+          <Image 
+            src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=2070&auto=format&fit=crop" 
+            alt="Search Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+          />
+        </div>
 
         {/* Luminous Gradient Mask */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />

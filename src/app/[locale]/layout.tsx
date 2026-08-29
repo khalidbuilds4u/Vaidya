@@ -8,6 +8,7 @@ import { routing } from '@/i18n/routing';
 import NextTopLoader from 'nextjs-toploader';
 
 import { SplashScreen } from '@/components/patient/SplashScreen';
+import { LazyMotionProvider } from "@/components/ui/LazyMotionProvider";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -78,7 +79,9 @@ export default async function RootLayout({
             shadow="0 0 10px #0f766e, 0 0 5px #0f766e"
           />
           <NextIntlClientProvider messages={messages}>
-            {children}
+            <LazyMotionProvider>
+              {children}
+            </LazyMotionProvider>
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

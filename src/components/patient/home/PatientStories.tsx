@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Star, Quote, Play, CheckCircle2, ChevronLeft, ChevronRight, Sparkles, MapPin, Building2, ShieldCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
@@ -213,10 +214,12 @@ export function PatientStories() {
           <div className="lg:col-span-5 relative">
             <div className="glass-panel p-3 sm:p-3.5 rounded-2xl sm:rounded-[2.5rem] shadow-xl sm:shadow-2xl h-full flex flex-col dark:bg-slate-900/90 dark:border-slate-800/80 transition-colors duration-500">
               <div className="relative h-[300px] sm:h-[380px] lg:h-[420px] w-full rounded-xl sm:rounded-[2rem] overflow-hidden group">
-                <img 
+                <Image 
                   src={activeStory.image} 
                   alt={activeStory.name} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 
                 {/* Dark Gradient Overlay */}
@@ -350,11 +353,15 @@ export function PatientStories() {
                     : 'hover:border-primary/40 dark:hover:border-teal-400/40 opacity-80 hover:opacity-100 bg-white/80 dark:bg-slate-900/80 dark:border-slate-800'
                 }`}
               >
-                <img 
-                  src={story.image} 
-                  alt={story.name}
-                  className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl object-cover shrink-0" 
-                />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl overflow-hidden relative shrink-0">
+                  <Image 
+                    src={story.image} 
+                    alt={story.name}
+                    fill
+                    sizes="48px"
+                    className="object-cover" 
+                  />
+                </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center gap-1">
                     <span className="text-xs">{story.flag}</span>
@@ -389,10 +396,12 @@ export function PatientStories() {
 
             {/* Video Container Mock */}
             <div className="relative rounded-2xl overflow-hidden bg-slate-950 aspect-video flex items-center justify-center mt-2 shadow-inner group">
-              <img 
+              <Image 
                 src={selectedStory.image} 
                 alt={selectedStory.name} 
-                className="w-full h-full object-cover opacity-60"
+                fill
+                sizes="(max-width: 700px) 100vw, 700px"
+                className="object-cover opacity-60"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-between p-4 sm:p-6 text-white">
                 <div className="flex items-center justify-between">

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, Variants } from 'framer-motion';
+import { m as motion, Variants } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { Hotel, Building, MapPin, HeartHandshake, Calendar, CheckSquare, Car, Users, CalendarPlus } from 'lucide-react';
 

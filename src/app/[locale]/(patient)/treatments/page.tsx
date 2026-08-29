@@ -44,12 +44,15 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
       <section className="relative py-12 sm:py-16 lg:py-20 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
         
         {/* Background High-Tech Surgery Image */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000"
-          style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop')`,
-          }}
-        />
+        <div className="absolute inset-0 pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000">
+          <Image 
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" 
+            alt="Treatments Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+          />
+        </div>
 
         {/* Luminous Gradient Mask */}
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/95 via-teal-950/85 to-slate-950/60 pointer-events-none" />

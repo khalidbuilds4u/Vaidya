@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
 import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
@@ -113,10 +114,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
           <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-10">
             {/* Image */}
             <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-white shadow-xl border-4 border-white/20 shrink-0 relative">
-              <img 
+              <Image 
                 src={profileImage} 
                 alt={doctor.name}
-                className="w-full h-full object-cover scale-110"
+                fill
+                priority
+                sizes="(max-width: 640px) 96px, (max-width: 1024px) 128px, 160px"
+                className="object-cover scale-110"
               />
             </div>
 
@@ -503,7 +507,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   ))}
                 </div>
                 <div className="mt-8 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm relative h-40">
-                  <img src="/images/hero-hospital.jpg" alt="Medical Care Support" className="absolute inset-0 w-full h-full object-cover" />
+                  <Image src="/images/hero-hospital.jpg" alt="Medical Care Support" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
                 </div>
               </div>
 
@@ -576,10 +580,12 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   className="group bg-white dark:bg-slate-900/95 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-lg transition-all flex flex-col items-center text-center min-w-[260px] sm:min-w-0 shrink-0 sm:shrink snap-start duration-500"
                 >
                   <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden mb-4 border-4 border-white dark:border-slate-800 shadow-sm bg-white dark:bg-slate-800 relative">
-                    <img 
+                    <Image 
                       src={(rd.imageUrl && rd.imageUrl.trim() !== "") ? rd.imageUrl : "/images/doctor-fallback.png"} 
                       alt={getTranslation(rd, 'name', locale)} 
-                      className="w-full h-full object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-500" 
+                      fill
+                      sizes="(max-width: 640px) 80px, 96px"
+                      className="object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-500" 
                     />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors line-clamp-1">{getTranslation(rd, 'name', locale)}</h4>

@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -267,11 +268,14 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             </div>
 
             <div className="w-full lg:w-1/2">
-              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-64 md:h-96">
-                <img 
+              <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white/10 h-64 md:h-96 relative">
+                <Image 
                   src={mainImage} 
                   alt={specialty.name} 
-                  className="w-full h-full object-cover"
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -293,10 +297,12 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                   {displayTreatments.map(treatment => (
                     <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 flex flex-col h-full">
                       <div className="h-48 overflow-hidden relative border-b border-slate-100 dark:border-slate-800">
-                        <img 
+                        <Image 
                           src={treatment.image} 
                           alt={treatment.name} 
-                          className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                          fill
+                          sizes="(max-width: 640px) 100vw, 50vw"
+                          className="object-cover transition-transform hover:scale-105 duration-500"
                         />
                       </div>
                       <div className="p-5 flex flex-col flex-1">

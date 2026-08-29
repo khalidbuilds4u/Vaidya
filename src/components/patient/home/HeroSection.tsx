@@ -6,9 +6,10 @@ import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import Image from 'next/image';
 import { Search, MapPin, ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import { motion } from 'framer-motion';
+import { m as motion } from 'framer-motion';
 
 export function HeroSection() {
   const router = useRouter();
@@ -30,12 +31,15 @@ export function HeroSection() {
     <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
       
       {/* 1. Vibrant High-Res Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none scale-100 sm:scale-[1.02] transition-transform duration-1000"
-        style={{
-          backgroundImage: `url('/images/hero-hospital-premium.jpg')`,
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none scale-100 sm:scale-[1.02] transition-transform duration-1000">
+        <Image 
+          src="/images/hero-hospital-premium.jpg" 
+          alt="Hospital Background" 
+          fill 
+          priority 
+          className="object-cover object-center" 
+        />
+      </div>
 
       {/* 2. Light Left Gradient Overlay (keeps left text area crisp white) */}
       <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent pointer-events-none z-[1] transition-colors duration-500" />

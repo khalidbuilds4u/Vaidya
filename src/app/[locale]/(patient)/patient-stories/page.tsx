@@ -1,4 +1,5 @@
 import { Metadata } from "next"
+import Image from "next/image"
 import { prisma } from "@/lib/prisma"
 import { Heart, Quote } from "lucide-react"
 import Link from "next/link"
@@ -24,7 +25,9 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
       {/* Hero Section */}
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000&auto=format&fit=crop')" }} />
+        <div className="absolute inset-0 opacity-20 pointer-events-none">
+          <Image src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000&auto=format&fit=crop" alt="Patient Stories Background" fill priority className="object-cover" />
+        </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 text-teal-300 font-semibold text-sm mb-6">
             <Heart className="w-4 h-4" /> Real Stories, Real Healing
@@ -51,7 +54,9 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
             {stories.map(story => (
               <div key={story.id} className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl dark:shadow-none transition-all duration-500 flex flex-col">
                 {story.imageUrl && (
-                  <img src={story.imageUrl} alt={story.title} className="w-full h-48 object-cover" />
+                  <div className="w-full h-48 relative">
+                    <Image src={story.imageUrl} alt={getTranslation(story, 'title', resolvedParams.locale) || "Story image"} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
+                  </div>
                 )}
                 <div className="p-6 flex-1 flex flex-col">
                   {story.treatment && (
