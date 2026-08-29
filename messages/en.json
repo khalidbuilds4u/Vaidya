@@ -893,14 +893,25 @@
       "requestBtn": "Request Travel Assistance"
     },
     "visa": {
-      "fastTrack": "Fast-Track Approval",
-      "title": "Medical Visa (Med Visa) Assistance",
-      "desc": "Traveling for medical treatment requires an official Indian Medical Visa (e-Med Visa). We fast-track this process by coordinating directly with accredited hospitals to issue government-recognized documentation within 24 to 48 hours.",
-      "bullet1": "Official Visa Invitation Letter (VIL) on hospital letterhead.",
-      "bullet2": "Medical Attendant Visa (MED-X) coverage for up to 2 family members.",
-      "bullet3": "Assistance with hospital-backed visa extensions if treatment requires longer recovery.",
-      "guarantee": "Guaranteed Fast Documentation",
-      "guaranteeDesc": "E-Medical Visa turnaround within 48 hours"
+      "title": "Medical Visa Assistance",
+      "subtitle": "Seamless Visa Support for Your Medical Journey to India",
+      "desc": "We provide structured medical visa assistance for international patients and their attendants, helping coordinate the required documentation and hospital formalities for a smooth journey to India.",
+      "step1Title": "1. Medical Visa Guidance",
+      "step1Desc": "Clear guidance on the medical visa process, eligibility, required documents, and important requirements.",
+      "step2Title": "2. Visa Invitation Letter (VIL)",
+      "step2Desc": "We coordinate with the concerned hospital for the Visa Invitation Letter (VIL) required for the medical visa application, where applicable.",
+      "step3Title": "3. Medical Documents Coordination",
+      "step3Desc": "Assistance with coordinating essential medical documents, appointment letters, treatment details, and other supporting documents.",
+      "step4Title": "4. Attendant Visa Assistance",
+      "step4Desc": "Support with the visa documentation and process for eligible attendants travelling with the patient.",
+      "step5Title": "5. Visa Application Support",
+      "step5Desc": "We help you organize the required information and documents for a smooth and properly prepared visa application.",
+      "step6Title": "6. Visa Extension Guidance",
+      "step6Desc": "If additional treatment requires an extended stay, we provide guidance on the applicable visa extension process and required documentation.",
+      "step7Title": "7. Pre-Travel Visa Checklist",
+      "step7Desc": "We help patients review important visa and travel documents before departure to minimize delays and last-minute issues.",
+      "step8Title": "8. Complete Visa Coordination",
+      "step8Desc": "From initial guidance and VIL coordination to travel preparation, we help manage the key visa-related requirements of your medical journey."
     },
     "concierge": {
       "tag": "360-Degree Care",
