@@ -31,11 +31,11 @@ export function Header() {
               <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
             <div className="flex flex-col justify-center">
-              <span className="text-lg sm:text-xl tracking-tight leading-none whitespace-nowrap">
+              <span className="text-base sm:text-xl tracking-tight leading-none whitespace-nowrap">
                 <span className="font-extrabold text-slate-900 dark:text-white">Asad</span>
                 <span className="font-semibold text-primary ml-1">Healthcare</span>
               </span>
-              <span className="hidden sm:block text-[9.5px] sm:text-[10px] font-semibold text-primary/90 tracking-tight mt-0.5 whitespace-nowrap">
+              <span className="text-[8px] sm:text-[10px] font-semibold text-primary/90 tracking-tight mt-0.5 whitespace-nowrap">
                 Global Trust • World-Class Healing
               </span>
             </div>
