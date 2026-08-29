@@ -22,9 +22,9 @@ export default async function MedicalTravelHubPage() {
       href: '/medical-travel/visa',
       icon: FileText,
       color: 'teal',
-      bgClass: 'bg-teal-50 text-teal-600',
-      borderClass: 'group-hover:border-teal-200',
-      shadowClass: 'group-hover:shadow-teal-900/10'
+      bgClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400',
+      borderClass: 'group-hover:border-teal-200 dark:group-hover:border-teal-900/50',
+      shadowClass: 'group-hover:shadow-[0_8px_30px_rgb(20,184,166,0.12)]'
     },
     {
       title: t('accommodation.title'),
@@ -32,9 +32,9 @@ export default async function MedicalTravelHubPage() {
       href: '/medical-travel/accommodation',
       icon: Hotel,
       color: 'teal',
-      bgClass: 'bg-teal-50 text-teal-600',
-      borderClass: 'group-hover:border-teal-200',
-      shadowClass: 'group-hover:shadow-teal-900/10'
+      bgClass: 'bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400',
+      borderClass: 'group-hover:border-teal-200 dark:group-hover:border-teal-900/50',
+      shadowClass: 'group-hover:shadow-[0_8px_30px_rgb(20,184,166,0.12)]'
     },
     {
       title: t('interpreters.title'),
@@ -42,9 +42,9 @@ export default async function MedicalTravelHubPage() {
       href: '/medical-travel/interpreters',
       icon: Languages,
       color: 'emerald',
-      bgClass: 'bg-emerald-50 text-emerald-600',
-      borderClass: 'group-hover:border-emerald-200',
-      shadowClass: 'group-hover:shadow-emerald-900/10'
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+      borderClass: 'group-hover:border-emerald-200 dark:group-hover:border-emerald-900/50',
+      shadowClass: 'group-hover:shadow-[0_8px_30px_rgb(16,185,129,0.12)]'
     },
     {
       title: t('airportTransfer.title'),
@@ -52,14 +52,14 @@ export default async function MedicalTravelHubPage() {
       href: '/medical-travel/airport-transfer',
       icon: Plane,
       color: 'emerald',
-      bgClass: 'bg-emerald-50 text-emerald-600',
-      borderClass: 'group-hover:border-emerald-200',
-      shadowClass: 'group-hover:shadow-emerald-900/10'
+      bgClass: 'bg-emerald-50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+      borderClass: 'group-hover:border-emerald-200 dark:group-hover:border-emerald-900/50',
+      shadowClass: 'group-hover:shadow-[0_8px_30px_rgb(16,185,129,0.12)]'
     }
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
       {/* 1. Hub Hero Section */}
       <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
@@ -112,18 +112,18 @@ export default async function MedicalTravelHubPage() {
       <section className="container mx-auto px-4 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
           {services.map((service, idx) => (
-            <Link key={idx} href={service.href} className={`group bg-white p-8 sm:p-10 rounded-[2rem] border border-slate-100 shadow-sm transition-all duration-300 hover:-translate-y-1 ${service.shadowClass} ${service.borderClass} relative overflow-hidden flex flex-col items-start`}>
+            <Link key={idx} href={service.href} className={`group bg-white dark:bg-slate-900/95 p-8 sm:p-10 rounded-[2rem] border border-slate-100 dark:border-slate-800 shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none transition-all duration-300 hover:-translate-y-1 ${service.shadowClass} ${service.borderClass} relative overflow-hidden flex flex-col items-start`}>
               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 ${service.bgClass}`}>
                 <service.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white mb-4 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">
                 {service.title}
               </h3>
-              <p className="text-slate-600 leading-relaxed mb-8 font-medium">
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-8 font-medium">
                 {service.desc}
               </p>
               
-              <div className="mt-auto flex items-center gap-2 font-bold text-primary group-hover:gap-3 transition-all">
+              <div className="mt-auto flex items-center gap-2 font-bold text-primary dark:text-teal-400 group-hover:gap-3 transition-all">
                 Explore Service <ArrowRight className="w-4 h-4" />
               </div>
             </Link>
