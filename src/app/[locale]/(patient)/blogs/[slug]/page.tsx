@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   }
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-24">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
       {/* Article Header */}
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
         {blog.coverImage && (
@@ -63,8 +63,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
       {/* Article Content */}
       <section className="container mx-auto px-4 -mt-10 relative z-20">
-        <div className="bg-white rounded-2xl shadow-xl p-8 sm:p-12 max-w-4xl mx-auto border border-slate-100">
-          <div className="prose prose-slate prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: (getTranslation(blog, 'content', resolvedParams.locale) || blog.content).replace(/\n/g, '<br/>') }} />
+        <div className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-xl dark:shadow-none p-8 sm:p-12 max-w-4xl mx-auto border border-slate-100 dark:border-slate-800 transition-colors duration-500">
+          <div className="prose prose-slate dark:prose-invert prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: (getTranslation(blog, 'content', resolvedParams.locale) || blog.content).replace(/\n/g, '<br/>') }} />
         </div>
       </section>
     </div>
