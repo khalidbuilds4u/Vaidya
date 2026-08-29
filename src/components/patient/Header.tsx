@@ -27,15 +27,15 @@ export function Header() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Link href="/" className="flex items-center space-x-2.5 group" onClick={closeMenu}>
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 via-primary/10 to-teal-500/20 flex items-center justify-center border border-primary/20 shadow-sm group-hover:scale-105 transition-transform">
-              <Stethoscope className="h-5 w-5 text-primary" />
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary/20 via-primary/10 to-teal-500/20 flex items-center justify-center border border-primary/20 shadow-sm group-hover:scale-105 transition-transform shrink-0">
+              <Stethoscope className="h-4 w-4 sm:h-5 sm:w-5 text-primary" />
             </div>
-            <div className="flex flex-col">
-              <span className="text-xl tracking-tight leading-none">
+            <div className="flex flex-col justify-center">
+              <span className="text-lg sm:text-xl tracking-tight leading-none whitespace-nowrap">
                 <span className="font-extrabold text-slate-900 dark:text-white">Asad</span>
                 <span className="font-semibold text-primary ml-1">Healthcare</span>
               </span>
-              <span className="text-[9.5px] sm:text-[10px] font-semibold text-primary/90 tracking-tight block mt-0.5">
+              <span className="hidden sm:block text-[9.5px] sm:text-[10px] font-semibold text-primary/90 tracking-tight mt-0.5 whitespace-nowrap">
                 Global Trust • World-Class Healing
               </span>
             </div>
@@ -73,7 +73,7 @@ export function Header() {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-1 sm:gap-3 shrink-0">
           <LanguageSwitcher />
           <ThemeToggle />
 
