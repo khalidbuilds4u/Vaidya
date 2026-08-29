@@ -964,6 +964,27 @@
       "step7Desc": "We also help accompanying family members and attendants understand important information throughout their hospital journey.",
       "step8Title": "8. Continuous Interpretation Support",
       "step8Desc": "From the first hospital visit to treatment and follow-up, we provide interpretation assistance whenever communication support is required."
+    },
+    "airportTransfer": {
+      "title": "Airport Transfer Services",
+      "subtitle": "Reliable Transportation Support Throughout Your Medical Journey",
+      "desc": "We coordinate convenient and comfortable transportation for international patients and their attendants, from airport arrival to hospital visits, accommodation, and departure.",
+      "step1Title": "1. Airport Pickup",
+      "step1Desc": "We arrange a smooth pickup from the airport and transfer you safely to your hotel, guest house, or hospital.",
+      "step2Title": "2. Airport Drop",
+      "step2Desc": "At the end of your stay, we coordinate your transfer from the hotel or hospital to the airport for your return journey.",
+      "step3Title": "3. Hospital Transfers",
+      "step3Desc": "We arrange transportation between your accommodation and hospital for consultations, tests, treatment, and follow-up visits.",
+      "step4Title": "4. Local Transportation",
+      "step4Desc": "We assist with transportation to diagnostic centers, pharmacies, and other essential locations when required.",
+      "step5Title": "5. Patient-Friendly Transfers",
+      "step5Desc": "We help coordinate suitable transportation with the patient's comfort and mobility requirements in mind.",
+      "step6Title": "6. Attendant & Family Transfers",
+      "step6Desc": "Transportation support is also available for accompanying family members and attendants.",
+      "step7Title": "7. Scheduled Transportation",
+      "step7Desc": "We coordinate transfers around your medical appointments and treatment schedule to help keep your journey organized.",
+      "step8Title": "8. End-to-End Travel Support",
+      "step8Desc": "From airport pickup to airport drop, we help coordinate your essential transportation needs throughout your stay in India."
     }
   },
   "Accommodation": {
