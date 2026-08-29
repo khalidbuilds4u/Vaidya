@@ -42,14 +42,14 @@ export function AccommodationContent() {
             variants={fadeUpVariant}
             className="lg:sticky lg:top-36"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 text-teal-600 text-xs font-bold uppercase tracking-wider mb-6 border border-teal-100">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-6 border border-teal-100 dark:border-teal-500/20 transition-colors duration-500">
               <Hotel className="w-4 h-4" />
               <span>{t('accommodation.title')}</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-6 leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6 leading-[1.1] transition-colors duration-500">
               {t('accommodation.subtitle')}
             </h2>
-            <p className="text-lg text-slate-600 leading-relaxed font-medium mb-8">
+            <p className="text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium mb-8 transition-colors duration-500">
               {t('accommodation.desc')}
             </p>
             
@@ -69,16 +69,16 @@ export function AccommodationContent() {
               <motion.div 
                 key={idx}
                 variants={fadeUpVariant}
-                className="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-100 flex gap-5 sm:gap-6 items-start hover:shadow-md transition-shadow group hover:border-teal-100"
+                className="bg-white dark:bg-slate-900/95 p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-100 dark:border-slate-800 flex gap-5 sm:gap-6 items-start hover:shadow-md transition-all duration-300 group hover:border-teal-100 dark:hover:border-teal-900/50"
               >
-                <div className="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform border border-teal-100/50">
+                <div className="w-14 h-14 rounded-2xl bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform border border-teal-100/50 dark:border-teal-500/20">
                   <step.icon className="w-7 h-7" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold mb-2 text-slate-900">
+                  <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white transition-colors duration-500">
                     {t(step.titleKey as any).replace(/^\d+\.\s*/, '')}
                   </h3>
-                  <p className="text-slate-600 text-base leading-relaxed">
+                  <p className="text-slate-600 dark:text-slate-400 text-base leading-relaxed transition-colors duration-500">
                     {t(step.descKey as any)}
                   </p>
                 </div>

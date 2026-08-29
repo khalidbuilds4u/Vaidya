@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default async function AccommodationPage() {
   const t = await getTranslations('MedicalTravel');
   return (
-    <div className="bg-slate-50 min-h-screen pb-20">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-slate-950 text-white border-b border-teal-900/40">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-40 scale-105"

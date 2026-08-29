@@ -38,14 +38,14 @@ export function MedicalVisaContent() {
         variants={fadeUpVariant}
         className="max-w-3xl mx-auto text-center mb-16"
       >
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white shadow-sm text-teal-600 border border-teal-100 text-xs font-bold uppercase tracking-wider mb-4">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white dark:bg-slate-900/95 shadow-sm text-teal-600 dark:text-teal-400 border border-teal-100 dark:border-teal-900 text-xs font-bold uppercase tracking-wider mb-4 transition-colors duration-500">
           <FileText className="w-4 h-4" />
           <span>{t('visa.title')}</span>
         </div>
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight mb-4 leading-tight">
+        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-4 leading-tight transition-colors duration-500">
           {t('visa.subtitle')}
         </h2>
-        <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-medium">
+        <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 leading-relaxed font-medium transition-colors duration-500">
           {t('visa.desc')}
         </p>
       </motion.div>
@@ -59,20 +59,20 @@ export function MedicalVisaContent() {
           <motion.div 
             key={idx} 
             variants={fadeUpVariant}
-            className="bg-white rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(15,118,110,0.08)] transition-all duration-300 flex flex-col h-full"
+            className="bg-white dark:bg-slate-900/95 rounded-[2rem] p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 dark:border-slate-800 relative overflow-hidden group hover:-translate-y-1 hover:shadow-[0_20px_40px_rgb(15,118,110,0.08)] transition-all duration-300 flex flex-col h-full"
           >
-            <div className="absolute -bottom-6 -right-4 text-[120px] font-black text-slate-50/80 group-hover:text-teal-50/80 transition-colors leading-none z-0 pointer-events-none select-none">
+            <div className="absolute -bottom-6 -right-4 text-[120px] font-black text-slate-50/80 dark:text-slate-800/50 group-hover:text-teal-50/80 dark:group-hover:text-teal-900/30 transition-colors leading-none z-0 pointer-events-none select-none">
               {idx + 1}
             </div>
             
             <div className="relative z-10">
-              <div className="w-12 h-12 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm border border-teal-100/50">
+              <div className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-500/10 text-teal-600 dark:text-teal-400 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform shadow-sm border border-teal-100/50 dark:border-teal-500/20">
                 <step.icon className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold mb-3 text-slate-900 leading-tight">
+              <h3 className="text-lg font-bold mb-3 text-slate-900 dark:text-white leading-tight transition-colors duration-500">
                 {t(step.titleKey as any)}
               </h3>
-              <p className="text-slate-500 text-sm leading-relaxed font-medium">
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium transition-colors duration-500">
                 {t(step.descKey as any)}
               </p>
             </div>
