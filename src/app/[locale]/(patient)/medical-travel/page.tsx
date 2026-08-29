@@ -108,7 +108,6 @@ export default async function MedicalTravelPage() {
             </div>
           ))}
         </div>
-      </div>
 
         {/* 3. Concierge Services Grid */}
         <div className="text-center mb-8 sm:mb-12">
