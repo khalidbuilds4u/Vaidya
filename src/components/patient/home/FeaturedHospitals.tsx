@@ -30,7 +30,7 @@ export async function FeaturedHospitals() {
   }
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900/20 transition-colors duration-500">
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900 transition-colors duration-500">
       {/* Background Glow */}
       <div className="absolute top-[10%] right-[-5%] w-[400px] h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
 

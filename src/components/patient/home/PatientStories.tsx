@@ -163,7 +163,7 @@ export function PatientStories() {
   };
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-950/20 border-y border-slate-200/60 dark:border-slate-800/60 transition-colors duration-500">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900 border-y border-slate-200/60 dark:border-slate-800/60 transition-colors duration-500">
       {/* Dynamic Ambient Glows */}
       <div className="absolute top-[10%] left-[-10%] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] ambient-glow rounded-full -z-10 opacity-70" />
       <div className="absolute bottom-[10%] right-[-10%] w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] ambient-glow-secondary rounded-full -z-10 opacity-70" />

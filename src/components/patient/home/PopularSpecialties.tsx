@@ -52,7 +52,7 @@ export async function PopularSpecialties() {
   });
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/60 dark:bg-slate-900/40 transition-colors duration-500">
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/60 dark:bg-slate-900 transition-colors duration-500">
       {/* Subtle Ambient Orb */}
       <div className="absolute top-[20%] left-[50%] -translate-x-1/2 w-[500px] h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
 

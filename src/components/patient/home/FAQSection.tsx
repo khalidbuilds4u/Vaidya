@@ -48,7 +48,7 @@ export function FAQSection() {
   const visibleFaqs = showAll ? localizedFaqs : localizedFaqs.slice(0, 6);
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900/40 transition-colors duration-500">
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900 transition-colors duration-500">
       {/* Ambient Lighting */}
       <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
 

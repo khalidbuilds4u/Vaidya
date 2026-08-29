@@ -58,7 +58,7 @@ export default async function RootLayout({
       className={`${isRtl ? cairo.variable : inter.variable} ${isRtl ? 'font-cairo' : 'font-sans'} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 transition-colors duration-500">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
