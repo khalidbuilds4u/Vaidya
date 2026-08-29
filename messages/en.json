@@ -922,6 +922,57 @@
       "hotelDesc": "We arrange comfortable, hygienically vetted guest apartments and 4/5-star hotels within walking distance of the hospital, catering to your dietary needs and attendant comfort.",
       "interpreterTitle": "Multilingual Interpreters",
       "interpreterDesc": "Language is never an obstacle. Dedicated native-speaking translators (Arabic, Russian, French, Bengali, Swahili) accompany you during all medical consultations and ward visits."
+    },
+    "accommodation": {
+      "title": "Accommodation & Stay",
+      "subtitle": "Comfortable, Convenient & Well-Connected Accommodation",
+      "desc": "We help international patients and their attendants arrange suitable accommodation close to the hospital, making their stay in India more comfortable and convenient throughout the treatment journey.",
+      "step1Title": "1. Hotel & Guest House Assistance",
+      "step1Desc": "We help arrange suitable hotels, guest houses, and serviced accommodations based on your needs and budget.",
+      "step2Title": "2. Hospital-Connected Locations",
+      "step2Desc": "We prioritize accommodation options conveniently located near the hospital to reduce travel time during consultations and treatment.",
+      "step3Title": "3. Patient-Friendly Accommodation",
+      "step3Desc": "We help identify comfortable and practical stays suitable for patients, attendants, and families during medical treatment.",
+      "step4Title": "4. Short & Extended Stays",
+      "step4Desc": "Whether you need accommodation for a few days or several weeks, we assist with arrangements according to your treatment schedule.",
+      "step5Title": "5. Booking & Check-In Support",
+      "step5Desc": "We assist with accommodation coordination, booking details, check-in requirements, and other basic stay-related arrangements.",
+      "step6Title": "6. Transportation Assistance",
+      "step6Desc": "We can coordinate transportation between your accommodation, hospital, airport, and other essential locations.",
+      "step7Title": "7. Family & Attendant Support",
+      "step7Desc": "We consider the needs of accompanying family members and attendants to help make their stay convenient and comfortable.",
+      "step8Title": "8. Stay Extension Assistance",
+      "step8Desc": "If your treatment schedule changes, we can assist with coordinating an extended stay according to your requirements."
+    }
+  },
+  "Accommodation": {
+    "hero": {
+      "tag": "Comfortable & Secure Stays",
+      "title1": "Premium Accommodation",
+      "title2": "For Your Recovery.",
+      "desc": "We help international patients and their attendants arrange suitable accommodation close to the hospital, making their stay in India more comfortable and convenient throughout the treatment journey.",
+      "requestBtn": "Request Accommodation"
+    },
+    "grid": {
+      "title": "Accommodation & Stay",
+      "subtitle": "Comfortable, Convenient & Well-Connected Accommodation",
+      "desc": "We help international patients and their attendants arrange suitable accommodation close to the hospital, making their stay in India more comfortable and convenient throughout the treatment journey.",
+      "step1Title": "1. Hotel & Guest House Assistance",
+      "step1Desc": "We help arrange suitable hotels, guest houses, and serviced accommodations based on your needs and budget.",
+      "step2Title": "2. Hospital-Connected Locations",
+      "step2Desc": "We prioritize accommodation options conveniently located near the hospital to reduce travel time during consultations and treatment.",
+      "step3Title": "3. Patient-Friendly Accommodation",
+      "step3Desc": "We help identify comfortable and practical stays suitable for patients, attendants, and families during medical treatment.",
+      "step4Title": "4. Short & Extended Stays",
+      "step4Desc": "Whether you need accommodation for a few days or several weeks, we assist with arrangements according to your treatment schedule.",
+      "step5Title": "5. Booking & Check-In Support",
+      "step5Desc": "We assist with accommodation coordination, booking details, check-in requirements, and other basic stay-related arrangements.",
+      "step6Title": "6. Transportation Assistance",
+      "step6Desc": "We can coordinate transportation between your accommodation, hospital, airport, and other essential locations.",
+      "step7Title": "7. Family & Attendant Support",
+      "step7Desc": "We consider the needs of accompanying family members and attendants to help make their stay convenient and comfortable.",
+      "step8Title": "8. Stay Extension Assistance",
+      "step8Desc": "If your treatment schedule changes, we can assist with coordinating an extended stay according to your requirements."
     }
   },
   "EnquiryForm": {

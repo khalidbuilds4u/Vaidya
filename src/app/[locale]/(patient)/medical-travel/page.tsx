@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import { Plane, Hotel, MessageCircle, FileText, CheckCircle2, ShieldCheck, ArrowRight, Info, FileSignature, Files, Users, ClipboardList, Clock, ListChecks } from 'lucide-react';
+import { Plane, Hotel, MessageCircle, FileText, CheckCircle2, ShieldCheck, ArrowRight, Info, FileSignature, Files, Users, ClipboardList, Clock, ListChecks, Building, MapPin, HeartHandshake, Calendar, CheckSquare, Car, CalendarPlus } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
@@ -162,7 +162,53 @@ export default async function MedicalTravelPage() {
         </div>
       </section>
 
+      {/* 4. Accommodation & Stay Process (8 Steps) */}
+      <div id="accommodation" className="container mx-auto px-4 mt-16 sm:mt-24 mb-16 sm:mb-24">
+        
+        {/* Intro */}
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-4">
+            <Hotel className="w-4 h-4" />
+            <span>{t('accommodation.title')}</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">
+            {t('accommodation.subtitle')}
+          </h2>
+          <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-medium">
+            {t('accommodation.desc')}
+          </p>
+        </div>
+
+        {/* 8-Point Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {[
+            { icon: Building, titleKey: 'accommodation.step1Title', descKey: 'accommodation.step1Desc' },
+            { icon: MapPin, titleKey: 'accommodation.step2Title', descKey: 'accommodation.step2Desc' },
+            { icon: HeartHandshake, titleKey: 'accommodation.step3Title', descKey: 'accommodation.step3Desc' },
+            { icon: Calendar, titleKey: 'accommodation.step4Title', descKey: 'accommodation.step4Desc' },
+            { icon: CheckSquare, titleKey: 'accommodation.step5Title', descKey: 'accommodation.step5Desc' },
+            { icon: Car, titleKey: 'accommodation.step6Title', descKey: 'accommodation.step6Desc' },
+            { icon: Users, titleKey: 'accommodation.step7Title', descKey: 'accommodation.step7Desc' },
+            { icon: CalendarPlus, titleKey: 'accommodation.step8Title', descKey: 'accommodation.step8Desc' },
+          ].map((step, idx) => (
+            <div key={idx} className="glass-card p-5 sm:p-6 rounded-2xl sm:rounded-3xl border border-white/90 shadow-sm hover:shadow-lg transition-all duration-300 bg-white/95 group relative overflow-hidden flex flex-col h-full">
+              
+              <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-bl-[100px] -z-10 group-hover:bg-primary/10 transition-colors" />
+              
+              <div className="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                <step.icon className="w-5 h-5" />
+              </div>
+              <h3 className="text-sm sm:text-base font-bold mb-2 text-slate-900 leading-tight">
+                {t(step.titleKey as any)}
+              </h3>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-medium">
+                {t(step.descKey as any)}
+              </p>
+            </div>
+          ))}
+        </div>
       </div>
+
     </div>
   );
 }
