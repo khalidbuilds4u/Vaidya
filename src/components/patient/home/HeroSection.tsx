@@ -49,17 +49,17 @@ export function HeroSection() {
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           
           {/* Main Hero Card (Frosted Glass Container for High Readability) */}
-          <div className="w-full lg:w-7/12 flex flex-col items-start text-left z-10">
+          <div className="w-full lg:w-7/12 flex flex-col items-center sm:items-start text-center sm:text-left z-10">
             
             {/* Top Tagline Glass Pill */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
+              className="inline-flex items-center text-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
             >
-              <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse" />
-              <span className="truncate">{t('tagline')}</span>
+              <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse hidden sm:block" />
+              <span className="whitespace-normal leading-snug">{t('tagline')}</span>
             </motion.div>
             
             {/* Headline */}
@@ -111,7 +111,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-0 sm:mb-10 w-full max-w-xl mt-14 sm:mt-0"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-0 sm:mb-10 w-full max-w-xl mt-6 sm:mt-0"
             >
               <div className="flex-1 w-full">
                 <EnquiryForm>
