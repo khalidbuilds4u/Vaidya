@@ -122,7 +122,7 @@ export function FAQSection() {
           
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto shrink-0">
             <a 
-              href="tel:+919451187513"
+              href="tel:+919918053077"
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-5 h-11 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-900 text-xs sm:text-sm font-bold transition-all shadow-xs shrink-0 whitespace-nowrap active:scale-95 border border-slate-200/70"
             >
               <PhoneCall className="w-4 h-4 text-primary shrink-0" />

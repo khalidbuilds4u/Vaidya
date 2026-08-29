@@ -354,7 +354,7 @@ export default function ServicesPage() {
               </Button>
             </EnquiryForm>
             <Button asChild size="lg" variant="outline" className="rounded-full px-8 border-slate-200">
-              <a href="https://wa.me/919451187513" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <a href="https://wa.me/919918053077" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <PhoneCall className="w-4 h-4 text-emerald-600" />WhatsApp Us Now
               </a>
             </Button>

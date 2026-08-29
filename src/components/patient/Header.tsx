@@ -110,12 +110,12 @@ export function Header() {
             <Link href="/about-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('aboutUs')}</Link>
             <Link href="/contact-us" className="py-2.5 px-3 rounded-lg hover:bg-primary/5 hover:text-primary transition-colors" onClick={closeMenu}>{t('contactUs')}</Link>
             <a 
-              href="tel:+919451187513" 
+              href="tel:+919918053077" 
               className="py-2.5 px-3 rounded-lg bg-primary/5 text-primary font-semibold flex items-center gap-2 mt-2" 
               onClick={closeMenu}
             >
               <PhoneCall className="w-4 h-4" />
-              <span>{t('callHelpline', { number: '+91 94511 87513' })}</span>
+              <span>{t('callHelpline', { number: '+91 99180 53077' })}</span>
             </a>
           </nav>
           <div className="pt-2">

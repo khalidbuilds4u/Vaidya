@@ -99,16 +99,16 @@ export function Footer() {
             <ul className="space-y-2.5 text-xs sm:text-sm text-slate-400">
               <li>
                 <a 
-                  href="tel:+919451187513" 
+                  href="tel:+919918053077" 
                   className="font-bold text-white hover:text-teal-300 transition-colors flex items-center gap-1.5"
                 >
                   <PhoneCall className="w-3.5 h-3.5 text-teal-400 shrink-0" />
-                  <span>+91 94511 87513</span>
+                  <span>+91 99180 53077</span>
                 </a>
               </li>
               <li>
                 <a 
-                  href="https://wa.me/919451187513" 
+                  href="https://wa.me/919918053077" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="font-bold text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5"

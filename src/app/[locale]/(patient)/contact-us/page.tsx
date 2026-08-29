@@ -42,8 +42,8 @@ export default async function ContactUsPage() {
                   <Phone className="w-6 h-6 shrink-0 text-teal-300" />
                   <div>
                     <h4 className="font-semibold">{t('info.phone')}</h4>
-                    <a href="tel:+919451187513" className="text-primary-foreground/90 hover:text-white mt-1 block">
-                      +91 94511 87513
+                    <a href="tel:+919918053077" className="text-primary-foreground/90 hover:text-white mt-1 block">
+                      +91 99180 53077
                     </a>
                   </div>
                 </div>

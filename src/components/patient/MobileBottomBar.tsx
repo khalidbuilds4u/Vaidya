@@ -4,8 +4,8 @@ import Link from 'next/link';
 import { PhoneCall } from 'lucide-react';
 
 export function MobileBottomBar() {
-  const phoneNumber = "+919451187513";
-  const whatsappNumber = "919451187513";
+  const phoneNumber = "+919918053077";
+  const whatsappNumber = "919918053077";
 
   return (
     <div className="md:hidden fixed bottom-[6rem] right-0 z-40 pointer-events-auto pb-[env(safe-area-inset-bottom)]">

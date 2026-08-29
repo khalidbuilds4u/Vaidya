@@ -6,8 +6,8 @@ import { useTranslations } from 'next-intl';
 
 export function FloatingContact() {
   const t = useTranslations('FloatingContact');
-  const phoneNumber = "+919451187513";
-  const whatsappNumber = "919451187513";
+  const phoneNumber = "+919918053077";
+  const whatsappNumber = "919918053077";
 
   return (
     <div className="hidden md:flex fixed right-0 bottom-24 z-50 flex-col gap-2.5 p-2 sm:p-4 pointer-events-none">

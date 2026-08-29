@@ -32,7 +32,7 @@ const COUNTRIES = [
   "Other"
 ];
 
-const WHATSAPP_NUMBER = "919451187513";
+const WHATSAPP_NUMBER = "919918053077";
 
 export function EnquiryForm({ children }: { children: React.ReactNode }) {
   const t = useTranslations('EnquiryForm');
