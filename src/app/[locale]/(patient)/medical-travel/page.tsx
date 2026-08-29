@@ -110,7 +110,8 @@ export default async function MedicalTravelPage() {
         </div>
 
         {/* 3. Concierge Services Grid */}
-        <div className="text-center mb-8 sm:mb-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-8 sm:mb-12">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill text-primary text-xs font-bold uppercase tracking-wider mb-3">
             {t('concierge.tag')}
           </div>
@@ -152,6 +153,7 @@ export default async function MedicalTravelPage() {
           </div>
 
         </div>
+      </div>
 
       </div>
     </div>
