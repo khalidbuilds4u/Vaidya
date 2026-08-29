@@ -943,6 +943,27 @@
       "step7Desc": "We consider the needs of accompanying family members and attendants to help make their stay convenient and comfortable.",
       "step8Title": "8. Stay Extension Assistance",
       "step8Desc": "If your treatment schedule changes, we can assist with coordinating an extended stay according to your requirements."
+    },
+    "interpreters": {
+      "title": "Language Interpretation Services",
+      "subtitle": "Clear Communication Between Patients & Healthcare Professionals",
+      "desc": "Effective communication is an important part of every medical journey. Our professional interpretation support helps international patients communicate comfortably with doctors, nurses, hospital staff, and other healthcare professionals.",
+      "step1Title": "1. Language Interpretation",
+      "step1Desc": "We provide Language interpretation support to help patients clearly communicate their concerns, questions, and medical information.",
+      "step2Title": "2. Doctor Consultation Interpretation",
+      "step2Desc": "We assist patients during consultations by interpreting conversations between the patient and treating doctor.",
+      "step3Title": "3. Hospital Communication",
+      "step3Desc": "We help patients communicate with nurses, hospital staff, reception teams, and other departments when required.",
+      "step4Title": "4. Medical Terminology Support",
+      "step4Desc": "We help explain commonly used medical terms, instructions, procedures, and treatment-related information in a clear and understandable way.",
+      "step5Title": "5. Diagnostic & Test Assistance",
+      "step5Desc": "We provide interpretation support during diagnostic tests, investigations, and related hospital procedures.",
+      "step6Title": "6. Admission & Discharge Support",
+      "step6Desc": "We assist with communication during hospital admission, discharge formalities, and important instructions provided by the medical team.",
+      "step7Title": "7. Patient & Attendant Support",
+      "step7Desc": "We also help accompanying family members and attendants understand important information throughout their hospital journey.",
+      "step8Title": "8. Continuous Interpretation Support",
+      "step8Desc": "From the first hospital visit to treatment and follow-up, we provide interpretation assistance whenever communication support is required."
     }
   },
   "Accommodation": {
