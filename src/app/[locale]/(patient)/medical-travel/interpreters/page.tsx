@@ -16,7 +16,7 @@ export default async function InterpretersPage() {
     <div className="bg-slate-950 min-h-screen">
       <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden text-white border-b border-teal-900/40 z-20">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-20 sm:opacity-30 mix-blend-luminosity scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop')`,
           }}

@@ -16,7 +16,7 @@ export default async function AirportTransferPage() {
     <div className="bg-slate-50 min-h-screen pb-20">
       <section className="relative py-16 sm:py-24 lg:py-28 overflow-hidden bg-slate-950 text-white border-b border-emerald-900/40">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-20 sm:opacity-30 mix-blend-luminosity scale-105"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-35 sm:opacity-45 scale-105"
           style={{
             backgroundImage: `url('https://images.unsplash.com/photo-1494515843206-f3117d3f51b7?q=80&w=2072&auto=format&fit=crop')`,
           }}
