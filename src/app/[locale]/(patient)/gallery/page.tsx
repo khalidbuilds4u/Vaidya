@@ -19,7 +19,7 @@ export default async function GalleryPage() {
   const categories = Array.from(new Set(images.map(img => img.category)))
 
   return (
-    <div className="bg-slate-50 min-h-screen pb-24">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-24 transition-colors duration-500">
       {/* Hero Section */}
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2000&auto=format&fit=crop')" }} />
@@ -39,16 +39,16 @@ export default async function GalleryPage() {
       {/* Gallery Grid */}
       <section className="container mx-auto px-4 mt-12">
         {images.length === 0 ? (
-          <div className="bg-white rounded-2xl shadow-xl p-12 text-center max-w-2xl mx-auto border border-slate-100">
-            <ImageIcon className="w-12 h-12 text-slate-300 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-slate-800 mb-2">Gallery Coming Soon</h2>
-            <p className="text-slate-500">We are currently updating our image gallery. Please check back later!</p>
+          <div className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-xl dark:shadow-none p-12 text-center max-w-2xl mx-auto border border-slate-100 dark:border-slate-800 transition-colors duration-500">
+            <ImageIcon className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-4 transition-colors duration-500" />
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2 transition-colors duration-500">Gallery Coming Soon</h2>
+            <p className="text-slate-500 dark:text-slate-400 transition-colors duration-500">We are currently updating our image gallery. Please check back later!</p>
           </div>
         ) : (
           <div className="space-y-16">
             {categories.map(category => (
               <div key={category}>
-                <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b pb-2">{category}</h2>
+                <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 border-b dark:border-slate-800 pb-2 transition-colors duration-500">{category}</h2>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
                   {images.filter(img => img.category === category).map(image => (
                     <div key={image.id} className="group relative rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all cursor-pointer aspect-square bg-slate-200">
