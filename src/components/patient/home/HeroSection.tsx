@@ -56,7 +56,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="hidden sm:inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3.5 py-1.5 rounded-full text-primary text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-3 sm:mb-5 shadow-sm border border-primary/20 bg-white/90 backdrop-blur-md max-w-full"
             >
               <Sparkles className="w-3.5 h-3.5 text-primary shrink-0 animate-pulse" />
               <span className="truncate">{t('tagline')}</span>
