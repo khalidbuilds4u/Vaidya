@@ -27,6 +27,9 @@ export async function createStory(data: any) {
       content: data.content,
       imageUrl: data.imageUrl || null,
       treatmentId: data.treatmentId || null,
+      specialtyId: data.specialtyId || null,
+      hospital: data.hospital || null,
+      country: data.country || null,
       translations: finalTranslations ? finalTranslations : undefined,
     }
   })
@@ -64,6 +67,9 @@ export async function updateStory(id: string, data: any) {
       content: data.content,
       imageUrl: data.imageUrl || null,
       treatmentId: data.treatmentId || null,
+      specialtyId: data.specialtyId || null,
+      hospital: data.hospital || null,
+      country: data.country || null,
       translations: finalTranslations ? finalTranslations : undefined,
     }
   })

@@ -16,6 +16,10 @@ export default async function EditStoryPage({ params }: { params: Promise<{ id: 
   const treatments = await prisma.treatment.findMany({
     select: { id: true, name: true }
   })
+  
+  const specialties = await prisma.specialty.findMany({
+    select: { id: true, name: true }
+  })
 
   return (
     <div className="space-y-6 max-w-4xl">
@@ -25,7 +29,7 @@ export default async function EditStoryPage({ params }: { params: Promise<{ id: 
       </div>
 
       <div className="bg-white rounded-xl shadow-sm border border-slate-100 p-6 md:p-8">
-        <StoryForm treatments={treatments} initialData={story} />
+        <StoryForm treatments={treatments} specialties={specialties} initialData={story} />
       </div>
     </div>
   )

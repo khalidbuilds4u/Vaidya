@@ -13,6 +13,10 @@ export default async function NewStoryPage() {
   const treatments = await prisma.treatment.findMany({
     orderBy: { name: 'asc' }
   })
+  
+  const specialties = await prisma.specialty.findMany({
+    orderBy: { name: 'asc' }
+  })
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
@@ -24,7 +28,7 @@ export default async function NewStoryPage() {
       </div>
 
       <div className="bg-white rounded-xl border shadow-sm p-6">
-        <StoryForm treatments={treatments} />
+        <StoryForm treatments={treatments} specialties={specialties} />
       </div>
     </div>
   )

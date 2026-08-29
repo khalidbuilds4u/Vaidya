@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { createStory, updateStory } from "@/app/actions/cmsActions"
 
-export function StoryForm({ treatments, initialData }: { treatments: any[], initialData?: any }) {
+export function StoryForm({ treatments, specialties = [], initialData }: { treatments: any[], specialties?: any[], initialData?: any }) {
   const router = useRouter()
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
@@ -29,6 +29,9 @@ export function StoryForm({ treatments, initialData }: { treatments: any[], init
       slug,
       patientName: formData.get("patientName"),
       treatmentId: formData.get("treatmentId") || null,
+      specialtyId: formData.get("specialtyId") || null,
+      hospital: formData.get("hospital") || null,
+      country: formData.get("country") || null,
       imageUrl: formData.get("imageUrl") || null,
       content: formData.get("content"),
       title_ar: formData.get("title_ar") || null,
@@ -81,9 +84,36 @@ export function StoryForm({ treatments, initialData }: { treatments: any[], init
         </div>
         
         <div className="space-y-2">
-          <Label htmlFor="imageUrl">Image URL</Label>
-          <Input id="imageUrl" name="imageUrl" defaultValue={initialData?.imageUrl || ""} placeholder="https://example.com/image.jpg" />
+          <Label htmlFor="specialtyId">Related Specialty</Label>
+          <select 
+            id="specialtyId" 
+            name="specialtyId"
+            defaultValue={initialData?.specialtyId || ""}
+            className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            <option value="">None / General</option>
+            {specialties.map(s => (
+              <option key={s.id} value={s.id}>{s.name}</option>
+            ))}
+          </select>
         </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <Label htmlFor="hospital">Hospital Treated</Label>
+          <Input id="hospital" name="hospital" defaultValue={initialData?.hospital || ""} placeholder="e.g. Asad Healthcare Delhi" />
+        </div>
+        
+        <div className="space-y-2">
+          <Label htmlFor="country">Patient Country</Label>
+          <Input id="country" name="country" defaultValue={initialData?.country || ""} placeholder="e.g. Nigeria, UAE" />
+        </div>
+      </div>
+      
+      <div className="space-y-2">
+        <Label htmlFor="imageUrl">Image URL</Label>
+        <Input id="imageUrl" name="imageUrl" defaultValue={initialData?.imageUrl || ""} placeholder="https://example.com/image.jpg" />
       </div>
 
       <div className="space-y-2">

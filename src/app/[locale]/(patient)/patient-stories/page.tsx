@@ -18,7 +18,7 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
   const resolvedParams = await params;
   const stories = await prisma.patientStory.findMany({
     orderBy: { createdAt: "desc" },
-    include: { treatment: true }
+    include: { treatment: true, specialty: true }
   })
 
   return (
@@ -64,7 +64,20 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
                       {getTranslation(story.treatment, 'name', resolvedParams.locale)}
                     </span>
                   )}
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 line-clamp-2">{getTranslation(story, 'title', resolvedParams.locale)}</h3>
+                  {!story.treatment && story.specialty && (
+                    <span className="text-xs font-bold text-primary dark:text-teal-400 uppercase tracking-wider mb-2">
+                      {getTranslation(story.specialty, 'name', resolvedParams.locale)}
+                    </span>
+                  )}
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">{getTranslation(story, 'title', resolvedParams.locale)}</h3>
+                  
+                  {(story.hospital || story.country) && (
+                    <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-3 font-medium">
+                      {story.hospital && <span>📍 {story.hospital}</span>}
+                      {story.hospital && story.country && <span>•</span>}
+                      {story.country && <span>🌍 {story.country}</span>}
+                    </div>
+                  )}
                   <div className="relative mb-4 flex-1">
                     <Quote className="absolute -top-1 -left-2 w-8 h-8 text-slate-100 dark:text-slate-800 -z-10 transform rotate-180 transition-colors" />
                     <p className="text-slate-600 dark:text-slate-400 line-clamp-4 relative z-10 transition-colors">{getTranslation(story, 'content', resolvedParams.locale)}</p>

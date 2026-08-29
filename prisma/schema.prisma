@@ -52,6 +52,7 @@ model Specialty {
   doctors     Doctor[]
   treatments  Treatment[]
   hospitals   Hospital[]  @relation("HospitalSpecialties")
+  stories     PatientStory[]
 }
 
 model Condition {
@@ -305,9 +306,13 @@ model PatientStory {
   imageUrl    String?
   translations Json?
   treatmentId String?
+  hospital    String?
+  country     String?
+  specialtyId String?
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
   treatment   Treatment? @relation(fields: [treatmentId], references: [id])
+  specialty   Specialty? @relation(fields: [specialtyId], references: [id])
 }
 
 model GalleryImage {
