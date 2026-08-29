@@ -42,7 +42,7 @@ export function AccommodationContent() {
             variants={fadeUpVariant}
             className="lg:sticky lg:top-36"
           >
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-6 border border-blue-100">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-teal-50 text-teal-600 text-xs font-bold uppercase tracking-wider mb-6 border border-teal-100">
               <Hotel className="w-4 h-4" />
               <span>{t('accommodation.title')}</span>
             </div>
@@ -54,7 +54,7 @@ export function AccommodationContent() {
             </p>
             
             {/* Optional Decoration */}
-            <div className="hidden lg:block w-32 h-1 bg-gradient-to-r from-blue-500 to-teal-400 rounded-full opacity-50" />
+            <div className="hidden lg:block w-32 h-1 bg-gradient-to-r from-teal-500 to-emerald-400 rounded-full opacity-50" />
           </motion.div>
         </div>
 
@@ -69,9 +69,9 @@ export function AccommodationContent() {
               <motion.div 
                 key={idx}
                 variants={fadeUpVariant}
-                className="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-100 flex gap-5 sm:gap-6 items-start hover:shadow-md transition-shadow group"
+                className="bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-100 flex gap-5 sm:gap-6 items-start hover:shadow-md transition-shadow group hover:border-teal-100"
               >
-                <div className="w-14 h-14 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform border border-blue-100/50">
+                <div className="w-14 h-14 rounded-2xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0 group-hover:rotate-6 transition-transform border border-teal-100/50">
                   <step.icon className="w-7 h-7" />
                 </div>
                 <div>

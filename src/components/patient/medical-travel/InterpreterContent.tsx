@@ -35,7 +35,7 @@ export function InterpreterContent() {
     <section id="interpreters" className="relative bg-slate-950 text-white py-24 sm:py-32 overflow-hidden min-h-[60vh]">
       {/* Glow Effects */}
       <div className="absolute top-0 right-1/4 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-[600px] h-[600px] bg-emerald-600/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 

@@ -31,20 +31,20 @@ export default async function MedicalTravelHubPage() {
       desc: t('accommodation.desc'),
       href: '/medical-travel/accommodation',
       icon: Hotel,
-      color: 'blue',
-      bgClass: 'bg-blue-50 text-blue-600',
-      borderClass: 'group-hover:border-blue-200',
-      shadowClass: 'group-hover:shadow-blue-900/10'
+      color: 'teal',
+      bgClass: 'bg-teal-50 text-teal-600',
+      borderClass: 'group-hover:border-teal-200',
+      shadowClass: 'group-hover:shadow-teal-900/10'
     },
     {
       title: t('interpreters.title'),
       desc: t('interpreters.desc'),
       href: '/medical-travel/interpreters',
       icon: Languages,
-      color: 'indigo',
-      bgClass: 'bg-indigo-50 text-indigo-600',
-      borderClass: 'group-hover:border-indigo-200',
-      shadowClass: 'group-hover:shadow-indigo-900/10'
+      color: 'emerald',
+      bgClass: 'bg-emerald-50 text-emerald-600',
+      borderClass: 'group-hover:border-emerald-200',
+      shadowClass: 'group-hover:shadow-emerald-900/10'
     },
     {
       title: t('airportTransfer.title'),
