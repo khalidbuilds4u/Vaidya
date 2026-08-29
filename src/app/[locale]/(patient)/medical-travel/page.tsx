@@ -108,6 +108,7 @@ export default async function MedicalTravelPage() {
             </div>
           ))}
         </div>
+      </div>
 
       {/* 3. Concierge Services Grid */}
       <section className="relative bg-slate-950 text-white py-16 sm:py-24 mt-16 sm:mt-24 border-t border-teal-900/30 overflow-hidden">
