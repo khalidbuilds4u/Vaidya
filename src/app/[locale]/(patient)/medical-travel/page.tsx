@@ -64,7 +64,7 @@ export default async function MedicalTravelPage() {
       </section>
 
       {/* 2. Visa Assistance Process (8 Steps) */}
-      <div className="container mx-auto px-4 mt-16 sm:mt-24 mb-16 sm:mb-24">
+      <div id="visa" className="scroll-mt-28 container mx-auto px-4 mt-16 sm:mt-24 mb-16 sm:mb-24">
         
         {/* Intro */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
@@ -111,7 +111,7 @@ export default async function MedicalTravelPage() {
       </div>
 
       {/* 3. Concierge Services Grid */}
-      <section className="relative bg-slate-950 text-white py-16 sm:py-24 mt-16 sm:mt-24 border-t border-teal-900/30 overflow-hidden">
+      <section id="airport-transfer" className="scroll-mt-24 relative bg-slate-950 text-white py-16 sm:py-24 mt-16 sm:mt-24 border-t border-teal-900/30 overflow-hidden">
         
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-900/20 rounded-[100%] blur-[120px] pointer-events-none" />
@@ -164,7 +164,7 @@ export default async function MedicalTravelPage() {
       </section>
 
       {/* 4. Accommodation & Stay Process (8 Steps) */}
-      <div id="accommodation" className="container mx-auto px-4 mt-16 sm:mt-24 mb-16 sm:mb-24">
+      <div id="accommodation" className="scroll-mt-28 container mx-auto px-4 mt-16 sm:mt-24 mb-16 sm:mb-24">
         
         {/* Intro */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
@@ -211,7 +211,7 @@ export default async function MedicalTravelPage() {
       </div>
 
       {/* 5. Language Interpreters Process (8 Steps) */}
-      <div id="interpreters" className="container mx-auto px-4 mb-16 sm:mb-24">
+      <div id="interpreters" className="scroll-mt-28 container mx-auto px-4 mb-16 sm:mb-24">
         
         {/* Intro */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">

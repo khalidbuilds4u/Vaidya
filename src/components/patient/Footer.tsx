@@ -82,10 +82,10 @@ export function Footer() {
               {t('support.title')}
             </h3>
             <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li><Link href="/medical-travel" className="hover:text-teal-300 transition-colors">{t('support.visa')}</Link></li>
+              <li><Link href="/medical-travel#visa" className="hover:text-teal-300 transition-colors">{t('support.visa')}</Link></li>
               <li><Link href="/medical-travel#accommodation" className="hover:text-teal-300 transition-colors">{t('support.accommodation')}</Link></li>
               <li><Link href="/medical-travel#interpreters" className="hover:text-teal-300 transition-colors">{t('support.interpreters')}</Link></li>
-              <li><Link href="/medical-travel" className="hover:text-teal-300 transition-colors">{t('support.airport')}</Link></li>
+              <li><Link href="/medical-travel#airport-transfer" className="hover:text-teal-300 transition-colors">{t('support.airport')}</Link></li>
               <li><Link href="/search" className="hover:text-teal-300 transition-colors">{t('support.search')}</Link></li>
             </ul>
           </div>
