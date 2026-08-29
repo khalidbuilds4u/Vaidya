@@ -33,46 +33,46 @@ export default async function ContactUsPage() {
             {/* Contact Information */}
             <div className="lg:col-span-2 bg-primary dark:bg-slate-800 p-8 sm:p-12 text-white transition-colors duration-500">
               <h2 className="text-2xl font-bold mb-6">{t('info.title')}</h2>
-              <p className="text-primary-foreground/80 mb-8 leading-relaxed">
+              <p className="text-teal-50/90 dark:text-slate-300 mb-8 leading-relaxed transition-colors duration-500">
                 {t('info.desc')}
               </p>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <Phone className="w-6 h-6 shrink-0 text-teal-300" />
+                  <Phone className="w-6 h-6 shrink-0 text-teal-300 dark:text-teal-400" />
                   <div>
                     <h4 className="font-semibold">{t('info.phone')}</h4>
-                    <a href="tel:+919918053077" className="text-primary-foreground/90 hover:text-white mt-1 block">
+                    <a href="tel:+919918053077" className="text-teal-50/90 dark:text-slate-300 hover:text-white dark:hover:text-white mt-1 block transition-colors">
                       +91 99180 53077
                     </a>
                   </div>
                 </div>
                 
                 <div className="flex items-start gap-4">
-                  <Mail className="w-6 h-6 shrink-0 text-teal-300" />
+                  <Mail className="w-6 h-6 shrink-0 text-teal-300 dark:text-teal-400" />
                   <div>
                     <h4 className="font-semibold">{t('info.email')}</h4>
-                    <a href="mailto:care@asadhealthcare.com" className="text-primary-foreground/90 hover:text-white mt-1 block">
+                    <a href="mailto:care@asadhealthcare.com" className="text-teal-50/90 dark:text-slate-300 hover:text-white dark:hover:text-white mt-1 block transition-colors">
                       care@asadhealthcare.com
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <MapPin className="w-6 h-6 shrink-0 text-teal-300" />
+                  <MapPin className="w-6 h-6 shrink-0 text-teal-300 dark:text-teal-400" />
                   <div>
                     <h4 className="font-semibold">{t('info.office')}</h4>
-                    <p className="text-primary-foreground/90 mt-1 leading-relaxed whitespace-pre-line">
+                    <p className="text-teal-50/90 dark:text-slate-300 mt-1 leading-relaxed whitespace-pre-line transition-colors duration-500">
                       {t('info.officeAddress')}
                     </p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <Clock className="w-6 h-6 shrink-0 text-teal-300" />
+                  <Clock className="w-6 h-6 shrink-0 text-teal-300 dark:text-teal-400" />
                   <div>
                     <h4 className="font-semibold">{t('info.hours')}</h4>
-                    <p className="text-primary-foreground/90 mt-1">
+                    <p className="text-teal-50/90 dark:text-slate-300 mt-1 transition-colors duration-500">
                       {t('info.hoursDesc')}
                     </p>
                   </div>
