@@ -134,7 +134,7 @@ export function Footer() {
               <li><Link href="/privacy" className="hover:text-teal-300 transition-colors">{t('legal.privacy')}</Link></li>
               <li><Link href="/terms" className="hover:text-teal-300 transition-colors">{t('legal.terms')}</Link></li>
               <li><Link href="/disclaimer" className="hover:text-teal-300 transition-colors">{t('legal.disclaimer')}</Link></li>
-              <li><Link href="/medical-travel" className="hover:text-teal-300 transition-colors">{t('legal.safety')}</Link></li>
+              <li><Link href="/patient-safety" className="hover:text-teal-300 transition-colors">{t('legal.safety')}</Link></li>
             </ul>
           </div>
 
