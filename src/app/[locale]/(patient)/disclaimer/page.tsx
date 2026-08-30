@@ -8,25 +8,29 @@ export const metadata: Metadata = {
 
 export default function MedicalDisclaimerPage() {
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen py-12 md:py-20 transition-colors duration-500">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="bg-white dark:bg-slate-900 shadow-xl rounded-3xl p-8 md:p-12 border border-slate-100 dark:border-slate-800">
+    <div className="relative min-h-screen py-16 md:py-24 transition-colors duration-500 overflow-hidden bg-slate-50 dark:bg-slate-950">
+      {/* Ambient Backgrounds */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-teal-500/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
+      
+      <div className="container mx-auto px-4 max-w-4xl relative z-10">
+        <div className="glass-card dark:glass-card-dark rounded-3xl p-8 md:p-14 border border-white/20 dark:border-slate-800/50 shadow-2xl">
           
-          <div className="flex items-center gap-4 mb-8 pb-8 border-b border-slate-100 dark:border-slate-800">
-            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-              <AlertCircle className="w-8 h-8 text-primary" />
+          <div className="flex items-center gap-5 mb-10 pb-8 border-b border-slate-200/50 dark:border-slate-800/50">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500/20 to-emerald-500/20 flex items-center justify-center shrink-0 border border-teal-500/20 shadow-inner animate-float">
+              <AlertCircle className="w-8 h-8 text-teal-600 dark:text-teal-400" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              <h1 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 tracking-tight">
                 Medical Disclaimer
               </h1>
-              <p className="text-slate-500 dark:text-slate-400 mt-2 font-medium">
+              <p className="text-slate-500 dark:text-slate-400 mt-2 font-medium tracking-wide uppercase text-sm">
                 Last Updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
               </p>
             </div>
           </div>
 
-          <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-a:text-primary hover:prose-a:text-primary/80">
+          <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-teal-900 dark:prose-headings:text-teal-50 prose-headings:font-bold prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-teal-800 dark:prose-h2:text-teal-300 prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-p:leading-relaxed prose-a:text-teal-600 dark:prose-a:text-teal-400 hover:prose-a:text-teal-500 prose-li:text-slate-600 dark:prose-li:text-slate-300 prose-strong:text-slate-900 dark:prose-strong:text-white marker:text-teal-500">
             <p className="lead text-xl text-slate-700 dark:text-slate-300 font-medium mb-8">
               Asad Healthcare helps users access and coordinate medical tourism services in India. Information on our website is for general informational purposes and does not replace professional medical advice. Diagnosis, treatment, surgery, prescriptions, and clinical decisions are made by qualified healthcare professionals and hospitals.
             </p>
