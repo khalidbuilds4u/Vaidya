@@ -14,14 +14,14 @@ export default function PrivacyPolicyPage() {
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none mix-blend-multiply dark:mix-blend-screen" />
       
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
-        <div className="glass-card dark:glass-card-dark rounded-3xl p-8 md:p-14 border border-white/20 dark:border-slate-800/50 shadow-2xl">
+        <div className="glass-card dark:glass-card-dark rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-14 border border-white/20 dark:border-slate-800/50 shadow-2xl">
           
-          <div className="flex items-center gap-5 mb-10 pb-8 border-b border-slate-200/50 dark:border-slate-800/50">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500/20 to-emerald-500/20 flex items-center justify-center shrink-0 border border-teal-500/20 shadow-inner animate-float">
-              <ShieldCheck className="w-8 h-8 text-teal-600 dark:text-teal-400" />
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 mb-8 sm:mb-10 pb-6 sm:pb-8 border-b border-slate-200/50 dark:border-slate-800/50">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-teal-500/20 to-emerald-500/20 flex items-center justify-center shrink-0 border border-teal-500/20 shadow-inner animate-float">
+              <ShieldCheck className="w-7 h-7 sm:w-8 sm:h-8 text-teal-600 dark:text-teal-400" />
             </div>
             <div>
-              <h1 className="text-3xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600 dark:from-teal-400 dark:to-emerald-400 tracking-tight">
                 Privacy Policy
               </h1>
               <p className="text-slate-500 dark:text-slate-400 mt-2 font-medium tracking-wide uppercase text-sm">
