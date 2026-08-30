@@ -111,7 +111,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
           {children}
         </span>
       )}
-      <DialogContent className="w-[95vw] sm:max-w-[560px] max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border-0 shadow-2xl p-0 bg-white" showCloseButton={false}>
+      <DialogContent className="w-[95vw] sm:max-w-[560px] max-h-[90vh] overflow-y-auto rounded-2xl sm:rounded-3xl border border-white/20 dark:border-slate-800 shadow-2xl p-0 bg-white dark:bg-slate-950" showCloseButton={false}>
         
         {isSuccess ? (
           <div className="py-12 px-6 text-center space-y-4">
@@ -120,8 +120,8 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="text-2xl font-extrabold text-slate-900 tracking-tight">{t('success.title')}</h2>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-sm mx-auto">
+            <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">{t('success.title')}</h2>
+            <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-sm mx-auto">
               {t('success.desc')}
             </p>
             <div className="pt-6">
@@ -165,41 +165,41 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.firstName')}</label>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.firstName')}</label>
                     <Input 
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleChange}
                       placeholder={t('form.firstNamePlaceholder')} 
-                      className="rounded-xl h-11 border-slate-200 bg-slate-50/50 focus:bg-white text-sm font-medium placeholder:text-slate-300 transition-colors"
+                      className="rounded-xl h-11 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors"
                       required 
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.lastName')}</label>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.lastName')}</label>
                     <Input 
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleChange}
                       placeholder={t('form.lastNamePlaceholder')} 
-                      className="rounded-xl h-11 border-slate-200 bg-slate-50/50 focus:bg-white text-sm font-medium placeholder:text-slate-300 transition-colors"
+                      className="rounded-xl h-11 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.dob')}</label>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.dob')}</label>
                     <Input 
                       type="date"
                       name="dob"
                       value={formData.dob}
                       onChange={handleChange}
-                      className="rounded-xl h-11 border-slate-200 bg-slate-50/50 focus:bg-white text-sm font-medium text-slate-600 transition-colors"
+                      className="rounded-xl h-11 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.age')}</label>
+                    <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.age')}</label>
                     <Input 
                       type="number"
                       name="age"
@@ -208,14 +208,14 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                       value={formData.age}
                       onChange={handleChange}
                       placeholder={t('form.agePlaceholder')} 
-                      className="rounded-xl h-11 border-slate-200 bg-slate-50/50 focus:bg-white text-sm font-medium placeholder:text-slate-300 transition-colors"
+                      className="rounded-xl h-11 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors"
                     />
                   </div>
                 </div>
               </div>
 
               {/* Divider */}
-              <div className="border-t border-slate-100" />
+              <div className="border-t border-slate-100 dark:border-slate-800/50" />
 
               {/* Contact Info Group */}
               <div className="space-y-4">
@@ -225,43 +225,43 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.email')}</label>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.email')}</label>
                   <Input 
                     type="email" 
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder={t('form.emailPlaceholder')} 
-                    className="rounded-xl h-11 border-slate-200 bg-slate-50/50 focus:bg-white text-sm font-medium placeholder:text-slate-300 transition-colors"
+                    className="rounded-xl h-11 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors"
                     required 
                   />
                 </div>
                 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.phone')}</label>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.phone')}</label>
                   <Input 
                     type="tel" 
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
                     placeholder={t('form.phonePlaceholder')} 
-                    className="rounded-xl h-11 border-slate-200 bg-slate-50/50 focus:bg-white text-sm font-medium placeholder:text-slate-300 transition-colors"
+                    className="rounded-xl h-11 border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 text-sm font-medium text-slate-900 dark:text-slate-100 placeholder:text-slate-300 dark:placeholder:text-slate-600 transition-colors"
                     required 
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.country')}</label>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.country')}</label>
                   <select 
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-                    className="flex h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white px-3.5 py-2 text-sm text-slate-700 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors" 
+                    className="flex h-11 w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 px-3.5 py-2 text-sm text-slate-900 dark:text-slate-100 font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary transition-colors" 
                     required
                   >
-                    <option value="">{t('form.countryPlaceholder')}</option>
+                    <option value="" className="text-slate-500 dark:text-slate-400">{t('form.countryPlaceholder')}</option>
                     {COUNTRIES.map((c) => (
-                      <option key={c} value={c}>
+                      <option key={c} value={c} className="bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100">
                         {t(`countries.${c}`) || c}
                       </option>
                     ))}
@@ -270,7 +270,7 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
               </div>
 
               {/* Divider */}
-              <div className="border-t border-slate-100" />
+              <div className="border-t border-slate-100 dark:border-slate-800/50" />
 
               {/* Medical Info */}
               <div className="space-y-4">
@@ -279,13 +279,13 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
                   <span className="text-xs font-bold uppercase tracking-wider text-slate-400">{t('form.medicalInfo') || 'Medical Information'}</span>
                 </div>
                 <div className="space-y-1.5">
-                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500">{t('form.condition')}</label>
+                  <label className="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">{t('form.condition')}</label>
                   <textarea 
                     name="condition"
                     value={formData.condition}
                     onChange={handleChange}
                     rows={3}
-                    className="flex min-h-[100px] w-full rounded-xl border border-slate-200 bg-slate-50/50 focus:bg-white px-3.5 py-3 text-sm placeholder:text-slate-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary text-slate-700 font-medium resize-none transition-colors"
+                    className="flex min-h-[100px] w-full rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/50 focus:bg-white dark:focus:bg-slate-900 px-3.5 py-3 text-sm placeholder:text-slate-300 dark:placeholder:text-slate-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:border-primary text-slate-900 dark:text-slate-100 font-medium resize-none transition-colors"
                     placeholder={t('form.conditionPlaceholder')}
                     required
                   ></textarea>
@@ -293,8 +293,8 @@ export function EnquiryForm({ children }: { children: React.ReactNode }) {
               </div>
               
               {/* CTA Section */}
-              <div className="pt-2 flex flex-col sm:flex-row justify-end gap-3 border-t border-slate-100 mt-2 pt-5">
-                <Button variant="outline" type="button" className="rounded-xl h-11 px-6 font-semibold border-slate-200 text-slate-500 hover:text-slate-700 hover:bg-slate-50" onClick={() => handleClose(false)} disabled={isSubmitting}>{t('form.cancel')}</Button>
+              <div className="pt-2 flex flex-col sm:flex-row justify-end gap-3 border-t border-slate-100 dark:border-slate-800/50 mt-2 pt-5">
+                <Button variant="outline" type="button" className="rounded-xl h-11 px-6 font-semibold border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800/50" onClick={() => handleClose(false)} disabled={isSubmitting}>{t('form.cancel')}</Button>
                 <Button type="submit" className="rounded-xl shadow-lg shadow-primary/20 bg-[#123654] hover:bg-[#0d2a42] h-11 px-8 font-bold text-sm" disabled={isSubmitting}>
                   {isSubmitting ? (
                     <>
