@@ -111,7 +111,7 @@ export default function PrivacyPolicyPage() {
               <ul className="space-y-2 text-slate-600 dark:text-slate-300">
                 <li><strong>Email:</strong> info@asadhealthcare.com</li>
                 <li><strong>Website:</strong> www.asadhealthcare.com</li>
-                <li><strong>Phone/WhatsApp:</strong> +91 94511 87513</li>
+                <li><strong>Phone/WhatsApp:</strong> +91 99180 53077</li>
               </ul>
             </div>
           </div>

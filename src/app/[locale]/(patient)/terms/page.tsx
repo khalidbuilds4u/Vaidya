@@ -233,7 +233,7 @@ export default function TermsOfServicePage() {
               <h3 className="font-bold text-slate-900 dark:text-white mb-2">Asad Healthcare</h3>
               <ul className="space-y-2 text-slate-600 dark:text-slate-300">
                 <li><strong>Email:</strong> info@asadhealthcare.com</li>
-                <li><strong>Phone/WhatsApp:</strong> +91 94511 87513</li>
+                <li><strong>Phone/WhatsApp:</strong> +91 99180 53077</li>
                 <li><strong>Address:</strong> [Official Business Address]</li>
               </ul>
             </div>
