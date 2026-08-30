@@ -52,10 +52,10 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {stories.map(story => (
-              <div key={story.id} className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl dark:shadow-none transition-all duration-500 flex flex-col">
+              <Link key={story.id} href={`/${resolvedParams.locale}/patient-stories/${story.slug}`} className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl dark:shadow-none transition-all duration-500 flex flex-col group">
                 {story.imageUrl && (
-                  <div className="w-full h-48 relative">
-                    <Image src={story.imageUrl} alt={getTranslation(story, 'title', resolvedParams.locale) || "Story image"} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover" />
+                  <div className="w-full h-48 relative overflow-hidden">
+                    <Image src={story.imageUrl} alt={getTranslation(story, 'title', resolvedParams.locale) || "Story image"} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                 )}
                 <div className="p-6 flex-1 flex flex-col">
@@ -69,7 +69,7 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
                       {getTranslation(story.specialty, 'name', resolvedParams.locale)}
                     </span>
                   )}
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-2">{getTranslation(story, 'title', resolvedParams.locale)}</h3>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 line-clamp-2 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{getTranslation(story, 'title', resolvedParams.locale)}</h3>
                   
                   {(story.hospital || story.country) && (
                     <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 mb-3 font-medium">
@@ -82,17 +82,20 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
                     <Quote className="absolute -top-1 -left-2 w-8 h-8 text-slate-100 dark:text-slate-800 -z-10 transform rotate-180 transition-colors" />
                     <p className="text-slate-600 dark:text-slate-400 line-clamp-4 relative z-10 transition-colors">{getTranslation(story, 'content', resolvedParams.locale)}</p>
                   </div>
-                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto flex items-center gap-3 transition-colors">
-                    <div className="w-10 h-10 rounded-full bg-primary/10 dark:bg-teal-400/10 text-primary dark:text-teal-400 flex items-center justify-center font-bold">
-                      {story.patientName.charAt(0)}
+                  <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto flex items-center justify-between transition-colors">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-primary/10 dark:bg-teal-400/10 text-primary dark:text-teal-400 flex items-center justify-center font-bold">
+                        {story.patientName.charAt(0)}
+                      </div>
+                      <div>
+                        <p className="font-semibold text-slate-900 dark:text-white">{story.patientName}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">{new Date(story.createdAt).toLocaleDateString()}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="font-semibold text-slate-900 dark:text-white">{story.patientName}</p>
-                      <p className="text-xs text-slate-500 dark:text-slate-400">{new Date(story.createdAt).toLocaleDateString()}</p>
-                    </div>
+                    <span className="text-primary dark:text-teal-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">Read Story →</span>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
