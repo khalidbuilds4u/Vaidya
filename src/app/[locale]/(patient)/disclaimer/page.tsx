@@ -27,21 +27,23 @@ export default function MedicalDisclaimerPage() {
           </div>
 
           <div className="prose prose-slate dark:prose-invert max-w-none prose-headings:text-slate-900 dark:prose-headings:text-white prose-p:text-slate-600 dark:prose-p:text-slate-300 prose-a:text-primary hover:prose-a:text-primary/80">
-            {/* PASTE YOUR CONTENT HERE */}
-            <p>
-              Please provide your Medical Disclaimer content here.
+            <p className="lead text-xl text-slate-700 dark:text-slate-300 font-medium mb-8">
+              Asad Healthcare helps users access and coordinate medical tourism services in India. Information on our website is for general informational purposes and does not replace professional medical advice. Diagnosis, treatment, surgery, prescriptions, and clinical decisions are made by qualified healthcare professionals and hospitals.
             </p>
+
             <h2>Not Professional Medical Advice</h2>
             <p>
-              [Your content goes here]
+              The content on this website, including text, graphics, images, and other materials, is intended for informational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
             </p>
+            
             <h2>No Doctor-Patient Relationship</h2>
             <p>
-              [Your content goes here]
+              Use of this website and the information provided does not create a doctor-patient relationship between you and Asad Healthcare. We act as a facilitator connecting you with healthcare providers. Any medical decisions and treatments are strictly between you and the respective healthcare provider or hospital.
             </p>
+            
             <h2>Assumption of Risk</h2>
             <p>
-              [Your content goes here]
+              Medical treatments and surgeries inherently carry risks. While we strive to connect you with accredited hospitals and qualified specialists, Asad Healthcare does not guarantee the outcome of any medical procedure or treatment. You assume full responsibility for your medical decisions and the outcomes thereof.
             </p>
           </div>
           
