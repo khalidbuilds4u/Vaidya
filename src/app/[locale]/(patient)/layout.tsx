@@ -2,10 +2,10 @@ import { Header } from "@/components/patient/Header"
 import dynamic from 'next/dynamic'
 
 const Footer = dynamic(() => import("@/components/patient/Footer").then(mod => mod.Footer))
-const FloatingContact = dynamic(() => import("@/components/patient/FloatingContact").then(mod => mod.FloatingContact))
 const MobileBottomBar = dynamic(() => import("@/components/patient/MobileBottomBar").then(mod => mod.MobileBottomBar))
 const ChatbotWidget = dynamic(() => import("@/components/patient/ChatbotWidget").then(mod => mod.ChatbotWidget))
 const TimedPopup = dynamic(() => import("@/components/patient/TimedPopup").then(mod => mod.TimedPopup))
+const WhatsAppChat = dynamic(() => import("@/components/patient/WhatsAppChat").then(mod => mod.WhatsAppChat))
 
 export default function PatientLayout({
   children,
@@ -23,7 +23,7 @@ export default function PatientLayout({
         {children}
       </main>
       <Footer />
-      <FloatingContact />
+      <WhatsAppChat />
       <ChatbotWidget />
       <TimedPopup />
       <MobileBottomBar />
