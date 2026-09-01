@@ -6,6 +6,7 @@ import { updateCaseStatusDirect } from "@/app/actions/caseActions";
 import { StatusDropdown } from "./StatusDropdown";
 import { Calendar, MapPin, Building2, User, Clock, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const KANBAN_COLUMNS = [
   {
@@ -103,12 +104,18 @@ export function KanbanBoard({ cases: initialCases }: KanbanBoardProps) {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className="flex gap-6 overflow-x-auto pb-4 items-start min-h-[calc(100vh-250px)]">
-        {KANBAN_COLUMNS.map((column) => {
+        {KANBAN_COLUMNS.map((column, index) => {
           // Filter cases for this column
           const columnCases = cases.filter((c) => column.statuses.includes(c.status));
 
           return (
-            <div key={column.id} className="w-80 shrink-0 flex flex-col bg-white/[0.02] rounded-2xl border border-white/[0.06] max-h-full">
+            <motion.div 
+              key={column.id} 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1, duration: 0.4, ease: "easeOut" }}
+              className="w-80 shrink-0 flex flex-col bg-white/[0.02] rounded-2xl border border-white/[0.06] max-h-full"
+            >
               {/* Column Header */}
               <div className="p-4 border-b border-white/[0.06] flex items-center justify-between">
                 <h3 className={`text-sm font-bold px-3 py-1 rounded-full border ${column.color}`}>
@@ -179,7 +186,7 @@ export function KanbanBoard({ cases: initialCases }: KanbanBoardProps) {
                   </div>
                 )}
               </Droppable>
-            </div>
+            </motion.div>
           );
         })}
       </div>

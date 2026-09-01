@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AdminTopbar } from "@/components/admin/AdminTopbar";
+import { PageTransition } from "@/components/admin/PageTransition";
 
 interface AdminShellProps {
   children: React.ReactNode;
@@ -28,8 +29,10 @@ export function AdminShell({ children, userName, userRole }: AdminShellProps) {
           onMenuToggle={() => setSidebarOpen(true)}
         />
 
-        <main className="flex-1 p-4 lg:p-6">
-          {children}
+        <main className="flex-1 p-4 lg:p-6 overflow-hidden">
+          <PageTransition>
+            {children}
+          </PageTransition>
         </main>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import {
   LayoutDashboard,
   Users,
@@ -73,7 +74,7 @@ export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
             </div>
           </div>
           <button
-            className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors"
+            className="lg:hidden p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 active:scale-95 transition-all duration-200"
             onClick={onClose}
           >
             <X className="w-5 h-5" />
@@ -93,18 +94,21 @@ export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
+                className={`relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 active:scale-95 ${
                   isActive
-                    ? "bg-primary/15 text-primary shadow-sm"
+                    ? "text-primary"
                     : "text-slate-400 hover:text-white hover:bg-white/[0.04]"
                 }`}
               >
-                <Icon
-                  className={`w-[18px] h-[18px] shrink-0 ${
-                    isActive ? "text-primary" : ""
-                  }`}
-                />
-                {item.label}
+                {isActive && (
+                  <motion.div
+                    layoutId="sidebar-active-pill"
+                    className="absolute inset-0 bg-primary/15 rounded-xl"
+                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
+                  />
+                )}
+                <Icon className={`w-5 h-5 relative z-10 ${isActive ? "text-primary" : "text-slate-500"}`} />
+                <span className="relative z-10">{item.label}</span>
               </Link>
             );
           })}
