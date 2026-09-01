@@ -5,7 +5,7 @@ const Footer = dynamic(() => import("@/components/patient/Footer").then(mod => m
 const FloatingContact = dynamic(() => import("@/components/patient/FloatingContact").then(mod => mod.FloatingContact))
 const MobileBottomBar = dynamic(() => import("@/components/patient/MobileBottomBar").then(mod => mod.MobileBottomBar))
 const ChatbotWidget = dynamic(() => import("@/components/patient/ChatbotWidget").then(mod => mod.ChatbotWidget))
-const TimedPopup = dynamic(() => import("@/components/patient/TimedPopup").then(mod => mod.TimedPopup), { ssr: false })
+const TimedPopup = dynamic(() => import("@/components/patient/TimedPopup").then(mod => mod.TimedPopup))
 
 export default function PatientLayout({
   children,
