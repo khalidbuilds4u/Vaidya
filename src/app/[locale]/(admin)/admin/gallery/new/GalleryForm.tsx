@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { createGalleryImage } from "@/app/actions/cmsActions"
+import { ImageUpload } from "@/components/admin/ImageUpload"
 
 export function GalleryForm() {
   const router = useRouter()
@@ -59,8 +60,9 @@ export function GalleryForm() {
       
       <div className="space-y-2">
         <Label htmlFor="imageUrl">Image URL <span className="text-red-500">*</span></Label>
-        <Input id="imageUrl" name="imageUrl" required placeholder="https://example.com/image.jpg" />
-        <p className="text-xs text-slate-500 mt-1">Paste a direct link to the image.</p>
+        <div className="mt-2">
+          <ImageUpload name="imageUrl" defaultValue="" />
+        </div>
       </div>
 
       <div className="flex justify-end gap-3 pt-4 border-t">
