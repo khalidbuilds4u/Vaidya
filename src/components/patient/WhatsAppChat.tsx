@@ -54,12 +54,12 @@ export function WhatsAppChat() {
   };
 
   return (
-    <div ref={panelRef} className="fixed bottom-4 md:bottom-8 left-2 sm:left-4 z-50 flex flex-col items-start gap-3">
+    <div ref={panelRef} className="fixed bottom-[84px] sm:bottom-[96px] md:bottom-[116px] right-2 sm:right-4 z-50 flex flex-col items-end gap-3 pointer-events-auto">
 
       {/* Chat Panel */}
       {isOpen && (
         <div
-          className={`w-[calc(100vw-2rem)] max-w-[340px] rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/20 transition-all duration-300 ease-out origin-bottom-left ${
+          className={`w-[calc(100vw-1rem)] sm:w-[calc(100vw-2rem)] max-w-[340px] rounded-2xl overflow-hidden shadow-2xl border border-emerald-500/20 transition-all duration-300 ease-out origin-bottom-right ${
             isAnimating ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 translate-y-4"
           }`}
         >
@@ -130,7 +130,7 @@ export function WhatsAppChat() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={`relative flex items-center gap-2.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-[0_8px_25px_rgba(16,185,129,0.45)] transition-all duration-300 ${
-          isOpen ? "px-4 py-3" : "px-4 sm:px-5 py-3 sm:py-3.5"
+          isOpen ? "p-3 sm:px-4 sm:py-3" : "p-3 sm:px-5 sm:py-3.5"
         } active:scale-95`}
         aria-label="Chat on WhatsApp"
       >
@@ -139,7 +139,7 @@ export function WhatsAppChat() {
           <span className="absolute -inset-1 rounded-full bg-emerald-400/30 animate-ping pointer-events-none" />
         )}
         <span className="relative">{WA_SVG}</span>
-        <span className={`relative font-bold text-sm whitespace-nowrap overflow-hidden transition-all duration-300 ${isOpen ? "max-w-0 opacity-0" : "max-w-[120px] opacity-100"}`}>
+        <span className={`relative font-bold text-sm whitespace-nowrap overflow-hidden transition-all duration-300 hidden sm:block ${isOpen ? "max-w-0 opacity-0" : "max-w-[120px] opacity-100"}`}>
           Chat with us
         </span>
       </button>
