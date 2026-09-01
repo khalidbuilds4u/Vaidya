@@ -16,6 +16,17 @@ export async function updateCaseStatus(caseId: string, formData: FormData) {
   revalidatePath("/admin/cases");
 }
 
+export async function updateCaseStatusDirect(caseId: string, newStatus: any) {
+  if (!newStatus) return;
+
+  await prisma.patientCase.update({
+    where: { id: caseId },
+    data: { status: newStatus },
+  });
+
+  revalidatePath("/admin/cases");
+}
+
 export async function deleteCase(caseId: string) {
   await prisma.patientCase.delete({
     where: { id: caseId },
