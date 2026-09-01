@@ -46,8 +46,11 @@ export function HospitalCard({
   
   return (
     <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
       whileHover={{ y: -6, scale: 1.02 }}
-      transition={{ duration: 0.2 }}
+      transition={{ duration: 0.3 }}
       className="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 flex flex-col h-full group bg-white dark:bg-slate-900 shadow-sm hover:shadow-xl dark:shadow-none transition-all duration-300"
     >
       <div className="flex flex-col sm:flex-row flex-1">
