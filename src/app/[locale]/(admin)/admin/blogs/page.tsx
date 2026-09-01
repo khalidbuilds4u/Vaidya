@@ -21,8 +21,8 @@ export default async function AdminBlogsPage() {
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
         <div>
-          <h1 className="text-2xl font-bold tracking-tight">Blogs</h1>
-          <p className="text-muted-foreground text-sm mt-1">
+          <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">Blogs</h1>
+          <p className="text-slate-400 text-sm mt-1">
             Manage blog posts and articles.
           </p>
         </div>

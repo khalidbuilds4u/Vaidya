@@ -17,8 +17,8 @@ export default async function AdminContactMessagesPage() {
   return (
     <div className="p-6">
       <div className="mb-6">
-        <h1 className="text-2xl font-bold tracking-tight">Contact Messages</h1>
-        <p className="text-muted-foreground text-sm mt-1">
+        <h1 className="text-2xl lg:text-3xl font-extrabold text-white tracking-tight">Contact Messages</h1>
+        <p className="text-slate-400 text-sm mt-1">
           View messages submitted through the Contact Us form.
         </p>
       </div>
