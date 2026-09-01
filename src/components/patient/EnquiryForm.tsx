@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -34,11 +34,26 @@ const COUNTRIES = [
 
 const WHATSAPP_NUMBER = "919918053077";
 
-export function EnquiryForm({ children }: { children: React.ReactNode }) {
+export function EnquiryForm({
+  children,
+  externalOpen,
+  onExternalOpenChange,
+}: {
+  children: React.ReactNode;
+  externalOpen?: boolean;
+  onExternalOpenChange?: (open: boolean) => void;
+}) {
   const t = useTranslations('EnquiryForm');
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+
+  // Allow external control (e.g. from TimedPopup)
+  useEffect(() => {
+    if (externalOpen !== undefined) {
+      setIsOpen(externalOpen);
+    }
+  }, [externalOpen]);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
