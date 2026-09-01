@@ -13,9 +13,15 @@ const STATUS_COLORS: Record<string, string> = {
   QUOTE_PENDING: "bg-yellow-50 text-yellow-700 border-yellow-200",
   QUOTE_RECEIVED: "bg-emerald-50 text-emerald-700 border-emerald-200",
   PATIENT_REVIEWING: "bg-orange-50 text-orange-700 border-orange-200",
+  TRAVEL_PLANNING: "bg-teal-50 text-teal-700 border-teal-200",
+  ADMITTED: "bg-teal-50 text-teal-700 border-teal-200",
+  TREATMENT_IN_PROGRESS: "bg-teal-50 text-teal-700 border-teal-200",
+  TREATMENT_COMPLETED: "bg-teal-50 text-teal-700 border-teal-200",
+  FOLLOW_UP: "bg-teal-50 text-teal-700 border-teal-200",
   COMPLETED: "bg-green-50 text-green-700 border-green-200",
   LOST: "bg-red-50 text-red-700 border-red-200",
   CANCELLED: "bg-red-50 text-red-700 border-red-200",
+  DUPLICATE: "bg-slate-50 text-slate-700 border-slate-200",
 };
 
 const STATUS_LABELS: Record<string, string> = {
@@ -27,9 +33,15 @@ const STATUS_LABELS: Record<string, string> = {
   QUOTE_PENDING: "Quote Pending",
   QUOTE_RECEIVED: "Quote Received",
   PATIENT_REVIEWING: "Patient Reviewing",
+  TRAVEL_PLANNING: "Travel Planning",
+  ADMITTED: "Admitted",
+  TREATMENT_IN_PROGRESS: "Treatment in Progress",
+  TREATMENT_COMPLETED: "Treatment Completed",
+  FOLLOW_UP: "Follow Up",
   COMPLETED: "Completed",
   LOST: "Lost",
   CANCELLED: "Cancelled",
+  DUPLICATE: "Duplicate",
 };
 
 interface StatusDropdownProps {
