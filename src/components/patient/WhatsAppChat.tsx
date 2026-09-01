@@ -54,7 +54,7 @@ export function WhatsAppChat() {
   };
 
   return (
-    <div ref={panelRef} className="fixed bottom-6 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
+    <div ref={panelRef} className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 z-50 flex flex-col items-end gap-3">
 
       {/* Chat Panel */}
       {isOpen && (
