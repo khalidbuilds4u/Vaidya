@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       {/* Article Content */}
       <section className="container mx-auto px-4 -mt-10 relative z-20">
         <div className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-xl dark:shadow-none p-8 sm:p-12 max-w-4xl mx-auto border border-slate-100 dark:border-slate-800 transition-colors duration-500">
-          <div className="prose prose-slate dark:prose-invert prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: (getTranslation(blog, 'content', resolvedParams.locale) || blog.content).replace(/\n/g, '<br/>') }} />
+          <div className="prose prose-slate dark:prose-invert prose-lg max-w-none" dangerouslySetInnerHTML={{ __html: getTranslation(blog, 'content', resolvedParams.locale) || blog.content }} />
         </div>
       </section>
     </div>

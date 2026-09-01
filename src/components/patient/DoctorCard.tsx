@@ -80,7 +80,7 @@ export function DoctorCard({
           {/* Biography */}
           {biography ? (
             <p className="text-[13px] sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 sm:mb-5 line-clamp-4">
-              {biography}
+              {biography.replace(/<[^>]*>?/gm, '')}
             </p>
           ) : (
             <p className="text-[13px] sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 sm:mb-5 line-clamp-4">

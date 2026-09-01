@@ -122,13 +122,10 @@ export default async function PatientStoryDetailPage({ params }: { params: Promi
 
           <div className="relative">
             <Quote className="absolute -top-2 -left-4 w-12 h-12 text-slate-100 dark:text-slate-800 -z-10 transform rotate-180 transition-colors" />
-            <div className="prose prose-lg dark:prose-invert max-w-none prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:leading-relaxed">
-              {content.split('\n').filter((p: string) => p.trim()).map((paragraph: string, index: number) => (
-                <p key={index} className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg">
-                  {paragraph.trim()}
-                </p>
-              ))}
-            </div>
+            <div 
+              className="prose prose-lg dark:prose-invert max-w-none prose-p:text-slate-600 dark:prose-p:text-slate-400 prose-p:leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: content }} 
+            />
           </div>
 
           {/* Patient Info Card */}

@@ -111,7 +111,18 @@ export default async function DoctorsAdminPage({
                     className="hover:bg-slate-50/80 transition-colors"
                   >
                     <td className="px-6 py-4 font-semibold text-slate-900">
-                      {doctor.name}
+                      <div className="flex items-center gap-2">
+                        {doctor.name}
+                        {doctor.isPublished ? (
+                          <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
+                            Published
+                          </span>
+                        ) : (
+                          <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider">
+                            Draft
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
@@ -129,6 +140,11 @@ export default async function DoctorsAdminPage({
                     <td className="px-6 py-4">{doctor.experienceYears} Years</td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
+                        <Link href={`/en/doctors/${doctor.slug}`} target="_blank">
+                          <button className="px-3 py-1.5 text-xs font-bold text-slate-500 border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors">
+                            Preview
+                          </button>
+                        </Link>
                         <Link href={`/admin/doctors/${doctor.id}`}>
                           <button className="p-2 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
                             <Edit className="w-4 h-4" />

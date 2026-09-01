@@ -92,6 +92,11 @@ export default async function ConditionsAdminPage() {
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
+                        <Link href={`/en/conditions/${condition.slug}`} target="_blank">
+                          <button className="px-3 py-1.5 text-xs font-bold text-slate-500 border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors">
+                            Preview
+                          </button>
+                        </Link>
                         <Link href={`/admin/conditions/${condition.id}`}>
                           <button className="p-2 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
                             <Edit className="w-4 h-4" />

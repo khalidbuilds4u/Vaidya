@@ -86,21 +86,37 @@ export default async function TreatmentsAdminPage() {
                     className="hover:bg-slate-50/80 transition-colors"
                   >
                     <td className="px-6 py-4 font-semibold text-slate-900">
-                      {treatment.name}
+                      <div className="flex items-center gap-2">
+                        {treatment.name}
+                        {treatment.isPublished ? (
+                          <span className="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold uppercase tracking-wider">
+                            Published
+                          </span>
+                        ) : (
+                          <span className="px-2 py-0.5 rounded-full bg-amber-100 text-amber-700 text-[10px] font-bold uppercase tracking-wider">
+                            Draft
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td className="px-6 py-4">
                       <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-purple-50 text-purple-700 border border-purple-100">
                         {treatment.specialty.name}
                       </span>
                     </td>
-                    <td className="px-6 py-4 max-w-[300px] truncate">
-                      {treatment.description || <span className="text-slate-400 italic">No description</span>}
+                    <td className="px-6 py-4 max-w-[300px] truncate text-slate-500">
+                      {treatment.description ? treatment.description.replace(/<[^>]*>?/gm, '') : <span className="text-slate-400 italic">No description</span>}
                     </td>
                     <td className="px-6 py-4">
                       {treatment._count.patientCases} Inquiries
                     </td>
                     <td className="px-6 py-4 text-right">
                       <div className="flex items-center justify-end gap-2">
+                        <Link href={`/en/treatments/${treatment.slug}`} target="_blank">
+                          <button className="px-3 py-1.5 text-xs font-bold text-slate-500 border border-slate-200 hover:bg-slate-50 rounded-lg transition-colors">
+                            Preview
+                          </button>
+                        </Link>
                         <Link href={`/admin/treatments/${treatment.id}`}>
                           <button className="p-2 text-slate-400 hover:text-primary hover:bg-primary/10 rounded-lg transition-colors">
                             <Edit className="w-4 h-4" />

@@ -7,6 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { createStory, updateStory } from "@/app/actions/cmsActions"
+import { ImageUpload } from "@/components/admin/ImageUpload"
+import { RichTextEditor } from "@/components/admin/RichTextEditor"
 
 export function StoryForm({ treatments, specialties = [], initialData }: { treatments: any[], specialties?: any[], initialData?: any }) {
   const router = useRouter()
@@ -113,18 +115,17 @@ export function StoryForm({ treatments, specialties = [], initialData }: { treat
       
       <div className="space-y-2">
         <Label htmlFor="imageUrl">Image URL</Label>
-        <Input id="imageUrl" name="imageUrl" defaultValue={initialData?.imageUrl || ""} placeholder="https://example.com/image.jpg" />
+        <div className="mt-2">
+          <ImageUpload name="imageUrl" defaultValue={initialData?.imageUrl || ""} />
+        </div>
       </div>
 
       <div className="space-y-2">
         <Label htmlFor="content">Story Content <span className="text-red-500">*</span></Label>
-        <Textarea 
-          id="content" 
+        <RichTextEditor 
           name="content" 
-          defaultValue={initialData?.content}
-          required 
+          defaultValue={initialData?.content || ""}
           placeholder="Write the patient's story here..." 
-          className="min-h-[200px]" 
         />
       </div>
 

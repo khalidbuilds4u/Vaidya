@@ -8,6 +8,8 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { createBlog, updateBlog } from "@/app/actions/cmsActions"
 import { Switch } from "@/components/ui/switch"
+import { ImageUpload } from "@/components/admin/ImageUpload"
+import { RichTextEditor } from "@/components/admin/RichTextEditor"
 
 export function BlogForm({ initialData }: { initialData?: any }) {
   const router = useRouter()
@@ -67,7 +69,9 @@ export function BlogForm({ initialData }: { initialData?: any }) {
         
         <div className="space-y-2">
           <Label htmlFor="coverImage">Cover Image URL</Label>
-          <Input id="coverImage" name="coverImage" defaultValue={initialData?.coverImage || ""} placeholder="https://example.com/image.jpg" />
+          <div className="mt-2">
+            <ImageUpload name="coverImage" defaultValue={initialData?.coverImage || ""} />
+          </div>
         </div>
       </div>
 
@@ -84,13 +88,10 @@ export function BlogForm({ initialData }: { initialData?: any }) {
 
       <div className="space-y-2">
         <Label htmlFor="content">Full Content <span className="text-red-500">*</span></Label>
-        <Textarea 
-          id="content" 
+        <RichTextEditor 
           name="content" 
-          defaultValue={initialData?.content}
-          required 
+          defaultValue={initialData?.content || ""}
           placeholder="Write your blog post here..." 
-          className="min-h-[300px]" 
         />
       </div>
 

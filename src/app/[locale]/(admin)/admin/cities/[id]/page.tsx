@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { DeleteCityForm } from "@/components/admin/DeleteCityForm";
+import { ImageUpload } from "@/components/admin/ImageUpload";
 import { createCity, updateCity, deleteCity } from "@/app/actions/cityActions";
 
 export const dynamic = "force-dynamic";
@@ -121,15 +122,8 @@ export default async function CityEditor({
               <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
                 City Cover Image URL
               </label>
-              <div className="relative">
-                <ImageIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
-                <input
-                  type="url"
-                  name="imageUrl"
-                  defaultValue={city?.imageUrl || ""}
-                  placeholder="https://images.unsplash.com/..."
-                  className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
-                />
+              <div className="mt-2">
+                <ImageUpload name="imageUrl" defaultValue={city?.imageUrl || ""} />
               </div>
             </div>
           </div>

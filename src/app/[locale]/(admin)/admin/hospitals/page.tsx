@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { Plus, Search, Building2, MapPin } from "lucide-react";
+import { deleteHospital } from "@/app/actions/hospitals";
+import { DeleteHospitalButton } from "@/components/admin/DeleteHospitalButton";
 
 export const dynamic = "force-dynamic";
 
@@ -162,6 +164,7 @@ export default async function HospitalsAdminPage({
                   >
                     Edit Details
                   </Link>
+                  <DeleteHospitalButton action={deleteHospital.bind(null, hospital.id)} />
                 </div>
               </div>
             </div>

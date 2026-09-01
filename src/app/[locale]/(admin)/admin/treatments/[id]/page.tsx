@@ -5,6 +5,7 @@ import { ArrowLeft, Save, Trash2, Syringe } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
+import { RichTextEditor } from "@/components/admin/RichTextEditor";
 import { createTreatment, updateTreatment, deleteTreatment } from "@/app/actions/treatmentActions";
 
 export const dynamic = "force-dynamic";
@@ -124,12 +125,10 @@ export default async function TreatmentEditor({
             <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
               Description
             </label>
-            <textarea
+            <RichTextEditor
               name="description"
-              rows={4}
               defaultValue={treatment?.description || ""}
               placeholder="Explain what this procedure involves..."
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
             />
           </div>
 
@@ -251,12 +250,10 @@ export default async function TreatmentEditor({
                 <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
                   Potential Risks
                 </label>
-                <textarea
+                <RichTextEditor
                   name="risks"
-                  rows={4}
                   defaultValue={treatment?.risks || ""}
                   placeholder="Infection, blood clots, nerve damage"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
                 />
               </div>
             </div>
