@@ -84,9 +84,20 @@ export default async function HospitalsAdminPage({
               className="bg-white/[0.04] border border-white/[0.06] rounded-2xl p-5 hover:bg-white/[0.06] transition-colors relative group"
             >
               <div className="flex justify-between items-start mb-3">
-                <h3 className="text-lg font-bold text-white leading-tight pr-8">
-                  {hospital.name}
-                </h3>
+                <div className="flex items-center gap-3 pr-8">
+                  <h3 className="text-lg font-bold text-white leading-tight">
+                    {hospital.name}
+                  </h3>
+                  {hospital.isPublished ? (
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider">
+                      Published
+                    </span>
+                  ) : (
+                    <span className="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 text-[10px] font-bold uppercase tracking-wider">
+                      Draft
+                    </span>
+                  )}
+                </div>
               </div>
 
               <div className="space-y-2 mb-5">
@@ -137,12 +148,21 @@ export default async function HospitalsAdminPage({
                   )}
                 </div>
                 
-                <Link
-                  href={`/admin/hospitals/${hospital.id}`}
-                  className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 text-xs font-bold transition-colors whitespace-nowrap"
-                >
-                  Edit Details
-                </Link>
+                <div className="flex items-center gap-2">
+                  <Link
+                    href={`/en/hospitals/${hospital.slug}`}
+                    target="_blank"
+                    className="px-3 py-1.5 rounded-lg border border-white/10 hover:bg-white/5 text-white text-xs font-bold transition-colors whitespace-nowrap"
+                  >
+                    Preview
+                  </Link>
+                  <Link
+                    href={`/admin/hospitals/${hospital.id}`}
+                    className="px-3 py-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 text-xs font-bold transition-colors whitespace-nowrap"
+                  >
+                    Edit Details
+                  </Link>
+                </div>
               </div>
             </div>
           ))
