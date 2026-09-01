@@ -4,6 +4,7 @@ import { Building2, Save } from "lucide-react";
 import Link from "next/link";
 import { SubmitButton } from "./SubmitButton";
 import { DynamicListInput } from "@/components/admin/forms/DynamicListInput";
+import { ImageUpload } from "@/components/admin/ImageUpload";
 
 type HospitalFormProps = {
   initialData?: {
@@ -125,16 +126,13 @@ export function HospitalForm({
             </select>
           </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
-              Cover Image URL
+          <div className="space-y-2 md:col-span-2">
+            <label className="text-sm font-semibold text-slate-900 flex items-center gap-2 mb-1">
+              Cover Image
             </label>
-            <input
-              type="url"
-              name="imageUrl"
-              defaultValue={initialData?.imageUrl || ""}
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
-              placeholder="https://images.unsplash.com/..."
+            <ImageUpload 
+              name="imageUrl" 
+              defaultValue={initialData?.imageUrl} 
             />
           </div>
         </div>
