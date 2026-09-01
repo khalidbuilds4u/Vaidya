@@ -123,7 +123,7 @@ export function HospitalCard({
 
             {description && (
               <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-3 leading-relaxed">
-                {description}
+                {description.replace(/<[^>]*>?/gm, '')}
               </p>
             )}
           </div>

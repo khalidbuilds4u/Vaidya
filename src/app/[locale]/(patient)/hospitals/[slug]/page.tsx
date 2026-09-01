@@ -230,9 +230,10 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             {hospital.description && (
               <section id="about" className="scroll-mt-28">
                 <SectionHeader title="About the Hospital" />
-                <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base whitespace-pre-wrap">
-                  {getTranslation(hospital, 'description', locale)}
-                </div>
+                <div 
+                  className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base"
+                  dangerouslySetInnerHTML={{ __html: getTranslation(hospital, 'description', locale) || '' }}
+                />
               </section>
             )}
 

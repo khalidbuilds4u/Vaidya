@@ -5,6 +5,7 @@ import Link from "next/link";
 import { SubmitButton } from "./SubmitButton";
 import { DynamicListInput } from "@/components/admin/forms/DynamicListInput";
 import { ImageUpload } from "@/components/admin/ImageUpload";
+import { RichTextEditor } from "@/components/admin/RichTextEditor";
 
 type HospitalFormProps = {
   initialData?: {
@@ -141,12 +142,10 @@ export function HospitalForm({
           <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">
             Description / About Hospital
           </label>
-          <textarea
-            name="description"
-            rows={4}
-            defaultValue={initialData?.description || ""}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
-            placeholder="Detailed description of the hospital..."
+          <RichTextEditor 
+            name="description" 
+            defaultValue={initialData?.description} 
+            placeholder="Write a detailed description of the hospital..." 
           />
         </div>
 
