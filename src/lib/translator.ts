@@ -95,8 +95,8 @@ export async function buildTranslations(
 ) {
   const translations: Record<string, any> = existingTranslations || {};
   
-  // We want to translate to these languages (currently just Arabic, easy to add more)
-  const targetLanguages = ['ar'];
+  // We want to translate to these languages
+  const targetLanguages = ['ar', 'bn', 'fr', 'pt', 'ru', 'uz'];
 
   for (const lang of targetLanguages) {
     if (!translations[lang]) {

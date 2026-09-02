@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
-// The language you want to translate to
-const TARGET_LANG = 'ar';
+// The languages you want to translate to
+const TARGET_LANGS = ['ar', 'bn', 'fr', 'pt', 'ru', 'uz'];
 // Path to your messages folder
 const MESSAGES_DIR = path.join(__dirname, '../messages');
 
@@ -73,11 +73,11 @@ function setNestedValue(obj, pathString, value) {
 /**
  * Send request to DeepL API
  */
-async function translateBatch(texts) {
+async function translateBatch(texts, targetLang) {
   return new Promise((resolve, reject) => {
     const payload = JSON.stringify({
       text: texts,
-      target_lang: TARGET_LANG.toUpperCase()
+      target_lang: targetLang.toUpperCase()
     });
 
     const options = {
@@ -110,56 +110,62 @@ async function translateBatch(texts) {
 }
 
 async function run() {
-  console.log(`\n🔍 Starting Auto-Translation (English -> ${TARGET_LANG})`);
+  console.log(`\n🔍 Starting Auto-Translation (English -> Multiple Languages)`);
   
   const enPath = path.join(MESSAGES_DIR, 'en.json');
-  const targetPath = path.join(MESSAGES_DIR, `${TARGET_LANG}.json`);
-
   if (!fs.existsSync(enPath)) {
     console.error(`❌ Source file not found: ${enPath}`);
     process.exit(1);
   }
-
   const enJson = JSON.parse(fs.readFileSync(enPath, 'utf8'));
-  let targetJson = {};
-  
-  if (fs.existsSync(targetPath)) {
-    targetJson = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
-  }
 
-  const missing = findMissingKeys(enJson, targetJson);
-  
-  if (missing.length === 0) {
-    console.log('✅ Your Arabic file is already 100% up to date. Nothing to translate!');
-    process.exit(0);
-  }
-
-  console.log(`📝 Found ${missing.length} missing translations.`);
-  
-  // DeepL allows up to 50 texts per request. We'll batch them to be safe.
-  const BATCH_SIZE = 50;
-  for (let i = 0; i < missing.length; i += BATCH_SIZE) {
-    const batch = missing.slice(i, i + BATCH_SIZE);
-    const textsToTranslate = batch.map(m => m.text);
+  for (const targetLang of TARGET_LANGS) {
+    console.log(`\n========================================`);
+    console.log(`🌐 Processing Language: ${targetLang.toUpperCase()}`);
+    console.log(`========================================`);
     
-    console.log(`⏳ Translating batch ${Math.floor(i/BATCH_SIZE) + 1} of ${Math.ceil(missing.length/BATCH_SIZE)}...`);
+    const targetPath = path.join(MESSAGES_DIR, `${targetLang}.json`);
+    let targetJson = {};
     
-    try {
-      const translatedTexts = await translateBatch(textsToTranslate);
-      
-      batch.forEach((item, index) => {
-        setNestedValue(targetJson, item.path, translatedTexts[index]);
-      });
-      
-      // Save after each successful batch so we don't lose progress if it crashes
-      fs.writeFileSync(targetPath, JSON.stringify(targetJson, null, 2), 'utf8');
-    } catch (error) {
-      console.error('❌ Translation failed:', error.message);
-      process.exit(1);
+    if (fs.existsSync(targetPath)) {
+      targetJson = JSON.parse(fs.readFileSync(targetPath, 'utf8'));
     }
+
+    const missing = findMissingKeys(enJson, targetJson);
+    
+    if (missing.length === 0) {
+      console.log(`✅ Your ${targetLang.toUpperCase()} file is already 100% up to date. Nothing to translate!`);
+      continue;
+    }
+
+    console.log(`📝 Found ${missing.length} missing translations for ${targetLang}.`);
+    
+    // DeepL allows up to 50 texts per request. We'll batch them to be safe.
+    const BATCH_SIZE = 50;
+    for (let i = 0; i < missing.length; i += BATCH_SIZE) {
+      const batch = missing.slice(i, i + BATCH_SIZE);
+      const textsToTranslate = batch.map(m => m.text);
+      
+      console.log(`⏳ Translating batch ${Math.floor(i/BATCH_SIZE) + 1} of ${Math.ceil(missing.length/BATCH_SIZE)}...`);
+      
+      try {
+        const translatedTexts = await translateBatch(textsToTranslate, targetLang);
+        
+        batch.forEach((item, index) => {
+          setNestedValue(targetJson, item.path, translatedTexts[index]);
+        });
+        
+        // Save after each successful batch so we don't lose progress if it crashes
+        fs.writeFileSync(targetPath, JSON.stringify(targetJson, null, 2), 'utf8');
+      } catch (error) {
+        console.error(`❌ Translation failed for ${targetLang}:`, error.message);
+        process.exit(1);
+      }
+    }
+    console.log(`✨ ${targetLang.toUpperCase()} translations completed and saved successfully!`);
   }
 
-  console.log('✨ All translations completed and saved successfully!\n');
+  console.log('\n🎉 All languages processed!\n');
 }
 
 run();

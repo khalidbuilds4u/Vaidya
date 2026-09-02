@@ -1,0 +1,986 @@
+{
+  "Cards": {
+    "profileAuthorized": "Profil ruxsat berildi",
+    "viewProfile": "Profilni ko'rish",
+    "bookConsult": "Maslahatni buyurtma qiling",
+    "experience": "Tajriba",
+    "beds": "karavotlar",
+    "jciAccredited": "JCI va NABH akkreditatsiyasiga ega",
+    "intlSupport": "Xalqaro bo'lim",
+    "viewHospital": "Kasalxonani ko'rish",
+    "getEstimate": "Bahoni oling",
+    "highlyExperienced": "{name} — {specialty} bo'yicha yuqori tajribaga ega mutaxassis. U ko'plab murakkab protseduralarni muvaffaqiyatli bajargan va minglab xalqaro bemorlar unga ishonadi.",
+    "topHospitalDesc": "{name} — {city} shahrida joylashgan premium sog'liqni saqlash muassasasidir. U zamonaviy infratuzilmasi va bemorlarga ko'rsatiladigan a'lo darajadagi g'amxo'rlik standartlari bilan keng tan olingan."
+  },
+  "Navigation": {
+    "home": "Bosh sahifa",
+    "hospitals": "Shifoxonalar",
+    "doctors": "Shifokorlar",
+    "procedures": "Tartib-taomillar",
+    "patientStories": "Bemor hikoyalari",
+    "gallery": "Galereya",
+    "services": "Xizmatlar",
+    "blogs": "Bloglar",
+    "aboutUs": "Biz haqimizda",
+    "contactUs": "Biz bilan bog'laning",
+    "getTreatmentPlan": "Davolash rejasini oling",
+    "callHelpline": "Yordam liniyasiga qo'ng'iroq qiling: {number}"
+  },
+  "Hero": {
+    "tagline": "Where Global Trust Meets World-Class Healing",
+    "titleLine1": "Jahon darajasidagi tibbiy yordam",
+    "titleLine2": "Hindistonda, hech qanday noqulayliksiz.",
+    "subtext": "JCI va NABH akkreditatsiyasiga ega superixtisoslashgan shifoxonalarga, tajribali mutaxassislar va yetakchi jarrohlarga to'g'ridan-to'g'ri kirish, shuningdek, bemorlarga to'liq qo'llab-quvvatlash va 70% gacha tejash imkoniyati.",
+    "getFreePlan": "Bepul reja oling",
+    "exploreHospitals": "Shifoxonalarni kashf eting",
+    "searchPlaceholder": "Davolash, shifoxona, shifokor...",
+    "searchButton": "Qidiruv",
+    "anyCity": "Har qanday shahar (Hindiston)",
+    "pill1": "JCI va NABH tarmog'i",
+    "pill2": "98,5% muvaffaqiyat darajasi",
+    "pill3": "< 24 soat ichida bepul taklif",
+    "card1Sub": "Akreditatsiya",
+    "card1Title": "JCI va NABH sertifikatlangan tarmoq",
+    "card1Desc": "Eng yaxshi 50+ super ixtisoslashgan shifoxonalar",
+    "card2Sub": "Klinik faoliyat bo'yicha yutuqlar tarixi",
+    "card2Title": "98,5% muvaffaqiyat darajasi",
+    "card2Desc": "15 000 dan ortiq muvaffaqiyatli operatsiyalar",
+    "card3Quote": "A'lo darajadagi shifoxona xizmatlari va uzluksiz viza yordami",
+    "card3Author": "- Devid R., Birlashgan Qirollik",
+    "card3Proc": "Tizza artroplastiyasi"
+  },
+  "Stats": {
+    "hospitals": "JCI va NABH kasalxonalari",
+    "surgeons": "Eng yaxshi mutaxassis jarrohlar",
+    "patients": "Global bemorlar",
+    "coordinator": "Shaxsiy koordinator"
+  },
+  "WhyChoose": {
+    "reasons": {
+      "surgeons": {
+        "title": "Eng yuqori darajadagi jarrohlar",
+        "desc": "AQSh va Buyuk Britaniyada malaka oshirgan, murakkab jarrohlik bo'yicha o'n yillik tajribaga ega shifokorlar"
+      },
+      "savings": {
+        "title": "70% gacha xarajatlarni tejash",
+        "desc": "G'arbiy sog'liqni saqlash xarajatlarining kichik bir qismiga jahon darajasidagi protseduralar"
+      },
+      "zeroWait": {
+        "title": "Zero kutish vaqti",
+        "desc": "Darhol qabul va kechiktirmasdan rejalashtirilgan jarrohlik amaliyotlari"
+      },
+      "robotic": {
+        "title": "Robotika va sun'iy intellekt texnologiyasi",
+        "desc": "Xavfsizroq va aniqroq davolashni qo'llab-quvvatlash uchun ilg'or robototexnika va sun'iy intellekt texnologiyalari."
+      },
+      "language": {
+        "title": "Til tarjimonlari",
+        "desc": "Har bir ishga arab, rus, fransuz va ingliz tarjimonlari tayinlandi."
+      },
+      "jci": {
+        "title": "JCI va NABH tomonidan akkreditatsiya qilingan",
+        "desc": "Sifat va bemorlarning xavfsizligi bo'yicha xalqaro miqyosda tan olingan standartlar."
+      }
+    },
+    "hub": {
+      "title": "Eng tez rivojlanayotgan markaz",
+      "subtitle": "2 milliondan ortiq xalqaro bemorlar"
+    },
+    "tag": "Global sog'liqni saqlash manzili",
+    "title1": "Nima uchun Hindistonni o'zingiz uchun tanlashingiz kerak",
+    "title2": "Tibbiy davolash?",
+    "desc": "Hindiston ilg'or tibbiyot tajribasi, zamonaviy robot texnologiyalari, yuqori malakali mutaxassislar va bemorlarga keng qamrovli mehmondo'stlikni taklif etuvchi dunyoning yetakchi sog'liqni saqlash manziliga aylandi."
+  },
+  "Process": {
+    "steps": {
+      "step1": {
+        "title": "Tibbiy ma'lumotlaringizni ulashing",
+        "desc": "Bizga tibbiy hisobotlaringizni, tashxislaringizni, test natijalaringizni va davolash bo'yicha talablaringizni yuboring. Jamoamiz tibbiy ehtiyojlaringizni tushunish uchun ishlaringizni diqqat bilan ko'rib chiqadi."
+      },
+      "step2": {
+        "title": "Shaxsiy davolash rejasini oling",
+        "desc": "Biz sizni tibbiy holatingizga muvofiq mutaxassis va shifoxonaga yo'naltiramiz. Sizga davolash usullari, taxminiy xarajat va davolash muddati bo'yicha taklif etilgan reja taqdim etiladi."
+      },
+      "step3": {
+        "title": "Hindistonga tibbiy sayohatingizni rejalashtiring",
+        "desc": "Bir bor davom etishga qaror qilsangiz, biz kasalxonaga yozilishda, tibbiy viza bo'yicha yordamda, aeroport transferlarida, turar joyda, mahalliy transportda va professional tarjimon xizmatida ko'maklashamiz."
+      },
+      "step4": {
+        "title": "Davolash va bemorga to'liq yordam",
+        "desc": "Kasalxonaga yotqizilishdan boshlab davolanish, shifoxonadan chiqish va keyingi kuzatuvgacha jamoamiz doimo siz bilan bog'lanib turadi. Biz tibbiy sayohatingizni silliq, qulay va yaxshi muvofiqlashtirilgan qilishga yordam beramiz."
+      }
+    },
+    "tag": "U qanday ishlaydi",
+    "title": "Sog'liqni yaxshilash bo'yicha sayohatingiz, 4 ta oddiy qadam",
+    "desc": "Biz tibbiy sayohatingiz davomida vizaga yordam berishdan tortib kasalxonaga yotqizilishgacha bo'lgan barcha ishlarni bajarib, to'liq qo'llab-quvvatlaymiz, shunda siz davolanish va tiklanishga e'tibor qaratishingiz mumkin.",
+    "ctaTitle": "Davolanish sayohatingizni boshlashga tayyormisiz?",
+    "ctaDesc": "Bugun Hindistonning eng yaxshi mutaxassislari tomonidan bepul va majburiyatsiz tibbiy xulosa oling.",
+    "ctaButton": "Bepul maslahat oling"
+  },
+  "Specialties": {
+    "counts": {
+      "120+ Doctors": "120+ shifokorlar",
+      "200+ Doctors": "200+ shifokorlar",
+      "150+ Doctors": "150+ shifokorlar",
+      "85+ Doctors": "85+ shifokorlar",
+      "110+ Doctors": "110+ shifokorlar",
+      "45+ Centers": "45+ markazlar",
+      "90+ Centers": "90+ markazlar",
+      "300+ Doctors": "300+ shifokorlar",
+      "80+ Centers": "80+ markazlar",
+      "100+ Doctors": "100+ shifokorlar"
+    },
+    "tag": "Maxsus mukammallik",
+    "title": "Tibbiy ixtisoslik bo'yicha o'rganing",
+    "desc": "Barcha asosiy klinik bo'limlarda keng qamrovli parvarish. Hindistonning eng nufuzli jarrohlar va tibbiyot jamoalari bilan maslahatlashing.",
+    "view": "Davolash usullarini ko'ring",
+    "browseAll": "Barcha davolash usullari va protseduralarni ko'rib chiqing"
+  },
+  "Footer": {
+    "tagline": "Where Global Trust Meets World-Class Healing",
+    "badges": {
+      "nabh": "NABH va JCI kasalxonalar",
+      "support": "24/7 Xalqaro bo'lim",
+      "free": "100% bepul maslahatlashuv"
+    },
+    "discover": {
+      "title": "Kashf eting",
+      "hospitals": "Akreditatsiyadan o'tgan shifoxonalar",
+      "doctors": "Maxsus jarrohlar",
+      "treatments": "Davolash usullari va xarajatlari",
+      "gallery": "Foto galereya",
+      "specialties": "Tibbiyot ixtisosliklari",
+      "conditions": "Shartlar va qoidalar bo'yicha qo'llanma",
+      "cities": "Hindistondagi tibbiyot shaharlar"
+    },
+    "support": {
+      "title": "Bemorlarga yordam",
+      "visa": "Tibbiy viza (Med viza)",
+      "accommodation": "Joylashish va qolish",
+      "interpreters": "Tarjimonlar",
+      "airport": "Aeroportga transfer",
+      "search": "Provayderlarni qidirish"
+    },
+    "contact": {
+      "title": "24/7 yordam liniyasi",
+      "whatsapp": "WhatsApp orqali so'rov",
+      "responseTime": "Javob berish vaqti: 24 soatdan kam"
+    },
+    "legal": {
+      "title": "Huquqiy va maxfiylik",
+      "privacy": "Maxfiylik siyosati",
+      "terms": "Xizmat ko'rsatish shartlari",
+      "disclaimer": "Tibbiy mas'uliyatdan voz kechish",
+      "safety": "Bemorlarning xavfsizligi bo'yicha ko'rsatmalar"
+    },
+    "desc": "Hindistonda jahon darajasidagi, maqbul narxlardagi tibbiy jarrohlik bo'yicha sizning yetakchi xalqaro bemor hamkoringiz. Sizni to'g'ridan-to'g'ri JCI va NABH akkreditatsiyasiga ega shifoxonalar tarmog'iga bog'laydi.",
+    "copyright": "© {year} Asad Healthcare. Barcha huquqlar himoyalangan.",
+    "certified": "Butun Hindiston bo'ylab JCI va NABH akkreditatsiyasiga ega shifoxonalarni o'z ichiga olgan sertifikatlangan hamkorlar tarmog'i."
+  },
+  "FAQ": {
+    "faqs": {
+      "q1": {
+        "question": "Hindistonda tibbiy turizm nima?",
+        "answer": "Tibbiy turizm tibbiy davolash, jarrohlik amaliyoti, tashxis yoki sog'liqni saqlash xizmatlari uchun Hindistonga sayohat qilishni anglatadi."
+      },
+      "q2": {
+        "question": "Tibbiy davolanish uchun Hindistonni nega tanlash kerak?",
+        "answer": "Hindiston tajribali shifokorlar, ilg'or shifoxonalar, zamonaviy texnologiyalar va maqbul davolash imkoniyatlarini taklif etadi."
+      },
+      "q3": {
+        "question": "Sizning kompaniyangiz qanday xizmatlar ko'rsatadi?",
+        "answer": "Biz shifoxona muvofiqlashtirish, shifokor qabullarini tashkil etish, tibbiy davolanishni qo'llab-quvvatlash, sayohat yordami, turar joy ta'minoti va bemor muvofiqlashtirish xizmatlarini taqdim etamiz."
+      },
+      "q4": {
+        "question": "Shifoxonani tanlashda menga yordam bera olasizmi?",
+        "answer": "Ha, biz sizning tibbiy ehtiyojlaringiz va afzalliklaringizga asoslanib mos shifoxonani topishda yordam bera olamiz."
+      },
+      "q5": {
+        "question": "Shifokor tanlashda menga yordam bera olasizmi?",
+        "answer": "Ha, biz mos mutaxassis bilan maslahat tashkil etishda yordam bera olamiz."
+      },
+      "q6": {
+        "question": "Sayohat qilishdan oldin tibbiy hisobotlarimni yuborishim mumkinmi?",
+        "answer": "Ha. Siz tibbiy hisobotlaringizni ko'rib chiqish va davolash rejasini tuzish uchun ulashingiz mumkin."
+      },
+      "q7": {
+        "question": "Davolash uchun taxminiy narxni bera olasizmi?",
+        "answer": "Ha, biz tibbiy hisobotlaringizga asoslanib shifoxonadan davolash bo'yicha taxminiy xarajatni so'rab olishimiz mumkin."
+      },
+      "q8": {
+        "question": "Siz shifokor qabuliga yozilasizmi?",
+        "answer": "Ha, biz shifokorlar va mutaxassislar bilan uchrashuvlarni tashkil qilishimiz mumkin."
+      },
+      "q9": {
+        "question": "Siz til tarjimasini taqdim etasizmi?",
+        "answer": "Ha, biz xalqaro bemorlar uchun til tarjimonligi va muloqot yordamini taqdim etamiz."
+      },
+      "q10": {
+        "question": "Siz tibbiy viza olishda yordam berasizmi?",
+        "answer": "Ha, biz tibbiy viza olish jarayoni bo'yicha yo'l-yo'riq va muvofiqlashtirishni ta'minlay olamiz."
+      },
+      "q11": {
+        "question": "Aeroportdan qabul qilishni tashkil qilasizmi?",
+        "answer": "Ha, biz zarur bo'lganda aeroportdan qabul qilish va transportni tashkil qilishimiz mumkin."
+      },
+      "q12": {
+        "question": "Siz turar joyni tashkil qilasizmi?",
+        "answer": "Ha, biz kasalxona yaqinida munosib turar joy topishda yordam bera olamiz."
+      },
+      "q13": {
+        "question": "Mahalliy transportni ta'minlaysizmi?",
+        "answer": "Ha, shifoxonaga tashriflar, aeroportga o'tkazish va boshqa zarur sayohatlar uchun transport tashkil etilishi mumkin."
+      },
+      "q14": {
+        "question": "Shifoxonaga tashrifim chog'ida kimdir menga yordam beradimi?",
+        "answer": "Ha, bemorlar bo'yicha koordinatorimiz shifoxona bilan muloqot va muvofiqlashtirishda yordam bera oladi."
+      },
+      "q15": {
+        "question": "Oilaviy a'zolar bemor bilan sayohat qila oladimi?",
+        "answer": "Ha, oila a'zolari bemor bilan sayohat qilishlari mumkin, viza va sayohat talablari bajarilgan taqdirda."
+      },
+      "q16": {
+        "question": "Davolashdan keyin yordam bera olasizmi?",
+        "answer": "Ha, biz keyingi uchrashuvlar, hisobotlar va boshqa davolanishdan keyingi muvofiqlashtirish ishlarida yordam bera olamiz."
+      },
+      "q17": {
+        "question": "Davolanishim qancha vaqt oladi?",
+        "answer": "Davolash muddati bemorning holati, davolash rejasi va shifokor tavsiyasiga bog'liq."
+      },
+      "q18": {
+        "question": "Hindistonda davolanish qancha turadi?",
+        "answer": "Narxi shifoxona, shifokor, davolash, tibbiy holat va zarur xizmatlarga bog'liq."
+      },
+      "q19": {
+        "question": "Hindistonda tibbiy davolanish sayohatimni qanday boshlasam bo'ladi?",
+        "answer": "Bizga tibbiy hisobotlaringiz va talablaringizni yuboring. Keyingi bosqichlarda sizga yo'l-yo'riq ko'rsatamiz."
+      },
+      "q20": {
+        "question": "Nega bizning tibbiy turizm kompaniyamizni tanlashingiz kerak?",
+        "answer": "Biz xalqaro bemorlarga Hindistonda silliq, tartibli va qulay tibbiy sayohatni ta'minlash uchun boshidan oxirigacha yordam ko'rsatamiz."
+      },
+      "q21": {
+        "question": "Nega men tibbiy davolanish uchun Hindistonni tanlashim kerak?",
+        "answer": "Hindiston jahon darajasidagi tibbiyot muassasalari, xalqaro akkreditatsiyaga ega shifoxonalar (JCI va NABH), AQSh va Buyuk Britaniyada malaka oshirgan yuqori malakali shifokorlar hamda ilg'or tibbiyot texnologiyalarini G'arbiy mamlakatlarga nisbatan 60–80% arzon narxlarda, deyarli hech qanday kutish vaqtlari bo'lmagan holda taklif etadi."
+      },
+      "q22": {
+        "question": "Kasalxonada yotganim davomida til to'sig'i bo'ladimi?",
+        "answer": "Yo'q. Ingliz tili barcha akkreditatsiyadan o'tgan hind shifoxonalarida rasmiy ish tilidir. Bundan tashqari, bizning jamoamiz barcha konsultatsiyalar va shifoxonaga yotqizilish davomida sizga yordam berish uchun maxsus tarjimon (arab, rus, fransuz, bengal, svahili)ni tayinlaydi."
+      },
+      "q23": {
+        "question": "Men Hindiston tibbiy vizasini (Med Visa) qanday olaman?",
+        "answer": "Tibbiy hisobotlaringizni taqdim etib, afzal ko'rgan shifoxonangizni tanlaganingizdan so'ng, biz shifoxonadan rasmiy Visa taklif xatini (VIL) tayyorlaymiz. Uni 48–72 soat ichida onlayn tarzda e-Medical Visa olish uchun ishlatishingiz mumkin."
+      },
+      "q24": {
+        "question": "Oilam a'zolari yoki hamrohlarim men bilan sayohat qila oladimi?",
+        "answer": "Ha, ikki nafar oilaviy a'zo yoki hamroh Tibbiy hamroh viza (MED-X) bo'yicha siz bilan birga sayohat qilishi mumkin. Rasmiy shifoxona taklif xatida ularning ma'lumotlari aniq ko'rsatiladi."
+      },
+      "q25": {
+        "question": "Kotibiyat va to'lov jarayoni qanday ishlaydi?",
+        "answer": "Bizning konsultatsiya va konsyerj xizmati bemorlar uchun 100% bepul. Barcha davolash to'lovlari kelganingizda shifoxonaga to'g'ridan-to'g'ri kredit karta, bank o'tkazmasi yoki xorijiy valyuta orqali amalga oshiriladi."
+      },
+      "q26": {
+        "question": "Men Hindistondagi aeroportga qo'nganimda nima bo'ladi?",
+        "answer": "Bizning vakilimiz sizni aeroport terminalida shaxsiy nom yozilgan plakat bilan to'g'ridan-to'g'ri kutib oladi, mehmonxonangizga yoki shifoxona xonangizga yetkazadi va mahalliy SIM-karta hamda valyuta almashtirish bo'yicha yordam ko'rsatadi."
+      }
+    },
+    "bottom": {
+      "title": "Hali ham savollaringiz bormi?",
+      "desc": "Bizning tibbiy yordam jamoamiz WhatsApp va telefon orqali 24/7 mavjud.",
+      "button": "Mutaxassisga murojaat qiling"
+    },
+    "tag": "Bemorlarga yordam va aniqlik",
+    "title": "Ko'p beriladigan savollar",
+    "desc": "Hindistonda tibbiy davolanish, jumladan shifoxonalar, shifokorlar, davolanish xarajatlari, tibbiy vizalar, sayohat, turar joy va bemorlarga ko'mak bo'yicha aniq javoblarni toping. Bizning tez-tez so'raladigan savollarimiz xalqaro bemorlarga jarayonni tushunish va tibbiy safarini ishonch bilan rejalashtirishga yordam beradi."
+  },
+  "Conditions": {
+    "items": {
+      "c1": {
+        "name": "Koroner arteriya kasalligi",
+        "specialty": "Kardiologiya",
+        "desc": "Minimal invaziv bypass graftlash (CABG), angioplastika va robot yurak jarrohligi."
+      },
+      "c2": {
+        "name": "Osteoartrit",
+        "specialty": "Ortopediya",
+        "desc": "Robot yordamida to'liq tizza va son bo'g'imlarini almashtirish, ultra-tez tiklanish protokollari bilan."
+      },
+      "c3": {
+        "name": "Miya o'simtasi va epilepsiya",
+        "specialty": "Nevrologiya",
+        "desc": "Rivojlangan mikrokirurgiya, CyberKnife radiosurgeryasi va funksional neyro-rezeksiya."
+      },
+      "c4": {
+        "name": "Süti bezi va prostata saratoni",
+        "specialty": "Onkologiya",
+        "desc": "Maqsadli immunoterapiya, aniq nurlanish va a'zolarni saqlab qoluvchi jarrohlik onkologiyasi."
+      }
+    },
+    "tag": "Tashxis va parvarish",
+    "title": "Biz davolaydigan keng tarqalgan kasalliklar",
+    "desc": "O'zingizning aniq tashxis bo'yicha qidiring. Bizning kasalxona tarmog'imiz murakkab sog'liq muammolarini hal qilishda ilg'or jarrohlik va tibbiy aralashuvlarga ixtisoslashgan.",
+    "explore": "Davolash usullarini o'rganing",
+    "viewAll": "50+ ta tibbiy holatning barchasini ko'ring"
+  },
+  "FeaturedHospitals": {
+    "tag": "Akreditatsiyadan o'tgan markazlar",
+    "title": "Tanlangan hamkor shifoxonalar",
+    "desc": "Biz Hindistonning yetakchi JCI va NABH akkreditatsiyasiga ega muassasalari bilan hamkorlik qilamiz, ular maxsus xalqaro bemorlar uchun bo'limlar va ko'p tilli qo'llab-quvvatlashga ega.",
+    "explore": "Barcha 50 dan ortiq akkreditatsiyalangan shifoxonalarni kashf eting"
+  },
+  "PatientStories": {
+    "stats": {
+      "financial": "Moliyaviy ta'sir",
+      "clinical": "Klinik natija",
+      "verified": "Tasdiqlangan bemor yozuvi"
+    },
+    "doctor": {
+      "treating": "Davolash bo'yicha mutaxassis",
+      "consult": "Ushbu shifokor bilan maslahatlashing"
+    },
+    "filters": {
+      "All": "Barchasi",
+      "Orthopedics": "Ortopediya",
+      "Cardiology": "Kardiologiya",
+      "Oncology": "Onkologiya",
+      "Organ Transplant": "A'zo Transplantatsiyasi"
+    },
+    "tag": "Haqiqiy hikoyalar. Haqiqiy shifo.",
+    "title": "Hayotni o'zgartiruvchi tiklanish",
+    "subtitle": "Hayotda ikkinchi imkoniyat",
+    "desc": "Murakkab tibbiy safarlarini Hindistonga Asad Healthcare'ga ishonib topshirgan xalqaro bemorlarning bevosita fikrlarini eshiting."
+  },
+  "HospitalsPage": {
+    "filters": {
+      "title": "Shifoxonalarni filtrlash",
+      "search": "Qidiruv",
+      "searchPlaceholder": "Nom yoki kalit so'z...",
+      "city": "Shahar",
+      "allCities": "Barcha shaharlar (Hindiston)",
+      "specialty": "Ixtisoslik",
+      "allSpecialties": "Barcha ixtisosliklar",
+      "apply": "Filtrlarni qo'llash"
+    },
+    "results": {
+      "count": "{count} mavjud shifoxonalar",
+      "sortBy": "Bo'yicha saralash:",
+      "sortRecommended": "Tavsiya etiladi",
+      "sortBeds": "Ko'p karavotlar"
+    },
+    "tag": "Akreditatsiyadan o'tgan sog'liqni saqlash tarmog'i",
+    "title": "Hindistondagi eng nufuzli akkreditatsiyaga ega shifoxonalar",
+    "titleCity": "{city}dagi eng nufuzli akkreditatsiyalangan shifoxonalar",
+    "desc": "Xalqaro miqyosda sertifikatlangan JCI va NABH shifoxona muassasalarini, ilg'or robototexnika bo'limlari va xorijiy bemorlar uchun maxsus dam olish xonalari bilan jihozlanganini solishtiring."
+  },
+  "HospitalDetail": {
+    "breadcrumbs": {
+      "home": "Bosh sahifa",
+      "hospitals": "Shifoxonalar"
+    },
+    "overview": {
+      "title": "Shifoxona umumiy ko'rinishi",
+      "established": "Tashkil etilgan",
+      "airport": "Aeroport",
+      "beds": "karavotlar"
+    },
+    "share": {
+      "title": "Ulashish shifoxonasi",
+      "whatsapp": "Nima bo'ldi?",
+      "telegram": "Telegram",
+      "facebook": "Facebook",
+      "copy": "Havo ulanishini nusxalash"
+    },
+    "search": "Kasalxonalar, shifokorlar yoki ixtisosliklarni qidiring...",
+    "about": "Shifoxona haqida",
+    "multiSpecialties": "Ko'p ixtisoslik xizmatlari",
+    "premiumFacilities": "Shifoxonada yotish vaqtida premium qulayliklar",
+    "technologies": "Rivojlangan tibbiyot texnologiyalari",
+    "connectivity": "Ulanish va joylashuv",
+    "excellence": "Bemorlarga g'amxo'rlikda mukammallik",
+    "facilities": "Shifoxona qulayliklari",
+    "askButton": "Asadga bu shifoxona haqida so'rang",
+    "address": "Shifoxona manzili",
+    "toc": "Mavzular indeksi",
+    "related": "Aloqador shifoxonalar"
+  },
+  "DoctorsPage": {
+    "filters": {
+      "title": "Filtr mutaxassislari",
+      "search": "Shifokor qidiruvi",
+      "searchPlaceholder": "Nom yoki kalit so'z...",
+      "specialty": "Ixtisoslik",
+      "allSpecialties": "Barcha ixtisosliklar",
+      "city": "Shahar",
+      "allCities": "Barcha shaharlar",
+      "apply": "Filtrlarni qo'llang"
+    },
+    "results": {
+      "count": "{count} mutaxassis mavjud",
+      "sortBy": "Bo'yicha saralash:",
+      "sortRecommended": "Tavsiya etiladi",
+      "sortExperience": "Eng ko'p tajriba"
+    },
+    "tag": "Yetakchi klinik mutaxassislar",
+    "title": "Hindistonda eng yaxshi shifokorlar va jarrohlarni toping",
+    "desc": "Xalqaro darajada malaka oshirgan jarrohlar, bo'lim mudirlari va murakkab jarrohlik amaliyotlarining peshqadamlari bilan maslahatlashing, ularga minglab jahon bo'ylab bemorlar ishonadi."
+  },
+  "DoctorDetail": {
+    "breadcrumbs": {
+      "home": "Bosh sahifa",
+      "doctors": "Shifokorlar"
+    },
+    "share": {
+      "title": "Doktor bilan bo'lishing",
+      "whatsapp": "Nima bo'ldi?",
+      "telegram": "Telegram",
+      "facebook": "Facebook",
+      "copy": "Havo ulanishini nusxalash"
+    },
+    "whyChooseUs": {
+      "title": "Nega bizni tanlashingiz kerak?",
+      "subtitle": "Biz sizning yukingizni yengillashtirishning bir nechta usullarini taklif etamiz"
+    },
+    "international": {
+      "virtualConsultation": {
+        "title": "Virtual maslahatlashuv",
+        "desc": "Hindistonga sayohatingizni bron qilishdan oldin onlayn ikkinchi fikr va sayohatoldi maslahatlashuv."
+      },
+      "visaSupport": {
+        "title": "Tibbiy viza bo'yicha yordam",
+        "desc": "Sizning tibbiy viza arizangiz uchun taklif xatlari va to'liq hujjatlarni tayyorlash bo'yicha yordam."
+      },
+      "costEstimate": {
+        "title": "Ochiq xarajatlar bahosi",
+        "desc": "Davolash xarajatlari to'liq va batafsil oldindan ma'lum qilinadi. Yashirin to'lovlar yo'q, kelganingizda hech qanday kutilmagan xarajat bo'lmaydi."
+      },
+      "postOp": {
+        "title": "Operatsiyadan keyingi nazorat",
+        "desc": "Tuzilgan reabilitatsiya rejasi va uyga qaytgach masofaviy kuzatuv parvarishi."
+      }
+    },
+    "trust": {
+      "highlyExperienced": "Yuqori tajribaga ega",
+      "thousandsOfCases": "Minglab muvaffaqiyatli holatlar",
+      "yearsOfPractice": "{years}+ yillik amaliyot",
+      "decadesOfExpertise": "O'n yillik tajriba",
+      "boardCertified": "Kengash tomonidan sertifikatlangan mutaxassis",
+      "specializedFocus": "Maxsus e'tibor",
+      "advancedSurgicalTechniques": "Rivojlangan jarrohlik texnikalari",
+      "provenTrackRecord": "Tasdiqlangan muvaffaqiyatlar tarixi",
+      "highSuccessRates": "Yuqori klinik muvaffaqiyat darajalari",
+      "patientCenteredCare": "Bemor markazlashgan parvarish"
+    },
+    "authorized": "Profil ruxsat berildi",
+    "experience": "{years}+ yillik tajriba",
+    "highlyExperienced": "Yuqori tajribali",
+    "askButton": "Asad Healthcare'dan so'rang",
+    "enquiryDisclaimer": "Sizning murojaatingiz Asad Healthcare parvarish guruhi tomonidan qabul qilindi va to'g'ridan-to'g'ri shifokorga yuborilmaydi.",
+    "about": "Shifokor haqida",
+    "aboutFallback": "{name} juda tajribali mutaxassisdir.",
+    "qualifications": "Ta'lim va trening",
+    "professionalExperience": "Kasbiy tajriba",
+    "areasOfExpertise": "Mutaxassislik sohalari",
+    "treatmentsAndProcedures": "Davolash usullari va protseduralar",
+    "specialInterests": "Rivojlangan texnikalar va maxsus qiziqishlar",
+    "fellowshipsAndTraining": "Stipendiyalar va kasbiy tayyorgarlik",
+    "researchPublications": "Tadqiqotlar va nashrlar",
+    "awardsRecognitions": "Mukofotlar va kasbiy e'tirof",
+    "professionalMemberships": "Kasbiy a'zoliklar",
+    "whyChooseThisDoctor": "Nega aynan shu shifokorni tanlash kerak?",
+    "allTreatments": "Davolash usullari va protseduralar",
+    "disclaimer": "Ruxsat berish shuni anglatadiki, ushbu profilni e'lon qilishga ruxsat qayd etilgan. Bu Asad Healthcare shifokorning xizmatlari yoki natijalarini reytinglaydi, tibbiy jihatdan ma'qullaydi yoki kafolatlaydi degani emas.",
+    "toc": "Mavzular indeksi",
+    "related": "Munosabatli shifokorlar",
+    "experienceShort": "{years}+ yillik tajriba",
+    "forInternationalPatients": "Xalqaro bemorlar uchun"
+  },
+  "TreatmentsPage": {
+    "search": {
+      "placeholder": "Davolash usullari, jarrohlik amaliyotlari, protseduralar...",
+      "button": "Qidiruv"
+    },
+    "browse": {
+      "title": "Tibbiy ixtisoslik bo'yicha qidiring",
+      "viewAll": "Barchasini ko'rish"
+    },
+    "popular": {
+      "title": "Mashhur jarrohlik protseduralari",
+      "general": "Umumiy",
+      "estPackage": "Taxminiy to'plam:",
+      "customQuote": "Moslashtirilgan narx taklifi",
+      "recovery": "Sogʻayish:",
+      "varies": "O'zgaradi",
+      "viewOptions": "Davolash va shifokor variantlarini ko'ring"
+    },
+    "specialties": {
+      "Cardiology": "Kardiologiya",
+      "Oncology": "Onkologiya",
+      "Orthopedics": "Ortopediya",
+      "Neurology": "Nevrologiya",
+      "Gastroenterology": "Gastroenterologiya",
+      "Organ Transplant": "A'zo Transplantatsiyasi",
+      "Cosmetic Surgery": "Kosmetika jarrohligi",
+      "Dental": "Tish",
+      "IVF & Fertility": "EKO va homiladorlik",
+      "Bariatric Surgery": "Bariatrik jarrohlik",
+      "Ophthalmology": "Oftalmologiya",
+      "Urology": "Urologiya"
+    },
+    "tag": "Rivojlangan klinik protseduralar",
+    "title": "Tibbiy muolajalar va xarajatlar bo'yicha taxminlar",
+    "desc": "Hindistonda shaffof jarrohlik paketlari, tiklanish muddatlari va akkreditatsiyalangan shifoxonalar takliflarini solishtiring hamda 70% gacha tejang."
+  },
+  "TreatmentDetail": {
+    "hero": {
+      "inIndia": "{name} Hindistonda",
+      "getEstimate": "Shaxsiylashtirilgan taxmin oling"
+    },
+    "stats": {
+      "estCost": "Taxminiy xarajatlar diapazoni",
+      "recovery": "Qayta tiklanish vaqti",
+      "hospitalStay": "Shifoxonada yotish"
+    },
+    "required": {
+      "title": "{name} qachon talab qilinadi?",
+      "desc": "Ushbu protseduraning zarurligini ko'rsatadigan umumiy belgilar va sabablar quyidagilarni o'z ichiga oladi:"
+    },
+    "diagnosis": {
+      "title": "Diagnostika va baholash",
+      "desc": "Jarrohlikni tavsiya qilishdan oldin shifokorlar odatda quyidagi testlarni o'tkazadilar:"
+    },
+    "conditions": {
+      "title": "Ushbu protsedura bilan davolangan holatlar",
+      "desc": "{name} quyidagi kasalliklar va holatlarni davolash yoki boshqarishda juda samarali:",
+      "readMore": "Ushbu holat haqida o'qing"
+    },
+    "types": {
+      "title": "{name} turlari",
+      "viewDetails": "Maxsus tafsilotlarni ko'rish"
+    },
+    "procedure": {
+      "title": "Protsedura qanday bajariladi?"
+    },
+    "postOp": {
+      "prepTitle": "Tayyorgarlik va operatsiyadan oldingi tayyorgarlik",
+      "recoveryTitle": "Sog'ayish va operatsiyadan keyingi parvarish"
+    },
+    "doctors": {
+      "title": "{name} uchun eng yaxshi mutaxassislar"
+    },
+    "hospitals": {
+      "title": "{name} uchun eng yaxshi shifoxonalar"
+    },
+    "faqs": {
+      "title": "Ko'p beriladigan savollar"
+    },
+    "sidebar": {
+      "helpTitle": "Qaror qabul qilishda yordam kerakmi?",
+      "helpDesc": "Tibbiy hisobotlaringizni mutaxassislarimizga yuboring va bir nechta yetakchi shifoxonalardan bepul tibbiy xulosa hamda aniq xarajatlar bahosini oling.",
+      "requestOpinion": "Tibbiy xulosa so'rash",
+      "freeConfidential": "100% bepul va maxfiy",
+      "risksTitle": "Potentsial xavflar",
+      "risksDisclaimer": "Barcha jarrohlik amaliyotlari ma'lum xavf tug'diradi. Shifokoringiz maslahat paytida bu haqda siz bilan muhokama qiladi."
+    },
+    "mockArrays": {}
+  },
+  "SpecialtyDetail": {
+    "hero": {
+      "tag": "Tibbiy ixtisoslik",
+      "inIndia": "Hindistonda {name}",
+      "getPlan": "Bepul maslahat rejasini oling",
+      "fallbackOverview": "{name} – bu sog'liqni saqlashning ma'lum jihatlari bilan shug'ullanuvchi tibbiyotning ixtisoslashgan tarmog'idir. Bizning Hindistondagi hamkor shifoxonalarimiz zamonaviy texnologiyalardan foydalangan holda jahon darajasidagi davolashni taqdim etadi."
+    },
+    "treatments": {
+      "title": "Mashhur {name} muolajalari",
+      "viewDetails": "Davolash tafsilotlarini ko'rish"
+    },
+    "doctors": {
+      "title": "Eng yaxshi mutaxassislar",
+      "viewAll": "Barchasini ko'rish"
+    },
+    "hospitals": {
+      "title": "{name} uchun eng yaxshi shifoxonalar",
+      "viewAll": "Barchasini ko'rish"
+    },
+    "conditions": {
+      "title": "Davolangan keng tarqalgan kasalliklar",
+      "desc": "Butun dunyo bo'ylab bemorlar bu murakkab {name} holatlarini malakali boshqarish uchun Hindistonga safar qiladilar:",
+      "viewDetails": "Tafsilotlarni ko'rish"
+    },
+    "sidebar": {
+      "title": "Tibbiy xulosa so'rang",
+      "desc": "Hisobotlaringizni yuklang va Hindistonning yetakchi {name} mutaxassislari tomonidan 48 soat ichida maxsus davolash rejasini oling.",
+      "startJourney": "Sayohatingizni boshlang",
+      "noObligation": "Davom etishga majburiyat yo'q",
+      "multipleQuotes": "Bir nechta shifoxona takliflari",
+      "dedicatedManager": "Maxsus parvarish bo'yicha menejer"
+    },
+    "mockTreatments": {
+      "consultation": {
+        "name": "{name} maslahatlashuv",
+        "desc": "Eng yaxshi {name} mutaxassislari tomonidan keng qamrovli baholash va tashxis."
+      },
+      "diagnostics": {
+        "name": "Rivojlangan diagnostika",
+        "desc": "Aniq tibbiy rejalashtirish uchun zamonaviy diagnostika usullari."
+      },
+      "surgery": {
+        "name": "Kam invaziv jarrohlik",
+        "desc": "Kamroq og'riq va tezroq tiklanishga olib keladigan ilg'or jarrohlik usullari."
+      },
+      "interventions": {
+        "name": "Murakkab aralashuvlar",
+        "desc": "Yuqori aniqlikdagi murakkab protseduralarni katta tajribaga ega mutaxassislar bajaradi."
+      }
+    },
+    "mockConditions": {
+      "general1": {
+        "name": "Uмумiy {name} buzilishlari",
+        "desc": "Keng tarqalgan {name} holatlarining keng doirasiga keng qamrovli g'amxo'rlik."
+      },
+      "general2": {
+        "name": "Surunkali {name} holatlari",
+        "desc": "Surunkali holatlar uchun uzoq muddatli boshqaruv va ixtisoslashgan davolash."
+      },
+      "general3": {
+        "name": "O'tkir {name} favqulodda holatlari",
+        "desc": "Og'ir o'tkir holatlar uchun tezkor yordam va intensiv parvarish."
+      }
+    }
+  },
+  "AboutUs": {
+    "hero": {
+      "tag": "Asad Healthcare haqida",
+      "title1": "Sizning ishonchli hamkoringiz",
+      "title2": "Hindistonda tibbiy davolanish",
+      "desc": "Asad Healthcare – bu Hindistonda xalqaro bemorlarga ishonchli sog'liqni saqlash xizmatlariga kirishni ta'minlashga bag'ishlangan tibbiy turizm kompaniyasi. Biz mijozlarning sog'liqni saqlash ehtiyojlariga asoslanib, ularni tajribali shifokorlar, obro'li kasalxonalar, ilg'or davolash usullari va ixtisoslashgan tibbiy yordam bilan bog'laymiz."
+    },
+    "intro": {
+      "desc": "Biz boshqa mamlakatda davolanish faqat shifokor yoki kasalxonani tanlashdan iborat emasligini tushunamiz. Bu ishonchli ma'lumot, puxta rejalashtirish, aniq muloqot va butun davolanish jarayonida qo'llab-quvvatlashni talab etadi. Bizning vazifamiz ushbu jarayonni soddalashtirish va bemorlarga yanada ishonch bilan to'g'ri qarorlar qabul qilishda yordam berishdir."
+    },
+    "whatWeDo": {
+      "title": "Biz nima qilamiz",
+      "desc": "Biz Hindistonda tibbiy davolanishni o'rganayotgan shaxslarga boshidan oxirigacha yordam ko'rsatamiz, jumladan:"
+    },
+    "network": {
+      "title": "Bizning sog'liqni saqlash tarmog'imiz",
+      "desc": "Biz bemorlarni butun Hindiston bo'ylab obro'li shifoxonalar, tajribali mutaxassislar va ilg'or sog'liqni saqlash muassasalari bilan bog'lash ustida ishlaymiz. Bemorning talablariga asoslanib, biz mos sog'liqni saqlash variantlarini aniqlashda va tegishli tibbiy xizmat ko'rsatuvchilar bilan muloqotni muvofiqlashtirishda yordam beramiz."
+    },
+    "approach": {
+      "title": "Bizning yondashuvimiz"
+    },
+    "whyChooseUs": {
+      "title": "Nega Asad Healthcare'ni tanlashingiz kerak?"
+    },
+    "statements": {
+      "mission": {
+        "title": "Bizning missiyamiz",
+        "desc": "Ishonchli aloqalar, aniq ma'lumotlar va professional tibbiy sayohat bo'yicha yordamni taqdim etish orqali Hindistondagi sifatli sog'liqni saqlash xizmatlarini butun dunyo bo'ylab odamlar uchun yanada qulayroq qilish."
+      },
+      "vision": {
+        "title": "Bizning Vizyonimiz",
+        "desc": "Mas'uliyatli sogʻliqni saqlashni muvofiqlashtirish, bemorga yoʻnaltirilgan xizmat va muammosiz tibbiy sayohat tajribasi bilan tan olingan, ishonchli global tibbiy turizm hamkori boʻlish."
+      },
+      "commitment": {
+        "title": "Bizning majburiyatimiz",
+        "desc1": "Asad Healthcare'da biz professional, shaffof va mas'uliyatli tibbiy turizm bo'yicha yordam ko'rsatishga sodiqmiz.",
+        "desc2": "Biz tibbiy holatlarni tashxislashmaymiz yoki klinik qarorlar qabul qilmaymiz. Tibbiy tashxis, davolash bo'yicha tavsiyalar, protseduralar va jarrohlik amaliyotlari malakali shifokorlar va sog'liqni saqlash muassasalari tomonidan belgilanadi.",
+        "desc3": "Bizning mas'uliyatimiz bemorlarga mos tibbiy xizmat variantlarini topishda, jarayonni tushunishda, ularning safarini muvofiqlashtirishda va Hindistonda tibbiy yordamga yanada ishonch bilan murojaat qilishda yordam berishdir."
+      }
+    },
+    "cta": {
+      "title": "Sayohatingizni boshlashga tayyormisiz?",
+      "button": "Tibbiyot jamoamiz bilan bog'laning"
+    }
+  },
+  "ContactUs": {
+    "hero": {
+      "title": "Aloqaga chiqing",
+      "desc": "Hindistonda tibbiy muolajalar bo'yicha savollaringiz bormi? Xalqaro parvarish jamoamiz sizga 24/7 yordam berishga tayyor."
+    },
+    "info": {
+      "title": "Aloqa ma'lumotlari",
+      "desc": "Bepul tibbiy baholar, viza bo'yicha yordam yoki sayohatingizga oid har qanday savollar uchun biz bilan bog'laning.",
+      "phone": "Telefon / WhatsApp",
+      "email": "Elektron pochta orqali qo'llab-quvvatlash",
+      "office": "Bosh ofis",
+      "officeAddress": "62-sektor, Noida\nDehli NCR, Hindiston 201309",
+      "hours": "Ish soatlari",
+      "hoursDesc": "Xalqaro bemorlar uchun 24/7 yordam"
+    },
+    "form": {
+      "title": "Bizga xabar yuboring"
+    }
+  },
+  "MedicalTravel": {
+    "hero": {
+      "tag": "To'liq konsyerj va viza bo'yicha yordam",
+      "title1": "Tikuvsiz tibbiy sayohat",
+      "title2": "Hindistonga, birinchi kundan.",
+      "desc": "Biz butun logistika ishlarini hal qilayotganimizda siz sog'lig'ingizga e'tibor qarating. Tezkor tibbiy vizalar (VIL) va aeroport transferlaridan tortib, bemorlar uchun xususiy turar joylargacha, bizning bag'ishlangan konsyerjimiz stressiz tiklanish safarini ta'minlaydi.",
+      "requestBtn": "Sayohat yordamini so'rang"
+    },
+    "visa": {
+      "title": "Tibbiy viza bo'yicha yordam",
+      "subtitle": "Hindistonga tibbiy safaringiz uchun uzluksiz Visa yordami",
+      "desc": "Biz xalqaro bemorlar va ularning hamrohlariga tuzilmali tibbiy viza yordamini taqdim etamiz, Hindistonga muammosiz safar uchun zarur hujjatlar va shifoxona formalitlarini muvofiqlashtirishga yordam beramiz.",
+      "heroDesc": "Xalqaro davolanish sayohatingizni qog'ozbozlik bosh og'rig'isiz boshqaring. Taklif xatlaridan (VIL) arizani tayyorlash bo'yicha yordam va muddatni uzaytirishgacha, bizning bag'ishlangan jamoamiz barcha murakkab jarayonlarni hal qiladi, shunda siz to'liq sog'lig'ingizga e'tibor qaratishingiz mumkin.",
+      "step1Title": "1. Tibbiy viza bo'yicha yo'riqnoma",
+      "step1Desc": "Tibbiy viza jarayoni, unga munosiblik, talab qilinadigan hujjatlar va muhim talablar bo'yicha aniq ko'rsatmalar.",
+      "step2Title": "2. Viza taklif xati (VIL)",
+      "step2Desc": "Biz tibbiy viza arizasi uchun zarur bo'lgan viza taklif xati (VIL)ni tegishli shifoxona bilan muvofiqlashtiramiz.",
+      "step3Title": "3. Tibbiy hujjatlarni muvofiqlashtirish",
+      "step3Desc": "Muhim tibbiy hujjatlar, tayinlov xatlari, davolash tafsilotlari va boshqa qo'shimcha hujjatlarni muvofiqlashtirishda yordam.",
+      "step4Title": "4. Arizachilarga viza bo'yicha yordam",
+      "step4Desc": "Bemor bilan birga sayohat qilayotgan malakali hamrohlar uchun viza hujjatlari va jarayonida yordam.",
+      "step5Title": "5. Visa arizasi bo'yicha yordam",
+      "step5Desc": "Biz sizga viza arizasini muammosiz va to'g'ri tayyorlash uchun zarur bo'lgan ma'lumot va hujjatlarni tartibga solishda yordam beramiz.",
+      "step6Title": "6. Viza muddatini uzaytirish bo'yicha ko'rsatma",
+      "step6Desc": "Agar qo'shimcha davolanish uzoq muddat qolishni talab qilsa, biz tegishli viza muddatini uzaytirish tartibi va zarur hujjatlar bo'yicha yo'riqnoma beramiz.",
+      "step7Title": "7. Sayohatdan oldingi viza tekshiruv ro'yxati",
+      "step7Desc": "Biz bemorlarga jo'nashdan oldin muhim viza va sayohat hujjatlarini ko'rib chiqishda yordam beramiz, shunda kechikishlar va oxirgi daqiqadagi muammolar kamayadi.",
+      "step8Title": "8. Viza bo'yicha to'liq muvofiqlashtirish",
+      "step8Desc": "Dastlabki yo'riqnomadan va VIL muvofiqlashtirishidan tortib safarga tayyorgarlikka qadar, biz tibbiy safaringizdagi asosiy viza bilan bog'liq talablarni boshqarishda yordam beramiz."
+    },
+    "concierge": {
+      "tag": "360 darajali g'amxo'rlik",
+      "title": "Boshidan oxirigacha konsyerj xizmatlari",
+      "pickupTitle": "Aeroportdan olib ketish va transfer",
+      "pickupDesc": "Sizni terminalda shaxsiy plakatni ushlab turgan vakilimiz to'g'ridan-to'g'ri kutib oladi, so'ngra shaxsiy tez yordam mashinasi yoki dezinfektsiyalangan taksi orqali kasalxonangizga yoki mehmonxonangizga yetkazib qo'yiladi.",
+      "hotelTitle": "Mehmonxona va qolish tashkiloti",
+      "hotelDesc": "Biz shifoxonaga piyoda borish mumkin bo'lgan masofada qulay, gigienik jihatdan tekshirilgan mehmon kvartiralarini va 4/5 yulduzli mehmonxonalarni sizning ovqatlanish ehtiyojlaringiz va hamrohlaringiz qulayligini inobatga olgan holda taqdim etamiz.",
+      "interpreterTitle": "Ko'p tilli tarjimonlar",
+      "interpreterDesc": "Til hech qachon to'siq bo'lmaydi. Arab, rus, fransuz, bengal va swahili tillarida ona tili darajasida so'zlashadigan maxsus tarjimonlar barcha tibbiy maslahatlashuvlar va palata tashriflari davomida sizga hamroh bo'ladilar."
+    },
+    "accommodation": {
+      "title": "Joylashish va qolish",
+      "subtitle": "Qulay, qulayliklarga boy va yaxshi bog'langan turar joy",
+      "desc": "Biz xalqaro bemorlar va ularning hamrohlariga shifoxonaga yaqin qulay turar joyni tashkil etishda yordam beramiz, bu esa davolanish davomida Hindistonda bo'lishlarini yanada qulay va qulayroq qiladi.",
+      "heroDesc": "Uyingizdan uzoqda ham uyingiz. Biz shifoxona yaqinidagi yuqori baholangan mehmonxonalar va to'liq xizmat ko'rsatadigan kvartiralar bilan hamkorlik qilib, davolanish davomida siz va yaqinlaringiz uchun xavfsiz, toza va osoyishta muhitni ta'minlaymiz.",
+      "step1Title": "1. Mehmonxona va mehmon uyi bo'yicha yordam",
+      "step1Desc": "Biz sizning ehtiyojlaringiz va byudjetingizga muvofiq munosib mehmonxonalar, mehmon uylari va xizmat ko'rsatadigan turar joylarni tashkil etishda yordam beramiz.",
+      "step2Title": "2. Kasalxonaga ulangan joylar",
+      "step2Desc": "Biz konsultatsiya va davolanish vaqtida sayohat vaqtini qisqartirish maqsadida shifoxonaga yaqin qulay joylashgan turar joy variantlariga ustuvorlik beramiz.",
+      "step3Title": "3. Bemorlar uchun qulay turar joy",
+      "step3Desc": "Biz bemorlar, hamrohlar va oilalar uchun tibbiy davolanish davrida qulay va amaliy turar joylarni aniqlashda yordam beramiz.",
+      "step4Title": "4. Qisqa va uzoq muddatli turar joylar",
+      "step4Desc": "Bir necha kun yoki bir necha hafta turar joyga muhtoj bo'lsangiz, biz davolanish jadvalingizga muvofiq joylashishni tashkil etishda yordam beramiz.",
+      "step5Title": "5. Rezervatsiya va ro'yxatdan o'tish bo'yicha yordam",
+      "step5Desc": "Biz turar joyni muvofiqlashtirish, bron qilish tafsilotlari, ro'yxatdan o'tish talablari va boshqa asosiy qolish bilan bog'liq tartib-taomillar bo'yicha yordam beramiz.",
+      "step6Title": "6. Transport yordami",
+      "step6Desc": "Biz turar joyingiz, shifoxona, aeroport va boshqa muhim joylar o'rtasidagi transportni muvofiqlashtira olamiz.",
+      "step7Title": "7. Oila va hamrohlarga ko'mak",
+      "step7Desc": "Biz hamroh bo'lgan oila a'zolari va parvarishchilarning ehtiyojlarini inobatga olib, ularning qolishini qulay va yoqimli qilishga harakat qilamiz.",
+      "step8Title": "8. Qishloq xo'jaligi kengaytirilgan yordami",
+      "step8Desc": "Agar davolanish jadvali o'zgarsa, biz sizning talablaringizga muvofiq uzaytirilgan qolishni muvofiqlashtirishda yordam bera olamiz."
+    },
+    "interpreters": {
+      "title": "Til tarjimonlik xizmatlari",
+      "subtitle": "Bemorlar va sog'liqni saqlash mutaxassislari o'rtasidagi aniq muloqot",
+      "desc": "Samaraли aloqа har bir tibbiy safarning muhim qismidir. Bizning professional tarjimonlik yordamimiz xalqaro bemorlarga shifokorlar, hamshiralar, shifoxona xodimlari va boshqa sog'liqni saqlash mutaxassislari bilan qulay muloqot qilishga yordam beradi.",
+      "heroDesc": "Bizning malakali, ona tilida so'zlashadigan tibbiy tarjimonlarimiz bilan til to'sig'ini yo'q qiling. Biz har bir maslahatlashuv, tashxis va tibbiy ko'rsatma 100% aniqlik va madaniy noziklik bilan yetkazilishini ta'minlaymiz.",
+      "step1Title": "1. Til talqini",
+      "step1Desc": "Biz bemorlarning tashvishlari, savollari va tibbiy ma'lumotlarini aniq ifodalashlari uchun tarjimonlik yordamini taqdim etamiz.",
+      "step2Title": "2. Doktor maslahatining talqini",
+      "step2Desc": "Biz bemorlarga konsultatsiya paytida bemor va davolovchi shifokor o'rtasidagi suhbatlarni tarjima qilib yordam beramiz.",
+      "step3Title": "3. Kasalxona aloqasi",
+      "step3Desc": "Biz bemorlarga zarur bo'lganda hamshiralar, shifoxona xodimlari, qabul bo'limi jamoasi va boshqa bo'limlar bilan muloqot qilishda yordam beramiz.",
+      "step4Title": "4. Tibbiy atamalar bo'yicha yordam",
+      "step4Desc": "Biz keng tarqalgan tibbiy atamalar, ko'rsatmalar, protseduralar va davolanish bilan bog'liq ma'lumotlarni aniq va tushunarli tarzda izohlashga yordam beramiz.",
+      "step5Title": "5. Diagnostika va test bo'yicha qo'llab-quvvatlash",
+      "step5Desc": "Biz diagnostik testlar, tekshiruvlar va tegishli shifoxona protseduralari davomida tarjimonlik yordamini taqdim etamiz.",
+      "step6Title": "6. Qabul va chiqish bo'yicha yordam",
+      "step6Desc": "Biz shifoxonaga yotqizilish, shifoxonadan chiqish tartiblari va tibbiyot jamoasi tomonidan beriladigan muhim ko'rsatmalar bo'yicha muloqotda yordam beramiz.",
+      "step7Title": "7. Bemor va parvarishlovchi uchun qo'llab-quvvatlash",
+      "step7Desc": "Biz shuningdek, bemor bilan birga bo'ladigan oila a'zolari va hamrohlarga shifoxonadagi butun davr mobaynida muhim ma'lumotlarni tushunishda yordam beramiz.",
+      "step8Title": "8. Uzluksiz tarjima yordami",
+      "step8Desc": "Birinchi shifoxonaga tashrifdan tortib davolanish va keyingi kuzatuvgacha, muloqotda yordam zarur bo'lgan har safar biz tarjimonlik yordamini taqdim etamiz."
+    },
+    "airportTransfer": {
+      "title": "Aeroport transfer xizmatlari",
+      "subtitle": "Tibbiy sayohatingiz davomida ishonchli transport yordami",
+      "desc": "Biz xalqaro bemorlar va ularning hamrohlariga aeroportga kelishdan boshlab shifoxonaga tashriflar, turar joy va jo'nashgacha qulay va shinam transportni muvofiqlashtiramiz.",
+      "heroDesc": "Muammosiz kelish va ketishni boshdan kechiring. Bizning premium aeroportdan qabul qilish va mahalliy transfer xizmatlarimiz har doim aeroport, mehmonxonangiz va shifoxona o'rtasida xavfsiz va o'z vaqtida tashilishingizni kafolatlaydi.",
+      "step1Title": "1. Aeroportdan olib ketish",
+      "step1Desc": "Biz aeroportdan muammosiz olib ketishni tashkil etamiz va sizni xavfsiz ravishda mehmonxonangizga, mehmon uyiga yoki kasalxonaga yetkazamiz.",
+      "step2Title": "2. Aeroportga yetkazib qo'yish",
+      "step2Desc": "Qolishingiz oxirida biz qaytish safaringiz uchun mehmonxona yoki shifoxonadan aeroportga transferingizni muvofiqlashtiramiz.",
+      "step3Title": "3. Kasalxonalararo ko'chirishlar",
+      "step3Desc": "Biz maslahatlar, tekshiruvlar, davolanish va keyingi nazorat ko'riklari uchun turar joyingiz bilan shifoxona o'rtasida transport tashkil qilamiz.",
+      "step4Title": "4. Mahalliy transport",
+      "step4Desc": "Zarur bo'lganda diagnostika markazlariga, dorixonalarga va boshqa muhim joylarga transport bilan yordam beramiz.",
+      "step5Title": "5. Bemorlar uchun qulay ko'chirishlar",
+      "step5Desc": "Biz bemorning qulayligi va harakatlanish talablarini inobatga olgan holda mos transportni muvofiqlashtirishga yordam beramiz.",
+      "step6Title": "6. Xodim va uning oilasi uchun ko'chirishlar",
+      "step6Desc": "Transport yordami ham hamroh oilaviy a'zolar va hamrohlar uchun mavjud.",
+      "step7Title": "7. Rejalashtirilgan transport",
+      "step7Desc": "Sayohatingizni tartibli saqlash uchun biz tibbiy uchrashuvlaringiz va davolanish jadvalingiz atrofida transferlarni muvofiqlashtiramiz.",
+      "step8Title": "8. Boshlanishidan yakunigacha sayohat bo'yicha yordam",
+      "step8Desc": "Aeroportdan olib ketishdan tortib aeroportga olib borishgacha, Hindistonda bo'lishingiz davomida zarur transport ehtiyojlaringizni muvofiqlashtirishda yordam beramiz."
+    }
+  },
+  "Accommodation": {
+    "hero": {
+      "tag": "Qulay va xavfsiz qolish",
+      "title1": "Premium turar joy",
+      "title2": "Sizning tiklanishingiz uchun",
+      "desc": "Biz xalqaro bemorlar va ularning hamrohlariga shifoxonaga yaqin qulay turar joyni tashkil etishda yordam beramiz, bu esa davolanish davomida Hindistonda bo'lishlarini yanada qulay va qulayroq qiladi.",
+      "requestBtn": "Joy ajratishni so'rash"
+    },
+    "grid": {
+      "title": "Joylashish va qolish",
+      "subtitle": "Qulay, qulayliklarga boy va yaxshi bog'langan turar joy",
+      "desc": "Biz xalqaro bemorlar va ularning hamrohlariga shifoxonaga yaqin qulay turar joyni tashkil etishda yordam beramiz, bu esa davolanish davomida Hindistonda ularning qolishini yanada qulay va qulayroq qiladi.",
+      "step1Title": "1. Mehmonxona va mehmon uylari bo'yicha yordam",
+      "step1Desc": "Biz sizning ehtiyojlaringiz va byudjetingizga muvofiq munosib mehmonxonalar, mehmon uylari va xizmat ko'rsatadigan turar joylarni tashkil etishda yordam beramiz.",
+      "step2Title": "2. Kasalxonaga ulangan joylar",
+      "step2Desc": "Biz konsultatsiya va davolanish vaqtida sayohat vaqtini qisqartirish maqsadida shifoxonaga yaqin qulay joylashgan turar joy variantlarini ustuvor qilamiz.",
+      "step3Title": "3. Bemorlar uchun qulay turar joy",
+      "step3Desc": "Biz bemorlar, hamrohlar va oilalar uchun tibbiy davolanish davrida qulay va amaliy turar joylarni aniqlashda yordam beramiz.",
+      "step4Title": "4. Qisqa va uzoq muddatli turar joylar",
+      "step4Desc": "Bir necha kun yoki bir necha haftaga turar joy kerak bo'lsa, biz davolanish jadvalingizga muvofiq joylashishni tashkil etishda yordam beramiz.",
+      "step5Title": "5. Rezervatsiya va ro'yxatdan o'tish bo'yicha yordam",
+      "step5Desc": "Biz turar joyni muvofiqlashtirish, bron qilish tafsilotlari, ro'yxatdan o'tish talablari va boshqa asosiy qolish bilan bog'liq tartib-taomillar bo'yicha yordam beramiz.",
+      "step6Title": "6. Transport yordami",
+      "step6Desc": "Biz turar joyingiz, shifoxona, aeroport va boshqa muhim joylar o'rtasidagi transportni muvofiqlashtira olamiz.",
+      "step7Title": "7. Oila va hamrohlarga ko'mak",
+      "step7Desc": "Biz hamroh bo'lib kelgan oila a'zolari va parvarishchilarning ehtiyojlarini inobatga olib, ularning qolishini qulay va yoqimli qilishga harakat qilamiz.",
+      "step8Title": "8. Qolish bo'yicha yordam",
+      "step8Desc": "Agar davolanish jadvali o'zgarsa, biz sizning talablaringizga muvofiq uzaytirilgan qolishni muvofiqlashtirishda yordam bera olamiz."
+    }
+  },
+  "EnquiryForm": {
+    "success": {
+      "title": "So'rov qabul qilindi!",
+      "desc": "Tibbiy ma'lumotlaringizni taqdim etganingiz uchun rahmat. Bizning malakali parvarish bo'yicha koordinatorlarimiz sizning holatingizni ko'rib chiqmoqda va davolash reyangizni muhokama qilish uchun tez orada siz bilan bog'lanadi.",
+      "button": "Bajarildi"
+    },
+    "header": {
+      "title": "Bepul davolash rejasini oling",
+      "desc": "Tibbiy ma'lumotlaringizni yuboring. Bizning xalqaro tibbiy yordam bo'yicha mutaxassis koordinatorlarimiz ishlaringizni ko'rib chiqib, tez orada siz bilan bog'lanadilar."
+    },
+    "form": {
+      "personalInfo": "Shaxsiy ma'lumotlar",
+      "contactInfo": "Aloqa ma'lumotlari",
+      "medicalInfo": "Tibbiy ma'lumotlar",
+      "firstName": "Birinchi ism *",
+      "firstNamePlaceholder": "masalan, Jon",
+      "lastName": "Familiya",
+      "lastNamePlaceholder": "masalan, Doe",
+      "email": "Elektron pochta manzili *",
+      "emailPlaceholder": "Masalan, john@example.com",
+      "phone": "Telefon / WhatsApp raqami *",
+      "phonePlaceholder": "masalan +1 234 567 8900",
+      "dob": "Tug'ilgan sana",
+      "age": "Yosh",
+      "agePlaceholder": "masalan 45",
+      "country": "Yashash mamlakati *",
+      "countryPlaceholder": "Mamlakatingizni tanlang",
+      "condition": "Tibbiy holat / Zarur davolash *",
+      "conditionPlaceholder": "Diagnozingizni, alomatlaringizni yoki so'ralgan protsedurani qisqacha tasvirlang...",
+      "cancel": "Bekor qilish",
+      "submit": "So'rov yuborish",
+      "submitting": "Yuborilmoqda...",
+      "error": "Biror narsa noto'g'ri ketdi. Iltimos, yana urinib ko'ring."
+    },
+    "countries": {
+      "United States": "AQSh",
+      "United Kingdom": "Buyuk Britaniya",
+      "United Arab Emirates": "Birlashgan Arab Amirliklari",
+      "Saudi Arabia": "Saudiya Arabistoni",
+      "Oman": "Buvi",
+      "Qatar": "Qayerda",
+      "Kuwait": "Kuvayt",
+      "Bahrain": "Bahrayn",
+      "Iraq": "Iroq",
+      "Bangladesh": "Bangladesh",
+      "Kenya": "Qo'ying",
+      "Nigeria": "Nigeriya",
+      "Tanzania": "Tanzaniya",
+      "Uganda": "Uganda",
+      "Ghana": "Gana",
+      "Uzbekistan": "O'zbekiston",
+      "Russia": "Rossiya",
+      "Kazakhstan": "Qozog'iston",
+      "Canada": "Kanada",
+      "Australia": "Avstraliya",
+      "Other": "Boshqa"
+    }
+  },
+  "FloatingContact": {
+    "whatsapp": "Nima bo'ldi?",
+    "call": "Yordam liniyasiga qo'ng'iroq qiling"
+  },
+  "HospitalCard": {
+    "internationalPatientCare": "Xalqaro bemor parvarishi",
+    "beds": "{count} karavotlar",
+    "keySpecialties": "Asosiy ixtisosliklar",
+    "viewProfile": "Profilni ko'rish",
+    "freeQuote": "Bepul narx taklifi",
+    "india": "Hindiston",
+    "estbIn": "ESTB {yil}da",
+    "kmFromAirport": "{dist} km aeroportdan"
+  },
+  "ConditionDetail": {
+    "causes": "Sabablar va belgilar",
+    "causesDesc": "Ushbu holatning asosiy ko'rsatkichlari va asosiy sabablarini tushunish:",
+    "diagnosis": "Diagnostika va baholash",
+    "diagnosisDesc": "Mutaxassislar {name}ni aniq tashxislash uchun ishlatadigan keng tarqalgan usullar:",
+    "treatments": "Davolash usullari",
+    "treatmentsDesc": "Og'irligiga qarab, quyidagi davolash usullari tavsiya etilishi mumkin:",
+    "relatedProcedures": "Mashhur {name} protseduralari",
+    "viewDetails": "Protsedura tafsilotlarini ko'ring",
+    "topSpecialists": "{name} uchun eng yaxshi mutaxassislar",
+    "bestHospitals": "{name} uchun eng yaxshi shifoxonalar",
+    "faqs": "Ko'p beriladigan savollar",
+    "needOpinion": "Tibbiy xulosa kerakmi?",
+    "shareReports": "Tibbiy hisobotlaringizni mutaxassislarimizga yuboring va bir nechta yetakchi shifoxonalardan bepul tibbiy xulosa hamda aniq davolash rejasini oling.",
+    "requestOpinion": "Tibbiy xulosa so'rash",
+    "freeConfidential": "100% bepul va maxfiy"
+  },
+  "BlogDetail": {
+    "backToBlogs": "Bloglarga qaytish"
+  },
+  "ChatbotWidget": {
+    "options": {
+      "treatment": "Davolashni toping",
+      "quote": "Bepul narx taklifini oling",
+      "faqs": "Ko'p beriladigan savollar",
+      "speakToDoctor": "Shifokor bilan gaplashing"
+    },
+    "faqOptions": {
+      "process": "Jarayonni qanday boshlasam bo'ladi?",
+      "cost": "Davolash qancha turadi?",
+      "visa": "Siz tibbiy vizalar bo'yicha yordam berasizmi?",
+      "pickup": "Aeroportdan qabul qilinish xizmati mavjudmi?",
+      "accommodation": "Mehmonxona bron qilishda yordam berasizmi?",
+      "language": "Til to'siqlari bo'ladimi?",
+      "hospitals": "Sizning shifoxonalaringiz sertifikatlanganmi?",
+      "back": "⬅️ Asosiy menyuga qaytish"
+    },
+    "faqAnswers": {
+      "process": "Juda oddiy! Tibbiy hisobotlaringizni biz bilan bo'lishing. Bizning shifokorlarimiz ularni ko'rib chiqib, davolash rejasini va xarajatlarning taxminiy qiymatini taqdim etadi, so'ngra viza va sayohat tashkiliy ishlarida yordam beramiz.",
+      "cost": "Xarajatlar muayyan protsedura va shifoxonaga qarab farq qiladi. Iltimos, aloqa ma'lumotlaringizni taqdim eting, tibbiy mutaxassislarimiz sizga bepul, shaxsiylashtirilgan xarajatlar bo'yicha taxminiy hisob-kitobni taqdim etadi.",
+      "visa": "Ha! Biz tibbiy viza bo'yicha to'liq yordam ko'rsatamiz. Davolash rejasini tanlaganingizdan so'ng, jarayonni tezlashtirish uchun viza taklif xatini yuboramiz.",
+      "pickup": "Albatta. Biz barcha xalqaro bemorlarimiz uchun premium sinf avtomobillarida aeroportdan olib ketish va aeroportga olib borish xizmatini bepul taqdim etamiz.",
+      "accommodation": "Ha, biz siz tanlagan shifoxona yaqinida byudjetingizga mos qulay va xavfsiz turar joy (mehmonxonalar yoki xususiy mehmonxonalar)ni tashkil qilamiz.",
+      "language": "Umuman yo'q! Biz mas'ul til tarjimonlarini taqdim etamiz, ular maslahatlashuvlar va shifoxonada bo'lishingiz davomida sizga hamroh bo'ladilar.",
+      "hospitals": "Ha, barcha hamkor shifoxonalarimiz JCI va NABH akkreditatsiyasiga ega bo'lib, tibbiy xizmat va xavfsizlik bo'yicha eng yuqori global standartlarni ta'minlaydi."
+    },
+    "followUpOptions": {
+      "yes": "Ha, iltimos",
+      "no": "Yo'q, rahmat"
+    },
+    "title": "Asad sog'liqni saqlash yordamchisi",
+    "subtitle": "Onlayn - darhol javob beradi",
+    "greeting": "Salom! 👋 Men sizning Asad sog'liqni saqlash yordamchingizman. Bugun sizga qanday yordam bera olaman?",
+    "faqsTitle": "Mana ba'zi umumiy savollar. Nima bilishni xohlaysiz?",
+    "followUpQuote": "Mutaxassislarimiz siz bilan bepul, shaxsiylashtirilgan narx taklifi bilan bog'lanishini xohlaysizmi?",
+    "askName": "Zo'r! Iltimos, ismingizni aytib bera olasizmi?",
+    "askContact": "Siz bilan tanishganimdan xursandman, {name}! Iltimos, WhatsApp raqamingizni yoki elektron pochtangizni bering, shunda mutaxassislarimiz sizga batafsil ma'lumot berish uchun bog'lanishlari mumkin.",
+    "thankYou": "Rahmat, {name}! Biz sizning so'rovingizni qabul qildik. Xalqaro g'amxo'rlik jamoamiz tez orada siz bilan bog'lanib, keyingi yordamni ko'rsatadi.",
+    "placeholderName": "Ismingizni kiriting...",
+    "placeholderContact": "Elektron pochtangizni yoki telefon raqamingizni kiriting...",
+    "send": "Yuborish"
+  }
+}

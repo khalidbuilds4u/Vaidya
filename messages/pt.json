@@ -1,0 +1,986 @@
+{
+  "Cards": {
+    "profileAuthorized": "Perfil autorizado",
+    "viewProfile": "Ver perfil",
+    "bookConsult": "Marcar uma consulta",
+    "experience": "Experiência",
+    "beds": "Camas",
+    "jciAccredited": "Acreditado pela JCI e pela NABH",
+    "intlSupport": "Redação Internacional",
+    "viewHospital": "Ver hospital",
+    "getEstimate": "Obter orçamento",
+    "highlyExperienced": "{name} é um {especialidade} com vasta experiência, com {experience} de experiência. Já realizou com sucesso inúmeros procedimentos complexos e conta com a confiança de milhares de doentes em todo o mundo.",
+    "topHospitalDesc": "O {name} é uma unidade de saúde de excelência situada em {city}. É amplamente reconhecido pela sua infraestrutura de última geração e pelos seus padrões excecionais de cuidados aos doentes."
+  },
+  "Navigation": {
+    "home": "Página inicial",
+    "hospitals": "Hospitais",
+    "doctors": "Médicos",
+    "procedures": "Procedimentos",
+    "patientStories": "Histórias de doentes",
+    "gallery": "Galeria",
+    "services": "Serviços",
+    "blogs": "Blogues",
+    "aboutUs": "Sobre nós",
+    "contactUs": "Contacte-nos",
+    "getTreatmentPlan": "Obter um plano de tratamento",
+    "callHelpline": "Linha de apoio: {número}"
+  },
+  "Hero": {
+    "tagline": "Where Global Trust Meets World-Class Healing",
+    "titleLine1": "Cuidados médicos de nível mundial",
+    "titleLine2": "Na Índia, sem complicações.",
+    "subtext": "Acesso direto a hospitais de superespecialidade acreditados pela JCI e pela NABH, a especialistas experientes e a cirurgiões de renome, a par de um apoio completo ao doente e de poupanças que podem chegar aos 70%.",
+    "getFreePlan": "Obter o plano gratuito",
+    "exploreHospitals": "Explorar hospitais",
+    "searchPlaceholder": "Tratamento, hospital, médico...",
+    "searchButton": "Pesquisar",
+    "anyCity": "Qualquer cidade (Índia)",
+    "pill1": "Rede JCI & NABH",
+    "pill2": "Taxa de sucesso de 98,5%",
+    "pill3": "< Orçamento gratuito em 24 horas",
+    "card1Sub": "Acreditação",
+    "card1Title": "Rede certificada pela JCI e pela NABH",
+    "card1Desc": "Os 50+ melhores hospitais de superespecialidade",
+    "card2Sub": "Histórico clínico",
+    "card2Title": "Taxa de sucesso de 98,5 %",
+    "card2Desc": "Mais de 15 000 cirurgias bem-sucedidas",
+    "card3Quote": "«Cuidados hospitalares excecionais e apoio integral na obtenção de vistos»",
+    "card3Author": "- David R., Reino Unido",
+    "card3Proc": "Substituição do joelho"
+  },
+  "Stats": {
+    "hospitals": "Hospitais JCI e NABH",
+    "surgeons": "Os melhores cirurgiões especialistas",
+    "patients": "Pacientes em todo o mundo",
+    "coordinator": "Coordenador Pessoal"
+  },
+  "WhyChoose": {
+    "reasons": {
+      "surgeons": {
+        "title": "Cirurgiões de primeira linha",
+        "desc": "Médicos formados nos EUA/Reino Unido, com décadas de experiência em cirurgias complexas"
+      },
+      "savings": {
+        "title": "Poupança de custos até 70%",
+        "desc": "Procedimentos de nível mundial por uma fração dos custos dos cuidados de saúde ocidentais"
+      },
+      "zeroWait": {
+        "title": "Tempo de espera zero",
+        "desc": "Admissões imediatas e cirurgias agendadas sem demora"
+      },
+      "robotic": {
+        "title": "Tecnologia robótica e de IA",
+        "desc": "Tecnologia robótica e de IA avançada para promover um tratamento mais seguro e preciso."
+      },
+      "language": {
+        "title": "Tradutores de línguas",
+        "desc": "Intérpretes de árabe, russo, francês e inglês designados para cada caso"
+      },
+      "jci": {
+        "title": "Acreditado pela JCI e pela NABH",
+        "desc": "Normas internacionalmente reconhecidas em matéria de qualidade e segurança do doente."
+      }
+    },
+    "hub": {
+      "title": "O centro com o crescimento mais rápido",
+      "subtitle": "Mais de 2 milhões de doentes internacionais"
+    },
+    "tag": "Destino Global de Cuidados de Saúde",
+    "title1": "Por que escolher a Índia para o seu",
+    "title2": "Tratamento médico?",
+    "desc": "A Índia tornou-se o principal destino mundial no domínio dos cuidados de saúde, oferecendo conhecimentos médicos avançados, tecnologia robótica moderna, especialistas altamente experientes e um atendimento abrangente aos doentes."
+  },
+  "Process": {
+    "steps": {
+      "step1": {
+        "title": "Partilhe as suas informações médicas",
+        "desc": "Envie-nos os seus relatórios médicos, diagnósticos, resultados de exames e requisitos de tratamento. A nossa equipa analisa cuidadosamente o seu caso para compreender as suas necessidades médicas."
+      },
+      "step2": {
+        "title": "Receba um plano de tratamento personalizado",
+        "desc": "Colocamo-lo em contacto com o especialista e o hospital adequados, tendo em conta a sua condição médica. Receberá opções de tratamento, uma estimativa de custos e um calendário de tratamento proposto."
+      },
+      "step3": {
+        "title": "Planeie a sua viagem médica à Índia",
+        "desc": "Assim que decidir avançar, prestamos assistência com as consultas hospitalares, o apoio na obtenção do visto médico, os traslados do aeroporto, o alojamento, os transportes locais e a interpretação profissional."
+      },
+      "step4": {
+        "title": "Tratamento e apoio integral ao doente",
+        "desc": "Desde a admissão no hospital até ao tratamento, alta e acompanhamento, a nossa equipa mantém-se em contacto consigo. Ajudamos a tornar o seu percurso médico tranquilo, confortável e bem coordenado."
+      }
+    },
+    "tag": "Como funciona",
+    "title": "A sua jornada rumo a uma saúde melhor, em 4 passos simples",
+    "desc": "Oferecemos um apoio completo ao longo de todo o seu percurso médico, tratando de tudo, desde a assistência na obtenção do visto até à admissão no hospital, para que se possa concentrar no seu tratamento e na sua recuperação.",
+    "ctaTitle": "Pronto para iniciar o seu percurso de tratamento?",
+    "ctaDesc": "Obtenha hoje mesmo um parecer médico gratuito e sem compromisso dos melhores especialistas da Índia.",
+    "ctaButton": "Obtenha uma consulta gratuita"
+  },
+  "Specialties": {
+    "counts": {
+      "120+ Doctors": "Mais de 120 médicos",
+      "200+ Doctors": "Mais de 200 médicos",
+      "150+ Doctors": "Mais de 150 médicos",
+      "85+ Doctors": "Mais de 85 médicos",
+      "110+ Doctors": "Mais de 110 médicos",
+      "45+ Centers": "Mais de 45 centros",
+      "90+ Centers": "Mais de 90 centros",
+      "300+ Doctors": "Mais de 300 médicos",
+      "80+ Centers": "Mais de 80 centros",
+      "100+ Doctors": "Mais de 100 médicos"
+    },
+    "tag": "Excelência Especializada",
+    "title": "Explorar por especialidade médica",
+    "desc": "Cuidados de saúde abrangentes em todos os principais departamentos clínicos. Consulte os cirurgiões e as equipas médicas mais conceituados da Índia.",
+    "view": "Ver tratamentos",
+    "browseAll": "Ver todos os tratamentos e procedimentos"
+  },
+  "Footer": {
+    "tagline": "Where Global Trust Meets World-Class Healing",
+    "badges": {
+      "nabh": "Hospitais acreditados pela NABH e pela JCI",
+      "support": "Serviço Internacional 24 horas por dia, 7 dias por semana",
+      "free": "Consulta 100% gratuita"
+    },
+    "discover": {
+      "title": "Descubra",
+      "hospitals": "Hospitais acreditados",
+      "doctors": "Cirurgiões Especialistas",
+      "treatments": "Tratamentos e custos",
+      "gallery": "Galeria de fotografias",
+      "specialties": "Especialidades médicas",
+      "conditions": "Condições do Guia",
+      "cities": "Cidades médicas na Índia"
+    },
+    "support": {
+      "title": "Apoio aos doentes",
+      "visa": "Visto Médico (Med Visa)",
+      "accommodation": "Alojamento e Estadia",
+      "interpreters": "Intérpretes linguísticos",
+      "airport": "Transporte do aeroporto",
+      "search": "Motores de pesquisa"
+    },
+    "contact": {
+      "title": "Linha de apoio 24 horas por dia, 7 dias por semana",
+      "whatsapp": "Consulta pelo WhatsApp",
+      "responseTime": "Tempo de resposta: < 24 horas"
+    },
+    "legal": {
+      "title": "Informações legais e privacidade",
+      "privacy": "Política de Privacidade",
+      "terms": "Termos de Serviço",
+      "disclaimer": "Aviso médico",
+      "safety": "Orientações sobre a Segurança do Doente"
+    },
+    "desc": "O seu principal parceiro para pacientes internacionais, para cirurgias médicas de classe mundial a preços acessíveis na Índia. Colocamo-lo em contacto direto com redes de hospitais acreditadas pela JCI e pela NABH.",
+    "copyright": "© {ano} Asad Healthcare. Todos os direitos reservados.",
+    "certified": "Rede de parceiros certificados com hospitais acreditados pela JCI e pela NABH em toda a Índia."
+  },
+  "FAQ": {
+    "faqs": {
+      "q1": {
+        "question": "O que é o turismo médico na Índia?",
+        "answer": "O turismo médico consiste em viajar para a Índia para receber tratamento médico, cirurgia, diagnóstico ou serviços de saúde."
+      },
+      "q2": {
+        "question": "Por que escolher a Índia para receber tratamento médico?",
+        "answer": "A Índia dispõe de médicos experientes, hospitais de ponta, tecnologia moderna e opções de tratamento a preços acessíveis."
+      },
+      "q3": {
+        "question": "Que serviços presta a sua empresa?",
+        "answer": "Prestamos serviços de coordenação hospitalar, marcação de consultas médicas, apoio ao tratamento médico, assistência em viagens, alojamento e coordenação de doentes."
+      },
+      "q4": {
+        "question": "Podes ajudar-me a escolher um hospital?",
+        "answer": "Sim, podemos ajudá-lo a encontrar um hospital adequado, tendo em conta as suas necessidades médicas e preferências."
+      },
+      "q5": {
+        "question": "Podes ajudar-me a escolher um médico?",
+        "answer": "Sim, podemos ajudar a marcar uma consulta com um especialista adequado."
+      },
+      "q6": {
+        "question": "Posso enviar os meus relatórios médicos antes de viajar?",
+        "answer": "Sim. Pode partilhar os seus relatórios médicos para análise e planeamento do tratamento."
+      },
+      "q7": {
+        "question": "Pode dar-me um orçamento do tratamento?",
+        "answer": "Sim, podemos solicitar ao hospital um orçamento do tratamento com base nos seus relatórios médicos."
+      },
+      "q8": {
+        "question": "Marca consultas médicas?",
+        "answer": "Sim, podemos marcar consultas com médicos e especialistas."
+      },
+      "q9": {
+        "question": "Oferecem serviços de interpretação?",
+        "answer": "Sim, disponibilizamos serviços de interpretação e apoio à comunicação para doentes internacionais."
+      },
+      "q10": {
+        "question": "Prestam assistência na obtenção de um visto médico?",
+        "answer": "Sim, podemos prestar orientação e coordenação no processo de obtenção do visto médico."
+      },
+      "q11": {
+        "question": "Oferecem serviço de recolha no aeroporto?",
+        "answer": "Sim, podemos organizar o serviço de recolha no aeroporto e o transporte, conforme necessário."
+      },
+      "q12": {
+        "question": "Vocês tratam do alojamento?",
+        "answer": "Sim, podemos ajudar a encontrar alojamento adequado perto do hospital."
+      },
+      "q13": {
+        "question": "Oferecem transporte local?",
+        "answer": "Sim, é possível organizar o transporte para consultas hospitalares, transferências do aeroporto e outras deslocações necessárias."
+      },
+      "q14": {
+        "question": "Alguém me vai ajudar durante a minha consulta no hospital?",
+        "answer": "Sim, o nosso coordenador de pacientes pode ajudar na comunicação e coordenação com o hospital."
+      },
+      "q15": {
+        "question": "Os familiares podem viajar com o doente?",
+        "answer": "Sim, os familiares podem viajar com o doente, desde que cumpram os requisitos relativos ao visto e à viagem."
+      },
+      "q16": {
+        "question": "Pode ajudar-me depois do tratamento?",
+        "answer": "Sim, podemos ajudar com consultas de acompanhamento, relatórios e outros aspetos relacionados com a coordenação pós-tratamento."
+      },
+      "q17": {
+        "question": "Quanto tempo vai demorar o meu tratamento?",
+        "answer": "A duração do tratamento depende do estado do doente, do plano de tratamento e da recomendação do médico."
+      },
+      "q18": {
+        "question": "Quanto custa o tratamento na Índia?",
+        "answer": "O custo depende do hospital, do médico, do tratamento, da condição médica e dos serviços necessários."
+      },
+      "q19": {
+        "question": "Como posso iniciar o meu percurso de tratamento médico na Índia?",
+        "answer": "Envie-nos os seus relatórios médicos e os requisitos necessários. Iremos orientá-lo nas próximas etapas."
+      },
+      "q20": {
+        "question": "Por que escolher a nossa empresa de turismo médico?",
+        "answer": "Oferecemos apoio integral para ajudar os doentes internacionais a terem uma experiência médica tranquila, organizada e confortável na Índia."
+      },
+      "q21": {
+        "question": "Por que razão devo escolher a Índia para receber tratamento médico?",
+        "answer": "A Índia dispõe de instalações médicas de classe mundial, hospitais acreditados internacionalmente (JCI e NABH), médicos altamente qualificados e formados nos EUA e no Reino Unido, e tecnologia médica avançada, a custos 60 a 80% mais baixos do que nos países ocidentais, com tempos de espera praticamente nulos."
+      },
+      "q22": {
+        "question": "Haverá alguma barreira linguística durante a minha estadia no hospital?",
+        "answer": "Não. O inglês é a língua oficial de comunicação em todos os hospitais indianos acreditados. Além disso, a nossa equipa designa um tradutor dedicado (árabe, russo, francês, bengali, suaíli) para o ajudar durante todas as consultas e internamentos hospitalares."
+      },
+      "q23": {
+        "question": "Como posso obter um visto médico para a Índia (Med Visa)?",
+        "answer": "Assim que partilhar os seus relatórios médicos e selecionar o hospital da sua preferência, providenciaremos uma Carta de Convite Oficial para o Visto (VIL) emitida pelo hospital. Pode utilizar esta carta para obter um visto médico eletrónico online no prazo de 48 a 72 horas."
+      },
+      "q24": {
+        "question": "Os familiares ou acompanhantes podem viajar comigo?",
+        "answer": "Sim, podem viajar consigo até dois familiares ou acompanhantes ao abrigo de um visto de acompanhante médico (MED-X). A carta oficial de convite do hospital incluirá explicitamente os dados desses acompanhantes."
+      },
+      "q25": {
+        "question": "Como funciona o processo de orçamento e pagamento?",
+        "answer": "O nosso serviço de aconselhamento e coordenação personalizada é 100% gratuito para os doentes. Todos os pagamentos relativos ao tratamento são efetuados diretamente ao hospital à chegada, através de cartão de crédito, transferência bancária ou moeda estrangeira."
+      },
+      "q26": {
+        "question": "O que acontece quando aterrar no aeroporto na Índia?",
+        "answer": "O nosso representante irá recebê-lo diretamente no terminal do aeroporto com um cartaz personalizado com o seu nome, levá-lo-á até ao seu hotel ou quarto de hospital e fornecer-lhe-á um cartão SIM local e assistência na troca de moeda."
+      }
+    },
+    "bottom": {
+      "title": "Ainda tem dúvidas?",
+      "desc": "A nossa equipa de assistência médica está disponível 24 horas por dia, 7 dias por semana, através do WhatsApp e por telefone.",
+      "button": "Pergunte a um especialista"
+    },
+    "tag": "Apoio ao doente e clareza",
+    "title": "Perguntas Frequentes",
+    "desc": "Encontre respostas claras sobre tratamentos médicos na Índia, incluindo hospitais, médicos, custos dos tratamentos, vistos médicos, viagens, alojamento e apoio aos doentes. As nossas perguntas frequentes ajudam os doentes internacionais a compreender o processo e a planear a sua viagem médica com confiança."
+  },
+  "Conditions": {
+    "items": {
+      "c1": {
+        "name": "Doença arterial coronária",
+        "specialty": "Cardiologia",
+        "desc": "Cirurgia de bypass coronário minimamente invasiva (CABG), angioplastia e cirurgia cardíaca robótica."
+      },
+      "c2": {
+        "name": "Osteoartrite",
+        "specialty": "Ortopedia",
+        "desc": "Substituições totais do joelho e da anca assistidas por robótica, com protocolos de recuperação ultrarrápidos."
+      },
+      "c3": {
+        "name": "Tumor cerebral e epilepsia",
+        "specialty": "Neurologia",
+        "desc": "Microcirurgia avançada, radiocirurgia CyberKnife e neurorressecção funcional."
+      },
+      "c4": {
+        "name": "Cancro da mama e da próstata",
+        "specialty": "Oncologia",
+        "desc": "Imunoterapia direcionada, radioterapia de precisão e cirurgia oncológica com preservação de órgãos."
+      }
+    },
+    "tag": "Diagnóstico e Cuidados",
+    "title": "Doenças comuns que tratamos",
+    "desc": "Pesquise pelo seu diagnóstico específico. A nossa rede de hospitais é especializada em intervenções cirúrgicas e médicas avançadas para problemas de saúde complexos.",
+    "explore": "Descubra os tratamentos",
+    "viewAll": "Ver todas as mais de 50 doenças"
+  },
+  "FeaturedHospitals": {
+    "tag": "Centros acreditados",
+    "title": "Hospitais Parceiros em Destaque",
+    "desc": "Colaboramos com as principais instituições da Índia, acreditadas pela JCI e pela NABH, que dispõem de quartos dedicados a doentes internacionais e de apoio multilingue.",
+    "explore": "Explore todos os mais de 50 hospitais acreditados"
+  },
+  "PatientStories": {
+    "stats": {
+      "financial": "Impacto financeiro",
+      "clinical": "Resultado clínico",
+      "verified": "Registo de doente verificado"
+    },
+    "doctor": {
+      "treating": "Médico especialista responsável pelo tratamento",
+      "consult": "Consulte este médico"
+    },
+    "filters": {
+      "All": "Todos",
+      "Orthopedics": "Ortopedia",
+      "Cardiology": "Cardiologia",
+      "Oncology": "Oncologia",
+      "Organ Transplant": "Transplante de Órgãos"
+    },
+    "tag": "Histórias reais. Cura real.",
+    "title": "Uma recuperação que muda a vida.",
+    "subtitle": "Uma segunda oportunidade na vida",
+    "desc": "Ouça diretamente os testemunhos de doentes internacionais que confiaram à Asad Healthcare as suas complexas jornadas médicas na Índia."
+  },
+  "HospitalsPage": {
+    "filters": {
+      "title": "Filtrar hospitais",
+      "search": "Pesquisar",
+      "searchPlaceholder": "Nome ou palavra-chave...",
+      "city": "Cidade",
+      "allCities": "Todas as cidades (Índia)",
+      "specialty": "Especialidade",
+      "allSpecialties": "Todas as especialidades",
+      "apply": "Aplicar filtros"
+    },
+    "results": {
+      "count": "{count} hospitais disponíveis",
+      "sortBy": "Ordenar por:",
+      "sortRecommended": "Recomendado",
+      "sortBeds": "Maior número de camas"
+    },
+    "tag": "Rede de Cuidados de Saúde Acreditada",
+    "title": "Os melhores hospitais acreditados da Índia",
+    "titleCity": "Os melhores hospitais acreditados em {cidade}",
+    "desc": "Compare instalações hospitalares com certificação internacional JCI e NABH, equipadas com salas de cirurgia robótica avançadas e salas de espera exclusivas para doentes internacionais."
+  },
+  "HospitalDetail": {
+    "breadcrumbs": {
+      "home": "Página inicial",
+      "hospitals": "Hospitais"
+    },
+    "overview": {
+      "title": "Visão geral do hospital",
+      "established": "Fundada",
+      "airport": "Aeroporto",
+      "beds": "Camas"
+    },
+    "share": {
+      "title": "Hospital Share",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "facebook": "Facebook",
+      "copy": "Copiar link"
+    },
+    "search": "Pesquisar hospitais, médicos ou especialidades...",
+    "about": "Sobre o Hospital",
+    "multiSpecialties": "Serviços Multiespecializados",
+    "premiumFacilities": "Serviços de luxo durante a estadia no hospital",
+    "technologies": "Tecnologias Médicas Avançadas",
+    "connectivity": "Conectividade e localização",
+    "excellence": "Excelência no atendimento ao doente",
+    "facilities": "Instalações hospitalares",
+    "askButton": "Pergunta ao Asad sobre este hospital",
+    "address": "Morada do hospital",
+    "toc": "Índice",
+    "related": "Hospitais relacionados"
+  },
+  "DoctorsPage": {
+    "filters": {
+      "title": "Especialistas em Filtros",
+      "search": "Pesquisar médico",
+      "searchPlaceholder": "Nome ou palavra-chave...",
+      "specialty": "Especialidade",
+      "allSpecialties": "Todas as especialidades",
+      "city": "Cidade",
+      "allCities": "Todas as cidades",
+      "apply": "Aplicar filtros"
+    },
+    "results": {
+      "count": "{count} especialistas disponíveis",
+      "sortBy": "Ordenar por:",
+      "sortRecommended": "Recomendado",
+      "sortExperience": "Mais experiência"
+    },
+    "tag": "Especialistas clínicos de renome",
+    "title": "Encontre os melhores médicos e cirurgiões na Índia",
+    "desc": "Consulte cirurgiões com formação internacional, diretores de departamento e pioneiros em cirurgias complexas, que contam com a confiança de milhares de doentes em todo o mundo."
+  },
+  "DoctorDetail": {
+    "breadcrumbs": {
+      "home": "Página inicial",
+      "doctors": "Médicos"
+    },
+    "share": {
+      "title": "Partilhar o Doctor",
+      "whatsapp": "WhatsApp",
+      "telegram": "Telegram",
+      "facebook": "Facebook",
+      "copy": "Copiar link"
+    },
+    "whyChooseUs": {
+      "title": "Por que nos escolher?",
+      "subtitle": "Várias formas de aliviar a sua carga"
+    },
+    "international": {
+      "virtualConsultation": {
+        "title": "Consulta virtual",
+        "desc": "Segunda opinião online e consulta pré-viagem antes de reservar a sua viagem à Índia."
+      },
+      "visaSupport": {
+        "title": "Apoio na obtenção de vistos médicos",
+        "desc": "Cartas de convite e assistência completa na preparação da documentação necessária para o seu pedido de visto médico."
+      },
+      "costEstimate": {
+        "title": "Orçamento transparente",
+        "desc": "O custo detalhado do tratamento é fornecido antecipadamente. Sem custos ocultos, sem surpresas à chegada."
+      },
+      "postOp": {
+        "title": "Acompanhamento pós-operatório",
+        "desc": "Plano de reabilitação estruturado e acompanhamento à distância após o regresso a casa."
+      }
+    },
+    "trust": {
+      "highlyExperienced": "Com vasta experiência",
+      "thousandsOfCases": "Milhares de casos bem-sucedidos",
+      "yearsOfPractice": "{anos}+ Anos de experiência profissional",
+      "decadesOfExpertise": "Décadas de experiência",
+      "boardCertified": "Especialista certificado pela ordem",
+      "specializedFocus": "Área de especialização",
+      "advancedSurgicalTechniques": "Técnicas cirúrgicas avançadas",
+      "provenTrackRecord": "Histórico comprovado",
+      "highSuccessRates": "Elevadas taxas de sucesso clínico",
+      "patientCenteredCare": "Cuidados centrados no doente"
+    },
+    "authorized": "Perfil autorizado",
+    "experience": "{anos}+ Anos de experiência",
+    "highlyExperienced": "Com vasta experiência",
+    "askButton": "Pergunte à Asad Healthcare",
+    "enquiryDisclaimer": "O seu pedido é recebido pela equipa de apoio da Asad Healthcare e não é enviado diretamente ao médico.",
+    "about": "Sobre o médico",
+    "aboutFallback": "{name} é um especialista com vasta experiência.",
+    "qualifications": "Educação e Formação",
+    "professionalExperience": "Experiência profissional",
+    "areasOfExpertise": "Áreas de especialização",
+    "treatmentsAndProcedures": "Tratamentos e procedimentos",
+    "specialInterests": "Técnicas avançadas e áreas de interesse específico",
+    "fellowshipsAndTraining": "Bolsas de estudo e formação profissional",
+    "researchPublications": "Investigação e Publicações",
+    "awardsRecognitions": "Prémios e Reconhecimento Profissional",
+    "professionalMemberships": "Afiliações profissionais",
+    "whyChooseThisDoctor": "Por que escolher este médico?",
+    "allTreatments": "Tratamentos e procedimentos",
+    "disclaimer": "A autorização significa que foi registada a permissão para publicar este perfil. Não significa que a Asad Healthcare classifique, recomende do ponto de vista médico ou garanta os serviços ou resultados do médico.",
+    "toc": "Índice",
+    "related": "Médicos relacionados",
+    "experienceShort": "{anos}+ Anos de experiência",
+    "forInternationalPatients": "Para pacientes internacionais"
+  },
+  "TreatmentsPage": {
+    "search": {
+      "placeholder": "Pesquisar tratamentos, cirurgias, procedimentos...",
+      "button": "Pesquisar"
+    },
+    "browse": {
+      "title": "Pesquisar por especialidade médica",
+      "viewAll": "Ver tudo"
+    },
+    "popular": {
+      "title": "Intervenções cirúrgicas mais comuns",
+      "general": "Geral",
+      "estPackage": "Estimativa do pacote:",
+      "customQuote": "Orçamento personalizado",
+      "recovery": "Recuperação:",
+      "varies": "Varia",
+      "viewOptions": "Ver opções de tratamento e médicos"
+    },
+    "specialties": {
+      "Cardiology": "Cardiologia",
+      "Oncology": "Oncologia",
+      "Orthopedics": "Ortopedia",
+      "Neurology": "Neurologia",
+      "Gastroenterology": "Gastroenterologia",
+      "Organ Transplant": "Transplante de Órgãos",
+      "Cosmetic Surgery": "Cirurgia estética",
+      "Dental": "Odontologia",
+      "IVF & Fertility": "FIV e Fertilidade",
+      "Bariatric Surgery": "Cirurgia bariátrica",
+      "Ophthalmology": "Oftalmologia",
+      "Urology": "Urologia"
+    },
+    "tag": "Procedimentos Clínicos Avançados",
+    "title": "Tratamentos médicos e estimativas de custos",
+    "desc": "Compare pacotes cirúrgicos transparentes, prazos de recuperação e orçamentos de hospitais acreditados na Índia, com poupanças até 70%."
+  },
+  "TreatmentDetail": {
+    "hero": {
+      "inIndia": "{name} na Índia",
+      "getEstimate": "Obter um orçamento personalizado"
+    },
+    "stats": {
+      "estCost": "Intervalo de custos estimado",
+      "recovery": "Tempo de recuperação",
+      "hospitalStay": "Internação hospitalar"
+    },
+    "required": {
+      "title": "Quando é que o {name} é obrigatório?",
+      "desc": "Entre os sintomas e causas mais comuns que indicam a necessidade deste procedimento, destacam-se:"
+    },
+    "diagnosis": {
+      "title": "Diagnóstico e Avaliação",
+      "desc": "Antes de recomendar uma cirurgia, os médicos costumam realizar os seguintes exames:"
+    },
+    "conditions": {
+      "title": "Doenças tratadas com este procedimento",
+      "desc": "O {name} é altamente eficaz no tratamento ou controlo das seguintes doenças e afeções:",
+      "readMore": "Leia mais sobre esta doença"
+    },
+    "types": {
+      "title": "Tipos de {nome}",
+      "viewDetails": "Ver detalhes específicos"
+    },
+    "procedure": {
+      "title": "Como é realizado o procedimento?"
+    },
+    "postOp": {
+      "prepTitle": "Preparação e fase pré-operatória",
+      "recoveryTitle": "Recuperação e cuidados pós-operatórios"
+    },
+    "doctors": {
+      "title": "Os melhores especialistas em {nome}"
+    },
+    "hospitals": {
+      "title": "Os melhores hospitais para {nome}"
+    },
+    "faqs": {
+      "title": "Perguntas Frequentes"
+    },
+    "sidebar": {
+      "helpTitle": "Precisa de ajuda para decidir?",
+      "helpDesc": "Partilhe os seus relatórios médicos com os nossos especialistas para obter um parecer médico gratuito e um orçamento preciso de vários hospitais de renome.",
+      "requestOpinion": "Solicitar parecer médico",
+      "freeConfidential": "100% gratuito e confidencial",
+      "risksTitle": "Riscos potenciais",
+      "risksDisclaimer": "* Todos os procedimentos cirúrgicos acarretam alguns riscos. O seu médico irá abordar estes riscos consigo durante a consulta."
+    },
+    "mockArrays": {}
+  },
+  "SpecialtyDetail": {
+    "hero": {
+      "tag": "Especialidade médica",
+      "inIndia": "{name} na Índia",
+      "getPlan": "Obtenha um plano de consulta gratuita",
+      "fallbackOverview": "{name} é uma especialidade médica que aborda aspetos específicos dos cuidados de saúde. Os nossos hospitais parceiros na Índia oferecem tratamentos de nível mundial, recorrendo a tecnologia de ponta."
+    },
+    "treatments": {
+      "title": "Tratamentos populares para {nome}",
+      "viewDetails": "Ver detalhes do tratamento"
+    },
+    "doctors": {
+      "title": "Os melhores especialistas",
+      "viewAll": "Ver tudo"
+    },
+    "hospitals": {
+      "title": "Os melhores hospitais para {nome}",
+      "viewAll": "Ver tudo"
+    },
+    "conditions": {
+      "title": "Doenças comuns tratadas",
+      "desc": "Doentes de todo o mundo viajam para a Índia para receberem tratamento especializado para estas doenças complexas de {nome}:",
+      "viewDetails": "Ver detalhes"
+    },
+    "sidebar": {
+      "title": "Solicitar um parecer médico",
+      "desc": "Carregue os seus relatórios e receba um plano de tratamento personalizado dos principais especialistas em {nome} da Índia no prazo de 48 horas.",
+      "startJourney": "Comece a sua viagem",
+      "noObligation": "Sem obrigação de avançar",
+      "multipleQuotes": "Várias cotações de hospitais",
+      "dedicatedManager": "Gestor de cuidados dedicado"
+    },
+    "mockTreatments": {
+      "consultation": {
+        "name": "Consulta sobre {name}",
+        "desc": "Avaliação e diagnóstico abrangentes realizados pelos melhores especialistas da {nome}."
+      },
+      "diagnostics": {
+        "name": "Diagnósticos Avançados",
+        "desc": "Procedimentos de diagnóstico de última geração para um planeamento médico preciso."
+      },
+      "surgery": {
+        "name": "Cirurgia minimamente invasiva",
+        "desc": "Técnicas cirúrgicas avançadas que resultam em menos dor e numa recuperação mais rápida."
+      },
+      "interventions": {
+        "name": "Intervenções complexas",
+        "desc": "Procedimentos complexos de alta precisão realizados por especialistas com vasta experiência."
+      }
+    },
+    "mockConditions": {
+      "general1": {
+        "name": "Distúrbios gerais de {nome}",
+        "desc": "Cuidados abrangentes para uma vasta gama de afeções comuns relacionadas com {name}."
+      },
+      "general2": {
+        "name": "Doenças crónicas {nome}",
+        "desc": "Gestão a longo prazo e tratamento especializado para casos crónicos."
+      },
+      "general3": {
+        "name": "Emergências agudas de {nome}",
+        "desc": "Resposta rápida e cuidados intensivos para condições agudas graves."
+      }
+    }
+  },
+  "AboutUs": {
+    "hero": {
+      "tag": "Sobre a Asad Healthcare",
+      "title1": "O seu parceiro de confiança para",
+      "title2": "Tratamento médico na Índia",
+      "desc": "A Asad Healthcare é uma empresa de turismo médico dedicada a ajudar doentes internacionais a aceder a serviços de saúde de confiança na Índia. Colocamos as pessoas em contacto com médicos experientes, hospitais de renome, tratamentos avançados e cuidados médicos especializados, de acordo com as suas necessidades de saúde."
+    },
+    "intro": {
+      "desc": "Compreendemos que procurar tratamento noutro país envolve mais do que apenas escolher um médico ou um hospital. Exige informação fiável, um planeamento cuidadoso, uma comunicação clara e apoio ao longo de todo o percurso. O nosso papel é simplificar este processo e ajudar os doentes a tomar decisões informadas com maior confiança."
+    },
+    "whatWeDo": {
+      "title": "O que fazemos",
+      "desc": "Oferecemos assistência integral a pessoas que pretendem procurar tratamento médico na Índia, incluindo:"
+    },
+    "network": {
+      "title": "A nossa rede de cuidados de saúde",
+      "desc": "Trabalhamos para colocar os doentes em contacto com hospitais de renome, especialistas experientes e unidades de saúde de ponta em toda a Índia. Com base nas necessidades do doente, ajudamos a identificar opções de cuidados de saúde adequadas e coordenamos a comunicação com os prestadores de cuidados de saúde relevantes."
+    },
+    "approach": {
+      "title": "A nossa abordagem"
+    },
+    "whyChooseUs": {
+      "title": "Por que escolher a Asad Healthcare?"
+    },
+    "statements": {
+      "mission": {
+        "title": "A nossa missão",
+        "desc": "Tornar os cuidados de saúde de qualidade na Índia mais acessíveis a pessoas de todo o mundo, proporcionando contactos de confiança, informação clara e apoio profissional em viagens médicas."
+      },
+      "vision": {
+        "title": "A nossa visão",
+        "desc": "Ser um parceiro de confiança no turismo médico global, reconhecido pela coordenação responsável dos cuidados de saúde, pelo serviço centrado no doente e por uma experiência de viagem médica sem complicações."
+      },
+      "commitment": {
+        "title": "O nosso compromisso",
+        "desc1": "Na Asad Healthcare, estamos empenhados em prestar um apoio ao turismo médico que seja profissional, transparente e responsável.",
+        "desc2": "Não diagnosticamos doenças nem tomamos decisões clínicas. O diagnóstico médico, as recomendações de tratamento, os procedimentos e as cirurgias são determinados por médicos qualificados e instituições de saúde.",
+        "desc3": "A nossa responsabilidade é ajudar os doentes a encontrar opções de cuidados de saúde adequadas, a compreender o processo, a coordenar o seu percurso e a aceder aos cuidados médicos na Índia com maior confiança."
+      }
+    },
+    "cta": {
+      "title": "Pronto para começar a tua viagem?",
+      "button": "Contacte a nossa equipa médica"
+    }
+  },
+  "ContactUs": {
+    "hero": {
+      "title": "Entre em contacto connosco",
+      "desc": "Tem dúvidas sobre tratamentos médicos na Índia? A nossa equipa de assistência internacional está disponível 24 horas por dia, 7 dias por semana, para o ajudar."
+    },
+    "info": {
+      "title": "Informações de contacto",
+      "desc": "Contacte-nos para obter orçamentos médicos gratuitos, assistência na obtenção de vistos ou para quaisquer questões relacionadas com a sua viagem.",
+      "phone": "Telefone / WhatsApp",
+      "email": "Apoio por e-mail",
+      "office": "Sede",
+      "officeAddress": "Setor 62, Noida\nRegião da Capital Nacional de Deli, Índia 201309",
+      "hours": "Horário de trabalho",
+      "hoursDesc": "Apoio 24 horas por dia, 7 dias por semana, para doentes internacionais"
+    },
+    "form": {
+      "title": "Envie-nos uma mensagem"
+    }
+  },
+  "MedicalTravel": {
+    "hero": {
+      "tag": "Serviço completo de assistência personalizada e apoio na obtenção de vistos",
+      "title1": "Viagens médicas sem complicações",
+      "title2": "Para a Índia, desde o primeiro dia.",
+      "desc": "Concentre-se na sua saúde enquanto nós tratamos de toda a logística. Desde vistos médicos expressos (VIL) e transferências do aeroporto até alojamento privado para doentes, o nosso serviço de concierge dedicado garante uma recuperação sem preocupações.",
+      "requestBtn": "Solicitar assistência em viagem"
+    },
+    "visa": {
+      "title": "Assistência na obtenção de vistos médicos",
+      "subtitle": "Apoio sem complicações na obtenção do visto para a sua viagem médica à Índia",
+      "desc": "Prestamos assistência estruturada na obtenção de vistos médicos para doentes internacionais e seus acompanhantes, ajudando a coordenar a documentação necessária e as formalidades hospitalares, de modo a garantir uma viagem tranquila à Índia.",
+      "heroDesc": "Percorra o seu percurso de tratamento internacional sem as dores de cabeça da burocracia. Desde cartas de convite (VIL) até apoio na candidatura e prorrogações, a nossa equipa dedicada trata de todas as complexidades para que se possa concentrar inteiramente na sua saúde.",
+      "step1Title": "1. Orientações sobre o visto médico",
+      "step1Desc": "Orientações claras sobre o processo de obtenção do visto médico, os critérios de elegibilidade, os documentos necessários e os requisitos importantes.",
+      "step2Title": "2. Carta de Convite para o Visto (VIL)",
+      "step2Desc": "Coordenamos com o hospital em questão a emissão da Carta de Convite para o Visto (VIL) necessária para o pedido de visto médico, quando aplicável.",
+      "step3Title": "3. Coordenação de documentos médicos",
+      "step3Desc": "Apoio na coordenação de documentos médicos essenciais, cartas de marcação de consultas, detalhes do tratamento e outros documentos de apoio.",
+      "step4Title": "4. Assistência na obtenção do visto",
+      "step4Desc": "Apoio na preparação da documentação e no processo de visto para acompanhantes elegíveis que viajem com o doente.",
+      "step5Title": "5. Apoio ao pedido de visto",
+      "step5Desc": "Ajudamo-lo a organizar as informações e os documentos necessários para que o pedido de visto decorra sem complicações e seja devidamente preparado.",
+      "step6Title": "6. Orientações sobre a prorrogação do visto",
+      "step6Desc": "Caso o tratamento adicional exija uma estadia prolongada, prestamos orientação sobre o processo de prorrogação do visto aplicável e a documentação necessária.",
+      "step7Title": "7. Lista de verificação de vistos antes da viagem",
+      "step7Desc": "Ajudamos os doentes a verificar os documentos importantes relativos ao visto e à viagem antes da partida, de modo a minimizar atrasos e problemas de última hora.",
+      "step8Title": "8. Coordenação completa do processo de visto",
+      "step8Desc": "Desde o aconselhamento inicial e a coordenação do VIL até à preparação da viagem, ajudamos a gerir os principais requisitos relacionados com o visto para a sua viagem médica."
+    },
+    "concierge": {
+      "tag": "Cuidados a 360 graus",
+      "title": "Serviços de assistência personalizada de ponta a ponta",
+      "pickupTitle": "Recolha e transporte do aeroporto",
+      "pickupDesc": "Será recebido diretamente no terminal pelo nosso representante, que estará a segurar um cartaz personalizado, seguindo-se o transporte numa ambulância privada ou num táxi higienizado até ao seu hospital ou hotel.",
+      "hotelTitle": "Organização de hotéis e estadias",
+      "hotelDesc": "Disponibilizamos apartamentos para hóspedes confortáveis e com condições de higiene comprovadas, bem como hotéis de 4/5 estrelas a uma curta distância a pé do hospital, que atendem às suas necessidades alimentares e garantem o conforto dos acompanhantes.",
+      "interpreterTitle": "Intérpretes multilingues",
+      "interpreterDesc": "A língua nunca é um obstáculo. Tradutores nativos especializados (árabe, russo, francês, bengali, suaíli) acompanham-no durante todas as consultas médicas e visitas às enfermarias."
+    },
+    "accommodation": {
+      "title": "Alojamento e Estadia",
+      "subtitle": "Alojamento confortável, prático e com boas ligações",
+      "desc": "Ajudamos os doentes internacionais e os seus acompanhantes a encontrar alojamento adequado nas proximidades do hospital, tornando a sua estadia na Índia mais confortável e prática ao longo de todo o processo de tratamento.",
+      "heroDesc": "A sua casa longe de casa. Temos parcerias com hotéis com excelentes avaliações e apartamentos com serviços completos nas proximidades do hospital, para garantir que você e os seus entes queridos tenham um ambiente seguro, limpo e tranquilo durante o seu tratamento.",
+      "step1Title": "1. Assistência a hotéis e pensões",
+      "step1Desc": "Ajudamos a encontrar hotéis, pensões e alojamentos com serviços incluídos adequados, de acordo com as suas necessidades e orçamento.",
+      "step2Title": "2. Locais ligados a hospitais",
+      "step2Desc": "Damos prioridade a opções de alojamento convenientemente localizadas perto do hospital, de modo a reduzir o tempo de deslocação durante as consultas e os tratamentos.",
+      "step3Title": "3. Acomodações adaptadas às necessidades dos doentes",
+      "step3Desc": "Ajudamos a identificar alojamentos confortáveis e práticos, adequados para doentes, acompanhantes e familiares durante o tratamento médico.",
+      "step4Title": "4. Estadias curtas e prolongadas",
+      "step4Desc": "Quer precise de alojamento por alguns dias ou por várias semanas, ajudamo-lo a organizar tudo de acordo com o seu calendário de tratamentos.",
+      "step5Title": "5. Apoio na reserva e no check-in",
+      "step5Desc": "Prestamos assistência na coordenação do alojamento, nos pormenores da reserva, nos requisitos de check-in e noutros preparativos básicos relacionados com a estadia.",
+      "step6Title": "6. Apoio aos transportes",
+      "step6Desc": "Podemos organizar o transporte entre o seu alojamento, o hospital, o aeroporto e outros locais essenciais.",
+      "step7Title": "7. Apoio à família e aos acompanhantes",
+      "step7Desc": "Temos em conta as necessidades dos familiares e acompanhantes, de modo a tornar a sua estadia mais prática e confortável.",
+      "step8Title": "8. Assistência à prorrogação da estadia",
+      "step8Desc": "Se o seu plano de tratamento sofrer alterações, podemos ajudá-lo a coordenar uma estadia prolongada de acordo com as suas necessidades."
+    },
+    "interpreters": {
+      "title": "Serviços de interpretação linguística",
+      "subtitle": "Comunicação clara entre doentes e profissionais de saúde",
+      "desc": "A comunicação eficaz é uma parte importante de qualquer percurso médico. O nosso serviço profissional de interpretação ajuda os doentes internacionais a comunicarem-se com facilidade com médicos, enfermeiros, pessoal hospitalar e outros profissionais de saúde.",
+      "heroDesc": "Elimine a barreira linguística com os nossos intérpretes médicos especializados e de língua materna. Asseguramos que todas as consultas, diagnósticos e instruções médicas sejam transmitidos com 100% de clareza e sensibilidade cultural.",
+      "step1Title": "1. Interpretação linguística",
+      "step1Desc": "Prestamos serviços de interpretação linguística para ajudar os doentes a comunicarem claramente as suas preocupações, dúvidas e informações médicas.",
+      "step2Title": "2. Interpretação de consultas médicas",
+      "step2Desc": "Ajudamos os doentes durante as consultas, interpretando as conversas entre o doente e o médico responsável pelo tratamento.",
+      "step3Title": "3. Comunicação hospitalar",
+      "step3Desc": "Ajudamos os doentes a comunicar com os enfermeiros, o pessoal hospitalar, as equipas de receção e outros departamentos, sempre que necessário.",
+      "step4Title": "4. Apoio à terminologia médica",
+      "step4Desc": "Ajudamos a explicar termos médicos de uso comum, instruções, procedimentos e informações relacionadas com o tratamento de uma forma clara e compreensível.",
+      "step5Title": "5. Diagnóstico e assistência em testes",
+      "step5Desc": "Prestamos apoio de interpretação durante exames de diagnóstico, investigações e procedimentos hospitalares relacionados.",
+      "step6Title": "6. Apoio à admissão e à alta",
+      "step6Desc": "Prestamos apoio na comunicação durante a admissão hospitalar, nos trâmites de alta e nas instruções importantes fornecidas pela equipa médica.",
+      "step7Title": "7. Apoio a doentes e acompanhantes",
+      "step7Desc": "Também ajudamos os familiares e acompanhantes a compreenderem as informações importantes ao longo de toda a sua experiência no hospital.",
+      "step8Title": "8. Apoio à interpretação contínua",
+      "step8Desc": "Desde a primeira consulta no hospital até ao tratamento e acompanhamento, prestamos assistência de interpretação sempre que for necessário apoio na comunicação."
+    },
+    "airportTransfer": {
+      "title": "Serviços de transporte do aeroporto",
+      "subtitle": "Apoio de transporte fiável ao longo de todo o seu percurso médico",
+      "desc": "Coordenamos um serviço de transporte prático e confortável para os doentes internacionais e os seus acompanhantes, desde a chegada ao aeroporto até às consultas hospitalares, ao alojamento e à partida.",
+      "heroDesc": "Desfrute de uma chegada e partida sem complicações. Os nossos serviços premium de recolha no aeroporto e de transporte local garantem que será transportado com segurança e pontualidade entre o aeroporto, o seu hotel e o hospital, em todas as ocasiões.",
+      "step1Title": "1. Recolha no aeroporto",
+      "step1Desc": "Organizamos um serviço de recolha sem complicações no aeroporto e levamo-lo em segurança até ao seu hotel, pousada ou hospital.",
+      "step2Title": "2. Transporte para o aeroporto",
+      "step2Desc": "No final da sua estadia, organizamos o seu transporte do hotel ou do hospital para o aeroporto, para a sua viagem de regresso.",
+      "step3Title": "3. Transferências hospitalares",
+      "step3Desc": "Organizamos o transporte entre o seu alojamento e o hospital para consultas, exames, tratamentos e consultas de acompanhamento.",
+      "step4Title": "4. Transportes locais",
+      "step4Desc": "Prestamos assistência no transporte para centros de diagnóstico, farmácias e outros locais essenciais, sempre que necessário.",
+      "step5Title": "5. Transferências adaptadas às necessidades dos doentes",
+      "step5Desc": "Ajudamos a coordenar o transporte adequado, tendo em conta as necessidades de conforto e mobilidade do doente.",
+      "step6Title": "6. Transferências de acompanhantes e familiares",
+      "step6Desc": "Também está disponível apoio ao transporte para familiares acompanhantes e assistentes.",
+      "step7Title": "7. Transportes regulares",
+      "step7Desc": "Coordenamos os traslados de acordo com as suas consultas médicas e o seu calendário de tratamentos, para ajudar a manter a sua viagem organizada.",
+      "step8Title": "8. Apoio integral à viagem",
+      "step8Desc": "Desde o recolha no aeroporto até ao transporte de regresso ao aeroporto, ajudamos a coordenar as suas necessidades essenciais de transporte ao longo da sua estadia na Índia."
+    }
+  },
+  "Accommodation": {
+    "hero": {
+      "tag": "Estadias confortáveis e seguras",
+      "title1": "Alojamento Premium",
+      "title2": "Para a sua recuperação.",
+      "desc": "Ajudamos os doentes internacionais e os seus acompanhantes a encontrar alojamento adequado nas proximidades do hospital, tornando a sua estadia na Índia mais confortável e prática ao longo de todo o percurso do tratamento.",
+      "requestBtn": "Solicitar adaptações"
+    },
+    "grid": {
+      "title": "Alojamento e Estadia",
+      "subtitle": "Alojamento confortável, prático e com boas ligações",
+      "desc": "Ajudamos os doentes internacionais e os seus acompanhantes a encontrar alojamento adequado perto do hospital, tornando a sua estadia na Índia mais confortável e prática ao longo de todo o percurso do tratamento.",
+      "step1Title": "1. Assistência a hotéis e pensões",
+      "step1Desc": "Ajudamos a encontrar hotéis, pensões e alojamentos com serviços incluídos adequados, de acordo com as suas necessidades e orçamento.",
+      "step2Title": "2. Locais ligados a hospitais",
+      "step2Desc": "Damos prioridade a opções de alojamento convenientemente localizadas perto do hospital, para reduzir o tempo de deslocação durante as consultas e os tratamentos.",
+      "step3Title": "3. Acomodações adaptadas às necessidades dos doentes",
+      "step3Desc": "Ajudamos a encontrar alojamentos confortáveis e práticos, adequados para doentes, acompanhantes e familiares durante o tratamento médico.",
+      "step4Title": "4. Estadias curtas e prolongadas",
+      "step4Desc": "Quer precise de alojamento por alguns dias ou por várias semanas, ajudamo-lo a organizar tudo de acordo com o seu calendário de tratamentos.",
+      "step5Title": "5. Apoio na reserva e no check-in",
+      "step5Desc": "Prestamos assistência na coordenação do alojamento, nos pormenores da reserva, nos requisitos de check-in e noutros pormenores básicos relacionados com a estadia.",
+      "step6Title": "6. Apoio ao transporte",
+      "step6Desc": "Podemos organizar o transporte entre o seu alojamento, o hospital, o aeroporto e outros locais essenciais.",
+      "step7Title": "7. Apoio à família e aos acompanhantes",
+      "step7Desc": "Temos em conta as necessidades dos familiares e acompanhantes, de forma a tornar a sua estadia mais prática e confortável.",
+      "step8Title": "8. Assistência à prorrogação da estadia",
+      "step8Desc": "Se o seu plano de tratamento sofrer alterações, podemos ajudá-lo a coordenar uma estadia prolongada de acordo com as suas necessidades."
+    }
+  },
+  "EnquiryForm": {
+    "success": {
+      "title": "Pedido recebido!",
+      "desc": "Obrigado por nos ter enviado os seus dados médicos. Os nossos coordenadores de cuidados especializados estão a analisar o seu caso e entrarão em contacto consigo em breve para discutir o seu plano de tratamento.",
+      "button": "Concluído"
+    },
+    "header": {
+      "title": "Obtenha um plano de tratamento gratuito",
+      "desc": "Envie os seus dados médicos. Os nossos coordenadores especializados em cuidados de saúde internacionais irão analisar o seu caso e entrarão em contacto consigo em breve."
+    },
+    "form": {
+      "personalInfo": "Informações pessoais",
+      "contactInfo": "Dados de contacto",
+      "medicalInfo": "Informações médicas",
+      "firstName": "Nome *",
+      "firstNamePlaceholder": "por exemplo, John",
+      "lastName": "Apelido",
+      "lastNamePlaceholder": "por exemplo, Doe",
+      "email": "Endereço de e-mail *",
+      "emailPlaceholder": "por exemplo, john@example.com",
+      "phone": "Número de telefone / WhatsApp *",
+      "phonePlaceholder": "por exemplo, +1 234 567 8900",
+      "dob": "Data de nascimento",
+      "age": "Idade",
+      "agePlaceholder": "por exemplo, 45",
+      "country": "País de residência *",
+      "countryPlaceholder": "Selecione o seu país",
+      "condition": "Condição médica / Tratamento necessário *",
+      "conditionPlaceholder": "Descreva sucintamente o seu diagnóstico, sintomas ou procedimento solicitado...",
+      "cancel": "Cancelar",
+      "submit": "Enviar pedido",
+      "submitting": "A enviar...",
+      "error": "Ocorreu um erro. Por favor, tente novamente."
+    },
+    "countries": {
+      "United States": "Estados Unidos",
+      "United Kingdom": "Reino Unido",
+      "United Arab Emirates": "Emirados Árabes Unidos",
+      "Saudi Arabia": "Arábia Saudita",
+      "Oman": "Oman",
+      "Qatar": "Qual deles?",
+      "Kuwait": "Kuwait",
+      "Bahrain": "Bahrein",
+      "Iraq": "Iraque",
+      "Bangladesh": "Bangladesh",
+      "Kenya": "Entrar",
+      "Nigeria": "Nigéria",
+      "Tanzania": "Tanzânia",
+      "Uganda": "Uganda",
+      "Ghana": "Gana",
+      "Uzbekistan": "Uzbequistão",
+      "Russia": "Rússia",
+      "Kazakhstan": "Cazaquistão",
+      "Canada": "Canadá",
+      "Australia": "Austrália",
+      "Other": "Outros"
+    }
+  },
+  "FloatingContact": {
+    "whatsapp": "WhatsApp",
+    "call": "Ligar para a linha de apoio"
+  },
+  "HospitalCard": {
+    "internationalPatientCare": "Cuidados de Saúde para Pacientes Internacionais",
+    "beds": "{count} camas",
+    "keySpecialties": "Principais áreas de especialização",
+    "viewProfile": "Ver perfil",
+    "freeQuote": "Orçamento gratuito",
+    "india": "Índia",
+    "estbIn": "ESTB em {ano}",
+    "kmFromAirport": "{dist} km do aeroporto"
+  },
+  "ConditionDetail": {
+    "causes": "Causas e sintomas",
+    "causesDesc": "Compreender os principais indicadores e as causas subjacentes desta condição:",
+    "diagnosis": "Diagnóstico e Avaliação",
+    "diagnosisDesc": "Métodos comuns utilizados pelos especialistas para diagnosticar com precisão {nome}:",
+    "treatments": "Opções de tratamento",
+    "treatmentsDesc": "Dependendo da gravidade, podem ser recomendados os seguintes tratamentos:",
+    "relatedProcedures": "Procedimentos populares de {nome}",
+    "viewDetails": "Ver detalhes do procedimento",
+    "topSpecialists": "Os melhores especialistas em {nome}",
+    "bestHospitals": "Os melhores hospitais para {nome}",
+    "faqs": "Perguntas Frequentes",
+    "needOpinion": "Precisa de um parecer médico?",
+    "shareReports": "Partilhe os seus relatórios médicos com os nossos especialistas para obter um parecer médico gratuito e um plano de tratamento preciso, elaborado por vários hospitais de renome.",
+    "requestOpinion": "Solicitar parecer médico",
+    "freeConfidential": "100% gratuito e confidencial"
+  },
+  "BlogDetail": {
+    "backToBlogs": "Voltar aos blogs"
+  },
+  "ChatbotWidget": {
+    "options": {
+      "treatment": "Encontrar um tratamento",
+      "quote": "Obtenha um orçamento gratuito",
+      "faqs": "Perguntas Frequentes",
+      "speakToDoctor": "Fale com um médico"
+    },
+    "faqOptions": {
+      "process": "Como posso dar início ao processo?",
+      "cost": "Quanto custa o tratamento?",
+      "visa": "Prestam assistência na obtenção de vistos médicos?",
+      "pickup": "É disponibilizado o serviço de recolha no aeroporto?",
+      "accommodation": "Ajudam a fazer reservas de hotel?",
+      "language": "Haverá barreiras linguísticas?",
+      "hospitals": "Os vossos hospitais estão certificados?",
+      "back": "⬅️ Voltar ao menu principal"
+    },
+    "faqAnswers": {
+      "process": "É simples! Partilhe os seus relatórios médicos connosco. Os nossos médicos irão analisá-los, apresentar-lhe um plano de tratamento e um orçamento e, em seguida, ajudá-lo-emos com o visto e com os preparativos para a viagem.",
+      "cost": "Os custos variam consoante o procedimento específico e o hospital. Indique os seus dados de contacto e os nossos especialistas médicos fornecer-lhe-ão um orçamento gratuito e personalizado.",
+      "visa": "Sim! Prestamos assistência completa na obtenção do visto médico. Assim que selecionar um plano de tratamento, enviamos uma carta de convite para o visto, para ajudar a agilizar o seu processo.",
+      "pickup": "Sem dúvida. Oferecemos um serviço gratuito de recolha e entrega no aeroporto em veículos de luxo para todos os nossos doentes internacionais.",
+      "accommodation": "Sim, providenciamos alojamento confortável e seguro (hotéis ou casas de hóspedes privadas) perto do hospital que escolher, de acordo com o seu orçamento.",
+      "language": "De modo algum! Disponibilizamos tradutores especializados que o acompanharão durante as consultas e ao longo de toda a sua estadia no hospital.",
+      "hospitals": "Sim, todos os nossos hospitais parceiros estão acreditados pela JCI e pela NABH, garantindo os mais elevados padrões globais de cuidados médicos e segurança."
+    },
+    "followUpOptions": {
+      "yes": "Sim, por favor",
+      "no": "Não, obrigado"
+    },
+    "title": "Asad, Auxiliar de Saúde",
+    "subtitle": "Online - Responde instantaneamente",
+    "greeting": "Olá! 👋 Sou o vosso assistente de saúde da Asad. Em que posso ajudar-vos hoje?",
+    "faqsTitle": "Aqui estão algumas perguntas frequentes. O que gostaria de saber?",
+    "followUpQuote": "Gostaria que os nossos especialistas entrassem em contacto consigo para lhe apresentar um orçamento gratuito e personalizado?",
+    "askName": "Ótimo! Pode dizer-me o seu nome, por favor?",
+    "askContact": "É um prazer conhecer-te, {name}! Por favor, indica o teu número do WhatsApp ou o teu e-mail para que os nossos especialistas possam entrar em contacto contigo com mais informações.",
+    "thankYou": "Obrigado, {nome}! Recebemos o seu pedido. A nossa equipa de apoio internacional entrará em contacto consigo em breve para o ajudar.",
+    "placeholderName": "Escreva o seu nome...",
+    "placeholderContact": "Introduza o seu e-mail ou número de telefone...",
+    "send": "Enviar"
+  }
+}

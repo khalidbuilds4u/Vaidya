@@ -13,7 +13,12 @@ import { useLocale } from "next-intl";
 
 const LANGUAGES = [
   { code: "en", name: "English", shortName: "English", flag: "🇬🇧" },
-  { code: "ar", name: "العربية (Arabic)", shortName: "Arabic", flag: "🇸🇦" },
+  { code: "ar", name: "العربية", shortName: "العربية", flag: "🇸🇦" },
+  { code: "bn", name: "বাংলা", shortName: "বাংলা", flag: "🇧🇩" },
+  { code: "fr", name: "Français", shortName: "Français", flag: "🇫🇷" },
+  { code: "pt", name: "Português", shortName: "Português", flag: "🇵🇹" },
+  { code: "ru", name: "Русский", shortName: "Русский", flag: "🇷🇺" },
+  { code: "uz", name: "O'zbekcha", shortName: "O'zbekcha", flag: "🇺🇿" },
 ];
 
 export function LanguageSwitcher() {
