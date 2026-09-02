@@ -12,7 +12,7 @@ export async function createCity(formData: FormData) {
   const description = formData.get("description") as string;
   const imageUrl = formData.get("imageUrl") as string;
 
-  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
+  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   const name_ar = formData.get("name_ar") as string;
   const description_ar = formData.get("description_ar") as string;

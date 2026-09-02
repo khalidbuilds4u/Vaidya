@@ -36,7 +36,7 @@ export async function createDoctor(formData: FormData) {
   const professionalMemberships = parseArray("professionalMemberships");
   const whyChooseThisDoctor = parseArray("whyChooseThisDoctor");
 
-  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
+  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   const name_ar = formData.get("name_ar") as string;
   const qualifications_ar = formData.get("qualifications_ar") as string;

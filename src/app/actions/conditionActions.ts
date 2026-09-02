@@ -78,7 +78,7 @@ async function extractConditionData(formData: FormData, existingId?: string) {
 
 export async function createCondition(formData: FormData) {
   const data = await extractConditionData(formData);
-  const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
+  const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   await prisma.condition.create({
     data: {

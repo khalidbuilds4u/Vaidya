@@ -118,7 +118,7 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
 
 export async function createTreatment(formData: FormData) {
   const data = await extractTreatmentData(formData);
-  const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, "-") + "-" + Date.now();
+  const slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 
   await prisma.treatment.create({
     data: {
