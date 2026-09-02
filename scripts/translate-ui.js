@@ -38,6 +38,12 @@ function findMissingKeys(source, target, currentPath = '') {
   for (const key in source) {
     const newPath = currentPath ? `${currentPath}.${key}` : key;
     
+    // Explicitly exclude brand taglines from being translated
+    if (key === 'tagline') {
+      target[key] = source[key]; // Keep it exactly as English
+      continue;
+    }
+
     if (isObject(source[key])) {
       if (!target[key]) target[key] = {};
       missing = missing.concat(findMissingKeys(source[key], target[key], newPath));
