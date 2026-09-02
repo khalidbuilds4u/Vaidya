@@ -414,7 +414,41 @@
     "whyChoose": "Nega aynan shu shifoxonani tanlash kerak?",
     "topSpecialities": "Eng yaxshi ixtisosliklar",
     "bookConsultation": "Maslahatlashuvni buyurtma qilish",
-    "quickFacts": "Shifoxona tezkor ma'lumotlari"
+    "quickFacts": "Shifoxona tezkor ma'lumotlari",
+    "highlights": {
+      "premium": {
+        "title": "Premium qulayliklar",
+        "desc": "Eng zamonaviy infratuzilma va tibbiyot texnologiyalari."
+      },
+      "multiSpeciality": {
+        "title": "Ko'p ixtisoslik bo'yicha tibbiy yordam",
+        "desc": "Barcha sohalar bo'ylab keng qamrovli davolash."
+      },
+      "globalStandard": {
+        "title": "Global standart",
+        "desc": "Klinik mukammalligi bo'yicha xalqaro miqyosda tan olingan."
+      }
+    },
+    "internationalCare": {
+      "visa": {
+        "title": "Viza bo'yicha yordam",
+        "desc": "Tibbiy viza taklif xatlari"
+      },
+      "airport": {
+        "title": "Aeroport transferlari",
+        "desc": "Bepul olib ketish va yetkazib qo'yish"
+      },
+      "language": {
+        "title": "Til tarjimonlari",
+        "desc": "Bag'ishlangan tarjimonlar"
+      },
+      "title": "Xalqaro bemor parvarishi"
+    },
+    "verifiedHospital": "Tasdiqlangan shifoxona",
+    "emergency247": "24/7 Favqulodda",
+    "worldClassCare": "Jahon darajasidagi g'amxo'rlik",
+    "requestConsultation": "Maslahat so'rash",
+    "bedsCount": "{count}+ karavotlar"
   },
   "DoctorsPage": {
     "filters": {

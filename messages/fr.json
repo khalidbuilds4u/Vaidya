@@ -414,7 +414,41 @@
     "whyChoose": "Pourquoi choisir cet hôpital ?",
     "topSpecialities": "Principales spécialités",
     "bookConsultation": "Prendre rendez-vous pour une consultation",
-    "quickFacts": "L'hôpital en bref"
+    "quickFacts": "L'hôpital en bref",
+    "highlights": {
+      "premium": {
+        "title": "Équipements haut de gamme",
+        "desc": "Des infrastructures et des technologies médicales de pointe."
+      },
+      "multiSpeciality": {
+        "title": "Soins pluridisciplinaires",
+        "desc": "Une prise en charge globale dans toutes les disciplines."
+      },
+      "globalStandard": {
+        "title": "Norme internationale",
+        "desc": "Reconnu à l'échelle internationale pour son excellence clinique."
+      }
+    },
+    "internationalCare": {
+      "visa": {
+        "title": "Aide à l'obtention d'un visa",
+        "desc": "Lettres d'invitation pour un visa médical"
+      },
+      "airport": {
+        "title": "Transferts depuis l'aéroport",
+        "desc": "Transfert aller-retour gratuit"
+      },
+      "language": {
+        "title": "Interprètes",
+        "desc": "Traducteurs spécialisés"
+      },
+      "title": "Soins aux patients internationaux"
+    },
+    "verifiedHospital": "Hôpital certifié",
+    "emergency247": "Urgences 24 h/24, 7 j/7",
+    "worldClassCare": "Des soins de niveau international",
+    "requestConsultation": "Demander un rendez-vous de consultation",
+    "bedsCount": "{count} + lits"
   },
   "DoctorsPage": {
     "filters": {

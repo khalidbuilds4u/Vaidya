@@ -414,7 +414,41 @@
     "whyChoose": "কেন এই হাসপাতালটি বেছে নিন",
     "topSpecialities": "শীর্ষ বিশেষত্বসমূহ",
     "bookConsultation": "পরামর্শ বুকিং",
-    "quickFacts": "হাসপাতালের সংক্ষিপ্ত তথ্য"
+    "quickFacts": "হাসপাতালের সংক্ষিপ্ত তথ্য",
+    "highlights": {
+      "premium": {
+        "title": "প্রিমিয়াম সুবিধা",
+        "desc": "অত্যাধুনিক অবকাঠামো ও চিকিৎসা প্রযুক্তি।"
+      },
+      "multiSpeciality": {
+        "title": "বহুবিশেষায়িত যত্ন",
+        "desc": "সমস্ত শাখায় ব্যাপক চিকিৎসা।"
+      },
+      "globalStandard": {
+        "title": "বিশ্ব মান",
+        "desc": "ক্লিনিক্যাল উৎকর্ষতার জন্য আন্তর্জাতিকভাবে স্বীকৃত।"
+      }
+    },
+    "internationalCare": {
+      "visa": {
+        "title": "ভিসা সহায়তা",
+        "desc": "চিকিৎসা ভিসা আমন্ত্রণ পত্র"
+      },
+      "airport": {
+        "title": "বিমানবন্দর স্থানান্তর",
+        "desc": "বিনামূল্যে পিকআপ ও ড্রপ"
+      },
+      "language": {
+        "title": "ভাষা দোভাষী",
+        "desc": "নিবেদিত অনুবাদকগণ"
+      },
+      "title": "আন্তর্জাতিক রোগী সেবা"
+    },
+    "verifiedHospital": "সত্যায়িত হাসপাতাল",
+    "emergency247": "২৪/৭ জরুরি",
+    "worldClassCare": "বিশ্বমানের যত্ন",
+    "requestConsultation": "পরামর্শের অনুরোধ করুন",
+    "bedsCount": "{count}+টি বিছানা"
   },
   "DoctorsPage": {
     "filters": {
