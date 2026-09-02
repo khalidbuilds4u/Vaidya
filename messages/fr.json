@@ -180,18 +180,25 @@
     "medicalDisclaimer": "Avertissement : Asad Healthcare est un service de coordination de voyages médicaux. Nous ne fournissons ni diagnostic médical, ni conseil médical, ni soins d'urgence, ni traitement clinique. Toutes les décisions médicales sont prises par des médecins et des hôpitaux qualifiés. Les coûts des traitements sont estimés et peuvent varier à l'issue de l'évaluation clinique réalisée par l'hôpital chargé du traitement."
   },
   "FAQ": {
+    "bottom": {
+      "title": "Vous avez encore des questions ?",
+      "desc": "Notre équipe d'assistance médicale est disponible 24 heures sur 24, 7 jours sur 7, sur WhatsApp et par téléphone.",
+      "button": "Demandez conseil à un spécialiste"
+    },
+    "tag": "Accompagnement des patients et clarté",
+    "title": "Foire aux questions",
     "faqs": {
       "q1": {
         "question": "Qu'est-ce que le tourisme médical en Inde ?",
-        "answer": "Le tourisme médical consiste à se rendre en Inde pour y suivre un traitement médical, subir une intervention chirurgicale, obtenir un diagnostic ou bénéficier de prestations de santé."
+        "answer": "Le tourisme médical consiste à se rendre en Inde pour y recevoir des traitements médicaux, subir une intervention chirurgicale, obtenir un diagnostic ou bénéficier de prestations de santé."
       },
       "q2": {
-        "question": "Pourquoi choisir l'Inde pour un traitement médical ?",
-        "answer": "L'Inde dispose de médecins expérimentés, d'hôpitaux de pointe, de technologies modernes et d'options thérapeutiques abordables."
+        "question": "Pourquoi choisir l'Inde pour suivre un traitement médical ?",
+        "answer": "L'Inde dispose de médecins expérimentés, d'hôpitaux de pointe, de technologies modernes et d'options de traitement abordables."
       },
       "q3": {
         "question": "Quels sont les services proposés par votre entreprise ?",
-        "answer": "Nous assurons la coordination hospitalière, la prise de rendez-vous médicaux, l'accompagnement dans le cadre des traitements médicaux, l'assistance aux déplacements, l'hébergement et la coordination des soins pour les patients."
+        "answer": "Nous assurons la coordination hospitalière, la prise de rendez-vous médicaux, l'accompagnement thérapeutique, l'assistance aux déplacements, l'hébergement et la coordination des soins pour les patients."
       },
       "q4": {
         "question": "Pourriez-vous m'aider à choisir un hôpital ?",
@@ -199,19 +206,19 @@
       },
       "q5": {
         "question": "Pourriez-vous m'aider à choisir un médecin ?",
-        "answer": "Oui, nous pouvons vous aider à prendre rendez-vous avec un spécialiste adapté."
+        "answer": "Oui, nous pouvons vous aider à prendre rendez-vous avec un spécialiste adapté à votre cas."
       },
       "q6": {
-        "question": "Puis-je envoyer mes rapports médicaux avant mon départ ?",
+        "question": "Puis-je envoyer mes rapports médicaux avant de partir ?",
         "answer": "Oui. Vous pouvez nous transmettre vos dossiers médicaux afin que nous puissions les examiner et établir un plan de traitement."
       },
       "q7": {
-        "question": "Pourriez-vous me donner un devis pour le traitement ?",
+        "question": "Pourriez-vous me donner une estimation du coût du traitement ?",
         "answer": "Oui, nous pouvons demander à l'hôpital un devis pour le traitement sur la base de vos dossiers médicaux."
       },
       "q8": {
         "question": "Est-ce que vous prenez des rendez-vous chez le médecin ?",
-        "answer": "Oui, nous pouvons vous fixer des rendez-vous chez des médecins et des spécialistes."
+        "answer": "Oui, nous pouvons vous aider à prendre rendez-vous avec des médecins et des spécialistes."
       },
       "q9": {
         "question": "Proposez-vous des services d'interprétation ?",
@@ -223,27 +230,27 @@
       },
       "q11": {
         "question": "Proposez-vous un service de transfert depuis l'aéroport ?",
-        "answer": "Oui, nous pouvons organiser un transfert depuis l'aéroport et le transport selon vos besoins."
+        "answer": "Oui, nous pouvons organiser la prise en charge à l'aéroport et le transport selon vos besoins."
       },
       "q12": {
         "question": "Vous vous occupez de trouver un hébergement ?",
-        "answer": "Oui, nous pouvons vous aider à trouver un hébergement adapté à proximité de l'hôpital."
+        "answer": "Oui, nous pouvons vous aider à trouver un logement adapté à proximité de l'hôpital."
       },
       "q13": {
         "question": "Proposez-vous un service de transport local ?",
         "answer": "Oui, il est possible d'organiser le transport pour les visites à l'hôpital, les transferts depuis l'aéroport et tout autre déplacement nécessaire."
       },
       "q14": {
-        "question": "Est-ce que quelqu'un m'aidera pendant mon séjour à l'hôpital ?",
-        "answer": "Oui, notre coordinateur des patients peut vous aider à communiquer avec l'hôpital et à organiser votre prise en charge."
+        "question": "Est-ce que quelqu'un pourra m'aider lors de mon séjour à l'hôpital ?",
+        "answer": "Oui, notre coordinateur des patients peut vous aider à communiquer avec l'hôpital et à organiser les démarches nécessaires."
       },
       "q15": {
         "question": "Les proches peuvent-ils accompagner le patient ?",
-        "answer": "Oui, les membres de la famille peuvent accompagner le patient, sous réserve du respect des conditions relatives aux visas et au voyage."
+        "answer": "Oui, les membres de la famille peuvent accompagner le patient, sous réserve du respect des conditions relatives au visa et au voyage."
       },
       "q16": {
         "question": "Pouvez-vous m'aider après le traitement ?",
-        "answer": "Oui, nous pouvons vous aider à organiser les rendez-vous de suivi, les rapports et toute autre démarche administrative après le traitement."
+        "answer": "Oui, nous pouvons vous aider à organiser les rendez-vous de suivi, les rapports et toute autre démarche nécessaire après le traitement."
       },
       "q17": {
         "question": "Combien de temps durera mon traitement ?",
@@ -255,19 +262,19 @@
       },
       "q19": {
         "question": "Comment entamer mon parcours de soins médicaux en Inde ?",
-        "answer": "Envoyez-nous vos rapports médicaux et vos demandes. Nous vous guiderons dans les étapes suivantes."
+        "answer": "Envoyez-nous vos rapports médicaux et vos besoins. Nous vous guiderons dans les étapes suivantes."
       },
       "q20": {
         "question": "Pourquoi choisir notre agence de tourisme médical ?",
-        "answer": "Nous proposons un accompagnement complet afin d'aider les patients étrangers à vivre un séjour médical en Inde sans encombre, bien organisé et agréable."
+        "answer": "Nous proposons un accompagnement complet afin d'aider les patients internationaux à vivre un séjour médical en Inde sans encombre, bien organisé et agréable."
       },
       "q21": {
         "question": "Pourquoi devrais-je choisir l'Inde pour me faire soigner ?",
-        "answer": "L'Inde propose des infrastructures médicales de niveau mondial, des hôpitaux accrédités au niveau international (JCI et NABH), des médecins hautement qualifiés formés aux États-Unis ou au Royaume-Uni, ainsi que des technologies médicales de pointe, le tout à des coûts inférieurs de 60 à 80 % à ceux des pays occidentaux, avec des délais d'attente pratiquement nuls."
+        "answer": "L'Inde propose des infrastructures médicales de niveau mondial, des hôpitaux accrédités au niveau international (JCI et NABH), des médecins hautement qualifiés formés aux États-Unis et au Royaume-Uni, ainsi que des technologies médicales de pointe, le tout à des coûts inférieurs de 60 à 80 % à ceux pratiqués dans les pays occidentaux, avec des délais d'attente pratiquement nuls."
       },
       "q22": {
-        "question": "Vais-je rencontrer des problèmes de langue pendant mon séjour à l'hôpital ?",
-        "answer": "Non. L'anglais est la langue officielle utilisée dans tous les hôpitaux indiens agréés. De plus, notre équipe met à votre disposition un traducteur attitré (arabe, russe, français, bengali, swahili) pour vous accompagner tout au long de vos consultations et de vos hospitalisations."
+        "question": "Vais-je rencontrer des problèmes de barrière linguistique pendant mon séjour à l'hôpital ?",
+        "answer": "Non. L'anglais est la langue officielle utilisée dans tous les hôpitaux indiens agréés. De plus, notre équipe met à votre disposition un interprète dédié (arabe, russe, français, bengali, swahili) pour vous accompagner tout au long de vos consultations et de vos admissions à l'hôpital."
       },
       "q23": {
         "question": "Comment obtenir un visa médical indien (Med Visa) ?",
@@ -275,24 +282,17 @@
       },
       "q24": {
         "question": "Les membres de ma famille ou mes accompagnateurs peuvent-ils voyager avec moi ?",
-        "answer": "Oui, jusqu’à deux membres de votre famille ou accompagnateurs peuvent voyager avec vous grâce à un visa d’accompagnateur médical (MED-X). La lettre d’invitation officielle de l’hôpital mentionnera explicitement leurs coordonnées."
+        "answer": "Oui, jusqu'à deux membres de votre famille ou accompagnateurs peuvent voyager avec vous grâce à un visa d'accompagnateur médical (MED-X). La lettre d'invitation officielle de l'hôpital mentionnera explicitement leurs coordonnées."
       },
       "q25": {
         "question": "Comment se déroule le processus de devis et de paiement ?",
-        "answer": "Nos services de consultation et de coordination personnalisée sont entièrement gratuits pour les patients. Le règlement des traitements s'effectue directement auprès de l'hôpital à l'arrivée, par carte bancaire, virement bancaire ou en devises étrangères."
+        "answer": "Nos services de consultation et de coordination personnalisée sont 100 % gratuits pour les patients. Le paiement des traitements s’effectue directement auprès de l’hôpital à l’arrivée, par carte bancaire, virement bancaire ou en devises étrangères."
       },
       "q26": {
         "question": "Que se passe-t-il à mon arrivée à l'aéroport en Inde ?",
-        "answer": "Notre représentant vous accueillera directement dans le hall de l'aéroport avec une pancarte à votre nom, vous conduira à votre hôtel ou à votre chambre d'hôpital, et vous remettra une carte SIM locale tout en vous aidant à changer vos devises."
+        "answer": "Notre représentant vous accueillera directement au terminal de l'aéroport avec une pancarte personnalisée à votre nom, vous conduira à votre hôtel ou à votre chambre d'hôpital, et vous remettra une carte SIM locale tout en vous aidant à changer vos devises."
       }
     },
-    "bottom": {
-      "title": "Vous avez encore des questions ?",
-      "desc": "Notre équipe d'assistance médicale est disponible 24 heures sur 24, 7 jours sur 7, sur WhatsApp et par téléphone.",
-      "button": "Demandez conseil à un spécialiste"
-    },
-    "tag": "Accompagnement des patients et clarté",
-    "title": "Foire aux questions",
     "desc": "Trouvez des réponses claires sur les soins médicaux en Inde, notamment sur les hôpitaux, les médecins, les coûts des traitements, les visas médicaux, le voyage, l'hébergement et l'accompagnement des patients. Notre FAQ aide les patients internationaux à comprendre le processus et à planifier leur séjour médical en toute confiance."
   },
   "Conditions": {

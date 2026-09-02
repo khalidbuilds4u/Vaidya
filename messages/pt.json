@@ -180,6 +180,13 @@
     "medicalDisclaimer": "Aviso legal: A Asad Healthcare funciona como um serviço de coordenação de viagens médicas. Não fornecemos diagnósticos médicos, aconselhamento médico, cuidados de emergência nem tratamento clínico. Todas as decisões médicas são tomadas por médicos e hospitais qualificados. Os custos do tratamento são estimados e podem sofrer alterações após a avaliação clínica realizada pelo hospital responsável pelo tratamento."
   },
   "FAQ": {
+    "bottom": {
+      "title": "Ainda tem dúvidas?",
+      "desc": "A nossa equipa de assistência médica está disponível 24 horas por dia, 7 dias por semana, através do WhatsApp e por telefone.",
+      "button": "Pergunte a um especialista"
+    },
+    "tag": "Apoio ao doente e clareza",
+    "title": "Perguntas Frequentes",
     "faqs": {
       "q1": {
         "question": "O que é o turismo médico na Índia?",
@@ -190,7 +197,7 @@
         "answer": "A Índia dispõe de médicos experientes, hospitais de ponta, tecnologia moderna e opções de tratamento a preços acessíveis."
       },
       "q3": {
-        "question": "Que serviços presta a sua empresa?",
+        "question": "Que serviços presta a vossa empresa?",
         "answer": "Prestamos serviços de coordenação hospitalar, marcação de consultas médicas, apoio ao tratamento médico, assistência em viagens, alojamento e coordenação de doentes."
       },
       "q4": {
@@ -199,14 +206,14 @@
       },
       "q5": {
         "question": "Podes ajudar-me a escolher um médico?",
-        "answer": "Sim, podemos ajudar a marcar uma consulta com um especialista adequado."
+        "answer": "Sim, podemos ajudá-lo a marcar uma consulta com um especialista adequado."
       },
       "q6": {
         "question": "Posso enviar os meus relatórios médicos antes de viajar?",
         "answer": "Sim. Pode partilhar os seus relatórios médicos para análise e planeamento do tratamento."
       },
       "q7": {
-        "question": "Pode dar-me um orçamento do tratamento?",
+        "question": "Pode dar-me um orçamento para o tratamento?",
         "answer": "Sim, podemos solicitar ao hospital um orçamento do tratamento com base nos seus relatórios médicos."
       },
       "q8": {
@@ -215,7 +222,7 @@
       },
       "q9": {
         "question": "Oferecem serviços de interpretação?",
-        "answer": "Sim, disponibilizamos serviços de interpretação e apoio à comunicação para doentes internacionais."
+        "answer": "Sim, disponibilizamos serviços de interpretação linguística e apoio à comunicação para doentes internacionais."
       },
       "q10": {
         "question": "Prestam assistência na obtenção de um visto médico?",
@@ -227,7 +234,7 @@
       },
       "q12": {
         "question": "Vocês tratam do alojamento?",
-        "answer": "Sim, podemos ajudar a encontrar alojamento adequado perto do hospital."
+        "answer": "Sim, podemos ajudar a arranjar um alojamento adequado perto do hospital."
       },
       "q13": {
         "question": "Oferecem transporte local?",
@@ -239,11 +246,11 @@
       },
       "q15": {
         "question": "Os familiares podem viajar com o doente?",
-        "answer": "Sim, os familiares podem viajar com o doente, desde que cumpram os requisitos relativos ao visto e à viagem."
+        "answer": "Sim, os familiares podem viajar com o doente, desde que cumpram os requisitos relativos a vistos e viagens."
       },
       "q16": {
         "question": "Pode ajudar-me depois do tratamento?",
-        "answer": "Sim, podemos ajudar com consultas de acompanhamento, relatórios e outros aspetos relacionados com a coordenação pós-tratamento."
+        "answer": "Sim, podemos ajudar com as consultas de acompanhamento, relatórios e outros aspetos relacionados com a coordenação pós-tratamento."
       },
       "q17": {
         "question": "Quanto tempo vai demorar o meu tratamento?",
@@ -255,7 +262,7 @@
       },
       "q19": {
         "question": "Como posso iniciar o meu percurso de tratamento médico na Índia?",
-        "answer": "Envie-nos os seus relatórios médicos e os requisitos necessários. Iremos orientá-lo nas próximas etapas."
+        "answer": "Envie-nos os seus relatórios médicos e requisitos. Iremos orientá-lo nas próximas etapas."
       },
       "q20": {
         "question": "Por que escolher a nossa empresa de turismo médico?",
@@ -263,37 +270,30 @@
       },
       "q21": {
         "question": "Por que razão devo escolher a Índia para receber tratamento médico?",
-        "answer": "A Índia dispõe de instalações médicas de classe mundial, hospitais acreditados internacionalmente (JCI e NABH), médicos altamente qualificados e formados nos EUA e no Reino Unido, e tecnologia médica avançada, a custos 60 a 80% mais baixos do que nos países ocidentais, com tempos de espera praticamente nulos."
+        "answer": "A Índia oferece instalações médicas de nível mundial, hospitais acreditados internacionalmente (JCI e NABH), médicos altamente qualificados com formação nos EUA e no Reino Unido e tecnologia médica avançada a custos 60 a 80 % mais baixos do que nos países ocidentais, com tempos de espera praticamente nulos."
       },
       "q22": {
         "question": "Haverá alguma barreira linguística durante a minha estadia no hospital?",
-        "answer": "Não. O inglês é a língua oficial de comunicação em todos os hospitais indianos acreditados. Além disso, a nossa equipa designa um tradutor dedicado (árabe, russo, francês, bengali, suaíli) para o ajudar durante todas as consultas e internamentos hospitalares."
+        "answer": "Não. O inglês é a língua oficial de trabalho em todos os hospitais indianos acreditados. Além disso, a nossa equipa designa um tradutor dedicado (árabe, russo, francês, bengali, suaíli) para o ajudar durante todas as consultas e internamentos hospitalares."
       },
       "q23": {
         "question": "Como posso obter um visto médico para a Índia (Med Visa)?",
-        "answer": "Assim que partilhar os seus relatórios médicos e selecionar o hospital da sua preferência, providenciaremos uma Carta de Convite Oficial para o Visto (VIL) emitida pelo hospital. Pode utilizar esta carta para obter um visto médico eletrónico online no prazo de 48 a 72 horas."
+        "answer": "Assim que partilhar os seus relatórios médicos e selecionar o hospital da sua preferência, tratamos de obter uma Carta de Convite Oficial para o Visto (VIL) emitida pelo hospital. Pode utilizar essa carta para obter um visto médico eletrónico online no prazo de 48 a 72 horas."
       },
       "q24": {
         "question": "Os familiares ou acompanhantes podem viajar comigo?",
-        "answer": "Sim, podem viajar consigo até dois familiares ou acompanhantes ao abrigo de um visto de acompanhante médico (MED-X). A carta oficial de convite do hospital incluirá explicitamente os dados desses acompanhantes."
+        "answer": "Sim, podem viajar consigo até dois familiares ou acompanhantes ao abrigo de um visto de acompanhante médico (MED-X). A carta oficial de convite do hospital incluirá explicitamente os dados dessas pessoas."
       },
       "q25": {
         "question": "Como funciona o processo de orçamento e pagamento?",
-        "answer": "O nosso serviço de aconselhamento e coordenação personalizada é 100% gratuito para os doentes. Todos os pagamentos relativos ao tratamento são efetuados diretamente ao hospital à chegada, através de cartão de crédito, transferência bancária ou moeda estrangeira."
+        "answer": "O nosso serviço de aconselhamento e coordenação personalizada é 100% gratuito para os doentes. Todos os pagamentos relativos aos tratamentos são efetuados diretamente ao hospital à chegada, através de cartão de crédito, transferência bancária ou moeda estrangeira."
       },
       "q26": {
         "question": "O que acontece quando aterrar no aeroporto na Índia?",
-        "answer": "O nosso representante irá recebê-lo diretamente no terminal do aeroporto com um cartaz personalizado com o seu nome, levá-lo-á até ao seu hotel ou quarto de hospital e fornecer-lhe-á um cartão SIM local e assistência na troca de moeda."
+        "answer": "O nosso representante irá recebê-lo diretamente no terminal do aeroporto com um cartaz personalizado com o seu nome, levá-lo-á ao seu hotel ou quarto de hospital e fornecer-lhe-á um cartão SIM local e assistência na troca de moeda."
       }
     },
-    "bottom": {
-      "title": "Ainda tem dúvidas?",
-      "desc": "A nossa equipa de assistência médica está disponível 24 horas por dia, 7 dias por semana, através do WhatsApp e por telefone.",
-      "button": "Pergunte a um especialista"
-    },
-    "tag": "Apoio ao doente e clareza",
-    "title": "Perguntas Frequentes",
-    "desc": "Encontre respostas claras sobre tratamentos médicos na Índia, incluindo hospitais, médicos, custos dos tratamentos, vistos médicos, viagens, alojamento e apoio aos doentes. As nossas perguntas frequentes ajudam os doentes internacionais a compreender o processo e a planear a sua viagem médica com confiança."
+    "desc": "Encontre respostas claras sobre o tratamento médico na Índia, incluindo hospitais, médicos, custos do tratamento, vistos médicos, viagens, alojamento e apoio aos doentes. As nossas perguntas frequentes ajudam os doentes internacionais a compreender o processo e a planear a sua viagem médica com confiança."
   },
   "Conditions": {
     "items": {

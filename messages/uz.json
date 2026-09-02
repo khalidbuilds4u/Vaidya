@@ -180,14 +180,21 @@
     "medicalDisclaimer": "Mas'uliyatni rad etish: Asad Healthcare tibbiy sayohatni muvofiqlashtirish xizmati sifatida faoliyat yuritadi. Biz tibbiy tashxis, tibbiy maslahat, tez yordam yoki klinik davolash xizmatlarini taqdim etmaymiz. Barcha tibbiy qarorlar malakali shifokorlar va shifoxonalar tomonidan qabul qilinadi. Davolash xarajatlari taxminiy hisoblanadi va davolovchi shifoxona tomonidan klinik baholashdan so'ng o'zgarishi mumkin."
   },
   "FAQ": {
+    "bottom": {
+      "title": "Hali ham savollaringiz bormi?",
+      "desc": "Bizning tibbiy yordam jamoamiz WhatsApp va telefon orqali 24/7 mavjud.",
+      "button": "Mutaxassisga murojaat qiling"
+    },
+    "tag": "Bemorlarga yordam va aniqlik",
+    "title": "Ko'p beriladigan savollar",
     "faqs": {
       "q1": {
         "question": "Hindistonda tibbiy turizm nima?",
-        "answer": "Tibbiy turizm tibbiy davolash, jarrohlik amaliyoti, tashxis yoki sog'liqni saqlash xizmatlari uchun Hindistonga sayohat qilishni anglatadi."
+        "answer": "Tibbiy turizm tibbiy davolanish, jarrohlik amaliyoti, tashxis yoki sog'liqni saqlash xizmatlari uchun Hindistonga sayohat qilishni anglatadi."
       },
       "q2": {
         "question": "Tibbiy davolanish uchun Hindistonni nega tanlash kerak?",
-        "answer": "Hindiston tajribali shifokorlar, ilg'or shifoxonalar, zamonaviy texnologiyalar va maqbul davolash imkoniyatlarini taklif etadi."
+        "answer": "Hindiston tajribali shifokorlar, ilg'or shifoxonalar, zamonaviy texnologiyalar va arzon davolash imkoniyatlarini taklif etadi."
       },
       "q3": {
         "question": "Sizning kompaniyangiz qanday xizmatlar ko'rsatadi?",
@@ -206,7 +213,7 @@
         "answer": "Ha. Siz tibbiy hisobotlaringizni ko'rib chiqish va davolash rejasini tuzish uchun ulashingiz mumkin."
       },
       "q7": {
-        "question": "Davolash uchun taxminiy narxni bera olasizmi?",
+        "question": "Davolash uchun taxminiy xarajatni bera olasizmi?",
         "answer": "Ha, biz tibbiy hisobotlaringizga asoslanib shifoxonadan davolash bo'yicha taxminiy xarajatni so'rab olishimiz mumkin."
       },
       "q8": {
@@ -219,7 +226,7 @@
       },
       "q10": {
         "question": "Siz tibbiy viza olishda yordam berasizmi?",
-        "answer": "Ha, biz tibbiy viza olish jarayoni bo'yicha yo'l-yo'riq va muvofiqlashtirishni ta'minlay olamiz."
+        "answer": "Ha, biz tibbiy viza jarayoni bo'yicha yo'l-yo'riq va muvofiqlashtirishni ta'minlay olamiz."
       },
       "q11": {
         "question": "Aeroportdan qabul qilishni tashkil qilasizmi?",
@@ -234,16 +241,16 @@
         "answer": "Ha, shifoxonaga tashriflar, aeroportga o'tkazish va boshqa zarur sayohatlar uchun transport tashkil etilishi mumkin."
       },
       "q14": {
-        "question": "Shifoxonaga tashrifim chog'ida kimdir menga yordam beradimi?",
+        "question": "Kasalxonaga tashrifim chog'ida kimdir menga yordam beradimi?",
         "answer": "Ha, bemorlar bo'yicha koordinatorimiz shifoxona bilan muloqot va muvofiqlashtirishda yordam bera oladi."
       },
       "q15": {
         "question": "Oilaviy a'zolar bemor bilan sayohat qila oladimi?",
-        "answer": "Ha, oila a'zolari bemor bilan sayohat qilishlari mumkin, viza va sayohat talablari bajarilgan taqdirda."
+        "answer": "Ha, oila a'zolari bemor bilan sayohat qilishlari mumkin, viza va sayohat talablariga muvofiq."
       },
       "q16": {
         "question": "Davolashdan keyin yordam bera olasizmi?",
-        "answer": "Ha, biz keyingi uchrashuvlar, hisobotlar va boshqa davolanishdan keyingi muvofiqlashtirish ishlarida yordam bera olamiz."
+        "answer": "Ha, biz keyingi uchrashuvlar, hisobotlar va boshqa davolashdan keyingi muvofiqlashtirish bo'yicha yordam bera olamiz."
       },
       "q17": {
         "question": "Davolanishim qancha vaqt oladi?",
@@ -266,19 +273,19 @@
         "answer": "Hindiston jahon darajasidagi tibbiyot muassasalari, xalqaro akkreditatsiyaga ega shifoxonalar (JCI va NABH), AQSh va Buyuk Britaniyada malaka oshirgan yuqori malakali shifokorlar hamda ilg'or tibbiyot texnologiyalarini G'arbiy mamlakatlarga nisbatan 60–80% arzon narxlarda, deyarli hech qanday kutish vaqtlari bo'lmagan holda taklif etadi."
       },
       "q22": {
-        "question": "Kasalxonada yotganim davomida til to'sig'i bo'ladimi?",
-        "answer": "Yo'q. Ingliz tili barcha akkreditatsiyadan o'tgan hind shifoxonalarida rasmiy ish tilidir. Bundan tashqari, bizning jamoamiz barcha konsultatsiyalar va shifoxonaga yotqizilish davomida sizga yordam berish uchun maxsus tarjimon (arab, rus, fransuz, bengal, svahili)ni tayinlaydi."
+        "question": "Shifoxonada yotganim davomida til to'sig'i bo'ladimi?",
+        "answer": "Yo'q. Ingliz tili barcha akkreditatsiyadan o'tgan hind shifoxonalarida rasmiy ish tilidir. Bundan tashqari, bizning jamoamiz barcha konsultatsiyalar va shifoxonaga yotqizilish davomida sizga yordam berish uchun maxsus tarjimon (arab, rus, fransuz, bengal, svahili) tayinlaydi."
       },
       "q23": {
-        "question": "Men Hindiston tibbiy vizasini (Med Visa) qanday olaman?",
+        "question": "Hindiston tibbiy vizasini (Med Visa) qanday olaman?",
         "answer": "Tibbiy hisobotlaringizni taqdim etib, afzal ko'rgan shifoxonangizni tanlaganingizdan so'ng, biz shifoxonadan rasmiy Visa taklif xatini (VIL) tayyorlaymiz. Uni 48–72 soat ichida onlayn tarzda e-Medical Visa olish uchun ishlatishingiz mumkin."
       },
       "q24": {
-        "question": "Oilam a'zolari yoki hamrohlarim men bilan sayohat qila oladimi?",
+        "question": "Oilaviy a'zolar yoki hamrohlar men bilan sayohat qila oladimi?",
         "answer": "Ha, ikki nafar oilaviy a'zo yoki hamroh Tibbiy hamroh viza (MED-X) bo'yicha siz bilan birga sayohat qilishi mumkin. Rasmiy shifoxona taklif xatida ularning ma'lumotlari aniq ko'rsatiladi."
       },
       "q25": {
-        "question": "Kotibiyat va to'lov jarayoni qanday ishlaydi?",
+        "question": "Narx taklifi va to'lov jarayoni qanday ishlaydi?",
         "answer": "Bizning konsultatsiya va konsyerj xizmati bemorlar uchun 100% bepul. Barcha davolash to'lovlari kelganingizda shifoxonaga to'g'ridan-to'g'ri kredit karta, bank o'tkazmasi yoki xorijiy valyuta orqali amalga oshiriladi."
       },
       "q26": {
@@ -286,13 +293,6 @@
         "answer": "Bizning vakilimiz sizni aeroport terminalida shaxsiy nom yozilgan plakat bilan to'g'ridan-to'g'ri kutib oladi, mehmonxonangizga yoki shifoxona xonangizga yetkazadi va mahalliy SIM-karta hamda valyuta almashtirish bo'yicha yordam ko'rsatadi."
       }
     },
-    "bottom": {
-      "title": "Hali ham savollaringiz bormi?",
-      "desc": "Bizning tibbiy yordam jamoamiz WhatsApp va telefon orqali 24/7 mavjud.",
-      "button": "Mutaxassisga murojaat qiling"
-    },
-    "tag": "Bemorlarga yordam va aniqlik",
-    "title": "Ko'p beriladigan savollar",
     "desc": "Hindistonda tibbiy davolanish, jumladan shifoxonalar, shifokorlar, davolanish xarajatlari, tibbiy vizalar, sayohat, turar joy va bemorlarga ko'mak bo'yicha aniq javoblarni toping. Bizning tez-tez so'raladigan savollarimiz xalqaro bemorlarga jarayonni tushunish va tibbiy safarini ishonch bilan rejalashtirishga yordam beradi."
   },
   "Conditions": {
