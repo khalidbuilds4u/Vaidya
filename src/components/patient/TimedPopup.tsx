@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { X, Stethoscope, ArrowRight, Clock } from "lucide-react";
 import { EnquiryForm } from "./EnquiryForm";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
 
 const SESSION_KEY = "asad_popup_dismissed";
 const DELAY_MS = 8000; // 8 seconds
@@ -12,6 +13,7 @@ export function TimedPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
+  const t = useTranslations("TimedPopup");
 
   useEffect(() => {
     // Don't show if already dismissed this session
@@ -85,13 +87,13 @@ export function TimedPopup() {
 
               <div className="flex-1">
                 <p className="text-xs font-bold uppercase tracking-widest text-teal-400 mb-1">
-                  Free Consultation
+                  {t('freeConsultation')}
                 </p>
                 <h3 className="text-lg font-extrabold text-white leading-snug">
-                  Looking for treatment in India?
+                  {t('heading')}
                 </h3>
                 <p className="text-slate-300 text-sm mt-1.5 leading-relaxed">
-                  Get a free personalised treatment plan from our medical experts.
+                  {t('subheading')}
                 </p>
               </div>
 
@@ -110,20 +112,20 @@ export function TimedPopup() {
           <div className="bg-white dark:bg-slate-950 px-6 py-4 flex items-center justify-between gap-4">
             <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
               <Clock className="w-3.5 h-3.5 text-teal-500" />
-              <span>Takes less than 2 minutes</span>
+              <span>{t('timeEstimate')}</span>
             </div>
             <div className="flex items-center gap-2 shrink-0">
               <button
                 onClick={dismiss}
                 className="text-xs text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors underline underline-offset-2"
               >
-                No thanks
+                {t('noThanks')}
               </button>
               <Button
                 onClick={handleOpenForm}
                 className="h-9 px-5 rounded-xl bg-[#123654] hover:bg-[#0d2a42] text-white text-sm font-bold shadow-lg shadow-[#123654]/20 flex items-center gap-2"
               >
-                Get Plan
+                {t('getPlan')}
                 <ArrowRight className="w-3.5 h-3.5" />
               </Button>
             </div>

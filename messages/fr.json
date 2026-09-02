@@ -982,5 +982,13 @@
     "placeholderName": "Entrez votre nom...",
     "placeholderContact": "Entrez votre adresse e-mail ou votre numéro de téléphone…",
     "send": "Envoyer"
+  },
+  "TimedPopup": {
+    "freeConsultation": "Consultation gratuite",
+    "heading": "Vous cherchez un traitement en Inde ?",
+    "subheading": "Obtenez gratuitement un plan de traitement personnalisé établi par nos experts médicaux.",
+    "timeEstimate": "Cela prend moins de 2 minutes",
+    "noThanks": "Non, merci",
+    "getPlan": "Souscrire un forfait"
   }
 }

@@ -982,5 +982,13 @@
     "placeholderName": "Escreva o seu nome...",
     "placeholderContact": "Introduza o seu e-mail ou número de telefone...",
     "send": "Enviar"
+  },
+  "TimedPopup": {
+    "freeConsultation": "Consulta gratuita",
+    "heading": "Está à procura de tratamento na Índia?",
+    "subheading": "Obtenha um plano de tratamento personalizado e gratuito elaborado pelos nossos especialistas médicos.",
+    "timeEstimate": "Demora menos de 2 minutos",
+    "noThanks": "Não, obrigado",
+    "getPlan": "Adquirir plano"
   }
 }

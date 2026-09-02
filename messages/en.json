@@ -1154,5 +1154,13 @@
     "placeholderName": "Type your name...",
     "placeholderContact": "Type your email or phone...",
     "send": "Send"
+  },
+  "TimedPopup": {
+    "freeConsultation": "Free Consultation",
+    "heading": "Looking for treatment in India?",
+    "subheading": "Get a free personalised treatment plan from our medical experts.",
+    "timeEstimate": "Takes less than 2 minutes",
+    "noThanks": "No thanks",
+    "getPlan": "Get Plan"
   }
 }

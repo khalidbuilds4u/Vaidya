@@ -982,5 +982,13 @@
     "placeholderName": "Ismingizni kiriting...",
     "placeholderContact": "Elektron pochtangizni yoki telefon raqamingizni kiriting...",
     "send": "Yuborish"
+  },
+  "TimedPopup": {
+    "freeConsultation": "Bepul maslahat",
+    "heading": "Hindistonda davolanishni qidiryapsizmi?",
+    "subheading": "Bizning tibbiy mutaxassislarimizdan bepul, shaxsiylashtirilgan davolash rejasini oling.",
+    "timeEstimate": "2 daqiqadan kam vaqt oladi",
+    "noThanks": "Yo'q, rahmat",
+    "getPlan": "Rejani oling"
   }
 }
