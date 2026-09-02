@@ -1,7 +1,7 @@
 import { prisma } from '../src/lib/prisma';
 import { buildTranslations } from '../src/lib/translator';
 
-const TARGET_LANG = 'ar';
+const TARGET_LANGS = ['ar', 'bn', 'fr', 'pt', 'ru', 'uz'];
 
 async function backfillHospitals() {
   console.log('🏥 Checking Hospitals...');
@@ -10,7 +10,9 @@ async function backfillHospitals() {
 
   for (const hospital of hospitals) {
     const translations = hospital.translations as any || {};
-    if (!translations[TARGET_LANG] || Object.keys(translations[TARGET_LANG]).length === 0) {
+    const needsTranslation = TARGET_LANGS.some(lang => !translations[lang] || Object.keys(translations[lang]).length === 0);
+    
+    if (needsTranslation) {
       console.log(`Translating Hospital: ${hospital.name}`);
       const newTranslations = await buildTranslations({
         name: hospital.name,
@@ -44,7 +46,9 @@ async function backfillDoctors() {
 
   for (const doctor of doctors) {
     const translations = doctor.translations as any || {};
-    if (!translations[TARGET_LANG] || Object.keys(translations[TARGET_LANG]).length === 0) {
+    const needsTranslation = TARGET_LANGS.some(lang => !translations[lang] || Object.keys(translations[lang]).length === 0);
+    
+    if (needsTranslation) {
       console.log(`Translating Doctor: ${doctor.name}`);
       const newTranslations = await buildTranslations({
         name: doctor.name,
@@ -84,7 +88,9 @@ async function backfillTreatments() {
 
   for (const treatment of treatments) {
     const translations = treatment.translations as any || {};
-    if (!translations[TARGET_LANG] || Object.keys(translations[TARGET_LANG]).length === 0) {
+    const needsTranslation = TARGET_LANGS.some(lang => !translations[lang] || Object.keys(translations[lang]).length === 0);
+    
+    if (needsTranslation) {
       console.log(`Translating Treatment: ${treatment.name}`);
       const newTranslations = await buildTranslations({
         name: treatment.name,
