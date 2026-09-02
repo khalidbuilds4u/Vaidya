@@ -175,7 +175,9 @@
     },
     "desc": "O seu principal parceiro para pacientes internacionais, para cirurgias médicas de classe mundial a preços acessíveis na Índia. Colocamo-lo em contacto direto com redes de hospitais acreditadas pela JCI e pela NABH.",
     "copyright": "© {ano} Asad Healthcare. Todos os direitos reservados.",
-    "certified": "Rede de parceiros certificados com hospitais acreditados pela JCI e pela NABH em toda a Índia."
+    "certified": "Rede de parceiros certificados com hospitais acreditados pela JCI e pela NABH em toda a Índia.",
+    "selectLanguage": "Selecione o idioma para navegar",
+    "medicalDisclaimer": "Aviso legal: A Asad Healthcare funciona como um serviço de coordenação de viagens médicas. Não fornecemos diagnósticos médicos, aconselhamento médico, cuidados de emergência nem tratamento clínico. Todas as decisões médicas são tomadas por médicos e hospitais qualificados. Os custos do tratamento são estimados e podem sofrer alterações após a avaliação clínica realizada pelo hospital responsável pelo tratamento."
   },
   "FAQ": {
     "faqs": {

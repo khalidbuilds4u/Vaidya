@@ -175,7 +175,9 @@
     },
     "desc": "Hindistonda jahon darajasidagi, maqbul narxlardagi tibbiy jarrohlik bo'yicha sizning yetakchi xalqaro bemor hamkoringiz. Sizni to'g'ridan-to'g'ri JCI va NABH akkreditatsiyasiga ega shifoxonalar tarmog'iga bog'laydi.",
     "copyright": "© {year} Asad Healthcare. Barcha huquqlar himoyalangan.",
-    "certified": "Butun Hindiston bo'ylab JCI va NABH akkreditatsiyasiga ega shifoxonalarni o'z ichiga olgan sertifikatlangan hamkorlar tarmog'i."
+    "certified": "Butun Hindiston bo'ylab JCI va NABH akkreditatsiyasiga ega shifoxonalarni o'z ichiga olgan sertifikatlangan hamkorlar tarmog'i.",
+    "selectLanguage": "Ko'rib chiqish uchun tilni tanlang",
+    "medicalDisclaimer": "Mas'uliyatni rad etish: Asad Healthcare tibbiy sayohatni muvofiqlashtirish xizmati sifatida faoliyat yuritadi. Biz tibbiy tashxis, tibbiy maslahat, tez yordam yoki klinik davolash xizmatlarini taqdim etmaymiz. Barcha tibbiy qarorlar malakali shifokorlar va shifoxonalar tomonidan qabul qilinadi. Davolash xarajatlari taxminiy hisoblanadi va davolovchi shifoxona tomonidan klinik baholashdan so'ng o'zgarishi mumkin."
   },
   "FAQ": {
     "faqs": {

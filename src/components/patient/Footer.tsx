@@ -1,11 +1,22 @@
 "use client";
 
-import Link from 'next/link';
 import { Stethoscope, ShieldCheck, PhoneCall, Headphones, Clock, Sparkles } from 'lucide-react';
 import { useTranslations } from 'next-intl';
+import { Link, usePathname } from '@/i18n/routing';
+
+const LANGUAGES = [
+  { code: 'en', name: 'English' },
+  { code: 'ar', name: 'العربية' },
+  { code: 'bn', name: 'বাংলা' },
+  { code: 'fr', name: 'Français' },
+  { code: 'pt', name: 'Português' },
+  { code: 'ru', name: 'Русский' },
+  { code: 'uz', name: "O'zbek" }
+];
 
 export function Footer() {
   const t = useTranslations('Footer');
+  const pathname = usePathname();
 
   return (
     <footer className="bg-slate-950 text-slate-300 border-t-2 border-primary/40 relative overflow-hidden pt-10 sm:pt-14 pb-20 sm:pb-10">
@@ -146,6 +157,42 @@ export function Footer() {
           <p className="text-center sm:text-right text-[11px] text-slate-500">
             {t('certified')}
           </p>
+        </div>
+      </div>
+      
+      {/* Global Language & Disclaimer Section */}
+      <div className="bg-slate-900 border-t border-slate-800/80 mt-10">
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex flex-col items-center text-center space-y-4">
+            
+            {/* Language Selector Title */}
+            <h4 className="text-sm font-bold text-teal-400">
+              {t('selectLanguage')}
+            </h4>
+            
+            {/* Languages List */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-sm text-slate-300">
+              {LANGUAGES.map((lang, index) => (
+                <div key={lang.code} className="flex items-center gap-4">
+                  <Link 
+                    href={pathname} 
+                    locale={lang.code}
+                    className="hover:text-teal-300 transition-colors duration-300"
+                  >
+                    {lang.name}
+                  </Link>
+                  {index < LANGUAGES.length - 1 && (
+                    <span className="text-slate-700 hidden sm:inline-block">|</span>
+                  )}
+                </div>
+              ))}
+            </div>
+            
+            {/* Disclaimer Text */}
+            <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed max-w-5xl mt-6">
+              {t('medicalDisclaimer')}
+            </p>
+          </div>
         </div>
       </div>
     </footer>

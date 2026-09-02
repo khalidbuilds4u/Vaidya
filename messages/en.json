@@ -175,7 +175,9 @@
       "safety": "Patient Safety Guidelines"
     },
     "copyright": "© {year} Asad Healthcare. All rights reserved.",
-    "certified": "Certified partner network with JCI & NABH accredited hospitals across India."
+    "certified": "Certified partner network with JCI & NABH accredited hospitals across India.",
+    "selectLanguage": "Select Language To Browse",
+    "medicalDisclaimer": "Disclaimer: Asad Healthcare functions as a medical travel coordination service. We do not provide medical diagnosis, medical advice, emergency care, or clinical treatment. All medical decisions are made by qualified doctors and hospitals. Treatment costs are estimated and may change after clinical assessment by the treating hospital."
   },
   "FAQ": {
     "tag": "Patient Support & Clarity",

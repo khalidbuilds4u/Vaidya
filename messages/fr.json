@@ -175,7 +175,9 @@
     },
     "desc": "Votre partenaire de référence pour les patients internationaux, vous proposant des interventions chirurgicales de niveau mondial à des tarifs abordables en Inde. Nous vous mettons directement en relation avec des réseaux d’hôpitaux accrédités JCI et NABH.",
     "copyright": "© {année} Asad Healthcare. Tous droits réservés.",
-    "certified": "Réseau de partenaires certifiés, composé d'hôpitaux accrédités par la JCI et la NABH dans toute l'Inde."
+    "certified": "Réseau de partenaires certifiés, composé d'hôpitaux accrédités par la JCI et la NABH dans toute l'Inde.",
+    "selectLanguage": "Sélectionnez une langue pour naviguer",
+    "medicalDisclaimer": "Avertissement : Asad Healthcare est un service de coordination de voyages médicaux. Nous ne fournissons ni diagnostic médical, ni conseil médical, ni soins d'urgence, ni traitement clinique. Toutes les décisions médicales sont prises par des médecins et des hôpitaux qualifiés. Les coûts des traitements sont estimés et peuvent varier à l'issue de l'évaluation clinique réalisée par l'hôpital chargé du traitement."
   },
   "FAQ": {
     "faqs": {
