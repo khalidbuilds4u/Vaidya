@@ -10,14 +10,22 @@ const HowProcessWorks = dynamic(() => import('@/components/patient/home/HowProce
 const FAQSection = dynamic(() => import('@/components/patient/home/FAQSection').then(mod => mod.FAQSection));
 const TrustTicker = dynamic(() => import('@/components/patient/home/TrustTicker').then(mod => mod.TrustTicker));
 import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
-import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import { MobileSearch } from '@/components/patient/home/MobileSearch';
 
 export const revalidate = 3600;
 
 
-export default function Home() {
-  const t = useTranslations('Stats');
+export default async function Home() {
+  const t = await getTranslations('Stats');
+  
+  // TEMPORARY CACHE BUSTING
+  const { revalidateTag } = await import('next/cache');
+  revalidateTag('doctors');
+  revalidateTag('hospitals');
+  revalidateTag('treatments');
+  revalidateTag('cities');
+  revalidateTag('specialties');
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50 dark:bg-slate-950 transition-colors duration-500">
