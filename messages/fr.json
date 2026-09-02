@@ -293,7 +293,9 @@
         "answer": "Notre représentant vous accueillera directement au terminal de l'aéroport avec une pancarte personnalisée à votre nom, vous conduira à votre hôtel ou à votre chambre d'hôpital, et vous remettra une carte SIM locale tout en vous aidant à changer vos devises."
       }
     },
-    "desc": "Trouvez des réponses claires sur les soins médicaux en Inde, notamment sur les hôpitaux, les médecins, les coûts des traitements, les visas médicaux, le voyage, l'hébergement et l'accompagnement des patients. Notre FAQ aide les patients internationaux à comprendre le processus et à planifier leur séjour médical en toute confiance."
+    "desc": "Trouvez des réponses claires sur les soins médicaux en Inde, notamment sur les hôpitaux, les médecins, les coûts des traitements, les visas médicaux, le voyage, l'hébergement et l'accompagnement des patients. Notre FAQ aide les patients internationaux à comprendre le processus et à planifier leur séjour médical en toute confiance.",
+    "showLess": "Afficher moins de questions",
+    "readAll": "Lire toutes les questions"
   },
   "Conditions": {
     "items": {
@@ -403,7 +405,16 @@
     "askButton": "Demandez à Asad ce qu'il pense de cet hôpital",
     "address": "Adresse de l'hôpital",
     "toc": "Table des matières",
-    "related": "Hôpitaux associés"
+    "related": "Hôpitaux associés",
+    "keyHighlights": "Points clés",
+    "specialities": "Spécialités et pôles d'excellence",
+    "infrastructure": "Infrastructures et équipements hospitaliers",
+    "patientCare": "Soins aux patients",
+    "internationalServices": "Services aux patients internationaux",
+    "whyChoose": "Pourquoi choisir cet hôpital ?",
+    "topSpecialities": "Principales spécialités",
+    "bookConsultation": "Prendre rendez-vous pour une consultation",
+    "quickFacts": "L'hôpital en bref"
   },
   "DoctorsPage": {
     "filters": {

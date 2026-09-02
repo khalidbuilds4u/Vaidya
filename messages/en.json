@@ -182,6 +182,8 @@
   "FAQ": {
     "tag": "Patient Support & Clarity",
     "title": "Frequently Asked Questions",
+    "showLess": "Show Less Questions",
+    "readAll": "Read All Questions",
     "desc": "Find clear answers about medical treatment in India, including hospitals, doctors, treatment costs, medical visas, travel, accommodation, and patient support. Our FAQs help international patients understand the process and plan their medical journey with confidence.",
     "faqs": {
       "q1": {
@@ -449,7 +451,18 @@
       "hospitals": "Hospitals"
     },
     "search": "Search hospitals, doctors, or specializations...",
-    "about": "About Hospital",
+    "about": "About the Hospital",
+    "keyHighlights": "Key Highlights",
+    "specialities": "Specialities & Centres of Excellence",
+    "technologies": "Advanced Medical Technology",
+    "infrastructure": "Infrastructure & Hospital Facilities",
+    "patientCare": "Patient Care",
+    "internationalServices": "International Patient Services",
+    "connectivity": "Location & Connectivity",
+    "whyChoose": "Why Choose This Hospital",
+    "topSpecialities": "Top Specialities",
+    "bookConsultation": "Book Consultation",
+    "quickFacts": "Hospital Quick Facts",
     "multiSpecialties": "Multi Speciality Services",
     "premiumFacilities": "Premium Facilities during Hospital Stay",
     "technologies": "Advanced Medical Technologies",

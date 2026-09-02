@@ -109,7 +109,7 @@ export function FAQSection() {
             className="rounded-full px-8 py-5 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:text-primary dark:hover:text-teal-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:border-primary dark:hover:border-teal-400 font-bold shadow-sm transition-all"
             onClick={() => setShowAll(!showAll)}
           >
-            {showAll ? 'Show Less Questions' : 'Read All Questions'}
+            {showAll ? t('showLess') : t('readAll')}
           </Button>
         </div>
 

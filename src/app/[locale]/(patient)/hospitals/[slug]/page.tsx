@@ -69,15 +69,15 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
   const heroImage = hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop";
 
   const tocItems = [
-    { id: 'about', label: 'About the Hospital', show: !!hospital.description },
-    { id: 'key-highlights', label: 'Key Highlights', show: (getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights)?.length > 0 },
-    { id: 'specialities', label: 'Specialities & Centres of Excellence', show: (getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres)?.length > 0 },
-    { id: 'technologies', label: 'Advanced Medical Technology', show: (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 },
-    { id: 'infrastructure', label: 'Infrastructure & Hospital Facilities', show: (getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities)?.length > 0 },
-    { id: 'patient-care', label: 'Patient Care', show: (getTranslation(hospital, 'patientCare', locale) || hospital.patientCare)?.length > 0 },
-    { id: 'international-services', label: 'International Patient Services', show: (getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices)?.length > 0 },
-    { id: 'connectivity', label: 'Location & Connectivity', show: (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 },
-    { id: 'why-choose', label: 'Why Choose This Hospital', show: (getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital)?.length > 0 },
+    { id: 'about', label: t('about'), show: !!hospital.description },
+    { id: 'key-highlights', label: t('keyHighlights'), show: (getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights)?.length > 0 },
+    { id: 'specialities', label: t('specialities'), show: (getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres)?.length > 0 },
+    { id: 'technologies', label: t('technologies'), show: (getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 },
+    { id: 'infrastructure', label: t('infrastructure'), show: (getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities)?.length > 0 },
+    { id: 'patient-care', label: t('patientCare'), show: (getTranslation(hospital, 'patientCare', locale) || hospital.patientCare)?.length > 0 },
+    { id: 'international-services', label: t('internationalServices'), show: (getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices)?.length > 0 },
+    { id: 'connectivity', label: t('connectivity'), show: (getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 },
+    { id: 'why-choose', label: t('whyChoose'), show: (getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital)?.length > 0 },
   ];
 
   return (
@@ -177,8 +177,8 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
               {/* Right Side: Enquiry CTA */}
               <div className="shrink-0 w-full lg:w-auto flex justify-start lg:justify-end mt-4 lg:mt-0">
                 <EnquiryForm>
-                  <Button className="w-full sm:w-auto bg-teal-500 hover:bg-teal-400 text-white font-bold rounded-xl px-8 h-12 sm:h-14 transition-all shadow-[0_0_20px_rgba(20,184,166,0.3)] hover:shadow-[0_0_25px_rgba(20,184,166,0.5)]">
-                    {t('askButton')}
+                  <Button className="w-full bg-teal-500 hover:bg-teal-400 text-white font-bold rounded-xl h-12 transition-all shadow-[0_0_15px_rgba(20,184,166,0.3)] hover:shadow-[0_0_20px_rgba(20,184,166,0.5)]">
+                    {t('bookConsultation')}
                   </Button>
                 </EnquiryForm>
               </div>
@@ -225,22 +225,22 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mt-8 lg:mt-12">
           
           {/* Main Content (Left, 8 cols) */}
-                    <div className="lg:col-span-8 space-y-12 pb-10">
+          <div className="lg:col-span-8 space-y-12 pb-10">
             {/* 1. About */}
             {hospital.description && (
-              <section id="about" className="scroll-mt-28">
-                <SectionHeader title="About the Hospital" />
+              <div id="about" className="scroll-mt-32">
+                <SectionHeader title={t('about')} />
                 <div 
                   className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base"
                   dangerouslySetInnerHTML={{ __html: getTranslation(hospital, 'description', locale) || '' }}
                 />
-              </section>
+              </div>
             )}
 
             {/* 2. Key Highlights */}
             {(getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights)?.length > 0 && (
-              <section id="key-highlights" className="scroll-mt-28">
-                <SectionHeader title="Key Highlights" />
+              <div id="key-highlights" className="scroll-mt-32">
+                <SectionHeader title={t('keyHighlights')} />
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(hospital, 'keyHighlights', locale) || hospital.keyHighlights).map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3 bg-white dark:bg-slate-900/95 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm transition-colors duration-500">
@@ -251,13 +251,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
             {/* 3. Specialities & Centres of Excellence */}
             {(getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres)?.length > 0 && (
-              <section id="specialities" className="scroll-mt-28">
-                <SectionHeader title="Specialities & Centres of Excellence" />
+              <div id="specialities" className="scroll-mt-32">
+                <SectionHeader title={t('specialities')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(hospital, 'specialitiesAndCentres', locale) || hospital.specialitiesAndCentres).map((spec: string, idx: number) => (
                     <div key={idx} className="flex items-center gap-3 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-teal-500/30 dark:hover:border-teal-500/50 transition-colors duration-500">
@@ -268,13 +268,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </div>
                   ))}
                 </div>
-              </section>
+              </div>
             )}
 
             {/* 4. Advanced Medical Technology */}
             {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies)?.length > 0 && (
-              <section id="technologies" className="scroll-mt-28">
-                <SectionHeader title="Advanced Medical Technology" />
+              <div id="technologies" className="scroll-mt-32">
+                <SectionHeader title={t('technologies')} />
                 <ul className="grid grid-cols-1 gap-3">
                   {(getTranslation(hospital, 'advancedTechnologies', locale) || hospital.advancedTechnologies).map((tech: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/95 border border-slate-100 dark:border-slate-800 shadow-sm transition-colors duration-500">
@@ -283,13 +283,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
             {/* 5. Infrastructure & Hospital Facilities */}
             {(getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities)?.length > 0 && (
-              <section id="infrastructure" className="scroll-mt-28">
-                <SectionHeader title="Infrastructure & Hospital Facilities" />
+              <div id="infrastructure" className="scroll-mt-32">
+                <SectionHeader title={t('infrastructure')} />
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(hospital, 'infrastructureAndFacilities', locale) || hospital.infrastructureAndFacilities).map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3 bg-white dark:bg-slate-900/95 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm transition-colors duration-500">
@@ -300,13 +300,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
             {/* 6. Patient Care */}
             {(getTranslation(hospital, 'patientCare', locale) || hospital.patientCare)?.length > 0 && (
-              <section id="patient-care" className="scroll-mt-28">
-                <SectionHeader title="Patient Care" />
+              <div id="patient-care" className="scroll-mt-32">
+                <SectionHeader title={t('patientCare')} />
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(hospital, 'patientCare', locale) || hospital.patientCare).map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/95 border border-slate-100 dark:border-slate-800 shadow-sm hover:border-teal-500/30 dark:hover:border-teal-500/50 transition-colors duration-500">
@@ -317,13 +317,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
             {/* 7. International Patient Services */}
             {(getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices)?.length > 0 && (
-              <section id="international-services" className="scroll-mt-28">
-                <SectionHeader title="International Patient Services" />
+              <div id="international-services" className="scroll-mt-32">
+                <SectionHeader title={t('internationalServices')} />
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(hospital, 'internationalServices', locale) || hospital.internationalServices).map((service: string, idx: number) => (
                     <li key={idx} className="flex items-center gap-3 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-teal-500/30 dark:hover:border-teal-500/50 transition-colors duration-500">
@@ -334,13 +334,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
             {/* 8. Location & Connectivity */}
             {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation)?.length > 0 && (
-              <section id="connectivity" className="scroll-mt-28">
-                <SectionHeader title="Location & Connectivity" />
+              <div id="connectivity" className="scroll-mt-32">
+                <SectionHeader title={t('connectivity')} />
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(hospital, 'connectivityLocation', locale) || hospital.connectivityLocation).map((loc: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-3 p-4 rounded-2xl border border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm transition-colors duration-500">
@@ -351,13 +351,13 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
             {/* 9. Why Choose This Hospital */}
             {(getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital)?.length > 0 && (
-              <section id="why-choose" className="scroll-mt-28">
-                <SectionHeader title="Why Choose This Hospital" />
+              <div id="why-choose" className="scroll-mt-32">
+                <SectionHeader title={t('whyChoose')} />
                 <ul className="grid grid-cols-1 gap-3">
                   {(getTranslation(hospital, 'whyChooseThisHospital', locale) || hospital.whyChooseThisHospital).map((item: string, idx: number) => (
                     <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/95 border border-slate-100 dark:border-slate-800 shadow-sm border-l-4 border-l-teal-500 transition-colors duration-500">
@@ -365,7 +365,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     </li>
                   ))}
                 </ul>
-              </section>
+              </div>
             )}
 
           </div>

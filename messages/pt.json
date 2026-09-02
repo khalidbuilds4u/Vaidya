@@ -293,7 +293,9 @@
         "answer": "O nosso representante irá recebê-lo diretamente no terminal do aeroporto com um cartaz personalizado com o seu nome, levá-lo-á ao seu hotel ou quarto de hospital e fornecer-lhe-á um cartão SIM local e assistência na troca de moeda."
       }
     },
-    "desc": "Encontre respostas claras sobre o tratamento médico na Índia, incluindo hospitais, médicos, custos do tratamento, vistos médicos, viagens, alojamento e apoio aos doentes. As nossas perguntas frequentes ajudam os doentes internacionais a compreender o processo e a planear a sua viagem médica com confiança."
+    "desc": "Encontre respostas claras sobre o tratamento médico na Índia, incluindo hospitais, médicos, custos do tratamento, vistos médicos, viagens, alojamento e apoio aos doentes. As nossas perguntas frequentes ajudam os doentes internacionais a compreender o processo e a planear a sua viagem médica com confiança.",
+    "showLess": "Mostrar menos perguntas",
+    "readAll": "Ler todas as perguntas"
   },
   "Conditions": {
     "items": {
@@ -403,7 +405,16 @@
     "askButton": "Pergunta ao Asad sobre este hospital",
     "address": "Morada do hospital",
     "toc": "Índice",
-    "related": "Hospitais relacionados"
+    "related": "Hospitais relacionados",
+    "keyHighlights": "Pontos-chave",
+    "specialities": "Especialidades e Centros de Excelência",
+    "infrastructure": "Infraestruturas e Instalações Hospitalares",
+    "patientCare": "Cuidados ao doente",
+    "internationalServices": "Serviços para Pacientes Internacionais",
+    "whyChoose": "Por que escolher este hospital?",
+    "topSpecialities": "Principais especialidades",
+    "bookConsultation": "Marcar uma consulta",
+    "quickFacts": "Dados básicos sobre o hospital"
   },
   "DoctorsPage": {
     "filters": {

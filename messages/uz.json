@@ -293,7 +293,9 @@
         "answer": "Bizning vakilimiz sizni aeroport terminalida shaxsiy nom yozilgan plakat bilan to'g'ridan-to'g'ri kutib oladi, mehmonxonangizga yoki shifoxona xonangizga yetkazadi va mahalliy SIM-karta hamda valyuta almashtirish bo'yicha yordam ko'rsatadi."
       }
     },
-    "desc": "Hindistonda tibbiy davolanish, jumladan shifoxonalar, shifokorlar, davolanish xarajatlari, tibbiy vizalar, sayohat, turar joy va bemorlarga ko'mak bo'yicha aniq javoblarni toping. Bizning tez-tez so'raladigan savollarimiz xalqaro bemorlarga jarayonni tushunish va tibbiy safarini ishonch bilan rejalashtirishga yordam beradi."
+    "desc": "Hindistonda tibbiy davolanish, jumladan shifoxonalar, shifokorlar, davolanish xarajatlari, tibbiy vizalar, sayohat, turar joy va bemorlarga ko'mak bo'yicha aniq javoblarni toping. Bizning tez-tez so'raladigan savollarimiz xalqaro bemorlarga jarayonni tushunish va tibbiy safarini ishonch bilan rejalashtirishga yordam beradi.",
+    "showLess": "Savollarni kamroq ko'rsating",
+    "readAll": "Barcha savollarni o'qing"
   },
   "Conditions": {
     "items": {
@@ -403,7 +405,16 @@
     "askButton": "Asadga bu shifoxona haqida so'rang",
     "address": "Shifoxona manzili",
     "toc": "Mavzular indeksi",
-    "related": "Aloqador shifoxonalar"
+    "related": "Aloqador shifoxonalar",
+    "keyHighlights": "Asosiy diqqatga sazovor jihatlar",
+    "specialities": "Mutaxassisliklar va mukammallik markazlari",
+    "infrastructure": "Infratuzilma va shifoxona qulayliklari",
+    "patientCare": "Bemor parvarishi",
+    "internationalServices": "Xalqaro bemorlarga xizmatlar",
+    "whyChoose": "Nega aynan shu shifoxonani tanlash kerak?",
+    "topSpecialities": "Eng yaxshi ixtisosliklar",
+    "bookConsultation": "Maslahatlashuvni buyurtma qilish",
+    "quickFacts": "Shifoxona tezkor ma'lumotlari"
   },
   "DoctorsPage": {
     "filters": {
