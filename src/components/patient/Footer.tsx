@@ -19,7 +19,7 @@ export function Footer() {
   const pathname = usePathname();
 
   return (
-    <footer className="bg-slate-950 text-slate-300 border-t-2 border-primary/40 relative overflow-hidden pt-10 sm:pt-14 pb-20 sm:pb-10">
+    <footer className="bg-slate-950 text-slate-300 border-t-2 border-primary/40 relative overflow-hidden pt-10 sm:pt-14">
       
       {/* Ambient Lighting */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
@@ -162,7 +162,7 @@ export function Footer() {
       
       {/* Global Language & Disclaimer Section */}
       <div className="bg-slate-900 border-t border-slate-800/80 mt-10">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-8 pb-20 sm:pb-10">
           <div className="flex flex-col items-center text-center space-y-4">
             
             {/* Language Selector Title */}
