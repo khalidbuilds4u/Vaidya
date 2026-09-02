@@ -1,13 +1,8 @@
-import { revalidateTag, revalidatePath } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    revalidateTag('doctors');
-    revalidateTag('hospitals');
-    revalidateTag('treatments');
-    revalidateTag('cities');
-    revalidateTag('specialties');
     revalidatePath('/', 'layout');
     
     return NextResponse.json({ success: true, message: 'All Next.js Data Caches busted successfully!' });

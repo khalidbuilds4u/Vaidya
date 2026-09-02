@@ -20,12 +20,8 @@ export default async function Home() {
   const t = await getTranslations('Stats');
   
   // TEMPORARY CACHE BUSTING
-  const { revalidateTag } = await import('next/cache');
-  revalidateTag('doctors');
-  revalidateTag('hospitals');
-  revalidateTag('treatments');
-  revalidateTag('cities');
-  revalidateTag('specialties');
+  const { revalidatePath } = await import('next/cache');
+  revalidatePath('/', 'layout');
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50 dark:bg-slate-950 transition-colors duration-500">
