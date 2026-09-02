@@ -1,7 +1,5 @@
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../src/lib/prisma';
 import { buildTranslations } from '../src/lib/translator';
-
-const prisma = new PrismaClient();
 
 const TARGET_LANG = 'ar';
 

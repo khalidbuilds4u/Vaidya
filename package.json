@@ -8,8 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "postinstall": "prisma generate",
-    "translate:ui": "node scripts/translate-ui.js",
-    "translate:db": "tsx scripts/translate-db.ts"
+    "translate:ui": "node --env-file=.env scripts/translate-ui.js",
+    "translate:db": "node --env-file=.env --import tsx scripts/translate-db.ts"
   },
   "dependencies": {
     "@auth/prisma-adapter": "^2.11.3",
