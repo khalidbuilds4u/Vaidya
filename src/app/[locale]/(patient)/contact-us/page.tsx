@@ -52,8 +52,8 @@ export default async function ContactUsPage() {
                   <Mail className="w-6 h-6 shrink-0 text-teal-300 dark:text-teal-400" />
                   <div>
                     <h4 className="font-semibold">{t('info.email')}</h4>
-                    <a href="mailto:care@asadhealthcare.com" className="text-teal-50/90 dark:text-slate-300 hover:text-white dark:hover:text-white mt-1 block transition-colors">
-                      care@asadhealthcare.com
+                    <a href="mailto:asadhealthcareindia@gmail.com" className="text-teal-50/90 dark:text-slate-300 hover:text-white dark:hover:text-white mt-1 block transition-colors">
+                      asadhealthcareindia@gmail.com
                     </a>
                   </div>
                 </div>

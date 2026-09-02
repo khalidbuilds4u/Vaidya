@@ -95,7 +95,7 @@ export default function MedicalDisclaimerPage() {
             <div className="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-xl mt-4 mb-8 not-prose">
               <h3 className="font-bold text-slate-900 dark:text-white mb-2">Asad Healthcare</h3>
               <ul className="space-y-2 text-slate-600 dark:text-slate-300">
-                <li><strong>Email:</strong> info@asadhealthcare.com</li>
+                <li><strong>Email:</strong> asadhealthcareindia@gmail.com</li>
                 <li><strong>Phone/WhatsApp:</strong> +91 99180 53077</li>
               </ul>
             </div>
