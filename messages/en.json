@@ -468,6 +468,40 @@
     "technologies": "Advanced Medical Technologies",
     "connectivity": "Connectivity & Location",
     "excellence": "Excellence in patient care",
+    "verifiedHospital": "Verified Hospital",
+    "emergency247": "24/7 Emergency",
+    "worldClassCare": "World-Class Care",
+    "requestConsultation": "Request Consultation",
+    "bedsCount": "{count}+ Beds",
+    "highlights": {
+      "premium": {
+        "title": "Premium Facilities",
+        "desc": "State-of-the-art infrastructure & medical technology."
+      },
+      "multiSpeciality": {
+        "title": "Multi-Speciality Care",
+        "desc": "Comprehensive treatment across all disciplines."
+      },
+      "globalStandard": {
+        "title": "Global Standard",
+        "desc": "Internationally recognized for clinical excellence."
+      }
+    },
+    "internationalCare": {
+      "title": "International Patient Care",
+      "visa": {
+        "title": "Visa Assistance",
+        "desc": "Medical visa invitation letters"
+      },
+      "airport": {
+        "title": "Airport Transfers",
+        "desc": "Complimentary pickup & drop"
+      },
+      "language": {
+        "title": "Language Interpreters",
+        "desc": "Dedicated translators"
+      }
+    },
     "facilities": "Hospital Facilities",
     "overview": {
       "title": "Hospital Overview",

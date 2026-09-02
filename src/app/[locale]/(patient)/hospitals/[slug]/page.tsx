@@ -124,7 +124,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
               <div className="flex-1 flex flex-col space-y-4 max-w-3xl">
                 <div className="flex flex-wrap items-center gap-3">
                   <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 backdrop-blur-sm">
-                    <CheckCircle2 className="w-4 h-4" /> {t('overview.title') || "Verified Hospital"}
+                    <CheckCircle2 className="w-4 h-4" /> {t('verifiedHospital')}
                   </span>
                 </div>
 
@@ -164,10 +164,10 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   ) : (
                     <>
                       <span className="px-3.5 py-2 rounded-full border border-blue-400/30 text-blue-400 text-xs font-bold bg-blue-500/10 backdrop-blur-md">
-                        24/7 Emergency
+                        {t('emergency247')}
                       </span>
                       <span className="px-3.5 py-2 rounded-full border border-purple-400/30 text-purple-400 text-xs font-bold bg-purple-500/10 backdrop-blur-md">
-                        World-Class Care
+                        {t('worldClassCare')}
                       </span>
                     </>
                   )}
@@ -192,8 +192,8 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   <ShieldCheck className="w-6 h-6 text-emerald-400" />
                 </div>
                 <div className="text-sm font-medium text-slate-300 w-full">
-                  <span className="text-white font-bold text-base block mb-1">Premium Facilities</span>
-                  <span className="text-slate-400 text-[13px] leading-relaxed block">State-of-the-art infrastructure & medical technology.</span>
+                  <span className="text-white font-bold text-base block mb-1">{t('highlights.premium.title')}</span>
+                  <span className="text-slate-400 text-[13px] leading-relaxed block">{t('highlights.premium.desc')}</span>
                 </div>
               </div>
 
@@ -202,8 +202,8 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   <Building2 className="w-6 h-6 text-blue-400" />
                 </div>
                 <div className="text-sm font-medium text-slate-300 w-full">
-                  <span className="text-white font-bold text-base block mb-1">Multi-Speciality Care</span>
-                  <span className="text-slate-400 text-[13px] leading-relaxed block">Comprehensive treatment across all disciplines.</span>
+                  <span className="text-white font-bold text-base block mb-1">{t('highlights.multiSpeciality.title')}</span>
+                  <span className="text-slate-400 text-[13px] leading-relaxed block">{t('highlights.multiSpeciality.desc')}</span>
                 </div>
               </div>
               
@@ -212,8 +212,8 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                   <CheckCircle2 className="w-6 h-6 text-purple-400" />
                 </div>
                 <div className="text-sm font-medium text-slate-300 w-full">
-                  <span className="text-white font-bold text-base block mb-1">Global Standard</span>
-                  <span className="text-slate-400 text-[13px] leading-relaxed block">Internationally recognized for clinical excellence.</span>
+                  <span className="text-white font-bold text-base block mb-1">{t('highlights.globalStandard.title')}</span>
+                  <span className="text-slate-400 text-[13px] leading-relaxed block">{t('highlights.globalStandard.desc')}</span>
                 </div>
               </div>
 
@@ -395,7 +395,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 
                 <EnquiryForm>
                   <Button className="w-full h-12 bg-primary hover:bg-primary/90 text-white font-bold rounded-xl shadow-sm hover:shadow-md transition-all">
-                    Request Consultation
+                    {t('requestConsultation')}
                   </Button>
                 </EnquiryForm>
               </div>
@@ -405,28 +405,28 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2" />
                 
                 <div className="relative z-10">
-                  <h3 className="text-xl font-bold mb-6">International Patient Care</h3>
+                  <h3 className="text-xl font-bold mb-6">{t('internationalCare.title')}</h3>
                   
                   <ul className="space-y-4">
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold text-sm">Visa Assistance</h4>
-                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">Medical visa invitation letters</p>
+                        <h4 className="font-semibold text-sm">{t('internationalCare.visa.title')}</h4>
+                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">{t('internationalCare.visa.desc')}</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold text-sm">Airport Transfers</h4>
-                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">Complimentary pickup & drop</p>
+                        <h4 className="font-semibold text-sm">{t('internationalCare.airport.title')}</h4>
+                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">{t('internationalCare.airport.desc')}</p>
                       </div>
                     </li>
                     <li className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-teal-200 shrink-0 mt-0.5" />
                       <div>
-                        <h4 className="font-semibold text-sm">Language Interpreters</h4>
-                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">Dedicated translators</p>
+                        <h4 className="font-semibold text-sm">{t('internationalCare.language.title')}</h4>
+                        <p className="text-xs text-teal-100 mt-0.5 opacity-90">{t('internationalCare.language.desc')}</p>
                       </div>
                     </li>
                   </ul>
@@ -486,7 +486,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                     {rh.beds && (
                       <div className="flex items-center gap-2">
                         <BedDouble className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500" />
-                        <span>{rh.beds}+ Beds</span>
+                        <span>{t('bedsCount', { count: rh.beds })}</span>
                       </div>
                     )}
                   </div>
