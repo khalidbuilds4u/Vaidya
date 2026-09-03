@@ -717,47 +717,47 @@
     },
     "mockArrays": {
       "causesAndSymptoms": [
-        "Symptoms specific to the condition requiring this treatment",
-        "Failure of conservative management or medications",
-        "Deterioration of quality of life or physical function"
+        "Ushbu davolashni talab qiladigan holatga xos alomatlar",
+        "Konservativ davolash yoki dorilarning samaradorlik bermasligi",
+        "Hayot sifatining yoki jismoniy funksiyalarning yomonlashishi"
       ],
       "diagnosis": [
-        "Standard diagnostic imaging (X-ray, MRI, CT Scan)",
-        "Comprehensive blood and laboratory tests",
-        "Specialist physical examination"
+        "Standart diagnostik tasvir olish usullari (rentgen, MRT, KT skan)",
+        "To'liq qon va laboratoriya tahlillari",
+        "Maxsus jismoniy tekshiruv"
       ],
       "preOpPrep": [
-        "Complete physical examination to ensure surgical fitness",
-        "Adjusting current medications",
-        "Pre-operative fasting and preparation"
+        "Jarrohlikga yaroqlilikni ta'minlash uchun to'liq jismoniy tekshiruv o'tkazish",
+        "Joriy dori-darmonlarni sozlash",
+        "Operatsiyadan oldingi ro'za tutish va tayyorgarlik"
       ],
       "postOpCare": [
-        "Observation in the recovery or intensive care unit",
-        "Physical or occupational therapy (if applicable)",
-        "Strict wound care and medication management",
-        "Gradual return to normal activities"
+        "Qayta tiklash bo'limida yoki intensiv terapiya bo'limida kuzatuv",
+        "Fizik yoki mehnat terapiyasi (agar mavjud bo'lsa)",
+        "Jarohatlarni qat'iy parvarishlash va dori-darmonlarni boshqarish",
+        "Oddiy faoliyatlarga asta-sekin qaytish"
       ],
       "procedureDetails": [
-        "Anesthesia is administered.",
-        "The surgical site is prepared and incisions are made.",
-        "The specific medical intervention is performed.",
-        "Implants or corrections are verified.",
-        "The incision is closed and bandaged."
+        "Anesteziya beriladi.",
+        "Jarrohlik maydoni tayyorlanadi va kesiklar qilinadi.",
+        "Maxsus tibbiy aralashuv amalga oshiriladi.",
+        "Implantlar yoki tuzatishlar tasdiqlandi.",
+        "Kesik yopildi va bog'landi."
       ],
       "risks": [
-        "Infection",
-        "Bleeding or blood clots",
-        "Adverse reaction to anesthesia",
-        "Nerve damage"
+        "Infeksiya",
+        "Qon ketishi yoki qon ivishi",
+        "Anesteziyaga salbiy reaksiya",
+        "Asab shikastlanishi"
       ],
       "faqs": [
         {
-          "question": "How long does recovery take?",
-          "answer": "Recovery varies by patient but typically takes a few weeks to months depending on the procedure."
+          "question": "Sogʻayish qancha vaqt oladi?",
+          "answer": "Sog'ayish bemorga qarab farq qiladi, lekin odatda protseduraga qarab bir necha hafta yoki oy davom etadi."
         },
         {
-          "question": "Is this procedure safe?",
-          "answer": "Yes, our partner hospitals use state-of-the-art technology and the procedures are performed by highly experienced specialists."
+          "question": "Bu protsedura xavfsizmi?",
+          "answer": "Ha, hamkor shifoxonalarimiz eng zamonaviy texnologiyalardan foydalanadi va protseduralar yuqori tajribali mutaxassislar tomonidan bajariladi."
         }
       ]
     }

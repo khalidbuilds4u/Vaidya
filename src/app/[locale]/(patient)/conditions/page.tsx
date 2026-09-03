@@ -13,19 +13,15 @@ export const metadata: Metadata = {
   description: 'Learn about common medical conditions, symptoms, causes, and the best treatment options available in India.',
 };
 
-const MOCK_CONDITIONS = [
-  { name: 'Coronary Artery Disease', specialty: 'Cardiology', description: 'Narrowing or blockage of the coronary arteries requiring bypass surgery or stenting.' },
-  { name: 'Arrhythmia', specialty: 'Cardiology', description: 'Irregular or abnormal heartbeat treated with EP studies and catheter ablation.' },
-  { name: 'Heart Failure', specialty: 'Cardiology', description: 'Weakened cardiac pumping capacity managed via LVAD implantation or heart transplant.' },
-  { name: 'Osteoarthritis', specialty: 'Orthopedics', description: 'Degeneration of joint cartilage treated with robotic total knee and hip replacements.' },
-  { name: 'Rheumatoid Arthritis', specialty: 'Orthopedics', description: 'Chronic autoimmune joint disorder managed through biologic therapies and reconstruction.' },
-  { name: 'Brain Tumor & Glioma', specialty: 'Neurology', description: 'Abnormal cranial growths resected via CyberKnife radiosurgery and micro-craniotomy.' },
-  { name: 'Epilepsy & Seizures', specialty: 'Neurology', description: 'Neurological episodes treated with video-EEG mapping and functional neuro-resection.' },
-  { name: 'Breast Cancer', specialty: 'Oncology', description: 'Malignancies treated with oncoplastic surgery, targeted immunotherapy, and radiation.' },
-  { name: 'Prostate Cancer', specialty: 'Oncology', description: 'Urological tumors addressed through Da Vinci robotic prostatectomy.' },
-];
+import { prisma } from '@/lib/prisma';
+import { getTranslation } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
 
-export default function ConditionsPage() {
+export default async function ConditionsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
+  const locale = resolvedParams.locale;
+  const t = await getTranslations({ locale, namespace: 'common' });
+  const dbConditions = await prisma.condition.findMany({ include: { specialty: true } });
   return (
     <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       
@@ -84,8 +80,8 @@ export default function ConditionsPage() {
         <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-6 sm:mb-8">Common Medical Conditions We Treat</h2>
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-          {MOCK_CONDITIONS.map((condition) => (
-            <Link key={condition.name} href={`/conditions/${condition.name.toLowerCase().replace(/ & /g, '-').replace(/\s+/g, '-')}`}>
+          {dbConditions.map((condition) => (
+            <Link key={condition.name} href={`/${locale}/conditions/${condition.slug}`}>
               <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl hover:shadow-xl transition-all duration-300 group h-full flex flex-col justify-between border border-white/90 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 cursor-pointer">
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 mb-3.5">
@@ -93,15 +89,15 @@ export default function ConditionsPage() {
                       <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
                     <span className="text-[10px] sm:text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-primary dark:text-teal-400 border border-slate-200/60 dark:border-slate-700/60 self-start sm:self-auto truncate max-w-full transition-colors duration-500">
-                      {condition.specialty}
+                      {getTranslation(condition.specialty, 'name', locale) || condition.specialty.name}
                     </span>
                   </div>
                   
                   <h3 className="text-sm sm:text-lg font-bold mb-1.5 sm:mb-2 text-slate-900 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors leading-snug line-clamp-2">
-                    {condition.name}
+                    {getTranslation(condition, 'name', locale) || condition.name}
                   </h3>
                   <p className="text-slate-500 dark:text-slate-400 text-[11px] sm:text-sm leading-relaxed mb-3 sm:mb-4 line-clamp-3">
-                    {condition.description}
+                    {getTranslation(condition, 'description', locale) || condition.description}
                   </p>
                 </div>
 

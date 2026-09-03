@@ -717,47 +717,47 @@
     },
     "mockArrays": {
       "causesAndSymptoms": [
-        "Symptoms specific to the condition requiring this treatment",
-        "Failure of conservative management or medications",
-        "Deterioration of quality of life or physical function"
+        "Симптомы, характерные для заболевания, требующего данного лечения",
+        "Неэффективность консервативного лечения или медикаментозной терапии",
+        "Ухудшение качества жизни или физической функциональности"
       ],
       "diagnosis": [
-        "Standard diagnostic imaging (X-ray, MRI, CT Scan)",
-        "Comprehensive blood and laboratory tests",
-        "Specialist physical examination"
+        "Стандартные методы диагностической визуализации (рентгенография, МРТ, компьютерная томография)",
+        "Комплексные анализы крови и лабораторные исследования",
+        "Специализированное медицинское обследование"
       ],
       "preOpPrep": [
-        "Complete physical examination to ensure surgical fitness",
-        "Adjusting current medications",
-        "Pre-operative fasting and preparation"
+        "Провести полное медицинское обследование для оценки пригодности к операции",
+        "Корректировка текущего лечения",
+        "Предоперационное голодание и подготовка"
       ],
       "postOpCare": [
-        "Observation in the recovery or intensive care unit",
-        "Physical or occupational therapy (if applicable)",
-        "Strict wound care and medication management",
-        "Gradual return to normal activities"
+        "Наблюдение в палате восстановления или отделении интенсивной терапии",
+        "Физиотерапия или эрготерапия (при необходимости)",
+        "Строгий уход за ранами и контроль за приемом лекарств",
+        "Постепенное возвращение к обычному ритму жизни"
       ],
       "procedureDetails": [
-        "Anesthesia is administered.",
-        "The surgical site is prepared and incisions are made.",
-        "The specific medical intervention is performed.",
-        "Implants or corrections are verified.",
-        "The incision is closed and bandaged."
+        "Вводят анестезию.",
+        "Проводится подготовка операционного поля и делаются разрезы.",
+        "Проводится конкретное медицинское вмешательство.",
+        "Проверяются имплантаты или исправления.",
+        "Рана зашита и наложена повязка."
       ],
       "risks": [
-        "Infection",
-        "Bleeding or blood clots",
-        "Adverse reaction to anesthesia",
-        "Nerve damage"
+        "Инфекция",
+        "Кровотечение или сгустки крови",
+        "Побочная реакция на анестезию",
+        "Повреждение нервов"
       ],
       "faqs": [
         {
-          "question": "How long does recovery take?",
-          "answer": "Recovery varies by patient but typically takes a few weeks to months depending on the procedure."
+          "question": "Сколько времени занимает восстановление?",
+          "answer": "Период восстановления у разных пациентов проходит по-разному, но, как правило, занимает от нескольких недель до нескольких месяцев в зависимости от вида процедуры."
         },
         {
-          "question": "Is this procedure safe?",
-          "answer": "Yes, our partner hospitals use state-of-the-art technology and the procedures are performed by highly experienced specialists."
+          "question": "Безопасна ли эта процедура?",
+          "answer": "Да, наши партнерские больницы используют самые современные технологии, а процедуры проводят высококвалифицированные специалисты."
         }
       ]
     }

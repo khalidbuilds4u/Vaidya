@@ -717,47 +717,47 @@
     },
     "mockArrays": {
       "causesAndSymptoms": [
-        "Symptoms specific to the condition requiring this treatment",
-        "Failure of conservative management or medications",
-        "Deterioration of quality of life or physical function"
+        "এই চিকিৎসার প্রয়োজন এমন অবস্থার জন্য নির্দিষ্ট উপসর্গসমূহ",
+        "রক্ষণশীল ব্যবস্থাপনা বা ওষুধের ব্যর্থতা",
+        "জীবনযাত্রার মান বা শারীরিক কার্যকারিতার অবনতি"
       ],
       "diagnosis": [
-        "Standard diagnostic imaging (X-ray, MRI, CT Scan)",
-        "Comprehensive blood and laboratory tests",
-        "Specialist physical examination"
+        "মানক রোগ নির্ণয়মূলক ইমেজিং (এক্স-রে, এমআরআই, সিটি স্ক্যান)",
+        "বিস্তৃত রক্ত ও পরীক্ষাগার পরীক্ষা",
+        "বিশেষায়িত শারীরিক পরীক্ষা"
       ],
       "preOpPrep": [
-        "Complete physical examination to ensure surgical fitness",
-        "Adjusting current medications",
-        "Pre-operative fasting and preparation"
+        "শল্যচিকিৎসার উপযোগিতা নিশ্চিত করতে সম্পূর্ণ শারীরিক পরীক্ষা করুন।",
+        "বর্তমান ওষুধ সামঞ্জস্য করা",
+        "অস্ত্রোপচার-পূর্ব উপবাস ও প্রস্তুতি"
       ],
       "postOpCare": [
-        "Observation in the recovery or intensive care unit",
-        "Physical or occupational therapy (if applicable)",
-        "Strict wound care and medication management",
-        "Gradual return to normal activities"
+        "পুনরুদ্ধার বা নিবিড় পরিচর্যা ইউনিটে পর্যবেক্ষণ",
+        "শারীরিক বা পেশাগত থেরাপি (যদি প্রযোজ্য হয়)",
+        "কঠোর ক্ষত যত্ন এবং ওষুধ ব্যবস্থাপনা",
+        "স্বাভাবিক কর্মকাণ্ডে ধীরে ধীরে ফিরে আসা"
       ],
       "procedureDetails": [
-        "Anesthesia is administered.",
-        "The surgical site is prepared and incisions are made.",
-        "The specific medical intervention is performed.",
-        "Implants or corrections are verified.",
-        "The incision is closed and bandaged."
+        "অ্যানেস্থেসিয়া দেওয়া হয়।",
+        "শল্যচিকিৎসার স্থান প্রস্তুত করা হয় এবং ছেদন করা হয়।",
+        "নির্দিষ্ট চিকিৎসা হস্তক্ষেপটি সম্পাদিত হয়।",
+        "ইমপ্লান্ট বা সংশোধনগুলি যাচাই করা হয়েছে।",
+        "ছেদনটি বন্ধ করে ব্যান্ডেজ করা হয়েছে।"
       ],
       "risks": [
-        "Infection",
-        "Bleeding or blood clots",
-        "Adverse reaction to anesthesia",
-        "Nerve damage"
+        "সংক্রমণ",
+        "রক্তক্ষরণ বা রক্তের জমাট বাঁধা",
+        "অ্যানেস্থেসিয়ার প্রতিকূল প্রতিক্রিয়া",
+        "স্নায়ুর ক্ষতি"
       ],
       "faqs": [
         {
-          "question": "How long does recovery take?",
-          "answer": "Recovery varies by patient but typically takes a few weeks to months depending on the procedure."
+          "question": "সুস্থ হতে কতক্ষণ লাগে?",
+          "answer": "পুনরুদ্ধার রোগীর ওপর নির্ভর করে ভিন্ন হয়, তবে সাধারণত প্রক্রিয়াটির ওপর নির্ভর করে কয়েক সপ্তাহ থেকে কয়েক মাস সময় লাগে।"
         },
         {
-          "question": "Is this procedure safe?",
-          "answer": "Yes, our partner hospitals use state-of-the-art technology and the procedures are performed by highly experienced specialists."
+          "question": "এই পদ্ধতি কি নিরাপদ?",
+          "answer": "হ্যাঁ, আমাদের সহযোগী হাসপাতালগুলো অত্যাধুনিক প্রযুক্তি ব্যবহার করে এবং এই পদ্ধতিগুলো অত্যন্ত অভিজ্ঞ বিশেষজ্ঞদের দ্বারা সম্পাদিত হয়।"
         }
       ]
     }

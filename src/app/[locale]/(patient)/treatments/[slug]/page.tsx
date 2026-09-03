@@ -309,6 +309,12 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     take: 3
   });
 
+  // 4. Fetch related conditions from the same specialty
+  const relatedConditions = await prisma.condition.findMany({
+    where: { specialtyId: dbTreatment.specialtyId },
+    take: 3
+  });
+
   // Map DB Doctors to DoctorCard props
   const dbTopDoctors = realDoctors.length > 0 ? realDoctors.map(d => ({
     slug: d.slug,
@@ -364,7 +370,13 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
     recoveryTime: getTranslation(dbTreatment, 'recovery', locale) || baseTreatment.recoveryTime,
     hospitalStay: getTranslation(dbTreatment, 'hospitalStay', locale) || baseTreatment.hospitalStay,
     risks: getTranslation(dbTreatment, 'risks', locale) ? getTranslation(dbTreatment, 'risks', locale).split('\n') : getArrayField('risks'),
-    treatsConditions: getTranslation(dbTreatment, 'treatsConditions', locale) || baseTreatment.treatsConditions,
+    treatsConditions: relatedConditions.length > 0
+      ? relatedConditions.map(c => ({
+          name: getTranslation(c, 'name', locale) || c.name,
+          slug: c.slug,
+          description: getTranslation(c, 'description', locale) || c.description || ''
+        }))
+      : baseTreatment.treatsConditions,
     subTreatments: getTranslation(dbTreatment, 'subTreatments', locale) || baseTreatment.subTreatments,
     
     causesAndSymptoms: getArrayField('causesAndSymptoms'),

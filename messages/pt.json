@@ -717,47 +717,47 @@
     },
     "mockArrays": {
       "causesAndSymptoms": [
-        "Symptoms specific to the condition requiring this treatment",
-        "Failure of conservative management or medications",
-        "Deterioration of quality of life or physical function"
+        "Sintomas específicos da doença que requer este tratamento",
+        "Fracasso do tratamento conservador ou da medicação",
+        "Deterioração da qualidade de vida ou da função física"
       ],
       "diagnosis": [
-        "Standard diagnostic imaging (X-ray, MRI, CT Scan)",
-        "Comprehensive blood and laboratory tests",
-        "Specialist physical examination"
+        "Exames de diagnóstico por imagem de rotina (raio-X, ressonância magnética, tomografia computadorizada)",
+        "Análises sanguíneas e exames laboratoriais completos",
+        "Exame físico especializado"
       ],
       "preOpPrep": [
-        "Complete physical examination to ensure surgical fitness",
-        "Adjusting current medications",
-        "Pre-operative fasting and preparation"
+        "Exame físico completo para garantir a aptidão para a cirurgia",
+        "Ajustar a medicação atual",
+        "Jejum e preparação pré-operatória"
       ],
       "postOpCare": [
-        "Observation in the recovery or intensive care unit",
-        "Physical or occupational therapy (if applicable)",
-        "Strict wound care and medication management",
-        "Gradual return to normal activities"
+        "Observação na unidade de recuperação ou de cuidados intensivos",
+        "Fisioterapia ou terapia ocupacional (se for o caso)",
+        "Cuidados rigorosos com as feridas e gestão da medicação",
+        "Regresso gradual às atividades normais"
       ],
       "procedureDetails": [
-        "Anesthesia is administered.",
-        "The surgical site is prepared and incisions are made.",
-        "The specific medical intervention is performed.",
-        "Implants or corrections are verified.",
-        "The incision is closed and bandaged."
+        "A anestesia é administrada.",
+        "O local da cirurgia é preparado e são feitas as incisões.",
+        "É realizada a intervenção médica específica.",
+        "Verificam-se os implantes ou as correções.",
+        "A incisão é fechada e enfaixada."
       ],
       "risks": [
-        "Infection",
-        "Bleeding or blood clots",
-        "Adverse reaction to anesthesia",
-        "Nerve damage"
+        "Infecção",
+        "Hemorragias ou coágulos sanguíneos",
+        "Reação adversa à anestesia",
+        "Lesões nos nervos"
       ],
       "faqs": [
         {
-          "question": "How long does recovery take?",
-          "answer": "Recovery varies by patient but typically takes a few weeks to months depending on the procedure."
+          "question": "Quanto tempo demora a recuperação?",
+          "answer": "A recuperação varia de paciente para paciente, mas, normalmente, demora algumas semanas a alguns meses, dependendo do procedimento."
         },
         {
-          "question": "Is this procedure safe?",
-          "answer": "Yes, our partner hospitals use state-of-the-art technology and the procedures are performed by highly experienced specialists."
+          "question": "Este procedimento é seguro?",
+          "answer": "Sim, os nossos hospitais parceiros utilizam tecnologia de ponta e os procedimentos são realizados por especialistas com vasta experiência."
         }
       ]
     }
