@@ -81,7 +81,7 @@ export function HeroSearchBar() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-50 shadow-[0_10px_40px_rgba(15,118,110,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white dark:border-slate-700 transition-colors duration-500"
+      className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-50 shadow-[0_10px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.4)] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700 transition-colors duration-500 ring-4 ring-white/50 dark:ring-slate-800/50"
     >
       <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
         {isLoading ? (
@@ -134,7 +134,7 @@ export function HeroSearchBar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 mt-3 sm:mt-4 bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200/50 dark:border-slate-700/50 overflow-hidden backdrop-blur-xl"
+            className="absolute top-full left-0 right-0 mt-3 sm:mt-4 bg-white dark:bg-slate-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-slate-200/80 dark:border-slate-700 overflow-hidden z-50"
           >
             {isLoading && !hasSuggestions ? (
               <div className="p-6 flex items-center justify-center text-sm text-slate-500">
