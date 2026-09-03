@@ -841,16 +841,16 @@
       "title": "আমরা যা করি",
       "desc": "আমরা ভারতে চিকিৎসা সেবা অনুসন্ধানকারী ব্যক্তিদের জন্য শুরু থেকে শেষ পর্যন্ত সহায়তা প্রদান করি, যার মধ্যে রয়েছে:",
       "list": [
-        "Doctor and specialist selection",
-        "Hospital recommendations",
-        "Medical consultation coordination",
-        "Treatment and surgery options",
-        "Medical records coordination",
-        "Treatment cost estimates",
-        "Appointment scheduling",
-        "Visa and travel assistance",
-        "Accommodation and transportation support",
-        "Assistance throughout the medical journey"
+        "চিকিৎসক ও বিশেষজ্ঞ নির্বাচন",
+        "হাসপাতালের সুপারিশসমূহ",
+        "চিকিৎসা পরামর্শ সমন্বয়",
+        "চিকিৎসা ও অস্ত্রোপচারের বিকল্পসমূহ",
+        "চিকিৎসা রেকর্ড সমন্বয়",
+        "চিকিৎসা ব্যয়ের আনুমানিক হিসাব",
+        "সময়সূচী নির্ধারণ",
+        "ভিসা ও ভ্রমণ সহায়তা",
+        "বাসস্থান ও পরিবহন সহায়তা",
+        "চিকিৎসা যাত্রায় সার্বিক সহায়তা"
       ]
     },
     "network": {
@@ -864,20 +864,20 @@
       "title": "আমাদের পদ্ধতি",
       "items": [
         {
-          "title": "Patient-Centred Support",
-          "desc": "We focus on understanding each individual's medical requirements, preferences, and travel needs."
+          "title": "রোগী-কেন্দ্রিক সহায়তা",
+          "desc": "আমরা প্রতিটি ব্যক্তির চিকিৎসা সংক্রান্ত চাহিদা, পছন্দ এবং ভ্রমণের প্রয়োজনীয়তা বোঝার উপর গুরুত্ব দিই।"
         },
         {
-          "title": "Clear & Reliable Information",
-          "desc": "We aim to provide straightforward information about hospitals, doctors, treatments, procedures, and associated services."
+          "title": "স্পষ্ট ও নির্ভরযোগ্য তথ্য",
+          "desc": "আমরা হাসপাতাল, ডাক্তার, চিকিৎসা, পদ্ধতি এবং সংশ্লিষ্ট সেবা সম্পর্কে সরল তথ্য প্রদান করতে চাই।"
         },
         {
-          "title": "Professional Coordination",
-          "desc": "We help coordinate communication between patients, healthcare providers, and relevant service partners to make the process more organized."
+          "title": "পেশাদার সমন্বয়",
+          "desc": "আমরা রোগী, স্বাস্থ্যসেবা প্রদানকারী এবং প্রাসঙ্গিক সেবা অংশীদারদের মধ্যে যোগাযোগ সমন্বয়ে সাহায্য করি যাতে পুরো প্রক্রিয়া আরও সুশৃঙ্খল হয়।"
         },
         {
-          "title": "Support Throughout the Journey",
-          "desc": "From the initial enquiry to treatment coordination and travel arrangements, our team remains available to assist at key stages of the medical journey."
+          "title": "যাত্রাপথে সার্বিক সহায়তা",
+          "desc": "প্রাথমিক অনুসন্ধান থেকে চিকিৎসা সমন্বয় এবং ভ্রমণের ব্যবস্থা পর্যন্ত, আমাদের দল চিকিৎসায়ার যাত্রার গুরুত্বপূর্ণ প্রতিটি ধাপে সহায়তার জন্য সর্বদা প্রস্তুত।"
         }
       ]
     },
@@ -885,20 +885,20 @@
       "title": "কেন আসাদ হেলথকেয়ার বেছে নেবেন?",
       "items": [
         {
-          "title": "Experienced Healthcare Connections",
-          "desc": "Access to reputed hospitals and experienced medical specialists across India."
+          "title": "অভিজ্ঞ স্বাস্থ্যসেবা সংযোগ",
+          "desc": "ভারতজুড়ে স্বনামধন্য হাসপাতাল এবং অভিজ্ঞ চিকিৎসা বিশেষজ্ঞদের সেবায় প্রবেশাধিকার।"
         },
         {
-          "title": "Personalized Assistance",
-          "desc": "Support tailored to each individual's healthcare and medical travel requirements."
+          "title": "ব্যক্তিগত সহায়তা",
+          "desc": "প্রত্যেক ব্যক্তির স্বাস্থ্যসেবা ও চিকিৎসা ভ্রমণের চাহিদা অনুযায়ী উপযোগী সহায়তা।"
         },
         {
-          "title": "Transparent Communication",
-          "desc": "Clear communication to help patients understand their available healthcare options."
+          "title": "স্বচ্ছ যোগাযোগ",
+          "desc": "রোগীদের তাদের উপলব্ধ স্বাস্থ্যসেবা বিকল্পগুলো বুঝতে সাহায্য করার জন্য স্পষ্ট যোগাযোগ।"
         },
         {
-          "title": "Complete Medical Travel Support",
-          "desc": "Assistance with medical coordination, travel planning, accommodation, and related arrangements."
+          "title": "সম্পূর্ণ চিকিৎসা ভ্রমণ সহায়তা",
+          "desc": "চিকিৎসা সমন্বয়, ভ্রমণ পরিকল্পনা, আবাসন এবং সংশ্লিষ্ট ব্যবস্থা সংক্রান্ত সহায়তা।"
         }
       ]
     },

@@ -841,16 +841,16 @@
       "title": "Biz nima qilamiz",
       "desc": "Biz Hindistonda tibbiy davolanishni o'rganayotgan shaxslarga boshidan oxirigacha yordam ko'rsatamiz, jumladan:",
       "list": [
-        "Doctor and specialist selection",
-        "Hospital recommendations",
-        "Medical consultation coordination",
-        "Treatment and surgery options",
-        "Medical records coordination",
-        "Treatment cost estimates",
-        "Appointment scheduling",
-        "Visa and travel assistance",
-        "Accommodation and transportation support",
-        "Assistance throughout the medical journey"
+        "Shifokor va mutaxassis tanlovi",
+        "Shifoxona tavsiyalari",
+        "Tibbiy maslahatlashuvni muvofiqlashtirish",
+        "Davolash va jarrohlik usullari",
+        "Tibbiy yozuvlarni muvofiqlashtirish",
+        "Davolash xarajatlari bo'yicha taxminlar",
+        "Uchrashuvlarni rejalashtirish",
+        "Viza va sayohat bo'yicha yordam",
+        "Turar joy va transport bo'yicha yordam",
+        "Tibbiy safar davomida yordam"
       ]
     },
     "network": {
@@ -864,20 +864,20 @@
       "title": "Bizning yondashuvimiz",
       "items": [
         {
-          "title": "Patient-Centred Support",
-          "desc": "We focus on understanding each individual's medical requirements, preferences, and travel needs."
+          "title": "Bemor markazlashgan qo'llab-quvvatlash",
+          "desc": "Biz har bir shaxsning tibbiy talablari, afzalliklari va sayohat ehtiyojlarini tushunishga e'tibor qaratamiz."
         },
         {
-          "title": "Clear & Reliable Information",
-          "desc": "We aim to provide straightforward information about hospitals, doctors, treatments, procedures, and associated services."
+          "title": "Ochiq va ishonchli ma'lumot",
+          "desc": "Biz kasalxonalar, shifokorlar, davolash usullari, protseduralar va ularga aloqador xizmatlar haqida sodda ma'lumot berishni maqsad qilamiz."
         },
         {
-          "title": "Professional Coordination",
-          "desc": "We help coordinate communication between patients, healthcare providers, and relevant service partners to make the process more organized."
+          "title": "Kasbiy muvofiqlashtirish",
+          "desc": "Biz bemorlar, sog'liqni saqlash xodimlari va tegishli xizmat hamkorlari o'rtasidagi muloqotni muvofiqlashtirishga yordam beramiz, shunda jarayon yanada tartibli bo'ladi."
         },
         {
-          "title": "Support Throughout the Journey",
-          "desc": "From the initial enquiry to treatment coordination and travel arrangements, our team remains available to assist at key stages of the medical journey."
+          "title": "Sayohat davomida yordam",
+          "desc": "Dastlabki murojaatdan tortib davolashni muvofiqlashtirish va safar tashkil etishgacha, bizning jamoamiz tibbiy sayohatning muhim bosqichlarida yordam berishga doim tayyor."
         }
       ]
     },
@@ -885,20 +885,20 @@
       "title": "Nega Asad Healthcare'ni tanlashingiz kerak?",
       "items": [
         {
-          "title": "Experienced Healthcare Connections",
-          "desc": "Access to reputed hospitals and experienced medical specialists across India."
+          "title": "Tajribali sog'liqni saqlash aloqalari",
+          "desc": "Butun Hindiston bo'ylab obro'li shifoxonalar va tajribali tibbiy mutaxassislarga kirish."
         },
         {
-          "title": "Personalized Assistance",
-          "desc": "Support tailored to each individual's healthcare and medical travel requirements."
+          "title": "Shaxsiy yordam",
+          "desc": "Har bir shaxsning sog'liqni saqlash va tibbiy sayohat talablariga moslashtirilgan yordam."
         },
         {
-          "title": "Transparent Communication",
-          "desc": "Clear communication to help patients understand their available healthcare options."
+          "title": "Ochiq muloqot",
+          "desc": "Bemorlarga mavjud sog'liqni saqlash imkoniyatlarini tushunishda yordam beradigan aniq muloqot."
         },
         {
-          "title": "Complete Medical Travel Support",
-          "desc": "Assistance with medical coordination, travel planning, accommodation, and related arrangements."
+          "title": "To'liq tibbiy sayohat bo'yicha yordam",
+          "desc": "Tibbiy muvofiqlashtirish, sayohat rejalashtirish, turar joy va tegishli tashkiliy masalalarda yordam."
         }
       ]
     },

@@ -841,16 +841,16 @@
       "title": "Чем мы занимаемся",
       "desc": "Мы оказываем комплексную поддержку лицам, желающим пройти курс лечения в Индии, в том числе:",
       "list": [
-        "Doctor and specialist selection",
-        "Hospital recommendations",
-        "Medical consultation coordination",
-        "Treatment and surgery options",
-        "Medical records coordination",
-        "Treatment cost estimates",
-        "Appointment scheduling",
-        "Visa and travel assistance",
-        "Accommodation and transportation support",
-        "Assistance throughout the medical journey"
+        "Выбор врача и специалиста",
+        "Рекомендации больницы",
+        "Координация медицинских консультаций",
+        "Варианты лечения и хирургического вмешательства",
+        "Координация медицинских карт",
+        "Оценка стоимости лечения",
+        "Планирование встреч",
+        "Визы и помощь в организации поездки",
+        "Помощь в организации проживания и транспорта",
+        "Поддержка на протяжении всего лечения"
       ]
     },
     "network": {
@@ -864,20 +864,20 @@
       "title": "Наш подход",
       "items": [
         {
-          "title": "Patient-Centred Support",
-          "desc": "We focus on understanding each individual's medical requirements, preferences, and travel needs."
+          "title": "Поддержка, ориентированная на пациента",
+          "desc": "Мы уделяем особое внимание пониманию медицинских потребностей, предпочтений и потребностей каждого человека, связанных с путешествиями."
         },
         {
-          "title": "Clear & Reliable Information",
-          "desc": "We aim to provide straightforward information about hospitals, doctors, treatments, procedures, and associated services."
+          "title": "Четкая и достоверная информация",
+          "desc": "Наша цель — предоставлять понятную информацию о больницах, врачах, методах лечения, процедурах и сопутствующих услугах."
         },
         {
-          "title": "Professional Coordination",
-          "desc": "We help coordinate communication between patients, healthcare providers, and relevant service partners to make the process more organized."
+          "title": "Профессиональная координация",
+          "desc": "Мы помогаем координировать взаимодействие между пациентами, медицинскими работниками и соответствующими партнёрами по оказанию услуг, чтобы сделать этот процесс более организованным."
         },
         {
-          "title": "Support Throughout the Journey",
-          "desc": "From the initial enquiry to treatment coordination and travel arrangements, our team remains available to assist at key stages of the medical journey."
+          "title": "Поддержка на протяжении всего пути",
+          "desc": "Начиная с первоначального обращения и заканчивая координацией лечения и организацией поездки, наша команда всегда готова оказать помощь на всех ключевых этапах лечения."
         }
       ]
     },
@@ -885,20 +885,20 @@
       "title": "Почему стоит выбрать Asad Healthcare?",
       "items": [
         {
-          "title": "Experienced Healthcare Connections",
-          "desc": "Access to reputed hospitals and experienced medical specialists across India."
+          "title": "«Experienced Healthcare Connections»",
+          "desc": "Доступ к авторитетным больницам и опытным врачам-специалистам по всей Индии."
         },
         {
-          "title": "Personalized Assistance",
-          "desc": "Support tailored to each individual's healthcare and medical travel requirements."
+          "title": "Индивидуальная помощь",
+          "desc": "Поддержка, учитывающая индивидуальные потребности каждого человека в области здравоохранения и медицинского туризма."
         },
         {
-          "title": "Transparent Communication",
-          "desc": "Clear communication to help patients understand their available healthcare options."
+          "title": "Открытое общение",
+          "desc": "Четкое информирование, помогающее пациентам понять доступные им варианты медицинской помощи."
         },
         {
-          "title": "Complete Medical Travel Support",
-          "desc": "Assistance with medical coordination, travel planning, accommodation, and related arrangements."
+          "title": "Комплексная поддержка в области медицинского туризма",
+          "desc": "Помощь в координации медицинского обслуживания, планировании поездок, организации проживания и других сопутствующих вопросах."
         }
       ]
     },
