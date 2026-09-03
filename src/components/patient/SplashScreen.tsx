@@ -10,7 +10,15 @@ export function SplashScreen() {
 
   useEffect(() => {
     setMounted(true);
+    
+    // Check if splash has already been shown in this session
+    if (sessionStorage.getItem('splashShown')) {
+      setIsVisible(false);
+      return;
+    }
+
     setIsVisible(true);
+    sessionStorage.setItem('splashShown', 'true');
     
     // Increased duration to 2.5s to let the beautiful animation play out fully
     const timer = setTimeout(() => {
