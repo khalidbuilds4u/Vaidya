@@ -346,6 +346,14 @@
       "treating": "Treating Specialist",
       "consult": "Consult This Doctor"
     },
+    "page": {
+      "tag": "Real Stories, Real Healing",
+      "title": "Patient Success Stories",
+      "desc": "Discover the journeys of patients from around the globe who chose Asad Healthcare for their medical treatments in India.",
+      "emptyTitle": "Stories Coming Soon",
+      "emptyDesc": "We are currently curating the beautiful success stories of our patients. Check back shortly!",
+      "readStory": "Read Story →"
+    },
     "filters": {
       "All": "All",
       "Orthopedics": "Orthopedics",

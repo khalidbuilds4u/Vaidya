@@ -8,6 +8,7 @@ export const revalidate = 3600;
 
 
 import { getTranslation } from "@/lib/utils"
+import { getTranslations } from "next-intl/server"
 
 export const metadata: Metadata = {
   title: "Patient Success Stories | Asad Healthcare",
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
 
 export default async function PatientStoriesPage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = await params;
+  const t = await getTranslations("PatientStories");
   const stories = await prisma.patientStory.findMany({
     orderBy: { createdAt: "desc" },
     include: { treatment: true, specialty: true }
@@ -30,13 +32,13 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 text-teal-300 font-semibold text-sm mb-6">
-            <Heart className="w-4 h-4" /> Real Stories, Real Healing
+            <Heart className="w-4 h-4" /> {t('page.tag')}
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight">
-            Patient Success Stories
+            {t('page.title')}
           </h1>
           <p className="text-lg text-slate-300">
-            Discover the journeys of patients from around the globe who chose Asad Healthcare for their medical treatments in India.
+            {t('page.desc')}
           </p>
         </div>
       </section>
@@ -46,8 +48,8 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
         {stories.length === 0 ? (
           <div className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-xl p-12 text-center max-w-2xl mx-auto border border-slate-100 dark:border-slate-800 transition-colors duration-500">
             <Heart className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">Stories Coming Soon</h2>
-            <p className="text-slate-500 dark:text-slate-400">We are currently curating the beautiful success stories of our patients. Check back shortly!</p>
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2">{t('page.emptyTitle')}</h2>
+            <p className="text-slate-500 dark:text-slate-400">{t('page.emptyDesc')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -92,7 +94,7 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
                         <p className="text-xs text-slate-500 dark:text-slate-400">{new Date(story.createdAt).toLocaleDateString()}</p>
                       </div>
                     </div>
-                    <span className="text-primary dark:text-teal-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">Read Story →</span>
+                    <span className="text-primary dark:text-teal-400 text-sm font-semibold group-hover:translate-x-1 transition-transform">{t('page.readStory')}</span>
                   </div>
                 </div>
               </Link>

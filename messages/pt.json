@@ -352,7 +352,15 @@
     "tag": "Histórias reais. Cura real.",
     "title": "Uma recuperação que muda a vida.",
     "subtitle": "Uma segunda oportunidade na vida",
-    "desc": "Ouça diretamente os testemunhos de doentes internacionais que confiaram à Asad Healthcare as suas complexas jornadas médicas na Índia."
+    "desc": "Ouça diretamente os testemunhos de doentes internacionais que confiaram à Asad Healthcare as suas complexas jornadas médicas na Índia.",
+    "page": {
+      "tag": "Histórias reais, cura real",
+      "title": "Histórias de sucesso de doentes",
+      "desc": "Descubra as experiências de doentes de todo o mundo que escolheram a Asad Healthcare para os seus tratamentos médicos na Índia.",
+      "emptyTitle": "Histórias em breve",
+      "emptyDesc": "Estamos neste momento a reunir as belas histórias de sucesso dos nossos doentes. Volte em breve!",
+      "readStory": "Ler a história →"
+    }
   },
   "HospitalsPage": {
     "filters": {

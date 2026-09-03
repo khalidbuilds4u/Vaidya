@@ -352,7 +352,15 @@
     "tag": "Des histoires vraies. Une véritable guérison.",
     "title": "Un rétablissement qui change la vie.",
     "subtitle": "Une seconde chance dans la vie",
-    "desc": "Découvrez les témoignages de patients internationaux qui ont fait confiance à Asad Healthcare pour leurs parcours médicaux complexes en Inde."
+    "desc": "Découvrez les témoignages de patients internationaux qui ont fait confiance à Asad Healthcare pour leurs parcours médicaux complexes en Inde.",
+    "page": {
+      "tag": "Des histoires vraies, une véritable guérison",
+      "title": "Témoignages de patients",
+      "desc": "Découvrez les témoignages de patients du monde entier qui ont choisi Asad Healthcare pour leurs traitements médicaux en Inde.",
+      "emptyTitle": "Histoires à venir",
+      "emptyDesc": "Nous sommes actuellement en train de rassembler les magnifiques témoignages de réussite de nos patients. Revenez nous voir bientôt !",
+      "readStory": "Lire l'article →"
+    }
   },
   "HospitalsPage": {
     "filters": {

@@ -352,7 +352,15 @@
     "tag": "Haqiqiy hikoyalar. Haqiqiy shifo.",
     "title": "Hayotni o'zgartiruvchi tiklanish",
     "subtitle": "Hayotda ikkinchi imkoniyat",
-    "desc": "Murakkab tibbiy safarlarini Hindistonga Asad Healthcare'ga ishonib topshirgan xalqaro bemorlarning bevosita fikrlarini eshiting."
+    "desc": "Murakkab tibbiy safarlarini Hindistonga Asad Healthcare'ga ishonib topshirgan xalqaro bemorlarning bevosita fikrlarini eshiting.",
+    "page": {
+      "tag": "Haqiqiy hikoyalar, haqiqiy shifo",
+      "title": "Bemorlarning muvaffaqiyat hikoyalari",
+      "desc": "Hindistonda tibbiy muolajalar uchun Asad Healthcare'ni tanlagan butun dunyo bo'ylab bemorlarning sayohatlarini kashf eting.",
+      "emptyTitle": "Hikoyalar tez orada",
+      "emptyDesc": "Biz hozirda bemorlarimizning go'zal muvaffaqiyat hikoyalarini tayyorlayapmiz. Tez orada yana tekshirib ko'ring!",
+      "readStory": "Hikoyani o'qish →"
+    }
   },
   "HospitalsPage": {
     "filters": {
