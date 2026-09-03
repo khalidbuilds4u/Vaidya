@@ -5,15 +5,21 @@ import { m as motion, AnimatePresence } from "framer-motion";
 import { Stethoscope } from "lucide-react";
 
 export function SplashScreen() {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
+    setIsVisible(true);
+    
     // Wait for 1.5s then fade out
     const timer = setTimeout(() => {
       setIsVisible(false);
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
