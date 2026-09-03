@@ -13,10 +13,17 @@ export async function getSearchSuggestions(query: string, cityName: string) {
     ]
   } : {};
 
+  const normalizedQuery = query.toLowerCase().trim();
+  
+  // Check for generic terms
+  const isDoctorGeneric = ['doc', 'doctor', 'surge', 'surgeon', 'dr', 'dr.'].some(term => normalizedQuery.includes(term));
+  const isHospitalGeneric = ['hosp', 'hospital', 'clinic'].some(term => normalizedQuery.includes(term));
+  const isTreatmentGeneric = ['treat', 'treatment', 'surgery', 'procedure', 'operation'].some(term => normalizedQuery.includes(term));
+
   const treatments = await prisma.treatment.findMany({
     where: {
-      name: { contains: query, mode: "insensitive" },
       isPublished: true,
+      ...(isTreatmentGeneric ? {} : { name: { contains: query, mode: "insensitive" } })
     },
     take: 3,
     select: { name: true, slug: true },
@@ -25,10 +32,12 @@ export async function getSearchSuggestions(query: string, cityName: string) {
   const doctors = await prisma.doctor.findMany({
     where: {
       isPublished: true,
-      OR: [
-        { name: { contains: query, mode: "insensitive" } },
-        { specialty: { name: { contains: query, mode: "insensitive" } } }
-      ],
+      ...(isDoctorGeneric ? {} : {
+        OR: [
+          { name: { contains: query, mode: "insensitive" } },
+          { specialty: { name: { contains: query, mode: "insensitive" } } }
+        ]
+      }),
       ...cityFilterDoctor
     },
     take: 3,
@@ -43,7 +52,7 @@ export async function getSearchSuggestions(query: string, cityName: string) {
   const hospitals = await prisma.hospital.findMany({
     where: {
       isPublished: true,
-      name: { contains: query, mode: "insensitive" },
+      ...(isHospitalGeneric ? {} : { name: { contains: query, mode: "insensitive" } }),
       ...cityFilter
     },
     take: 3,
