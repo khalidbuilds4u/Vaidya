@@ -5,26 +5,15 @@ import { m as motion, AnimatePresence } from "framer-motion";
 import { Stethoscope } from "lucide-react";
 
 export function SplashScreen() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    // Check if the user has already seen the splash screen in this session
-    const hasSeenSplash = sessionStorage.getItem("hasSeenSplash");
-    if (!hasSeenSplash) {
-      setIsVisible(true);
-      // Wait for 1.5s then fade out
-      const timer = setTimeout(() => {
-        setIsVisible(false);
-        sessionStorage.setItem("hasSeenSplash", "true");
-      }, 1500);
-      return () => clearTimeout(timer);
-    }
+    // Wait for 1.5s then fade out
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 1500);
+    return () => clearTimeout(timer);
   }, []);
-
-  // Avoid rendering anything server-side to prevent hydration mismatch since we rely on sessionStorage
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
   return (
     <AnimatePresence>
