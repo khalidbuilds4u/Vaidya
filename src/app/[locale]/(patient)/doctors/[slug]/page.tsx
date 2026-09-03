@@ -125,14 +125,27 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             </div>
 
             {/* Info */}
-            <div className="flex-1 flex flex-col items-center lg:items-start justify-center space-y-3 lg:pt-2">
-              <div className="flex flex-col sm:flex-row items-center sm:items-start lg:items-center gap-3 lg:gap-4">
-                <h1 className="text-2xl sm:text-4xl lg:text-4xl xl:text-5xl font-serif font-bold tracking-tight text-white whitespace-nowrap">
-                  {getTranslation(doctor, 'name', locale)}
+            <div className="flex-1 flex flex-col items-center lg:items-start justify-center space-y-3 lg:pt-2 min-w-0">
+              <div className="text-center lg:text-left">
+                <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
+                  {(() => {
+                    const name = getTranslation(doctor, 'name', locale) || '';
+                    const words = name.split(' ');
+                    const lastWord = words.pop() || '';
+                    const firstPart = words.join(' ');
+                    return (
+                      <>
+                        {firstPart}{firstPart ? ' ' : ''}
+                        <span className="whitespace-nowrap">
+                          {lastWord}
+                          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 ml-3 align-middle relative -top-1">
+                            <CheckCircle2 className="w-4 h-4" /> {t('authorized')}
+                          </span>
+                        </span>
+                      </>
+                    );
+                  })()}
                 </h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] sm:text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 shrink-0 whitespace-nowrap sm:mt-1.5 lg:mt-0">
-                  <CheckCircle2 className="w-4 h-4" /> {t('authorized')}
-                </span>
               </div>
               
               <p className="text-sm sm:text-base text-slate-300 font-medium flex items-center justify-center lg:justify-start gap-2 flex-wrap">
