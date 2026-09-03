@@ -27,7 +27,7 @@
     "callHelpline": "Appeler la ligne d'assistance : {number}"
   },
   "Hero": {
-    "tagline": "Where Global Trust Meets World-Class Healing",
+    "tagline": "Quand la confiance mondiale rencontre des soins de classe mondiale",
     "titleLine1": "Des soins médicaux de niveau mondial",
     "titleLine2": "En Inde, sans aucun souci.",
     "subtext": "Un accès direct à des hôpitaux de haute spécialité accrédités par la JCI et la NABH, à des spécialistes expérimentés et à des chirurgiens de renom, ainsi qu'un accompagnement complet des patients et des économies pouvant atteindre 70 %.",
@@ -137,7 +137,7 @@
     "browseAll": "Découvrir tous les soins et interventions"
   },
   "Footer": {
-    "tagline": "Where Global Trust Meets World-Class Healing",
+    "tagline": "Quand la confiance mondiale rencontre des soins de niveau mondial",
     "badges": {
       "nabh": "Hôpitaux certifiés NABH et JCI",
       "support": "Service international disponible 24 h/24, 7 j/7",
@@ -363,71 +363,71 @@
     },
     "reviews": [
       {
-        "quote": "The NHS waitlist was over 18 months. With Asad Healthcare, I landed in Delhi on Monday, had robotic surgery on Wednesday, and was pain-free within weeks!",
-        "text": "David suffered from severe osteoarthritis in both knees for over 4 years. Facing long waiting times in the UK, he contacted Asad Healthcare. Within 48 hours, he received detailed medical opinions from 3 top orthopedic surgeons. From airport reception to a private recovery suite, the care exceeded five-star hospitality.",
-        "savings": "Saved £26,000 (75%)",
-        "recovery": "Walking without support on Day 3",
-        "treatment": "Bilateral Robotic Knee Replacement",
-        "hospital": "Fortis Memorial Research Institute"
+        "quote": "La liste d'attente du NHS dépassait les 18 mois. Grâce à Asad Healthcare, j'ai atterri à Delhi lundi, j'ai subi une chirurgie robotisée mercredi et je n'avais plus aucune douleur en l'espace de quelques semaines !",
+        "text": "David souffrait d'arthrose sévère aux deux genoux depuis plus de quatre ans. Confronté à de longs délais d'attente au Royaume-Uni, il a contacté Asad Healthcare. En moins de 48 heures, il a reçu des avis médicaux détaillés de la part de trois chirurgiens orthopédistes de renom. De l'accueil à l'aéroport jusqu'à sa chambre de convalescence privée, l'accompagnement a dépassé les standards d'un établissement cinq étoiles.",
+        "savings": "Économie de 26 000 £ (75 %)",
+        "recovery": "Marcher sans aide le troisième jour",
+        "treatment": "Prothèse robotisée bilatérale du genou",
+        "hospital": "Institut de recherche Fortis Memorial"
       },
       {
-        "quote": "The Arabic translator assigned to me was with my family every single hour. Dr. Trehan and his team are world legends. May God bless them.",
-        "text": "Tariq required an urgent quadruple heart bypass. Asad Healthcare coordinated the emergency medical visa within 24 hours. The surgery was performed using minimally invasive beating-heart techniques, resulting in rapid recovery and zero complications.",
-        "savings": "Saved $42,000 vs USA",
-        "recovery": "Full discharge in 8 days",
-        "treatment": "Coronary Artery Bypass (CABG)",
+        "quote": "Le traducteur arabe qui m'avait été attribué est resté aux côtés de ma famille à chaque instant. Le Dr Trehan et son équipe sont des légendes mondiales. Que Dieu les bénisse.",
+        "text": "Tariq avait besoin d'un quadruple pontage coronarien en urgence. Asad Healthcare a coordonné l'obtention d'un visa médical d'urgence en moins de 24 heures. L'intervention a été réalisée à l'aide de techniques mini-invasives sur cœur battant, ce qui a permis une convalescence rapide et n'a entraîné aucune complication.",
+        "savings": "Économie de 42 000 $ par rapport aux États-Unis",
+        "recovery": "Sortie complète dans 8 jours",
+        "treatment": "Pontage aorto-coronarien (PAC)",
         "hospital": "Medanta - The Medicity"
       },
       {
-        "quote": "We were told our daughter had no options back home. Apollo’s oncology team gave our child a second life with successful tumor resection.",
-        "text": "The Adeleke family flew to New Delhi for specialized neuro-oncology treatment. The combination of high-precision image-guided surgery and dedicated post-operative pediatric intensive care ensured complete tumor clearance.",
-        "savings": "High Precision CyberKnife",
-        "recovery": "Cancer-Free at 6-Month Review",
-        "treatment": "Advanced Pediatric Oncology Surgery",
-        "hospital": "Indraprastha Apollo Hospitals"
+        "quote": "On nous avait dit que notre fille n'avait aucune chance de s'en sortir chez nous. L'équipe d'oncologie d'Apollo a offert une seconde vie à notre enfant grâce à une ablation chirurgicale réussie de la tumeur.",
+        "text": "La famille Adeleke s'est rendue à New Delhi pour y suivre un traitement spécialisé en neuro-oncologie. La combinaison d'une chirurgie guidée par imagerie de haute précision et de soins intensifs pédiatriques postopératoires spécialisés a permis d'assurer l'ablation complète de la tumeur.",
+        "savings": "CyberKnife haute précision",
+        "recovery": "Absence de cancer lors du bilan à 6 mois",
+        "treatment": "Chirurgie oncologique pédiatrique avancée",
+        "hospital": "Hôpitaux Indraprastha Apollo"
       },
       {
-        "quote": "From Russian-speaking patient coordinators to legal committee clearance in 5 days, everything was handled flawlessly. World-class transplant care.",
-        "text": "Facing end-stage liver disease, Sergey received a living-donor transplant with his son as the donor. The complex 12-hour surgery achieved a 100% success rate, supported by comprehensive post-transplant infection isolation suites.",
-        "savings": "Saved $110,000 vs Germany",
-        "recovery": "Donor and Recipient fully recovered",
-        "treatment": "Living Donor Liver Transplant",
-        "hospital": "Max Super Speciality Hospital"
+        "quote": "Des coordinateurs de soins parlant russe à l'autorisation du comité juridique obtenue en 5 jours, tout s'est déroulé sans le moindre accroc. Des soins de transplantation de niveau mondial.",
+        "text": "Atteint d'une insuffisance hépatique terminale, Sergey a bénéficié d'une greffe à partir d'un donneur vivant, son fils ayant accepté d'être le donneur. Cette intervention chirurgicale complexe, qui a duré 12 heures, s'est soldée par un taux de réussite de 100 %, grâce notamment à des services d'isolement post-greffe complets destinés à prévenir les infections.",
+        "savings": "110 000 dollars d'économies par rapport à l'Allemagne",
+        "recovery": "Le donneur et le receveur se sont complètement rétablis",
+        "treatment": "Greffe de foie à partir d'un donneur vivant",
+        "hospital": "Hôpital Max Super Speciality"
       },
       {
-        "quote": "I could not walk for more than 5 minutes due to nerve compression. Today I can stand straight and live without painkillers.",
-        "text": "Grace underwent minimally invasive robotic spine decompression. The state-of-the-art neuro-monitoring ensured zero nerve injury and she returned to Kenya fully rehabilitated within 3 weeks.",
-        "savings": "Saved $34,000",
-        "recovery": "Pain-free mobility restored",
-        "treatment": "Spine Decompression & Scoliosis Correction",
-        "hospital": "Manipal Hospitals"
+        "quote": "Je ne pouvais pas marcher plus de 5 minutes à cause d'une compression nerveuse. Aujourd'hui, je peux me tenir droit et vivre sans analgésiques.",
+        "text": "Grace a subi une décompression rachidienne robotisée peu invasive. Grâce à un système de surveillance neurologique de pointe, aucune lésion nerveuse n'a été constatée et elle est rentrée au Kenya, entièrement rétablie, au bout de trois semaines.",
+        "savings": "Économie de 34 000 $",
+        "recovery": "Retrouver une mobilité sans douleur",
+        "treatment": "Décompression vertébrale et correction de la scoliose",
+        "hospital": "Hôpitaux Manipal"
       }
     ],
     "patients": [
       {
         "name": "David",
-        "spec": "Orthopedics",
-        "country": "United Kingdom (London)"
+        "spec": "Orthopédie",
+        "country": "Royaume-Uni (Londres)"
       },
       {
         "name": "Tariq Al-Mansoor",
-        "spec": "Cardiology",
+        "spec": "Cardiologie",
         "country": "Oman"
       },
       {
-        "name": "Amina",
-        "spec": "Oncology",
-        "country": "Nigeria"
+        "name": "À toi",
+        "spec": "Oncologie",
+        "country": "Nigéria"
       },
       {
         "name": "Elena",
-        "spec": "Organ Transplant",
-        "country": "Uzbekistan"
+        "spec": "Transplantation d'organes",
+        "country": "Ouzbékistan"
       },
       {
         "name": "Grace Wanjiku",
-        "spec": "Orthopedics",
-        "country": "Kenya"
+        "spec": "Orthopédie",
+        "country": "Entrer"
       }
     ]
   },

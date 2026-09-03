@@ -27,7 +27,7 @@
     "callHelpline": "Yordam liniyasiga qo'ng'iroq qiling: {number}"
   },
   "Hero": {
-    "tagline": "Where Global Trust Meets World-Class Healing",
+    "tagline": "Global ishonch jahon darajasidagi shifo bilan uchrashadi",
     "titleLine1": "Jahon darajasidagi tibbiy yordam",
     "titleLine2": "Hindistonda, hech qanday noqulayliksiz.",
     "subtext": "JCI va NABH akkreditatsiyasiga ega superixtisoslashgan shifoxonalarga, tajribali mutaxassislar va yetakchi jarrohlarga to'g'ridan-to'g'ri kirish, shuningdek, bemorlarga to'liq qo'llab-quvvatlash va 70% gacha tejash imkoniyati.",
@@ -137,7 +137,7 @@
     "browseAll": "Barcha davolash usullari va protseduralarni ko'rib chiqing"
   },
   "Footer": {
-    "tagline": "Where Global Trust Meets World-Class Healing",
+    "tagline": "Global ishonch jahon darajasidagi shifo bilan uchrashadi",
     "badges": {
       "nabh": "NABH va JCI kasalxonalar",
       "support": "24/7 Xalqaro bo'lim",
@@ -363,71 +363,71 @@
     },
     "reviews": [
       {
-        "quote": "The NHS waitlist was over 18 months. With Asad Healthcare, I landed in Delhi on Monday, had robotic surgery on Wednesday, and was pain-free within weeks!",
-        "text": "David suffered from severe osteoarthritis in both knees for over 4 years. Facing long waiting times in the UK, he contacted Asad Healthcare. Within 48 hours, he received detailed medical opinions from 3 top orthopedic surgeons. From airport reception to a private recovery suite, the care exceeded five-star hospitality.",
-        "savings": "Saved £26,000 (75%)",
-        "recovery": "Walking without support on Day 3",
-        "treatment": "Bilateral Robotic Knee Replacement",
-        "hospital": "Fortis Memorial Research Institute"
+        "quote": "NHS kutish ro'yxati 18 oydan oshdi. Asad Healthcare bilan men dushanba kuni Dehliga qo'ndim, chorshanba kuni robotli jarrohlik amaliyotidan o'tdim va bir necha hafta ichida og'riqsiz bo'ldim!",
+        "text": "David to'rt yildan ortiq vaqt davomida ikkala tizzasida og'ir osteoartritdan aziyat chekdi. Buyuk Britaniyada uzoq kutish muddatlari bilan yuzma-yuz kelib, u Asad Healthcare'ga murojaat qildi. 48 soat ichida u uch nafar yetakchi ortopedik jarrohdan batafsil tibbiy xulosalar oldi. Aeroport qabulidan tortib shaxsiy tiklanish xonasigacha bo'lgan g'amxo'rlik besh yulduzli mehmondo'stlikdan ham oshib ketdi.",
+        "savings": "26 000 funt sterling (75%) tejaldi",
+        "recovery": "3-kunida yordamsiz yurish",
+        "treatment": "Ikki tomonlama robotik tizza artroplastikasi",
+        "hospital": "Fortis Memorial Tadqiqot Instituti"
       },
       {
-        "quote": "The Arabic translator assigned to me was with my family every single hour. Dr. Trehan and his team are world legends. May God bless them.",
-        "text": "Tariq required an urgent quadruple heart bypass. Asad Healthcare coordinated the emergency medical visa within 24 hours. The surgery was performed using minimally invasive beating-heart techniques, resulting in rapid recovery and zero complications.",
-        "savings": "Saved $42,000 vs USA",
-        "recovery": "Full discharge in 8 days",
-        "treatment": "Coronary Artery Bypass (CABG)",
-        "hospital": "Medanta - The Medicity"
+        "quote": "Menga tayinlangan arabcha tarjimon har bir soatda oilam bilan birga edi. Dr. Trehan va uning jamoasi jahon afsonalaridir. Xudo ularni baraka bersin.",
+        "text": "Tariqga shoshilinch to'rt karra yurak bypass operatsiyasi kerak edi. Asad Healthcare 24 soat ichida favqulodda tibbiy viza rasmiylashtirishni muvofiqlashtirdi. Jarrohlik aralashuvi minimal invaziv, yurak urib turgan holda bajarilgan usullar yordamida amalga oshirildi, bu esa tez tiklanish va hech qanday asoratlarsiz yakunlandi.",
+        "savings": "AQSh bilan solishtirganda 42 000 dollar tejaldi",
+        "recovery": "To'liq chiqish 8 kunda",
+        "treatment": "Koronar arteriya bypassi (CABG)",
+        "hospital": "Medanta - Dori-darmon shahri"
       },
       {
-        "quote": "We were told our daughter had no options back home. Apollo’s oncology team gave our child a second life with successful tumor resection.",
-        "text": "The Adeleke family flew to New Delhi for specialized neuro-oncology treatment. The combination of high-precision image-guided surgery and dedicated post-operative pediatric intensive care ensured complete tumor clearance.",
-        "savings": "High Precision CyberKnife",
-        "recovery": "Cancer-Free at 6-Month Review",
-        "treatment": "Advanced Pediatric Oncology Surgery",
-        "hospital": "Indraprastha Apollo Hospitals"
+        "quote": "Bizga qizimizga vatanimizda hech qanday imkoniyat yo'qligi aytildi. Apolloning onkologiya jamoasi muvaffaqiyatli o'simta rezeksiyasi bilan farzandimizga ikkinchi hayot berdi.",
+        "text": "Adeleke oilasi ixtisoslashgan neyro-onkologik davolanish uchun Nyu-Deliga uchib ketdi. Yuqori aniqlikdagi tasvir nazoratidagi jarrohlik va operatsiyadan keyingi pediatriya intensiv parvarishi kombinatsiyasi o'simta to'liq bartaraf etilishini ta'minladi.",
+        "savings": "Yuqori aniqlikdagi CyberKnife",
+        "recovery": "6 oylik ko'rikda saratonsiz",
+        "treatment": "Rivojlangan pediatriya onkologiyasi jarrohligi",
+        "hospital": "Indraprastha Apollo kasalxonalar"
       },
       {
-        "quote": "From Russian-speaking patient coordinators to legal committee clearance in 5 days, everything was handled flawlessly. World-class transplant care.",
-        "text": "Facing end-stage liver disease, Sergey received a living-donor transplant with his son as the donor. The complex 12-hour surgery achieved a 100% success rate, supported by comprehensive post-transplant infection isolation suites.",
-        "savings": "Saved $110,000 vs Germany",
-        "recovery": "Donor and Recipient fully recovered",
-        "treatment": "Living Donor Liver Transplant",
-        "hospital": "Max Super Speciality Hospital"
+        "quote": "Rus tilida so'zlashadigan bemor koordinatorlaridan tortib huquqiy qo'mita tasdig'iga 5 kun ichida olishgacha, hammasi bexato bajarildi. Jahon darajasidagi transplantatsiya parvarishi.",
+        "text": "Jigarning oxirgi bosqich kasalligiga duch kelgan Sergey o'g'li hayotdagi donor bo'lgan holda jigar ko'chirish operatsiyasini oldi. Murakkab 12 soatlik jarrohlik amaliyoti 100% muvaffaqiyatga erishdi, bu esa keng qamrovli transplantatsiyadan keyingi infeksiyalardan izolyatsiya xonalari bilan ta'minlandi.",
+        "savings": "Germaniyaga nisbatan 110 000 dollar tejaldi",
+        "recovery": "Donor va qabul qiluvchi to'liq sog'ayib ketdi",
+        "treatment": "Jonli donor jigar transplantatsiyasi",
+        "hospital": "Max Super Ixtisoslashgan Kasalxona"
       },
       {
-        "quote": "I could not walk for more than 5 minutes due to nerve compression. Today I can stand straight and live without painkillers.",
-        "text": "Grace underwent minimally invasive robotic spine decompression. The state-of-the-art neuro-monitoring ensured zero nerve injury and she returned to Kenya fully rehabilitated within 3 weeks.",
-        "savings": "Saved $34,000",
-        "recovery": "Pain-free mobility restored",
-        "treatment": "Spine Decompression & Scoliosis Correction",
-        "hospital": "Manipal Hospitals"
+        "quote": "Asab siqilishi tufayli men 5 daqiqadan ortiq yurishga qodir emas edim. Bugun men to'g'ri turib, og'riq qoldiruvchilarsiz yashay olaman.",
+        "text": "Grace kam invaziv robotli umurtqa pog'onasi dekompressiyasidan o'tdi. Eng zamonaviy neyro-monitoring asablarga hech qanday shikast yetmasligini ta'minladi va u uch hafta ichida to'liq tiklanib Keniyaga qaytdi.",
+        "savings": "34 000 dollar tejaldi",
+        "recovery": "Og'riqsiz harakatlanish tiklandi",
+        "treatment": "Umbil dekompreссияси ва сколиозни тузатиш",
+        "hospital": "Manipal kasalxonalar"
       }
     ],
     "patients": [
       {
-        "name": "David",
-        "spec": "Orthopedics",
-        "country": "United Kingdom (London)"
+        "name": "Deyvid",
+        "spec": "Ortopediya",
+        "country": "Buyuk Britaniya (London)"
       },
       {
         "name": "Tariq Al-Mansoor",
-        "spec": "Cardiology",
-        "country": "Oman"
+        "spec": "Kardiologiya",
+        "country": "Ummon"
       },
       {
-        "name": "Amina",
-        "spec": "Oncology",
-        "country": "Nigeria"
+        "name": "Senga",
+        "spec": "Onkologiya",
+        "country": "Nigeriya"
       },
       {
         "name": "Elena",
-        "spec": "Organ Transplant",
-        "country": "Uzbekistan"
+        "spec": "A'zo ko'chirish",
+        "country": "O'zbekiston"
       },
       {
-        "name": "Grace Wanjiku",
-        "spec": "Orthopedics",
-        "country": "Kenya"
+        "name": "Greyс Vanjiku",
+        "spec": "Ortopediya",
+        "country": "Qo'ying"
       }
     ]
   },
