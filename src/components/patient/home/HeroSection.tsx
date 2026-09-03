@@ -41,7 +41,13 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+        
+        {/* Top Centered Search Bar for PC Devices */}
+        <div className="hidden lg:flex justify-center w-full mb-12 relative z-50">
+          <HeroSearchBar />
+        </div>
+
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 relative z-10">
           
           {/* Main Hero Card (Frosted Glass Container for High Readability) */}
           <div className="w-full lg:w-7/12 flex flex-col items-center sm:items-start text-center sm:text-left z-10">
@@ -128,8 +134,10 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Sleek Frosted Glass Search Capsule */}
-            <HeroSearchBar />
+            {/* Sleek Frosted Glass Search Capsule (Mobile & Tablet) */}
+            <div className="w-full lg:hidden">
+              <HeroSearchBar />
+            </div>
           </div>
 
           {/* Right Floating Glass Highlights (Shown on Tablet & Desktop) */}
