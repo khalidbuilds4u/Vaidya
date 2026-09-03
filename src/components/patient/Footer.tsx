@@ -189,7 +189,7 @@ export function Footer() {
             </div>
             
             {/* Disclaimer Text */}
-            <p className="text-[11px] sm:text-xs text-slate-500 leading-relaxed max-w-5xl mt-6">
+            <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed max-w-5xl mt-6">
               {t('medicalDisclaimer')}
             </p>
           </div>
