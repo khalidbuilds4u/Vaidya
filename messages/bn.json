@@ -516,7 +516,7 @@
     "trust": {
       "highlyExperienced": "অত্যন্ত অভিজ্ঞ",
       "thousandsOfCases": "হাজার হাজার সফল মামলা",
-      "yearsOfPractice": "{বছর}+ বছরের অনুশীলন",
+      "yearsOfPractice": "{years}+ বছরের অনুশীলন",
       "decadesOfExpertise": "দশকের দক্ষতা",
       "boardCertified": "বোর্ড-সার্টিফায়েড বিশেষজ্ঞ",
       "specializedFocus": "বিশেষায়িত ফোকাস",
@@ -526,7 +526,7 @@
       "patientCenteredCare": "রোগী-কেন্দ্রিক যত্ন"
     },
     "authorized": "প্রোফাইল অনুমোদিত",
-    "experience": "{বছর}+ বছরের অভিজ্ঞতা",
+    "experience": "{years}+ বছরের অভিজ্ঞতা",
     "highlyExperienced": "অত্যন্ত অভিজ্ঞ",
     "askButton": "আসাদ হেলথকেয়ারকে জিজ্ঞাসা করুন",
     "enquiryDisclaimer": "আপনার অনুসন্ধানটি আসাদ হেলথকেয়ারের কেয়ার টিম দ্বারা গ্রহণ করা হয়েছে এবং সরাসরি ডাক্তারের কাছে পাঠানো হয়নি।",
@@ -546,7 +546,7 @@
     "disclaimer": "অনুমোদন মানে এই প্রোফাইল প্রকাশের অনুমতি নথিভুক্ত হয়েছে। এর মানে এই নয় যে আসাদ হেলথকেয়ার চিকিৎসককে র‌্যাঙ্ক করে, চিকিৎসাগতভাবে সমর্থন করে বা তার সেবা বা ফলাফলের নিশ্চয়তা দেয়।",
     "toc": "সূচিপত্র",
     "related": "সম্পর্কিত ডাক্তারগণ",
-    "experienceShort": "{বছর}+ বছরের অভিজ্ঞতা",
+    "experienceShort": "{years}+ বছরের অভিজ্ঞতা",
     "forInternationalPatients": "আন্তর্জাতিক রোগীদের জন্য"
   },
   "TreatmentsPage": {
@@ -997,7 +997,7 @@
     "viewProfile": "প্রোফাইল দেখুন",
     "freeQuote": "বিনামূল্যে মূল্যায়ন",
     "india": "ভারত",
-    "estbIn": "{বছর}-এ ESTB",
+    "estbIn": "{year}-এ ESTB",
     "kmFromAirport": "বিমানবন্দর থেকে {dist} কিমি"
   },
   "ConditionDetail": {

@@ -9,7 +9,7 @@
     "intlSupport": "Rédaction internationale",
     "viewHospital": "Voir l'hôpital",
     "getEstimate": "Obtenir un devis",
-    "highlyExperienced": "{name} est un {spécialiste} très expérimenté, fort de {experience} ans d'expérience. Il a réalisé avec succès de nombreuses interventions complexes et bénéficie de la confiance de milliers de patients à travers le monde.",
+    "highlyExperienced": "{name} est un {specialty} très expérimenté, fort de {experience} ans d'expérience. Il a réalisé avec succès de nombreuses interventions complexes et bénéficie de la confiance de milliers de patients à travers le monde.",
     "topHospitalDesc": "{name} est un établissement de santé haut de gamme situé à {city}. Il est largement reconnu pour ses infrastructures de pointe et ses normes exceptionnelles en matière de soins aux patients."
   },
   "Navigation": {
@@ -24,7 +24,7 @@
     "aboutUs": "À propos de nous",
     "contactUs": "Nous contacter",
     "getTreatmentPlan": "Obtenir un plan de traitement",
-    "callHelpline": "Appeler la ligne d'assistance : {numéro}"
+    "callHelpline": "Appeler la ligne d'assistance : {number}"
   },
   "Hero": {
     "tagline": "Where Global Trust Meets World-Class Healing",
@@ -174,7 +174,7 @@
       "safety": "Directives relatives à la sécurité des patients"
     },
     "desc": "Votre partenaire de référence pour les patients internationaux, vous proposant des interventions chirurgicales de niveau mondial à des tarifs abordables en Inde. Nous vous mettons directement en relation avec des réseaux d’hôpitaux accrédités JCI et NABH.",
-    "copyright": "© {année} Asad Healthcare. Tous droits réservés.",
+    "copyright": "© {year} Asad Healthcare. Tous droits réservés.",
     "certified": "Réseau de partenaires certifiés, composé d'hôpitaux accrédités par la JCI et la NABH dans toute l'Inde.",
     "medicalDisclaimer": "Avertissement : Asad Healthcare vous aide à trouver des médecins, des hôpitaux et des options de traitement adaptés, et vous accompagne dans la coordination de vos soins médicaux et de votre voyage. Nous ne sommes pas un prestataire de soins de santé et ne posons pas de diagnostic, ne donnons pas de conseils, ne traitons pas de pathologies et ne dispensons pas de soins d'urgence. Toutes les décisions médicales sont prises par des médecins et des hôpitaux qualifiés. Les coûts des traitements sont fournis à titre indicatif et peuvent varier à l'issue de l'évaluation médicale et en fonction des recommandations thérapeutiques.",
     "selectLanguage": "Choisissez votre langue"
@@ -381,7 +381,7 @@
     },
     "tag": "Réseau de soins de santé agréé",
     "title": "Les meilleurs hôpitaux agréés en Inde",
-    "titleCity": "Les meilleurs hôpitaux agréés à {ville}",
+    "titleCity": "Les meilleurs hôpitaux agréés à {city}",
     "desc": "Comparez des établissements hospitaliers certifiés au niveau international (JCI et NABH), dotés de blocs opératoires robotisés de pointe et de salons réservés aux patients internationaux."
   },
   "HospitalDetail": {
@@ -546,7 +546,7 @@
     "disclaimer": "L'autorisation signifie que l'autorisation de publier ce profil a été enregistrée. Cela ne signifie pas pour autant qu'Asad Healthcare évalue, approuve d'un point de vue médical ou garantit les services ou les résultats du médecin.",
     "toc": "Table des matières",
     "related": "Médecins associés",
-    "experienceShort": "{années} + ans d'expérience",
+    "experienceShort": "{years} + ans d'expérience",
     "forInternationalPatients": "À l'attention des patients étrangers"
   },
   "TreatmentsPage": {
@@ -596,7 +596,7 @@
       "hospitalStay": "Séjour à l'hôpital"
     },
     "required": {
-      "title": "Dans quels cas {nom} est-il obligatoire ?",
+      "title": "Dans quels cas {name} est-il obligatoire ?",
       "desc": "Parmi les symptômes et causes courants qui indiquent la nécessité de cette intervention, on peut citer :"
     },
     "diagnosis": {
@@ -623,7 +623,7 @@
       "title": "Les meilleurs spécialistes pour {name}"
     },
     "hospitals": {
-      "title": "Les meilleurs hôpitaux pour {nom}"
+      "title": "Les meilleurs hôpitaux pour {name}"
     },
     "faqs": {
       "title": "Foire aux questions"
@@ -646,7 +646,7 @@
       "fallbackOverview": "{name} est une branche spécialisée de la médecine qui traite des aspects spécifiques des soins de santé. Nos hôpitaux partenaires en Inde proposent des traitements de niveau international grâce à une technologie de pointe."
     },
     "treatments": {
-      "title": "Soins {nom} les plus populaires",
+      "title": "Soins {name} les plus populaires",
       "viewDetails": "Voir les détails du traitement"
     },
     "doctors": {
@@ -654,17 +654,17 @@
       "viewAll": "Tout afficher"
     },
     "hospitals": {
-      "title": "Les meilleurs hôpitaux pour {nom}",
+      "title": "Les meilleurs hôpitaux pour {name}",
       "viewAll": "Tout afficher"
     },
     "conditions": {
       "title": "Affections courantes traitées",
-      "desc": "Des patients du monde entier se rendent en Inde pour bénéficier d'une prise en charge spécialisée de ces pathologies complexes liées au {nom} :",
+      "desc": "Des patients du monde entier se rendent en Inde pour bénéficier d'une prise en charge spécialisée de ces pathologies complexes liées au {name} :",
       "viewDetails": "Voir les détails"
     },
     "sidebar": {
       "title": "Demander un avis médical",
-      "desc": "Envoyez vos rapports et recevez un plan de traitement personnalisé élaboré par les meilleurs experts indiens en {nom} dans un délai de 48 heures.",
+      "desc": "Envoyez vos rapports et recevez un plan de traitement personnalisé élaboré par les meilleurs experts indiens en {name} dans un délai de 48 heures.",
       "startJourney": "Commencez votre aventure",
       "noObligation": "Aucune obligation de donner suite",
       "multipleQuotes": "Plusieurs devis d'hôpitaux",
@@ -672,8 +672,8 @@
     },
     "mockTreatments": {
       "consultation": {
-        "name": "Consultation {nom}",
-        "desc": "Évaluation et diagnostic complets réalisés par les meilleurs experts de {nom}."
+        "name": "Consultation {name}",
+        "desc": "Évaluation et diagnostic complets réalisés par les meilleurs experts de {name}."
       },
       "diagnostics": {
         "name": "Diagnostics avancés",
@@ -690,15 +690,15 @@
     },
     "mockConditions": {
       "general1": {
-        "name": "Troubles généraux liés à {nom}",
+        "name": "Troubles généraux liés à {name}",
         "desc": "Une prise en charge complète pour un large éventail d’affections courantes liées au {name}."
       },
       "general2": {
-        "name": "Maladies chroniques {nom}",
+        "name": "Maladies chroniques {name}",
         "desc": "Prise en charge à long terme et traitements spécialisés pour les cas chroniques."
       },
       "general3": {
-        "name": "Urgences aiguës liées à {nom}",
+        "name": "Urgences aiguës liées à {name}",
         "desc": "Intervention rapide et soins intensifs pour les affections aiguës graves."
       }
     }
@@ -997,20 +997,20 @@
     "viewProfile": "Voir le profil",
     "freeQuote": "Devis gratuit",
     "india": "Inde",
-    "estbIn": "ESTB en {année}",
+    "estbIn": "ESTB en {year}",
     "kmFromAirport": "à {dist} km de l'aéroport"
   },
   "ConditionDetail": {
     "causes": "Causes et symptômes",
     "causesDesc": "Comprendre les principaux indicateurs et les causes profondes de cette pathologie :",
     "diagnosis": "Diagnostic et évaluation",
-    "diagnosisDesc": "Méthodes couramment utilisées par les spécialistes pour établir un diagnostic précis de {nom} :",
+    "diagnosisDesc": "Méthodes couramment utilisées par les spécialistes pour établir un diagnostic précis de {name} :",
     "treatments": "Options thérapeutiques",
     "treatmentsDesc": "En fonction de la gravité, les traitements suivants peuvent être recommandés :",
-    "relatedProcedures": "Interventions courantes {nom}",
+    "relatedProcedures": "Interventions courantes {name}",
     "viewDetails": "Afficher les détails de la procédure",
     "topSpecialists": "Les meilleurs spécialistes pour {name}",
-    "bestHospitals": "Les meilleurs hôpitaux pour {nom}",
+    "bestHospitals": "Les meilleurs hôpitaux pour {name}",
     "faqs": "Foire aux questions",
     "needOpinion": "Vous avez besoin d'un avis médical ?",
     "shareReports": "Partagez vos dossiers médicaux avec nos experts pour obtenir un avis médical gratuit et un plan de traitement précis proposé par plusieurs hôpitaux de premier plan.",
@@ -1056,8 +1056,8 @@
     "faqsTitle": "Voici quelques questions fréquentes. Que souhaitez-vous savoir ?",
     "followUpQuote": "Souhaitez-vous que nos spécialistes vous contactent pour vous proposer un devis gratuit et personnalisé ?",
     "askName": "Super ! Pourriez-vous me dire votre nom, s'il vous plaît ?",
-    "askContact": "Enchanté(e), {nom} ! Merci de nous communiquer votre numéro WhatsApp ou votre adresse e-mail afin que nos spécialistes puissent vous contacter pour vous fournir plus de détails.",
-    "thankYou": "Merci, {nom} ! Nous avons bien reçu votre demande. Notre équipe d'assistance internationale vous contactera sous peu pour vous aider.",
+    "askContact": "Enchanté(e), {name} ! Merci de nous communiquer votre numéro WhatsApp ou votre adresse e-mail afin que nos spécialistes puissent vous contacter pour vous fournir plus de détails.",
+    "thankYou": "Merci, {name} ! Nous avons bien reçu votre demande. Notre équipe d'assistance internationale vous contactera sous peu pour vous aider.",
     "placeholderName": "Entrez votre nom...",
     "placeholderContact": "Entrez votre adresse e-mail ou votre numéro de téléphone…",
     "send": "Envoyer",

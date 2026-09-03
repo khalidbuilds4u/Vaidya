@@ -9,7 +9,7 @@
     "intlSupport": "Redação Internacional",
     "viewHospital": "Ver hospital",
     "getEstimate": "Obter orçamento",
-    "highlyExperienced": "{name} é um {especialidade} com vasta experiência, com {experience} de experiência. Já realizou com sucesso inúmeros procedimentos complexos e conta com a confiança de milhares de doentes em todo o mundo.",
+    "highlyExperienced": "{name} é um {specialty} com vasta experiência, com {experience} de experiência. Já realizou com sucesso inúmeros procedimentos complexos e conta com a confiança de milhares de doentes em todo o mundo.",
     "topHospitalDesc": "O {name} é uma unidade de saúde de excelência situada em {city}. É amplamente reconhecido pela sua infraestrutura de última geração e pelos seus padrões excecionais de cuidados aos doentes."
   },
   "Navigation": {
@@ -24,7 +24,7 @@
     "aboutUs": "Sobre nós",
     "contactUs": "Contacte-nos",
     "getTreatmentPlan": "Obter um plano de tratamento",
-    "callHelpline": "Linha de apoio: {número}"
+    "callHelpline": "Linha de apoio: {number}"
   },
   "Hero": {
     "tagline": "Where Global Trust Meets World-Class Healing",
@@ -174,7 +174,7 @@
       "safety": "Orientações sobre a Segurança do Doente"
     },
     "desc": "O seu principal parceiro para pacientes internacionais, para cirurgias médicas de classe mundial a preços acessíveis na Índia. Colocamo-lo em contacto direto com redes de hospitais acreditadas pela JCI e pela NABH.",
-    "copyright": "© {ano} Asad Healthcare. Todos os direitos reservados.",
+    "copyright": "© {year} Asad Healthcare. Todos os direitos reservados.",
     "certified": "Rede de parceiros certificados com hospitais acreditados pela JCI e pela NABH em toda a Índia.",
     "medicalDisclaimer": "Aviso legal: A Asad Healthcare ajuda-o a encontrar médicos, hospitais e opções de tratamento adequados e apoia a coordenação dos seus cuidados médicos e da sua viagem. Não somos um prestador de cuidados de saúde e não diagnosticamos, aconselhamos nem tratamos condições médicas, nem prestamos cuidados de emergência. Todas as decisões médicas são tomadas por médicos e hospitais qualificados. Os custos do tratamento são estimativas e podem sofrer alterações após a avaliação médica e as recomendações de tratamento.",
     "selectLanguage": "Escolha o seu idioma"
@@ -381,7 +381,7 @@
     },
     "tag": "Rede de Cuidados de Saúde Acreditada",
     "title": "Os melhores hospitais acreditados da Índia",
-    "titleCity": "Os melhores hospitais acreditados em {cidade}",
+    "titleCity": "Os melhores hospitais acreditados em {city}",
     "desc": "Compare instalações hospitalares com certificação internacional JCI e NABH, equipadas com salas de cirurgia robótica avançadas e salas de espera exclusivas para doentes internacionais."
   },
   "HospitalDetail": {
@@ -516,7 +516,7 @@
     "trust": {
       "highlyExperienced": "Com vasta experiência",
       "thousandsOfCases": "Milhares de casos bem-sucedidos",
-      "yearsOfPractice": "{anos}+ Anos de experiência profissional",
+      "yearsOfPractice": "{years}+ Anos de experiência profissional",
       "decadesOfExpertise": "Décadas de experiência",
       "boardCertified": "Especialista certificado pela ordem",
       "specializedFocus": "Área de especialização",
@@ -526,7 +526,7 @@
       "patientCenteredCare": "Cuidados centrados no doente"
     },
     "authorized": "Perfil autorizado",
-    "experience": "{anos}+ Anos de experiência",
+    "experience": "{years}+ Anos de experiência",
     "highlyExperienced": "Com vasta experiência",
     "askButton": "Pergunte à Asad Healthcare",
     "enquiryDisclaimer": "O seu pedido é recebido pela equipa de apoio da Asad Healthcare e não é enviado diretamente ao médico.",
@@ -546,7 +546,7 @@
     "disclaimer": "A autorização significa que foi registada a permissão para publicar este perfil. Não significa que a Asad Healthcare classifique, recomende do ponto de vista médico ou garanta os serviços ou resultados do médico.",
     "toc": "Índice",
     "related": "Médicos relacionados",
-    "experienceShort": "{anos}+ Anos de experiência",
+    "experienceShort": "{years}+ Anos de experiência",
     "forInternationalPatients": "Para pacientes internacionais"
   },
   "TreatmentsPage": {
@@ -609,7 +609,7 @@
       "readMore": "Leia mais sobre esta doença"
     },
     "types": {
-      "title": "Tipos de {nome}",
+      "title": "Tipos de {name}",
       "viewDetails": "Ver detalhes específicos"
     },
     "procedure": {
@@ -620,10 +620,10 @@
       "recoveryTitle": "Recuperação e cuidados pós-operatórios"
     },
     "doctors": {
-      "title": "Os melhores especialistas em {nome}"
+      "title": "Os melhores especialistas em {name}"
     },
     "hospitals": {
-      "title": "Os melhores hospitais para {nome}"
+      "title": "Os melhores hospitais para {name}"
     },
     "faqs": {
       "title": "Perguntas Frequentes"
@@ -646,7 +646,7 @@
       "fallbackOverview": "{name} é uma especialidade médica que aborda aspetos específicos dos cuidados de saúde. Os nossos hospitais parceiros na Índia oferecem tratamentos de nível mundial, recorrendo a tecnologia de ponta."
     },
     "treatments": {
-      "title": "Tratamentos populares para {nome}",
+      "title": "Tratamentos populares para {name}",
       "viewDetails": "Ver detalhes do tratamento"
     },
     "doctors": {
@@ -654,17 +654,17 @@
       "viewAll": "Ver tudo"
     },
     "hospitals": {
-      "title": "Os melhores hospitais para {nome}",
+      "title": "Os melhores hospitais para {name}",
       "viewAll": "Ver tudo"
     },
     "conditions": {
       "title": "Doenças comuns tratadas",
-      "desc": "Doentes de todo o mundo viajam para a Índia para receberem tratamento especializado para estas doenças complexas de {nome}:",
+      "desc": "Doentes de todo o mundo viajam para a Índia para receberem tratamento especializado para estas doenças complexas de {name}:",
       "viewDetails": "Ver detalhes"
     },
     "sidebar": {
       "title": "Solicitar um parecer médico",
-      "desc": "Carregue os seus relatórios e receba um plano de tratamento personalizado dos principais especialistas em {nome} da Índia no prazo de 48 horas.",
+      "desc": "Carregue os seus relatórios e receba um plano de tratamento personalizado dos principais especialistas em {name} da Índia no prazo de 48 horas.",
       "startJourney": "Comece a sua viagem",
       "noObligation": "Sem obrigação de avançar",
       "multipleQuotes": "Várias cotações de hospitais",
@@ -673,7 +673,7 @@
     "mockTreatments": {
       "consultation": {
         "name": "Consulta sobre {name}",
-        "desc": "Avaliação e diagnóstico abrangentes realizados pelos melhores especialistas da {nome}."
+        "desc": "Avaliação e diagnóstico abrangentes realizados pelos melhores especialistas da {name}."
       },
       "diagnostics": {
         "name": "Diagnósticos Avançados",
@@ -690,15 +690,15 @@
     },
     "mockConditions": {
       "general1": {
-        "name": "Distúrbios gerais de {nome}",
+        "name": "Distúrbios gerais de {name}",
         "desc": "Cuidados abrangentes para uma vasta gama de afeções comuns relacionadas com {name}."
       },
       "general2": {
-        "name": "Doenças crónicas {nome}",
+        "name": "Doenças crónicas {name}",
         "desc": "Gestão a longo prazo e tratamento especializado para casos crónicos."
       },
       "general3": {
-        "name": "Emergências agudas de {nome}",
+        "name": "Emergências agudas de {name}",
         "desc": "Resposta rápida e cuidados intensivos para condições agudas graves."
       }
     }
@@ -997,20 +997,20 @@
     "viewProfile": "Ver perfil",
     "freeQuote": "Orçamento gratuito",
     "india": "Índia",
-    "estbIn": "ESTB em {ano}",
+    "estbIn": "ESTB em {year}",
     "kmFromAirport": "{dist} km do aeroporto"
   },
   "ConditionDetail": {
     "causes": "Causas e sintomas",
     "causesDesc": "Compreender os principais indicadores e as causas subjacentes desta condição:",
     "diagnosis": "Diagnóstico e Avaliação",
-    "diagnosisDesc": "Métodos comuns utilizados pelos especialistas para diagnosticar com precisão {nome}:",
+    "diagnosisDesc": "Métodos comuns utilizados pelos especialistas para diagnosticar com precisão {name}:",
     "treatments": "Opções de tratamento",
     "treatmentsDesc": "Dependendo da gravidade, podem ser recomendados os seguintes tratamentos:",
-    "relatedProcedures": "Procedimentos populares de {nome}",
+    "relatedProcedures": "Procedimentos populares de {name}",
     "viewDetails": "Ver detalhes do procedimento",
-    "topSpecialists": "Os melhores especialistas em {nome}",
-    "bestHospitals": "Os melhores hospitais para {nome}",
+    "topSpecialists": "Os melhores especialistas em {name}",
+    "bestHospitals": "Os melhores hospitais para {name}",
     "faqs": "Perguntas Frequentes",
     "needOpinion": "Precisa de um parecer médico?",
     "shareReports": "Partilhe os seus relatórios médicos com os nossos especialistas para obter um parecer médico gratuito e um plano de tratamento preciso, elaborado por vários hospitais de renome.",
@@ -1057,7 +1057,7 @@
     "followUpQuote": "Gostaria que os nossos especialistas entrassem em contacto consigo para lhe apresentar um orçamento gratuito e personalizado?",
     "askName": "Ótimo! Pode dizer-me o seu nome, por favor?",
     "askContact": "É um prazer conhecer-te, {name}! Por favor, indica o teu número do WhatsApp ou o teu e-mail para que os nossos especialistas possam entrar em contacto contigo com mais informações.",
-    "thankYou": "Obrigado, {nome}! Recebemos o seu pedido. A nossa equipa de apoio internacional entrará em contacto consigo em breve para o ajudar.",
+    "thankYou": "Obrigado, {name}! Recebemos o seu pedido. A nossa equipa de apoio internacional entrará em contacto consigo em breve para o ajudar.",
     "placeholderName": "Escreva o seu nome...",
     "placeholderContact": "Introduza o seu e-mail ou número de telefone...",
     "send": "Enviar",

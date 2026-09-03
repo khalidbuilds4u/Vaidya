@@ -997,7 +997,7 @@
     "viewProfile": "Profilni ko'rish",
     "freeQuote": "Bepul narx taklifi",
     "india": "Hindiston",
-    "estbIn": "ESTB {yil}da",
+    "estbIn": "ESTB {year}da",
     "kmFromAirport": "{dist} km aeroportdan"
   },
   "ConditionDetail": {
