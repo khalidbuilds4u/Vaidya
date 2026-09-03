@@ -764,7 +764,31 @@
       "hoursDesc": "Apoio 24 horas por dia, 7 dias por semana, para doentes internacionais"
     },
     "form": {
-      "title": "Envie-nos uma mensagem"
+      "title": "Envie-nos uma mensagem",
+      "labels": {
+        "name": "Nome completo",
+        "email": "Endereço de e-mail",
+        "phone": "Telefone / WhatsApp",
+        "subject": "Assunto",
+        "message": "A sua mensagem"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+1 (555) 000-0000",
+        "subject": "Em que podemos ajudar?",
+        "message": "Descreva, por favor, o seu problema de saúde ou a sua dúvida..."
+      },
+      "buttons": {
+        "send": "Enviar mensagem",
+        "sending": "A enviar...",
+        "sendAnother": "Enviar outra mensagem"
+      },
+      "success": {
+        "title": "A mensagem foi enviada com sucesso!",
+        "desc": "Obrigado por contactar a Asad Healthcare. A nossa equipa de atendimento internacional irá analisar a sua mensagem e entrará em contacto consigo em breve."
+      },
+      "error": "Não foi possível enviar a mensagem. Por favor, tente novamente mais tarde."
     }
   },
   "MedicalTravel": {

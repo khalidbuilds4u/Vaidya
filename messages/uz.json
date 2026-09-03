@@ -764,7 +764,31 @@
       "hoursDesc": "Xalqaro bemorlar uchun 24/7 yordam"
     },
     "form": {
-      "title": "Bizga xabar yuboring"
+      "title": "Bizga xabar yuboring",
+      "labels": {
+        "name": "To'liq ism",
+        "email": "Elektron pochta manzili",
+        "phone": "Telefon / WhatsApp",
+        "subject": "Mavzu",
+        "message": "Sizning xabaringiz"
+      },
+      "placeholders": {
+        "name": "Jon Doe",
+        "email": "john@example.com",
+        "phone": "+1 (555) 000-0000",
+        "subject": "Qanday yordam bera olamiz?",
+        "message": "Iltimos, tibbiy holatingizni yoki so'rovingizni tasvirlang..."
+      },
+      "buttons": {
+        "send": "Xabar yuborish",
+        "sending": "Yuborilmoqda...",
+        "sendAnother": "Yana bir xabar yuboring"
+      },
+      "success": {
+        "title": "Xabar muvaffaqiyatli yuborildi!",
+        "desc": "Asad Healthcare bilan bog'langaningiz uchun rahmat. Xalqaro parvarish jamoamiz xabaringizni ko'rib chiqadi va tez orada sizga javob beradi."
+      },
+      "error": "Xabar yuborish muvaffaqiyatsiz bo'ldi. Iltimos, keyinroq yana urinib ko'ring."
     }
   },
   "MedicalTravel": {

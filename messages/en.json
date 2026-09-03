@@ -938,7 +938,31 @@
       "hoursDesc": "24/7 Support for International Patients"
     },
     "form": {
-      "title": "Send us a Message"
+      "title": "Send us a Message",
+      "labels": {
+        "name": "Full Name",
+        "email": "Email Address",
+        "phone": "Phone / WhatsApp",
+        "subject": "Subject",
+        "message": "Your Message"
+      },
+      "placeholders": {
+        "name": "John Doe",
+        "email": "john@example.com",
+        "phone": "+1 (555) 000-0000",
+        "subject": "How can we help?",
+        "message": "Please describe your medical condition or inquiry..."
+      },
+      "buttons": {
+        "send": "Send Message",
+        "sending": "Sending...",
+        "sendAnother": "Send Another Message"
+      },
+      "success": {
+        "title": "Message Sent Successfully!",
+        "desc": "Thank you for reaching out to Asad Healthcare. Our international care team will review your message and get back to you shortly."
+      },
+      "error": "Failed to send message. Please try again later."
     }
   },
   "MedicalTravel": {
