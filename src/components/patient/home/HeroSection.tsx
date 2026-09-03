@@ -16,7 +16,7 @@ export function HeroSection() {
 
 
   return (
-    <section className="relative z-40 pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
+    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
       
       {/* Background Elements Wrapper (with overflow-hidden to prevent spillover) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
