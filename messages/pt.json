@@ -1286,5 +1286,225 @@
     "button": "Converse connosco",
     "greeting": "👋 Olá! Bem-vindo ao <strong>Asad Healthcare</strong>.<br />Em que podemos ajudá-lo hoje?",
     "footer": "Desenvolvido pelo WhatsApp · Seguro e privado"
+  },
+  "Services": {
+    "meta": {
+      "title": "Os nossos serviços | Asad Healthcare – Turismo médico completo na Índia",
+      "description": "A Asad Healthcare presta serviços completos de turismo médico a doentes internacionais que viajam para a Índia para receberem tratamento."
+    },
+    "hero": {
+      "badge": "Apoio integral ao turismo médico",
+      "heading1": "O nosso",
+      "heading2": "Serviços",
+      "p1": "Na Asad Healthcare, prestamos apoio integral a doentes internacionais que procuram tratamento médico na Índia. Desde o planeamento da sua viagem até ao regresso a casa, ajudamos a coordenar os detalhes importantes da sua viagem médica.",
+      "p2": "Os nossos serviços foram concebidos para tornar o percurso de cuidados de saúde simples, confortável, transparente e bem organizado. Coordenamos as ações entre hospitais, médicos, doentes e acompanhantes para garantir uma comunicação fluida e um melhor apoio.",
+      "p3": "Prestamos assistência na coordenação médica, interpretação, organização de viagens, alojamento, visitas ao hospital, documentação e apoio local, de acordo com as necessidades de cada doente.",
+      "tagline": "A sua saúde é a sua prioridade. Nós encarregamo-nos da coordenação.",
+      "cta": "Obtenha uma consulta gratuita",
+      "ctaSecondary": "Fale com a nossa equipa"
+    },
+    "nav": {
+      "preArrival": "Antes da chegada",
+      "during": "Durante o tratamento",
+      "post": "Pós-tratamento",
+      "why": "Por que nos escolher?"
+    },
+    "phases": {
+      "pre": {
+        "label": "Serviços antes da chegada"
+      },
+      "on": {
+        "label": "À chegada e durante o tratamento"
+      },
+      "post": {
+        "label": "Pós-tratamento e partida"
+      },
+      "servicesCount": "{count} Serviços"
+    },
+    "preArrival": [
+      {
+        "title": "Avaliação de Casos Clínicos",
+        "desc": "Recolhemos os seus relatórios médicos e analisamos as suas necessidades médicas antes de planear o seu percurso de tratamento."
+      },
+      {
+        "title": "Escolha do médico e do hospital",
+        "desc": "Ajudamos a identificar hospitais e médicos adequados, com base na sua condição médica e nas suas necessidades de tratamento."
+      },
+      {
+        "title": "Parecer médico",
+        "desc": "Coordenamos com os médicos para obter um parecer médico preliminar e compreender a possível abordagem terapêutica."
+      },
+      {
+        "title": "Estimativa dos custos do tratamento",
+        "desc": "Ajudamo-lo a compreender o custo previsto do tratamento e outras despesas importantes antes da sua viagem."
+      },
+      {
+        "title": "Agendamento de consultas",
+        "desc": "Organizamos consultas, exames de diagnóstico e marcações hospitalares de acordo com o seu plano de tratamento."
+      },
+      {
+        "title": "Assistência na obtenção de vistos médicos",
+        "desc": "Acompanhamos os doentes e os acompanhantes no processo de obtenção do visto médico e na preparação da documentação hospitalar necessária."
+      },
+      {
+        "title": "Assistência em voos e viagens",
+        "desc": "Prestamos assistência no planeamento da viagem e ajudamos a coordenar a sua viagem à Índia."
+      },
+      {
+        "title": "Organização do alojamento",
+        "desc": "Ajudamos a encontrar hotéis, pensões ou outros tipos de alojamento adequados nas proximidades do hospital."
+      },
+      {
+        "title": "Planeamento de transferências do aeroporto",
+        "desc": "Podemos organizar o recolha no aeroporto e o transporte para o seu hotel ou hospital."
+      },
+      {
+        "title": "Plano de Tratamento Personalizado",
+        "desc": "Elaboramos um calendário claro para as suas consultas, exames, tratamentos, visitas ao hospital e outros compromissos importantes."
+      }
+    ],
+    "onArrival": [
+      {
+        "title": "Recolha no aeroporto",
+        "desc": "Damos-lhe as boas-vindas no aeroporto e ajudamo-lo no transporte até ao hotel, à pousada ou ao hospital."
+      },
+      {
+        "title": "Apoio a hotéis e alojamentos",
+        "desc": "Prestamos assistência no check-in e ajudamos a resolver questões básicas relacionadas com o alojamento."
+      },
+      {
+        "title": "Registo hospitalar",
+        "desc": "Prestamos assistência aos doentes no registo hospitalar, na documentação e nas formalidades de admissão."
+      },
+      {
+        "title": "Assistência na consulta médica",
+        "desc": "Acompanhamos e prestamos assistência aos doentes durante as consultas médicas e ajudamos na comunicação."
+      },
+      {
+        "title": "Interpretação linguística",
+        "desc": "Prestamos serviços de interpretação entre doentes e médicos ou pessoal hospitalar, com o objetivo de facilitar uma comunicação clara."
+      },
+      {
+        "title": "Coordenação de Testes de Diagnóstico",
+        "desc": "Ajudamos a coordenar análises ao sangue, exames de imagem e outros exames, conforme indicado pelo médico."
+      },
+      {
+        "title": "Coordenação do tratamento",
+        "desc": "Coordenamos com o hospital e os serviços envolvidos ao longo de todo o processo de tratamento."
+      },
+      {
+        "title": "Apoio à admissão hospitalar",
+        "desc": "Ajudamos os doentes e os acompanhantes nos procedimentos de admissão e nas formalidades hospitalares importantes."
+      },
+      {
+        "title": "Apoio a doentes e acompanhantes",
+        "desc": "Prestamos assistência prática aos doentes e aos seus acompanhantes durante a sua estadia na Índia."
+      },
+      {
+        "title": "Transportes locais",
+        "desc": "Ajudamos a coordenar o transporte para consultas hospitalares, exames de diagnóstico, alojamento e outras deslocações essenciais."
+      },
+      {
+        "title": "Farmácia e Apoio Médico",
+        "desc": "Ajudamos os doentes a compreender as receitas médicas e a encontrar medicamentos ou material médico, sempre que necessário."
+      },
+      {
+        "title": "Coordenação diária",
+        "desc": "Mantemos o contacto com o doente e ajudamos a coordenar as necessidades importantes ao longo de todo o percurso clínico."
+      }
+    ],
+    "postTreatment": [
+      {
+        "title": "Assistência à alta hospitalar",
+        "desc": "Acompanhamos os doentes no processo de alta e ajudamo-los a compreender as formalidades necessárias."
+      },
+      {
+        "title": "Documentos médicos",
+        "desc": "Ajudamos os doentes a reunir documentos importantes, tais como relatórios de alta, receitas médicas, relatórios médicos e registos de tratamento."
+      },
+      {
+        "title": "Consulta de acompanhamento",
+        "desc": "Coordenamos as consultas de acompanhamento e ajudamos os doentes a manterem-se em contacto com o seu médico assistente."
+      },
+      {
+        "title": "Orientações sobre a medicação",
+        "desc": "Ajudamos os doentes a compreender as suas receitas médicas e as instruções fornecidas pela equipa médica."
+      },
+      {
+        "title": "Recuperação e acompanhamento pós-tratamento",
+        "desc": "Ajudamos a coordenar os cuidados de acompanhamento recomendados e outros requisitos pós-tratamento."
+      },
+      {
+        "title": "Avaliação Médica Final",
+        "desc": "Ajudamos a coordenar a consulta final ou a avaliação médica antes do doente regressar a casa, quando tal for recomendado."
+      },
+      {
+        "title": "Preparação para a viagem",
+        "desc": "Ajudamos a coordenar os preparativos de viagem do doente após a conclusão do tratamento necessário e das formalidades médicas."
+      },
+      {
+        "title": "Transporte do aeroporto",
+        "desc": "Podemos organizar o transporte do hotel ou do hospital para o aeroporto, para a viagem de regresso."
+      },
+      {
+        "title": "Apoio à viagem de regresso",
+        "desc": "Ajudamos a tornar o processo de alta tranquilo e organizado, para que os doentes possam regressar a casa com conforto."
+      },
+      {
+        "title": "Comunicação contínua",
+        "desc": "O nosso apoio pode continuar após o seu regresso a casa, através da comunicação e da coordenação do acompanhamento com o hospital ou o médico, sempre que necessário."
+      }
+    ],
+    "whyChoose": {
+      "badge": "Por que nos escolher",
+      "heading": "Por que escolher a Asad Healthcare",
+      "subheading": "Milhares de doentes internacionais confiaram-nos o seu percurso médico. Eis o que nos distingue.",
+      "items": [
+        {
+          "title": "Apoio personalizado ao doente",
+          "desc": "Cada doente é diferente. Oferecemos assistência personalizada com base nas suas necessidades médicas, preferências e plano de tratamento."
+        },
+        {
+          "title": "Coordenação médica experiente",
+          "desc": "Coordenamos com hospitais, médicos e equipas de saúde para ajudar a tornar o seu percurso de tratamento tranquilo e bem organizado."
+        },
+        {
+          "title": "Interpretação Profissional",
+          "desc": "Ajudamos a colmatar a barreira linguística entre os doentes internacionais e os profissionais de saúde, para uma comunicação clara e confortável."
+        },
+        {
+          "title": "Assistência de ponta a ponta",
+          "desc": "Desde o seu primeiro contacto e consulta no hospital até ao tratamento, alta e regresso a casa, acompanhamos-lhe ao longo de todo o seu percurso."
+        },
+        {
+          "title": "Coordenação hospitalar de confiança",
+          "desc": "Ajudamos os doentes a entrar em contacto com hospitais e especialistas médicos adequados, de acordo com as suas necessidades de tratamento."
+        },
+        {
+          "title": "Comunicação transparente e clara",
+          "desc": "Fornecemos informações claras sobre consultas, coordenação do tratamento, custos estimados e disposições importantes."
+        },
+        {
+          "title": "Viagens e assistência local",
+          "desc": "Ajudamos a coordenar o alojamento, os traslados do aeroporto, os transportes locais e outros serviços essenciais durante a sua estadia na Índia."
+        },
+        {
+          "title": "Apoio para além do tratamento",
+          "desc": "A nossa assistência pode continuar após o seu regresso a casa, através da coordenação e comunicação de acompanhamento com o hospital ou o médico, sempre que necessário."
+        }
+      ]
+    },
+    "freeBanner": {
+      "badge": "Sem custos ocultos",
+      "heading": "100% gratuito para os doentes",
+      "desc": "Os nossos serviços de consulta e coordenação personalizada são totalmente gratuitos para os doentes. Todos os custos do tratamento são liquidados diretamente com o hospital. Somos remunerados pelos nossos hospitais parceiros; o doente não paga nada a mais."
+    },
+    "cta": {
+      "badge": "Resposta no prazo de 24 horas",
+      "heading": "Pronto para iniciar o seu percurso médico?",
+      "desc": "Partilhe connosco hoje mesmo os seus relatórios médicos e as suas necessidades. A nossa equipa responderá no prazo de 24 horas com um plano de tratamento personalizado e um orçamento.",
+      "cta": "Obtenha um plano de tratamento gratuito",
+      "ctaSecondary": "Envie-nos uma mensagem pelo WhatsApp agora"
+    }
   }
 }

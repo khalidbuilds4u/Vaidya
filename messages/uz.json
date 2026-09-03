@@ -1286,5 +1286,225 @@
     "button": "Biz bilan suhbatlashing",
     "greeting": "👋 Salom! Asad Healthcarega xush kelibsiz.<br />Bugun sizga qanday yordam bera olamiz?",
     "footer": "WhatsApp tomonidan quvvatlanadi · Xavfsiz va shaxsiy"
+  },
+  "Services": {
+    "meta": {
+      "title": "Bizning xizmatlarimiz | Asad Healthcare – Hindistonda boshidan oxirigacha tibbiy turizm",
+      "description": "Asad Healthcare Hindistonga davolanish uchun kelayotgan xalqaro bemorlarga to'liq tibbiy turizm xizmatlarini taqdim etadi."
+    },
+    "hero": {
+      "badge": "Tibbiy turizm bo'yicha boshidan oxirigacha qo'llab-quvvatlash",
+      "heading1": "Bizning",
+      "heading2": "Xizmatlar",
+      "p1": "Asad Healthcare'da biz Hindistonda tibbiy davolanishni istagan xalqaro bemorlarga boshidan oxirigacha to'liq yordam ko'rsatamiz. Sayohatingizni rejalashtirishdan tortib uyga qaytishingizgacha bo'lgan davrda tibbiy safaringizning muhim jihatlarini muvofiqlashtirishda yordam beramiz.",
+      "p2": "Bizning xizmatlarimiz sog'liqni saqlash jarayonini sodda, qulay, shaffof va yaxshi tashkil etilgan qilish uchun mo'ljallangan. Biz shifoxonalar, shifokorlar, bemorlar va hamrohlar bilan muvofiqlashtirib, samarali muloqot va yaxshiroq qo'llab-quvvatlashni ta'minlaymiz.",
+      "p3": "Biz har bir bemorning ehtiyojlariga muvofiq tibbiy muvofiqlashtirish, tarjima, sayohat tashkil etish, turar joy, shifoxonaga tashriflar, hujjatlar va mahalliy yordam bo'yicha ko'maklashamiz.",
+      "tagline": "Sizning sog'ligingiz – eng ustuvor vazifangiz. Biz muvofiqlashtirishni o'z zimmasiga olamiz.",
+      "cta": "Bepul maslahat oling",
+      "ctaSecondary": "Jamoamiz bilan bog'laning"
+    },
+    "nav": {
+      "preArrival": "Kelishdan oldin",
+      "during": "Davolanish davomida",
+      "post": "Davolashdan keyin",
+      "why": "Nega bizni tanlashingiz kerak?"
+    },
+    "phases": {
+      "pre": {
+        "label": "Kelishdan oldingi xizmatlar"
+      },
+      "on": {
+        "label": "Kelish vaqtida va davolanish davomida"
+      },
+      "post": {
+        "label": "Davolashdan keyin va ketish"
+      },
+      "servicesCount": "{count} xizmatlari"
+    },
+    "preArrival": [
+      {
+        "title": "Tibbiy holatni baholash",
+        "desc": "Biz davolanish safaringizni rejalashtirishdan oldin tibbiy hisobotlaringizni to'playmiz va tibbiy talablaringizni tushunamiz."
+      },
+      {
+        "title": "Shifokor va shifoxona tanlovi",
+        "desc": "Biz tibbiy holatingiz va davolanish ehtiyojlaringizga asoslanib, mos shifoxonalar va shifokorlarni aniqlashda yordam beramiz."
+      },
+      {
+        "title": "Tibbiy fikr",
+        "desc": "Biz shifokorlar bilan muvofiqlashtirib, dastlabki tibbiy xulosani olamiz va mumkin bo'lgan davolash yondashuvini tushunamiz."
+      },
+      {
+        "title": "Davolash xarajatlari taxminlari",
+        "desc": "Sayohatingizdan oldin kutilayotgan davolanish xarajatlari va boshqa katta xarajatlarni tushunishingizga yordam beramiz."
+      },
+      {
+        "title": "Uchrashuvlarni rejalashtirish",
+        "desc": "Biz davolanish reyangizga muvofiq maslahatlashuvlar, diagnostik testlar va shifoxonadagi qabullarni tashkil qilamiz."
+      },
+      {
+        "title": "Tibbiy viza bo'yicha yordam",
+        "desc": "Biz bemorlar va ularning hamrohlariga tibbiy viza olish jarayoni hamda kerakli shifoxona hujjatlari bo'yicha yo'l-yo'riq ko'rsatamiz."
+      },
+      {
+        "title": "Uchish va sayohat bo'yicha yordam",
+        "desc": "Biz sayohatni rejalashtirishda yordam beramiz va Hindistonga sayohatingizni muvofiqlashtirishga ko'maklashamiz."
+      },
+      {
+        "title": "Joylashuvni tashkil etish",
+        "desc": "Biz shifoxonaga yaqin mos keladigan mehmonxonalar, mehmon uylari yoki boshqa turar joylarni tashkil qilishda yordam beramiz."
+      },
+      {
+        "title": "Aeroportga transferni rejalashtirish",
+        "desc": "Biz aeroportdan qabul qilish va mehmonxonangizga yoki shifoxonangizga transport tashishni tashkil qilishimiz mumkin."
+      },
+      {
+        "title": "Shaxsiylashtirilgan davolash rejasi",
+        "desc": "Biz maslahatlar, tahlillar, davolanish, shifoxonaga tashriflar va boshqa muhim tashkiliy masalalar uchun aniq jadval tuzamiz."
+      }
+    ],
+    "onArrival": [
+      {
+        "title": "Aeroportdan olib ketish",
+        "desc": "Biz sizni aeroportda kutib olamiz va mehmonxona, mehmon uy yoki kasalxonaga yetib olishingizda yordam beramiz."
+      },
+      {
+        "title": "Mehmonxona va turar joy bo'yicha yordam",
+        "desc": "Biz ro'yxatdan o'tishda yordam beramiz va turar joy bilan bog'liq asosiy talablarni hal qilishda ko'maklashamiz."
+      },
+      {
+        "title": "Kasalxonaga ro'yxatdan o'tish",
+        "desc": "Biz bemorlarga shifoxonaga yozilish, hujjatlarni rasmiylashtirish va qabul qilish formalitlarida yordam beramiz."
+      },
+      {
+        "title": "Shifokor maslahatiga yordam",
+        "desc": "Biz shifokor qabullarida bemorlarga hamroh bo'lib, ularga yordam beramiz va muloqotda ko'maklashamiz."
+      },
+      {
+        "title": "Til tarjimasi",
+        "desc": "Biz bemorlar va shifokorlar yoki shifoxona xodimlari o'rtasida aniq muloqotni ta'minlash uchun til tarjimasini taqdim etamiz."
+      },
+      {
+        "title": "Diagnostik testlarni muvofiqlashtirish",
+        "desc": "Biz shifokor maslahatiga ko'ra qon tahlillari, skanerlash, tasvirga olish va boshqa tekshiruvlarni muvofiqlashtirishda yordam beramiz."
+      },
+      {
+        "title": "Davolashni muvofiqlashtirish",
+        "desc": "Biz davolash jarayoni davomida shifoxona va tegishli bo'limlar bilan muvofiqlashtiramiz."
+      },
+      {
+        "title": "Kasalxonaga yotqizish bo'yicha yordam",
+        "desc": "Biz bemorlar va ularning hamrohlariga kasalxonaga qabul qilish tartib-taomillari va muhim rasmiyatchiliklarda yordam beramiz."
+      },
+      {
+        "title": "Bemor va parvarish qiluvchi uchun qo'llab-quvvatlash",
+        "desc": "Biz Hindistonda bo'lish davomida bemorlar va ularning hamrohlariga amaliy yordam ko'rsatamiz."
+      },
+      {
+        "title": "Mahalliy transport",
+        "desc": "Biz shifoxonaga tashriflar, diagnostika testlari, turar joy va boshqa zarur safarlar uchun transportni muvofiqlashtirishda yordam beramiz."
+      },
+      {
+        "title": "Dori-darmon va tibbiy yordam",
+        "desc": "Biz bemorlarga retseptlarni tushunishda va zarur bo'lganda dori-darmon yoki tibbiy buyumlarni topishda yordam beramiz."
+      },
+      {
+        "title": "Kundalik muvofiqlashtirish",
+        "desc": "Biz bemor bilan aloqada bo'lib, tibbiy jarayon davomida muhim talablarni muvofiqlashtirishda yordam beramiz."
+      }
+    ],
+    "postTreatment": [
+      {
+        "title": "Chiqishda yordam",
+        "desc": "Biz bemorlarga shifoxonadan chiqish jarayonida yordam beramiz va zarur rasmiyatchiliklarni tushunishlariga ko'maklashamiz."
+      },
+      {
+        "title": "Tibbiy hujjatlar",
+        "desc": "Biz bemorlarga chiqish xulosalari, retseptlar, hisobotlar va davolash yozuvlari kabi muhim hujjatlarni to'plashda yordam beramiz."
+      },
+      {
+        "title": "Shifokorning nazorati",
+        "desc": "Biz keyingi konsultatsiyalarni muvofiqlashtiramiz va bemorlarning davolovchi shifokori bilan aloqada bo'lishlariga yordam beramiz."
+      },
+      {
+        "title": "Dori-darmon bo'yicha yo'riqnoma",
+        "desc": "Biz bemorlarga tibbiyot jamoasi tomonidan berilgan retseptlarini va ko'rsatmalarini tushunishda yordam beramiz."
+      },
+      {
+        "title": "Sogʻayish va keyingi gʻamxoʻrlik",
+        "desc": "Biz tavsiya etilgan keyingi parvarish va boshqa davolashdan keyingi talablarni muvofiqlashtirishda yordam beramiz."
+      },
+      {
+        "title": "Yakuniy tibbiy ko'rik",
+        "desc": "Biz bemor uyga qaytishidan oldin, agar tavsiya etilsa, so'nggi maslahatlashuv yoki tibbiy ko'rikni muvofiqlashtirishda yordam beramiz."
+      },
+      {
+        "title": "Sayohatga tayyorgarlik",
+        "desc": "Biz bemorning zarur davolash va tibbiy rasmiyatchiliklarni yakunlaganidan so'ng uning safar tashkiliy ishlarini muvofiqlashtirishda yordam beramiz."
+      },
+      {
+        "title": "Aeroportga yetkazib qo'yish",
+        "desc": "Biz qaytish safari uchun mehmonxona yoki kasalxonadan aeroportga transport tashkil qilishimiz mumkin."
+      },
+      {
+        "title": "Qaytish safarini qo'llab-quvvatlash",
+        "desc": "Biz bemorlarning qulay tarzda uylariga qaytishlari uchun ketish jarayonini silliq va tartibli o'tkazishga yordam beramiz."
+      },
+      {
+        "title": "Muloqotni davom ettirish",
+        "desc": "Bizning yordamimiz siz uyga qaytgach ham, zarur bo'lganda shifoxona yoki shifokor bilan muloqot va keyingi muvofiqlashtirish orqali davom ettirilishi mumkin."
+      }
+    ],
+    "whyChoose": {
+      "badge": "Nega bizni tanlashingiz kerak?",
+      "heading": "Nega Asad Healthcare'ni tanlashingiz kerak?",
+      "subheading": "Minglab xalqaro bemorlar tibbiy sayohatlarini bizga ishonib topshirishdi. Bizni boshqalardan ajratib turadigan jihatlar quyidagilar.",
+      "items": [
+        {
+          "title": "Shaxsiylashtirilgan bemorga yordam",
+          "desc": "Har bir bemor turlicha. Biz tibbiy ehtiyojlaringiz, afzalliklaringiz va davolash reyangizga asoslanib shaxsiy yordam ko'rsatamiz."
+        },
+        {
+          "title": "Tajribali tibbiy muvofiqlashtirish",
+          "desc": "Biz kasalxonalar, shifokorlar va sog'liqni saqlash jamoalari bilan hamkorlik qilib, davolanish jarayoningizni silliq va yaxshi tashkil etilgan bo'lishini ta'minlaymiz."
+        },
+        {
+          "title": "Kasbiy til tarjimasi",
+          "desc": "Biz xalqaro bemorlar va sog'liqni saqlash mutaxassislari o'rtasidagi til bo'shlig'ini to'ldirishga yordam beramiz, shunda muloqot aniq va qulay bo'ladi."
+        },
+        {
+          "title": "Boshidan oxirigacha yordam",
+          "desc": "Birinchi murojaatingiz va shifoxonaga yozilishingizdan tortib davolanish, shifoxonadan chiqish va uyga qaytishgacha bo'lgan butun yo'l davomida biz sizni qo'llab-quvvatlaymiz."
+        },
+        {
+          "title": "Ishonchli kasalxona muvofiqlashtirish",
+          "desc": "Biz bemorlarga davolanish talablari asosida mos shifoxonalar va tibbiyot mutaxassislari bilan bog'lanishda yordam beramiz."
+        },
+        {
+          "title": "Ochiq va aniq muloqot",
+          "desc": "Biz uchrashuvlar, davolashni muvofiqlashtirish, taxminiy xarajatlar va muhim tartib-taomillar haqida aniq ma'lumot beramiz."
+        },
+        {
+          "title": "Sayohat va mahalliy yordam",
+          "desc": "Biz Hindistonda bo'lishingiz davomida turar joyni tashkil etish, aeroport transferlari, mahalliy transport va boshqa zarur tartib-taomillarni muvofiqlashtirishda yordam beramiz."
+        },
+        {
+          "title": "Davolashdan keyingi qo'llab-quvvatlash",
+          "desc": "Bizning yordamimiz siz uyga qaytgach ham, zarur bo'lganda shifoxona yoki shifokor bilan keyingi muvofiqlashtirish va aloqani ta'minlash orqali davom ettirilishi mumkin."
+        }
+      ]
+    },
+    "freeBanner": {
+      "badge": "Yashirin to'lovlar yo'q",
+      "heading": "Bemorlar uchun 100% bepul",
+      "desc": "Bizning konsultatsiya va konsyerj koordinatsiya xizmatlarimiz bemorlar uchun mutlaqo bepul. Barcha davolash to'lovlari to'g'ridan-to'g'ri shifoxona bilan hal qilinadi. Biz shifoxona hamkorlarimiz tomonidan kompensatsiya olamiz, siz hech qanday qo'shimcha to'lov to'lamaysiz."
+    },
+    "cta": {
+      "badge": "24 soat ichida javob",
+      "heading": "Tibbiy sayohatingizni boshlashga tayyormisiz?",
+      "desc": "Bugun tibbiy hisobotlaringiz va talablaringizni biz bilan bo'lishing. Jamoamiz 24 soat ichida shaxsiy davolash rejasini va xarajatlar bo'yicha taxminiy hisobni taqdim etadi.",
+      "cta": "Bepul davolash rejasini oling",
+      "ctaSecondary": "Hozir bizga WhatsApp orqali yozing"
+    }
   }
 }
