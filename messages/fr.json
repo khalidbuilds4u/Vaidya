@@ -1069,5 +1069,48 @@
     "timeEstimate": "Cela prend moins de 2 minutes",
     "noThanks": "Non, merci",
     "getPlan": "Souscrire un forfait"
+  },
+  "WhatsAppChat": {
+    "header": {
+      "title": "Asad Healthcare",
+      "subtitle": "Répond généralement en quelques minutes"
+    },
+    "topics": {
+      "heart": {
+        "label": "Cœur et chirurgie cardiaque",
+        "message": "Bonjour, j'aurais besoin d'informations sur les services de cardiologie et de chirurgie cardiaque de l'établissement Asad Healthcare. Pourriez-vous m'aider ?"
+      },
+      "ortho": {
+        "label": "Orthopédie et prothèses articulaires",
+        "message": "Bonjour, j'aurais besoin d'informations sur les traitements orthopédiques ou les prothèses articulaires proposés par Asad Healthcare. Pourriez-vous m'aider ?"
+      },
+      "cancer": {
+        "label": "Traitement du cancer (oncologie)",
+        "message": "Bonjour, j'aurais besoin d'informations sur les options de traitement du cancer proposées par Asad Healthcare. Pourriez-vous m'aider ?"
+      },
+      "transplant": {
+        "label": "Greffe de rein / de foie",
+        "message": "Bonjour, j'aurais besoin d'informations sur la greffe de rein ou de foie à l'Asad Healthcare. Pourriez-vous m'aider ?"
+      },
+      "neuro": {
+        "label": "Neurologie et chirurgie cérébrale",
+        "message": "Bonjour, j'aurais besoin d'informations sur la neurologie ou la chirurgie cérébrale à l'Asad Healthcare. Pouvez-vous m'aider ?"
+      },
+      "eye": {
+        "label": "Soins des yeux et de la vue",
+        "message": "Bonjour, j'aurais besoin d'informations sur les traitements ophtalmologiques proposés par Asad Healthcare. Pourriez-vous m'aider ?"
+      },
+      "cosmetic": {
+        "label": "Chirurgie esthétique / Chirurgie plastique",
+        "message": "Bonjour, j'aimerais obtenir des informations sur la chirurgie esthétique ou plastique proposée par Asad Healthcare. Pouvez-vous m'aider ?"
+      },
+      "general": {
+        "label": "Demande d'informations générales",
+        "message": "Bonjour, j'ai une question d'ordre général concernant les soins médicaux en Inde par l'intermédiaire d'Asad Healthcare. Pouvez-vous m'aider ?"
+      }
+    },
+    "button": "Discutez avec nous",
+    "greeting": "👋 Bonjour ! Bienvenue sur <strong>Asad Healthcare</strong>.<br />En quoi pouvons-nous vous aider aujourd'hui ?",
+    "footer": "Propulsé par WhatsApp · Sécurisé et confidentiel"
   }
 }

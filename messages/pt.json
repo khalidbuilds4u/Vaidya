@@ -1069,5 +1069,48 @@
     "timeEstimate": "Demora menos de 2 minutos",
     "noThanks": "Não, obrigado",
     "getPlan": "Adquirir plano"
+  },
+  "WhatsAppChat": {
+    "header": {
+      "title": "Asad Healthcare",
+      "subtitle": "Normalmente responde em poucos minutos"
+    },
+    "topics": {
+      "heart": {
+        "label": "Coração e Cirurgia Cardíaca",
+        "message": "Olá, preciso de informações sobre Cardiologia e Cirurgia Cardíaca no Asad Healthcare. Podem ajudar-me?"
+      },
+      "ortho": {
+        "label": "Ortopedia e Substituição de Articulações",
+        "message": "Olá, preciso de informações sobre tratamentos ortopédicos ou de substituição de articulações no Asad Healthcare. Podem ajudar-me?"
+      },
+      "cancer": {
+        "label": "Tratamento do cancro (Oncologia)",
+        "message": "Olá, preciso de informações sobre as opções de tratamento do cancro na Asad Healthcare. Podem ajudar-me?"
+      },
+      "transplant": {
+        "label": "Transplante de rim / fígado",
+        "message": "Olá, preciso de informações sobre transplantes de rim ou de fígado no Asad Healthcare. Podem ajudar-me?"
+      },
+      "neuro": {
+        "label": "Neurologia e Neurocirurgia",
+        "message": "Olá, preciso de informações sobre Neurologia ou Neurocirurgia no Asad Healthcare. Podem ajudar-me?"
+      },
+      "eye": {
+        "label": "Tratamento dos olhos e da visão",
+        "message": "Olá, preciso de informações sobre tratamentos oftalmológicos ou da visão na Asad Healthcare. Podem ajudar-me?"
+      },
+      "cosmetic": {
+        "label": "Cirurgia estética / Cirurgia plástica",
+        "message": "Olá, preciso de informações sobre cirurgia estética ou plástica na Asad Healthcare. Podem ajudar-me?"
+      },
+      "general": {
+        "label": "Informações gerais",
+        "message": "Olá, tenho uma dúvida geral sobre tratamentos médicos na Índia através da Asad Healthcare. Podem ajudar-me?"
+      }
+    },
+    "button": "Converse connosco",
+    "greeting": "👋 Olá! Bem-vindo ao <strong>Asad Healthcare</strong>.<br />Em que podemos ajudá-lo hoje?",
+    "footer": "Desenvolvido pelo WhatsApp · Seguro e privado"
   }
 }

@@ -1243,5 +1243,48 @@
     "timeEstimate": "Takes less than 2 minutes",
     "noThanks": "No thanks",
     "getPlan": "Get Plan"
+  },
+  "WhatsAppChat": {
+    "button": "Chat with us",
+    "header": {
+      "title": "Asad Healthcare",
+      "subtitle": "Typically replies within minutes"
+    },
+    "greeting": "👋 Hi! Welcome to <strong>Asad Healthcare</strong>.<br />How can we help you today?",
+    "footer": "Powered by WhatsApp · Secure & Private",
+    "topics": {
+      "heart": {
+        "label": "Heart & Cardiac Surgery",
+        "message": "Hi, I need information about Heart & Cardiac Surgery at Asad Healthcare. Can you help me?"
+      },
+      "ortho": {
+        "label": "Orthopedic & Joint Replacement",
+        "message": "Hi, I need information about Orthopedic or Joint Replacement treatment at Asad Healthcare. Can you help me?"
+      },
+      "cancer": {
+        "label": "Cancer Treatment (Oncology)",
+        "message": "Hi, I need information about Cancer Treatment options at Asad Healthcare. Can you help me?"
+      },
+      "transplant": {
+        "label": "Kidney / Liver Transplant",
+        "message": "Hi, I need information about Kidney or Liver Transplant at Asad Healthcare. Can you help me?"
+      },
+      "neuro": {
+        "label": "Neurology & Brain Surgery",
+        "message": "Hi, I need information about Neurology or Brain Surgery at Asad Healthcare. Can you help me?"
+      },
+      "eye": {
+        "label": "Eye & Vision Treatment",
+        "message": "Hi, I need information about Eye or Vision Treatment at Asad Healthcare. Can you help me?"
+      },
+      "cosmetic": {
+        "label": "Cosmetic / Plastic Surgery",
+        "message": "Hi, I need information about Cosmetic or Plastic Surgery at Asad Healthcare. Can you help me?"
+      },
+      "general": {
+        "label": "General Enquiry",
+        "message": "Hi, I have a general enquiry about medical treatment in India through Asad Healthcare. Can you help me?"
+      }
+    }
   }
 }

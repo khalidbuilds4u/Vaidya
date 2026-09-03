@@ -1069,5 +1069,48 @@
     "timeEstimate": "2 daqiqadan kam vaqt oladi",
     "noThanks": "Yo'q, rahmat",
     "getPlan": "Rejani oling"
+  },
+  "WhatsAppChat": {
+    "header": {
+      "title": "Asad Sog'liqni Saqlash",
+      "subtitle": "Odatda bir necha daqiqa ichida javob beradi"
+    },
+    "topics": {
+      "heart": {
+        "label": "Yurak va kardiak jarrohlik",
+        "message": "Salom, menga Asad Healthcare'dagi yurak va kardiovaskulyar jarrohlik bo'yicha ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "ortho": {
+        "label": "Ortopediya va bo'g'im almashtirish",
+        "message": "Salom, menga Asad Healthcare'da ortopedik yoki bo'g'im almashtirish muolajasi haqida ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "cancer": {
+        "label": "Rak davolash (onkologiya)",
+        "message": "Salom, menga Asad Healthcare'dagi saraton kasalligini davolash usullari haqida ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "transplant": {
+        "label": "Buyrak / Jigar Transplantatsiyasi",
+        "message": "Salom, Asad Healthcare'da buyrak yoki jigar transplantatsiyasi bo'yicha ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "neuro": {
+        "label": "Nevrologiya va miya jarrohligi",
+        "message": "Salom, menga Asad Healthcare'dagi nevrologiya yoki miya jarrohligi bo'yicha ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "eye": {
+        "label": "Ko'z va ko'rishni davolash",
+        "message": "Salom, Asad Healthcare'da ko'z yoki ko'rish muolajasi bo'yicha ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "cosmetic": {
+        "label": "Kosmetika / Plastik jarrohlik",
+        "message": "Salom, menga Asad Healthcare'dagi kosmetik yoki plastik jarrohlik bo'yicha ma'lumot kerak. Menga yordam bera olasizmi?"
+      },
+      "general": {
+        "label": "Umumiy so'rov",
+        "message": "Salom, menda Asad Healthcare orqali Hindistonda tibbiy davolanish bo'yicha umumiy savol bor. Menga yordam bera olasizmi?"
+      }
+    },
+    "button": "Biz bilan suhbatlashing",
+    "greeting": "👋 Salom! Asad Healthcarega xush kelibsiz.<br />Bugun sizga qanday yordam bera olamiz?",
+    "footer": "WhatsApp tomonidan quvvatlanadi · Xavfsiz va shaxsiy"
   }
 }

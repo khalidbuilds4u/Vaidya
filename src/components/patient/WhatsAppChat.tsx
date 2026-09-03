@@ -3,18 +3,9 @@
 import { useState, useRef, useEffect } from "react";
 import { X, ChevronRight, MessageCircle } from "lucide-react";
 
-const WHATSAPP_NUMBER = "919918053077";
+import { useTranslations } from "next-intl";
 
-const QUICK_TOPICS = [
-  { label: "Heart & Cardiac Surgery", emoji: "❤️", message: "Hi, I need information about Heart & Cardiac Surgery at Asad Healthcare. Can you help me?" },
-  { label: "Orthopedic & Joint Replacement", emoji: "🦴", message: "Hi, I need information about Orthopedic or Joint Replacement treatment at Asad Healthcare. Can you help me?" },
-  { label: "Cancer Treatment (Oncology)", emoji: "🎗️", message: "Hi, I need information about Cancer Treatment options at Asad Healthcare. Can you help me?" },
-  { label: "Kidney / Liver Transplant", emoji: "🩺", message: "Hi, I need information about Kidney or Liver Transplant at Asad Healthcare. Can you help me?" },
-  { label: "Neurology & Brain Surgery", emoji: "🧠", message: "Hi, I need information about Neurology or Brain Surgery at Asad Healthcare. Can you help me?" },
-  { label: "Eye & Vision Treatment", emoji: "👁️", message: "Hi, I need information about Eye or Vision Treatment at Asad Healthcare. Can you help me?" },
-  { label: "Cosmetic / Plastic Surgery", emoji: "✨", message: "Hi, I need information about Cosmetic or Plastic Surgery at Asad Healthcare. Can you help me?" },
-  { label: "General Enquiry", emoji: "💬", message: "Hi, I have a general enquiry about medical treatment in India through Asad Healthcare. Can you help me?" },
-];
+const WHATSAPP_NUMBER = "919918053077";
 
 const WA_SVG = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
@@ -23,9 +14,21 @@ const WA_SVG = (
 );
 
 export function WhatsAppChat() {
+  const t = useTranslations("WhatsAppChat");
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+
+  const QUICK_TOPICS = [
+    { label: t("topics.heart.label"), emoji: "❤️", message: t("topics.heart.message") },
+    { label: t("topics.ortho.label"), emoji: "🦴", message: t("topics.ortho.message") },
+    { label: t("topics.cancer.label"), emoji: "🎗️", message: t("topics.cancer.message") },
+    { label: t("topics.transplant.label"), emoji: "🩺", message: t("topics.transplant.message") },
+    { label: t("topics.neuro.label"), emoji: "🧠", message: t("topics.neuro.message") },
+    { label: t("topics.eye.label"), emoji: "👁️", message: t("topics.eye.message") },
+    { label: t("topics.cosmetic.label"), emoji: "✨", message: t("topics.cosmetic.message") },
+    { label: t("topics.general.label"), emoji: "💬", message: t("topics.general.message") },
+  ];
 
   // Handle open animation
   useEffect(() => {
@@ -71,10 +74,10 @@ export function WhatsAppChat() {
                   {WA_SVG}
                 </div>
                 <div>
-                  <p className="text-white font-bold text-sm leading-tight">Asad Healthcare</p>
+                  <p className="text-white font-bold text-sm leading-tight">{t("header.title")}</p>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-                    <p className="text-emerald-100 text-xs">Typically replies within minutes</p>
+                    <p className="text-emerald-100 text-xs">{t("header.subtitle")}</p>
                   </div>
                 </div>
               </div>
@@ -90,11 +93,8 @@ export function WhatsAppChat() {
           {/* Greeting bubble */}
           <div className="bg-[#ECE5DD] dark:bg-slate-900 px-4 pt-4 pb-2">
             <div className="bg-white dark:bg-slate-800 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm max-w-[85%]">
-              <p className="text-slate-700 dark:text-slate-200 text-sm leading-relaxed">
-                👋 Hi! Welcome to <strong>Asad Healthcare</strong>.<br />
-                How can we help you today?
-              </p>
-              <p className="text-slate-400 dark:text-slate-500 text-[10px] mt-1.5 text-right">Asad Healthcare · now</p>
+              <p className="text-slate-700 dark:text-slate-200 text-sm leading-relaxed" dangerouslySetInnerHTML={{ __html: t.raw("greeting") }} />
+              <p className="text-slate-400 dark:text-slate-500 text-[10px] mt-1.5 text-right">{t("header.title")} · now</p>
             </div>
           </div>
 
@@ -120,7 +120,7 @@ export function WhatsAppChat() {
           {/* Footer */}
           <div className="bg-[#ECE5DD] dark:bg-slate-900 pb-3 px-4">
             <p className="text-center text-[10px] text-slate-400 dark:text-slate-600">
-              Powered by WhatsApp · Secure & Private
+              {t("footer")}
             </p>
           </div>
         </div>
@@ -140,7 +140,7 @@ export function WhatsAppChat() {
         )}
         <span className="relative">{WA_SVG}</span>
         <span className={`relative font-bold text-sm whitespace-nowrap overflow-hidden transition-all duration-300 hidden sm:block ${isOpen ? "max-w-0 opacity-0" : "max-w-[120px] opacity-100"}`}>
-          Chat with us
+          {t("button")}
         </span>
       </button>
 
