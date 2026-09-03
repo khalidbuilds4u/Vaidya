@@ -14,3 +14,14 @@ export function getTranslation(data: any, field: string, locale: string) {
   }
   return data?.[field];
 }
+
+export function getStrictTranslation(data: any, field: string, locale: string) {
+  if (locale === 'en') return data?.[field];
+  if (data?.translations && typeof data.translations === 'object') {
+    const translations = data.translations as Record<string, any>;
+    if (translations[locale] && translations[locale][field]) {
+      return translations[locale][field];
+    }
+  }
+  return null;
+}

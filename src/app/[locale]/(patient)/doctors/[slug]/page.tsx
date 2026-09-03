@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import { getTranslation } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { ShareButtons } from '@/components/patient/ShareButtons';
 import { MobileTOC } from '@/components/patient/MobileTOC';

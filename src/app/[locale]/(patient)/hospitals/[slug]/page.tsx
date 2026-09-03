@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { MapPin, CalendarDays, Plane, BedDouble, Search, ChevronRight, CheckCircle2, Building2, ShieldCheck, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import { getTranslation } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { ShareButtons } from '@/components/patient/ShareButtons';
 import { MobileTOC } from '@/components/patient/MobileTOC';

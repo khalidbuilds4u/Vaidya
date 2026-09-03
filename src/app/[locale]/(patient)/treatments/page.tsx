@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description: 'Explore world-class medical treatments, surgeries, and procedures available at top hospitals in India with estimated cost guides.',
 };
 
-import { getTranslation } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { getCachedTreatments } from '@/lib/api';
 

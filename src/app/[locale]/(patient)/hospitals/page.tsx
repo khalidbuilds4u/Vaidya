@@ -4,7 +4,7 @@ import { HospitalCard } from '@/components/patient/HospitalCard';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Search, Filter, Building2 } from 'lucide-react';
-import { getTranslation } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { getCachedHospitals, getCachedCities, getCachedSpecialties } from '@/lib/api';
 

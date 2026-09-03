@@ -4,7 +4,7 @@ import { Search, Filter, Stethoscope } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { DoctorCard } from '@/components/patient/DoctorCard';
-import { getTranslation } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { getCachedDoctors, getCachedCities, getCachedSpecialties } from '@/lib/api';
 
@@ -140,12 +140,12 @@ export default async function DoctorsDirectory({
                   slug={doctor.slug}
                   name={getTranslation(doctor, 'name', locale)}
                   specialty={getTranslation(doctor.specialty, 'name', locale)}
-                  qualifications={doctor.qualifications || undefined}
+                  qualifications={getTranslation(doctor, 'qualifications', locale) || undefined}
                   experience={`${doctor.experienceYears || 15}+`}
                   hospital={getTranslation(doctor.hospital, 'name', locale)}
                   city={getTranslation(doctor.hospital.city, 'name', locale)}
                   image={doctor.imageUrl || ""}
-                  biography={getTranslation(doctor, 'biography', locale) || doctor.biography || undefined}
+                  biography={getStrictTranslation(doctor, 'biography', locale) || undefined}
                 />
               ))}
             </div>

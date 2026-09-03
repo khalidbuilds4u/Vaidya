@@ -88,14 +88,14 @@ export default async function SearchResultsPage({
 
     doctors = rawDoctors.map(d => ({
       slug: d.slug,
-      name: d.name,
-      specialty: d.specialty.name,
-      qualifications: d.qualifications || undefined,
+      name: getTranslation(d, 'name', locale) || d.name,
+      specialty: getTranslation(d.specialty, 'name', locale) || d.specialty.name,
+      qualifications: getTranslation(d, 'qualifications', locale) || undefined,
       experience: d.experienceYears ? `${d.experienceYears}+ Years` : '',
-      hospital: d.hospital.name,
-      city: d.city?.name || d.hospital.city.name,
+      hospital: getTranslation(d.hospital, 'name', locale) || d.hospital.name,
+      city: d.city ? (getTranslation(d.city, 'name', locale) || d.city.name) : (getTranslation(d.hospital.city, 'name', locale) || d.hospital.city.name),
       image: d.imageUrl || '',
-      biography: d.biography || undefined
+      biography: getStrictTranslation(d, 'biography', locale) || undefined
     }));
   }
 

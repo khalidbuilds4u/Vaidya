@@ -9,7 +9,7 @@ import { CheckCircle2, Activity, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
-import { getTranslation } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
@@ -95,9 +95,9 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
     hospital: getTranslation(d.hospital, 'name', locale) || d.hospital.name,
     image: d.imageUrl || "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070",
     city: getTranslation(d.hospital.city, 'name', locale) || 'India',
-    qualifications: getTranslation(d, 'qualifications', locale) || d.qualifications || undefined,
+    qualifications: getTranslation(d, 'qualifications', locale) || undefined,
     experience: d.experienceYears ? `${d.experienceYears}+` : '',
-    biography: getTranslation(d, 'biography', locale) || d.biography || undefined,
+    biography: getStrictTranslation(d, 'biography', locale) || undefined,
     keyExpertise: ['Specialized Care']
   })) : baseDoctors;
 
