@@ -126,11 +126,11 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
             {/* Info */}
             <div className="flex-1 flex flex-col items-center lg:items-start justify-center space-y-3 lg:pt-2">
-              <div className="flex flex-col xl:flex-row xl:items-center items-center lg:items-start gap-3">
+              <div className="flex flex-col xl:flex-row xl:items-start items-center lg:items-start gap-3">
                 <h1 className="text-2xl sm:text-4xl lg:text-5xl font-serif font-bold tracking-tight text-white">
                   {getTranslation(doctor, 'name', locale)}
                 </h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 xl:mt-2.5">
                   <CheckCircle2 className="w-4 h-4" /> {t('authorized')}
                 </span>
               </div>
