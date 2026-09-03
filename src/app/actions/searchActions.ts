@@ -19,6 +19,7 @@ export async function getSearchSuggestions(query: string, cityName: string) {
   const isDoctorGeneric = ['doc', 'doctor', 'surge', 'surgeon', 'dr', 'dr.'].some(term => normalizedQuery.includes(term));
   const isHospitalGeneric = ['hosp', 'hospital', 'clinic'].some(term => normalizedQuery.includes(term));
   const isTreatmentGeneric = ['treat', 'treatment', 'surgery', 'procedure', 'operation'].some(term => normalizedQuery.includes(term));
+  const isContactQuery = ['contact', 'phone', 'number', 'email', 'support', 'help'].some(term => normalizedQuery.includes(term));
 
   const treatments = await prisma.treatment.findMany({
     where: {
@@ -59,5 +60,5 @@ export async function getSearchSuggestions(query: string, cityName: string) {
     select: { name: true, slug: true, city: { select: { name: true } } },
   });
 
-  return { treatments, doctors, hospitals };
+  return { treatments, doctors, hospitals, isContactQuery };
 }

@@ -14,6 +14,7 @@ interface SearchSuggestion {
   treatments: { name: string; slug: string }[];
   doctors: { name: string; slug: string; specialty?: { name: string }; hospital?: { name: string } }[];
   hospitals: { name: string; slug: string; city: { name: string } }[];
+  isContactQuery?: boolean;
 }
 
 export function HeroSearchBar() {
@@ -73,7 +74,7 @@ export function HeroSearchBar() {
     router.push(`/search?${params.toString()}`);
   };
 
-  const hasSuggestions = suggestions.treatments.length > 0 || suggestions.doctors.length > 0 || suggestions.hospitals.length > 0;
+  const hasSuggestions = suggestions.treatments.length > 0 || suggestions.doctors.length > 0 || suggestions.hospitals.length > 0 || suggestions.isContactQuery;
 
   return (
     <motion.div 
@@ -148,6 +149,21 @@ export function HeroSearchBar() {
               </div>
             ) : (
               <div className="max-h-[60vh] overflow-y-auto py-2">
+                
+                {suggestions.isContactQuery && (
+                  <div className="px-2 mb-2">
+                    <Link href="/contact" className="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/5 hover:bg-primary/10 border border-primary/20 group transition-colors">
+                      <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <span className="text-xl">📞</span>
+                      </div>
+                      <div className="flex-1">
+                        <p className="text-sm font-bold text-primary dark:text-teal-400">Contact our 24/7 Support Team</p>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">We are here to assist you with your medical journey.</p>
+                      </div>
+                      <ArrowRight className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </Link>
+                  </div>
+                )}
                 
                 {suggestions.treatments.length > 0 && (
                   <div className="px-2">
