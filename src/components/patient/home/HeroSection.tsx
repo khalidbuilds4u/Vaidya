@@ -16,26 +16,29 @@ export function HeroSection() {
 
 
   return (
-    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
+    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
       
-      {/* 1. Vibrant High-Res Background Image */}
-      <div className="absolute inset-0 pointer-events-none scale-100 sm:scale-[1.02] transition-transform duration-1000">
-        <Image 
-          src="/images/hero-hospital-premium.jpg" 
-          alt="Hospital Background" 
-          fill 
-          priority 
-          className="object-cover object-center" 
-        />
+      {/* Background Elements Wrapper (with overflow-hidden to prevent spillover) */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* 1. Vibrant High-Res Background Image */}
+        <div className="absolute inset-0 scale-100 sm:scale-[1.02] transition-transform duration-1000">
+          <Image 
+            src="/images/hero-hospital-premium.jpg" 
+            alt="Hospital Background" 
+            fill 
+            priority 
+            className="object-cover object-center" 
+          />
+        </div>
+
+        {/* 2. Light Left Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent z-[1] transition-colors duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 dark:from-slate-900/40 to-transparent z-[1] transition-colors duration-500" />
+
+        {/* 3. Ambient Glowing Orbs */}
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-300/20 blur-[120px] z-[2]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-teal-300/20 blur-[120px] z-[2]" />
       </div>
-
-      {/* 2. Light Left Gradient Overlay (keeps left text area crisp white) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent pointer-events-none z-[1] transition-colors duration-500" />
-      <div className="absolute inset-0 bg-gradient-to-b from-white/30 dark:from-slate-900/40 to-transparent pointer-events-none z-[1] transition-colors duration-500" />
-
-      {/* 3. Ambient Glowing Orbs (Soft, light-toned) */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-emerald-300/20 blur-[120px] pointer-events-none z-[2]" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-teal-300/20 blur-[120px] pointer-events-none z-[2]" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
