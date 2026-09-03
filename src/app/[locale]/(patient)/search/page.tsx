@@ -1,13 +1,12 @@
-import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
+import { prisma } from '@/lib/prisma';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { DoctorCard } from '@/components/patient/DoctorCard';
-import { Search, MapPin, AlertCircle, Sparkles, Building2, Stethoscope, ArrowLeft } from 'lucide-react';
+import { Search, MapPin, AlertCircle, Building2, Stethoscope, ArrowLeft } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 export const revalidate = 3600;
-
 
 export default async function SearchResultsPage({
   searchParams,
@@ -18,60 +17,84 @@ export default async function SearchResultsPage({
   const q = typeof resolvedParams.q === 'string' ? resolvedParams.q.toLowerCase() : '';
   const city = typeof resolvedParams.city === 'string' ? resolvedParams.city.toLowerCase() : '';
 
-  // Synonym map for common patient search terms to medical specialties
-  const SYNONYM_MAP: Record<string, string[]> = {
-    'heart': ['cardiology', 'cardiac', 'cardiovascular'],
-    'cancer': ['oncology', 'tumor'],
-    'brain': ['neurology', 'neurosurgeon', 'neuro'],
-    'bone': ['orthopedics', 'orthopaedic', 'joint', 'spine'],
-    'kidney': ['nephrology', 'renal', 'urology'],
-    'liver': ['hepatology', 'transplant'],
-    'stomach': ['gastroenterology', 'gastric'],
-    'lung': ['pulmonology', 'respiratory'],
-    'eye': ['ophthalmology', 'vision'],
-    'skin': ['dermatology'],
-    'child': ['pediatrics', 'paediatrics'],
-    'women': ['gynecology', 'maternity', 'ivf'],
-  };
+  // Construct filters
+  const cityFilterHospital = city ? { city: { name: { contains: city, mode: 'insensitive' as const } } } : {};
+  const cityFilterDoctor = city ? {
+    OR: [
+      { city: { name: { contains: city, mode: 'insensitive' as const } } },
+      { hospital: { city: { name: { contains: city, mode: 'insensitive' as const } } } }
+    ]
+  } : {};
 
-  // Helper to check if search query matches any synonyms
-  const getSearchTerms = (query: string): string[] => {
-    const terms = [query];
-    for (const [key, values] of Object.entries(SYNONYM_MAP)) {
-      if (key.includes(query) || values.some(v => v.includes(query) || query.includes(v))) {
-        terms.push(key, ...values);
+  let hospitals = [];
+  let doctors = [];
+
+  if (q || city) {
+    // Fetch Hospitals
+    const rawHospitals = await prisma.hospital.findMany({
+      where: {
+        isPublished: true,
+        ...(q ? {
+          OR: [
+            { name: { contains: q, mode: 'insensitive' } },
+            { specialties: { some: { name: { contains: q, mode: 'insensitive' } } } }
+          ]
+        } : {}),
+        ...cityFilterHospital
+      },
+      include: {
+        city: true,
+        specialties: true
       }
-    }
-    return terms;
-  };
+    });
 
-  const searchTerms = q ? getSearchTerms(q) : [];
+    hospitals = rawHospitals.map(h => ({
+      slug: h.slug,
+      name: h.name,
+      description: h.description || '',
+      city: h.city.name,
+      image: h.imageUrl || '',
+      accreditations: h.accreditations,
+      beds: h.beds || 0,
+      established: h.established || undefined,
+      airportDistance: h.airportDistance || undefined,
+      specialties: h.specialties.map(s => s.name),
+      hasInternationalSupport: h.internationalServices && h.internationalServices.length > 0
+    }));
 
-  // Filter Hospitals
-  const filteredHospitals = MOCK_HOSPITALS.filter(hospital => {
-    const matchesQuery = !q || searchTerms.some(term => 
-      hospital.name.toLowerCase().includes(term) || 
-      hospital.specialties.some(s => s.toLowerCase().includes(term))
-    );
-      
-    const matchesCity = !city || hospital.city.toLowerCase().includes(city);
-    
-    return matchesQuery && matchesCity;
-  });
+    // Fetch Doctors
+    const rawDoctors = await prisma.doctor.findMany({
+      where: {
+        isPublished: true,
+        ...(q ? {
+          OR: [
+            { name: { contains: q, mode: 'insensitive' } },
+            { specialty: { name: { contains: q, mode: 'insensitive' } } }
+          ]
+        } : {}),
+        ...cityFilterDoctor
+      },
+      include: {
+        hospital: { include: { city: true } },
+        specialty: true,
+        city: true
+      }
+    });
 
-  // Filter Doctors
-  const filteredDoctors = MOCK_DOCTORS.filter(doctor => {
-    const matchesQuery = !q || searchTerms.some(term => 
-      doctor.name.toLowerCase().includes(term) || 
-      doctor.specialty.toLowerCase().includes(term)
-    );
-      
-    const matchesCity = !city || doctor.hospital.toLowerCase().includes(city);
-      
-    return matchesQuery && matchesCity;
-  });
+    doctors = rawDoctors.map(d => ({
+      slug: d.slug,
+      name: d.name,
+      specialty: d.specialty.name,
+      qualifications: d.qualifications || undefined,
+      experience: d.experienceYears ? `${d.experienceYears}+ Years` : '',
+      hospital: d.hospital.name,
+      city: d.city?.name || d.hospital.city.name,
+      image: d.imageUrl || '',
+      biography: d.biography || undefined
+    }));
+  }
 
-  const hasResults = filteredHospitals.length > 0 || filteredDoctors.length > 0;
+  const hasResults = hospitals.length > 0 || doctors.length > 0;
 
   return (
     <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
@@ -149,7 +172,7 @@ export default async function SearchResultsPage({
           <div className="space-y-12 sm:space-y-16">
             
             {/* Hospitals Section */}
-            {filteredHospitals.length > 0 && (
+            {hospitals.length > 0 && (
               <section>
                 <div className="flex justify-between items-end mb-6">
                   <div>
@@ -157,11 +180,11 @@ export default async function SearchResultsPage({
                       <Building2 className="w-4 h-4" />
                       <span>Accredited Hospitals</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{filteredHospitals.length} Hospitals Found</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{hospitals.length} Hospitals Found</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8">
-                  {filteredHospitals.map(hospital => (
+                  {hospitals.map(hospital => (
                     <HospitalCard 
                       key={hospital.slug}
                       {...hospital}
@@ -172,7 +195,7 @@ export default async function SearchResultsPage({
             )}
 
             {/* Doctors Section */}
-            {filteredDoctors.length > 0 && (
+            {doctors.length > 0 && (
               <section>
                 <div className="flex justify-between items-end mb-6">
                   <div>
@@ -180,11 +203,11 @@ export default async function SearchResultsPage({
                       <Stethoscope className="w-4 h-4" />
                       <span>Specialist Doctors</span>
                     </div>
-                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{filteredDoctors.length} Specialists Found</h2>
+                    <h2 className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white">{doctors.length} Specialists Found</h2>
                   </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
-                  {filteredDoctors.map(doctor => (
+                  {doctors.map(doctor => (
                     <DoctorCard 
                       key={doctor.slug}
                       {...doctor}

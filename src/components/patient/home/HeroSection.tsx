@@ -1,31 +1,19 @@
 "use client";
 
 import { useState } from 'react';
-import { useRouter } from '@/i18n/routing';
 import { Link } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import Image from 'next/image';
-import { Search, MapPin, ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
+import { ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { m as motion } from 'framer-motion';
+import { HeroSearchBar } from './HeroSearchBar';
 
 export function HeroSection() {
-  const router = useRouter();
   const t = useTranslations('Hero');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchCity, setSearchCity] = useState('');
 
-  const handleSearch = () => {
-    if (!searchQuery.trim() && !searchCity) return;
-    
-    const params = new URLSearchParams();
-    if (searchQuery.trim()) params.append('q', searchQuery.trim());
-    if (searchCity) params.append('city', searchCity);
-    
-    router.push(`/search?${params.toString()}`);
-  };
+
 
   return (
     <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 overflow-hidden bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
@@ -138,50 +126,7 @@ export function HeroSection() {
             </motion.div>
 
             {/* Sleek Frosted Glass Search Capsule */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-20 shadow-[0_10px_40px_rgba(15,118,110,0.15)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.3)] bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border border-white dark:border-slate-700 transition-colors duration-500"
-            >
-              <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
-                <Search className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-2 shrink-0" />
-                <Input 
-                  type="text" 
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                  placeholder={t('searchPlaceholder')}
-                  className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-base h-9 sm:h-11 px-0 bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500 text-slate-900 dark:text-white font-medium"
-                />
-              </div>
-              
-              <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700 mx-1"></div>
-              
-              <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
-                <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
-                <select 
-                  value={searchCity}
-                  onChange={(e) => setSearchCity(e.target.value)}
-                  className="w-full bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-xs sm:text-base h-9 sm:h-11 cursor-pointer outline-none"
-                >
-                  <option value="" className="text-slate-900">{t('anyCity')}</option>
-                  <option value="New Delhi" className="text-slate-900">New Delhi</option>
-                  <option value="Mumbai" className="text-slate-900">Mumbai</option>
-                  <option value="Chennai" className="text-slate-900">Chennai</option>
-                  <option value="Bangalore" className="text-slate-900">Bangalore</option>
-                  <option value="Hyderabad" className="text-slate-900">Hyderabad</option>
-                </select>
-              </div>
-
-              <Button 
-                size="lg" 
-                onClick={handleSearch} 
-                className="w-full sm:w-auto rounded-xl sm:rounded-full h-10 sm:h-11 px-8 shadow-[0_4px_14px_rgba(15,118,110,0.5)] hover:shadow-[0_6px_20px_rgba(15,118,110,0.7)] transition-all font-bold shrink-0 bg-emerald-500 hover:bg-emerald-400 text-white text-xs sm:text-sm"
-              >
-                {t('searchButton')}
-              </Button>
-            </motion.div>
+            <HeroSearchBar />
           </div>
 
           {/* Right Floating Glass Highlights (Shown on Tablet & Desktop) */}
