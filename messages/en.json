@@ -1506,5 +1506,19 @@
       "cta": "Get Free Treatment Plan",
       "ctaSecondary": "WhatsApp Us Now"
     }
+  },
+  "Blog": {
+    "hero": {
+      "badge": "Medical Insights",
+      "heading": "Our Blog",
+      "subheading": "Expert articles on health, treatments, and medical tourism."
+    },
+    "empty": {
+      "heading": "No Articles Yet",
+      "desc": "We are currently writing some amazing content. Check back shortly!"
+    },
+    "readArticle": "Read Article",
+    "noImage": "No Image",
+    "by": "By"
   }
 }

@@ -4,17 +4,23 @@ import { prisma } from "@/lib/prisma"
 import { FileText, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { getTranslation } from "@/lib/utils"
+import { getTranslations } from "next-intl/server"
 
 export const revalidate = 3600;
 
-
-export const metadata: Metadata = {
-  title: "Health & Wellness Blog | Asad Healthcare",
-  description: "Read the latest insights, news, and tips on medical treatments and wellness.",
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: 'Blog' });
+  return {
+    title: "Health & Wellness Blog | Asad Healthcare",
+    description: t('hero.subheading'),
+  };
 }
 
 export default async function BlogsPage({ params }: { params: Promise<{ locale: string }> }) {
   const resolvedParams = await params;
+  const t = await getTranslations({ locale: resolvedParams.locale, namespace: 'Blog' });
+
   const blogs = await prisma.blogPost.findMany({
     where: { published: true },
     orderBy: { createdAt: "desc" }
@@ -29,13 +35,13 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
         </div>
         <div className="container mx-auto px-4 relative z-10 text-center max-w-3xl">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 text-teal-300 font-semibold text-sm mb-6">
-            <FileText className="w-4 h-4" /> Medical Insights
+            <FileText className="w-4 h-4" /> {t('hero.badge')}
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 tracking-tight">
-            Our Blog
+            {t('hero.heading')}
           </h1>
           <p className="text-lg text-slate-300">
-            Expert articles on health, treatments, and medical tourism.
+            {t('hero.subheading')}
           </p>
         </div>
       </section>
@@ -45,8 +51,8 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
         {blogs.length === 0 ? (
           <div className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-xl p-12 text-center max-w-2xl mx-auto border border-slate-100 dark:border-slate-800 transition-colors duration-500">
             <FileText className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-4 transition-colors duration-500" />
-            <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2 transition-colors duration-500">No Articles Yet</h2>
-            <p className="text-slate-500 dark:text-slate-400 transition-colors duration-500">We are currently writing some amazing content. Check back shortly!</p>
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-white mb-2 transition-colors duration-500">{t('empty.heading')}</h2>
+            <p className="text-slate-500 dark:text-slate-400 transition-colors duration-500">{t('empty.desc')}</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -57,12 +63,14 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
                     <Image src={blog.coverImage} alt={getTranslation(blog, 'title', resolvedParams.locale) || blog.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-slate-400 dark:text-slate-500">
-                      <span className="text-sm font-medium">No Image</span>
+                      <span className="text-sm font-medium">{t('noImage')}</span>
                     </div>
                   )}
                 </div>
                 <div className="p-6 flex flex-col flex-grow">
-                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 transition-colors duration-500">{new Date(blog.createdAt).toLocaleDateString()} • By {blog.authorName}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mb-3 transition-colors duration-500">
+                    {new Date(blog.createdAt).toLocaleDateString(resolvedParams.locale)} • {t('by')} {blog.authorName}
+                  </p>
                   <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors line-clamp-2">
                     {getTranslation(blog, 'title', resolvedParams.locale)}
                   </h3>
@@ -70,7 +78,7 @@ export default async function BlogsPage({ params }: { params: Promise<{ locale: 
                     {getTranslation(blog, 'excerpt', resolvedParams.locale)}
                   </p>
                   <div className="flex items-center text-primary dark:text-teal-400 font-semibold text-sm group-hover:gap-2 transition-all">
-                    Read Article <ArrowRight className="w-4 h-4 ml-1" />
+                    {t('readArticle')} <ArrowRight className="w-4 h-4 ml-1" />
                   </div>
                 </div>
               </Link>

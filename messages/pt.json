@@ -1506,5 +1506,19 @@
       "cta": "Obtenha um plano de tratamento gratuito",
       "ctaSecondary": "Envie-nos uma mensagem pelo WhatsApp agora"
     }
+  },
+  "Blog": {
+    "hero": {
+      "badge": "Perspetivas médicas",
+      "heading": "O nosso blogue",
+      "subheading": "Artigos especializados sobre saúde, tratamentos e turismo médico."
+    },
+    "empty": {
+      "heading": "Ainda não há artigos",
+      "desc": "Estamos neste momento a preparar conteúdos fantásticos. Volta em breve!"
+    },
+    "readArticle": "Ler artigo",
+    "noImage": "Sem imagem",
+    "by": "Por"
   }
 }

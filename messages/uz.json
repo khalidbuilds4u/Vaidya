@@ -1506,5 +1506,19 @@
       "cta": "Bepul davolash rejasini oling",
       "ctaSecondary": "Hozir bizga WhatsApp orqali yozing"
     }
+  },
+  "Blog": {
+    "hero": {
+      "badge": "Tibbiy mulohazalar",
+      "heading": "Blogimiz",
+      "subheading": "Sog'liqni saqlash, davolash usullari va tibbiy turizm bo'yicha ekspert maqolalari."
+    },
+    "empty": {
+      "heading": "Hali maqolalar yo'q",
+      "desc": "Biz hozirda ajoyib kontent yozmoqdamiz. Tez orada yana tekshirib ko'ring!"
+    },
+    "readArticle": "Maqolani o'qing",
+    "noImage": "Rasm yo'q",
+    "by": "Tomonidan"
   }
 }

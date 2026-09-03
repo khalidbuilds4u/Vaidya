@@ -1506,5 +1506,19 @@
       "cta": "Obtenir un devis gratuit",
       "ctaSecondary": "Envoyez-nous un message sur WhatsApp dès maintenant"
     }
+  },
+  "Blog": {
+    "hero": {
+      "badge": "Perspectives médicales",
+      "heading": "Notre blog",
+      "subheading": "Articles d'experts sur la santé, les traitements et le tourisme médical."
+    },
+    "empty": {
+      "heading": "Aucun article pour l'instant",
+      "desc": "Nous sommes en train de rédiger des articles passionnants. Revenez nous voir d'ici peu !"
+    },
+    "readArticle": "Lire l'article",
+    "noImage": "Pas d'image",
+    "by": "Par"
   }
 }
