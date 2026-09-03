@@ -40,7 +40,7 @@ export function HeroSection() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] rounded-full bg-teal-300/20 blur-[120px] z-[2]" />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-40">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           
           {/* Main Hero Card (Frosted Glass Container for High Readability) */}
