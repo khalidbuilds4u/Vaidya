@@ -360,7 +360,76 @@
       "emptyTitle": "Скоро появятся новые истории",
       "emptyDesc": "В настоящее время мы собираем вдохновляющие истории успеха наших пациентов. Загляните к нам чуть позже!",
       "readStory": "Читать рассказ →"
-    }
+    },
+    "reviews": [
+      {
+        "quote": "The NHS waitlist was over 18 months. With Asad Healthcare, I landed in Delhi on Monday, had robotic surgery on Wednesday, and was pain-free within weeks!",
+        "text": "David suffered from severe osteoarthritis in both knees for over 4 years. Facing long waiting times in the UK, he contacted Asad Healthcare. Within 48 hours, he received detailed medical opinions from 3 top orthopedic surgeons. From airport reception to a private recovery suite, the care exceeded five-star hospitality.",
+        "savings": "Saved £26,000 (75%)",
+        "recovery": "Walking without support on Day 3",
+        "treatment": "Bilateral Robotic Knee Replacement",
+        "hospital": "Fortis Memorial Research Institute"
+      },
+      {
+        "quote": "The Arabic translator assigned to me was with my family every single hour. Dr. Trehan and his team are world legends. May God bless them.",
+        "text": "Tariq required an urgent quadruple heart bypass. Asad Healthcare coordinated the emergency medical visa within 24 hours. The surgery was performed using minimally invasive beating-heart techniques, resulting in rapid recovery and zero complications.",
+        "savings": "Saved $42,000 vs USA",
+        "recovery": "Full discharge in 8 days",
+        "treatment": "Coronary Artery Bypass (CABG)",
+        "hospital": "Medanta - The Medicity"
+      },
+      {
+        "quote": "We were told our daughter had no options back home. Apollo’s oncology team gave our child a second life with successful tumor resection.",
+        "text": "The Adeleke family flew to New Delhi for specialized neuro-oncology treatment. The combination of high-precision image-guided surgery and dedicated post-operative pediatric intensive care ensured complete tumor clearance.",
+        "savings": "High Precision CyberKnife",
+        "recovery": "Cancer-Free at 6-Month Review",
+        "treatment": "Advanced Pediatric Oncology Surgery",
+        "hospital": "Indraprastha Apollo Hospitals"
+      },
+      {
+        "quote": "From Russian-speaking patient coordinators to legal committee clearance in 5 days, everything was handled flawlessly. World-class transplant care.",
+        "text": "Facing end-stage liver disease, Sergey received a living-donor transplant with his son as the donor. The complex 12-hour surgery achieved a 100% success rate, supported by comprehensive post-transplant infection isolation suites.",
+        "savings": "Saved $110,000 vs Germany",
+        "recovery": "Donor and Recipient fully recovered",
+        "treatment": "Living Donor Liver Transplant",
+        "hospital": "Max Super Speciality Hospital"
+      },
+      {
+        "quote": "I could not walk for more than 5 minutes due to nerve compression. Today I can stand straight and live without painkillers.",
+        "text": "Grace underwent minimally invasive robotic spine decompression. The state-of-the-art neuro-monitoring ensured zero nerve injury and she returned to Kenya fully rehabilitated within 3 weeks.",
+        "savings": "Saved $34,000",
+        "recovery": "Pain-free mobility restored",
+        "treatment": "Spine Decompression & Scoliosis Correction",
+        "hospital": "Manipal Hospitals"
+      }
+    ],
+    "patients": [
+      {
+        "name": "David",
+        "spec": "Orthopedics",
+        "country": "United Kingdom (London)"
+      },
+      {
+        "name": "Tariq Al-Mansoor",
+        "spec": "Cardiology",
+        "country": "Oman"
+      },
+      {
+        "name": "Amina",
+        "spec": "Oncology",
+        "country": "Nigeria"
+      },
+      {
+        "name": "Elena",
+        "spec": "Organ Transplant",
+        "country": "Uzbekistan"
+      },
+      {
+        "name": "Grace Wanjiku",
+        "spec": "Orthopedics",
+        "country": "Kenya"
+      }
+    ]
   },
   "HospitalsPage": {
     "filters": {
@@ -493,7 +562,17 @@
     },
     "whyChooseUs": {
       "title": "Почему стоит выбрать нас?",
-      "subtitle": "Мы облегчаем вам жизнь разными способами"
+      "subtitle": "Мы облегчаем вам жизнь разными способами",
+      "benefits": [
+        "Patient Room Upgrade",
+        "Stress-Free Free Airport Transfer",
+        "Complimentary City Tour",
+        "Free Tele-consultations",
+        "Enjoy a Complimentary Hotel Stay",
+        "Priority Appointments for Prompt Care",
+        "Tailored Care for Faster Recovery",
+        "Round-the-clock Patient Care"
+      ]
     },
     "international": {
       "virtualConsultation": {
@@ -636,7 +715,52 @@
       "risksTitle": "Возможные риски",
       "risksDisclaimer": "* Любые хирургические процедуры сопряжены с определенным риском. Ваш врач обсудит их с вами во время консультации."
     },
-    "mockArrays": {}
+    "mockArrays": {
+      "causesAndSymptoms": [
+        "Symptoms specific to the condition requiring this treatment",
+        "Failure of conservative management or medications",
+        "Deterioration of quality of life or physical function"
+      ],
+      "diagnosis": [
+        "Standard diagnostic imaging (X-ray, MRI, CT Scan)",
+        "Comprehensive blood and laboratory tests",
+        "Specialist physical examination"
+      ],
+      "preOpPrep": [
+        "Complete physical examination to ensure surgical fitness",
+        "Adjusting current medications",
+        "Pre-operative fasting and preparation"
+      ],
+      "postOpCare": [
+        "Observation in the recovery or intensive care unit",
+        "Physical or occupational therapy (if applicable)",
+        "Strict wound care and medication management",
+        "Gradual return to normal activities"
+      ],
+      "procedureDetails": [
+        "Anesthesia is administered.",
+        "The surgical site is prepared and incisions are made.",
+        "The specific medical intervention is performed.",
+        "Implants or corrections are verified.",
+        "The incision is closed and bandaged."
+      ],
+      "risks": [
+        "Infection",
+        "Bleeding or blood clots",
+        "Adverse reaction to anesthesia",
+        "Nerve damage"
+      ],
+      "faqs": [
+        {
+          "question": "How long does recovery take?",
+          "answer": "Recovery varies by patient but typically takes a few weeks to months depending on the procedure."
+        },
+        {
+          "question": "Is this procedure safe?",
+          "answer": "Yes, our partner hospitals use state-of-the-art technology and the procedures are performed by highly experienced specialists."
+        }
+      ]
+    }
   },
   "SpecialtyDetail": {
     "hero": {
@@ -715,17 +839,65 @@
     },
     "whatWeDo": {
       "title": "Чем мы занимаемся",
-      "desc": "Мы оказываем комплексную поддержку лицам, желающим пройти курс лечения в Индии, в том числе:"
+      "desc": "Мы оказываем комплексную поддержку лицам, желающим пройти курс лечения в Индии, в том числе:",
+      "list": [
+        "Doctor and specialist selection",
+        "Hospital recommendations",
+        "Medical consultation coordination",
+        "Treatment and surgery options",
+        "Medical records coordination",
+        "Treatment cost estimates",
+        "Appointment scheduling",
+        "Visa and travel assistance",
+        "Accommodation and transportation support",
+        "Assistance throughout the medical journey"
+      ]
     },
     "network": {
       "title": "Наша сеть медицинских учреждений",
       "desc": "Мы стремимся обеспечить пациентам доступ к авторитетным больницам, опытным специалистам и современным медицинским учреждениям по всей Индии. Исходя из потребностей пациента, мы помогаем подобрать подходящие варианты медицинского обслуживания и координируем взаимодействие с соответствующими медицинскими учреждениями."
     },
     "approach": {
-      "title": "Наш подход"
+      "title": "Наш подход",
+      "items": [
+        {
+          "title": "Patient-Centred Support",
+          "desc": "We focus on understanding each individual's medical requirements, preferences, and travel needs."
+        },
+        {
+          "title": "Clear & Reliable Information",
+          "desc": "We aim to provide straightforward information about hospitals, doctors, treatments, procedures, and associated services."
+        },
+        {
+          "title": "Professional Coordination",
+          "desc": "We help coordinate communication between patients, healthcare providers, and relevant service partners to make the process more organized."
+        },
+        {
+          "title": "Support Throughout the Journey",
+          "desc": "From the initial enquiry to treatment coordination and travel arrangements, our team remains available to assist at key stages of the medical journey."
+        }
+      ]
     },
     "whyChooseUs": {
-      "title": "Почему стоит выбрать Asad Healthcare?"
+      "title": "Почему стоит выбрать Asad Healthcare?",
+      "items": [
+        {
+          "title": "Experienced Healthcare Connections",
+          "desc": "Access to reputed hospitals and experienced medical specialists across India."
+        },
+        {
+          "title": "Personalized Assistance",
+          "desc": "Support tailored to each individual's healthcare and medical travel requirements."
+        },
+        {
+          "title": "Transparent Communication",
+          "desc": "Clear communication to help patients understand their available healthcare options."
+        },
+        {
+          "title": "Complete Medical Travel Support",
+          "desc": "Assistance with medical coordination, travel planning, accommodation, and related arrangements."
+        }
+      ]
     },
     "statements": {
       "mission": {
