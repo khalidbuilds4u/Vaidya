@@ -855,7 +855,10 @@
     },
     "network": {
       "title": "Our Healthcare Network",
-      "desc": "We work to connect patients with reputed hospitals, experienced specialists, and advanced healthcare facilities across India. Based on the patient's requirements, we help identify suitable healthcare options and coordinate communication with the relevant medical providers."
+      "desc": "We work to connect patients with reputed hospitals, experienced specialists, and advanced healthcare facilities across India. Based on the patient's requirements, we help identify suitable healthcare options and coordinate communication with the relevant medical providers.",
+      "globalStandards": "Global Standards",
+      "accredited": "Internationally Accredited Facilities",
+      "specialists": "World-Renowned Specialists"
     },
     "approach": {
       "title": "Our Approach",

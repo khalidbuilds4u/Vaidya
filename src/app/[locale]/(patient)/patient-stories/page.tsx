@@ -7,7 +7,7 @@ import Link from "next/link"
 export const revalidate = 3600;
 
 
-import { getTranslation } from "@/lib/utils"
+import { getTranslation, stripHtml } from "@/lib/utils"
 import { getTranslations } from "next-intl/server"
 
 export const metadata: Metadata = {
@@ -82,7 +82,7 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
                   )}
                   <div className="relative mb-4 flex-1">
                     <Quote className="absolute -top-1 -left-2 w-8 h-8 text-slate-100 dark:text-slate-800 -z-10 transform rotate-180 transition-colors" />
-                    <p className="text-slate-600 dark:text-slate-400 line-clamp-4 relative z-10 transition-colors">{getTranslation(story, 'content', resolvedParams.locale)}</p>
+                    <p className="text-slate-600 dark:text-slate-400 line-clamp-4 relative z-10 transition-colors">{stripHtml(getTranslation(story, 'content', resolvedParams.locale))}</p>
                   </div>
                   <div className="pt-4 border-t border-slate-100 dark:border-slate-800 mt-auto flex items-center justify-between transition-colors">
                     <div className="flex items-center gap-3">

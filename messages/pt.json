@@ -855,7 +855,10 @@
     },
     "network": {
       "title": "A nossa rede de cuidados de saúde",
-      "desc": "Trabalhamos para colocar os doentes em contacto com hospitais de renome, especialistas experientes e unidades de saúde de ponta em toda a Índia. Com base nas necessidades do doente, ajudamos a identificar opções de cuidados de saúde adequadas e coordenamos a comunicação com os prestadores de cuidados de saúde relevantes."
+      "desc": "Trabalhamos para colocar os doentes em contacto com hospitais de renome, especialistas experientes e unidades de saúde de ponta em toda a Índia. Com base nas necessidades do doente, ajudamos a identificar opções de cuidados de saúde adequadas e coordenamos a comunicação com os prestadores de cuidados de saúde relevantes.",
+      "globalStandards": "Normas globais",
+      "accredited": "Instalações acreditadas a nível internacional",
+      "specialists": "Especialistas de renome mundial"
     },
     "approach": {
       "title": "A nossa abordagem",

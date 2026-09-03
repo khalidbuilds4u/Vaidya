@@ -855,7 +855,10 @@
     },
     "network": {
       "title": "Bizning sog'liqni saqlash tarmog'imiz",
-      "desc": "Biz bemorlarni butun Hindiston bo'ylab obro'li shifoxonalar, tajribali mutaxassislar va ilg'or sog'liqni saqlash muassasalari bilan bog'lash ustida ishlaymiz. Bemorning talablariga asoslanib, biz mos sog'liqni saqlash variantlarini aniqlashda va tegishli tibbiy xizmat ko'rsatuvchilar bilan muloqotni muvofiqlashtirishda yordam beramiz."
+      "desc": "Biz bemorlarni butun Hindiston bo'ylab obro'li shifoxonalar, tajribali mutaxassislar va ilg'or sog'liqni saqlash muassasalari bilan bog'lash ustida ishlaymiz. Bemorning talablariga asoslanib, biz mos sog'liqni saqlash variantlarini aniqlashda va tegishli tibbiy xizmat ko'rsatuvchilar bilan muloqotni muvofiqlashtirishda yordam beramiz.",
+      "globalStandards": "Global standartlar",
+      "accredited": "Xalqaro akkreditatsiyaga ega muassasalar",
+      "specialists": "Dunyo miqyosida tan olingan mutaxassislar"
     },
     "approach": {
       "title": "Bizning yondashuvimiz",

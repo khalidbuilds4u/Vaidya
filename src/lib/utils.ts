@@ -25,3 +25,7 @@ export function getStrictTranslation(data: any, field: string, locale: string) {
   }
   return null;
 }
+
+export function stripHtml(html: string) {
+  return (html || '').replace(/<[^>]*>?/gm, '');
+}

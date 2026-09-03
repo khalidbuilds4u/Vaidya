@@ -12,8 +12,9 @@ export const metadata: Metadata = {
   description: "Learn about Asad Healthcare, our mission, our values, and our commitment to bringing world-class healthcare to international patients.",
 }
 
-export default async function AboutUsPage() {
-  const t = await getTranslations('AboutUs');
+export default async function AboutUsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const resolvedParams = await params;
+  const t = await getTranslations({ locale: resolvedParams.locale, namespace: 'AboutUs' });
   return (
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
       {/* Hero Section */}
@@ -78,7 +79,7 @@ export default async function AboutUsPage() {
             <div className="lg:col-span-5 order-2 lg:order-1">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 dark:bg-teal-500/10 border border-teal-100 dark:border-teal-500/20 text-teal-700 dark:text-teal-400 font-bold uppercase tracking-wider mb-6 text-sm shadow-sm transition-colors duration-500">
                 <Building2 className="w-4 h-4" />
-                Global Standards
+                {t('network.globalStandards')}
               </div>
               <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mb-6 leading-tight transition-colors duration-500">{t('network.title')}</h2>
               <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8 transition-colors duration-500">
@@ -91,13 +92,13 @@ export default async function AboutUsPage() {
                   <div className="w-10 h-10 rounded-full bg-teal-100 dark:bg-teal-500/20 flex items-center justify-center text-teal-600 dark:text-teal-400 shrink-0">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <div className="text-sm font-medium text-slate-700 dark:text-slate-300">Internationally Accredited Facilities</div>
+                  <div className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('network.accredited')}</div>
                 </div>
                 <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700 transition-colors duration-500">
                   <div className="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-500/20 flex items-center justify-center text-blue-600 dark:text-blue-400 shrink-0">
                     <Stethoscope className="w-5 h-5" />
                   </div>
-                  <div className="text-sm font-medium text-slate-700 dark:text-slate-300">World-Renowned Specialists</div>
+                  <div className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('network.specialists')}</div>
                 </div>
               </div>
             </div>

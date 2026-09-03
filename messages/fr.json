@@ -855,7 +855,10 @@
     },
     "network": {
       "title": "Notre réseau de soins de santé",
-      "desc": "Notre mission consiste à mettre les patients en relation avec des hôpitaux réputés, des spécialistes expérimentés et des établissements de santé de pointe dans toute l'Inde. En fonction des besoins de chaque patient, nous l'aidons à identifier les solutions de soins adaptées et assurons la coordination avec les prestataires médicaux concernés."
+      "desc": "Notre mission consiste à mettre les patients en relation avec des hôpitaux réputés, des spécialistes expérimentés et des établissements de santé de pointe dans toute l'Inde. En fonction des besoins de chaque patient, nous l'aidons à identifier les solutions de soins adaptées et assurons la coordination avec les prestataires médicaux concernés.",
+      "globalStandards": "Normes internationales",
+      "accredited": "Établissements accrédités au niveau international",
+      "specialists": "Des spécialistes de renommée mondiale"
     },
     "approach": {
       "title": "Notre approche",
