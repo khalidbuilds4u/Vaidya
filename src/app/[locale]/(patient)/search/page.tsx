@@ -5,14 +5,18 @@ import { Search, MapPin, AlertCircle, Building2, Stethoscope, ArrowLeft } from '
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { getTranslation, getStrictTranslation } from '@/lib/utils';
 
 export const revalidate = 3600;
 
 export default async function SearchResultsPage({
+  params,
   searchParams,
 }: {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
+  const { locale } = await params;
   const resolvedParams = await searchParams;
   const rawQ = typeof resolvedParams.q === 'string' ? resolvedParams.q.toLowerCase() : '';
   const q = rawQ.trim();
