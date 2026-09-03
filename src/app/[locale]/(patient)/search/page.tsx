@@ -14,8 +14,13 @@ export default async function SearchResultsPage({
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
   const resolvedParams = await searchParams;
-  const q = typeof resolvedParams.q === 'string' ? resolvedParams.q.toLowerCase() : '';
+  const rawQ = typeof resolvedParams.q === 'string' ? resolvedParams.q.toLowerCase() : '';
+  const q = rawQ.trim();
   const city = typeof resolvedParams.city === 'string' ? resolvedParams.city.toLowerCase() : '';
+
+  // Check for generic terms
+  const isDoctorGeneric = ['doc', 'doctor', 'surge', 'surgeon', 'dr', 'dr.'].some(term => q.includes(term));
+  const isHospitalGeneric = ['hosp', 'hospital', 'clinic'].some(term => q.includes(term));
 
   // Construct filters
   const cityFilterHospital = city ? { city: { name: { contains: city, mode: 'insensitive' as const } } } : {};
@@ -34,7 +39,7 @@ export default async function SearchResultsPage({
     const rawHospitals = await prisma.hospital.findMany({
       where: {
         isPublished: true,
-        ...(q ? {
+        ...(q && !isHospitalGeneric ? {
           OR: [
             { name: { contains: q, mode: 'insensitive' } },
             { specialties: { some: { name: { contains: q, mode: 'insensitive' } } } }
@@ -66,7 +71,7 @@ export default async function SearchResultsPage({
     const rawDoctors = await prisma.doctor.findMany({
       where: {
         isPublished: true,
-        ...(q ? {
+        ...(q && !isDoctorGeneric ? {
           OR: [
             { name: { contains: q, mode: 'insensitive' } },
             { specialty: { name: { contains: q, mode: 'insensitive' } } }
