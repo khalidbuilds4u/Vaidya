@@ -1197,6 +1197,8 @@
   "ChatbotWidget": {
     "title": "Asad Healthcare Assistant",
     "subtitle": "Online - Replies instantly",
+    "aiDoctor": "AI Doctor",
+    "chatCompleted": "This chat is completed. You can safely close this window.",
     "greeting": "Hello! 👋 I'm your Asad Healthcare Assistant. How can I guide you today?",
     "options": {
       "treatment": "Find a Treatment",

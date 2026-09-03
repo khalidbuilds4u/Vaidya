@@ -1060,7 +1060,9 @@
     "thankYou": "Merci, {nom} ! Nous avons bien reçu votre demande. Notre équipe d'assistance internationale vous contactera sous peu pour vous aider.",
     "placeholderName": "Entrez votre nom...",
     "placeholderContact": "Entrez votre adresse e-mail ou votre numéro de téléphone…",
-    "send": "Envoyer"
+    "send": "Envoyer",
+    "aiDoctor": "AI Doctor",
+    "chatCompleted": "Cette conversation est terminée. Vous pouvez fermer cette fenêtre en toute sécurité."
   },
   "TimedPopup": {
     "freeConsultation": "Consultation gratuite",

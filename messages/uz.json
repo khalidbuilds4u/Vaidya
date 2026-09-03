@@ -1060,7 +1060,9 @@
     "thankYou": "Rahmat, {name}! Biz sizning so'rovingizni qabul qildik. Xalqaro g'amxo'rlik jamoamiz tez orada siz bilan bog'lanib, keyingi yordamni ko'rsatadi.",
     "placeholderName": "Ismingizni kiriting...",
     "placeholderContact": "Elektron pochtangizni yoki telefon raqamingizni kiriting...",
-    "send": "Yuborish"
+    "send": "Yuborish",
+    "aiDoctor": "Sun'iy intellektli shifokor",
+    "chatCompleted": "Ushbu suhbat yakunlandi. Siz bu oynani xavfsiz yopishingiz mumkin."
   },
   "TimedPopup": {
     "freeConsultation": "Bepul maslahat",

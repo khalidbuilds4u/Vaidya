@@ -208,7 +208,7 @@ export function ChatbotWidget() {
               <div className="absolute inset-0 bg-white/5 opacity-50 animate-pulse"></div>
               
               <span className="max-w-0 overflow-hidden group-hover:max-w-[140px] transition-all duration-300 ease-in-out whitespace-nowrap opacity-0 group-hover:opacity-100 font-semibold text-[13px] pl-0 group-hover:pl-4 hidden sm:block tracking-wide text-white relative z-10 drop-shadow-md">
-                AI Doctor
+                {t('aiDoctor')}
               </span>
               <div className="p-3.5 relative flex items-center justify-center z-10">
                 {/* Outer rotating ring */}
@@ -251,7 +251,7 @@ export function ChatbotWidget() {
                   <span className="font-bold text-[15px] leading-tight text-white tracking-wide">{t('title')}</span>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_5px_#34d399]"></span>
-                    <span className="text-[11px] font-medium text-sky-100 tracking-wider uppercase">AI Doctor • {t('subtitle')}</span>
+                    <span className="text-[11px] font-medium text-sky-100 tracking-wider uppercase">{t('aiDoctor')} • {t('subtitle')}</span>
                   </div>
                 </div>
               </div>
@@ -328,7 +328,7 @@ export function ChatbotWidget() {
             
             {step === 'thankYou' && (
               <div className="p-4 bg-teal-50 border-t border-teal-100 text-center text-teal-700 text-xs font-semibold shrink-0">
-                This chat is completed. You can safely close this window.
+                {t('chatCompleted')}
               </div>
             )}
           </motion.div>
