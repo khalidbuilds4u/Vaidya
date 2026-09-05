@@ -32,10 +32,10 @@ export function TrustTicker() {
       <style dangerouslySetInnerHTML={{__html: `
         @keyframes ticker {
           0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-100%); }
         }
         .animate-ticker {
-          animation: ticker 45s linear infinite;
+          animation: ticker 25s linear infinite;
         }
       `}} />
 
@@ -43,22 +43,41 @@ export function TrustTicker() {
       <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
       
-      <div dir="ltr" className="flex w-max animate-ticker cursor-default">
-        {items.map((item, index) => {
-          const Icon = item.icon;
-          return (
-            <div 
-              key={index} 
-              className="flex items-center gap-2.5 px-6 sm:px-10"
-            >
-              <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-teal-400 shrink-0" />
-              <span className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap uppercase tracking-wider">
-                {item.text}
-              </span>
-              <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 dark:bg-teal-500/40 ml-6 sm:ml-10 shrink-0" />
-            </div>
-          );
-        })}
+      <div dir="ltr" className="flex w-full">
+        <div className="flex animate-ticker shrink-0 cursor-default">
+          {items.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div 
+                key={`first-${index}`} 
+                className="flex items-center gap-2.5 px-6 sm:px-10"
+              >
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-teal-400 shrink-0" />
+                <span className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap uppercase tracking-wider">
+                  {item.text}
+                </span>
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 dark:bg-teal-500/40 ml-6 sm:ml-10 shrink-0" />
+              </div>
+            );
+          })}
+        </div>
+        <div className="flex animate-ticker shrink-0 cursor-default" aria-hidden="true">
+          {items.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <div 
+                key={`second-${index}`} 
+                className="flex items-center gap-2.5 px-6 sm:px-10"
+              >
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-600 dark:text-teal-400 shrink-0" />
+                <span className="text-xs sm:text-sm font-bold text-slate-700 dark:text-slate-300 whitespace-nowrap uppercase tracking-wider">
+                  {item.text}
+                </span>
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-400/50 dark:bg-teal-500/40 ml-6 sm:ml-10 shrink-0" />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
