@@ -115,7 +115,10 @@
     "desc": "Nous vous accompagnons tout au long de votre parcours médical, en nous chargeant de toutes les démarches, de l'aide à l'obtention d'un visa à votre admission à l'hôpital, afin que vous puissiez vous concentrer pleinement sur votre traitement et votre rétablissement.",
     "ctaTitle": "Prêt(e) à entamer votre parcours thérapeutique ?",
     "ctaDesc": "Obtenez dès aujourd’hui un avis médical gratuit et sans engagement auprès des meilleurs spécialistes indiens.",
-    "ctaButton": "Bénéficiez d'une consultation gratuite"
+    "ctaButton": "Bénéficiez d'une consultation gratuite",
+    "stepPrefix": "Étape",
+    "freeTag": "100 % gratuit",
+    "supportBanner": "Votre santé est notre priorité. Nous sommes là pour vous accompagner tout au long de votre parcours médical en Inde."
   },
   "Specialties": {
     "counts": {

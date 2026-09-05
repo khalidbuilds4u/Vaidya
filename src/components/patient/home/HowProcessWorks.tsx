@@ -117,9 +117,9 @@ export function HowProcessWorks() {
                 </div>
 
                 <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-white/10 text-xs font-semibold text-teal-400 flex items-center gap-1">
-                  <span>Step {step.step}</span>
+                  <span>{t('stepPrefix')} {step.step}</span>
                   <span className="text-slate-500">•</span>
-                  <span className="text-slate-400">100% Free</span>
+                  <span className="text-slate-400">{t('freeTag')}</span>
                 </div>
               </motion.div>
             );
@@ -131,7 +131,7 @@ export function HowProcessWorks() {
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-400/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
           <p className="text-teal-50 text-base sm:text-lg lg:text-xl font-medium tracking-wide leading-relaxed relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
             <HeartHandshake className="w-6 h-6 sm:w-7 sm:h-7 text-teal-400 shrink-0" />
-            <span>Your health is our priority. We are here to support you throughout your medical journey in India.</span>
+            <span>{t('supportBanner')}</span>
           </p>
         </div>
       </div>

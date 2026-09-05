@@ -115,7 +115,10 @@
     "desc": "Biz tibbiy sayohatingiz davomida vizaga yordam berishdan tortib kasalxonaga yotqizilishgacha bo'lgan barcha ishlarni bajarib, to'liq qo'llab-quvvatlaymiz, shunda siz davolanish va tiklanishga e'tibor qaratishingiz mumkin.",
     "ctaTitle": "Davolanish sayohatingizni boshlashga tayyormisiz?",
     "ctaDesc": "Bugun Hindistonning eng yaxshi mutaxassislari tomonidan bepul va majburiyatsiz tibbiy xulosa oling.",
-    "ctaButton": "Bepul maslahat oling"
+    "ctaButton": "Bepul maslahat oling",
+    "stepPrefix": "Qadam",
+    "freeTag": "100% bepul",
+    "supportBanner": "Sizning sog'lig'ingiz bizning ustuvorligimizdir. Biz Hindistondagi tibbiy safaringiz davomida sizni qo'llab-quvvatlash uchun shu yerdamiz."
   },
   "Specialties": {
     "counts": {

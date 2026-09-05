@@ -115,7 +115,10 @@
     },
     "ctaTitle": "Ready to Start Your Treatment Journey?",
     "ctaDesc": "Get a free, no-obligation medical opinion from India's top specialists today.",
-    "ctaButton": "Get Free Consultation"
+    "ctaButton": "Get Free Consultation",
+    "stepPrefix": "Step",
+    "freeTag": "100% Free",
+    "supportBanner": "Your health is our priority. We are here to support you throughout your medical journey in India."
   },
   "Specialties": {
     "tag": "Specialized Excellence",

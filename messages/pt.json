@@ -115,7 +115,10 @@
     "desc": "Oferecemos um apoio completo ao longo de todo o seu percurso médico, tratando de tudo, desde a assistência na obtenção do visto até à admissão no hospital, para que se possa concentrar no seu tratamento e na sua recuperação.",
     "ctaTitle": "Pronto para iniciar o seu percurso de tratamento?",
     "ctaDesc": "Obtenha hoje mesmo um parecer médico gratuito e sem compromisso dos melhores especialistas da Índia.",
-    "ctaButton": "Obtenha uma consulta gratuita"
+    "ctaButton": "Obtenha uma consulta gratuita",
+    "stepPrefix": "Passo",
+    "freeTag": "100% gratuito",
+    "supportBanner": "A sua saúde é a nossa prioridade. Estamos aqui para o apoiar ao longo de todo o seu percurso médico na Índia."
   },
   "Specialties": {
     "counts": {
@@ -376,7 +379,7 @@
         "savings": "Poupança de 42 000 dólares em relação aos EUA",
         "recovery": "Alta total em 8 dias",
         "treatment": "Cirurgia de revascularização do miocárdio (CABG)",
-        "hospital": "Medanta - The Medicity"
+        "hospital": "Medanta - A Cidade da Medicina"
       },
       {
         "quote": "Disseram-nos que a nossa filha não tinha alternativas no nosso país. A equipa de oncologia do Apollo deu à nossa filha uma segunda oportunidade de vida com a ressecção bem-sucedida do tumor.",
