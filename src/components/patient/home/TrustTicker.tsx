@@ -43,7 +43,7 @@ export function TrustTicker() {
       <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
       
-      <div dir="ltr" className="flex w-max animate-ticker hover:[animation-play-state:paused] cursor-default">
+      <div dir="ltr" className="flex w-max animate-ticker cursor-default">
         {items.map((item, index) => {
           const Icon = item.icon;
           return (
