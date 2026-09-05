@@ -35,7 +35,7 @@ export function TrustTicker() {
           100% { transform: translateX(-100%); }
         }
         .animate-ticker {
-          animation: ticker 25s linear infinite;
+          animation: ticker 60s linear infinite;
         }
       `}} />
 
