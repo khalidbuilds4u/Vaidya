@@ -2,18 +2,28 @@
 
 import { ShieldCheck, HeartPulse, Clock, Sparkles, CheckCircle2, Award } from "lucide-react";
 
-const TRUST_POINTS = [
-  { text: "JCI & NABH Accredited", icon: ShieldCheck },
-  { text: "Zero Wait Times", icon: Clock },
-  { text: "Up to 70% Cost Savings", icon: Sparkles },
-  { text: "Dedicated Translators", icon: HeartPulse },
-  { text: "Top Indian Surgeons", icon: Award },
-  { text: "Seamless Visa Support", icon: CheckCircle2 },
+import { useTranslations } from "next-intl";
+
+const TRUST_ICONS = [
+  ShieldCheck,
+  Clock,
+  Sparkles,
+  HeartPulse,
+  Award,
+  CheckCircle2,
 ];
 
 export function TrustTicker() {
+  const t = useTranslations("TrustTicker");
+  
+  // 6 translation keys, map them to icons
+  const baseItems = TRUST_ICONS.map((icon, i) => ({
+    text: t(`points.${i}`),
+    icon,
+  }));
+
   // Duplicate array multiple times to ensure the marquee spans ultra-wide monitors
-  const items = [...TRUST_POINTS, ...TRUST_POINTS, ...TRUST_POINTS, ...TRUST_POINTS];
+  const items = [...baseItems, ...baseItems, ...baseItems, ...baseItems, ...baseItems, ...baseItems, ...baseItems, ...baseItems];
 
   return (
     <div className="w-full bg-emerald-500/5 dark:bg-teal-500/10 border-y border-emerald-500/10 dark:border-teal-500/20 py-3 sm:py-4 overflow-hidden flex relative mt-8 sm:mt-12 lg:mt-16 z-20">
@@ -33,7 +43,7 @@ export function TrustTicker() {
       <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
       <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent z-10 pointer-events-none" />
       
-      <div className="flex w-max animate-ticker hover:[animation-play-state:paused] cursor-default">
+      <div dir="ltr" className="flex w-max animate-ticker hover:[animation-play-state:paused] cursor-default">
         {items.map((item, index) => {
           const Icon = item.icon;
           return (

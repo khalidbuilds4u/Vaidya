@@ -27,7 +27,7 @@
     "callHelpline": "Appeler la ligne d'assistance : {number}"
   },
   "Hero": {
-    "tagline": "Where Global Trust Meets World-Class Healing",
+    "tagline": "Quand la confiance mondiale rencontre des soins de classe mondiale",
     "titleLine1": "Des soins médicaux de niveau mondial",
     "titleLine2": "En Inde, sans aucun souci.",
     "subtext": "Un accès direct à des hôpitaux de haute spécialité accrédités par la JCI et la NABH, à des spécialistes expérimentés et à des chirurgiens de renom, ainsi qu'un accompagnement complet des patients et des économies pouvant atteindre 70 %.",
@@ -140,7 +140,7 @@
     "browseAll": "Découvrir tous les soins et interventions"
   },
   "Footer": {
-    "tagline": "Where Global Trust Meets World-Class Healing",
+    "tagline": "Quand la confiance mondiale rencontre des soins de classe mondiale",
     "badges": {
       "nabh": "Hôpitaux certifiés NABH et JCI",
       "support": "Service international disponible 24 h/24, 7 j/7",
@@ -1526,5 +1526,15 @@
     "readArticle": "Lire l'article",
     "noImage": "Pas d'image",
     "by": "Par"
+  },
+  "TrustTicker": {
+    "points": [
+      "Accrédité par la JCI et la NABH",
+      "Aucun temps d'attente",
+      "Jusqu’à 70 % d’économies",
+      "Traducteurs spécialisés",
+      "Les meilleurs chirurgiens indiens",
+      "Une prise en charge sans faille des demandes de visa"
+    ]
   }
 }
