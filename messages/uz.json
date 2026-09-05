@@ -1526,5 +1526,15 @@
     "readArticle": "Maqolani o'qing",
     "noImage": "Rasm yo'q",
     "by": "Tomonidan"
+  },
+  "TrustTicker": {
+    "points": [
+      "JCI va NABH akkreditatsiyalangan",
+      "Zero kutish vaqtlari",
+      "70% gacha xarajatlarni tejash",
+      "Bag'ishlangan tarjimonlar",
+      "Eng yaxshi hind jarrohlar",
+      "Uzluksiz Visa qo'llab-quvvatlash"
+    ]
   }
 }

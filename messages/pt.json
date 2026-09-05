@@ -558,7 +558,6 @@
     },
     "share": {
       "title": "Partilhar o Doctor",
-      "whatsapp": "WhatsApp",
       "telegram": "Telegram",
       "facebook": "Facebook",
       "copy": "Copiar link"
@@ -1526,5 +1525,15 @@
     "readArticle": "Ler artigo",
     "noImage": "Sem imagem",
     "by": "Por"
+  },
+  "TrustTicker": {
+    "points": [
+      "Acreditado pela JCI e pela NABH",
+      "Sem tempos de espera",
+      "Poupança de custos até 70%",
+      "Tradutores especializados",
+      "Os melhores cirurgiões indianos",
+      "Apoio sem complicações na obtenção do visto"
+    ]
   }
 }
