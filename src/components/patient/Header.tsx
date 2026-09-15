@@ -32,7 +32,7 @@ export function Header() {
             </div>
             <div className="flex flex-col justify-center">
               <span className="text-base sm:text-xl tracking-tight leading-none whitespace-nowrap">
-                <span className="font-extrabold text-emerald-800 dark:text-emerald-500">Asad</span>
+                <span className="font-extrabold text-cyan-600 dark:text-cyan-400">Asad</span>
                 <span className="font-semibold text-primary ml-1">Healthcare</span>
               </span>
               <span className="text-[8px] sm:text-[10px] font-semibold text-primary/90 tracking-tight mt-0.5 whitespace-nowrap">
