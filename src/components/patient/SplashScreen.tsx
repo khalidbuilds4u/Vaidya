@@ -95,7 +95,7 @@ export function SplashScreen() {
               className="flex flex-col items-center text-center overflow-hidden mb-4"
             >
               <h1 className="text-4xl sm:text-5xl tracking-tight leading-none flex items-center">
-                <span className="font-extrabold text-blue-700 dark:text-blue-400">Asad</span>
+                <span className="font-extrabold text-slate-600 dark:text-slate-300">Asad</span>
                 <span className="font-semibold text-teal-600 dark:text-teal-400 ml-2">Healthcare</span>
               </h1>
             </motion.div>
