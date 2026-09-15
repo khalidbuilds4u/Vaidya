@@ -36,7 +36,7 @@ export function Footer() {
               </div>
               <div>
                 <span className="text-2xl tracking-tight leading-none block">
-                  <span className="font-extrabold text-teal-400">Asad</span>
+                  <span className="font-extrabold text-white">Asad</span>
                   <span className="font-semibold text-teal-400 ml-1">Healthcare</span>
                 </span>
                 <span className="text-[11px] font-medium text-teal-300/80 tracking-wide block mt-0.5">
