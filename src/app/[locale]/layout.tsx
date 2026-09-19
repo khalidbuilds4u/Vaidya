@@ -67,6 +67,11 @@ export default async function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <script dangerouslySetInnerHTML={{ __html: `
+            if (sessionStorage.getItem('splashShown')) {
+              document.documentElement.classList.add('hide-splash');
+            }
+          `}} />
           <SplashScreen />
           <NextTopLoader
             color="#0f766e"

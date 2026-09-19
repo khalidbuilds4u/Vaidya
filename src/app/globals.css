@@ -278,6 +278,13 @@ html.lenis, html.lenis body {
 }
 
 /* =========================================
+   Splash Screen Fix
+   ========================================= */
+html.hide-splash #splash-screen {
+  display: none !important;
+}
+
+/* =========================================
    Google Translate Widget Overrides
    ========================================= */
 /* Hide the google translate banner at the top */

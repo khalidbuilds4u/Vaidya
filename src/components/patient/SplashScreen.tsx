@@ -5,19 +5,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Stethoscope } from "lucide-react";
 
 export function SplashScreen() {
-  const [isVisible, setIsVisible] = useState(false);
-  const [mounted, setMounted] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    setMounted(true);
-    
     // Check if splash has already been shown in this session
     if (sessionStorage.getItem('splashShown')) {
       setIsVisible(false);
       return;
     }
 
-    setIsVisible(true);
     sessionStorage.setItem('splashShown', 'true');
     
     // Increased duration to 2.5s to let the beautiful animation play out fully
@@ -27,14 +23,13 @@ export function SplashScreen() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (!mounted) return null;
-
   return (
     <AnimatePresence>
       {isVisible && (
         <motion.div
+          id="splash-screen"
           key="splash"
-          initial={{ opacity: 0 }}
+          initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ 
             opacity: 0, 
