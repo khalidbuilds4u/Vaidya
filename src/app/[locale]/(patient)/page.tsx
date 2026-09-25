@@ -13,8 +13,9 @@ import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { MobileSearch } from '@/components/patient/home/MobileSearch';
 
-export const revalidate = 3600;
+import { USPTicker } from '@/components/patient/home/USPTicker';
 
+export const revalidate = 3600;
 
 export default async function Home() {
   const t = await getTranslations('Stats');
@@ -22,6 +23,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50 dark:bg-slate-950 transition-colors duration-500">
       <HeroSection />
+      <USPTicker />
 
       {/* Floating Glassmorphic Stats Strip */}
       <section className="container mx-auto px-4 -mt-6 sm:-mt-10 lg:-mt-14 relative z-30">
