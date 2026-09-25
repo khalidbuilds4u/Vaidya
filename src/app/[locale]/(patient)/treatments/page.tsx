@@ -99,7 +99,7 @@ export default async function TreatmentsDirectory({
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8 sm:py-12">
+      <div id="search-results" className="container mx-auto px-4 py-8 sm:py-12">
         
         {/* Specialties Grid */}
         <div className="mb-14 sm:mb-16">

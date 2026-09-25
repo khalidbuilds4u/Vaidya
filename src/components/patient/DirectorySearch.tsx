@@ -19,6 +19,15 @@ function SearchForm({ placeholder }: { placeholder: string }) {
         startTransition(() => {
           if (query.trim()) {
             router.push(`${pathname}?q=${encodeURIComponent(query.trim())}`, { scroll: false });
+            
+            // Auto-scroll to results if they are mostly below the viewport
+            const resultsEl = document.getElementById("search-results");
+            if (resultsEl) {
+              const rect = resultsEl.getBoundingClientRect();
+              if (rect.top > window.innerHeight * 0.5) {
+                resultsEl.scrollIntoView({ behavior: "smooth", block: "start" });
+              }
+            }
           } else {
             router.push(`${pathname}`, { scroll: false });
           }

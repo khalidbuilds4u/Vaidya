@@ -73,7 +73,7 @@ export default async function SpecialtiesDirectory({
         </div>
       </section>
 
-      <div className="container mx-auto px-4 py-8 sm:py-12">
+      <div id="search-results" className="container mx-auto px-4 py-8 sm:py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
           {specialties.map((spec) => {
             const fallbackImage = 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop';
