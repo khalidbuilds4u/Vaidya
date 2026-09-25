@@ -230,16 +230,16 @@ export default async function DoctorEditor({
                 placeholder="e.g. DM (Cardiology), PGIMER" 
               />
               <DynamicListInput 
-                name="professionalExperience" 
-                label="Professional Experience" 
-                initialItems={doctor?.professionalExperience || []} 
-                placeholder="e.g. Associate Professor at AFMC" 
-              />
-              <DynamicListInput 
                 name="areasOfExpertise" 
                 label="Areas of Expertise" 
                 initialItems={doctor?.areasOfExpertise || []} 
                 placeholder="e.g. Complex Angioplasty" 
+              />
+              <DynamicListInput 
+                name="professionalExperience" 
+                label="Professional Experience" 
+                initialItems={doctor?.professionalExperience || []} 
+                placeholder="e.g. Associate Professor at AFMC" 
               />
               <DynamicListInput 
                 name="specialInterests" 
