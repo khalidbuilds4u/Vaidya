@@ -57,7 +57,7 @@ export function HospitalCard({
       <div className="flex flex-col sm:flex-row flex-1">
         
         {/* Image Section */}
-        <div className="w-full sm:w-[35%] lg:w-[40%] h-48 sm:h-auto relative overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
+        <div className="w-full sm:w-[35%] lg:w-[40%] aspect-[4/3] sm:aspect-auto sm:h-auto relative overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
           <Image 
             src={displayImage}
             onError={() => setImgError(true)}
