@@ -87,7 +87,7 @@ export default async function CityEditor({
                 defaultValue={city?.name || ""}
                 required
                 placeholder="e.g. Istanbul"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -101,7 +101,7 @@ export default async function CityEditor({
                 defaultValue={city?.country || ""}
                 required
                 placeholder="e.g. Turkey"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -114,7 +114,7 @@ export default async function CityEditor({
                 name="state"
                 defaultValue={city?.state || ""}
                 placeholder="Optional..."
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -137,7 +137,7 @@ export default async function CityEditor({
               rows={4}
               defaultValue={city?.description || ""}
               placeholder="Brief description of the destination..."
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
             />
           </div>
 

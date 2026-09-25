@@ -105,7 +105,7 @@ export default async function DoctorEditor({
                 defaultValue={doctor?.name || ""}
                 required
                 placeholder="Dr. Sarah Johnson"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -118,7 +118,7 @@ export default async function DoctorEditor({
                 name="qualifications"
                 defaultValue={doctor?.qualifications || ""}
                 placeholder="MBBS, MS, MCh (Cardiology)"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -131,7 +131,7 @@ export default async function DoctorEditor({
                 name="designation"
                 defaultValue={doctor?.designation || ""}
                 placeholder="e.g. Cardiologist, Senior Surgeon"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -143,7 +143,7 @@ export default async function DoctorEditor({
                 name="hospitalId"
                 defaultValue={doctor?.hospitalId || ""}
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               >
                 <option value="" disabled>Select a hospital...</option>
                 {hospitals.map(h => (
@@ -160,7 +160,7 @@ export default async function DoctorEditor({
                 name="specialtyId"
                 defaultValue={doctor?.specialtyId || ""}
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               >
                 <option value="" disabled>Select a specialty...</option>
                 {specialties.map(s => (
@@ -176,7 +176,7 @@ export default async function DoctorEditor({
               <select
                 name="cityId"
                 defaultValue={doctor?.cityId || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               >
                 <option value="">Select a city (Optional)...</option>
                 {cities.map(c => (
@@ -195,7 +195,7 @@ export default async function DoctorEditor({
                 min="0"
                 defaultValue={doctor?.experienceYears || ""}
                 placeholder="15"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -304,15 +304,15 @@ export default async function DoctorEditor({
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Name (Arabic)</label>
-                <input type="text" name="name_ar" defaultValue={(doctor?.translations as any)?.ar?.name || ""} placeholder="دكتور سارة جونسون" className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right" dir="rtl" />
+                <input type="text" name="name_ar" defaultValue={(doctor?.translations as any)?.ar?.name || ""} placeholder="دكتور سارة جونسون" className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right text-slate-900 placeholder:text-slate-400" dir="rtl" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Qualifications (Arabic)</label>
-                <input type="text" name="qualifications_ar" defaultValue={(doctor?.translations as any)?.ar?.qualifications || ""} placeholder="بكالوريوس الطب والجراحة..." className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right" dir="rtl" />
+                <input type="text" name="qualifications_ar" defaultValue={(doctor?.translations as any)?.ar?.qualifications || ""} placeholder="بكالوريوس الطب والجراحة..." className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right text-slate-900 placeholder:text-slate-400" dir="rtl" />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">Designation (Arabic)</label>
-                <input type="text" name="designation_ar" defaultValue={(doctor?.translations as any)?.ar?.designation || ""} placeholder="استشاري أول..." className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right" dir="rtl" />
+                <input type="text" name="designation_ar" defaultValue={(doctor?.translations as any)?.ar?.designation || ""} placeholder="استشاري أول..." className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-right text-slate-900 placeholder:text-slate-400" dir="rtl" />
               </div>
             </div>
             
@@ -328,7 +328,7 @@ export default async function DoctorEditor({
           <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
               <label className="text-sm font-semibold text-slate-900">Visibility Status:</label>
-              <select name="isPublished" defaultValue={doctor?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary">
+              <select name="isPublished" defaultValue={doctor?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary text-slate-900 placeholder:text-slate-400">
                 <option value="true">Published (Public)</option>
                 <option value="false">Draft (Hidden)</option>
               </select>

@@ -89,7 +89,7 @@ export function HospitalForm({
               name="name"
               defaultValue={initialData?.name || ""}
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               placeholder="Enter hospital name"
             />
           </div>
@@ -103,7 +103,7 @@ export function HospitalForm({
               name="slug"
               defaultValue={initialData?.slug || ""}
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               placeholder="e.g. max-super-speciality"
             />
           </div>
@@ -116,7 +116,7 @@ export function HospitalForm({
               name="cityId"
               defaultValue={initialData?.cityId || ""}
               required
-              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+              className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
             >
               <option value="" disabled>Select a city...</option>
               {cities.map((city) => (
@@ -157,7 +157,7 @@ export function HospitalForm({
             name="address"
             rows={2}
             defaultValue={initialData?.address || ""}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
             placeholder="Full physical address..."
           />
         </div>
@@ -172,7 +172,7 @@ export function HospitalForm({
                 type="number"
                 name="beds"
                 defaultValue={initialData?.beds || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. 500"
               />
             </div>
@@ -182,7 +182,7 @@ export function HospitalForm({
                 type="number"
                 name="icuBeds"
                 defaultValue={initialData?.icuBeds || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. 150"
               />
             </div>
@@ -192,7 +192,7 @@ export function HospitalForm({
                 type="number"
                 name="otCount"
                 defaultValue={initialData?.otCount || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. 15"
               />
             </div>
@@ -202,7 +202,7 @@ export function HospitalForm({
                 type="number"
                 name="established"
                 defaultValue={initialData?.established || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. 2006"
               />
             </div>
@@ -212,7 +212,7 @@ export function HospitalForm({
                 type="number"
                 name="airportDistance"
                 defaultValue={initialData?.airportDistance || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. 13"
               />
             </div>
@@ -222,7 +222,7 @@ export function HospitalForm({
                 type="text"
                 name="accreditations"
                 defaultValue={initialData?.accreditations?.join(", ") || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. JCI, NABH, ISO"
               />
             </div>
@@ -232,7 +232,7 @@ export function HospitalForm({
                 type="text"
                 name="internationalServices"
                 defaultValue={initialData?.internationalServices?.join(", ") || ""}
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
                 placeholder="e.g. Airport Transfer, Visa Assistance, Translators"
               />
             </div>
@@ -320,7 +320,7 @@ export function HospitalForm({
         <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
           <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
             <label className="text-sm font-semibold text-slate-900">Visibility Status:</label>
-            <select name="isPublished" defaultValue={initialData?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary">
+            <select name="isPublished" defaultValue={initialData?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary text-slate-900 placeholder:text-slate-400">
               <option value="true">Published (Public)</option>
               <option value="false">Draft (Hidden)</option>
             </select>

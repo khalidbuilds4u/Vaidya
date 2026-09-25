@@ -88,7 +88,7 @@ export default async function ConditionEditor({
                 defaultValue={condition?.name || ""}
                 required
                 placeholder="e.g. Breast Cancer"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -100,7 +100,7 @@ export default async function ConditionEditor({
                 name="specialtyId"
                 defaultValue={condition?.specialtyId || ""}
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               >
                 <option value="" disabled>Select a specialty...</option>
                 {specialties.map(s => (
@@ -119,7 +119,7 @@ export default async function ConditionEditor({
               rows={3}
               defaultValue={condition?.description || ""}
               placeholder="e.g. Cancer that forms in the cells of the breasts."
-              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+              className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
             />
           </div>
 
@@ -142,7 +142,7 @@ export default async function ConditionEditor({
                 rows={4}
                 defaultValue={condition?.causesAndSymptoms?.join('\n') || ""}
                 placeholder="List causes and symptoms, one per line..."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -155,7 +155,7 @@ export default async function ConditionEditor({
                 rows={4}
                 defaultValue={condition?.diagnosis?.join('\n') || ""}
                 placeholder="List diagnostic procedures, one per line..."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -168,7 +168,7 @@ export default async function ConditionEditor({
                 rows={4}
                 defaultValue={condition?.treatmentOptions?.join('\n') || ""}
                 placeholder="List available treatment options, one per line..."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -190,7 +190,7 @@ export default async function ConditionEditor({
                     : ""
                 }
                 placeholder="Q: What are the first signs?&#10;A: The first signs include..."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
               />
             </div>
           </div>

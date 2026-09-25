@@ -99,7 +99,7 @@ export default async function TreatmentEditor({
                 defaultValue={treatment?.name || ""}
                 required
                 placeholder="e.g. Knee Replacement"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
 
@@ -111,7 +111,7 @@ export default async function TreatmentEditor({
                 name="specialtyId"
                 defaultValue={treatment?.specialtyId || ""}
                 required
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               >
                 <option value="" disabled>Select a specialty...</option>
                 {specialties.map(s => (
@@ -142,7 +142,7 @@ export default async function TreatmentEditor({
                 name="minEstimate"
                 defaultValue={treatment?.minEstimate || ""}
                 placeholder="e.g. 4500"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
             <div className="space-y-2">
@@ -154,7 +154,7 @@ export default async function TreatmentEditor({
                 name="maxEstimate"
                 defaultValue={treatment?.maxEstimate || ""}
                 placeholder="e.g. 6500"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
           </div>
@@ -169,7 +169,7 @@ export default async function TreatmentEditor({
                 name="recovery"
                 defaultValue={treatment?.recovery || ""}
                 placeholder="e.g. 2-3 Weeks"
-                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white"
+                className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
           </div>
@@ -190,7 +190,7 @@ export default async function TreatmentEditor({
                   rows={4}
                   defaultValue={treatment?.causesAndSymptoms?.join('\n') || ""}
                   placeholder="Severe joint pain&#10;Chronic knee inflammation"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
                 />
               </div>
 
@@ -203,7 +203,7 @@ export default async function TreatmentEditor({
                   rows={4}
                   defaultValue={treatment?.diagnosis?.join('\n') || ""}
                   placeholder="X-Rays&#10;MRI Scans&#10;Blood tests"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
                 />
               </div>
 
@@ -216,7 +216,7 @@ export default async function TreatmentEditor({
                   rows={4}
                   defaultValue={treatment?.preOpPrep?.join('\n') || ""}
                   placeholder="Complete physical examination&#10;Adjusting current medications"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
                 />
               </div>
 
@@ -229,7 +229,7 @@ export default async function TreatmentEditor({
                   rows={4}
                   defaultValue={treatment?.postOpCare?.join('\n') || ""}
                   placeholder="Physical therapy&#10;Strict wound care"
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
                 />
               </div>
               
@@ -242,7 +242,7 @@ export default async function TreatmentEditor({
                   rows={4}
                   defaultValue={treatment?.procedureDetails?.join('\n') || ""}
                   placeholder="Anesthesia is administered.&#10;The surgeon removes damaged cartilage..."
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y text-slate-900 placeholder:text-slate-400"
                 />
               </div>
 
@@ -267,7 +267,7 @@ export default async function TreatmentEditor({
                 rows={6}
                 defaultValue={treatment?.faqs ? (treatment.faqs as any[]).map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n') : ""}
                 placeholder="Q: Is the surgery painful?&#10;A: You will receive anesthesia during the surgery...&#10;&#10;Q: When can I return to work?&#10;A: Usually after 3-4 weeks."
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y font-mono"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white resize-y font-mono text-slate-900 placeholder:text-slate-400"
               />
             </div>
           </div>
@@ -278,7 +278,7 @@ export default async function TreatmentEditor({
           <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200">
               <label className="text-sm font-semibold text-slate-900">Visibility Status:</label>
-              <select name="isPublished" defaultValue={treatment?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary">
+              <select name="isPublished" defaultValue={treatment?.isPublished === false ? "false" : "true"} className="px-3 py-1.5 rounded-lg border border-slate-200 text-sm font-medium focus:outline-none focus:border-primary text-slate-900 placeholder:text-slate-400">
                 <option value="true">Published (Public)</option>
                 <option value="false">Draft (Hidden)</option>
               </select>

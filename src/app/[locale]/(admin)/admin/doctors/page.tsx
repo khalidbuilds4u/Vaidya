@@ -60,14 +60,14 @@ export default async function DoctorsAdminPage({
                 type="text"
                 name="search"
                 placeholder="Search doctors..."
-                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
+                className="w-full pl-9 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-slate-900 placeholder:text-slate-400"
               />
             </div>
             
             <select
               name="cityId"
               defaultValue={cityId || ""}
-              className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white"
+              className="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-white text-slate-900 placeholder:text-slate-400"
             >
               <option value="">All Cities</option>
               {cities.map(c => (
