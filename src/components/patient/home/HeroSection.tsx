@@ -17,7 +17,7 @@ export function HeroSection() {
 
 
   return (
-    <section className="relative pt-6 pb-28 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
+    <section className="relative pt-6 pb-12 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
       
       {/* Background Elements Wrapper (with overflow-hidden to prevent spillover) */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -104,7 +104,7 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.5 }}
-              className="flex flex-row items-stretch sm:items-center gap-2 sm:gap-4 mb-8 sm:mb-10 w-full max-w-xl mt-6 sm:mt-0"
+              className="flex flex-row items-stretch sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-10 w-full max-w-xl mt-6 sm:mt-0"
             >
               <div className="flex-1 w-full">
                 <EnquiryForm>
