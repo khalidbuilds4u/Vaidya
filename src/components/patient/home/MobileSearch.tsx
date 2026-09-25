@@ -75,9 +75,9 @@ export function MobileSearch() {
   const hasSuggestions = suggestions.treatments.length > 0 || suggestions.doctors.length > 0 || suggestions.hospitals.length > 0 || suggestions.isContactQuery;
 
   return (
-    <section className="sm:hidden container mx-auto px-4 mt-6 mb-4 relative z-[60]" ref={dropdownRef}>
-      <div className="bg-white dark:bg-slate-900/95 rounded-[1.25rem] p-3.5 shadow-[0_8px_25px_rgba(0,0,0,0.06)] border border-slate-100 dark:border-slate-800 flex flex-col gap-2.5 transition-colors duration-500 relative">
-        <h3 className="text-center font-bold text-slate-800 dark:text-white text-sm mb-0.5">Find your treatment</h3>
+    <section className="container mx-auto px-4 relative z-[60]" ref={dropdownRef}>
+      <div className="bg-white dark:bg-slate-900 rounded-[1.25rem] p-4 shadow-[0_8px_30px_rgba(15,118,110,0.12)] border-t-4 border-t-primary border-x border-b border-slate-200/60 dark:border-slate-800 flex flex-col gap-3 transition-colors duration-500 relative">
+        <h3 className="text-center font-extrabold text-slate-800 dark:text-white text-[15px] mb-0.5 tracking-tight">Find your treatment</h3>
         
         {/* Search Input Row */}
         <div className="flex items-center px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-700 rounded-lg transition-colors duration-500">
