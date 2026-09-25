@@ -5,7 +5,7 @@ import { useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Building2, Stethoscope, ArrowRight, Loader2, Syringe } from 'lucide-react';
+import { Search, MapPin, Building2, Stethoscope, ArrowRight, Loader2, Syringe, ChevronDown, Check } from 'lucide-react';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { getSearchSuggestions } from '@/app/actions/searchActions';
 import Link from 'next/link';
@@ -26,13 +26,18 @@ export function HeroSearchBar() {
   const [suggestions, setSuggestions] = useState<SearchSuggestion>({ treatments: [], doctors: [], hospitals: [] });
   const [isLoading, setIsLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showCityDropdown, setShowCityDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const cityDropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setShowDropdown(false);
+      }
+      if (cityDropdownRef.current && !cityDropdownRef.current.contains(event.target as Node)) {
+        setShowCityDropdown(false);
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
@@ -103,20 +108,53 @@ export function HeroSearchBar() {
       
       <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700 mx-3"></div>
       
-      <div className="flex items-center flex-1 bg-transparent">
+      <div className="relative flex items-center flex-1 bg-transparent" ref={cityDropdownRef}>
         <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
-        <select 
-          value={searchCity}
-          onChange={(e) => setSearchCity(e.target.value)}
-          className="w-full bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-sm sm:text-sm h-10 cursor-pointer outline-none appearance-none"
+        
+        <button 
+          onClick={() => setShowCityDropdown(!showCityDropdown)}
+          className="flex-1 flex items-center justify-between bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-sm sm:text-sm h-10 cursor-pointer outline-none w-full text-left"
         >
-          <option value="" className="text-slate-900">{t('anyCity')}</option>
-          <option value="New Delhi" className="text-slate-900">New Delhi</option>
-          <option value="Mumbai" className="text-slate-900">Mumbai</option>
-          <option value="Chennai" className="text-slate-900">Chennai</option>
-          <option value="Bangalore" className="text-slate-900">Bangalore</option>
-          <option value="Hyderabad" className="text-slate-900">Hyderabad</option>
-        </select>
+          <span className="truncate pr-2">{searchCity || t('anyCity')}</span>
+          <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-200 ${showCityDropdown ? 'rotate-180' : ''}`} />
+        </button>
+
+        <AnimatePresence>
+          {showCityDropdown && (
+            <motion.div
+              initial={{ opacity: 0, y: 10, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.98 }}
+              transition={{ duration: 0.15, ease: "easeOut" }}
+              className="absolute top-full left-0 right-0 mt-3 sm:mt-4 bg-white dark:bg-slate-900 rounded-xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden z-50 py-1.5"
+            >
+              {[
+                { value: "", label: t('anyCity') },
+                { value: "New Delhi", label: "New Delhi" },
+                { value: "Mumbai", label: "Mumbai" },
+                { value: "Chennai", label: "Chennai" },
+                { value: "Bangalore", label: "Bangalore" },
+                { value: "Hyderabad", label: "Hyderabad" }
+              ].map(city => (
+                <button
+                  key={city.label}
+                  onClick={() => {
+                    setSearchCity(city.value);
+                    setShowCityDropdown(false);
+                  }}
+                  className={`w-full flex items-center justify-between px-4 py-2.5 text-sm text-left transition-colors ${
+                    searchCity === city.value 
+                      ? 'bg-primary/5 text-primary dark:bg-teal-400/10 dark:text-teal-400 font-bold' 
+                      : 'text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50 font-medium'
+                  }`}
+                >
+                  {city.label}
+                  {searchCity === city.value && <Check className="w-4 h-4" />}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <Button 
