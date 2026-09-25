@@ -121,7 +121,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 fill
                 priority
                 sizes="(max-width: 640px) 96px, (max-width: 1024px) 128px, 160px"
-                className="object-cover scale-110"
+                className="object-cover object-top scale-110"
               />
             </div>
 
@@ -609,7 +609,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       alt={getTranslation(rd, 'name', locale)} 
                       fill
                       sizes="(max-width: 640px) 80px, 96px"
-                      className="object-cover scale-110 group-hover:scale-[1.15] transition-transform duration-500" 
+                      className="object-cover object-top scale-110 group-hover:scale-[1.15] transition-transform duration-500" 
                     />
                   </div>
                   <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white mb-1 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors line-clamp-1">{getTranslation(rd, 'name', locale)}</h4>
