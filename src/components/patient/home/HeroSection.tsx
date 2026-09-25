@@ -36,18 +36,17 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent z-[1] transition-colors duration-500" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/30 dark:from-slate-900/40 to-transparent z-[1] transition-colors duration-500" />
 
+      {/* Centered Search Bar on Desktop - Absolutely positioned at the true top to touch the navbar */}
+      <div className="hidden sm:flex absolute top-0 left-0 w-full justify-center z-50 pointer-events-auto">
+        <div className="w-full max-w-3xl px-4">
+          <HeroSearchBar />
+        </div>
       </div>
 
       <div className="container mx-auto px-4 relative z-40">
-        
-        {/* Centered Search Bar on Desktop */}
-        <div className="hidden sm:flex justify-center w-full mb-8 lg:mb-12 mt-2 sm:mt-6">
-          <div className="w-full max-w-3xl">
-            <HeroSearchBar />
-          </div>
-        </div>
 
-        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
+
+        <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 pt-8 sm:pt-12 lg:pt-16">
           
           {/* Main Hero Card (Frosted Glass Container for High Readability) */}
           <div className="w-full lg:w-7/12 flex flex-col items-center sm:items-start text-center sm:text-left z-10">
