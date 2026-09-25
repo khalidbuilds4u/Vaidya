@@ -19,8 +19,9 @@ export function ImageUpload({ name, defaultValue }: ImageUploadProps) {
       
       // If the user cropped the image, Cloudinary returns the exact crop coordinates.
       // We modify the URL to request the cropped version directly.
-      if (results.info.coordinates?.custom?.[0]) {
-        const [x, y, w, h] = results.info.coordinates.custom[0];
+      const coordinates = results.info.coordinates as { custom?: number[][] } | undefined;
+      if (coordinates?.custom?.[0]) {
+        const [x, y, w, h] = coordinates.custom[0];
         // Insert the crop transformation right after /upload/ in the URL
         finalUrl = finalUrl.replace('/upload/', `/upload/c_crop,x_${x},y_${y},w_${w},h_${h}/`);
       }
