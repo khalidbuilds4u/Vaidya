@@ -7,3 +7,8 @@ This version has breaking changes — APIs, conventions, and file structure may 
 This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
 
 <!-- END:nextjs-agent-rules -->
+
+
+## AI Developer Guide
+
+Always read `AI_DEVELOPER_GUIDE.md` in the root directory before proposing architectural changes, adding new pages, or writing UI code. It contains critical instructions about Next.js 16 requirements, i18n conventions, and premium UI aesthetics for this specific project.
