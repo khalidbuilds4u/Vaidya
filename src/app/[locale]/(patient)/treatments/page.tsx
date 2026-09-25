@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Explore world-class medical treatments, surgeries, and procedures available at top hospitals in India with estimated cost guides.',
 };
 
-import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
+import { getTranslation, getStrictTranslation, stripHtml } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { getCachedTreatments } from '@/lib/api';
 
@@ -48,9 +48,13 @@ export default async function TreatmentsDirectory({
       treatment.name.toLowerCase().includes(query) || 
       (treatment.specialty?.name || "").toLowerCase().includes(query)
     );
+    dbTreatments = dbTreatments.sort((a, b) => a.name.localeCompare(b.name));
+  } else {
+    // By default, only show 6 treatments as per user request
+    dbTreatments = dbTreatments
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .slice(0, 6);
   }
-  
-  dbTreatments = dbTreatments.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
@@ -160,7 +164,7 @@ export default async function TreatmentsDirectory({
                     </div>
                     
                     <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mb-5 leading-relaxed line-clamp-3">
-                      {getTranslation(treatment, 'description', locale)}
+                      {stripHtml(getTranslation(treatment, 'description', locale) || '')}
                     </p>
                     
                     <div className="space-y-2 py-3 px-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 text-xs sm:text-sm">
@@ -172,7 +176,9 @@ export default async function TreatmentsDirectory({
                       </div>
                       <div className="flex justify-between pt-0.5">
                         <span className="text-slate-500 dark:text-slate-400">{t('popular.recovery')}</span>
-                        <span className="font-semibold text-slate-800 dark:text-slate-200">{getTranslation(treatment, 'recovery', locale) || t('popular.varies')}</span>
+                        <span className="font-semibold text-slate-800 dark:text-slate-200 line-clamp-2" title={stripHtml(getTranslation(treatment, 'recovery', locale) || '')}>
+                          {stripHtml(getTranslation(treatment, 'recovery', locale) || '') || t('popular.varies')}
+                        </span>
                       </div>
                     </div>
                   </div>
