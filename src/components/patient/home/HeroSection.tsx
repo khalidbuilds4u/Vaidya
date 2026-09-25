@@ -107,7 +107,7 @@ export function HeroSection() {
             >
               <div className="flex-1 w-full">
                 <EnquiryForm>
-                  <Button size="lg" className="w-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 rounded-lg shadow-sm transition-all font-semibold bg-primary hover:bg-primary/90 text-white border-0">
+                  <Button size="lg" className="w-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-8 rounded-lg transition-all font-semibold bg-transparent hover:bg-primary/10 text-primary border-2 border-primary backdrop-blur-sm">
                     {t('getFreePlan')}
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
@@ -118,7 +118,7 @@ export function HeroSection() {
                   asChild
                   size="lg" 
                   variant="outline" 
-                  className="w-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-7 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 transition-all font-semibold text-slate-900 dark:text-white bg-white dark:bg-slate-950" 
+                  className="w-full text-sm sm:text-base h-12 sm:h-14 px-6 sm:px-7 rounded-lg hover:bg-slate-800/5 dark:hover:bg-white/5 border-2 border-slate-800 dark:border-white transition-all font-semibold text-slate-900 dark:text-white bg-transparent backdrop-blur-sm" 
                 >
                   <Link href="/hospitals">{t('exploreHospitals')}</Link>
                 </Button>
