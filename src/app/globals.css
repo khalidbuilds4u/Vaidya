@@ -277,12 +277,7 @@ html.lenis, html.lenis body {
   animation: float-subtle 7s ease-in-out 2s infinite;
 }
 
-/* =========================================
-   Splash Screen Fix
-   ========================================= */
-html.hide-splash #splash-screen {
-  display: none !important;
-}
+
 
 /* =========================================
    Google Translate Widget Overrides

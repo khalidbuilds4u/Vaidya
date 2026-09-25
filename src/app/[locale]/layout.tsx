@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import NextTopLoader from 'nextjs-toploader';
 
-import { SplashScreen } from '@/components/patient/SplashScreen';
+
 import { LazyMotionProvider } from "@/components/ui/LazyMotionProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 
@@ -67,12 +67,7 @@ export default async function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          <script dangerouslySetInnerHTML={{ __html: `
-            if (sessionStorage.getItem('splashShown')) {
-              document.documentElement.classList.add('hide-splash');
-            }
-          `}} />
-          <SplashScreen />
+
           <NextTopLoader
             color="#0f766e"
             initialPosition={0.08}
