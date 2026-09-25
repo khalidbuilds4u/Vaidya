@@ -82,9 +82,9 @@ export function HeroSearchBar() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-2xl sm:rounded-full flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-50 shadow-[0_10px_40px_rgba(0,0,0,0.12)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.4)] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-700 transition-colors duration-500 ring-4 ring-white/50 dark:ring-slate-800/50"
+      className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-lg sm:rounded-xl flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-50 shadow-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-500"
     >
-      <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
+      <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50 dark:bg-slate-950 rounded-md sm:rounded-none">
         {isLoading ? (
           <Loader2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-2 shrink-0 animate-spin" />
         ) : (
@@ -103,7 +103,7 @@ export function HeroSearchBar() {
       
       <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700 mx-1"></div>
       
-      <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-slate-50/60 dark:bg-transparent rounded-xl sm:rounded-none">
+      <div className="flex items-center flex-1 px-3 sm:px-4 py-1 sm:py-0 bg-slate-50 dark:bg-slate-950 rounded-md sm:rounded-none">
         <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
         <select 
           value={searchCity}
@@ -122,7 +122,7 @@ export function HeroSearchBar() {
       <Button 
         size="lg" 
         onClick={handleSearch} 
-        className="w-full sm:w-auto rounded-xl sm:rounded-full h-10 sm:h-11 px-8 shadow-[0_4px_14px_rgba(15,118,110,0.5)] hover:shadow-[0_6px_20px_rgba(15,118,110,0.7)] transition-all font-bold shrink-0 bg-emerald-500 hover:bg-emerald-400 text-white text-xs sm:text-sm"
+        className="w-full sm:w-auto rounded-md sm:rounded-lg h-10 sm:h-11 px-8 shadow-sm transition-all font-bold shrink-0 bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm"
       >
         {t('searchButton')}
       </Button>
@@ -135,7 +135,7 @@ export function HeroSearchBar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 mt-3 sm:mt-4 bg-white dark:bg-slate-900 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_60px_-15px_rgba(0,0,0,0.7)] border border-slate-200/80 dark:border-slate-700 overflow-hidden z-50"
+            className="absolute top-full left-0 right-0 mt-2 sm:mt-3 bg-white dark:bg-slate-900 rounded-lg shadow-lg border border-slate-200 dark:border-slate-800 overflow-hidden z-50"
           >
             {isLoading && !hasSuggestions ? (
               <div className="p-6 flex items-center justify-center text-sm text-slate-500">
