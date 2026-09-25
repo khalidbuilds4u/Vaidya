@@ -29,3 +29,14 @@ export function getStrictTranslation(data: any, field: string, locale: string) {
 export function stripHtml(html: string) {
   return (html || '').replace(/<[^>]*>?/gm, '');
 }
+
+export function unescapeHtml(text: string) {
+  if (!text) return text;
+  return text
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&#x27;/g, "'");
+}

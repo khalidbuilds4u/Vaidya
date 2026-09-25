@@ -85,54 +85,69 @@ export default async function HospitalsAdminPage({
               key={hospital.id}
               className="bg-white/[0.04] border border-white/[0.06] rounded-2xl p-5 hover:bg-white/[0.06] transition-colors relative group"
             >
-              <div className="flex justify-between items-start mb-3">
-                <div className="flex items-center gap-3 pr-8">
-                  <h3 className="text-lg font-bold text-white leading-tight">
-                    {hospital.name}
-                  </h3>
-                  {hospital.isPublished ? (
-                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider">
-                      Published
-                    </span>
+              {/* Top: Image + Info */}
+              <div className="flex gap-4 mb-4">
+                {/* Hospital Image */}
+                <div className="w-20 h-20 shrink-0 rounded-xl overflow-hidden bg-white/5 border border-white/10">
+                  {hospital.imageUrl ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={hospital.imageUrl}
+                      alt={hospital.name}
+                      className="w-full h-full object-cover"
+                    />
                   ) : (
-                    <span className="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 text-[10px] font-bold uppercase tracking-wider">
-                      Draft
-                    </span>
+                    <div className="w-full h-full flex flex-col items-center justify-center text-slate-500">
+                      <Building2 className="w-6 h-6 mb-1 opacity-50" />
+                      <span className="text-[10px] uppercase font-bold tracking-wider opacity-50">No Image</span>
+                    </div>
                   )}
                 </div>
+
+                {/* Name + Status + Location */}
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1.5">
+                    <h3 className="text-lg font-bold text-white leading-tight truncate">
+                      {hospital.name}
+                    </h3>
+                    {hospital.isPublished ? (
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-[10px] font-bold uppercase tracking-wider shrink-0">
+                        Published
+                      </span>
+                    ) : (
+                      <span className="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20 text-[10px] font-bold uppercase tracking-wider shrink-0">
+                        Draft
+                      </span>
+                    )}
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-400 mb-1">
+                    <MapPin className="w-3.5 h-3.5 text-primary shrink-0" />
+                    <span className="truncate">
+                      {hospital.city.name}, {hospital.city.country}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2 text-sm text-slate-400">
+                    <Building2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                    <span>
+                      {hospital.beds || "N/A"} Beds • {hospital.icuBeds || "N/A"} ICU
+                    </span>
+                  </div>
+                </div>
               </div>
 
-              <div className="space-y-2 mb-5">
-                <div className="flex items-center gap-2 text-sm text-slate-400">
-                  <MapPin className="w-4 h-4 text-primary shrink-0" />
-                  <span className="truncate">
-                    {hospital.city.name}, {hospital.city.country}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 text-sm text-slate-400">
-                  <Building2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                  <span>
-                    {hospital.beds || "N/A"} Beds • {hospital.icuBeds || "N/A"}{" "}
-                    ICU
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4 text-xs font-semibold text-slate-500 mb-5">
+              {/* Stats */}
+              <div className="flex items-center gap-4 text-xs font-semibold text-slate-500 mb-4">
                 <div>
-                  <span className="text-white text-base">
-                    {hospital._count.doctors}
-                  </span>{" "}
+                  <span className="text-white text-base">{hospital._count.doctors}</span>{" "}
                   Doctors
                 </div>
                 <div>
-                  <span className="text-white text-base">
-                    {hospital._count.treatments}
-                  </span>{" "}
+                  <span className="text-white text-base">{hospital._count.treatments}</span>{" "}
                   Treatments
                 </div>
               </div>
 
+              {/* Footer: Accreditations + Actions */}
               <div className="pt-4 border-t border-white/[0.06] flex items-center justify-between">
                 <div className="flex gap-1.5 flex-wrap">
                   {hospital.accreditations.slice(0, 2).map((acc) => (
@@ -149,7 +164,7 @@ export default async function HospitalsAdminPage({
                     </span>
                   )}
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   <Link
                     href={`/en/hospitals/${hospital.slug}`}

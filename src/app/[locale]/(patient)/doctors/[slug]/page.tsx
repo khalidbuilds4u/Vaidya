@@ -6,7 +6,8 @@ import Link from 'next/link';
 import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation, unescapeHtml  } from '@/lib/utils';
+
 import { getTranslations } from 'next-intl/server';
 import { ShareButtons } from '@/components/patient/ShareButtons';
 import { MobileTOC } from '@/components/patient/MobileTOC';
@@ -273,7 +274,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               <SectionHeader title={t('about')} />
               <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]">
                 {getTranslation(doctor, 'biography', locale) ? (
-                  <p className="whitespace-pre-wrap">{getTranslation(doctor, 'biography', locale)}</p>
+                  <div className="whitespace-pre-wrap" dangerouslySetInnerHTML={{ __html: unescapeHtml(getTranslation(doctor, 'biography', locale) as string) }} />
                 ) : (
                   <p>{t('aboutFallback', { name: getTranslation(doctor, 'name', locale) })}</p>
                 )}

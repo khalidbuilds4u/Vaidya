@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { MapPin, CalendarDays, Plane, BedDouble, Search, ChevronRight, CheckCircle2, Building2, ShieldCheck, Stethoscope } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation, unescapeHtml  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { ShareButtons } from '@/components/patient/ShareButtons';
 import { MobileTOC } from '@/components/patient/MobileTOC';
@@ -232,7 +232,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
                 <SectionHeader title={t('about')} />
                 <div 
                   className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-sm sm:text-base"
-                  dangerouslySetInnerHTML={{ __html: getTranslation(hospital, 'description', locale) || '' }}
+                  dangerouslySetInnerHTML={{ __html: unescapeHtml(getTranslation(hospital, 'description', locale) || '') }}
                 />
               </div>
             )}

@@ -10,7 +10,7 @@ import { CheckCircle2, Clock, DollarSign, HeartPulse, Activity, ArrowRight, Chev
 import Link from 'next/link';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 import { prisma } from '@/lib/prisma';
-import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation, unescapeHtml  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { auth } from '@/lib/auth';
 
@@ -406,9 +406,10 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
                 {t('hero.inIndia', { name: treatment.name })}
               </h1>
-              <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                {treatment.overview}
-              </p>
+              <div 
+                className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed prose prose-invert max-w-none [&>p]:mb-0" 
+                dangerouslySetInnerHTML={{ __html: unescapeHtml(treatment.overview) }} 
+              />
               
               <div className="flex flex-col sm:flex-row gap-4">
                 <EnquiryForm>
