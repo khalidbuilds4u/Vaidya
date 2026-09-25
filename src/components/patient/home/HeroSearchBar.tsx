@@ -82,7 +82,7 @@ export function HeroSearchBar() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="hidden sm:flex w-full p-2 pl-6 rounded-full flex-row items-center relative z-50 shadow-xl bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60 transition-colors duration-500"
+      className="hidden sm:flex w-full p-1.5 pl-5 rounded-full flex-row items-center relative z-50 shadow-lg bg-white dark:bg-slate-900 border border-slate-200/60 dark:border-slate-800/60 transition-colors duration-500"
     >
       <div className="flex items-center flex-[1.5] bg-transparent">
         {isLoading ? (
@@ -97,18 +97,18 @@ export function HeroSearchBar() {
           onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
           onFocus={() => { if (searchQuery.length >= 2) setShowDropdown(true); }}
           placeholder={t('searchPlaceholder')}
-          className="border-0 focus-visible:ring-0 shadow-none text-base h-12 px-0 bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500 text-slate-900 dark:text-white font-medium"
+          className="border-0 focus-visible:ring-0 shadow-none text-sm sm:text-sm h-10 px-0 bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500 text-slate-900 dark:text-white font-medium"
         />
       </div>
       
-      <div className="hidden sm:block w-px h-10 bg-slate-200 dark:bg-slate-700 mx-4"></div>
+      <div className="hidden sm:block w-px h-8 bg-slate-200 dark:bg-slate-700 mx-3"></div>
       
       <div className="flex items-center flex-1 bg-transparent">
         <MapPin className="w-4 h-4 sm:w-5 sm:h-5 text-primary dark:text-teal-400 mr-1.5 shrink-0" />
         <select 
           value={searchCity}
           onChange={(e) => setSearchCity(e.target.value)}
-          className="w-full bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-base h-12 cursor-pointer outline-none appearance-none"
+          className="w-full bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-sm sm:text-sm h-10 cursor-pointer outline-none appearance-none"
         >
           <option value="" className="text-slate-900">{t('anyCity')}</option>
           <option value="New Delhi" className="text-slate-900">New Delhi</option>
@@ -122,7 +122,7 @@ export function HeroSearchBar() {
       <Button 
         size="lg" 
         onClick={handleSearch} 
-        className="rounded-full h-12 px-8 shadow-md transition-all font-bold shrink-0 bg-primary hover:bg-primary/90 text-white text-sm"
+        className="rounded-full h-10 px-6 shadow-sm transition-all font-bold shrink-0 bg-primary hover:bg-primary/90 text-white text-sm"
       >
         {t('searchButton')}
       </Button>

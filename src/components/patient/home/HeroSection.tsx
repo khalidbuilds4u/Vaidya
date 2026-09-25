@@ -38,8 +38,8 @@ export function HeroSection() {
       </div>
 
       {/* Centered Search Bar on Desktop - Absolutely positioned at the true top to touch the navbar */}
-      <div className="hidden sm:flex absolute top-0 left-0 w-full justify-center z-50 pointer-events-auto mt-4">
-        <div className="w-full max-w-4xl px-4">
+      <div className="hidden sm:flex absolute top-0 left-0 w-full justify-center z-50 pointer-events-auto">
+        <div className="w-full max-w-3xl px-4">
           <HeroSearchBar />
         </div>
       </div>
