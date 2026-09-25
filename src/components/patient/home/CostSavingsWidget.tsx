@@ -6,11 +6,11 @@ import { Button } from "@/components/ui/button";
 import { m as motion, AnimatePresence } from "framer-motion";
 
 const TREATMENTS = [
-  { id: "knee", name: "Knee Replacement", usCost: 35000, inCost: 6500 },
-  { id: "heart", name: "Heart Bypass (CABG)", usCost: 120000, inCost: 7500 },
-  { id: "ivf", name: "IVF Treatment", usCost: 15000, inCost: 3500 },
-  { id: "spine", name: "Spinal Fusion", usCost: 110000, inCost: 9000 },
-  { id: "dental", name: "Dental Implants (Full)", usCost: 34000, inCost: 6000 },
+  { id: "knee", name: "Knee Replacement", usCost: 40000, inCost: 4500 },
+  { id: "heart", name: "Heart Bypass (CABG)", usCost: 100000, inCost: 6500 },
+  { id: "spine", name: "Spinal Fusion", usCost: 80000, inCost: 5500 },
+  { id: "ivf", name: "IVF Treatment (1 Cycle)", usCost: 15000, inCost: 3000 },
+  { id: "dental", name: "Full Dental Implants", usCost: 40000, inCost: 8000 },
 ];
 
 export function CostSavingsWidget() {
