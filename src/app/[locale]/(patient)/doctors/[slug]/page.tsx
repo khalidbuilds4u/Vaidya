@@ -424,11 +424,16 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             {doctor.professionalMemberships.length > 0 && (
               <section id="memberships" className="scroll-mt-32">
                 <SectionHeader title={t('professionalMemberships')} />
-                <div className="flex flex-wrap gap-2.5">
-                  {doctor.professionalMemberships.map((item, idx) => (
-                    <span key={idx} className="px-4 py-2 rounded-full border border-primary/20 dark:border-teal-400/20 text-primary dark:text-teal-400 text-[13px] font-medium bg-white dark:bg-slate-900/95 hover:bg-primary/5 transition-colors duration-500">
-                      {item}
-                    </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(doctor, 'professionalMemberships', locale) || doctor.professionalMemberships).map((item: string, idx: number) => (
+                    <div key={idx} className="flex gap-4 items-center p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-indigo-500/30 hover:shadow-md transition-all group duration-500">
+                      <div className="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-900/50 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
+                        <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">
+                          {(idx + 1).toString().padStart(2, '0')}
+                        </span>
+                      </div>
+                      <span className="text-[14px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">{item}</span>
+                    </div>
                   ))}
                 </div>
               </section>
