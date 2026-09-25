@@ -8,7 +8,6 @@ const FeaturedHospitals = dynamic(() => import('@/components/patient/home/Featur
 const PatientStories = dynamic(() => import('@/components/patient/home/PatientStories').then(mod => mod.PatientStories));
 const HowProcessWorks = dynamic(() => import('@/components/patient/home/HowProcessWorks').then(mod => mod.HowProcessWorks));
 const FAQSection = dynamic(() => import('@/components/patient/home/FAQSection').then(mod => mod.FAQSection));
-const TrustTicker = dynamic(() => import('@/components/patient/home/TrustTicker').then(mod => mod.TrustTicker));
 import { Building2, Award, HeartHandshake, Headphones } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import { MobileSearch } from '@/components/patient/home/MobileSearch';
@@ -72,8 +71,6 @@ export default async function Home() {
       </section>
 
       <USPTicker />
-      
-      <TrustTicker />
 
       <MobileSearch />
 
