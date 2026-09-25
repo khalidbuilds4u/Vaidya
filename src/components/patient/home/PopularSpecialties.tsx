@@ -102,7 +102,7 @@ export async function PopularSpecialties() {
         </div>
         
         <div className="mt-8 sm:mt-12 text-center">
-          <Link href={`/${locale}/treatments`}>
+          <Link href={`/${locale}/specialties`}>
             <Button size="lg" className="px-6 sm:px-8 h-11 sm:h-12 rounded-xl sm:rounded-full font-semibold shadow-sm bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm group">
               <span>{t('browseAll')}</span>
               <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />

@@ -34,8 +34,7 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
   const allTreatments = await getCachedTreatments();
   // We only show 6 on the main treatments page, ordered by name (or you could sort manually)
   const dbTreatments = allTreatments
-    .sort((a, b) => a.name.localeCompare(b.name))
-    .slice(0, 6);
+    .sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
