@@ -3,6 +3,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { Plus, Search, Edit } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { stripHtml } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Procedures Management | Asad Healthcare",
@@ -105,7 +106,7 @@ export default async function TreatmentsAdminPage() {
                       </span>
                     </td>
                     <td className="px-6 py-4 max-w-[300px] truncate text-slate-500">
-                      {treatment.description ? treatment.description.replace(/<[^>]*>?/gm, '') : <span className="text-slate-400 italic">No description</span>}
+                      {treatment.description ? stripHtml(treatment.description) : <span className="text-slate-400 italic">No description</span>}
                     </td>
                     <td className="px-6 py-4">
                       {treatment._count.patientCases} Inquiries

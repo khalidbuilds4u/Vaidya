@@ -7,6 +7,7 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { m as motion } from 'framer-motion';
+import { stripHtml } from '@/lib/utils';
 
 export interface DoctorCardProps {
   slug: string;
@@ -80,7 +81,7 @@ export function DoctorCard({
           {/* Biography */}
           {biography ? (
             <p className="text-[13px] sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 sm:mb-5 line-clamp-4">
-              {biography.replace(/<[^>]*>?/gm, '')}
+              {stripHtml(biography)}
             </p>
           ) : (
             <p className="text-[13px] sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4 sm:mb-5 line-clamp-4">

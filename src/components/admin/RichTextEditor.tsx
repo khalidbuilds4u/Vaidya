@@ -5,6 +5,7 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import { Bold, Italic, List, ListOrdered, Heading2, Heading3, Link as LinkIcon, Unlink } from 'lucide-react';
 import { useState } from 'react';
+import { unescapeHtml } from '@/lib/utils';
 
 interface RichTextEditorProps {
   name: string;
@@ -13,7 +14,7 @@ interface RichTextEditorProps {
 }
 
 export function RichTextEditor({ name, defaultValue, placeholder }: RichTextEditorProps) {
-  const [content, setContent] = useState(defaultValue || '');
+  const [content, setContent] = useState(defaultValue ? unescapeHtml(defaultValue) : '');
 
   const editor = useEditor({
     extensions: [
@@ -25,7 +26,7 @@ export function RichTextEditor({ name, defaultValue, placeholder }: RichTextEdit
         },
       }),
     ],
-    content: defaultValue || '',
+    content: defaultValue ? unescapeHtml(defaultValue) : '',
     onUpdate: ({ editor }) => {
       setContent(editor.getHTML());
     },

@@ -8,6 +8,7 @@ import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useState } from 'react';
 import { m as motion } from 'framer-motion';
+import { stripHtml } from '@/lib/utils';
 
 export interface HospitalCardProps {
   slug: string;
@@ -123,7 +124,7 @@ export function HospitalCard({
 
             {description && (
               <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 line-clamp-2 mt-3 leading-relaxed">
-                {description.replace(/<[^>]*>?/gm, '')}
+                {stripHtml(description)}
               </p>
             )}
           </div>
