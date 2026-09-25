@@ -55,6 +55,8 @@ export function ImageUpload({ name, defaultValue }: ImageUploadProps) {
             clientAllowedFormats: ["jpg", "jpeg", "png", "webp"],
             maxFileSize: 5000000, // 5MB
             sources: ["local", "url", "camera", "google_drive", "unsplash"],
+            cropping: true,
+            showSkipCropButton: false,
           }}
         >
           {({ open }) => (
