@@ -15,7 +15,7 @@ export function USPTicker() {
   const items = [...USP, ...USP, ...USP, ...USP];
 
   return (
-    <div className="w-full bg-[#F4FBFA] dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-3 overflow-hidden flex relative z-10">
+    <div className="hidden md:flex w-full bg-[#F4FBFA] dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800 py-3 overflow-hidden relative z-10">
       <style>{`
         @keyframes custom-marquee {
           0% { transform: translateX(0); }
