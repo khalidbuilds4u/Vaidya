@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { DirectorySearch } from '@/components/patient/DirectorySearch';
 import Image from 'next/image';
 import { Search, Stethoscope, HeartPulse, Brain, Bone, ArrowRight, Activity, Sparkles } from 'lucide-react';
 
@@ -27,14 +28,29 @@ function getIconForSpecialty(specialtyName: string) {
 }
 
 
-export default async function TreatmentsDirectory({ params }: { params: Promise<{ locale: string }> }) {
+export default async function TreatmentsDirectory({ 
+  params,
+  searchParams,
+}: { 
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string }>;
+}) {
   const { locale } = await params;
+  const { q } = await searchParams;
   const t = await getTranslations('TreatmentsPage');
 
   const allTreatments = await getCachedTreatments();
-  // We only show 6 on the main treatments page, ordered by name (or you could sort manually)
-  const dbTreatments = allTreatments
-    .sort((a, b) => a.name.localeCompare(b.name));
+  let dbTreatments = allTreatments;
+  
+  if (q) {
+    const query = q.toLowerCase();
+    dbTreatments = dbTreatments.filter(treatment => 
+      treatment.name.toLowerCase().includes(query) || 
+      (treatment.specialty?.name || "").toLowerCase().includes(query)
+    );
+  }
+  
+  dbTreatments = dbTreatments.sort((a, b) => a.name.localeCompare(b.name));
 
   return (
     <div className="bg-slate-50/50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-500">
@@ -74,17 +90,7 @@ export default async function TreatmentsDirectory({ params }: { params: Promise<
             </p>
 
             {/* Quick Search Capsule */}
-            <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-white dark:border-slate-800 shadow-xl max-w-xl transition-colors duration-500">
-              <Search className="h-4 w-4 text-primary dark:text-teal-400 ml-3 mr-1 shrink-0" />
-              <Input 
-                type="text" 
-                placeholder={t('search.placeholder')} 
-                className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 dark:text-white bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500"
-              />
-              <Button size="sm" className="rounded-lg sm:rounded-full h-8 sm:h-9 px-5 bg-primary hover:bg-primary/90 text-white font-semibold text-xs shrink-0">
-                {t('search.button')}
-              </Button>
-            </div>
+            <DirectorySearch placeholder={t('search.placeholder')} buttonText={t('search.button')} />
           </div>
         </div>
       </section>

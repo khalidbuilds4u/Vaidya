@@ -7,6 +7,7 @@ import { getTranslation } from '@/lib/utils';
 import { Activity, Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { DirectorySearch } from '@/components/patient/DirectorySearch';
 
 export const metadata: Metadata = {
   title: 'All Medical Specialties | AsadHealthcare',
@@ -15,14 +16,24 @@ export const metadata: Metadata = {
 
 export const revalidate = 3600;
 
-export default async function SpecialtiesDirectory({ params }: { params: Promise<{ locale: string }> }) {
+export default async function SpecialtiesDirectory({ 
+  params,
+  searchParams,
+}: { 
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ q?: string }>;
+}) {
   const { locale } = await params;
+  const { q } = await searchParams;
   
   // Try to use a namespace if available, otherwise fallback to standard text.
   // Using 'TreatmentsPage' namespace as fallback since it might have generic translations.
   const t = await getTranslations('TreatmentsPage');
 
   const specialties = await prisma.specialty.findMany({
+    where: q ? {
+      name: { contains: q, mode: 'insensitive' }
+    } : undefined,
     orderBy: { name: 'asc' },
   });
 
@@ -57,17 +68,7 @@ export default async function SpecialtiesDirectory({ params }: { params: Promise
               Browse our comprehensive list of world-class medical specialties and departments.
             </p>
 
-            <div className="p-1.5 sm:p-2 rounded-xl sm:rounded-full flex items-center gap-2 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-white dark:border-slate-800 shadow-xl max-w-xl transition-colors duration-500">
-              <Search className="h-4 w-4 text-primary dark:text-teal-400 ml-3 mr-1 shrink-0" />
-              <Input 
-                type="text" 
-                placeholder="Search specialties..." 
-                className="border-0 focus-visible:ring-0 shadow-none text-xs sm:text-sm h-9 sm:h-10 text-slate-900 dark:text-white bg-transparent placeholder:text-slate-400 dark:placeholder:text-slate-500"
-              />
-              <Button size="sm" className="rounded-lg sm:rounded-full h-8 sm:h-9 px-5 bg-primary hover:bg-primary/90 text-white font-semibold text-xs shrink-0">
-                Search
-              </Button>
-            </div>
+            <DirectorySearch placeholder="Search specialties..." buttonText="Search" />
           </div>
         </div>
       </section>
