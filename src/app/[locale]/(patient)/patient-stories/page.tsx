@@ -57,7 +57,7 @@ export default async function PatientStoriesPage({ params }: { params: Promise<{
               <Link key={story.id} href={`/${resolvedParams.locale}/patient-stories/${story.slug}`} className="bg-white dark:bg-slate-900/95 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 overflow-hidden hover:shadow-xl dark:shadow-none transition-all duration-500 flex flex-col group">
                 {story.imageUrl && (
                   <div className="w-full h-48 relative overflow-hidden">
-                    <Image src={story.imageUrl} alt={getTranslation(story, 'title', resolvedParams.locale) || "Story image"} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <Image src={story.imageUrl} alt={getTranslation(story, 'title', resolvedParams.locale) || "Story image"} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className="object-cover object-top group-hover:scale-105 transition-transform duration-500" />
                   </div>
                 )}
                 <div className="p-6 flex-1 flex flex-col">

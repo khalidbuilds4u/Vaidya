@@ -54,7 +54,7 @@ export default async function PatientStoryDetailPage({ params }: { params: Promi
       <section className="bg-slate-900 text-white py-16 sm:py-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20 pointer-events-none">
           {story.imageUrl && (
-            <Image src={story.imageUrl} alt={title} fill priority className="object-cover" />
+            <Image src={story.imageUrl} alt={title} fill priority className="object-cover object-top" />
           )}
         </div>
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 to-slate-900/90" />
@@ -114,7 +114,7 @@ export default async function PatientStoryDetailPage({ params }: { params: Promi
                 alt={title} 
                 fill 
                 sizes="(max-width: 768px) 100vw, 800px"
-                className="object-cover" 
+                className="object-cover object-top" 
                 priority
               />
             </div>
@@ -165,7 +165,7 @@ export default async function PatientStoryDetailPage({ params }: { params: Promi
                       alt={getTranslation(other, 'title', resolvedParams.locale) || "Story"} 
                       fill 
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      className="object-cover group-hover:scale-105 transition-transform duration-300" 
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-300" 
                     />
                   </div>
                 )}
