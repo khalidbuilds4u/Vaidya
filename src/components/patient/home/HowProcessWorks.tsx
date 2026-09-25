@@ -62,10 +62,7 @@ export function HowProcessWorks() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-900 text-white">
-      {/* Background Ambient Glows */}
-      <div className="absolute top-[20%] left-[-10%] w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-[10%] right-[-10%] w-[350px] sm:w-[500px] h-[350px] sm:h-[500px] bg-teal-500/15 rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-900 text-white">
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 
@@ -75,7 +72,7 @@ export function HowProcessWorks() {
           transition={{ duration: 0.6 }}
           className="text-center mb-10 sm:mb-16 max-w-3xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-teal-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800 border border-slate-700 text-teal-400 text-xs font-bold uppercase tracking-wider mb-4">
             {t('tag')}
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-3 text-white">
@@ -96,11 +93,11 @@ export function HowProcessWorks() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="glass-card-dark rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/15 hover:border-teal-400/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
+                className="bg-slate-800 rounded-xl p-6 sm:p-8 border border-slate-700 hover:border-slate-600 transition-colors duration-300 flex flex-col justify-between group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl sm:rounded-2xl bg-gradient-to-br from-primary/30 to-teal-500/20 border border-teal-400/30 flex items-center justify-center text-teal-300 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                    <div className="w-12 h-12 rounded-lg bg-slate-700 flex items-center justify-center text-primary border border-slate-600">
                       <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
                     <span className="text-xl sm:text-2xl font-black text-slate-600 group-hover:text-teal-400/70 transition-colors font-mono">
@@ -127,8 +124,7 @@ export function HowProcessWorks() {
         </div>
 
         {/* Closing Support Banner */}
-        <div className="mt-12 sm:mt-16 mx-auto max-w-4xl bg-gradient-to-r from-teal-500/10 via-teal-400/5 to-emerald-500/10 border border-teal-500/20 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden group hover:border-teal-400/40 transition-colors duration-300">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-teal-400/10 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-1000 ease-in-out pointer-events-none" />
+        <div className="mt-12 sm:mt-16 mx-auto max-w-4xl bg-slate-800 border border-slate-700 rounded-xl p-6 sm:p-8 text-center">
           <p className="text-teal-50 text-base sm:text-lg lg:text-xl font-medium tracking-wide leading-relaxed relative z-10 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
             <HeartHandshake className="w-6 h-6 sm:w-7 sm:h-7 text-teal-400 shrink-0" />
             <span>{t('supportBanner')}</span>

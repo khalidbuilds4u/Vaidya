@@ -90,9 +90,6 @@ export function WhyChooseIndia() {
 
   return (
     <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500">
-      {/* Background Ambient Orbs */}
-      <div className="absolute top-[10%] right-[-5%] w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] ambient-glow rounded-full -z-10" />
-      <div className="absolute bottom-[10%] left-[-5%] w-[350px] sm:w-[450px] h-[350px] sm:h-[450px] ambient-glow-secondary rounded-full -z-10" />
 
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
@@ -105,13 +102,13 @@ export function WhyChooseIndia() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-4 transition-colors duration-500">
                 <Sparkles className="w-3.5 h-3.5" />
                 {t('tag')}
               </div>
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3 sm:mb-4 transition-colors duration-500">
                 {t('title1')} <br className="hidden sm:inline" />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600 dark:from-teal-400 dark:to-emerald-400">
+                <span className="text-primary">
                   {t('title2')}
                 </span>
               </h2>
@@ -130,7 +127,7 @@ export function WhyChooseIndia() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
-                    className="glass-card p-3 sm:p-5 rounded-xl sm:rounded-2xl flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 group hover:border-primary/40 dark:hover:border-teal-400/40 bg-white/90 dark:bg-slate-900/90 dark:border-slate-800/80 transition-colors duration-500"
+                    className="bg-white dark:bg-slate-900 p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-start gap-2.5 sm:gap-3.5 group hover:border-slate-300 dark:hover:border-slate-700 transition-colors duration-500 shadow-sm"
                   >
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-primary/10 text-primary dark:text-teal-400 flex items-center justify-center shrink-0 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300 shadow-xs">
                       <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -157,7 +154,7 @@ export function WhyChooseIndia() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full lg:w-5/12 relative z-10 mt-2 lg:mt-0"
           >
-            <div className="relative glass-panel p-2.5 sm:p-3 rounded-2xl sm:rounded-[2.5rem] shadow-2xl bg-white/95 dark:bg-slate-900/95 border border-white dark:border-slate-800/80 transition-colors duration-500">
+            <div className="relative p-2.5 sm:p-3 rounded-2xl sm:rounded-[2.5rem] shadow-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-500">
               
               {/* Slideshow Image Container */}
               <div className="relative h-[280px] sm:h-[380px] lg:h-[450px] w-full rounded-xl sm:rounded-[2rem] overflow-hidden group">
@@ -183,7 +180,7 @@ export function WhyChooseIndia() {
                     
                     {/* Top Slide Tag */}
                     <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 z-20">
-                      <span className="glass-pill px-3 py-1 rounded-full text-[10px] sm:text-xs font-bold text-white bg-black/40 backdrop-blur-md border border-white/20 shadow-sm">
+                      <span className="px-3 py-1 rounded-md text-[10px] sm:text-xs font-bold text-white bg-slate-900 shadow-sm">
                         {slide.tag}
                       </span>
                     </div>
@@ -201,7 +198,7 @@ export function WhyChooseIndia() {
                 ))}
 
                 {/* Slideshow Navigation Dots & Arrows */}
-                <div className="absolute bottom-3.5 right-3.5 sm:bottom-5 sm:right-5 z-30 flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
+                <div className="absolute bottom-3.5 right-3.5 sm:bottom-5 sm:right-5 z-30 flex items-center gap-1.5 bg-slate-900 px-2.5 py-1 rounded-full">
                   {SLIDES.map((_, dotIdx) => (
                     <button
                       key={dotIdx}
@@ -217,9 +214,8 @@ export function WhyChooseIndia() {
               </div>
             </div>
             
-            {/* Clean Floating Trust Badge Positioned with Zero Overlap */}
-            <div className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 glass-card px-3.5 py-2 rounded-2xl shadow-xl flex items-center gap-2.5 border border-white dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 animate-float z-30 transition-colors duration-500">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-teal-600 dark:from-teal-600 dark:to-emerald-500 text-white flex items-center justify-center font-extrabold text-sm sm:text-base shadow-sm shrink-0">
+            <div className="absolute -top-3 -right-2 sm:-top-4 sm:-right-4 px-3.5 py-2 rounded-xl shadow-md flex items-center gap-2.5 border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 z-30 transition-colors duration-500">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg bg-primary text-white flex items-center justify-center font-extrabold text-sm sm:text-base shadow-sm shrink-0">
                 #1
               </div>
               <div>

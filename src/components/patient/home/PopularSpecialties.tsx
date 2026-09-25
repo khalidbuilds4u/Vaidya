@@ -52,12 +52,10 @@ export async function PopularSpecialties() {
   });
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50/60 dark:bg-slate-900 transition-colors duration-500">
-      {/* Subtle Ambient Orb */}
-      <div className="absolute top-[20%] left-[50%] -translate-x-1/2 w-[500px] h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
+    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
 
       <div className="container mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-4 transition-colors duration-500">
           {t('tag')}
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 transition-colors duration-500">
@@ -78,9 +76,9 @@ export async function PopularSpecialties() {
             const Icon = spec.icon;
             return (
               <Link key={spec.id} href={`/specialties/${spec.slug}`}>
-                <div className="glass-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl text-center cursor-pointer h-full flex flex-col justify-between items-center group relative overflow-hidden bg-white/95 dark:bg-slate-900/95 border border-transparent dark:border-slate-800/80 hover:shadow-lg dark:hover:shadow-none transition-all duration-300">
+                <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-center h-full flex flex-col justify-between items-center group relative overflow-hidden transition-colors duration-300 shadow-sm">
                   
-                  <div className={`w-12 h-12 sm:w-16 sm:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br ${spec.color} flex items-center justify-center mb-3 sm:mb-5 group-hover:scale-110 transition-transform duration-300 shadow-xs dark:opacity-80`}>
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 sm:mb-5 text-primary shadow-sm border border-slate-200 dark:border-slate-700">
                     <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
                   </div>
                   

@@ -180,7 +180,7 @@ export function PatientStories() {
             </div>
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight transition-colors duration-500">
               {t('title')} <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-teal-600 dark:from-teal-400 dark:to-emerald-400">
+              <span className="text-primary">
                 {t('subtitle')}
               </span>
             </h2>
@@ -228,14 +228,14 @@ export function PatientStories() {
                 {/* Play Button Trigger */}
                 <button
                   onClick={() => setSelectedStory(activeStory)}
-                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-white/90 hover:bg-white text-primary flex items-center justify-center shadow-2xl backdrop-blur-md group-hover:scale-110 transition-all duration-300 cursor-pointer border-4 border-white/40"
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white text-primary flex items-center justify-center shadow-lg transition-transform duration-300 cursor-pointer border-4 border-white group-hover:scale-105"
                   aria-label="Play Patient Video Story"
                 >
                   <Play className="w-5 h-5 sm:w-7 sm:h-7 fill-primary ml-1" />
                 </button>
 
                 {/* Top Badge: Country */}
-                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 glass-pill px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-md flex items-center gap-1.5 sm:gap-2 border border-white">
+                <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-md bg-slate-900 shadow-sm flex items-center gap-1.5 sm:gap-2">
                   <span className="text-sm sm:text-base">{activeStory.flag}</span>
                   <span className="text-[11px] sm:text-xs font-bold text-slate-800">{activeStory.country}</span>
                 </div>
