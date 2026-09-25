@@ -9,6 +9,7 @@ import { ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { m as motion } from 'framer-motion';
 import { HeroSearchBar } from './HeroSearchBar';
+import { CostSavingsWidget } from './CostSavingsWidget';
 
 export function HeroSection() {
   const t = useTranslations('Hero');
@@ -129,62 +130,16 @@ export function HeroSection() {
             <HeroSearchBar />
           </div>
 
-          {/* Right Floating Highlights (Shown on Tablet & Desktop) */}
-          <div className="hidden lg:flex w-full lg:w-5/12 flex-col gap-4 items-end justify-center">
-            
-            {/* Highlight Card 1 (JCI & NABH Accreditation) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.3 }}
-              className="p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex items-center gap-4 bg-white dark:bg-slate-900 max-w-sm w-full"
-            >
-              <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 text-primary">
-                <ShieldCheck className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t('card1Sub')}</p>
-                <p className="text-base font-extrabold text-slate-900 dark:text-white leading-tight">{t('card1Title')}</p>
-                <p className="text-[12px] text-slate-500 dark:text-slate-400 mt-0.5">{t('card1Desc')}</p>
-              </div>
-            </motion.div>
-
-            {/* Highlight Card 2 (Success Rate & Volume) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
-              className="p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 flex items-center gap-4 bg-white dark:bg-slate-900 max-w-sm w-full -translate-x-4"
-            >
-              <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0 text-primary">
-                <Building2 className="w-6 h-6" />
-              </div>
-              <div>
-                <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t('card2Sub')}</p>
-                <p className="text-xl font-extrabold text-slate-900 dark:text-white leading-tight">{t('card2Title')}</p>
-                <p className="text-[12px] text-slate-500 dark:text-slate-400 mt-0.5">{t('card2Desc')}</p>
-              </div>
-            </motion.div>
-
-            {/* Highlight Card 3 (Verified Patient Review) */}
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
-              className="p-5 rounded-xl shadow-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 max-w-sm w-full"
-            >
-              <div className="flex items-center gap-1 mb-2">
-                {[1, 2, 3, 4, 5].map((i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <p className="text-sm font-semibold text-slate-900 dark:text-white leading-snug">{t('card3Quote')}</p>
-              <div className="flex items-center justify-between mt-3 pt-3 border-t border-slate-100 dark:border-slate-800 text-[12px] text-slate-500 dark:text-slate-400 font-medium">
-                <span>{t('card3Author')}</span>
-                <span className="text-primary font-bold">{t('card3Proc')}</span>
-              </div>
-            </motion.div>
-
+          {/* Right Floating Cost Estimator */}
+          <div className="hidden lg:flex w-full lg:w-5/12 flex-col items-end justify-center" style={{ perspective: "1000px" }}>
+             <motion.div
+               initial={{ opacity: 0, rotateY: 15, x: 40 }}
+               animate={{ opacity: 1, rotateY: 0, x: 0 }}
+               transition={{ duration: 0.7, delay: 0.4, type: "spring", bounce: 0.2 }}
+               className="w-full max-w-sm"
+             >
+               <CostSavingsWidget />
+             </motion.div>
           </div>
 
         </div>
