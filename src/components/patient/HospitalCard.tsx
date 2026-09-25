@@ -57,14 +57,14 @@ export function HospitalCard({
       <div className="flex flex-col sm:flex-row flex-1">
         
         {/* Image Section */}
-        <div className="w-full sm:w-[35%] lg:w-[40%] h-48 sm:h-auto relative overflow-hidden shrink-0 bg-white dark:bg-slate-800 flex items-center justify-center p-2">
+        <div className="w-full sm:w-[35%] lg:w-[40%] h-48 sm:h-auto relative overflow-hidden shrink-0 bg-slate-100 dark:bg-slate-800">
           <Image 
             src={displayImage}
             onError={() => setImgError(true)}
             alt={name}
             fill
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 35vw, 40vw"
-            className="object-contain group-hover:scale-105 transition-transform duration-700 absolute inset-0 p-2"
+            className="object-cover group-hover:scale-105 transition-transform duration-700 absolute inset-0"
           />
           {hasInternationalSupport && (
             <div className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[8px] sm:text-[9px] font-bold text-white bg-black/60 backdrop-blur-sm shadow-sm">
