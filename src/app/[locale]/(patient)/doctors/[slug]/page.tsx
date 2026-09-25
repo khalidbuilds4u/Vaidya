@@ -78,8 +78,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
   const tocItems = [
     { id: 'about', label: t('about'), show: true },
     { id: 'qualifications', label: t('qualifications'), show: doctor.medicalQualifications.length > 0 },
-    { id: 'expertise', label: t('areasOfExpertise'), show: doctor.areasOfExpertise.length > 0 },
     { id: 'experience', label: t('professionalExperience'), show: doctor.professionalExperience.length > 0 },
+    { id: 'expertise', label: t('areasOfExpertise'), show: doctor.areasOfExpertise.length > 0 },
     { id: 'treatments', label: t('treatmentsAndProcedures'), show: doctor.allTreatments.length > 0 },
     { id: 'interests', label: t('specialInterests'), show: doctor.specialInterests.length > 0 },
     { id: 'fellowships', label: t('fellowshipsAndTraining'), show: doctor.fellowshipsAndTraining.length > 0 },
@@ -300,23 +300,6 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Areas of Expertise */}
-            {doctor.areasOfExpertise.length > 0 && (
-              <section id="expertise" className="scroll-mt-32">
-                <SectionHeader title={t('areasOfExpertise')} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {(getTranslation(doctor, 'areasOfExpertise', locale) || doctor.areasOfExpertise).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/30 dark:hover:border-teal-400/30 transition-colors duration-500">
-                      <div className="w-8 h-8 rounded-lg bg-primary/5 dark:bg-teal-400/10 flex items-center justify-center shrink-0">
-                        <Stethoscope className="w-4 h-4 text-primary dark:text-teal-400" />
-                      </div>
-                      <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{item}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
             {/* Professional Experience */}
             {doctor.professionalExperience.length > 0 && (
               <section id="experience" className="scroll-mt-32">
@@ -329,6 +312,23 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="flex flex-col">
                         <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{exp}</span>
                       </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Areas of Expertise */}
+            {doctor.areasOfExpertise.length > 0 && (
+              <section id="expertise" className="scroll-mt-32">
+                <SectionHeader title={t('areasOfExpertise')} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {(getTranslation(doctor, 'areasOfExpertise', locale) || doctor.areasOfExpertise).map((item: string, idx: number) => (
+                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/30 dark:hover:border-teal-400/30 transition-colors duration-500">
+                      <div className="w-8 h-8 rounded-lg bg-primary/5 dark:bg-teal-400/10 flex items-center justify-center shrink-0">
+                        <Stethoscope className="w-4 h-4 text-primary dark:text-teal-400" />
+                      </div>
+                      <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{item}</span>
                     </div>
                   ))}
                 </div>
