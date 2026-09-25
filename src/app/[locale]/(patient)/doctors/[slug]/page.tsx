@@ -80,8 +80,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
     { id: 'qualifications', label: t('qualifications'), show: doctor.medicalQualifications.length > 0 },
     { id: 'experience', label: t('professionalExperience'), show: doctor.professionalExperience.length > 0 },
     { id: 'expertise', label: t('areasOfExpertise'), show: doctor.areasOfExpertise.length > 0 },
-    { id: 'treatments', label: t('treatmentsAndProcedures'), show: doctor.allTreatments.length > 0 },
     { id: 'interests', label: t('specialInterests'), show: doctor.specialInterests.length > 0 },
+    { id: 'treatments', label: t('treatmentsAndProcedures'), show: doctor.allTreatments.length > 0 },
     { id: 'fellowships', label: t('fellowshipsAndTraining'), show: doctor.fellowshipsAndTraining.length > 0 },
     { id: 'research', label: t('researchPublications'), show: doctor.researchPublications.length > 0 },
     { id: 'awards', label: t('awardsRecognitions'), show: doctor.awardsRecognitions.length > 0 },
@@ -335,21 +335,6 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Treatments & Procedures */}
-            {doctor.allTreatments.length > 0 && (
-              <section id="treatments" className="scroll-mt-32">
-                <SectionHeader title={t('treatmentsAndProcedures')} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                  {(getTranslation(doctor, 'allTreatments', locale) || doctor.allTreatments).map((treatment: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-sm transition-all cursor-pointer group duration-500">
-                      <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors shrink-0" />
-                      <span className="text-[14px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{treatment}</span>
-                    </div>
-                  ))}
-                </div>
-              </section>
-            )}
-
             {/* Advanced Techniques and Special Interests */}
             {doctor.specialInterests.length > 0 && (
               <section id="interests" className="scroll-mt-32">
@@ -361,6 +346,21 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                         <Zap className="w-4 h-4 text-orange-500 dark:text-orange-400" />
                       </div>
                       <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{interest}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {/* Treatments & Procedures */}
+            {doctor.allTreatments.length > 0 && (
+              <section id="treatments" className="scroll-mt-32">
+                <SectionHeader title={t('treatmentsAndProcedures')} />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                  {(getTranslation(doctor, 'allTreatments', locale) || doctor.allTreatments).map((treatment: string, idx: number) => (
+                    <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-sm transition-all cursor-pointer group duration-500">
+                      <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors shrink-0" />
+                      <span className="text-[14px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{treatment}</span>
                     </div>
                   ))}
                 </div>
