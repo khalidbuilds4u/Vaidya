@@ -82,7 +82,7 @@ export function HeroSearchBar() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: 0.6 }}
-      className="hidden sm:flex w-full max-w-xl p-2 sm:p-2.5 rounded-lg sm:rounded-xl flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-50 shadow-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-500"
+      className="hidden sm:flex w-full max-w-full p-2 sm:p-2.5 rounded-lg sm:rounded-xl flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-2 relative z-50 shadow-md bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-colors duration-500"
     >
       <div className="flex items-center flex-1 px-3 sm:px-4 pl-3.5 sm:pl-5 py-1 sm:py-0 bg-slate-50 dark:bg-slate-950 rounded-md sm:rounded-none">
         {isLoading ? (

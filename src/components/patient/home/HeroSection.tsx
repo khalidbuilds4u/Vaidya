@@ -39,6 +39,14 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-4 relative z-40">
+        
+        {/* Centered Search Bar on Desktop */}
+        <div className="hidden sm:flex justify-center w-full mb-8 lg:mb-12 mt-2 sm:mt-6">
+          <div className="w-full max-w-3xl">
+            <HeroSearchBar />
+          </div>
+        </div>
+
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
           
           {/* Main Hero Card (Frosted Glass Container for High Readability) */}
@@ -126,8 +134,6 @@ export function HeroSection() {
               </div>
             </motion.div>
 
-            {/* Sleek Frosted Glass Search Capsule */}
-            <HeroSearchBar />
           </div>
 
           {/* Right Floating Cost Estimator */}
