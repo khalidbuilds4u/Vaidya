@@ -112,7 +112,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
         <div className="bg-[#123654] text-white rounded-3xl p-6 sm:p-10 shadow-lg border border-slate-700 mb-8 sm:mb-10 flex flex-col relative overflow-hidden">
           
           {/* Top Section */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-10">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-center lg:items-start text-center lg:text-left relative z-10 w-full mb-4 lg:mb-8">
             {/* Image */}
             <div className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full overflow-hidden bg-white shadow-xl border-4 border-white/20 shrink-0 relative">
               <Image 
@@ -192,7 +192,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
 
 
           {/* Key Trust Markers (Doctor Specific) */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6 mt-2 border-t border-slate-700/50 relative z-10">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 lg:pt-6 border-t border-slate-700/50 relative z-10">
             
             <div className="flex items-start gap-3 bg-white/5 rounded-2xl p-4 border border-white/10 hover:bg-white/10 transition-colors">
               <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-1">

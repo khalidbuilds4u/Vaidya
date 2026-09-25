@@ -118,7 +118,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
           <div className="relative z-10 p-6 sm:p-10 flex flex-col h-full justify-between flex-1">
             
             {/* Top Section */}
-            <div className="flex flex-col lg:flex-row justify-between items-start gap-8 w-full mb-10">
+            <div className="flex flex-col lg:flex-row justify-between items-start gap-8 w-full mb-4 lg:mb-8">
               
               {/* Info */}
               <div className="flex-1 flex flex-col space-y-4 max-w-3xl">
@@ -185,7 +185,7 @@ export default async function HospitalProfilePage({ params }: { params: Promise<
             </div>
             
             {/* Action Bottom Bar (Highlights) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-6 border-t border-white/10 w-full mt-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 pt-4 lg:pt-6 border-t border-white/10 w-full mt-auto">
               
               <div className="flex items-start gap-4 bg-white/5 rounded-2xl p-5 border border-white/10 hover:bg-white/10 transition-colors backdrop-blur-sm">
                 <div className="w-12 h-12 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-0.5">
