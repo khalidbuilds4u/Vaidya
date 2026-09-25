@@ -35,6 +35,7 @@ export function HeroSection() {
         {/* 2. Light Left Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent z-[1] transition-colors duration-500" />
         <div className="absolute inset-0 bg-gradient-to-b from-white/30 dark:from-slate-900/40 to-transparent z-[1] transition-colors duration-500" />
+      </div>
 
       {/* Centered Search Bar on Desktop - Absolutely positioned at the true top to touch the navbar */}
       <div className="hidden sm:flex absolute top-0 left-0 w-full justify-center z-50 pointer-events-auto">
