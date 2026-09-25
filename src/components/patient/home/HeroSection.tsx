@@ -56,7 +56,7 @@ export function HeroSection() {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
+              transition={{ duration: 0.3, delay: 0.05 }}
               className="inline-flex items-center text-center gap-2 px-3 py-1 rounded-md text-slate-700 dark:text-slate-200 text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5 shadow-sm border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 max-w-full"
             >
               <ShieldCheck className="w-4 h-4 text-primary shrink-0 hidden sm:block" />
@@ -67,7 +67,7 @@ export function HeroSection() {
             <motion.h1 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12] mb-3 sm:mb-4 transition-colors duration-500"
             >
               {t('titleLine1')} <br className="hidden sm:inline" />
@@ -80,7 +80,7 @@ export function HeroSection() {
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{ duration: 0.4, delay: 0.15 }}
               className="text-xs sm:text-base md:text-lg text-slate-700 dark:text-slate-300 mb-4 sm:mb-6 max-w-xl leading-relaxed font-medium transition-colors duration-500"
             >
               {t('subtext')}
@@ -90,7 +90,7 @@ export function HeroSection() {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.4 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
               className="hidden sm:flex flex-wrap items-center gap-4 sm:gap-6 mb-5 sm:mb-6 text-[12px] sm:text-sm font-semibold text-slate-700 dark:text-slate-200"
             >
               <div className="flex items-center gap-2">
@@ -111,7 +111,7 @@ export function HeroSection() {
             <motion.div 
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: 0.5 }}
+              transition={{ duration: 0.3, delay: 0.25 }}
               className="flex flex-row items-stretch sm:items-center gap-2 sm:gap-4 mb-2 sm:mb-10 w-full max-w-xl mt-6 sm:mt-0"
             >
               <div className="flex-1 w-full">
@@ -141,7 +141,7 @@ export function HeroSection() {
              <motion.div
                initial={{ opacity: 0, rotateY: 15, x: 40 }}
                animate={{ opacity: 1, rotateY: 0, x: 0 }}
-               transition={{ duration: 0.7, delay: 0.4, type: "spring", bounce: 0.2 }}
+               transition={{ duration: 0.5, delay: 0.3, type: "spring", bounce: 0.2 }}
                className="w-full max-w-sm"
              >
                <CostSavingsWidget />

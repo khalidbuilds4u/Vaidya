@@ -25,6 +25,8 @@ export function USPTicker() {
           animation: custom-marquee 40s linear infinite;
           display: flex;
           width: max-content;
+          will-change: transform;
+          transform: translateZ(0);
         }
         .animate-custom-marquee:hover {
           animation-play-state: paused;
