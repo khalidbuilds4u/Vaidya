@@ -180,7 +180,7 @@ export async function createHospital(formData: FormData) {
   });
 
   revalidatePath("/admin/hospitals");
-  revalidateTag("hospitals");
+  revalidateTag("hospitals", "max");
   revalidatePath("/", "layout");
   redirect("/admin/hospitals");
 }
@@ -356,7 +356,7 @@ export async function updateHospital(id: string, formData: FormData) {
 
   revalidatePath("/admin/hospitals");
   revalidatePath(`/admin/hospitals/${id}`);
-  revalidateTag("hospitals");
+  revalidateTag("hospitals", "max");
   revalidatePath("/", "layout");
   redirect("/admin/hospitals");
 }
@@ -369,6 +369,6 @@ export async function deleteHospital(id: string) {
   });
 
   revalidatePath("/admin/hospitals");
-  revalidateTag("hospitals");
+  revalidateTag("hospitals", "max");
   revalidatePath("/", "layout");
 }
