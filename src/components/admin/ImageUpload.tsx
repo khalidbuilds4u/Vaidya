@@ -25,12 +25,12 @@ export function ImageUpload({ name, defaultValue }: ImageUploadProps) {
       <input type="hidden" name={name} value={imageUrl} />
 
       {imageUrl ? (
-        <div className="relative group rounded-xl overflow-hidden border-2 border-slate-200 bg-slate-50 w-full aspect-video sm:aspect-[21/9] max-h-64">
+        <div className="relative group rounded-xl overflow-hidden border-2 border-slate-200 bg-slate-50 w-full h-48 sm:h-64 flex items-center justify-center">
           <Image 
             src={imageUrl} 
             alt="Uploaded Preview" 
             fill 
-            className="object-cover"
+            className="object-contain p-2"
           />
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3">
             <button
