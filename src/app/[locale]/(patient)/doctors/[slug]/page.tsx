@@ -428,9 +428,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   {(getTranslation(doctor, 'professionalMemberships', locale) || doctor.professionalMemberships).map((item: string, idx: number) => (
                     <div key={idx} className="flex gap-4 items-center p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-indigo-500/30 hover:shadow-md transition-all group duration-500">
                       <div className="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-900/50 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
-                        <span className="text-sm font-bold text-indigo-600 dark:text-indigo-400">
-                          {(idx + 1).toString().padStart(2, '0')}
-                        </span>
+                        <ShieldCheck className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
                       </div>
                       <span className="text-[14px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">{item}</span>
                     </div>
