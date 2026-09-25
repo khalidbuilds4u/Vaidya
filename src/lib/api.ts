@@ -26,7 +26,7 @@ export const getCachedHospitals = unstable_cache(
     });
   },
   ['public-hospitals'],
-  { tags: ['hospitals'], revalidate: 3600 }
+  { tags: ['hospitals'], revalidate: 1 }
 );
 
 export const getCachedTreatments = unstable_cache(

@@ -1,7 +1,7 @@
 "use server";
 
 import { prisma } from "@/lib/prisma";
-import { revalidatePath } from "next/cache";
+import { revalidatePath, revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { auth } from "@/lib/auth";
 import { buildTranslations } from "@/lib/translator";
@@ -180,7 +180,8 @@ export async function createHospital(formData: FormData) {
   });
 
   revalidatePath("/admin/hospitals");
-  revalidatePath("/hospitals");
+  revalidateTag("hospitals");
+  revalidatePath("/", "layout");
   redirect("/admin/hospitals");
 }
 
@@ -355,7 +356,8 @@ export async function updateHospital(id: string, formData: FormData) {
 
   revalidatePath("/admin/hospitals");
   revalidatePath(`/admin/hospitals/${id}`);
-  revalidatePath("/hospitals");
+  revalidateTag("hospitals");
+  revalidatePath("/", "layout");
   redirect("/admin/hospitals");
 }
 
@@ -367,5 +369,6 @@ export async function deleteHospital(id: string) {
   });
 
   revalidatePath("/admin/hospitals");
-  revalidatePath("/hospitals");
+  revalidateTag("hospitals");
+  revalidatePath("/", "layout");
 }

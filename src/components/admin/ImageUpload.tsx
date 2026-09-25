@@ -22,9 +22,23 @@ export function ImageUpload({ name, defaultValue }: ImageUploadProps) {
       // We modify the URL to request the cropped version directly.
       const coordinates = results.info.coordinates as { custom?: number[][] } | undefined;
       if (coordinates?.custom?.[0]) {
-        const [x, y, w, h] = coordinates.custom[0];
-        // Insert the crop transformation right after /upload/ in the URL
-        finalUrl = finalUrl.replace('/upload/', `/upload/c_crop,x_${x},y_${y},w_${w},h_${h}/`);
+        let [x, y, w, h] = coordinates.custom[0];
+        
+        // Round to integers to avoid floating point errors with Cloudinary
+        x = Math.max(0, Math.round(x));
+        y = Math.max(0, Math.round(y));
+        
+        // Ensure width and height don't exceed the original image bounds (causes 400 Bad Request)
+        const imgWidth = (results.info as any).width || w;
+        const imgHeight = (results.info as any).height || h;
+        
+        w = Math.min(imgWidth - x, Math.round(w));
+        h = Math.min(imgHeight - y, Math.round(h));
+
+        // Only apply crop transformation if they actually cropped something
+        if (w < imgWidth || h < imgHeight || x > 0 || y > 0) {
+          finalUrl = finalUrl.replace('/upload/', `/upload/c_crop,x_${x},y_${y},w_${w},h_${h}/`);
+        }
       }
       
       setStagedUrl(finalUrl);
