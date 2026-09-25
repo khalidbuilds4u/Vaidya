@@ -23,10 +23,7 @@ export default async function Home() {
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50 dark:bg-slate-950 transition-colors duration-500">
       <HeroSection />
-      <USPTicker />
-
-      {/* Floating Glassmorphic Stats Strip */}
-      <section className="container mx-auto px-4 -mt-6 sm:-mt-10 lg:-mt-14 relative z-30">
+      <section className="container mx-auto px-4 -mt-6 sm:-mt-10 lg:-mt-14 mb-10 relative z-30">
         <div className="glass-panel rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 shadow-[0_20px_50px_rgba(15,118,110,0.1)] border border-white/90 dark:border-slate-800/80 bg-white/95 dark:bg-slate-900/95 backdrop-blur-2xl transition-colors duration-500">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:divide-x lg:divide-slate-200/70 dark:lg:divide-slate-700/70">
             
@@ -74,6 +71,8 @@ export default async function Home() {
         </div>
       </section>
 
+      <USPTicker />
+      
       <TrustTicker />
 
       <MobileSearch />
