@@ -34,6 +34,8 @@ export async function translateText(text: string | null | undefined, toLanguage 
           console.log(`[DeepL] Successfully translated "${text.substring(0, 20)}..."`);
           return data.translations[0].text;
         }
+      } else if (response.status === 456) {
+        throw new Error("DeepL translation limit exceeded. Please upgrade your DeepL plan to continue translating.");
       } else {
         console.warn(`[DeepL] Failed with status ${response.status}. Falling back to free engine.`);
       }
@@ -72,9 +74,15 @@ export async function translateText(text: string | null | undefined, toLanguage 
     const result = await translate(text, { from: 'en', to: toLanguage });
     console.log(`[Free Google] Successfully translated "${text.substring(0, 20)}..."`);
     return result;
-  } catch (error) {
+  } catch (error: any) {
     console.error(`Failed to translate text: "${text.substring(0, 50)}..."`, error);
-    // If all translations fail, return undefined so we don't overwrite with garbage
+    
+    // Bubble up quota errors to abort the save
+    if (error.message && error.message.includes('DeepL translation limit exceeded')) {
+      throw error;
+    }
+    
+    // If other translations fail, return undefined so we don't overwrite with garbage
     return undefined;
   }
 }
