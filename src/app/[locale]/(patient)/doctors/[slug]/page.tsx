@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
-import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2 } from 'lucide-react';
+import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2, Briefcase } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import {  getTranslation, getStrictTranslation, unescapeHtml  } from '@/lib/utils';
@@ -304,13 +304,21 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             {doctor.professionalExperience.length > 0 && (
               <section id="experience" className="scroll-mt-32">
                 <SectionHeader title={t('professionalExperience')} />
-                <div className="relative pl-6 sm:pl-8 space-y-8 before:absolute before:inset-y-2 before:left-[11px] sm:before:left-[15px] before:w-px before:bg-slate-200 dark:before:bg-slate-700">
+                <div className="space-y-4">
                   {(getTranslation(doctor, 'professionalExperience', locale) || doctor.professionalExperience).map((exp: string, idx: number) => (
-                    <div key={idx} className="relative">
-                      {/* Timeline Node */}
-                      <div className="absolute -left-[29px] sm:-left-[37px] top-1.5 w-4 h-4 rounded-full border-4 border-white dark:border-slate-950 bg-primary dark:bg-teal-400 shadow-sm" />
-                      <div className="flex flex-col">
-                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{exp}</span>
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-4 sm:gap-5 relative z-10">
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <Briefcase className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        </div>
+                        <div className="flex flex-col justify-center">
+                          <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
+                            {exp}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
