@@ -17,7 +17,11 @@ interface SearchSuggestion {
   isContactQuery?: boolean;
 }
 
-export function MobileSearch() {
+interface MobileSearchProps {
+  cities: { name: string }[];
+}
+
+export function MobileSearch({ cities }: MobileSearchProps) {
   const router = useRouter();
   const t = useTranslations('Hero');
   const [searchQuery, setSearchQuery] = useState('');
@@ -107,11 +111,9 @@ export function MobileSearch() {
               className="w-full bg-transparent border-0 text-slate-800 dark:text-slate-200 font-semibold focus:ring-0 text-xs p-0 m-0 cursor-pointer outline-none truncate"
             >
               <option value="" className="text-slate-900 dark:text-slate-200">{t('anyCity')}</option>
-              <option value="New Delhi" className="text-slate-900 dark:text-slate-200">New Delhi</option>
-              <option value="Mumbai" className="text-slate-900 dark:text-slate-200">Mumbai</option>
-              <option value="Chennai" className="text-slate-900 dark:text-slate-200">Chennai</option>
-              <option value="Bangalore" className="text-slate-900 dark:text-slate-200">Bangalore</option>
-              <option value="Hyderabad" className="text-slate-900 dark:text-slate-200">Hyderabad</option>
+              {cities.map(city => (
+                <option key={city.name} value={city.name} className="text-slate-900 dark:text-slate-200">{city.name}</option>
+              ))}
             </select>
           </div>
 

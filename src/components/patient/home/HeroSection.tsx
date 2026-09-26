@@ -11,7 +11,11 @@ import { m as motion } from 'framer-motion';
 import { HeroSearchBar } from './HeroSearchBar';
 import { CostSavingsWidget } from './CostSavingsWidget';
 
-export function HeroSection() {
+interface HeroSectionProps {
+  cities: { name: string }[];
+}
+
+export function HeroSection({ cities }: HeroSectionProps) {
   const t = useTranslations('Hero');
 
 
@@ -40,7 +44,7 @@ export function HeroSection() {
       {/* Centered Search Bar on Desktop - Absolutely positioned at the true top to touch the navbar */}
       <div className="hidden sm:flex absolute top-0 left-0 w-full justify-center z-50 pointer-events-auto">
         <div className="w-full max-w-3xl px-4">
-          <HeroSearchBar />
+          <HeroSearchBar cities={cities} />
         </div>
       </div>
 

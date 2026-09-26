@@ -17,7 +17,11 @@ interface SearchSuggestion {
   isContactQuery?: boolean;
 }
 
-export function HeroSearchBar() {
+interface HeroSearchBarProps {
+  cities: { name: string }[];
+}
+
+export function HeroSearchBar({ cities }: HeroSearchBarProps) {
   const router = useRouter();
   const t = useTranslations('Hero');
   const [searchQuery, setSearchQuery] = useState('');
@@ -130,11 +134,7 @@ export function HeroSearchBar() {
             >
               {[
                 { value: "", label: t('anyCity') },
-                { value: "New Delhi", label: "New Delhi" },
-                { value: "Mumbai", label: "Mumbai" },
-                { value: "Chennai", label: "Chennai" },
-                { value: "Bangalore", label: "Bangalore" },
-                { value: "Hyderabad", label: "Hyderabad" }
+                ...cities.map(c => ({ value: c.name, label: c.name }))
               ].map(city => (
                 <button
                   key={city.label}

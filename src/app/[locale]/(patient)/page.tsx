@@ -15,18 +15,25 @@ import { MobileSearch } from '@/components/patient/home/MobileSearch';
 
 import { USPTicker } from '@/components/patient/home/USPTicker';
 
+import { prisma } from '@/lib/prisma';
+
 export const revalidate = 3600;
 
 export default async function Home() {
   const t = await getTranslations('Stats');
+  
+  const cities = await prisma.city.findMany({
+    select: { name: true },
+    orderBy: { name: 'asc' }
+  });
 
   return (
     <div className="flex flex-col min-h-screen relative overflow-hidden bg-slate-50/50 dark:bg-slate-950 transition-colors duration-500">
-      <HeroSection />
+      <HeroSection cities={cities} />
 
       {/* Mobile Search Bar - Pushed up to overlap Hero on mobile */}
       <div className="sm:hidden -mt-6 relative z-40">
-        <MobileSearch />
+        <MobileSearch cities={cities} />
       </div>
 
       <section className="container mx-auto px-4 mt-6 sm:-mt-10 lg:-mt-14 mb-10 relative z-30">
