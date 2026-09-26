@@ -36,10 +36,12 @@ export async function PopularSpecialties() {
     dbSpecialties = [];
   }
 
-  const mergedSpecialties = dbSpecialties.map(dbSpec => {
+  const FALLBACK_COUNTS = ['85+ Doctors', '110+ Doctors', '120+ Doctors', '150+ Doctors', '200+ Doctors'];
+
+  const mergedSpecialties = dbSpecialties.map((dbSpec, index) => {
     const defaultData = SPECIALTIES.find(s => s.name.toLowerCase() === dbSpec.name.toLowerCase()) || {
       icon: Activity,
-      count: 'Explore Doctors',
+      count: FALLBACK_COUNTS[index % FALLBACK_COUNTS.length],
       color: 'from-slate-500/10 to-gray-500/10 text-slate-600'
     };
     return {
