@@ -147,37 +147,33 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
     notFound();
   }
 
-  // 1. Fetch specialty from DB to get translated name
-  const dbSpecialty = await prisma.specialty.findUnique({
-    where: { slug: resolvedParams.slug }
-  });
-
-  // 2. Fetch Doctors in this specialty from DB
-  const realDoctors = await prisma.doctor.findMany({
-    where: { specialty: { slug: resolvedParams.slug } },
-    include: { hospital: { include: { city: true } }, specialty: true },
-    take: 3
-  });
-
-  // 3. Fetch Hospitals that have doctors in this specialty from DB
-  const realHospitals = await prisma.hospital.findMany({
-    where: {
-      doctors: {
-        some: { specialty: { slug: resolvedParams.slug } }
+  // Run all database queries in parallel for maximum performance
+  const [dbSpecialty, realDoctors, realHospitals] = await Promise.all([
+    prisma.specialty.findUnique({
+      where: { slug: resolvedParams.slug },
+      include: {
+        conditions: true,
+        treatments: { take: 4 }
       }
-    },
-    include: { city: true },
-    take: 3
-  });
+    }),
+    prisma.doctor.findMany({
+      where: { specialty: { slug: resolvedParams.slug } },
+      include: { hospital: { include: { city: true } }, specialty: true },
+      take: 3
+    }),
+    prisma.hospital.findMany({
+      where: {
+        doctors: {
+          some: { specialty: { slug: resolvedParams.slug } }
+        }
+      },
+      include: { city: true },
+      take: 3
+    })
+  ]);
 
-  const dbConditions = await prisma.condition.findMany({
-    where: { specialty: { slug: resolvedParams.slug } }
-  });
-
-  const dbTreatments = await prisma.treatment.findMany({
-    where: { specialty: { slug: resolvedParams.slug } },
-    take: 4
-  });
+  const dbConditions = dbSpecialty?.conditions || [];
+  const dbTreatments = dbSpecialty?.treatments || [];
 
   const translatedName = dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name;
 
