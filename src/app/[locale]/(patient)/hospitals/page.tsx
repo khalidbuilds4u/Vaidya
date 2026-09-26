@@ -7,7 +7,13 @@ import { Search, Filter, Building2 } from 'lucide-react';
 import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import { getCachedHospitals, getCachedCities, getCachedSpecialties } from '@/lib/api';
-
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 export const revalidate = 3600;
 
 
@@ -37,8 +43,8 @@ export default async function HospitalsDirectory({
 
   const hospitals = sortedHospitals.filter(h => {
     if (search && !h.name.toLowerCase().includes(search.toLowerCase())) return false;
-    if (city && h.city.slug !== city) return false;
-    if (specialty && !h.specialties.some(s => s.slug === specialty)) return false;
+    if (city && city !== 'all' && h.city.slug !== city) return false;
+    if (specialty && specialty !== 'all' && !h.specialties.some(s => s.slug === specialty)) return false;
     return true;
   });
 
@@ -105,22 +111,32 @@ export default async function HospitalsDirectory({
 
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 block">{t('filters.city')}</label>
-                  <select name="city" defaultValue={city || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 dark:bg-slate-800/50 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="" className="text-slate-900">{t('filters.allCities')}</option>
-                    {cities.map(c => (
-                      <option key={c.id} value={c.slug} className="text-slate-900">{getTranslation(c, 'name', locale)}</option>
-                    ))}
-                  </select>
+                  <Select name="city" defaultValue={city || "all"}>
+                    <SelectTrigger className="w-full h-10 rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 dark:bg-slate-800/50 dark:border-slate-700 focus:ring-primary">
+                      <SelectValue placeholder={t('filters.allCities')} />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-60 rounded-xl dark:bg-slate-900 dark:border-slate-800 shadow-2xl">
+                      <SelectItem value="all">{t('filters.allCities')}</SelectItem>
+                      {cities.map(c => (
+                        <SelectItem key={c.id} value={c.slug}>{getTranslation(c, 'name', locale)}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
                 
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-1.5 block">{t('filters.specialty')}</label>
-                  <select name="specialty" defaultValue={specialty || ""} className="flex h-10 w-full items-center justify-between rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 dark:bg-slate-800/50 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-primary">
-                    <option value="" className="text-slate-900">{t('filters.allSpecialties')}</option>
-                    {specialties.map(s => (
-                      <option key={s.id} value={s.slug} className="text-slate-900">{getTranslation(s, 'name', locale)}</option>
-                    ))}
-                  </select>
+                  <Select name="specialty" defaultValue={specialty || "all"}>
+                    <SelectTrigger className="w-full h-10 rounded-xl glass-input px-3 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 dark:bg-slate-800/50 dark:border-slate-700 focus:ring-primary">
+                      <SelectValue placeholder={t('filters.allSpecialties')} />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-60 rounded-xl dark:bg-slate-900 dark:border-slate-800 shadow-2xl">
+                      <SelectItem value="all">{t('filters.allSpecialties')}</SelectItem>
+                      {specialties.map(s => (
+                        <SelectItem key={s.id} value={s.slug}>{getTranslation(s, 'name', locale)}</SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <Button type="submit" className="w-full rounded-xl sm:rounded-full shadow-xs bg-primary hover:bg-primary/90 h-10 text-xs sm:text-sm font-semibold text-white">
@@ -136,10 +152,15 @@ export default async function HospitalsDirectory({
               <h2 className="font-bold text-base sm:text-lg text-slate-900 dark:text-white">{t('results.count', { count: hospitals.length })}</h2>
               <div className="flex items-center gap-1.5 text-xs sm:text-sm">
                 <span className="text-slate-500 dark:text-slate-400">{t('results.sortBy')}</span>
-                <select className="border-0 bg-transparent font-semibold text-primary dark:text-teal-400 cursor-pointer focus:ring-0 text-xs sm:text-sm dark:bg-slate-900">
-                  <option className="text-slate-900">{t('results.sortRecommended')}</option>
-                  <option className="text-slate-900">{t('results.sortBeds')}</option>
-                </select>
+                <Select defaultValue="recommended">
+                  <SelectTrigger className="border-0 bg-transparent font-semibold text-primary dark:text-teal-400 cursor-pointer focus:ring-0 text-xs sm:text-sm p-0 h-auto shadow-none">
+                    <SelectValue />
+                  </SelectTrigger>
+                  <SelectContent className="rounded-xl dark:bg-slate-900 dark:border-slate-800 shadow-2xl">
+                    <SelectItem value="recommended">{t('results.sortRecommended')}</SelectItem>
+                    <SelectItem value="beds">{t('results.sortBeds')}</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
             </div>
 
