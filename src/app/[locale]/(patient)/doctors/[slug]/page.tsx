@@ -600,12 +600,20 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                   {t('whyChooseUs.subtitle')}
                 </p>
                 <div className="space-y-4">
-                  {(t.raw('whyChooseUs.benefits') as string[]).map((benefit, i) => (
+                  {(t.raw('whyChooseUs.benefits') as string[]).map((benefit, i) => {
+                    const parts = benefit.split(' - ');
+                    const title = parts[0];
+                    const desc = parts.slice(1).join(' - ');
+                    
+                    return (
                     <div key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-emerald-500 dark:text-emerald-400 shrink-0 mt-0.5" />
-                      <span className="text-sm font-medium text-slate-700 dark:text-slate-300">{benefit}</span>
+                      <div className="flex flex-col">
+                        <span className="text-sm font-bold text-slate-900 dark:text-white">{title}</span>
+                        {desc && <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 leading-relaxed">{desc}</span>}
+                      </div>
                     </div>
-                  ))}
+                  )})}
                 </div>
                 <div className="mt-8 rounded-2xl overflow-hidden border border-slate-100 dark:border-slate-800 shadow-sm relative h-40">
                   <Image src="/images/hero-hospital.jpg" alt="Medical Care Support" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
