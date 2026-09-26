@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { Brain, Heart, Bone, Activity, Stethoscope } from 'lucide-react';
+import { Brain, Heart, Bone, Activity, Stethoscope, Eye, Ear, Wind, Microscope } from 'lucide-react';
 
 const BODY_PARTS = [
   {
@@ -18,6 +18,24 @@ const BODY_PARTS = [
     stats: '50+ Specialists'
   },
   {
+    id: 'ophthalmology',
+    label: 'Ophthalmology',
+    x: 45,
+    y: 12, // Eye area
+    icon: Eye,
+    slug: 'ophthalmology',
+    stats: '30+ Specialists'
+  },
+  {
+    id: 'ent',
+    label: 'ENT',
+    x: 55,
+    y: 18, // Ear/Nose area
+    icon: Ear,
+    slug: 'ent',
+    stats: '40+ Specialists'
+  },
+  {
     id: 'cardiology',
     label: 'Cardiology & Cardiac Surgery',
     x: 52,
@@ -25,6 +43,24 @@ const BODY_PARTS = [
     icon: Heart,
     slug: 'cardiology',
     stats: '120+ Specialists'
+  },
+  {
+    id: 'pulmonology',
+    label: 'Pulmonology',
+    x: 35,
+    y: 42, // Left Lung area
+    icon: Wind,
+    slug: 'pulmonology',
+    stats: '60+ Specialists'
+  },
+  {
+    id: 'oncology',
+    label: 'Oncology',
+    x: 65,
+    y: 50, // Right Lung / Chest area
+    icon: Microscope,
+    slug: 'oncology',
+    stats: '90+ Specialists'
   },
   {
     id: 'gastroenterology',
@@ -43,6 +79,15 @@ const BODY_PARTS = [
     icon: Bone,
     slug: 'orthopedics',
     stats: '80+ Specialists'
+  },
+  {
+    id: 'spine',
+    label: 'Spine Surgery',
+    x: 50,
+    y: 75, // Lower Spine area
+    icon: Bone,
+    slug: 'spine-surgery',
+    stats: '45+ Specialists'
   }
 ];
 
