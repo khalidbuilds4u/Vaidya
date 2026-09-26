@@ -10,6 +10,7 @@ import NextTopLoader from 'nextjs-toploader';
 
 import { LazyMotionProvider } from "@/components/ui/LazyMotionProvider";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -86,6 +87,7 @@ export default async function RootLayout({
               </LazyMotionProvider>
             </SmoothScrollProvider>
           </NextIntlClientProvider>
+          <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>
     </html>
