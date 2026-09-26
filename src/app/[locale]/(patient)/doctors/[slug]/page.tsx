@@ -332,11 +332,18 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('areasOfExpertise')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'areasOfExpertise', locale) || doctor.areasOfExpertise).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/30 dark:hover:border-teal-400/30 transition-colors duration-500">
-                      <div className="w-8 h-8 rounded-lg bg-primary/5 dark:bg-teal-400/10 flex items-center justify-center shrink-0">
-                        <Stethoscope className="w-4 h-4 text-primary dark:text-teal-400" />
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-xl p-4 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-3 items-center relative z-10">
+                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <Stethoscope className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        </div>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
+                          {item}
+                        </span>
                       </div>
-                      <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -349,11 +356,18 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('specialInterests')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'specialInterests', locale) || doctor.specialInterests).map((interest: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/30 dark:hover:border-teal-400/30 transition-colors duration-500">
-                      <div className="w-8 h-8 rounded-lg bg-orange-50 dark:bg-orange-500/10 flex items-center justify-center shrink-0">
-                        <Zap className="w-4 h-4 text-orange-500 dark:text-orange-400" />
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-xl p-4 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-orange-500/40 dark:hover:border-orange-400/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-orange-400 to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-orange-500/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-orange-500/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-3 items-center relative z-10">
+                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <Zap className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors duration-500" />
+                        </div>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-orange-600 dark:group-hover:text-orange-300 transition-colors duration-300">
+                          {interest}
+                        </span>
                       </div>
-                      <span className="text-[14px] font-semibold text-slate-700 dark:text-slate-300 leading-snug">{interest}</span>
                     </div>
                   ))}
                 </div>
@@ -366,25 +380,43 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('treatmentsAndProcedures')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {(getTranslation(doctor, 'allTreatments', locale) || doctor.allTreatments).map((treatment: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-center p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 hover:border-primary/40 dark:hover:border-teal-400/40 hover:shadow-sm transition-all cursor-pointer group duration-500">
-                      <ChevronRight className="w-4 h-4 text-slate-300 dark:text-slate-600 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors shrink-0" />
-                      <span className="text-[14px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{treatment}</span>
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-xl p-4 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-3 items-center relative z-10">
+                        <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        </div>
+                        <span className="text-[14px] sm:text-[15px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
+                          {treatment}
+                        </span>
+                      </div>
                     </div>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Fellowships and Professional Training — Timeline Style */}
+            {/* Fellowships and Professional Training */}
             {doctor.fellowshipsAndTraining.length > 0 && (
               <section id="fellowships" className="scroll-mt-32">
                 <SectionHeader title={t('fellowshipsAndTraining')} />
-                <div className="relative pl-8 border-l-2 border-primary/20 space-y-6">
+                <div className="space-y-4">
                   {(getTranslation(doctor, 'fellowshipsAndTraining', locale) || doctor.fellowshipsAndTraining).map((item: string, idx: number) => (
-                    <div key={idx} className="relative group">
-                      <div className="absolute -left-[25px] top-1 w-4 h-4 rounded-full bg-white dark:bg-slate-950 border-[3px] border-primary dark:border-teal-400 group-hover:bg-primary dark:group-hover:bg-teal-400 transition-all duration-300" />
-                      <div className="p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 dark:hover:border-teal-400/30 hover:shadow-md transition-all duration-500">
-                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{item}</span>
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-4 sm:gap-5 relative z-10">
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <GraduationCap className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        </div>
+                        <div className="flex flex-col justify-center">
+                          <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
+                            {item}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -392,17 +424,26 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
               </section>
             )}
 
-            {/* Research and Publications — Checkmark Style */}
+            {/* Research and Publications */}
             {doctor.researchPublications.length > 0 && (
               <section id="research" className="scroll-mt-32">
                 <SectionHeader title={t('researchPublications')} />
-                <div className="space-y-3">
+                <div className="space-y-4">
                   {(getTranslation(doctor, 'researchPublications', locale) || doctor.researchPublications).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-3 items-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 dark:hover:border-teal-400/30 hover:shadow-md transition-all group duration-500">
-                      <div className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-emerald-200 transition-colors">
-                        <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:border-emerald-500/40 dark:hover:border-emerald-400/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-emerald-400 to-green-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-emerald-500/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-4 sm:gap-5 relative z-10">
+                        <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <CheckCircle2 className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors duration-500" />
+                        </div>
+                        <div className="flex flex-col justify-center">
+                          <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors duration-300">
+                            {item}
+                          </span>
+                        </div>
                       </div>
-                      <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -415,12 +456,19 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('awardsRecognitions')} />
                 <div className="space-y-4">
                   {(getTranslation(doctor, 'awardsRecognitions', locale) || doctor.awardsRecognitions).map((award: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-yellow-500/30 hover:shadow-md transition-all group duration-500">
-                      <div className="w-10 h-10 rounded-full bg-yellow-50 dark:bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-100 dark:border-yellow-900/50 group-hover:bg-yellow-100/50 transition-colors">
-                        <Award className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
-                      </div>
-                      <div className="flex flex-col pt-2">
-                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{award}</span>
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:border-yellow-500/40 dark:hover:border-yellow-400/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-yellow-400 to-amber-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-yellow-500/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-4 sm:gap-5 relative z-10">
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <Award className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-yellow-500 dark:group-hover:text-yellow-400 transition-colors duration-500" />
+                        </div>
+                        <div className="flex flex-col justify-center">
+                          <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-yellow-600 dark:group-hover:text-yellow-300 transition-colors duration-300">
+                            {award}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -434,30 +482,41 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('professionalMemberships')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'professionalMemberships', locale) || doctor.professionalMemberships).map((item: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-center p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-indigo-500/30 hover:shadow-md transition-all group duration-500">
-                      <div className="w-10 h-10 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-900/50 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/20 transition-colors">
-                        <ShieldCheck className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-xl p-4 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-indigo-500/40 dark:hover:border-indigo-400/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-indigo-400 to-violet-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-500/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-indigo-500/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-3 items-center relative z-10">
+                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <ShieldCheck className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-500" />
+                        </div>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-300">
+                          {item}
+                        </span>
                       </div>
-                      <span className="text-[14px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">{item}</span>
                     </div>
                   ))}
                 </div>
               </section>
             )}
 
-            {/* Why Choose This Doctor — Gradient Accent Cards */}
+            {/* Why Choose This Doctor */}
             {doctor.whyChooseThisDoctor.length > 0 && (
               <section id="why" className="scroll-mt-32">
                 <SectionHeader title={t('whyChooseThisDoctor')} />
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {(getTranslation(doctor, 'whyChooseThisDoctor', locale) || doctor.whyChooseThisDoctor).map((item: string, idx: number) => (
-                    <div key={idx} className="relative p-5 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:shadow-md hover:border-primary/30 transition-all group overflow-hidden duration-500">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 rounded-l-2xl" />
-                      <div className="pl-4 flex items-start gap-3">
-                        <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5 group-hover:bg-primary/20 transition-colors">
-                          <Star className="w-4 h-4 text-primary dark:text-teal-400" />
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-xl p-4 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-3 items-center relative z-10">
+                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <Star className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
                         </div>
-                        <span className="text-[15px] font-semibold text-slate-800 dark:text-slate-200 leading-relaxed">{item}</span>
+                        <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
+                          {item}
+                        </span>
                       </div>
                     </div>
                   ))}
