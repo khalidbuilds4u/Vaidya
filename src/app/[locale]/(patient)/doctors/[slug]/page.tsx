@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { prisma } from '@/lib/prisma';
 import Link from 'next/link';
-import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2, Briefcase } from 'lucide-react';
+import { MapPin, Star, CalendarDays, CheckCircle2, ChevronRight, GraduationCap, Award, Scroll, Stethoscope, Zap, BookOpen, Globe, Share2, MessageCircle, Link as LinkIcon, Send, MessageSquare, Plane, ClipboardList, CalendarHeart, ShieldCheck, Globe2, Briefcase, Medal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import {  getTranslation, getStrictTranslation, unescapeHtml  } from '@/lib/utils';
@@ -287,12 +287,19 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                 <SectionHeader title={t('qualifications')} />
                 <div className="space-y-4">
                   {(getTranslation(doctor, 'medicalQualifications', locale) || doctor.medicalQualifications).map((qual: string, idx: number) => (
-                    <div key={idx} className="flex gap-4 items-start p-4 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm hover:border-primary/30 dark:hover:border-teal-400/30 hover:shadow-md transition-all group duration-500">
-                      <div className="w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 group-hover:bg-primary/5 dark:group-hover:bg-teal-400/10 transition-colors">
-                        <GraduationCap className="w-5 h-5 text-slate-600 dark:text-slate-400 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors" />
-                      </div>
-                      <div className="flex flex-col pt-0.5">
-                        <span className="text-[15px] font-bold text-slate-900 dark:text-white leading-snug">{qual}</span>
+                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-2xl p-5 sm:p-6 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-xl hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
+                      <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
+                      
+                      <div className="flex gap-4 sm:gap-5 relative z-10">
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
+                          <GraduationCap className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        </div>
+                        <div className="flex flex-col justify-center">
+                          <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
+                            {qual}
+                          </span>
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -408,7 +415,7 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       
                       {/* Decorative Ribbon/Seal */}
                       <div className="absolute -top-3 -right-3 w-16 h-16 bg-gradient-to-br from-amber-200 to-amber-500 dark:from-amber-600 dark:to-orange-600 rounded-full flex items-center justify-center shadow-lg border-[6px] border-white dark:border-slate-950 z-20 group-hover:scale-110 transition-transform duration-500">
-                        <GraduationCap className="w-6 h-6 text-amber-900 dark:text-white" />
+                        <Medal className="w-6 h-6 text-amber-900 dark:text-white" />
                       </div>
                       
                       {/* Subtle watermark icon in background */}
