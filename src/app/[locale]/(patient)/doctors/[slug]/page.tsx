@@ -292,8 +292,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-4 sm:gap-5 relative z-10">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <GraduationCap className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-100 dark:border-blue-500/20 shadow-sm group-hover:scale-110 group-hover:bg-blue-100 dark:group-hover:bg-blue-500/30 transition-all duration-500">
+                          <GraduationCap className="w-5 h-5 text-blue-500 dark:text-blue-400 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors duration-500" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
@@ -318,8 +318,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-4 sm:gap-5 relative z-10">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <Briefcase className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-500/10 flex items-center justify-center shrink-0 border border-amber-100 dark:border-amber-500/20 shadow-sm group-hover:scale-110 group-hover:bg-amber-100 dark:group-hover:bg-amber-500/30 transition-all duration-500">
+                          <Briefcase className="w-5 h-5 text-amber-500 dark:text-amber-400 group-hover:text-amber-600 dark:group-hover:text-amber-300 transition-colors duration-500" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
@@ -344,8 +344,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-3 items-center relative z-10">
-                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <Stethoscope className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-10 h-10 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-500/20 shadow-sm group-hover:scale-110 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-500/30 transition-all duration-500">
+                          <Stethoscope className="w-4 h-4 text-emerald-500 dark:text-emerald-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-300 transition-colors duration-500" />
                         </div>
                         <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
                           {item}
@@ -368,8 +368,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-3 items-center relative z-10">
-                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <Zap className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-100 dark:border-purple-500/20 shadow-sm group-hover:scale-110 group-hover:bg-purple-100 dark:group-hover:bg-purple-500/30 transition-all duration-500">
+                          <Zap className="w-4 h-4 text-purple-500 dark:text-purple-400 group-hover:text-purple-600 dark:group-hover:text-purple-300 transition-colors duration-500" />
                         </div>
                         <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
                           {interest}
@@ -392,8 +392,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-3 items-center relative z-10">
-                        <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <ChevronRight className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-8 h-8 rounded-lg bg-rose-50 dark:bg-rose-500/10 flex items-center justify-center shrink-0 border border-rose-100 dark:border-rose-500/20 shadow-sm group-hover:scale-110 group-hover:bg-rose-100 dark:group-hover:bg-rose-500/30 transition-all duration-500">
+                          <ChevronRight className="w-4 h-4 text-rose-500 dark:text-rose-400 group-hover:text-rose-600 dark:group-hover:text-rose-300 transition-colors duration-500" />
                         </div>
                         <span className="text-[14px] sm:text-[15px] font-medium text-slate-700 dark:text-slate-300 group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
                           {treatment}
@@ -416,8 +416,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-4 sm:gap-5 relative z-10">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <Medal className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-500/10 flex items-center justify-center shrink-0 border border-pink-100 dark:border-pink-500/20 shadow-sm group-hover:scale-110 group-hover:bg-pink-100 dark:group-hover:bg-pink-500/30 transition-all duration-500">
+                          <Medal className="w-5 h-5 text-pink-500 dark:text-pink-400 group-hover:text-pink-600 dark:group-hover:text-pink-300 transition-colors duration-500" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
@@ -442,8 +442,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-4 sm:gap-5 relative z-10">
-                        <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <CheckCircle2 className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-10 h-10 rounded-xl bg-cyan-50 dark:bg-cyan-500/10 flex items-center justify-center shrink-0 border border-cyan-100 dark:border-cyan-500/20 shadow-sm group-hover:scale-110 group-hover:bg-cyan-100 dark:group-hover:bg-cyan-500/30 transition-all duration-500">
+                          <CheckCircle2 className="w-5 h-5 text-cyan-500 dark:text-cyan-400 group-hover:text-cyan-600 dark:group-hover:text-cyan-300 transition-colors duration-500" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
@@ -468,8 +468,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-4 sm:gap-5 relative z-10">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <Award className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-12 h-12 rounded-xl bg-yellow-50 dark:bg-yellow-500/10 flex items-center justify-center shrink-0 border border-yellow-100 dark:border-yellow-500/20 shadow-sm group-hover:scale-110 group-hover:bg-yellow-100 dark:group-hover:bg-yellow-500/30 transition-all duration-500">
+                          <Award className="w-5 h-5 text-yellow-600 dark:text-yellow-400 group-hover:text-yellow-700 dark:group-hover:text-yellow-300 transition-colors duration-500" />
                         </div>
                         <div className="flex flex-col justify-center">
                           <span className="text-[15px] sm:text-base font-semibold text-slate-800 dark:text-slate-200 leading-relaxed group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
@@ -494,8 +494,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-3 items-center relative z-10">
-                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <ShieldCheck className="w-5 h-5 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-10 h-10 rounded-lg bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-500/20 shadow-sm group-hover:scale-110 group-hover:bg-indigo-100 dark:group-hover:bg-indigo-500/30 transition-all duration-500">
+                          <ShieldCheck className="w-5 h-5 text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 transition-colors duration-500" />
                         </div>
                         <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
                           {item}
@@ -518,8 +518,8 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
                       <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
                       
                       <div className="flex gap-3 items-center relative z-10">
-                        <div className="w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-800/80 flex items-center justify-center shrink-0 border border-slate-100 dark:border-slate-700 shadow-sm group-hover:scale-110 group-hover:bg-white dark:group-hover:bg-slate-800 transition-all duration-500">
-                          <Star className="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-primary dark:group-hover:text-teal-400 transition-colors duration-500" />
+                        <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center shrink-0 border border-primary/20 dark:border-primary/30 shadow-sm group-hover:scale-110 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-all duration-500">
+                          <Star className="w-4 h-4 text-primary dark:text-teal-400 group-hover:text-primary/90 dark:group-hover:text-teal-300 transition-colors duration-500" />
                         </div>
                         <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
                           {item}
