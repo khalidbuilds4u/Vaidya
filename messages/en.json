@@ -585,7 +585,7 @@
       "copy": "Copy Link"
     },
     "whyChooseUs": {
-      "title": "Why Choose Us?",
+      "title": "Why Choose Asad Healthcare?",
       "subtitle": "Multiple ways we ease your burden",
       "benefits": [
         "Personalized Patient Care - Support based on each patient's needs.",
@@ -1314,7 +1314,7 @@
       "preArrival": "Pre-Arrival",
       "during": "During Treatment",
       "post": "Post-Treatment",
-      "why": "Why Choose Us"
+      "why": "Why Choose Asad Healthcare"
     },
     "phases": {
       "pre": {
@@ -1463,7 +1463,7 @@
       }
     ],
     "whyChoose": {
-      "badge": "Why Choose Us",
+      "badge": "Why Choose Asad Healthcare",
       "heading": "Why Choose Asad Healthcare",
       "subheading": "Thousands of international patients have trusted us with their medical journey. Here is what makes us different.",
       "items": [

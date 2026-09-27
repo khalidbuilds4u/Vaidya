@@ -564,7 +564,7 @@
       "copy": "Copiar link"
     },
     "whyChooseUs": {
-      "title": "Por que nos escolher?",
+      "title": "Por que escolher a Asad Healthcare?",
       "subtitle": "Várias formas de aliviar a sua carga",
       "benefits": [
         "Atendimento Personalizado ao Paciente - Suporte baseado nas necessidades de cada paciente.",
@@ -1313,7 +1313,7 @@
       "preArrival": "Antes da chegada",
       "during": "Durante o tratamento",
       "post": "Pós-tratamento",
-      "why": "Por que nos escolher?"
+      "why": "Por que Asad Healthcare"
     },
     "phases": {
       "pre": {
@@ -1462,7 +1462,7 @@
       }
     ],
     "whyChoose": {
-      "badge": "Por que nos escolher",
+      "badge": "Por que Asad Healthcare",
       "heading": "Por que escolher a Asad Healthcare",
       "subheading": "Milhares de doentes internacionais confiaram-nos o seu percurso médico. Eis o que nos distingue.",
       "items": [

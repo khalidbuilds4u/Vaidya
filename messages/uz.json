@@ -565,7 +565,7 @@
       "copy": "Havo ulanishini nusxalash"
     },
     "whyChooseUs": {
-      "title": "Nega bizni tanlashingiz kerak?",
+      "title": "Nima uchun Asad Healthcare ni tanlaysiz?",
       "subtitle": "Biz sizning yukingizni yengillashtirishning bir nechta usullarini taklif etamiz",
       "benefits": [
         "Bemorga shaxsiy e'tibor - Har bir bemorning ehtiyojlariga asoslangan yordam.",
@@ -1314,7 +1314,7 @@
       "preArrival": "Kelishdan oldin",
       "during": "Davolanish davomida",
       "post": "Davolashdan keyin",
-      "why": "Nega bizni tanlashingiz kerak?"
+      "why": "Nima uchun Asad Healthcare"
     },
     "phases": {
       "pre": {
@@ -1463,7 +1463,7 @@
       }
     ],
     "whyChoose": {
-      "badge": "Nega bizni tanlashingiz kerak?",
+      "badge": "Nima uchun Asad Healthcare",
       "heading": "Nega Asad Healthcare'ni tanlashingiz kerak?",
       "subheading": "Minglab xalqaro bemorlar tibbiy sayohatlarini bizga ishonib topshirishdi. Bizni boshqalardan ajratib turadigan jihatlar quyidagilar.",
       "items": [
