@@ -44,24 +44,24 @@ export function PatientStoryList({ initialStories }: { initialStories: any[] }) 
   }
 
   return (
-    <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden text-slate-900">
       <Table>
-        <TableHeader>
+        <TableHeader className="bg-slate-50/50">
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Patient Name</TableHead>
-            <TableHead>Treatment</TableHead>
-            <TableHead>Date Added</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Title</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Patient Name</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Treatment</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Date Added</TableHead>
+            <TableHead className="text-slate-500 font-semibold text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {initialStories.map((story) => (
-            <TableRow key={story.id}>
-              <TableCell className="font-medium">{story.title}</TableCell>
-              <TableCell>{story.patientName}</TableCell>
-              <TableCell>{story.treatment?.name || "General"}</TableCell>
-              <TableCell>{new Date(story.createdAt).toLocaleDateString()}</TableCell>
+            <TableRow key={story.id} className="hover:bg-slate-50 transition-colors border-b border-slate-100">
+              <TableCell className="font-medium text-slate-900">{story.title}</TableCell>
+              <TableCell className="text-slate-600">{story.patientName}</TableCell>
+              <TableCell className="text-slate-600">{story.treatment?.name || "General"}</TableCell>
+              <TableCell className="text-slate-600">{new Date(story.createdAt).toLocaleDateString()}</TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
                   <Button variant="ghost" size="icon" asChild>
@@ -71,13 +71,13 @@ export function PatientStoryList({ initialStories }: { initialStories: any[] }) 
                   </Button>
                   <Button variant="ghost" size="icon" asChild>
                     <Link href={`/admin/stories/${story.id}`}>
-                      <Edit2 className="w-4 h-4" />
+                      <Edit2 className="w-4 h-4 text-slate-500 hover:text-slate-900" />
                     </Link>
                   </Button>
                   <Button 
                     variant="ghost" 
                     size="icon" 
-                    className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                    className="text-red-500 hover:text-red-700 hover:bg-red-50"
                     onClick={() => handleDelete(story.id)}
                     disabled={isDeleting === story.id}
                   >
