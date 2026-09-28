@@ -129,7 +129,13 @@ export async function createTreatment(formData: FormData) {
 
   revalidatePath("/admin/treatments");
   revalidatePath("/treatments");
-  redirect("/admin/treatments");
+  revalidatePath("/admin/specialties", "layout");
+  
+  if (data.specialtyId) {
+    redirect(`/admin/specialties/${data.specialtyId}/treatments`);
+  } else {
+    redirect("/admin/treatments");
+  }
 }
 
 export async function updateTreatment(id: string, formData: FormData) {
@@ -141,10 +147,18 @@ export async function updateTreatment(id: string, formData: FormData) {
   });
 
   revalidatePath("/admin/treatments");
-  redirect("/admin/treatments");
+  revalidatePath("/admin/specialties", "layout");
+  
+  if (data.specialtyId) {
+    redirect(`/admin/specialties/${data.specialtyId}/treatments`);
+  } else {
+    redirect("/admin/treatments");
+  }
 }
 
 export async function deleteTreatment(id: string) {
+  const treatment = await prisma.treatment.findUnique({ where: { id } });
+  
   await prisma.treatment.delete({
     where: { id },
   });
@@ -152,5 +166,11 @@ export async function deleteTreatment(id: string) {
   revalidatePath("/admin/treatments");
   revalidatePath(`/admin/treatments/${id}`);
   revalidatePath("/treatments");
-  redirect("/admin/treatments");
+  revalidatePath("/admin/specialties", "layout");
+  
+  if (treatment?.specialtyId) {
+    redirect(`/admin/specialties/${treatment.specialtyId}/treatments`);
+  } else {
+    redirect("/admin/treatments");
+  }
 }
