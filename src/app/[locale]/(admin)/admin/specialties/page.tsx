@@ -10,6 +10,8 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
+import { DeleteSpecialtyButton } from "@/components/admin/DeleteSpecialtyButton";
+
 export default async function SpecialtiesAdminPage() {
   const specialties = await prisma.specialty.findMany({
     include: {
@@ -68,8 +70,11 @@ export default async function SpecialtiesAdminPage() {
           </div>
         ) : (
           specialties.map((specialty) => (
-            <Link key={specialty.id} href={`/admin/specialties/${specialty.id}`}>
-              <div className="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:border-primary/30 transition-all duration-300 cursor-pointer h-full flex flex-col">
+            <div key={specialty.id} className="group relative bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:border-teal-500/30 transition-all duration-300 h-full flex flex-col">
+              
+              <DeleteSpecialtyButton id={specialty.id} name={specialty.name} />
+
+              <Link href={`/admin/specialties/${specialty.id}`} className="flex-1 flex flex-col cursor-pointer">
                 <div className="h-32 bg-slate-100 relative overflow-hidden">
                   {specialty.imageUrl ? (
                     <img 
@@ -98,13 +103,13 @@ export default async function SpecialtiesAdminPage() {
                       <p className="text-xl font-black text-slate-900">{specialty._count.conditions}</p>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between text-sm font-semibold text-slate-500 group-hover:text-primary transition-colors mt-auto">
+                  <div className="flex items-center justify-between text-sm font-semibold text-slate-500 group-hover:text-teal-600 transition-colors mt-auto">
                     <span>Manage Department</span>
                     <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
+            </div>
           ))
         )}
       </div>

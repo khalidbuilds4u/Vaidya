@@ -50,3 +50,16 @@ export async function updateSpecialty(id: string, formData: FormData) {
   revalidatePath("/admin/specialties");
   return { success: true };
 }
+
+export async function deleteSpecialty(id: string) {
+  try {
+    await prisma.specialty.delete({
+      where: { id },
+    });
+    revalidatePath("/admin/specialties");
+    return { success: true };
+  } catch (error) {
+    console.error("Error deleting specialty:", error);
+    return { success: false, error: "Failed to delete specialty" };
+  }
+}
