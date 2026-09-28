@@ -17,10 +17,13 @@ export const metadata: Metadata = {
 
 export default async function TreatmentEditor({
   params,
+  searchParams,
 }: {
   params: Promise<{ id: string }>;
+  searchParams: Promise<{ specialtyId?: string }>;
 }) {
   const { id } = await params;
+  const { specialtyId: initialSpecialtyId } = await searchParams;
   const isNew = id === "new";
 
   let treatment = null;
@@ -40,10 +43,14 @@ export default async function TreatmentEditor({
   
   const deleteTreatmentWithId = isNew ? async () => {} : deleteTreatment.bind(null, treatment!.id);
 
+  const backUrl = initialSpecialtyId 
+    ? `/admin/specialties/${initialSpecialtyId}/treatments`
+    : (treatment?.specialtyId ? `/admin/specialties/${treatment.specialtyId}/treatments` : "/admin/treatments");
+
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div className="flex items-center gap-4">
-        <Link href="/admin/treatments">
+        <Link href={backUrl}>
           <button className="p-2.5 bg-white border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors text-slate-500 hover:text-slate-900 shadow-sm">
             <ArrowLeft className="w-5 h-5" />
           </button>
@@ -109,7 +116,7 @@ export default async function TreatmentEditor({
               </label>
               <select
                 name="specialtyId"
-                defaultValue={treatment?.specialtyId || ""}
+                defaultValue={treatment?.specialtyId || initialSpecialtyId || ""}
                 required
                 className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
               >
