@@ -85,7 +85,8 @@ export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
           {NAV_ITEMS.map((item) => {
             const isActive =
               pathname === item.href ||
-              (item.href !== "/admin" && pathname.startsWith(item.href));
+              pathname.endsWith(item.href) ||
+              (item.href !== "/admin" && pathname.includes(item.href));
             const Icon = item.icon;
 
             return (
