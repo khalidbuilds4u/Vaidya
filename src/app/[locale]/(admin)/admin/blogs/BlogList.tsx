@@ -44,22 +44,22 @@ export function BlogList({ initialBlogs }: { initialBlogs: any[] }) {
   }
 
   return (
-    <div className="bg-white rounded-xl border shadow-sm overflow-hidden">
+    <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden text-slate-900">
       <Table>
-        <TableHeader>
+        <TableHeader className="bg-slate-50/50">
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Author</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Date Published</TableHead>
-            <TableHead className="text-right">Actions</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Title</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Author</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Status</TableHead>
+            <TableHead className="text-slate-500 font-semibold">Date Published</TableHead>
+            <TableHead className="text-slate-500 font-semibold text-right">Actions</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {initialBlogs.map((blog) => (
-            <TableRow key={blog.id}>
-              <TableCell className="font-medium">{blog.title}</TableCell>
-              <TableCell>{blog.authorName}</TableCell>
+            <TableRow key={blog.id} className="hover:bg-slate-50 transition-colors border-b border-slate-100">
+              <TableCell className="font-medium text-slate-900">{blog.title}</TableCell>
+              <TableCell className="text-slate-600">{blog.authorName}</TableCell>
               <TableCell>
                 {blog.published ? (
                   <span className="inline-flex items-center gap-1.5 px-2 py-1 rounded-md bg-emerald-50 text-emerald-700 text-xs font-medium">
@@ -71,7 +71,7 @@ export function BlogList({ initialBlogs }: { initialBlogs: any[] }) {
                   </span>
                 )}
               </TableCell>
-              <TableCell>{new Date(blog.createdAt).toLocaleDateString()}</TableCell>
+              <TableCell className="text-slate-600">{new Date(blog.createdAt).toLocaleDateString()}</TableCell>
               <TableCell className="text-right">
                 <div className="flex justify-end gap-2">
                   <Button variant="ghost" size="icon" asChild>
@@ -81,13 +81,13 @@ export function BlogList({ initialBlogs }: { initialBlogs: any[] }) {
                   </Button>
                   <Button variant="ghost" size="icon" asChild>
                     <Link href={`/admin/blogs/${blog.id}`} title="Edit">
-                      <Edit2 className="w-4 h-4" />
+                      <Edit2 className="w-4 h-4 text-slate-500 hover:text-slate-900" />
                     </Link>
                   </Button>
                   <Button 
                     variant="ghost" 
                     size="icon" 
-                    className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                    className="text-red-500 hover:text-red-700 hover:bg-red-50"
                     onClick={() => handleDelete(blog.id)}
                     disabled={isDeleting === blog.id}
                   >
