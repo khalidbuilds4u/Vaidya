@@ -277,6 +277,7 @@ export default async function DoctorEditor({
                   label="Why Choose This Doctor?" 
                   initialItems={doctor?.whyChooseThisDoctor || []} 
                   placeholder="e.g. Over 25 years of specialized experience in neurosurgery." 
+                  multiline={true}
                 />
               </div>
             </div>

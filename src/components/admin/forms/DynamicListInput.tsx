@@ -9,9 +9,10 @@ interface DynamicListInputProps {
   label: string;
   initialItems?: string[];
   placeholder?: string;
+  multiline?: boolean;
 }
 
-export function DynamicListInput({ name, label, initialItems = [], placeholder = "Enter an item..." }: DynamicListInputProps) {
+export function DynamicListInput({ name, label, initialItems = [], placeholder = "Enter an item...", multiline = false }: DynamicListInputProps) {
   const [items, setItems] = useState<string[]>(initialItems);
   const [inputValue, setInputValue] = useState("");
 
@@ -27,14 +28,17 @@ export function DynamicListInput({ name, label, initialItems = [], placeholder =
     setItems(items.filter((_, i) => i !== index));
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
     if (e.key === "Enter") {
+      if (multiline && e.shiftKey) {
+        return; // Allow new line
+      }
       e.preventDefault(); // Prevent form submission
       handleAddItem();
     }
   };
 
-  const handlePaste = (e: React.ClipboardEvent<HTMLInputElement>) => {
+  const handlePaste = (e: React.ClipboardEvent<HTMLElement>) => {
     const paste = e.clipboardData.getData("text");
     if (paste.includes("\n")) {
       e.preventDefault();
@@ -56,20 +60,32 @@ export function DynamicListInput({ name, label, initialItems = [], placeholder =
       <input type="hidden" name={name} value={JSON.stringify(items)} />
 
       <div className="flex gap-2">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={handleKeyDown}
-          onPaste={handlePaste}
-          placeholder={placeholder}
-          className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
-        />
+        {multiline ? (
+          <textarea
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onPaste={handlePaste}
+            placeholder={placeholder}
+            rows={3}
+            className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400 resize-y min-h-[44px]"
+          />
+        ) : (
+          <input
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            onKeyDown={handleKeyDown}
+            onPaste={handlePaste}
+            placeholder={placeholder}
+            className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all bg-slate-50/50 focus:bg-white text-slate-900 placeholder:text-slate-400"
+          />
+        )}
         <Button 
           type="button" 
           onClick={handleAddItem}
           disabled={!inputValue.trim()}
-          className="rounded-xl px-4 bg-slate-900 hover:bg-slate-800 text-white"
+          className="rounded-xl px-4 bg-slate-900 hover:bg-slate-800 text-white h-auto py-2.5"
         >
           <Plus className="w-4 h-4 mr-1" /> Add
         </Button>

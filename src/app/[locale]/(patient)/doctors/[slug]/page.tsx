@@ -511,23 +511,13 @@ export default async function DoctorProfilePage({ params }: { params: Promise<{ 
             {doctor.whyChooseThisDoctor.length > 0 && (
               <section id="why" className="scroll-mt-32">
                 <SectionHeader title={t('whyChooseThisDoctor')} />
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <ul className="grid grid-cols-1 gap-3">
                   {(getTranslation(doctor, 'whyChooseThisDoctor', locale) || doctor.whyChooseThisDoctor).map((item: string, idx: number) => (
-                    <div key={idx} className="group relative bg-white dark:bg-slate-900/50 rounded-xl p-4 border border-slate-200 dark:border-slate-800 overflow-hidden hover:shadow-lg hover:border-primary/40 dark:hover:border-teal-500/40 transition-all duration-500">
-                      <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-primary to-teal-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-2xl -mr-12 -mt-12 group-hover:bg-primary/10 transition-colors duration-500" />
-                      
-                      <div className="flex gap-3 items-center relative z-10">
-                        <div className="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center shrink-0 border border-primary/20 dark:border-primary/30 shadow-sm group-hover:scale-110 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 transition-all duration-500">
-                          <Star className="w-4 h-4 text-primary dark:text-teal-400 group-hover:text-primary/90 dark:group-hover:text-teal-300 transition-colors duration-500" />
-                        </div>
-                        <span className="text-[14px] sm:text-[15px] font-semibold text-slate-700 dark:text-slate-300 leading-snug group-hover:text-primary dark:group-hover:text-teal-300 transition-colors duration-300">
-                          {item}
-                        </span>
-                      </div>
-                    </div>
+                    <li key={idx} className="flex items-start gap-4 p-4 rounded-2xl bg-white dark:bg-slate-900/95 border border-slate-100 dark:border-slate-800 shadow-sm border-l-4 border-l-teal-500 transition-colors duration-500 hover:border-l-primary hover:shadow-md">
+                      <span className="text-sm text-slate-700 dark:text-slate-300 font-medium leading-relaxed">{item}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </section>
             )}
             {/* For International Patients Section (Static) */}
