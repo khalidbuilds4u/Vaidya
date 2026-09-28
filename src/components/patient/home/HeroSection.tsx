@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import { ShieldCheck, Star, Sparkles, Clock, ArrowRight, Building2, CheckCircle2 } from 'lucide-react';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
-import { m as motion } from 'framer-motion';
+import { m as motion, useScroll, useTransform } from 'framer-motion';
 import { HeroSearchBar } from './HeroSearchBar';
 import { CostSavingsWidget } from './CostSavingsWidget';
 
@@ -17,16 +17,19 @@ interface HeroSectionProps {
 
 export function HeroSection({ cities }: HeroSectionProps) {
   const t = useTranslations('Hero');
-
-
+  const { scrollY } = useScroll();
+  const y = useTransform(scrollY, [0, 800], [0, 200]);
 
   return (
-    <section className="relative pt-6 pb-12 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500">
+    <section className="relative pt-6 pb-12 sm:pt-14 sm:pb-20 lg:pt-20 lg:pb-32 bg-slate-100 dark:bg-slate-950 border-b border-slate-200/80 dark:border-slate-800/80 transition-colors duration-500 overflow-hidden">
       
       {/* Background Elements Wrapper (with overflow-hidden to prevent spillover) */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* 1. Vibrant High-Res Background Image */}
-        <div className="absolute inset-0 scale-100 sm:scale-[1.02] transition-transform duration-1000">
+      <div className="absolute inset-0 pointer-events-none">
+        {/* 1. Vibrant High-Res Background Image with Parallax */}
+        <motion.div 
+          style={{ y }}
+          className="absolute inset-0 scale-[1.15] transition-transform duration-1000 origin-top"
+        >
           <Image 
             src="/images/hero-hospital-premium.jpg" 
             alt="Hospital Background" 
@@ -34,7 +37,7 @@ export function HeroSection({ cities }: HeroSectionProps) {
             priority 
             className="object-cover object-center" 
           />
-        </div>
+        </motion.div>
 
         {/* 2. Light Left Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/75 lg:via-white/55 dark:from-slate-950/95 dark:via-slate-950/75 dark:lg:via-slate-950/55 to-transparent z-[1] transition-colors duration-500" />

@@ -78,10 +78,10 @@ export async function PopularSpecialties() {
             const Icon = spec.icon;
             return (
               <Link key={spec.id} href={`/specialties/${spec.slug}`}>
-                <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-center h-full flex flex-col justify-between items-center group relative overflow-hidden transition-colors duration-300 shadow-sm">
+                <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-teal-500/50 text-center h-full flex flex-col justify-between items-center group relative overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-primary/5">
                   
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 sm:mb-5 text-primary shadow-sm border border-slate-200 dark:border-slate-700">
-                    <Icon className="w-6 h-6 sm:w-8 sm:h-8" />
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 sm:mb-5 text-primary shadow-sm border border-slate-200 dark:border-slate-700 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-primary/5 dark:group-hover:bg-teal-500/10 transition-all duration-300">
+                    <Icon className="w-6 h-6 sm:w-8 sm:h-8 group-hover:animate-pulse" />
                   </div>
                   
                   <div>
