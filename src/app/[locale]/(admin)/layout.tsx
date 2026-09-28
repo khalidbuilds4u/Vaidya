@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { AdminShell } from "./AdminShell";
+import { prisma } from "@/lib/prisma";
 
 export const metadata = {
   title: "Admin | Asad Healthcare",
@@ -25,10 +26,16 @@ export default async function AdminLayout({
     redirect("/login");
   }
 
+  // Count unread / new patient leads
+  const newLeadsCount = await prisma.patientCase.count({
+    where: { status: "NEW" },
+  });
+
   return (
     <AdminShell
       userName={session.user.name || session.user.email || "Admin"}
       userRole={role}
+      newLeadsCount={newLeadsCount}
     >
       {children}
     </AdminShell>

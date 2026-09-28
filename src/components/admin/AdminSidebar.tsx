@@ -37,9 +37,10 @@ const NAV_ITEMS = [
 interface AdminSidebarProps {
   isOpen: boolean;
   onClose: () => void;
+  newLeadsCount?: number;
 }
 
-export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
+export function AdminSidebar({ isOpen, onClose, newLeadsCount = 0 }: AdminSidebarProps) {
   const pathname = usePathname();
 
   return (
@@ -88,13 +89,16 @@ export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
               pathname.endsWith(item.href) ||
               (item.href !== "/admin" && pathname.includes(item.href));
             const Icon = item.icon;
+            
+            const isPatientCases = item.href === "/admin/cases";
+            const showBadge = isPatientCases && newLeadsCount > 0;
 
             return (
               <Link
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`relative flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 active:scale-95 ${
+                className={`relative flex items-center justify-between px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 active:scale-95 ${
                   isActive
                     ? "text-primary"
                     : "text-slate-400 hover:text-white hover:bg-white/[0.04]"
@@ -107,8 +111,15 @@ export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
                     transition={{ type: "spring", stiffness: 350, damping: 30 }}
                   />
                 )}
-                <Icon className={`w-5 h-5 relative z-10 ${isActive ? "text-primary" : "text-slate-500"}`} />
-                <span className="relative z-10">{item.label}</span>
+                <div className="flex items-center gap-3 relative z-10">
+                  <Icon className={`w-5 h-5 ${isActive ? "text-primary" : "text-slate-500"}`} />
+                  <span>{item.label}</span>
+                </div>
+                {showBadge && (
+                  <span className="relative z-10 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center">
+                    {newLeadsCount > 99 ? '99+' : newLeadsCount}
+                  </span>
+                )}
               </Link>
             );
           })}

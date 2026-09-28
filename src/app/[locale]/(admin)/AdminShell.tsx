@@ -9,9 +9,10 @@ interface AdminShellProps {
   children: React.ReactNode;
   userName: string;
   userRole: string;
+  newLeadsCount?: number;
 }
 
-export function AdminShell({ children, userName, userRole }: AdminShellProps) {
+export function AdminShell({ children, userName, userRole, newLeadsCount = 0 }: AdminShellProps) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -19,6 +20,7 @@ export function AdminShell({ children, userName, userRole }: AdminShellProps) {
       <AdminSidebar
         isOpen={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
+        newLeadsCount={newLeadsCount}
       />
 
       {/* Main content area — offset by sidebar width on desktop */}
