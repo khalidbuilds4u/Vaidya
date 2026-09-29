@@ -309,9 +309,9 @@
     }
   },
   "Conditions": {
-    "tag": "Diagnosis & Care",
+    "tag": "Medical Conditions",
     "title": "Common Conditions We Treat",
-    "desc": "Search by your specific diagnosis. Our hospital network specializes in advanced surgical and medical interventions for complex health challenges.",
+    "desc": "Find specialized care tailored to your specific health needs. Our top-tier partner hospitals offer advanced, highly effective treatments for a wide range of complex medical conditions.",
     "items": {
       "c1": {
         "name": "Coronary Artery Disease",
