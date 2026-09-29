@@ -44,8 +44,8 @@ export default async function TreatmentEditor({
   const deleteTreatmentWithId = isNew ? async () => {} : deleteTreatment.bind(null, treatment!.id);
 
   const backUrl = initialSpecialtyId 
-    ? `/admin/specialties/${initialSpecialtyId}/treatments`
-    : (treatment?.specialtyId ? `/admin/specialties/${treatment.specialtyId}/treatments` : "/admin/treatments");
+    ? `/admin/departments/${initialSpecialtyId}/treatments`
+    : (treatment?.specialtyId ? `/admin/departments/${treatment.specialtyId}/treatments` : "/admin/treatments");
 
   return (
     <div className="max-w-4xl mx-auto space-y-6">

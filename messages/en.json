@@ -17,6 +17,7 @@
     "hospitals": "Hospitals",
     "doctors": "Doctors",
     "procedures": "Procedures",
+    "departments": "Departments",
     "patientStories": "Patient Stories",
     "gallery": "Gallery",
     "services": "Services",
@@ -41,7 +42,7 @@
     "pill3": "< 24h Free Quote",
     "card1Sub": "Accreditation",
     "card1Title": "JCI & NABH Certified Network",
-    "card1Desc": "Top 50+ Super-Specialty Hospitals",
+    "card1Desc": "Top 50+ Super-Department Hospitals",
     "card2Sub": "Clinical Track Record",
     "card2Title": "98.5% Success Rate",
     "card2Desc": "Over 15,000+ Successful Surgeries",
@@ -120,9 +121,9 @@
     "freeTag": "100% Free",
     "supportBanner": "Your health is our priority. We are here to support you throughout your medical journey in India."
   },
-  "Specialties": {
+  "Departments": {
     "tag": "Specialized Excellence",
-    "title": "Explore by Medical Specialty",
+    "title": "Explore by Medical Department",
     "desc": "Comprehensive care across all major clinical departments. Consult with India's most distinguished surgeons and medical teams.",
     "view": "View Treatments",
     "browseAll": "Browse All Treatments & Procedures",
@@ -154,7 +155,7 @@
       "doctors": "Specialist Surgeons",
       "treatments": "Treatments & Costs",
       "gallery": "Photo Gallery",
-      "specialties": "Medical Specialties",
+      "specialties": "Medical Departments",
       "conditions": "Conditions Guide",
       "cities": "Medical Cities in India"
     },
@@ -446,8 +447,8 @@
       "searchPlaceholder": "Name or keyword...",
       "city": "City",
       "allCities": "All Cities (India)",
-      "specialty": "Specialty",
-      "allSpecialties": "All Specialties",
+      "specialty": "Department",
+      "allDepartments": "All Departments",
       "apply": "Apply Filters"
     },
     "results": {
@@ -475,7 +476,7 @@
     "topSpecialities": "Top Specialities",
     "bookConsultation": "Book Consultation",
     "quickFacts": "Hospital Quick Facts",
-    "multiSpecialties": "Multi Speciality Services",
+    "multiDepartments": "Multi Speciality Services",
     "premiumFacilities": "Premium Facilities during Hospital Stay",
     "excellence": "Excellence in patient care",
     "verifiedHospital": "Verified Hospital",
@@ -539,8 +540,8 @@
       "title": "Filter Specialists",
       "search": "Search Doctor",
       "searchPlaceholder": "Name or keyword...",
-      "specialty": "Specialty",
-      "allSpecialties": "All Specialties",
+      "specialty": "Department",
+      "allDepartments": "All Departments",
       "city": "City",
       "allCities": "All Cities",
       "apply": "Apply Filters"
@@ -641,7 +642,7 @@
       "button": "Search"
     },
     "browse": {
-      "title": "Browse by Medical Specialty",
+      "title": "Browse by Medical Department",
       "viewAll": "View All"
     },
     "popular": {
@@ -766,9 +767,9 @@
       ]
     }
   },
-  "SpecialtyDetail": {
+  "DepartmentDetail": {
     "hero": {
-      "tag": "Medical Specialty",
+      "tag": "Medical Department",
       "inIndia": "{name} in India",
       "getPlan": "Get Free Consultation Plan",
       "fallbackOverview": "{name} is a specialized branch of medicine dealing with specific aspects of healthcare. Our partner hospitals in India provide world-class treatments using state-of-the-art technology."
@@ -1172,7 +1173,7 @@
   "HospitalCard": {
     "internationalPatientCare": "International Patient Care",
     "beds": "{count} Beds",
-    "keySpecialties": "Key Specialties",
+    "keyDepartments": "Key Departments",
     "viewProfile": "View Profile",
     "freeQuote": "Free Quote",
     "india": "India",

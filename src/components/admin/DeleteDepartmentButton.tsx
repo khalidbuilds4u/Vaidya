@@ -2,10 +2,10 @@
 
 import { Trash2 } from "lucide-react";
 import { useState } from "react";
-import { deleteSpecialty } from "@/app/actions/specialtyActions";
+import { deleteSpecialty } from "@/app/actions/departmentActions";
 import { useRouter } from "next/navigation";
 
-export function DeleteSpecialtyButton({ id, name }: { id: string; name: string }) {
+export function DeleteDepartmentButton({ id, name }: { id: string; name: string }) {
   const [isDeleting, setIsDeleting] = useState(false);
   const router = useRouter();
 

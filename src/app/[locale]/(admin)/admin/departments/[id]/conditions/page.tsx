@@ -33,7 +33,7 @@ export default async function SpecialtyConditionsPage({ params }: { params: Prom
 
   return (
     <div className="space-y-6">
-      <Link href={`/admin/specialties/${specialty.id}`} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-2 transition-colors">
+      <Link href={`/admin/departments/${specialty.id}`} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-2 transition-colors">
         <ArrowLeft className="w-4 h-4 mr-1" />
         Back to {specialty.name} Dashboard
       </Link>

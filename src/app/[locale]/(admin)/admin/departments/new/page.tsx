@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft, LayoutGrid } from "lucide-react";
-import { SpecialtyForm } from "@/components/admin/forms/SpecialtyForm";
+import { DepartmentForm } from "@/components/admin/forms/DepartmentForm";
 
 export const metadata: Metadata = {
   title: "Add New Specialty | Asad Healthcare",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function NewSpecialtyPage() {
   return (
     <div className="space-y-6">
-      <Link href="/admin/specialties" className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-2 transition-colors">
+      <Link href="/admin/departments" className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-2 transition-colors">
         <ArrowLeft className="w-4 h-4 mr-1" />
         Back to Specialties Gallery
       </Link>
@@ -25,7 +25,7 @@ export default function NewSpecialtyPage() {
         </p>
       </div>
 
-      <SpecialtyForm />
+      <DepartmentForm />
     </div>
   );
 }

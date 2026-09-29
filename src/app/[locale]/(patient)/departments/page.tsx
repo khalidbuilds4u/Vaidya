@@ -10,13 +10,13 @@ import { Button } from '@/components/ui/button';
 import { DirectorySearch } from '@/components/patient/DirectorySearch';
 
 export const metadata: Metadata = {
-  title: 'All Medical Specialties | AsadHealthcare',
+  title: 'All Medical Departments | AsadHealthcare',
   description: 'Explore all world-class medical specialties available at top hospitals in India.',
 };
 
 export const revalidate = 3600;
 
-export default async function SpecialtiesDirectory({ 
+export default async function DepartmentsDirectory({ 
   params,
   searchParams,
 }: { 
@@ -45,7 +45,7 @@ export default async function SpecialtiesDirectory({
         <div className="absolute inset-0 pointer-events-none opacity-35 sm:opacity-45 scale-105 transition-transform duration-1000">
           <Image 
             src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop" 
-            alt="Specialties Background" 
+            alt="Departments Background" 
             fill 
             priority 
             className="object-cover object-center" 
@@ -59,10 +59,10 @@ export default async function SpecialtiesDirectory({
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3.5 shadow-lg">
               <Activity className="w-3.5 h-3.5" />
-              <span>Specialties & Departments</span>
+              <span>Departments & Departments</span>
             </div>
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
-              All Medical Specialties
+              All Medical Departments
             </h1>
             <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal mb-6">
               Browse our comprehensive list of world-class medical specialties and departments.
@@ -79,7 +79,7 @@ export default async function SpecialtiesDirectory({
             const fallbackImage = 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop';
             const translatedName = getTranslation(spec, 'name', locale);
             return (
-              <Link key={spec.id} href={`/${locale}/specialties/${spec.slug}`}>
+              <Link key={spec.id} href={`/${locale}/departments/${spec.slug}`}>
                 <div className="rounded-2xl sm:rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300 group cursor-pointer h-36 sm:h-44 relative border border-white/80 dark:border-slate-800 bg-slate-200">
                   <Image 
                     src={spec.imageUrl || fallbackImage} 

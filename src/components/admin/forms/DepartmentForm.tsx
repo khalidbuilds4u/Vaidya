@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Save, Loader2, Image as ImageIcon } from "lucide-react";
-import { createSpecialty, updateSpecialty } from "@/app/actions/specialtyActions";
+import { createSpecialty, updateSpecialty } from "@/app/actions/departmentActions";
 
 interface Specialty {
   id?: string;
@@ -17,11 +17,11 @@ interface Specialty {
   imageUrl: string | null;
 }
 
-interface SpecialtyFormProps {
+interface DepartmentFormProps {
   specialty?: Specialty;
 }
 
-export function SpecialtyForm({ specialty }: SpecialtyFormProps) {
+export function DepartmentForm({ specialty }: DepartmentFormProps) {
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [name, setName] = useState(specialty?.name || "");
@@ -55,11 +55,11 @@ export function SpecialtyForm({ specialty }: SpecialtyFormProps) {
       if (specialty?.id) {
         await updateSpecialty(specialty.id, formData);
         toast.success("Specialty updated successfully");
-        router.push(`/admin/specialties/${specialty.id}`);
+        router.push(`/admin/departments/${specialty.id}`);
       } else {
         const res = await createSpecialty(formData);
         toast.success("Specialty created successfully");
-        router.push(`/admin/specialties/${res.id}`);
+        router.push(`/admin/departments/${res.id}`);
       }
     } catch (error: any) {
       toast.error(error.message || "Failed to save specialty");

@@ -22,7 +22,7 @@ export async function createSpecialty(formData: FormData) {
     },
   });
 
-  revalidatePath("/admin/specialties");
+  revalidatePath("/admin/departments");
   return { success: true, id: specialty.id };
 }
 
@@ -46,8 +46,8 @@ export async function updateSpecialty(id: string, formData: FormData) {
     },
   });
 
-  revalidatePath(`/admin/specialties/${id}`);
-  revalidatePath("/admin/specialties");
+  revalidatePath(`/admin/departments/${id}`);
+  revalidatePath("/admin/departments");
   return { success: true };
 }
 
@@ -56,7 +56,7 @@ export async function deleteSpecialty(id: string) {
     await prisma.specialty.delete({
       where: { id },
     });
-    revalidatePath("/admin/specialties");
+    revalidatePath("/admin/departments");
     return { success: true };
   } catch (error) {
     console.error("Error deleting specialty:", error);

@@ -5,14 +5,14 @@ import { Plus, Search, ArrowRight, LayoutGrid } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export const metadata: Metadata = {
-  title: "Specialties Management | Asad Healthcare",
+  title: "Departments Management | Asad Healthcare",
 };
 
 export const dynamic = "force-dynamic";
 
-import { DeleteSpecialtyButton } from "@/components/admin/DeleteSpecialtyButton";
+import { DeleteDepartmentButton } from "@/components/admin/DeleteDepartmentButton";
 
-export default async function SpecialtiesAdminPage() {
+export default async function DepartmentsAdminPage() {
   const specialties = await prisma.specialty.findMany({
     include: {
       _count: {
@@ -33,16 +33,16 @@ export default async function SpecialtiesAdminPage() {
         <div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2">
             <LayoutGrid className="w-6 h-6 text-primary" />
-            Specialties Gallery
+            Departments Gallery
           </h1>
           <p className="text-sm text-slate-500 mt-1">
             Manage your medical departments. Click a specialty to manage its procedures and conditions.
           </p>
         </div>
-        <Link href="/admin/specialties/new">
+        <Link href="/admin/departments/new">
           <Button className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-white rounded-xl h-11 px-6 shadow-md shadow-primary/20">
             <Plus className="w-4 h-4 mr-2" />
-            Add Specialty
+            Add Department
           </Button>
         </Link>
       </div>
@@ -58,7 +58,7 @@ export default async function SpecialtiesAdminPage() {
           />
         </div>
         <div className="text-sm font-medium text-slate-500 bg-slate-50 px-4 py-2 rounded-xl border border-slate-100">
-          Total Specialties: <span className="text-slate-900">{specialties.length}</span>
+          Total Departments: <span className="text-slate-900">{specialties.length}</span>
         </div>
       </div>
 
@@ -66,15 +66,15 @@ export default async function SpecialtiesAdminPage() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {specialties.length === 0 ? (
           <div className="col-span-full bg-white p-12 text-center rounded-2xl border border-slate-200 border-dashed">
-            <p className="text-slate-500">No specialties found. Click "Add Specialty" to create one.</p>
+            <p className="text-slate-500">No specialties found. Click "Add Department" to create one.</p>
           </div>
         ) : (
           specialties.map((specialty) => (
             <div key={specialty.id} className="group relative bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:border-teal-500/30 transition-all duration-300 h-full flex flex-col">
               
-              <DeleteSpecialtyButton id={specialty.id} name={specialty.name} />
+              <DeleteDepartmentButton id={specialty.id} name={specialty.name} />
 
-              <Link href={`/admin/specialties/${specialty.id}`} className="flex-1 flex flex-col cursor-pointer">
+              <Link href={`/admin/departments/${specialty.id}`} className="flex-1 flex flex-col cursor-pointer">
                 <div className="h-32 bg-slate-100 relative overflow-hidden">
                   {specialty.imageUrl ? (
                     <img 

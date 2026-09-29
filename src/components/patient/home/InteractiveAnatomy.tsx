@@ -134,7 +134,7 @@ export default function InteractiveAnatomy() {
                 style={{ left: `${part.x}%`, top: `${part.y}%` }}
                 onMouseEnter={() => setHoveredPart(part.id)}
                 onMouseLeave={() => setHoveredPart(null)}
-                onClick={() => router.push(`/specialties/${part.slug}`)}
+                onClick={() => router.push(`/departments/${part.slug}`)}
               >
                 {/* Pulse Ring */}
                 <div className={`absolute inset-0 rounded-full w-12 h-12 -ml-6 -mt-6 animate-ping opacity-30 ${hoveredPart === part.id ? 'bg-teal-400' : 'bg-teal-500/50'}`} />
@@ -179,7 +179,7 @@ export default function InteractiveAnatomy() {
                 Our network encompasses the finest medical minds in India. From complex neurosurgeries to advanced cardiac interventions, find the exact specialist you need.
               </p>
               <button 
-                onClick={() => router.push('/specialties')}
+                onClick={() => router.push('/departments')}
                 className="w-full py-4 rounded-xl bg-teal-500 hover:bg-teal-400 text-[#0f172a] font-bold transition-all duration-300 relative z-10 shadow-[0_0_20px_rgba(20,184,166,0.2)] hover:shadow-[0_0_30px_rgba(20,184,166,0.4)]"
               >
                 View All Specialties

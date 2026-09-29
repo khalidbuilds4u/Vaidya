@@ -34,7 +34,7 @@ export default async function SpecialtyDashboardPage({ params }: { params: Promi
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <Link href="/admin/specialties" className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-4 transition-colors">
+        <Link href="/admin/departments" className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-4 transition-colors">
           <ArrowLeft className="w-4 h-4 mr-1" />
           Back to Specialties Gallery
         </Link>
@@ -55,7 +55,7 @@ export default async function SpecialtyDashboardPage({ params }: { params: Promi
                   Select a category below to manage its content
                 </p>
               </div>
-              <Link href={`/admin/specialties/${specialty.id}/edit`}>
+              <Link href={`/admin/departments/${specialty.id}/edit`}>
                 <Button variant="outline" className="bg-white/10 hover:bg-white/20 text-white border-white/20 backdrop-blur-md h-11 px-6">
                   <Edit className="w-4 h-4 mr-2" /> Edit Specialty
                 </Button>
@@ -69,7 +69,7 @@ export default async function SpecialtyDashboardPage({ params }: { params: Promi
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         
         {/* Procedures Card */}
-        <Link href={`/admin/specialties/${specialty.id}/treatments`}>
+        <Link href={`/admin/departments/${specialty.id}/treatments`}>
           <div className="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:border-blue-500/30 transition-all duration-300 cursor-pointer flex flex-col h-full">
             <div className="p-8 flex items-start gap-6">
               <div className="w-16 h-16 rounded-2xl bg-blue-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
@@ -95,7 +95,7 @@ export default async function SpecialtyDashboardPage({ params }: { params: Promi
         </Link>
 
         {/* Conditions Card */}
-        <Link href={`/admin/specialties/${specialty.id}/conditions`}>
+        <Link href={`/admin/departments/${specialty.id}/conditions`}>
           <div className="group bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden hover:shadow-lg hover:border-emerald-500/30 transition-all duration-300 cursor-pointer flex flex-col h-full">
             <div className="p-8 flex items-start gap-6">
               <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { ArrowLeft, Edit } from "lucide-react";
-import { SpecialtyForm } from "@/components/admin/forms/SpecialtyForm";
+import { DepartmentForm } from "@/components/admin/forms/DepartmentForm";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +27,7 @@ export default async function EditSpecialtyPage({ params }: { params: Promise<{ 
 
   return (
     <div className="space-y-6">
-      <Link href={`/admin/specialties/${specialty.id}`} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-2 transition-colors">
+      <Link href={`/admin/departments/${specialty.id}`} className="inline-flex items-center text-sm font-semibold text-slate-500 hover:text-primary mb-2 transition-colors">
         <ArrowLeft className="w-4 h-4 mr-1" />
         Back to {specialty.name} Dashboard
       </Link>
@@ -42,7 +42,7 @@ export default async function EditSpecialtyPage({ params }: { params: Promise<{ 
         </p>
       </div>
 
-      <SpecialtyForm specialty={specialty} />
+      <DepartmentForm specialty={specialty} />
     </div>
   );
 }

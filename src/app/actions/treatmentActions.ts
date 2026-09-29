@@ -129,10 +129,10 @@ export async function createTreatment(formData: FormData) {
 
   revalidatePath("/admin/treatments");
   revalidatePath("/treatments");
-  revalidatePath("/admin/specialties", "layout");
+  revalidatePath("/admin/departments", "layout");
   
   if (data.specialtyId) {
-    redirect(`/admin/specialties/${data.specialtyId}/treatments`);
+    redirect(`/admin/departments/${data.specialtyId}/treatments`);
   } else {
     redirect("/admin/treatments");
   }
@@ -147,10 +147,10 @@ export async function updateTreatment(id: string, formData: FormData) {
   });
 
   revalidatePath("/admin/treatments");
-  revalidatePath("/admin/specialties", "layout");
+  revalidatePath("/admin/departments", "layout");
   
   if (data.specialtyId) {
-    redirect(`/admin/specialties/${data.specialtyId}/treatments`);
+    redirect(`/admin/departments/${data.specialtyId}/treatments`);
   } else {
     redirect("/admin/treatments");
   }
@@ -166,10 +166,10 @@ export async function deleteTreatment(id: string) {
   revalidatePath("/admin/treatments");
   revalidatePath(`/admin/treatments/${id}`);
   revalidatePath("/treatments");
-  revalidatePath("/admin/specialties", "layout");
+  revalidatePath("/admin/departments", "layout");
   
   if (treatment?.specialtyId) {
-    redirect(`/admin/specialties/${treatment.specialtyId}/treatments`);
+    redirect(`/admin/departments/${treatment.specialtyId}/treatments`);
   } else {
     redirect("/admin/treatments");
   }

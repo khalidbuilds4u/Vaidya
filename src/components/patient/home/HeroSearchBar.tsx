@@ -205,9 +205,9 @@ export function HeroSearchBar({ cities }: HeroSearchBarProps) {
                 )}
                 {suggestions.specialties.length > 0 && (
                   <div className="px-2">
-                    <div className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-primary dark:text-teal-400">Specialties</div>
+                    <div className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-primary dark:text-teal-400">Departments</div>
                     {suggestions.specialties.map(s => (
-                      <Link key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
+                      <Link key={s.slug} href={`/departments/${s.slug}`} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                         <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                           <Stethoscope className="w-4 h-4" />
                         </div>

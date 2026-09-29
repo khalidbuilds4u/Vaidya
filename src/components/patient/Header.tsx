@@ -53,8 +53,8 @@ export function Header() {
           <Link href="/doctors" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-primary/5 transition-all">
             {t('doctors')}
           </Link>
-          <Link href="/treatments" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-primary/5 transition-all">
-            {t('procedures')}
+          <Link href="/departments" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-primary/5 transition-all">
+            {t('departments')}
           </Link>
           <Link href="/patient-stories" className="px-2 xl:px-3 py-1.5 rounded-full text-slate-700 dark:text-slate-200 hover:text-primary dark:hover:text-primary hover:bg-primary/5 transition-all whitespace-nowrap">
             {t('patientStories')}
@@ -99,7 +99,7 @@ export function Header() {
             <Link href="/" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('home')}</Link>
             <Link href="/hospitals" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('hospitals')}</Link>
             <Link href="/doctors" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('doctors')}</Link>
-            <Link href="/treatments" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('procedures')}</Link>
+            <Link href="/departments" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('departments')}</Link>
             <Link href="/patient-stories" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('patientStories')}</Link>
             <Link href="/services" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('services')}</Link>
             <Link href="/blogs" className="py-2.5 px-3 rounded-lg dark:text-slate-200 hover:bg-primary/5 hover:text-primary dark:hover:text-primary transition-colors" onClick={closeMenu}>{t('blogs')}</Link>

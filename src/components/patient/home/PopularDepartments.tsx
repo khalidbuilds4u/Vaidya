@@ -5,7 +5,7 @@ import { prisma } from '@/lib/prisma';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getTranslation } from '@/lib/utils';
 
-const SPECIALTIES = [
+const DEPARTMENTS = [
   { name: 'Cardiology', icon: HeartPulse, count: '120+ Doctors', color: 'from-rose-500/10 to-pink-500/10 text-rose-600' },
   { name: 'Oncology', icon: Microscope, count: '200+ Doctors', color: 'from-blue-500/10 to-cyan-500/10 text-blue-600' },
   { name: 'Orthopedics', icon: Bone, count: '150+ Doctors', color: 'from-amber-500/10 to-orange-500/10 text-amber-600' },
@@ -20,26 +20,26 @@ const SPECIALTIES = [
   { name: 'Urology', icon: Activity, count: '150+ Doctors', color: 'from-blue-500/10 to-cyan-500/10 text-blue-600' }
 ];
 
-export async function PopularSpecialties() {
+export async function PopularDepartments() {
   const locale = await getLocale();
-  const t = await getTranslations('Specialties');
+  const t = await getTranslations('Departments');
 
-  let dbSpecialties;
+  let dbDepartments;
   let dbError = null;
   try {
-    dbSpecialties = await prisma.specialty.findMany({
+    dbDepartments = await prisma.specialty.findMany({
       take: 12,
       orderBy: { name: 'asc' }
     });
   } catch (e: any) {
     dbError = e.message || String(e);
-    dbSpecialties = [];
+    dbDepartments = [];
   }
 
   const FALLBACK_COUNTS = ['85+ Doctors', '110+ Doctors', '120+ Doctors', '150+ Doctors', '200+ Doctors'];
 
-  const mergedSpecialties = dbSpecialties.map((dbSpec, index) => {
-    const defaultData = SPECIALTIES.find(s => s.name.toLowerCase() === dbSpec.name.toLowerCase()) || {
+  const mergedDepartments = dbDepartments.map((dbSpec, index) => {
+    const defaultData = DEPARTMENTS.find(s => s.name.toLowerCase() === dbSpec.name.toLowerCase()) || {
       icon: Activity,
       count: FALLBACK_COUNTS[index % FALLBACK_COUNTS.length],
       color: 'from-slate-500/10 to-gray-500/10 text-slate-600'
@@ -74,10 +74,10 @@ export async function PopularSpecialties() {
         )}
         
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 relative z-10">
-          {mergedSpecialties.map((spec) => {
+          {mergedDepartments.map((spec) => {
             const Icon = spec.icon;
             return (
-              <Link key={spec.id} href={`/specialties/${spec.slug}`}>
+              <Link key={spec.id} href={`/departments/${spec.slug}`}>
                 <div className="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-xl border border-slate-200 dark:border-slate-800 hover:border-primary/50 dark:hover:border-teal-500/50 text-center h-full flex flex-col justify-between items-center group relative overflow-hidden transition-all duration-300 shadow-sm hover:shadow-md hover:shadow-primary/5">
                   
                   <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 sm:mb-5 text-primary shadow-sm border border-slate-200 dark:border-slate-700 group-hover:scale-110 group-hover:-rotate-3 group-hover:bg-primary/5 dark:group-hover:bg-teal-500/10 transition-all duration-300">
@@ -104,7 +104,7 @@ export async function PopularSpecialties() {
         </div>
         
         <div className="mt-8 sm:mt-12 text-center">
-          <Link href={`/${locale}/specialties`}>
+          <Link href={`/${locale}/departments`}>
             <Button size="lg" className="px-6 sm:px-8 h-11 sm:h-12 rounded-xl sm:rounded-full font-semibold shadow-sm bg-primary hover:bg-primary/90 text-white text-xs sm:text-sm group">
               <span>{t('browseAll')}</span>
               <ArrowRight className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" />
