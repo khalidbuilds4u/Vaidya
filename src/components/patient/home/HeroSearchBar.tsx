@@ -209,7 +209,7 @@ export function HeroSearchBar({ cities }: HeroSearchBarProps) {
                     {suggestions.specialties.map(s => (
                       <Link key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                         <div className="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
-                          <Activity className="w-4 h-4" />
+                          <Stethoscope className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
                           <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{s.name}</p>
@@ -222,11 +222,11 @@ export function HeroSearchBar({ cities }: HeroSearchBarProps) {
                 
                 {suggestions.treatments.length > 0 && (
                   <div className="px-2">
-                    <div className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Treatments</div>
+                    <div className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Procedures</div>
                     {suggestions.treatments.map(t => (
                       <Link key={t.slug} href={`/treatments/${t.slug}`} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                         <div className="w-8 h-8 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform">
-                          <Syringe className="w-4 h-4" />
+                          <Activity className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
                           <p className="text-sm font-semibold text-slate-900 dark:text-slate-100">{t.name}</p>
