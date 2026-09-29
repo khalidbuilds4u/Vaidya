@@ -62,7 +62,7 @@ export function HowProcessWorks() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-900 text-white">
+    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden bg-slate-900 text-white">
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div 

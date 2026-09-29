@@ -54,10 +54,10 @@ export async function PopularDepartments() {
   });
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
+    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
 
       <div className="container mx-auto px-4 text-center">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-4 transition-colors duration-500">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-200 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3 transition-colors duration-500">
           {t('tag')}
         </div>
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 transition-colors duration-500">

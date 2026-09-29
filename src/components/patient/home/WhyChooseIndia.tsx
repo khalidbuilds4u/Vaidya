@@ -89,7 +89,7 @@ export function WhyChooseIndia() {
   }, []);
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500">
+    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500">
 
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-14">
@@ -102,11 +102,11 @@ export function WhyChooseIndia() {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-4 transition-colors duration-500">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-2 sm:mb-3 transition-colors duration-500">
                 <Sparkles className="w-3.5 h-3.5" />
                 {t('tag')}
               </div>
-              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3 sm:mb-4 transition-colors duration-500">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight mb-3 sm:mb-2 sm:mb-3 transition-colors duration-500">
                 {t('title1')} <br className="hidden sm:inline" />
                 <span className="text-primary">
                   {t('title2')}

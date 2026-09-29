@@ -28,7 +28,7 @@ export async function PopularConditions() {
   }
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500">
+    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden bg-white dark:bg-slate-950 transition-colors duration-500">
       <div className="container mx-auto px-4">
         <div className="flex flex-col mb-8 sm:mb-12 text-center items-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full glass-pill dark:bg-primary/10 dark:border-primary/20 text-primary dark:text-teal-400 text-xs font-bold uppercase tracking-wider mb-3 transition-colors duration-500">

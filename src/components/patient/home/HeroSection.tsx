@@ -75,7 +75,7 @@ export function HeroSection({ cities }: HeroSectionProps) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.1 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12] mb-3 sm:mb-4 transition-colors duration-500"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-[1.15] sm:leading-[1.12] mb-3 sm:mb-2 sm:mb-3 transition-colors duration-500"
             >
               {t('titleLine1')} <br className="hidden sm:inline" />
               <span className="text-primary">

@@ -97,7 +97,7 @@ export default function InteractiveAnatomy() {
   const [hoveredPart, setHoveredPart] = useState<string | null>(null);
 
   return (
-    <section className="py-24 bg-[#0a0f16] relative overflow-hidden">
+    <section className="py-12 sm:py-16 bg-[#0a0f16] relative overflow-hidden">
       {/* Background Effects */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-500/10 rounded-full blur-[120px] pointer-events-none" />
       

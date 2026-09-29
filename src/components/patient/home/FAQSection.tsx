@@ -48,7 +48,7 @@ export function FAQSection() {
   const visibleFaqs = showAll ? localizedFaqs : localizedFaqs.slice(0, 6);
 
   return (
-    <section className="py-16 sm:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900 transition-colors duration-500">
+    <section className="py-10 sm:py-14 lg:py-16 relative overflow-hidden bg-slate-50/70 dark:bg-slate-900 transition-colors duration-500">
       {/* Ambient Lighting */}
       <div className="absolute top-[30%] left-[50%] -translate-x-1/2 w-[350px] sm:w-[600px] h-[350px] sm:h-[400px] ambient-glow rounded-full -z-10 opacity-50" />
 
@@ -58,7 +58,7 @@ export function FAQSection() {
             <Sparkles className="w-3.5 h-3.5" />
             {t('tag')}
           </div>
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 sm:mb-4 transition-colors duration-500">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-3 sm:mb-2 sm:mb-3 transition-colors duration-500">
             {t('title')}
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed transition-colors duration-500">
