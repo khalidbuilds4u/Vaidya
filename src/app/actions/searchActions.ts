@@ -3,7 +3,7 @@
 import { prisma } from "@/lib/prisma";
 
 export async function getSearchSuggestions(query: string, cityName: string) {
-  if (!query || query.length < 2) return { treatments: [], doctors: [], hospitals: [] };
+  if (!query || query.length < 2) return { specialties: [], treatments: [], doctors: [], hospitals: [], isContactQuery: false };
 
   const cityFilter = cityName ? { city: { name: cityName } } : {};
   const cityFilterDoctor = cityName ? { 
@@ -20,6 +20,14 @@ export async function getSearchSuggestions(query: string, cityName: string) {
   const isHospitalGeneric = ['hosp', 'hospital', 'clinic'].some(term => normalizedQuery.includes(term));
   const isTreatmentGeneric = ['treat', 'treatment', 'surgery', 'procedure', 'operation'].some(term => normalizedQuery.includes(term));
   const isContactQuery = ['contact', 'phone', 'number', 'email', 'support', 'help'].some(term => normalizedQuery.includes(term));
+
+  const specialties = await prisma.specialty.findMany({
+    where: {
+      ...(isTreatmentGeneric ? {} : { name: { contains: query, mode: "insensitive" } }) // or use generic logic for specialties
+    },
+    take: 3,
+    select: { name: true, slug: true },
+  });
 
   const treatments = await prisma.treatment.findMany({
     where: {
@@ -60,5 +68,5 @@ export async function getSearchSuggestions(query: string, cityName: string) {
     select: { name: true, slug: true, city: { select: { name: true } } },
   });
 
-  return { treatments, doctors, hospitals, isContactQuery };
+  return { specialties, treatments, doctors, hospitals, isContactQuery };
 }

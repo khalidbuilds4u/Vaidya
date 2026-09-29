@@ -5,12 +5,13 @@ import { useRouter } from '@/i18n/routing';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Search, MapPin, Building2, Stethoscope, ArrowRight, Loader2, Syringe, UserRound } from 'lucide-react';
+import { Search, MapPin, Building2, Stethoscope, ArrowRight, Loader2, Syringe, UserRound, Activity } from 'lucide-react';
 import { m as motion, AnimatePresence } from 'framer-motion';
 import { getSearchSuggestions } from '@/app/actions/searchActions';
 import Link from 'next/link';
 
 interface SearchSuggestion {
+  specialties: { name: string; slug: string }[];
   treatments: { name: string; slug: string }[];
   doctors: { name: string; slug: string; specialty?: { name: string }; hospital?: { name: string } }[];
   hospitals: { name: string; slug: string; city: { name: string } }[];
@@ -27,7 +28,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchCity, setSearchCity] = useState('');
   
-  const [suggestions, setSuggestions] = useState<SearchSuggestion>({ treatments: [], doctors: [], hospitals: [] });
+  const [suggestions, setSuggestions] = useState<SearchSuggestion>({ specialties: [], treatments: [], doctors: [], hospitals: [], isContactQuery: false });
   const [isLoading, setIsLoading] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -44,7 +45,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
 
   useEffect(() => {
     if (searchQuery.length < 2) {
-      setSuggestions({ treatments: [], doctors: [], hospitals: [] });
+      setSuggestions({ specialties: [], treatments: [], doctors: [], hospitals: [], isContactQuery: false });
       setShowDropdown(false);
       return;
     }
@@ -161,6 +162,22 @@ export function MobileSearch({ cities }: MobileSearchProps) {
                         </div>
                         <ArrowRight className="w-3.5 h-3.5 text-primary" />
                       </Link>
+                    </div>
+                  )}
+                  {suggestions.specialties?.length > 0 && (
+                    <div className="px-2">
+                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Specialties</div>
+                      {suggestions.specialties.map(s => (
+                        <Link key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
+                          <div className="w-6 h-6 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                            <Activity className="w-3.5 h-3.5" />
+                          </div>
+                          <div className="flex-1">
+                            <p className="text-xs font-semibold text-slate-900 dark:text-slate-100">{s.name}</p>
+                          </div>
+                          <ArrowRight className="w-3.5 h-3.5 text-slate-300" />
+                        </Link>
+                      ))}
                     </div>
                   )}
                   
