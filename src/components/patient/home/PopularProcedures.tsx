@@ -20,7 +20,7 @@ export async function PopularProcedures() {
   let treatments: any[] = [];
   try {
     treatments = await prisma.treatment.findMany({
-      take: 4,
+      take: 8,
       include: { specialty: true },
     });
   } catch (e) {
