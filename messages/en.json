@@ -121,6 +121,12 @@
     "freeTag": "100% Free",
     "supportBanner": "Your health is our priority. We are here to support you throughout your medical journey in India."
   },
+  "Procedures": {
+    "tag": "Advanced Medical Procedures",
+    "title": "Popular Medical Procedures",
+    "desc": "Explore top-tier surgical and non-surgical procedures performed by our world-renowned specialists using the latest medical technology.",
+    "viewAll": "View All Procedures"
+  },
   "Departments": {
     "tag": "Specialized Excellence",
     "title": "Explore by Medical Department",

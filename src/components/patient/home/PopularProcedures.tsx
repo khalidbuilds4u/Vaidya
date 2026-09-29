@@ -14,7 +14,7 @@ const COLORS = [
 ];
 
 export async function PopularProcedures() {
-  const t = await getTranslations('Treatments');
+  const t = await getTranslations('Procedures');
   const locale = await getLocale();
 
   let treatments: any[] = [];
