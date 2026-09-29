@@ -166,7 +166,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
                   )}
                   {suggestions.specialties?.length > 0 && (
                     <div className="px-2">
-                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Specialties</div>
+                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-primary dark:text-teal-400">Specialties</div>
                       {suggestions.specialties.map(s => (
                         <Link key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                           <div className="w-6 h-6 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
@@ -183,7 +183,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
                   
                   {suggestions.treatments.length > 0 && (
                     <div className="px-2">
-                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Procedures</div>
+                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-primary dark:text-teal-400">Procedures</div>
                       {suggestions.treatments.map(t => (
                         <Link key={t.slug} href={`/treatments/${t.slug}`} className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                           <div className="w-6 h-6 rounded-full bg-emerald-50 dark:bg-emerald-500/10 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
@@ -200,7 +200,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
 
                   {suggestions.doctors.length > 0 && (
                     <div className="px-2 mt-1.5">
-                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800/50">Doctors</div>
+                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-primary dark:text-teal-400 border-t border-slate-100 dark:border-slate-800/50">Doctors</div>
                       {suggestions.doctors.map(d => (
                         <Link key={d.slug} href={`/doctors/${d.slug}`} className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                           <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">
@@ -208,7 +208,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 truncate">{d.name}</p>
-                            <p className="text-[10px] text-slate-500 truncate">
+                            <p className="text-[10px] text-slate-600 dark:text-slate-400 truncate">
                               {d.specialty?.name} • {d.hospital?.name}
                             </p>
                           </div>
@@ -220,7 +220,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
 
                   {suggestions.hospitals.length > 0 && (
                     <div className="px-2 mt-1.5">
-                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-800/50">Hospitals</div>
+                      <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-primary dark:text-teal-400 border-t border-slate-100 dark:border-slate-800/50">Hospitals</div>
                       {suggestions.hospitals.map(h => (
                         <Link key={h.slug} href={`/hospitals/${h.slug}`} className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
                           <div className="w-6 h-6 rounded-full bg-blue-50 dark:bg-blue-500/10 flex items-center justify-center text-blue-600 dark:text-blue-400">
@@ -228,7 +228,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
                           </div>
                           <div className="flex-1 min-w-0">
                             <p className="text-xs font-semibold text-slate-900 dark:text-slate-100 truncate">{h.name}</p>
-                            <p className="text-[10px] text-slate-500 truncate">{h.city.name}</p>
+                            <p className="text-[10px] text-slate-600 dark:text-slate-400 truncate">{h.city.name}</p>
                           </div>
                           <ArrowRight className="w-3.5 h-3.5 text-slate-300" />
                         </Link>
