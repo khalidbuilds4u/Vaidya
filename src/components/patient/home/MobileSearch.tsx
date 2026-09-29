@@ -169,7 +169,7 @@ export function MobileSearch({ cities }: MobileSearchProps) {
                       <div className="px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-primary dark:text-teal-400">Specialties</div>
                       {suggestions.specialties.map(s => (
                         <Link key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center gap-2.5 px-3 py-2 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
-                          <div className="w-6 h-6 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                          <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                             <Stethoscope className="w-3.5 h-3.5" />
                           </div>
                           <div className="flex-1">

@@ -208,7 +208,7 @@ export function HeroSearchBar({ cities }: HeroSearchBarProps) {
                     <div className="px-4 py-2 text-[10px] font-bold uppercase tracking-wider text-primary dark:text-teal-400">Specialties</div>
                     {suggestions.specialties.map(s => (
                       <Link key={s.slug} href={`/specialties/${s.slug}`} className="flex items-center gap-3 px-4 py-2.5 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800/50 group transition-colors">
-                        <div className="w-8 h-8 rounded-full bg-indigo-50 dark:bg-indigo-500/10 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-110 transition-transform">
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                           <Stethoscope className="w-4 h-4" />
                         </div>
                         <div className="flex-1">
