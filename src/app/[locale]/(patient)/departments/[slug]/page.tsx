@@ -10,7 +10,7 @@ import { EnquiryForm } from '@/components/patient/EnquiryForm';
 import { ArrowRight, Stethoscope, Activity } from 'lucide-react';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 
-const getSpecialtyDetails = (slug: string) => {
+const getDepartmentDetails = (slug: string) => {
   // Format slug for display (e.g. 'cosmetic-surgery' -> 'Cosmetic Surgery')
   const decodedSlug = decodeURIComponent(slug).replace(/\s+/g, '-');
   const name = decodedSlug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
@@ -121,7 +121,7 @@ const getSpecialtyDetails = (slug: string) => {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const resolvedParams = await params;
-  const specialty = getSpecialtyDetails(resolvedParams.slug);
+  const specialty = getDepartmentDetails(resolvedParams.slug);
   return {
     title: `${specialty.name} Treatments & Top Doctors in India | AsadHealthcare`,
     description: `Discover top ${specialty.name} hospitals, doctors, and affordable treatments in India for international patients.`,
@@ -135,13 +135,13 @@ import { getTranslations } from 'next-intl/server';
 export const revalidate = 3600;
 
 
-export default async function SpecialtyDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
+export default async function DepartmentDetailPage({ params }: { params: Promise<{ slug: string, locale: string }> }) {
   const resolvedParams = await params;
   const locale = resolvedParams.locale;
-  const t = await getTranslations('SpecialtyDetail');
+  const t = await getTranslations('DepartmentDetail');
   
   // Get mock specialty base data
-  const specialty = getSpecialtyDetails(resolvedParams.slug);
+  const specialty = getDepartmentDetails(resolvedParams.slug);
 
   if (!specialty) {
     notFound();
@@ -288,7 +288,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
             {/* Popular Treatments in this Specialty */}
             {displayTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('treatments.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('procedures.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {displayTreatments.map(treatment => (
                     <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 flex flex-col h-full">
@@ -308,7 +308,7 @@ export default async function SpecialtyDetailPage({ params }: { params: Promise<
                         </p>
                         {treatment.isReal ? (
                           <Button asChild className="w-full dark:border-slate-700 dark:hover:bg-slate-800">
-                            <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('treatments.viewDetails')}</Link>
+                            <Link href={`/${locale}/treatments/${treatment.slug}`}>{t('procedures.viewDetails')}</Link>
                           </Button>
                         ) : (
                           <EnquiryForm>

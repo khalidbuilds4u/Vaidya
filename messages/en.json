@@ -780,9 +780,9 @@
       "getPlan": "Get Free Consultation Plan",
       "fallbackOverview": "{name} is a specialized branch of medicine dealing with specific aspects of healthcare. Our partner hospitals in India provide world-class treatments using state-of-the-art technology."
     },
-    "treatments": {
-      "title": "Popular {name} Treatments",
-      "viewDetails": "View Treatment Details"
+    "procedures": {
+      "title": "Popular {name} Procedures",
+      "viewDetails": "View Procedure Details"
     },
     "doctors": {
       "title": "Top Specialists",
