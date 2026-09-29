@@ -5,6 +5,7 @@ const WhyChooseIndia = dynamic(() => import('@/components/patient/home/WhyChoose
 const PopularSpecialties = dynamic(() => import('@/components/patient/home/PopularSpecialties').then(mod => mod.PopularSpecialties));
 const InteractiveAnatomy = dynamic(() => import('@/components/patient/home/InteractiveAnatomy'));
 const PopularConditions = dynamic(() => import('@/components/patient/home/PopularConditions').then(mod => mod.PopularConditions));
+const PopularProcedures = dynamic(() => import('@/components/patient/home/PopularProcedures').then(mod => mod.PopularProcedures));
 const FeaturedHospitals = dynamic(() => import('@/components/patient/home/FeaturedHospitals').then(mod => mod.FeaturedHospitals));
 const PatientStories = dynamic(() => import('@/components/patient/home/PatientStories').then(mod => mod.PatientStories));
 const HowProcessWorks = dynamic(() => import('@/components/patient/home/HowProcessWorks').then(mod => mod.HowProcessWorks));
@@ -90,6 +91,7 @@ export default async function Home() {
       <PopularSpecialties />
       <InteractiveAnatomy />
       <PopularConditions />
+      <PopularProcedures />
       <FeaturedHospitals />
       <PatientStories />
       <HowProcessWorks />
