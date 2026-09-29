@@ -90,8 +90,8 @@ export default async function Home() {
       <WhyChooseIndia />
       <PopularDepartments />
       <InteractiveAnatomy />
-      <PopularConditions />
       <PopularProcedures />
+      <PopularConditions />
       <FeaturedHospitals />
       <PatientStories />
       <HowProcessWorks />
