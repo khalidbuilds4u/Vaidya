@@ -53,6 +53,7 @@ export async function getSearchSuggestions(query: string, cityName: string) {
     select: { 
       name: true, 
       slug: true, 
+      designation: true,
       specialty: { select: { name: true } },
       hospital: { select: { name: true } }
     },

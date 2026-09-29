@@ -13,7 +13,7 @@ import Link from 'next/link';
 interface SearchSuggestion {
   specialties: { name: string; slug: string }[];
   treatments: { name: string; slug: string }[];
-  doctors: { name: string; slug: string; specialty?: { name: string }; hospital?: { name: string } }[];
+  doctors: { name: string; slug: string; designation?: string | null; specialty?: { name: string }; hospital?: { name: string } }[];
   hospitals: { name: string; slug: string; city: { name: string } }[];
   isContactQuery?: boolean;
 }
@@ -248,7 +248,7 @@ export function HeroSearchBar({ cities }: HeroSearchBarProps) {
                         <div className="flex-1 min-w-0">
                           <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">{d.name}</p>
                           <p className="text-xs text-slate-600 dark:text-slate-400 truncate">
-                            {d.specialty?.name} • {d.hospital?.name}
+                            {d.designation || d.specialty?.name} • {d.hospital?.name}
                           </p>
                         </div>
                         <ArrowRight className="w-4 h-4 text-slate-300 opacity-0 group-hover:opacity-100 transition-opacity" />
