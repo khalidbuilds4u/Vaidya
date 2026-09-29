@@ -59,16 +59,16 @@ export default async function DepartmentsDirectory({
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-teal-300 text-xs sm:text-sm font-bold uppercase tracking-wider mb-3.5 shadow-lg">
               <Activity className="w-3.5 h-3.5" />
-              <span>Departments & Departments</span>
+              <span>Departments & Procedures</span>
             </div>
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
               All Medical Departments
             </h1>
             <p className="text-xs sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal mb-6">
-              Browse our comprehensive list of world-class medical specialties and departments.
+              Browse our comprehensive list of world-class medical departments and procedures.
             </p>
 
-            <DirectorySearch placeholder="Search specialties..." buttonText="Search" />
+            <DirectorySearch placeholder="Search departments..." buttonText="Search" />
           </div>
         </div>
       </section>
