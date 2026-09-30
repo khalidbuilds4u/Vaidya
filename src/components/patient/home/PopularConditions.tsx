@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Activity } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { getTranslation } from '@/lib/utils';
+import { getTranslation, stripHtml } from '@/lib/utils';
 import { prisma } from '@/lib/prisma';
 
 const COLORS = [
@@ -46,7 +46,7 @@ export async function PopularConditions() {
           {conditions.map((condition, i) => {
             const badgeColor = COLORS[i % COLORS.length];
             const name = getTranslation(condition, 'name', locale);
-            const description = getTranslation(condition, 'description', locale) || '';
+            const description = stripHtml(getTranslation(condition, 'description', locale) || '');
             const specialtyName = condition.specialty ? getTranslation(condition.specialty, 'name', locale) : '';
             
             return (

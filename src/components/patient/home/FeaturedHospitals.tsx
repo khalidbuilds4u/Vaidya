@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { MOCK_HOSPITALS } from '@/lib/mockData';
 import { ArrowRight } from 'lucide-react';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { getTranslation } from '@/lib/utils';
+import { getTranslation, stripHtml } from '@/lib/utils';
 import { prisma } from '@/lib/prisma';
 
 export async function FeaturedHospitals() {
@@ -62,7 +62,7 @@ export async function FeaturedHospitals() {
               city={getTranslation(hospital.city, 'name', locale)}
               state={hospital.city.state || undefined}
               image={hospital.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072&auto=format&fit=crop"}
-              description={getTranslation(hospital, 'description', locale) || hospital.description || undefined}
+              description={stripHtml(getTranslation(hospital, 'description', locale) || hospital.description || '') || undefined}
               accreditations={hospital.accreditations}
               beds={hospital.beds || 0}
               established={hospital.established || undefined}

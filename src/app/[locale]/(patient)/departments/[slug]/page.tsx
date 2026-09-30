@@ -129,7 +129,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 import { prisma } from '@/lib/prisma';
-import {  getTranslation, getStrictTranslation  } from '@/lib/utils';
+import {  getTranslation, getStrictTranslation, stripHtml  } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 
 export const revalidate = 3600;
@@ -190,7 +190,7 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
       isReal: true,
       slug: t.slug,
       name: getTranslation(t, 'name', locale) || t.name,
-      description: getTranslation(t, 'description', locale) || t.description || `Specialized ${t.name} procedures at accredited hospitals in India.`,
+      description: stripHtml(getTranslation(t, 'description', locale) || t.description || `Specialized ${t.name} procedures at accredited hospitals in India.`),
       image: images[idx % images.length]
     };
   });
@@ -212,7 +212,7 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
   const topHospitals = realHospitals.length > 0 ? realHospitals.map(h => ({
     slug: h.slug,
     name: getTranslation(h, 'name', locale) || h.name,
-    description: getTranslation(h, 'description', locale) || h.description || undefined,
+    description: stripHtml(getTranslation(h, 'description', locale) || h.description || '') || undefined,
     city: getTranslation(h.city, 'name', locale) || h.city.name,
     state: getTranslation(h.city, 'state', locale) || h.city.state || '',
     image: h.imageUrl || "https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?q=80&w=2072",
@@ -253,7 +253,7 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
                 {t('hero.inIndia', { name: translatedName })}
               </h1>
               <p className="text-lg md:text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                {dbSpecialty ? (getTranslation(dbSpecialty, 'description', locale) || t('hero.fallbackOverview', { name: translatedName })) : t('hero.fallbackOverview', { name: translatedName })}
+                {stripHtml(dbSpecialty ? (getTranslation(dbSpecialty, 'description', locale) || t('hero.fallbackOverview', { name: translatedName })) : t('hero.fallbackOverview', { name: translatedName }))}
               </p>
               
               <EnquiryForm>
@@ -363,7 +363,7 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
                     <Link key={condition.slug} href={`/${locale}/conditions/${condition.slug}`}>
                       <Card className="p-5 h-full hover:shadow-md transition-all border-slate-200 dark:border-slate-800 hover:border-primary dark:hover:border-teal-400 bg-white dark:bg-slate-900/95 group cursor-pointer flex flex-col">
                         <h3 className="font-bold text-lg mb-2 dark:text-white group-hover:text-primary dark:group-hover:text-teal-400 transition-colors">{getTranslation(condition, 'name', locale) || condition.name}</h3>
-                        <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 flex-1">{getTranslation(condition, 'description', locale) || condition.description}</p>
+                        <p className="text-sm text-slate-600 dark:text-slate-400 line-clamp-2 mb-4 flex-1">{stripHtml(getTranslation(condition, 'description', locale) || condition.description || '')}</p>
                         <span className="text-primary dark:text-teal-400 text-sm font-medium flex items-center gap-1 mt-auto pt-2">
                           {t('conditions.viewDetails')} <ArrowRight className="w-3 h-3" />
                         </span>
