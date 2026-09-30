@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { ConditionKnowledge } from '@/components/patient/ConditionKnowledge';
 import { CheckCircle2, Activity, ArrowRight, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
 import { prisma } from '@/lib/prisma';
@@ -157,56 +158,11 @@ export default async function ConditionDetailPage({ params }: { params: Promise<
           {/* Main Content Column */}
           <div className="w-full lg:w-2/3 space-y-12">
             
-            {/* Causes & Symptoms */}
-            {condition.causesAndSymptoms && condition.causesAndSymptoms.length > 0 && (
-              <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
-                <h2 className="text-2xl font-bold mb-4 flex items-center dark:text-white">
-                  <Activity className="w-6 h-6 text-primary dark:text-teal-400 mr-3" />
-                  {tc('causes')}
-                </h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">{tc('causesDesc')}</p>
-                <ul className="grid sm:grid-cols-2 gap-4">
-                  {condition.causesAndSymptoms.map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckCircle2 className="w-5 h-5 text-primary dark:text-teal-400 shrink-0 mr-3 mt-0.5" />
-                      <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {/* Diagnosis */}
-            {condition.diagnosis && condition.diagnosis.length > 0 && (
-              <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
-                <h2 className="text-2xl font-bold mb-4 dark:text-white">{tc('diagnosis')}</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">{tc('diagnosisDesc', { name: getTranslation(condition, 'name', locale) || condition.name })}</p>
-                <ul className="space-y-4">
-                  {condition.diagnosis.map((item, i) => (
-                    <li key={i} className="flex items-center text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
-                      <div className="w-2.5 h-2.5 rounded-full bg-primary dark:bg-teal-400 mr-4 shrink-0"></div>
-                      <span className="font-medium text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
-
-            {/* Treatment Options */}
-            {condition.treatmentOptions && condition.treatmentOptions.length > 0 && (
-              <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 transition-colors duration-500">
-                <h2 className="text-2xl font-bold mb-4 dark:text-white">{tc('treatments')}</h2>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm">{tc('treatmentsDesc')}</p>
-                <ul className="space-y-3">
-                  {condition.treatmentOptions.map((item, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckCircle className="w-5 h-5 text-green-600 shrink-0 mr-3 mt-0.5" />
-                      <span className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+            <ConditionKnowledge 
+              causesAndSymptoms={condition.causesAndSymptoms}
+              diagnosis={condition.diagnosis}
+              treatmentOptions={condition.treatmentOptions}
+            />
 
             {/* Related Treatments linking */}
             {relatedTreatments.length > 0 && (

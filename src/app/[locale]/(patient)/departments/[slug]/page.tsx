@@ -7,6 +7,7 @@ import { Card } from '@/components/ui/card';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { SpecialtyStats } from '@/components/patient/SpecialtyStats';
 import { ArrowRight, Stethoscope, Activity } from 'lucide-react';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
 
@@ -279,7 +280,17 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
         </div>
       </section>
 
-      <div className="container mx-auto px-4 mt-12">
+      <div className="container mx-auto px-4 mt-8">
+        <SpecialtyStats 
+          specialtyName={translatedName} 
+          statSuccessRate={dbSpecialty?.statSuccessRate}
+          statPatients={dbSpecialty?.statPatients}
+          statHospitals={dbSpecialty?.statHospitals}
+          statCostSavings={dbSpecialty?.statCostSavings}
+        />
+      </div>
+
+      <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row gap-12">
           
           {/* Main Content Column */}

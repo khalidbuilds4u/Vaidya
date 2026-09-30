@@ -42,13 +42,17 @@ model City {
 }
 
 model Specialty {
-  id          String      @id @default(cuid())
-  name        String      @unique
-  slug        String      @unique
-  description String?
-  imageUrl    String?
-  translations Json?
-  conditions  Condition[]
+  id              String      @id @default(cuid())
+  name            String      @unique
+  slug            String      @unique
+  description     String?
+  imageUrl        String?
+  translations    Json?
+  statSuccessRate String?
+  statPatients    String?
+  statHospitals   String?
+  statCostSavings String?
+  conditions      Condition[]
   doctors     Doctor[]
   treatments  Treatment[]
   hospitals   Hospital[]  @relation("HospitalSpecialties")
@@ -80,6 +84,7 @@ model Treatment {
   overview          String?
   procedure         String?
   recovery          String?
+  hospitalStay      String?
   risks             String?
   translations      Json?
   isPublished       Boolean        @default(true)

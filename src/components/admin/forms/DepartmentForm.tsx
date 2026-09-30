@@ -15,6 +15,10 @@ interface Specialty {
   slug: string;
   description: string | null;
   imageUrl: string | null;
+  statSuccessRate: string | null;
+  statPatients: string | null;
+  statHospitals: string | null;
+  statCostSavings: string | null;
 }
 
 interface DepartmentFormProps {
@@ -28,6 +32,10 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
   const [slug, setSlug] = useState(specialty?.slug || "");
   const [description, setDescription] = useState(specialty?.description || "");
   const [imageUrl, setImageUrl] = useState(specialty?.imageUrl || "");
+  const [statSuccessRate, setStatSuccessRate] = useState(specialty?.statSuccessRate || "");
+  const [statPatients, setStatPatients] = useState(specialty?.statPatients || "");
+  const [statHospitals, setStatHospitals] = useState(specialty?.statHospitals || "");
+  const [statCostSavings, setStatCostSavings] = useState(specialty?.statCostSavings || "");
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value;
@@ -50,6 +58,10 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
     formData.append("slug", slug);
     formData.append("description", description);
     formData.append("imageUrl", imageUrl);
+    formData.append("statSuccessRate", statSuccessRate);
+    formData.append("statPatients", statPatients);
+    formData.append("statHospitals", statHospitals);
+    formData.append("statCostSavings", statCostSavings);
 
     try {
       if (specialty?.id) {
@@ -122,6 +134,53 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
               <img src={imageUrl} alt="Preview" className="w-full h-full object-cover" />
             </div>
           )}
+        </div>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-6">
+        <h2 className="text-xl font-bold text-slate-900">Why Choose Us Stats (Center of Excellence)</h2>
+        <p className="text-sm text-slate-500">These statistics will be displayed in the premium statistics banner on the public department page. Leave blank to use default stats.</p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700">Success Rate</label>
+            <Input 
+              value={statSuccessRate}
+              onChange={(e) => setStatSuccessRate(e.target.value)}
+              placeholder="e.g. 98%"
+              className="text-slate-900 bg-slate-50 border-slate-200 focus:bg-white"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700">Global Patients Treated</label>
+            <Input 
+              value={statPatients}
+              onChange={(e) => setStatPatients(e.target.value)}
+              placeholder="e.g. 50,000+"
+              className="text-slate-900 bg-slate-50 border-slate-200 focus:bg-white"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700">Accredited Hospitals</label>
+            <Input 
+              value={statHospitals}
+              onChange={(e) => setStatHospitals(e.target.value)}
+              placeholder="e.g. 100+ JCI"
+              className="text-slate-900 bg-slate-50 border-slate-200 focus:bg-white"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="text-sm font-semibold text-slate-700">Cost Savings</label>
+            <Input 
+              value={statCostSavings}
+              onChange={(e) => setStatCostSavings(e.target.value)}
+              placeholder="e.g. 70%"
+              className="text-slate-900 bg-slate-50 border-slate-200 focus:bg-white"
+            />
+          </div>
         </div>
       </div>
 

@@ -6,6 +6,8 @@ import { Card } from '@/components/ui/card';
 import { DoctorCard } from '@/components/patient/DoctorCard';
 import { HospitalCard } from '@/components/patient/HospitalCard';
 import { EnquiryForm } from '@/components/patient/EnquiryForm';
+import { CostComparison } from '@/components/patient/CostComparison';
+import { TreatmentTimeline } from '@/components/patient/TreatmentTimeline';
 import { CheckCircle2, Clock, DollarSign, HeartPulse, Activity, ArrowRight, ChevronDown, Check, Info } from 'lucide-react';
 import Link from 'next/link';
 import { MOCK_HOSPITALS, MOCK_DOCTORS } from '@/lib/mockData';
@@ -459,6 +461,15 @@ export default async function TreatmentDetailPage({ params }: { params: Promise<
                 <p className="font-bold text-lg dark:text-white">{treatment.hospitalStay}</p>
               </Card>
             </div>
+            
+            <CostComparison minEstimate={treatment.minEstimate} maxEstimate={treatment.maxEstimate} currency={treatment.currency} />
+
+            <TreatmentTimeline 
+              hospitalStay={treatment.hospitalStay} 
+              recoveryTime={treatment.recoveryTime} 
+              preOpPrep={treatment.preOpPrep} 
+              postOpCare={treatment.postOpCare} 
+            />
 
             {/* Exhaustive Medical Knowledge */}
             <section className="bg-white dark:bg-slate-900/95 p-8 rounded-2xl shadow-sm border dark:border-slate-800 space-y-8 transition-colors duration-500">

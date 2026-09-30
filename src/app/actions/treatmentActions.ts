@@ -38,6 +38,7 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
   const description_ar = formData.get("description_ar") as string;
   const overview_ar = formData.get("overview_ar") as string;
   const recovery_ar = formData.get("recovery_ar") as string;
+  const hospitalStay_ar = formData.get("hospitalStay_ar") as string;
   const risks_ar = formData.get("risks_ar") as string;
   const causesAndSymptoms_ar = parseTextArray(formData.get("causesAndSymptoms_ar"));
   const diagnosis_ar = parseTextArray(formData.get("diagnosis_ar"));
@@ -47,13 +48,14 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
   const faqs_ar = parseFaqs(formData.get("faqs_ar"));
 
   let manualTranslations = undefined;
-  if (name_ar || description_ar || overview_ar || recovery_ar || risks_ar || causesAndSymptoms_ar.length > 0 || diagnosis_ar.length > 0 || preOpPrep_ar.length > 0 || postOpCare_ar.length > 0 || procedureDetails_ar.length > 0 || faqs_ar.length > 0) {
+  if (name_ar || description_ar || overview_ar || recovery_ar || hospitalStay_ar || risks_ar || causesAndSymptoms_ar.length > 0 || diagnosis_ar.length > 0 || preOpPrep_ar.length > 0 || postOpCare_ar.length > 0 || procedureDetails_ar.length > 0 || faqs_ar.length > 0) {
     manualTranslations = {
       ar: {
         name: name_ar || undefined,
         description: description_ar || undefined,
         overview: overview_ar || undefined,
         recovery: recovery_ar || undefined,
+        hospitalStay: hospitalStay_ar || undefined,
         risks: risks_ar || undefined,
         causesAndSymptoms: causesAndSymptoms_ar.length > 0 ? causesAndSymptoms_ar : undefined,
         diagnosis: diagnosis_ar.length > 0 ? diagnosis_ar : undefined,
@@ -69,6 +71,7 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
   const description = formData.get("description") as string;
   const overview = (formData.get("overview") as string) || null;
   const recovery = (formData.get("recovery") as string) || null;
+  const hospitalStay = (formData.get("hospitalStay") as string) || null;
   const risks = (formData.get("risks") as string) || null;
   
   const causesAndSymptoms = parseTextArray(formData.get("causesAndSymptoms"));
@@ -87,7 +90,7 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
   // NOTE: faqs is an array of objects, we'd need to translate it carefully, but it's complex so we skip auto-translating faqs for now
   // or we can just translate the string arrays.
   const finalTranslations = await buildTranslations({
-    name, description, overview, recovery, risks,
+    name, description, overview, recovery, hospitalStay, risks,
     causesAndSymptoms, diagnosis, preOpPrep, postOpCare, procedureDetails
   }, existingTranslations);
 
@@ -100,6 +103,7 @@ async function extractTreatmentData(formData: FormData, existingId?: string) {
     overview,
     procedure: (formData.get("procedure") as string) || null,
     recovery,
+    hospitalStay,
     risks,
     minEstimate: formData.get("minEstimate") ? parseFloat(formData.get("minEstimate") as string) : null,
     maxEstimate: formData.get("maxEstimate") ? parseFloat(formData.get("maxEstimate") as string) : null,

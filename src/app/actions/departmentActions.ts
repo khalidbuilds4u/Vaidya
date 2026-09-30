@@ -8,6 +8,10 @@ export async function createSpecialty(formData: FormData) {
   const slug = formData.get("slug") as string;
   const description = formData.get("description") as string;
   const imageUrl = formData.get("imageUrl") as string;
+  const statSuccessRate = formData.get("statSuccessRate") as string || null;
+  const statPatients = formData.get("statPatients") as string || null;
+  const statHospitals = formData.get("statHospitals") as string || null;
+  const statCostSavings = formData.get("statCostSavings") as string || null;
 
   if (!name || !slug) {
     throw new Error("Name and slug are required");
@@ -19,6 +23,10 @@ export async function createSpecialty(formData: FormData) {
       slug,
       description,
       imageUrl,
+      statSuccessRate,
+      statPatients,
+      statHospitals,
+      statCostSavings,
     },
   });
 
@@ -31,6 +39,10 @@ export async function updateSpecialty(id: string, formData: FormData) {
   const slug = formData.get("slug") as string;
   const description = formData.get("description") as string;
   const imageUrl = formData.get("imageUrl") as string;
+  const statSuccessRate = formData.get("statSuccessRate") as string || null;
+  const statPatients = formData.get("statPatients") as string || null;
+  const statHospitals = formData.get("statHospitals") as string || null;
+  const statCostSavings = formData.get("statCostSavings") as string || null;
 
   if (!name || !slug) {
     throw new Error("Name and slug are required");
@@ -43,6 +55,10 @@ export async function updateSpecialty(id: string, formData: FormData) {
       slug,
       description,
       imageUrl,
+      statSuccessRate,
+      statPatients,
+      statHospitals,
+      statCostSavings,
     },
   });
 
