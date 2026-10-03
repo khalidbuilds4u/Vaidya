@@ -52,6 +52,13 @@ model Specialty {
   statPatients    String?
   statHospitals   String?
   statCostSavings String?
+  
+  whatIs          String?
+  advancedTechniques String?
+  treatmentCost   String?
+  whyChooseIndia  String?
+  faqs            Json?
+
   conditions      Condition[]
   doctors     Doctor[]
   treatments  Treatment[]

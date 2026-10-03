@@ -6,6 +6,7 @@ import { SubmitButton } from "./SubmitButton";
 import { DynamicListInput } from "@/components/admin/forms/DynamicListInput";
 import { ImageUpload } from "@/components/admin/ImageUpload";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { TranslationAlert } from "./TranslationAlert";
 
 type HospitalFormProps = {
   initialData?: {
@@ -78,6 +79,8 @@ export function HospitalForm({
       </div>
 
       <form action={action} className="p-6 sm:p-8 space-y-8">
+        <TranslationAlert translations={initialData?.translations} />
+        
         {/* Section 1: Basic Information */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-2">

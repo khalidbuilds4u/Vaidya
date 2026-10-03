@@ -4,6 +4,7 @@ import { useState } from "react";
 import { ShieldCheck, Loader2, KeyRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { updateAdminPassword } from "@/app/actions/admin-settings";
+import { TranslationBackfill } from "@/components/admin/TranslationBackfill";
 
 export const dynamic = "force-dynamic";
 
@@ -126,6 +127,8 @@ export default function AdminSettingsPage() {
               </form>
             </div>
           </div>
+
+          <TranslationBackfill />
         </div>
 
         {/* Info Card */}

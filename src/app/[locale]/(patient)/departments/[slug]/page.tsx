@@ -130,8 +130,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 import { prisma } from '@/lib/prisma';
-import {  getTranslation, getStrictTranslation, stripHtml  } from '@/lib/utils';
+import { getTranslation, getStrictTranslation, stripHtml, unescapeHtml } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
+import { Info, Sparkles, DollarSign, Globe2, HelpCircle } from 'lucide-react';
 
 export const revalidate = 3600;
 
@@ -177,6 +178,11 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
   const dbTreatments = dbSpecialty?.treatments || [];
 
   const translatedName = dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name;
+  const translatedWhatIs = dbSpecialty ? getTranslation(dbSpecialty, 'whatIs', locale) : null;
+  const translatedAdvanced = dbSpecialty ? getTranslation(dbSpecialty, 'advancedTechniques', locale) : null;
+  const translatedCost = dbSpecialty ? getTranslation(dbSpecialty, 'treatmentCost', locale) : null;
+  const translatedWhyIndia = dbSpecialty ? getTranslation(dbSpecialty, 'whyChooseIndia', locale) : null;
+  const translatedFaqs = dbSpecialty?.faqs ? dbSpecialty.faqs as any[] : [];
 
   // Map DB Treatments to UI format
   const displayTreatments = dbTreatments.map((t, idx) => {
@@ -296,10 +302,26 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
           {/* Main Content Column */}
           <div className="w-full lg:w-2/3 space-y-16">
             
+            {/* What is Department */}
+            {translatedWhatIs && (
+              <section>
+                <div className="flex items-center gap-3 mb-6">
+                  <Info className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">What is {translatedName}?</h2>
+                </div>
+                <Card className="p-8 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm">
+                  <div 
+                    className="prose prose-slate dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:text-primary dark:prose-headings:text-teal-400"
+                    dangerouslySetInnerHTML={{ __html: unescapeHtml(translatedWhatIs) }} 
+                  />
+                </Card>
+              </section>
+            )}
+
             {/* Popular Treatments in this Specialty */}
             {displayTreatments.length > 0 && (
               <section>
-                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('procedures.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <h2 className="text-2xl font-bold mb-6 dark:text-white">{t('procedures.title', { name: translatedName })}</h2>
                 <div className="grid sm:grid-cols-2 gap-6">
                   {displayTreatments.map(treatment => (
                     <Card key={treatment.slug} className="overflow-hidden hover:shadow-lg transition-shadow border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 flex flex-col h-full">
@@ -333,10 +355,58 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
               </section>
             )}
 
+            {/* Advanced Treatment Techniques */}
+            {translatedAdvanced && (
+              <section>
+                <div className="flex items-center gap-3 mb-6">
+                  <Sparkles className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">Advanced Treatment Techniques in {translatedName}</h2>
+                </div>
+                <Card className="p-8 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm">
+                  <div 
+                    className="prose prose-slate dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:text-primary dark:prose-headings:text-teal-400"
+                    dangerouslySetInnerHTML={{ __html: unescapeHtml(translatedAdvanced) }} 
+                  />
+                </Card>
+              </section>
+            )}
+
+            {/* Treatment Cost */}
+            {translatedCost && (
+              <section>
+                <div className="flex items-center gap-3 mb-6">
+                  <DollarSign className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">{translatedName} Treatment Cost in India</h2>
+                </div>
+                <Card className="p-8 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm">
+                  <div 
+                    className="prose prose-slate dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:text-primary dark:prose-headings:text-teal-400"
+                    dangerouslySetInnerHTML={{ __html: unescapeHtml(translatedCost) }} 
+                  />
+                </Card>
+              </section>
+            )}
+
+            {/* Why Choose India */}
+            {translatedWhyIndia && (
+              <section>
+                <div className="flex items-center gap-3 mb-6">
+                  <Globe2 className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">Why Choose India for {translatedName} Treatment?</h2>
+                </div>
+                <Card className="p-8 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/95 shadow-sm">
+                  <div 
+                    className="prose prose-slate dark:prose-invert max-w-none prose-p:leading-relaxed prose-headings:text-primary dark:prose-headings:text-teal-400"
+                    dangerouslySetInnerHTML={{ __html: unescapeHtml(translatedWhyIndia) }} 
+                  />
+                </Card>
+              </section>
+            )}
+
             {/* Doctors Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold dark:text-white">{t('doctors.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <h2 className="text-2xl font-bold dark:text-white">{t('doctors.title', { name: translatedName })}</h2>
                 <Link href={`/${locale}/doctors`} className="text-primary dark:text-teal-400 hover:underline font-medium text-sm">{t('doctors.viewAll')}</Link>
               </div>
               <div className="space-y-6">
@@ -349,7 +419,7 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
             {/* Hospitals Section */}
             <section>
               <div className="flex justify-between items-end mb-6">
-                <h2 className="text-2xl font-bold dark:text-white">{t('hospitals.title', { name: dbSpecialty ? getTranslation(dbSpecialty, 'name', locale) || specialty.name : specialty.name })}</h2>
+                <h2 className="text-2xl font-bold dark:text-white">{t('hospitals.title', { name: translatedName })}</h2>
                 <Link href={`/${locale}/hospitals`} className="text-primary dark:text-teal-400 hover:underline font-medium text-sm">{t('hospitals.viewAll')}</Link>
               </div>
               <div className="space-y-6">
@@ -380,6 +450,36 @@ export default async function DepartmentDetailPage({ params }: { params: Promise
                         </span>
                       </Card>
                     </Link>
+                  ))}
+                </div>
+              </section>
+            )}
+            
+            {/* FAQs Section */}
+            {translatedFaqs.length > 0 && (
+              <section className="mt-16">
+                <div className="flex items-center gap-3 mb-6">
+                  <HelpCircle className="w-6 h-6 text-primary dark:text-teal-400" />
+                  <h2 className="text-2xl font-bold dark:text-white">Frequently Asked Questions About {translatedName}</h2>
+                </div>
+                <div className="space-y-4">
+                  {translatedFaqs.map((faq: any, idx: number) => (
+                    <details 
+                      key={idx} 
+                      className="group bg-white dark:bg-slate-900/95 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden open:ring-1 open:ring-primary/20 open:shadow-md transition-all duration-300"
+                    >
+                      <summary className="flex items-center justify-between p-6 cursor-pointer list-none font-semibold text-lg text-slate-900 dark:text-white select-none">
+                        <span>{faq.question}</span>
+                        <span className="transition-transform duration-300 group-open:rotate-180 bg-slate-100 dark:bg-slate-800 p-2 rounded-full text-primary dark:text-teal-400 flex-shrink-0 ml-4">
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </span>
+                      </summary>
+                      <div className="px-6 pb-6 pt-2 text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-800">
+                        {faq.answer}
+                      </div>
+                    </details>
                   ))}
                 </div>
               </section>

@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Save, Loader2, Image as ImageIcon } from "lucide-react";
 import { createSpecialty, updateSpecialty } from "@/app/actions/departmentActions";
+import { TranslationAlert } from "../TranslationAlert";
+import { RichTextEditor } from "../RichTextEditor";
 
 interface Specialty {
   id?: string;
@@ -19,6 +21,12 @@ interface Specialty {
   statPatients: string | null;
   statHospitals: string | null;
   statCostSavings: string | null;
+  whatIs?: string | null;
+  advancedTechniques?: string | null;
+  treatmentCost?: string | null;
+  whyChooseIndia?: string | null;
+  faqs?: any;
+  translations?: any;
 }
 
 interface DepartmentFormProps {
@@ -36,6 +44,11 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
   const [statPatients, setStatPatients] = useState(specialty?.statPatients || "");
   const [statHospitals, setStatHospitals] = useState(specialty?.statHospitals || "");
   const [statCostSavings, setStatCostSavings] = useState(specialty?.statCostSavings || "");
+  const [whatIs, setWhatIs] = useState(specialty?.whatIs || "");
+  const [advancedTechniques, setAdvancedTechniques] = useState(specialty?.advancedTechniques || "");
+  const [treatmentCost, setTreatmentCost] = useState(specialty?.treatmentCost || "");
+  const [whyChooseIndia, setWhyChooseIndia] = useState(specialty?.whyChooseIndia || "");
+  const [faqs, setFaqs] = useState(specialty?.faqs ? (specialty.faqs as any[]).map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n') : "");
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newName = e.target.value;
@@ -62,6 +75,11 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
     formData.append("statPatients", statPatients);
     formData.append("statHospitals", statHospitals);
     formData.append("statCostSavings", statCostSavings);
+    formData.append("whatIs", whatIs);
+    formData.append("advancedTechniques", advancedTechniques);
+    formData.append("treatmentCost", treatmentCost);
+    formData.append("whyChooseIndia", whyChooseIndia);
+    formData.append("faqs", faqs);
 
     try {
       if (specialty?.id) {
@@ -82,6 +100,8 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8 max-w-4xl">
+      <TranslationAlert translations={specialty?.translations} />
+      
       <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-6">
         <h2 className="text-xl font-bold text-slate-900">Basic Information</h2>
         
@@ -134,6 +154,57 @@ export function DepartmentForm({ specialty }: DepartmentFormProps) {
               <img src={imageUrl} alt="Preview" className="w-full h-full object-cover" />
             </div>
           )}
+        </div>
+      </div>
+
+      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 space-y-6">
+        <h2 className="text-xl font-bold text-slate-900">Detailed Content</h2>
+        
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">What is {name || "this specialty"}?</label>
+          <RichTextEditor
+            value={whatIs}
+            onChange={setWhatIs}
+            placeholder={`Explain what ${name || 'this specialty'} is and what it covers...`}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">Advanced Treatment Techniques</label>
+          <RichTextEditor
+            value={advancedTechniques}
+            onChange={setAdvancedTechniques}
+            placeholder="List and explain advanced techniques used..."
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">Treatment Cost in India</label>
+          <RichTextEditor
+            value={treatmentCost}
+            onChange={setTreatmentCost}
+            placeholder="Provide cost estimates and comparisons..."
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">Why Choose India for {name || "Treatment"}?</label>
+          <RichTextEditor
+            value={whyChooseIndia}
+            onChange={setWhyChooseIndia}
+            placeholder="Reasons to choose India for this specialty..."
+          />
+        </div>
+
+        <div className="space-y-2">
+          <label className="text-sm font-semibold text-slate-700">Frequently Asked Questions</label>
+          <Textarea 
+            value={faqs}
+            onChange={(e) => setFaqs(e.target.value)}
+            placeholder={`Q: What is the success rate?\nA: The success rate is very high...\n\nQ: How long is the recovery?\nA: It takes about 2 weeks.`}
+            className="h-48 text-slate-900 bg-slate-50 border-slate-200 focus:bg-white font-mono text-sm"
+          />
+          <p className="text-xs text-slate-500 mt-1">Format: "Q: Question" followed by "A: Answer". Separate multiple FAQs with a blank line.</p>
         </div>
       </div>
 

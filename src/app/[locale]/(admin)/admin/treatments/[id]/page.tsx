@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SubmitButton } from "@/components/admin/SubmitButton";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { TranslationAlert } from "@/components/admin/TranslationAlert";
 import { createTreatment, updateTreatment, deleteTreatment } from "@/app/actions/treatmentActions";
 
 export const dynamic = "force-dynamic";
@@ -95,6 +96,8 @@ export default async function TreatmentEditor({
         </div>
 
         <form action={updateTreatmentWithId} className="p-6 sm:p-8 space-y-8">
+          <TranslationAlert translations={treatment?.translations} />
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">

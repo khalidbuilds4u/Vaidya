@@ -8,6 +8,7 @@ import { SubmitButton } from "@/components/admin/SubmitButton";
 import { DynamicListInput } from "@/components/admin/forms/DynamicListInput";
 import { ImageUpload } from "@/components/admin/ImageUpload";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
+import { TranslationAlert } from "@/components/admin/TranslationAlert";
 import { createDoctor, updateDoctor, deleteDoctor } from "@/app/actions/doctorActions";
 
 export const dynamic = "force-dynamic";
@@ -94,6 +95,8 @@ export default async function DoctorEditor({
         </div>
 
         <form action={updateDoctorWithId} className="p-6 sm:p-8 space-y-8">
+          <TranslationAlert translations={doctor?.translations} />
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label className="text-sm font-semibold text-slate-900 flex items-center gap-2">

@@ -37,52 +37,21 @@ export async function translateText(text: string | null | undefined, toLanguage 
       } else if (response.status === 456) {
         throw new Error("DeepL translation limit exceeded. Please upgrade your DeepL plan to continue translating.");
       } else {
-        console.warn(`[DeepL] Failed with status ${response.status}. Falling back to free engine.`);
+        console.warn(`[DeepL] Failed with status ${response.status}.`);
       }
+    } else {
+      console.warn("[Translate] DEEPL_API_KEY is not set. Translation skipped.");
     }
 
-    // 2. Try OpenAI API if key is provided (Excellent contextual translation)
-    if (process.env.OPENAI_API_KEY) {
-      const response = await fetch('https://api.openai.com/v1/chat/completions', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          model: 'gpt-4o-mini',
-          messages: [
-            { role: 'system', content: `You are a professional medical translator. Translate the following text from English to ${toLanguage}. Only return the translated text, nothing else.` },
-            { role: 'user', content: text }
-          ],
-          temperature: 0.3
-        })
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        if (data.choices && data.choices.length > 0) {
-          console.log(`[OpenAI] Successfully translated "${text.substring(0, 20)}..."`);
-          return data.choices[0].message.content.trim();
-        }
-      } else {
-        console.warn(`[OpenAI] Failed with status ${response.status}. Falling back to free engine.`);
-      }
-    }
-
-    // 3. Fallback to free Google engine (Unreliable for long text due to scraping/rate limits)
-    const result = await translate(text, { from: 'en', to: toLanguage });
-    console.log(`[Free Google] Successfully translated "${text.substring(0, 20)}..."`);
-    return result;
+    // No fallbacks are allowed per user request, to ensure medical translation accuracy.
+    return undefined;
   } catch (error: any) {
-    console.error(`Failed to translate text: "${text.substring(0, 50)}..."`, error);
-    
-    // Bubble up quota errors to abort the save
     if (error.message && error.message.includes('DeepL translation limit exceeded')) {
-      throw error;
+      console.warn("⚠️ DeepL translation limit exceeded. Translation skipped, saving in English only.");
+    } else {
+      console.error(`Failed to translate text: "${text.substring(0, 50)}..."`, error);
     }
     
-    // If other translations fail, return undefined so we don't overwrite with garbage
     return undefined;
   }
 }

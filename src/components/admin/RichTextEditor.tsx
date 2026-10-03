@@ -8,13 +8,15 @@ import { useState } from 'react';
 import { unescapeHtml } from '@/lib/utils';
 
 interface RichTextEditorProps {
-  name: string;
+  name?: string;
+  value?: string | null;
   defaultValue?: string | null;
   placeholder?: string;
+  onChange?: (value: string) => void;
 }
 
-export function RichTextEditor({ name, defaultValue, placeholder }: RichTextEditorProps) {
-  const [content, setContent] = useState(defaultValue ? unescapeHtml(defaultValue) : '');
+export function RichTextEditor({ name, value, defaultValue, placeholder, onChange }: RichTextEditorProps) {
+  const [content, setContent] = useState(value || defaultValue ? unescapeHtml(value || defaultValue || '') : '');
 
   const editor = useEditor({
     extensions: [
@@ -26,9 +28,11 @@ export function RichTextEditor({ name, defaultValue, placeholder }: RichTextEdit
         },
       }),
     ],
-    content: defaultValue ? unescapeHtml(defaultValue) : '',
+    content: value || defaultValue ? unescapeHtml(value || defaultValue || '') : '',
     onUpdate: ({ editor }) => {
-      setContent(editor.getHTML());
+      const html = editor.getHTML();
+      setContent(html);
+      if (onChange) onChange(html);
     },
     editorProps: {
       attributes: {

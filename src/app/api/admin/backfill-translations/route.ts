@@ -89,14 +89,11 @@ export async function GET(request: Request) {
           const trans = await buildTranslations({
             name: t.name,
             description: t.description,
+            overview: t.overview,
+            procedure: t.procedure,
             recovery: t.recovery,
-            causesAndSymptoms: t.causesAndSymptoms,
-            diagnosis: t.diagnosis,
-            preOpPrep: t.preOpPrep,
-            postOpCare: t.postOpCare,
-            procedureDetails: t.procedureDetails,
-            risks: t.risks,
-            faqs: t.faqs ? JSON.stringify(t.faqs) : "" 
+            hospitalStay: t.hospitalStay,
+            risks: t.risks
           }, t.translations);
           await prisma.treatment.update({ where: { id: t.id }, data: { translations: trans } });
           updatedCount++;
@@ -110,7 +107,11 @@ export async function GET(request: Request) {
         if (needsTranslation(c)) {
           const trans = await buildTranslations({
             name: c.name,
-            description: c.description
+            description: c.description,
+            causesAndSymptoms: c.causesAndSymptoms,
+            diagnosis: c.diagnosis,
+            treatmentOptions: c.treatmentOptions,
+            faqs: c.faqs ? JSON.stringify(c.faqs) : ""
           }, c.translations);
           await prisma.condition.update({ where: { id: c.id }, data: { translations: trans } });
           updatedCount++;
